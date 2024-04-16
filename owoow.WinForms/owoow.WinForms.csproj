@@ -1,0 +1,24 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <UseWindowsForms>true</UseWindowsForms>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="NLog" Version="5.2.8" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\owoow.Core\owoow.Core.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="SysBot.Base">
+      <HintPath>..\owoow.Core\Connection\deps\SysBot.Base.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+</Project>
