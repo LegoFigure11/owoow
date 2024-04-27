@@ -1,6 +1,7 @@
 using owoow.Core.Connection;
 using SysBot.Base;
-using static owoow.Core.Util;
+using System.Globalization;
+using static owoow.Core.RNG.Util;
 
 namespace owoow.WinForms;
 
@@ -14,6 +15,7 @@ public partial class MainWindow : Form
     private readonly SwitchConnectionConfig ConnectionConfig;
 
     bool stop;
+    long total;
 
     public MainWindow()
     {
@@ -127,7 +129,7 @@ public partial class MainWindow : Form
                 UpdateStatus("Monitoring RNG State...");
                 try
                 {
-                    ulong total = 0;
+                    total = 0;
                     stop = false;
                     while (!stop)
                     {
@@ -185,7 +187,7 @@ public partial class MainWindow : Form
 
     private void UpdateStatus(string status)
     {
-        SetTextBoxText(status, [TB_Status]);
+        SetTextBoxText(status, TB_Status);
     }
 
     private void SetCheckBoxState(bool state, params object[] obj)
@@ -255,8 +257,30 @@ public partial class MainWindow : Form
 
     private void B_CopyToInitial_Click(object sender, EventArgs e)
     {
-        SetTextBoxText(TB_CurrentS0.Text, TB_Seed0);
-        SetTextBoxText(TB_CurrentS1.Text, TB_Seed1);
+        if (ModifierKeys == Keys.Shift)
+        {
+            Task.Run(
+                async () =>
+                {
+                    try
+                    {
+                        ulong s0 = ulong.Parse(TB_Seed0.Text, NumberStyles.AllowHexSpecifier);
+                        ulong s1 = ulong.Parse(TB_Seed1.Text, NumberStyles.AllowHexSpecifier);
+                        await ConnectionWrapper.WriteRNGState(s0, s1, Source.Token);
+                        total = -50_000; // Hacky Current Advances reset
+                    }
+                    catch (Exception ex)
+                    {
+                        this.DisplayMessageBox(ex.Message);
+                    }
+                }
+            );
+        }
+        else
+        {
+            SetTextBoxText(TB_CurrentS0.Text, TB_Seed0);
+            SetTextBoxText(TB_CurrentS1.Text, TB_Seed1);
+        }
     }
 
     private void KeyPress_AllowOnlyHex(object sender, KeyPressEventArgs e)

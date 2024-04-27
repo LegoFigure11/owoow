@@ -66,6 +66,14 @@ public class ConnectionWrapperAsync(SwitchConnectionConfig Config, Action<string
         return (BitConverter.ToUInt64(data, 0), BitConverter.ToUInt64(data, 8));
     }
 
+    public async Task WriteRNGState(ulong _s0, ulong _s1, CancellationToken token)
+    {
+        var s0 = BitConverter.GetBytes(_s0);
+        var s1 = BitConverter.GetBytes(_s1);
+        await Connection.WriteBytesAsync(s0, MainRNG, token).ConfigureAwait(false);
+        await Connection.WriteBytesAsync(s1, MainRNG + 8, token).ConfigureAwait(false);
+    }
+
     private async Task ReadMyStatusAsync(CancellationToken token)
     {
         var data = await Connection.ReadBytesAsync(MyStatus, MyStatus_Size, token).ConfigureAwait(false);
