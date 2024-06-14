@@ -7,6 +7,30 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Resources\Personal\personal.json" />
+    <None Remove="Resources\Shield\fishing.json" />
+    <None Remove="Resources\Shield\hidden.json" />
+    <None Remove="Resources\Shield\symbol.json" />
+    <None Remove="Resources\Shield\tree.json" />
+    <None Remove="Resources\Sword\fishing.json" />
+    <None Remove="Resources\Sword\hidden.json" />
+    <None Remove="Resources\Sword\symbol.json" />
+    <None Remove="Resources\Sword\tree.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\Personal\personal.json" />
+    <EmbeddedResource Include="Resources\Shield\fishing.json" />
+    <EmbeddedResource Include="Resources\Shield\hidden.json" />
+    <EmbeddedResource Include="Resources\Shield\symbol.json" />
+    <EmbeddedResource Include="Resources\Shield\tree.json" />
+    <EmbeddedResource Include="Resources\Sword\fishing.json" />
+    <EmbeddedResource Include="Resources\Sword\hidden.json" />
+    <EmbeddedResource Include="Resources\Sword\symbol.json" />
+    <EmbeddedResource Include="Resources\Sword\tree.json" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="NLog" Version="5.2.8" />
     <PackageReference Include="PKHeX.Core" Version="24.3.26" />
   </ItemGroup>

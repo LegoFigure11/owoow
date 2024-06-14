@@ -1,0 +1,3563 @@
+{
+  "Route 1": {
+    "All Weather": {
+      "minLevel": 2,
+      "maxLevel": 5,
+      "encounters": {
+        "Skwovet": { "slotMin": 0, "slotMax": 39 },
+        "Blipbug": { "slotMin": 40, "slotMax": 69 },
+        "Caterpie": { "slotMin": 70, "slotMax": 84 },
+        "Grubbin": { "slotMin": 85, "slotMax": 94 },
+        "Hoothoot": { "slotMin": 95, "slotMax": 99 }
+      }
+    }
+  },
+  "Route 2": {
+    "All Weather": {
+      "minLevel": 4,
+      "maxLevel": 6,
+      "encounters": {
+        "Blipbug": { "slotMin": 0, "slotMax": 39 },
+        "Rookidee": { "slotMin": 40, "slotMax": 64 },
+        "Seedot": { "slotMin": 65, "slotMax": 84 },
+        "Purrloin": { "slotMin": 85, "slotMax": 94 },
+        "Hoothoot": { "slotMin": 95, "slotMax": 99 }
+      }
+    }
+  },
+  "Rolling Fields": {
+    "Normal Weather": {
+      "minLevel": 7,
+      "maxLevel": 9,
+      "encounters": {
+        "Bunnelby": { "slotMin": 0, "slotMax": 39 },
+        "Minccino": { "slotMin": 40, "slotMax": 74 },
+        "Bounsweet": { "slotMin": 75, "slotMax": 94 },
+        "Metapod": { "slotMin": 95, "slotMax": 99 }
+      }
+    },
+    "Overcast": {
+      "minLevel": 7,
+      "maxLevel": 9,
+      "encounters": {
+        "Oddish": { "slotMin": 0, "slotMax": 39 },
+        "Budew": { "slotMin": 40, "slotMax": 74 },
+        "Bunnelby": { "slotMin": 75, "slotMax": 94 },
+        "Metapod": { "slotMin": 95, "slotMax": 99 }
+      }
+    },
+    "Raining": {
+      "minLevel": 7,
+      "maxLevel": 9,
+      "encounters": {
+        "Nuzleaf": { "slotMin": 0, "slotMax": 39 },
+        "Wingull": { "slotMin": 40, "slotMax": 74 },
+        "Bunnelby": { "slotMin": 75, "slotMax": 94 },
+        "Metapod": { "slotMin": 95, "slotMax": 99 }
+      }
+    },
+    "Thunderstorm": {
+      "minLevel": 7,
+      "maxLevel": 9,
+      "encounters": {
+        "Joltik": { "slotMin": 0, "slotMax": 39 },
+        "Electrike": { "slotMin": 40, "slotMax": 74 },
+        "Bunnelby": { "slotMin": 75, "slotMax": 94 },
+        "Metapod": { "slotMin": 95, "slotMax": 99 }
+      }
+    },
+    "Intense Sun": {
+      "minLevel": 7,
+      "maxLevel": 9,
+      "encounters": {
+        "Baltoy": { "slotMin": 0, "slotMax": 39 },
+        "Mudbray": { "slotMin": 40, "slotMax": 74 },
+        "Vulpix": { "slotMin": 75, "slotMax": 94 },
+        "Bunnelby": { "slotMin": 95, "slotMax": 99 }
+      }
+    },
+    "Snowing": {
+      "minLevel": 7,
+      "maxLevel": 9,
+      "encounters": {
+        "Vanillite": { "slotMin": 0, "slotMax": 39 },
+        "Swinub": { "slotMin": 40, "slotMax": 74 },
+        "Bunnelby": { "slotMin": 75, "slotMax": 94 },
+        "Minccino": { "slotMin": 95, "slotMax": 99 }
+      }
+    },
+    "Snowstorm": {
+      "minLevel": 7,
+      "maxLevel": 9,
+      "encounters": {
+        "Swinub": { "slotMin": 0, "slotMax": 39 },
+        "Delibird": { "slotMin": 40, "slotMax": 74 },
+        "Snorunt": { "slotMin": 75, "slotMax": 94 },
+        "Bunnelby": { "slotMin": 95, "slotMax": 99 }
+      }
+    },
+    "Sandstorm": {
+      "minLevel": 7,
+      "maxLevel": 9,
+      "encounters": {
+        "Dwebble": { "slotMin": 0, "slotMax": 39 },
+        "Baltoy": { "slotMin": 40, "slotMax": 74 },
+        "Golett": { "slotMin": 75, "slotMax": 94 },
+        "Bunnelby": { "slotMin": 95, "slotMax": 99 }
+      }
+    },
+    "Heavy Fog": {
+      "minLevel": 7,
+      "maxLevel": 9,
+      "encounters": {
+        "Munna": { "slotMin": 0, "slotMax": 39 },
+        "Natu": { "slotMin": 40, "slotMax": 74 },
+        "Bunnelby": { "slotMin": 75, "slotMax": 94 },
+        "Metapod": { "slotMin": 95, "slotMax": 99 }
+      }
+    }
+  },
+  "Dappled Grove": {
+    "Normal Weather": {
+      "minLevel": 11,
+      "maxLevel": 15,
+      "encounters": {
+        "Seedot": { "slotMin": 0, "slotMax": 39 },
+        "Budew": { "slotMin": 40, "slotMax": 74 },
+        "Bunnelby": { "slotMin": 75, "slotMax": 94 },
+        "Bounsweet": { "slotMin": 95, "slotMax": 99 }
+      }
+    },
+    "Overcast": {
+      "minLevel": 11,
+      "maxLevel": 15,
+      "encounters": {
+        "Stufful": { "slotMin": 0, "slotMax": 39 },
+        "Stunky": { "slotMin": 40, "slotMax": 74 },
+        "Seedot": { "slotMin": 75, "slotMax": 94 },
+        "Budew": { "slotMin": 95, "slotMax": 99 }
+      }
+    },
+    "Raining": {
+      "minLevel": 11,
+      "maxLevel": 15,
+      "encounters": {
+        "Tympole": { "slotMin": 0, "slotMax": 39 },
+        "Grubbin": { "slotMin": 40, "slotMax": 74 },
+        "Seedot": { "slotMin": 75, "slotMax": 94 },
+        "Budew": { "slotMin": 95, "slotMax": 99 }
+      }
+    },
+    "Thunderstorm": {
+      "minLevel": 11,
+      "maxLevel": 15,
+      "encounters": {
+        "Joltik": { "slotMin": 0, "slotMax": 39 },
+        "Grubbin": { "slotMin": 40, "slotMax": 74 },
+        "Seedot": { "slotMin": 75, "slotMax": 94 },
+        "Budew": { "slotMin": 95, "slotMax": 99 }
+      }
+    },
+    "Intense Sun": {
+      "minLevel": 11,
+      "maxLevel": 15,
+      "encounters": {
+        "Vulpix": { "slotMin": 0, "slotMax": 39 },
+        "Mudbray": { "slotMin": 40, "slotMax": 74 },
+        "Bunnelby": { "slotMin": 75, "slotMax": 94 },
+        "Budew": { "slotMin": 95, "slotMax": 99 }
+      }
+    },
+    "Snowing": {
+      "minLevel": 11,
+      "maxLevel": 15,
+      "encounters": {
+        "Snover": { "slotMin": 0, "slotMax": 39 },
+        "Vanillite": { "slotMin": 40, "slotMax": 74 },
+        "Snorunt": { "slotMin": 75, "slotMax": 94 },
+        "Bunnelby": { "slotMin": 95, "slotMax": 99 }
+      }
+    },
+    "Snowstorm": {
+      "minLevel": 11,
+      "maxLevel": 15,
+      "encounters": {
+        "Snorunt": { "slotMin": 0, "slotMax": 39 },
+        "Vanillite": { "slotMin": 40, "slotMax": 74 },
+        "Klink": { "slotMin": 75, "slotMax": 94 },
+        "Bunnelby": { "slotMin": 95, "slotMax": 99 }
+      }
+    },
+    "Sandstorm": {
+      "minLevel": 11,
+      "maxLevel": 15,
+      "encounters": {
+        "Baltoy": { "slotMin": 0, "slotMax": 39 },
+        "Golett": { "slotMin": 40, "slotMax": 74 },
+        "Bunnelby": { "slotMin": 75, "slotMax": 94 },
+        "Bounsweet": { "slotMin": 95, "slotMax": 99 }
+      }
+    },
+    "Heavy Fog": {
+      "minLevel": 11,
+      "maxLevel": 15,
+      "encounters": {
+        "Ralts": { "slotMin": 0, "slotMax": 39 },
+        "Seedot": { "slotMin": 40, "slotMax": 74 },
+        "Purrloin": { "slotMin": 75, "slotMax": 94 },
+        "Budew": { "slotMin": 95, "slotMax": 99 }
+      }
+    }
+  },
+  "Watchtower Ruins": {
+    "Normal Weather": {
+      "minLevel": 11,
+      "maxLevel": 14,
+      "encounters": {
+        "Golett": { "slotMin": 0, "slotMax": 39 },
+        "Drifloon": { "slotMin": 40, "slotMax": 69 },
+        "Bounsweet": { "slotMin": 70, "slotMax": 89 },
+        "Pidove": { "slotMin": 90, "slotMax": 99 }
+      }
+    },
+    "Overcast": {
+      "minLevel": 11,
+      "maxLevel": 14,
+      "encounters": {
+        "Duskull": { "slotMin": 0, "slotMax": 39 },
+        "Machop": { "slotMin": 40, "slotMax": 69 },
+        "Bounsweet": { "slotMin": 70, "slotMax": 89 },
+        "Gastly": { "slotMin": 90, "slotMax": 99 }
+      }
+    },
+    "Raining": {
+      "minLevel": 11,
+      "maxLevel": 14,
+      "encounters": {
+        "Duskull": { "slotMin": 0, "slotMax": 39 },
+        "Tympole": { "slotMin": 40, "slotMax": 69 },
+        "Wingull": { "slotMin": 70, "slotMax": 89 },
+        "Pidove": { "slotMin": 90, "slotMax": 99 }
+      }
+    },
+    "Thunderstorm": {
+      "minLevel": 11,
+      "maxLevel": 14,
+      "encounters": {
+        "Electrike": { "slotMin": 0, "slotMax": 39 },
+        "Grubbin": { "slotMin": 40, "slotMax": 69 },
+        "Duskull": { "slotMin": 70, "slotMax": 89 },
+        "Pidove": { "slotMin": 90, "slotMax": 99 }
+      }
+    },
+    "Intense Sun": {
+      "minLevel": 11,
+      "maxLevel": 14,
+      "encounters": {
+        "Golett": { "slotMin": 0, "slotMax": 39 },
+        "Duskull": { "slotMin": 40, "slotMax": 69 },
+        "Vulpix": { "slotMin": 70, "slotMax": 89 },
+        "Drifloon": { "slotMin": 90, "slotMax": 99 }
+      }
+    },
+    "Snowing": {
+      "minLevel": 11,
+      "maxLevel": 14,
+      "encounters": {
+        "Snorunt": { "slotMin": 0, "slotMax": 39 },
+        "Duskull": { "slotMin": 40, "slotMax": 69 },
+        "Snover": { "slotMin": 70, "slotMax": 89 },
+        "Drifloon": { "slotMin": 90, "slotMax": 99 }
+      }
+    },
+    "Snowstorm": {
+      "minLevel": 11,
+      "maxLevel": 14,
+      "encounters": {
+        "Snover": { "slotMin": 0, "slotMax": 39 },
+        "Snorunt": { "slotMin": 40, "slotMax": 69 },
+        "Duskull": { "slotMin": 70, "slotMax": 89 },
+        "Drifloon": { "slotMin": 90, "slotMax": 99 }
+      }
+    },
+    "Sandstorm": {
+      "minLevel": 11,
+      "maxLevel": 14,
+      "encounters": {
+        "Golett": { "slotMin": 0, "slotMax": 39 },
+        "Dwebble": { "slotMin": 40, "slotMax": 69 },
+        "Duskull": { "slotMin": 70, "slotMax": 89 },
+        "Pidove": { "slotMin": 90, "slotMax": 99 }
+      }
+    },
+    "Heavy Fog": {
+      "minLevel": 11,
+      "maxLevel": 14,
+      "encounters": {
+        "Duskull": { "slotMin": 0, "slotMax": 39 },
+        "Purrloin": { "slotMin": 40, "slotMax": 69 },
+        "Pidove": { "slotMin": 90, "slotMax": 99 }
+      }
+    }
+  },
+  "East Lake Axewell": {
+    "Normal Weather": {
+      "minLevel": 8,
+      "maxLevel": 12,
+      "encounters": {
+        "Oddish": { "slotMin": 0, "slotMax": 44 },
+        "Bunnelby": { "slotMin": 45, "slotMax": 74 },
+        "Pidove": { "slotMin": 75, "slotMax": 94 },
+        "Stufful": { "slotMin": 95, "slotMax": 99 }
+      }
+    },
+    "Overcast": {
+      "minLevel": 8,
+      "maxLevel": 12,
+      "encounters": {
+        "Budew": { "slotMin": 0, "slotMax": 44 },
+        "Oddish": { "slotMin": 45, "slotMax": 74 },
+        "Minccino": { "slotMin": 75, "slotMax": 94 },
+        "Stufful": { "slotMin": 95, "slotMax": 99 }
+      }
+    },
+    "Raining": {
+      "minLevel": 8,
+      "maxLevel": 12,
+      "encounters": {
+        "Wingull": { "slotMin": 0, "slotMax": 44 },
+        "Grubbin": { "slotMin": 45, "slotMax": 74 },
+        "Oddish": { "slotMin": 75, "slotMax": 94 },
+        "Stufful": { "slotMin": 95, "slotMax": 99 }
+      }
+    },
+    "Thunderstorm": {
+      "minLevel": 8,
+      "maxLevel": 12,
+      "encounters": {
+        "Joltik": { "slotMin": 0, "slotMax": 44 },
+        "Electrike": { "slotMin": 45, "slotMax": 74 },
+        "Oddish": { "slotMin": 75, "slotMax": 94 },
+        "Stufful": { "slotMin": 95, "slotMax": 99 }
+      }
+    },
+    "Intense Sun": {
+      "minLevel": 8,
+      "maxLevel": 12,
+      "encounters": {
+        "Mudbray": { "slotMin": 0, "slotMax": 39 },
+        "Vulpix": { "slotMin": 40, "slotMax": 69 },
+        "Minccino": { "slotMin": 70, "slotMax": 84 },
+        "Onix": { "slotMin": 85, "slotMax": 94 },
+        "Stufful": { "slotMin": 95, "slotMax": 99 }
+      }
+    },
+    "Snowing": {
+      "minLevel": 8,
+      "maxLevel": 12,
+      "encounters": {
+        "Snorunt": { "slotMin": 0, "slotMax": 44 },
+        "Snover": { "slotMin": 45, "slotMax": 74 },
+        "Minccino": { "slotMin": 75, "slotMax": 94 },
+        "Stufful": { "slotMin": 95, "slotMax": 99 }
+      }
+    },
+    "Snowstorm": {
+      "minLevel": 8,
+      "maxLevel": 12,
+      "encounters": {
+        "Vanillite": { "slotMin": 0, "slotMax": 44 },
+        "Snover": { "slotMin": 45, "slotMax": 74 },
+        "Minccino": { "slotMin": 75, "slotMax": 94 },
+        "Stufful": { "slotMin": 95, "slotMax": 99 }
+      }
+    },
+    "Sandstorm": {
+      "minLevel": 8,
+      "maxLevel": 12,
+      "encounters": {
+        "Dwebble": { "slotMin": 0, "slotMax": 39 },
+        "Baltoy": { "slotMin": 40, "slotMax": 69 },
+        "Minccino": { "slotMin": 70, "slotMax": 84 },
+        "Onix": { "slotMin": 85, "slotMax": 94 },
+        "Stufful": { "slotMin": 95, "slotMax": 99 }
+      }
+    },
+    "Heavy Fog": {
+      "minLevel": 8,
+      "maxLevel": 12,
+      "encounters": {
+        "Purrloin": { "slotMin": 0, "slotMax": 44 },
+        "Munna": { "slotMin": 45, "slotMax": 74 },
+        "Minccino": { "slotMin": 75, "slotMax": 94 },
+        "Stufful": { "slotMin": 95, "slotMax": 99 }
+      }
+    }
+  },
+  "West Lake Axewell": {
+    "Normal Weather": {
+      "minLevel": 7,
+      "maxLevel": 11,
+      "encounters": {
+        "Wooper": { "slotMin": 0, "slotMax": 39 },
+        "Krabby": { "slotMin": 40, "slotMax": 69 },
+        "Wingull": { "slotMin": 70, "slotMax": 89 },
+        "Bounsweet": { "slotMin": 90, "slotMax": 99 }
+      }
+    },
+    "Overcast": {
+      "minLevel": 7,
+      "maxLevel": 11,
+      "encounters": {
+        "Krabby": { "slotMin": 0, "slotMax": 39 },
+        "Wooper": { "slotMin": 40, "slotMax": 69 },
+        "Pancham": { "slotMin": 70, "slotMax": 94 },
+        "Tyrogue": { "slotMin": 95, "slotMax": 99 }
+      }
+    },
+    "Raining": {
+      "minLevel": 7,
+      "maxLevel": 11,
+      "encounters": {
+        "Wooper": { "slotMin": 0, "slotMax": 39 },
+        "Tympole": { "slotMin": 40, "slotMax": 69 },
+        "Krabby": { "slotMin": 70, "slotMax": 89 },
+        "Wingull": { "slotMin": 90, "slotMax": 99 }
+      }
+    },
+    "Thunderstorm": {
+      "minLevel": 7,
+      "maxLevel": 11,
+      "encounters": {
+        "Electrike": { "slotMin": 0, "slotMax": 39 },
+        "Tympole": { "slotMin": 40, "slotMax": 69 },
+        "Krabby": { "slotMin": 70, "slotMax": 89 },
+        "Joltik": { "slotMin": 90, "slotMax": 99 }
+      }
+    },
+    "Intense Sun": {
+      "minLevel": 7,
+      "maxLevel": 11,
+      "encounters": {
+        "Vulpix": { "slotMin": 0, "slotMax": 39 },
+        "Baltoy": { "slotMin": 40, "slotMax": 69 },
+        "Bunnelby": { "slotMin": 70, "slotMax": 89 },
+        "Pancham": { "slotMin": 90, "slotMax": 99 }
+      }
+    },
+    "Snowing": {
+      "minLevel": 7,
+      "maxLevel": 11,
+      "encounters": {
+        "Vanillite": { "slotMin": 0, "slotMax": 39 },
+        "Snorunt": { "slotMin": 40, "slotMax": 69 },
+        "Wingull": { "slotMin": 70, "slotMax": 89 },
+        "Delibird": { "slotMin": 90, "slotMax": 99 }
+      }
+    },
+    "Snowstorm": {
+      "minLevel": 7,
+      "maxLevel": 11,
+      "encounters": {
+        "Klink": { "slotMin": 0, "slotMax": 39 },
+        "Delibird": { "slotMin": 40, "slotMax": 69 },
+        "Vanillite": { "slotMin": 70, "slotMax": 89 },
+        "Bunnelby": { "slotMin": 90, "slotMax": 99 }
+      }
+    },
+    "Sandstorm": {
+      "minLevel": 7,
+      "maxLevel": 11,
+      "encounters": {
+        "Wooper": { "slotMin": 0, "slotMax": 39 },
+        "Nincada": { "slotMin": 40, "slotMax": 69 },
+        "Baltoy": { "slotMin": 70, "slotMax": 89 },
+        "Mudbray": { "slotMin": 90, "slotMax": 99 }
+      }
+    },
+    "Heavy Fog": {
+      "minLevel": 7,
+      "maxLevel": 11,
+      "encounters": {
+        "Natu": { "slotMin": 0, "slotMax": 39 },
+        "Krabby": { "slotMin": 40, "slotMax": 69 },
+        "Wingull": { "slotMin": 70, "slotMax": 89 },
+        "Ralts": { "slotMin": 90, "slotMax": 99 }
+      }
+    }
+  },
+  "Axew's Eye": {
+    "Normal Weather": {
+      "minLevel": 35,
+      "maxLevel": 40,
+      "encounters": {
+        "Unfezant": { "slotMin": 0, "slotMax": 39 },
+        "Diggersby": { "slotMin": 40, "slotMax": 69 },
+        "Bewear": { "slotMin": 70, "slotMax": 89 },
+        "Steenee": { "slotMin": 90, "slotMax": 99 }
+      }
+    },
+    "Overcast": {
+      "minLevel": 35,
+      "maxLevel": 40,
+      "encounters": {
+        "Roselia": { "slotMin": 0, "slotMax": 39 },
+        "Gloom": { "slotMin": 40, "slotMax": 69 },
+        "Diggersby": { "slotMin": 70, "slotMax": 89 },
+        "Unfezant": { "slotMin": 90, "slotMax": 99 }
+      }
+    },
+    "Raining": {
+      "minLevel": 35,
+      "maxLevel": 40,
+      "encounters": {
+        "Pelipper": { "slotMin": 0, "slotMax": 39 },
+        "Charjabug": { "slotMin": 40, "slotMax": 69 },
+        "Diggersby": { "slotMin": 70, "slotMax": 89 },
+        "Unfezant": { "slotMin": 90, "slotMax": 99 }
+      }
+    },
+    "Thunderstorm": {
+      "minLevel": 35,
+      "maxLevel": 40,
+      "encounters": {
+        "Crawdaunt": { "slotMin": 0, "slotMax": 39 },
+        "Manectric": { "slotMin": 40, "slotMax": 69 },
+        "Diggersby": { "slotMin": 70, "slotMax": 89 },
+        "Unfezant": { "slotMin": 90, "slotMax": 99 }
+      }
+    },
+    "Intense Sun": {
+      "minLevel": 35,
+      "maxLevel": 40,
+      "encounters": {
+        "Vulpix": { "slotMin": 0, "slotMax": 39 },
+        "Unfezant": { "slotMin": 40, "slotMax": 69 },
+        "Diggersby": { "slotMin": 70, "slotMax": 89 },
+        "Mudsdale": { "slotMin": 90, "slotMax": 99 }
+      }
+    },
+    "Snowing": {
+      "minLevel": 35,
+      "maxLevel": 40,
+      "encounters": {
+        "Snover": { "slotMin": 0, "slotMax": 39 },
+        "Vanillish": { "slotMin": 40, "slotMax": 69 },
+        "Diggersby": { "slotMin": 70, "slotMax": 89 },
+        "Unfezant": { "slotMin": 90, "slotMax": 99 }
+      }
+    },
+    "Snowstorm": {
+      "minLevel": 35,
+      "maxLevel": 40,
+      "encounters": {
+        "Klink": { "slotMin": 0, "slotMax": 39 },
+        "Snover": { "slotMin": 40, "slotMax": 69 },
+        "Delibird": { "slotMin": 70, "slotMax": 89 },
+        "Diggersby": { "slotMin": 90, "slotMax": 99 }
+      }
+    },
+    "Sandstorm": {
+      "minLevel": 35,
+      "maxLevel": 40,
+      "encounters": {
+        "Baltoy": { "slotMin": 0, "slotMax": 39 },
+        "Crustle": { "slotMin": 40, "slotMax": 69 },
+        "Mudsdale": { "slotMin": 70, "slotMax": 89 },
+        "Diggersby": { "slotMin": 90, "slotMax": 99 }
+      }
+    },
+    "Heavy Fog": {
+      "minLevel": 35,
+      "maxLevel": 40,
+      "encounters": {
+        "Munna": { "slotMin": 0, "slotMax": 39 },
+        "Liepard": { "slotMin": 40, "slotMax": 69 },
+        "Diggersby": { "slotMin": 70, "slotMax": 89 },
+        "Unfezant": { "slotMin": 90, "slotMax": 99 }
+      }
+    }
+  },
+  "South Lake Miloch": {
+    "Normal Weather": {
+      "minLevel": 11,
+      "maxLevel": 13,
+      "encounters": {
+        "Machop": { "slotMin": 0, "slotMax": 39 },
+        "Wingull": { "slotMin": 40, "slotMax": 69 },
+        "Tympole": { "slotMin": 70, "slotMax": 89 },
+        "Corphish": { "slotMin": 90, "slotMax": 99 }
+      }
+    },
+    "Overcast": {
+      "minLevel": 11,
+      "maxLevel": 13,
+      "encounters": {
+        "Corphish": { "slotMin": 0, "slotMax": 39 },
+        "Roselia": { "slotMin": 40, "slotMax": 69 },
+        "Machop": { "slotMin": 70, "slotMax": 89 },
+        "Tyrogue": { "slotMin": 90, "slotMax": 99 }
+      }
+    },
+    "Raining": {
+      "minLevel": 11,
+      "maxLevel": 13,
+      "encounters": {
+        "Tympole": { "slotMin": 0, "slotMax": 39 },
+        "Corphish": { "slotMin": 40, "slotMax": 69 },
+        "Machop": { "slotMin": 70, "slotMax": 89 },
+        "Wingull": { "slotMin": 90, "slotMax": 99 }
+      }
+    },
+    "Thunderstorm": {
+      "minLevel": 11,
+      "maxLevel": 13,
+      "encounters": {
+        "Electrike": { "slotMin": 0, "slotMax": 39 },
+        "Joltik": { "slotMin": 40, "slotMax": 69 },
+        "Corphish": { "slotMin": 70, "slotMax": 89 },
+        "Machop": { "slotMin": 90, "slotMax": 99 }
+      }
+    },
+    "Intense Sun": {
+      "minLevel": 11,
+      "maxLevel": 13,
+      "encounters": {
+        "Baltoy": { "slotMin": 0, "slotMax": 39 },
+        "Vulpix": { "slotMin": 40, "slotMax": 69 },
+        "Roselia": { "slotMin": 70, "slotMax": 89 },
+        "Nincada": { "slotMin": 90, "slotMax": 99 }
+      }
+    },
+    "Snowing": {
+      "minLevel": 11,
+      "maxLevel": 13,
+      "encounters": {
+        "Snorunt": { "slotMin": 0, "slotMax": 39 },
+        "Vanillite": { "slotMin": 40, "slotMax": 69 },
+        "Corphish": { "slotMin": 70, "slotMax": 89 },
+        "Machop": { "slotMin": 90, "slotMax": 99 }
+      }
+    },
+    "Snowstorm": {
+      "minLevel": 11,
+      "maxLevel": 13,
+      "encounters": {
+        "Klink": { "slotMin": 0, "slotMax": 39 },
+        "Snover": { "slotMin": 40, "slotMax": 69 },
+        "Corphish": { "slotMin": 70, "slotMax": 89 },
+        "Machop": { "slotMin": 90, "slotMax": 99 }
+      }
+    },
+    "Sandstorm": {
+      "minLevel": 11,
+      "maxLevel": 13,
+      "encounters": {
+        "Nincada": { "slotMin": 0, "slotMax": 39 },
+        "Wooper": { "slotMin": 40, "slotMax": 69 },
+        "Baltoy": { "slotMin": 70, "slotMax": 89 },
+        "Tympole": { "slotMin": 90, "slotMax": 99 }
+      }
+    },
+    "Heavy Fog": {
+      "minLevel": 11,
+      "maxLevel": 13,
+      "encounters": {
+        "Natu": { "slotMin": 0, "slotMax": 39 },
+        "Corphish": { "slotMin": 40, "slotMax": 69 },
+        "Machop": { "slotMin": 70, "slotMax": 89 },
+        "Ralts": { "slotMin": 90, "slotMax": 99 }
+      }
+    }
+  },
+  "Giant's Seat": {
+    "Normal Weather": {
+      "minLevel": 30,
+      "maxLevel": 35,
+      "encounters": {
+        "Bewear": { "slotMin": 0, "slotMax": 39 },
+        "Diggersby": { "slotMin": 40, "slotMax": 59 },
+        "Onix": { "slotMin": 60, "slotMax": 79 },
+        "Tranquill": { "slotMin": 80, "slotMax": 94 },
+        "Bronzor": { "slotMin": 95, "slotMax": 99 }
+      }
+    },
+    "Overcast": {
+      "minLevel": 30,
+      "maxLevel": 35,
+      "encounters": {
+        "Machoke": { "slotMin": 0, "slotMax": 39 },
+        "Bewear": { "slotMin": 40, "slotMax": 59 },
+        "Onix": { "slotMin": 60, "slotMax": 79 },
+        "Haunter": { "slotMin": 80, "slotMax": 94 },
+        "Bronzor": { "slotMin": 95, "slotMax": 99 }
+      }
+    },
+    "Raining": {
+      "minLevel": 30,
+      "maxLevel": 35,
+      "encounters": {
+        "Quagsire": { "slotMin": 0, "slotMax": 49 },
+        "Bewear": { "slotMin": 50, "slotMax": 79 },
+        "Nuzleaf": { "slotMin": 80, "slotMax": 94 },
+        "Bronzor": { "slotMin": 95, "slotMax": 99 }
+      }
+    },
+    "Thunderstorm": {
+      "minLevel": 30,
+      "maxLevel": 35,
+      "encounters": {
+        "Manectric": { "slotMin": 0, "slotMax": 49 },
+        "Bewear": { "slotMin": 50, "slotMax": 79 },
+        "Crawdaunt": { "slotMin": 80, "slotMax": 94 },
+        "Bronzor": { "slotMin": 95, "slotMax": 99 }
+      }
+    },
+    "Intense Sun": {
+      "minLevel": 30,
+      "maxLevel": 35,
+      "encounters": {
+        "Dwebble": { "slotMin": 0, "slotMax": 39 },
+        "Bewear": { "slotMin": 40, "slotMax": 59 },
+        "Onix": { "slotMin": 60, "slotMax": 79 },
+        "Mudsdale": { "slotMin": 80, "slotMax": 94 },
+        "Bronzor": { "slotMin": 95, "slotMax": 99 }
+      }
+    },
+    "Snowing": {
+      "minLevel": 30,
+      "maxLevel": 35,
+      "encounters": {
+        "Delibird": { "slotMin": 0, "slotMax": 49 },
+        "Bewear": { "slotMin": 50, "slotMax": 79 },
+        "Swinub": { "slotMin": 80, "slotMax": 94 },
+        "Bronzor": { "slotMin": 95, "slotMax": 99 }
+      }
+    },
+    "Snowstorm": {
+      "minLevel": 30,
+      "maxLevel": 35,
+      "encounters": {
+        "Delibird": { "slotMin": 0, "slotMax": 49 },
+        "Bronzor": { "slotMin": 50, "slotMax": 79 },
+        "Swinub": { "slotMin": 80, "slotMax": 94 },
+        "Bewear": { "slotMin": 95, "slotMax": 99 }
+      }
+    },
+    "Sandstorm": {
+      "minLevel": 30,
+      "maxLevel": 35,
+      "encounters": {
+        "Mudsdale": { "slotMin": 0, "slotMax": 39 },
+        "Bewear": { "slotMin": 40, "slotMax": 59 },
+        "Onix": { "slotMin": 60, "slotMax": 79 },
+        "Dwebble": { "slotMin": 80, "slotMax": 94 },
+        "Bronzor": { "slotMin": 95, "slotMax": 99 }
+      }
+    },
+    "Heavy Fog": {
+      "minLevel": 30,
+      "maxLevel": 35,
+      "encounters": {
+        "Xatu": { "slotMin": 0, "slotMax": 49 },
+        "Bewear": { "slotMin": 50, "slotMax": 79 },
+        "Liepard": { "slotMin": 80, "slotMax": 94 },
+        "Bronzor": { "slotMin": 95, "slotMax": 99 }
+      }
+    }
+  },
+  "North Lake Miloch": {
+    "Normal Weather": {
+      "minLevel": 14,
+      "maxLevel": 16,
+      "encounters": {
+        "Stunky": { "slotMin": 0, "slotMax": 39 },
+        "Stufful": { "slotMin": 40, "slotMax": 69 },
+        "Pidove": { "slotMin": 70, "slotMax": 89 },
+        "Diggersby": { "slotMin": 90, "slotMax": 99 }
+      }
+    },
+    "Overcast": {
+      "minLevel": 14,
+      "maxLevel": 16,
+      "encounters": {
+        "Stunky": { "slotMin": 0, "slotMax": 39 },
+        "Machop": { "slotMin": 40, "slotMax": 69 },
+        "Stufful": { "slotMin": 70, "slotMax": 89 },
+        "Gastly": { "slotMin": 90, "slotMax": 99 }
+      }
+    },
+    "Raining": {
+      "minLevel": 14,
+      "maxLevel": 16,
+      "encounters": {
+        "Tympole": { "slotMin": 0, "slotMax": 39 },
+        "Grubbin": { "slotMin": 40, "slotMax": 69 },
+        "Stunky": { "slotMin": 70, "slotMax": 89 },
+        "Stufful": { "slotMin": 90, "slotMax": 99 }
+      }
+    },
+    "Thunderstorm": {
+      "minLevel": 14,
+      "maxLevel": 16,
+      "encounters": {
+        "Grubbin": { "slotMin": 0, "slotMax": 39 },
+        "Joltik": { "slotMin": 40, "slotMax": 69 },
+        "Stunky": { "slotMin": 70, "slotMax": 89 },
+        "Stufful": { "slotMin": 90, "slotMax": 99 }
+      }
+    },
+    "Intense Sun": {
+      "minLevel": 14,
+      "maxLevel": 16,
+      "encounters": {
+        "Mudbray": { "slotMin": 0, "slotMax": 39 },
+        "Stunky": { "slotMin": 40, "slotMax": 69 },
+        "Baltoy": { "slotMin": 70, "slotMax": 89 },
+        "Stufful": { "slotMin": 90, "slotMax": 99 }
+      }
+    },
+    "Snowing": {
+      "minLevel": 14,
+      "maxLevel": 16,
+      "encounters": {
+        "Snorunt": { "slotMin": 0, "slotMax": 39 },
+        "Snover": { "slotMin": 40, "slotMax": 69 },
+        "Stunky": { "slotMin": 70, "slotMax": 89 },
+        "Stufful": { "slotMin": 90, "slotMax": 99 }
+      }
+    },
+    "Snowstorm": {
+      "minLevel": 14,
+      "maxLevel": 15,
+      "encounters": {
+        "Delibird": { "slotMin": 0, "slotMax": 39 },
+        "Snover": { "slotMin": 40, "slotMax": 69 },
+        "Stunky": { "slotMin": 70, "slotMax": 89 },
+        "Snorunt": { "slotMin": 90, "slotMax": 99 }
+      }
+    },
+    "Sandstorm": {
+      "minLevel": 14,
+      "maxLevel": 16,
+      "encounters": {
+        "Dwebble": { "slotMin": 0, "slotMax": 39 },
+        "Baltoy": { "slotMin": 40, "slotMax": 69 },
+        "Stunky": { "slotMin": 70, "slotMax": 89 },
+        "Mudbray": { "slotMin": 90, "slotMax": 99 }
+      }
+    },
+    "Heavy Fog": {
+      "minLevel": 14,
+      "maxLevel": 16,
+      "encounters": {
+        "Natu": { "slotMin": 0, "slotMax": 44 },
+        "Stufful": { "slotMin": 45, "slotMax": 74 },
+        "Stunky": { "slotMin": 75, "slotMax": 94 },
+        "Ralts": { "slotMin": 95, "slotMax": 99 }
+      }
+    }
+  },
+  "Route 3": {
+    "All Weather": {
+      "minLevel": 8,
+      "maxLevel": 13,
+      "encounters": {
+        "Rookidee": { "slotMin": 0, "slotMax": 34 },
+        "Machop": { "slotMin": 35, "slotMax": 54 },
+        "Pancham": { "slotMin": 55, "slotMax": 74 },
+        "Mudbray": { "slotMin": 75, "slotMax": 89 },
+        "Klink": { "slotMin": 90, "slotMax": 98 },
+        "Sizzlipede": { "slotMin": 99, "slotMax": 99 }
+      }
+    }
+  },
+  "Motostoke Riverbank": {
+    "Normal Weather": {
+      "minLevel": 26,
+      "maxLevel": 28,
+      "encounters": {
+        "Corvisquire": { "slotMin": 0, "slotMax": 34 },
+        "Noctowl": { "slotMin": 35, "slotMax": 64 },
+        "Eldegoss": { "slotMin": 65, "slotMax": 84 },
+        "Dubwool": { "slotMin": 85, "slotMax": 94 },
+        "Sigilyph": { "slotMin": 95, "slotMax": 99 }
+      }
+    },
+    "Overcast": {
+      "minLevel": 26,
+      "maxLevel": 28,
+      "encounters": {
+        "Skorupi": { "slotMin": 0, "slotMax": 34 },
+        "Corvisquire": { "slotMin": 35, "slotMax": 64 },
+        "Noctowl": { "slotMin": 65, "slotMax": 84 },
+        "Dubwool": { "slotMin": 85, "slotMax": 94 },
+        "Sigilyph": { "slotMin": 95, "slotMax": 99 }
+      }
+    },
+    "Raining": {
+      "minLevel": 26,
+      "maxLevel": 28,
+      "encounters": {
+        "Karrablast": { "slotMin": 0, "slotMax": 34 },
+        "Binacle": { "slotMin": 35, "slotMax": 64 },
+        "Corvisquire": { "slotMin": 65, "slotMax": 84 },
+        "Shelmet": { "slotMin": 85, "slotMax": 94 },
+        "Sigilyph": { "slotMin": 95, "slotMax": 99 }
+      }
+    },
+    "Thunderstorm": {
+      "minLevel": 26,
+      "maxLevel": 28,
+      "encounters": {
+        "Shellos-1": { "slotMin": 0, "slotMax": 34 },
+        "Wimpod": { "slotMin": 35, "slotMax": 64 },
+        "Boltund": { "slotMin": 65, "slotMax": 84 },
+        "Corvisquire": { "slotMin": 85, "slotMax": 94 },
+        "Sigilyph": { "slotMin": 95, "slotMax": 99 }
+      }
+    },
+    "Intense Sun": {
+      "minLevel": 26,
+      "maxLevel": 28,
+      "encounters": {
+        "Rhyhorn": { "slotMin": 0, "slotMax": 34 },
+        "Litwick": { "slotMin": 35, "slotMax": 64 },
+        "Corvisquire": { "slotMin": 65, "slotMax": 84 },
+        "Noctowl": { "slotMin": 85, "slotMax": 94 },
+        "Sigilyph": { "slotMin": 95, "slotMax": 99 }
+      }
+    },
+    "Snowing": {
+      "minLevel": 26,
+      "maxLevel": 28,
+      "encounters": {
+        "Sneasel": { "slotMin": 0, "slotMax": 34 },
+        "Vanillite": { "slotMin": 35, "slotMax": 64 },
+        "Corvisquire": { "slotMin": 65, "slotMax": 84 },
+        "Noctowl": { "slotMin": 85, "slotMax": 94 },
+        "Sigilyph": { "slotMin": 95, "slotMax": 99 }
+      }
+    },
+    "Snowstorm": {
+      "minLevel": 26,
+      "maxLevel": 28,
+      "encounters": {
+        "Pawniard": { "slotMin": 0, "slotMax": 34 },
+        "Sneasel": { "slotMin": 35, "slotMax": 64 },
+        "Corvisquire": { "slotMin": 65, "slotMax": 84 },
+        "Ferroseed": { "slotMin": 85, "slotMax": 94 },
+        "Sigilyph": { "slotMin": 95, "slotMax": 99 }
+      }
+    },
+    "Sandstorm": {
+      "minLevel": 26,
+      "maxLevel": 28,
+      "encounters": {
+        "Rhyhorn": { "slotMin": 0, "slotMax": 34 },
+        "Onix": { "slotMin": 35, "slotMax": 64 },
+        "Noctowl": { "slotMin": 65, "slotMax": 84 },
+        "Corvisquire": { "slotMin": 85, "slotMax": 94 },
+        "Sigilyph": { "slotMin": 95, "slotMax": 99 }
+      }
+    },
+    "Heavy Fog": {
+      "minLevel": 26,
+      "maxLevel": 28,
+      "encounters": {
+        "Espurr": { "slotMin": 0, "slotMax": 34 },
+        "Elgyem": { "slotMin": 35, "slotMax": 64 },
+        "Corvisquire": { "slotMin": 65, "slotMax": 84 },
+        "Noctowl": { "slotMin": 85, "slotMax": 94 },
+        "Sigilyph": { "slotMin": 95, "slotMax": 99 }
+      }
+    }
+  },
+  "Bridge Field": {
+    "Normal Weather": {
+      "minLevel": 26,
+      "maxLevel": 28,
+      "encounters": {
+        "Thievul": { "slotMin": 0, "slotMax": 27 },
+        "Wobbuffet": { "slotMin": 28, "slotMax": 52 },
+        "Inkay": { "slotMin": 53, "slotMax": 72 },
+        "Liepard": { "slotMin": 73, "slotMax": 82 },
+        "Palpitoad": { "slotMin": 83, "slotMax": 92 },
+        "Ferroseed": { "slotMin": 93, "slotMax": 97 },
+        "Togepi": { "slotMin": 98, "slotMax": 99 }
+      }
+    },
+    "Overcast": {
+      "minLevel": 26,
+      "maxLevel": 28,
+      "encounters": {
+        "Karrablast": { "slotMin": 0, "slotMax": 29 },
+        "Thievul": { "slotMin": 30, "slotMax": 52 },
+        "Diggersby": { "slotMin": 53, "slotMax": 72 },
+        "Shelmet": { "slotMin": 73, "slotMax": 82 },
+        "Palpitoad": { "slotMin": 83, "slotMax": 92 },
+        "Ferroseed": { "slotMin": 93, "slotMax": 97 },
+        "Togepi": { "slotMin": 98, "slotMax": 99 }
+      }
+    },
+    "Raining": {
+      "minLevel": 26,
+      "maxLevel": 28,
+      "encounters": {
+        "Binacle": { "slotMin": 0, "slotMax": 29 },
+        "Shellos-1": { "slotMin": 30, "slotMax": 54 },
+        "Palpitoad": { "slotMin": 55, "slotMax": 74 },
+        "Inkay": { "slotMin": 75, "slotMax": 84 },
+        "Wimpod": { "slotMin": 85, "slotMax": 94 },
+        "Ferroseed": { "slotMin": 95, "slotMax": 99 }
+      }
+    },
+    "Thunderstorm": {
+      "minLevel": 26,
+      "maxLevel": 28,
+      "encounters": {
+        "Binacle": { "slotMin": 0, "slotMax": 24 },
+        "Noibat": { "slotMin": 25, "slotMax": 44 },
+        "Shellos-1": { "slotMin": 45, "slotMax": 64 },
+        "Palpitoad": { "slotMin": 65, "slotMax": 84 },
+        "Inkay": { "slotMin": 85, "slotMax": 94 },
+        "Ferroseed": { "slotMin": 95, "slotMax": 99 }
+      }
+    },
+    "Intense Sun": {
+      "minLevel": 26,
+      "maxLevel": 28,
+      "encounters": {
+        "Inkay": { "slotMin": 0, "slotMax": 29 },
+        "Litwick": { "slotMin": 30, "slotMax": 54 },
+        "Thievul": { "slotMin": 55, "slotMax": 74 },
+        "Carkol": { "slotMin": 75, "slotMax": 84 },
+        "Palpitoad": { "slotMin": 85, "slotMax": 94 },
+        "Ferroseed": { "slotMin": 95, "slotMax": 99 }
+      }
+    },
+    "Snowing": {
+      "minLevel": 26,
+      "maxLevel": 28,
+      "encounters": {
+        "Sneasel": { "slotMin": 0, "slotMax": 29 },
+        "Thievul": { "slotMin": 30, "slotMax": 54 },
+        "Vanillite": { "slotMin": 55, "slotMax": 74 },
+        "Inkay": { "slotMin": 75, "slotMax": 84 },
+        "Palpitoad": { "slotMin": 85, "slotMax": 94 },
+        "Ferroseed": { "slotMin": 95, "slotMax": 99 }
+      }
+    },
+    "Snowstorm": {
+      "minLevel": 26,
+      "maxLevel": 28,
+      "encounters": {
+        "Sneasel": { "slotMin": 0, "slotMax": 29 },
+        "Cubchoo": { "slotMin": 30, "slotMax": 54 },
+        "Inkay": { "slotMin": 55, "slotMax": 74 },
+        "Mawile": { "slotMin": 75, "slotMax": 84 },
+        "Palpitoad": { "slotMin": 85, "slotMax": 94 },
+        "Ferroseed": { "slotMin": 95, "slotMax": 99 }
+      }
+    },
+    "Sandstorm": {
+      "minLevel": 26,
+      "maxLevel": 28,
+      "encounters": {
+        "Rhyhorn": { "slotMin": 0, "slotMax": 29 },
+        "Rufflet": { "slotMin": 30, "slotMax": 54 },
+        "Sudowoodo": { "slotMin": 55, "slotMax": 74 },
+        "Inkay": { "slotMin": 75, "slotMax": 84 },
+        "Palpitoad": { "slotMin": 85, "slotMax": 94 },
+        "Ferroseed": { "slotMin": 95, "slotMax": 99 }
+      }
+    },
+    "Heavy Fog": {
+      "minLevel": 26,
+      "maxLevel": 28,
+      "encounters": {
+        "Milcery": { "slotMin": 0, "slotMax": 29 },
+        "Litwick": { "slotMin": 30, "slotMax": 54 },
+        "Elgyem": { "slotMin": 55, "slotMax": 74 },
+        "Palpitoad": { "slotMin": 75, "slotMax": 84 },
+        "Thievul": { "slotMin": 85, "slotMax": 89 },
+        "Ferroseed": { "slotMin": 90, "slotMax": 94 },
+        "Togepi": { "slotMin": 95, "slotMax": 99 }
+      }
+    }
+  },
+  "Route 4": {
+    "All Weather": {
+      "minLevel": 13,
+      "maxLevel": 15,
+      "encounters": {
+        "Meowth-2": { "slotMin": 0, "slotMax": 34 },
+        "Wooloo": { "slotMin": 35, "slotMax": 59 },
+        "Milcery": { "slotMin": 60, "slotMax": 79 },
+        "Joltik": { "slotMin": 80, "slotMax": 89 },
+        "Cutiefly": { "slotMin": 90, "slotMax": 94 },
+        "Budew": { "slotMin": 95, "slotMax": 98 },
+        "Ferroseed": { "slotMin": 99, "slotMax": 99 }
+      }
+    }
+  },
+  "Slumbering Weald (Low Level)": {
+    "All Weather": {
+      "minLevel": 2,
+      "maxLevel": 3,
+      "encounters": {
+        "Skwovet": { "slotMin": 0, "slotMax": 49 },
+        "Rookidee": { "slotMin": 50, "slotMax": 69 },
+        "Hoothoot": { "slotMin": 70, "slotMax": 84 },
+        "Blipbug": { "slotMin": 85, "slotMax": 94 },
+        "Grubbin": { "slotMin": 95, "slotMax": 99 }
+      }
+    }
+  },
+  "Route 5": {
+    "All Weather": {
+      "minLevel": 16,
+      "maxLevel": 18,
+      "encounters": {
+        "Dottler": { "slotMin": 0, "slotMax": 25 },
+        "Espurr": { "slotMin": 26, "slotMax": 45 },
+        "Nuzleaf": { "slotMin": 46, "slotMax": 65 },
+        "Swirlix": { "slotMin": 66, "slotMax": 79 },
+        "Applin": { "slotMin": 80, "slotMax": 89 },
+        "Dewpider": { "slotMin": 90, "slotMax": 94 },
+        "Nincada": { "slotMin": 95, "slotMax": 99 }
+      }
+    }
+  },
+  "Galar Mine No. 2": {
+    "All Weather": {
+      "minLevel": 20,
+      "maxLevel": 24,
+      "encounters": {
+        "Wimpod": { "slotMin": 0, "slotMax": 19 },
+        "Noibat": { "slotMin": 20, "slotMax": 39 },
+        "Scraggy": { "slotMin": 40, "slotMax": 54 },
+        "Binacle": { "slotMin": 55, "slotMax": 64 },
+        "Shuckle": { "slotMin": 65, "slotMax": 74 },
+        "Shellos-1": { "slotMin": 75, "slotMax": 84 },
+        "Chewtle": { "slotMin": 85, "slotMax": 94 },
+        "Stunfisk-1": { "slotMin": 95, "slotMax": 99 }
+      }
+    }
+  },
+  "Galar Mine": {
+    "All Weather": {
+      "minLevel": 11,
+      "maxLevel": 15,
+      "encounters": {
+        "Rolycoly": { "slotMin": 0, "slotMax": 29 },
+        "Timburr": { "slotMin": 30, "slotMax": 59 },
+        "Diglett": { "slotMin": 60, "slotMax": 74 },
+        "Drilbur": { "slotMin": 75, "slotMax": 84 },
+        "Woobat": { "slotMin": 85, "slotMax": 94 },
+        "Roggenrola": { "slotMin": 95, "slotMax": 99 }
+      }
+    }
+  },
+  "Motostoke Outskirts": {
+    "All Weather": {
+      "minLevel": 21,
+      "maxLevel": 24,
+      "encounters": {
+        "Scraggy": { "slotMin": 0, "slotMax": 34 },
+        "Roggenrola": { "slotMin": 35, "slotMax": 64 },
+        "Pawniard": { "slotMin": 65, "slotMax": 84 },
+        "Chewtle": { "slotMin": 85, "slotMax": 94 },
+        "Impidimp": { "slotMin": 95, "slotMax": 99 }
+      }
+    }
+  },
+  "Glimwood Tangle": {
+    "All Weather": {
+      "minLevel": 34,
+      "maxLevel": 36,
+      "encounters": {
+        "Morgrem": { "slotMin": 0, "slotMax": 19 },
+        "Shiinotic": { "slotMin": 20, "slotMax": 39 },
+        "Hattrem": { "slotMin": 40, "slotMax": 54 },
+        "Sinistea": { "slotMin": 55, "slotMax": 64 },
+        "Phantump": { "slotMin": 65, "slotMax": 74 },
+        "Swirlix": { "slotMin": 75, "slotMax": 84 },
+        "Passimian": { "slotMin": 85, "slotMax": 93 },
+        "Indeedee": { "slotMin": 94, "slotMax": 98 },
+        "Sinistea-1": { "slotMin": 99, "slotMax": 99 }
+      }
+    }
+  },
+  "Route 6": {
+    "All Weather": {
+      "minLevel": 28,
+      "maxLevel": 30,
+      "encounters": {
+        "Silicobra": { "slotMin": 0, "slotMax": 29 },
+        "Durant": { "slotMin": 30, "slotMax": 49 },
+        "Duskull": { "slotMin": 50, "slotMax": 67 },
+        "Skorupi": { "slotMin": 68, "slotMax": 77 },
+        "Hippopotas": { "slotMin": 78, "slotMax": 87 },
+        "Heatmor": { "slotMin": 88, "slotMax": 92 },
+        "Torkoal": { "slotMin": 93, "slotMax": 97 },
+        "Hawlucha": { "slotMin": 98, "slotMax": 99 }
+      }
+    }
+  },
+  "Route 7": {
+    "Normal Weather": {
+      "minLevel": 36,
+      "maxLevel": 40,
+      "encounters": {
+        "Toxel": { "slotMin": 0, "slotMax": 24 },
+        "Karrablast": { "slotMin": 25, "slotMax": 49 },
+        "Corviknight": { "slotMin": 50, "slotMax": 69 },
+        "Liepard": { "slotMin": 70, "slotMax": 79 },
+        "Meowstic": { "slotMin": 80, "slotMax": 89 },
+        "Seismitoad": { "slotMin": 90, "slotMax": 94 },
+        "Shelmet": { "slotMin": 95, "slotMax": 99 }
+      }
+    },
+    "Overcast": {
+      "minLevel": 36,
+      "maxLevel": 40,
+      "encounters": {
+        "Toxel": { "slotMin": 0, "slotMax": 24 },
+        "Karrablast": { "slotMin": 25, "slotMax": 44 },
+        "Corviknight": { "slotMin": 45, "slotMax": 64 },
+        "Liepard": { "slotMin": 65, "slotMax": 74 },
+        "Meowstic": { "slotMin": 75, "slotMax": 84 },
+        "Seismitoad": { "slotMin": 85, "slotMax": 94 },
+        "Shelmet": { "slotMin": 95, "slotMax": 99 }
+      }
+    },
+    "Raining": {
+      "minLevel": 36,
+      "maxLevel": 40,
+      "encounters": {
+        "Toxel": { "slotMin": 0, "slotMax": 24 },
+        "Karrablast": { "slotMin": 25, "slotMax": 44 },
+        "Corviknight": { "slotMin": 45, "slotMax": 64 },
+        "Liepard": { "slotMin": 65, "slotMax": 74 },
+        "Meowstic": { "slotMin": 75, "slotMax": 84 },
+        "Seismitoad": { "slotMin": 85, "slotMax": 94 },
+        "Shelmet": { "slotMin": 95, "slotMax": 99 }
+      }
+    },
+    "Thunderstorm": {
+      "minLevel": 36,
+      "maxLevel": 40,
+      "encounters": {
+        "Toxel": { "slotMin": 0, "slotMax": 24 },
+        "Karrablast": { "slotMin": 25, "slotMax": 44 },
+        "Corviknight": { "slotMin": 45, "slotMax": 64 },
+        "Liepard": { "slotMin": 65, "slotMax": 74 },
+        "Meowstic": { "slotMin": 75, "slotMax": 84 },
+        "Seismitoad": { "slotMin": 85, "slotMax": 94 },
+        "Shelmet": { "slotMin": 95, "slotMax": 99 }
+      }
+    },
+    "Intense Sun": {
+      "minLevel": 36,
+      "maxLevel": 40,
+      "encounters": {
+        "Toxel": { "slotMin": 0, "slotMax": 24 },
+        "Karrablast": { "slotMin": 25, "slotMax": 44 },
+        "Corviknight": { "slotMin": 45, "slotMax": 64 },
+        "Liepard": { "slotMin": 65, "slotMax": 74 },
+        "Meowstic": { "slotMin": 75, "slotMax": 84 },
+        "Seismitoad": { "slotMin": 85, "slotMax": 94 },
+        "Shelmet": { "slotMin": 95, "slotMax": 99 }
+      }
+    },
+    "Snowing": {
+      "minLevel": 36,
+      "maxLevel": 40,
+      "encounters": {
+        "Toxel": { "slotMin": 0, "slotMax": 24 },
+        "Karrablast": { "slotMin": 25, "slotMax": 44 },
+        "Corviknight": { "slotMin": 45, "slotMax": 64 },
+        "Liepard": { "slotMin": 65, "slotMax": 74 },
+        "Meowstic": { "slotMin": 75, "slotMax": 84 },
+        "Seismitoad": { "slotMin": 85, "slotMax": 94 },
+        "Shelmet": { "slotMin": 95, "slotMax": 99 }
+      }
+    },
+    "Snowstorm": {
+      "minLevel": 28,
+      "maxLevel": 40,
+      "encounters": {
+        "Toxel": { "slotMin": 0, "slotMax": 24 },
+        "Karrablast": { "slotMin": 25, "slotMax": 44 },
+        "Corviknight": { "slotMin": 45, "slotMax": 64 },
+        "Liepard": { "slotMin": 65, "slotMax": 74 },
+        "Meowstic": { "slotMin": 75, "slotMax": 84 },
+        "Seismitoad": { "slotMin": 85, "slotMax": 94 },
+        "Shelmet": { "slotMin": 95, "slotMax": 99 }
+      }
+    },
+    "Sandstorm": {
+      "minLevel": 36,
+      "maxLevel": 40,
+      "encounters": {
+        "Toxel": { "slotMin": 0, "slotMax": 24 },
+        "Karrablast": { "slotMin": 25, "slotMax": 44 },
+        "Corviknight": { "slotMin": 45, "slotMax": 64 },
+        "Liepard": { "slotMin": 65, "slotMax": 74 },
+        "Meowstic": { "slotMin": 75, "slotMax": 84 },
+        "Seismitoad": { "slotMin": 85, "slotMax": 94 },
+        "Shelmet": { "slotMin": 95, "slotMax": 99 }
+      }
+    },
+    "Heavy Fog": {
+      "minLevel": 36,
+      "maxLevel": 40,
+      "encounters": {
+        "Toxel": { "slotMin": 0, "slotMax": 24 },
+        "Karrablast": { "slotMin": 25, "slotMax": 44 },
+        "Corviknight": { "slotMin": 45, "slotMax": 64 },
+        "Liepard": { "slotMin": 65, "slotMax": 74 },
+        "Meowstic": { "slotMin": 75, "slotMax": 84 },
+        "Seismitoad": { "slotMin": 85, "slotMax": 94 },
+        "Shelmet": { "slotMin": 95, "slotMax": 99 }
+      }
+    }
+  },
+  "Route 8": {
+    "All Weather": {
+      "minLevel": 38,
+      "maxLevel": 40,
+      "encounters": {
+        "Sandaconda": { "slotMin": 0, "slotMax": 29 },
+        "Rhyhorn": { "slotMin": 30, "slotMax": 49 },
+        "Dusclops": { "slotMin": 50, "slotMax": 64 },
+        "Haunter": { "slotMin": 65, "slotMax": 74 },
+        "Bronzong": { "slotMin": 75, "slotMax": 84 },
+        "Hippowdon": { "slotMin": 85, "slotMax": 92 },
+        "Drapion": { "slotMin": 93, "slotMax": 97 },
+        "Falinks": { "slotMin": 98, "slotMax": 99 }
+      }
+    }
+  },
+  "Route 8 (on Steamdrift Way)": {
+    "All Weather": {
+      "minLevel": 38,
+      "maxLevel": 41,
+      "encounters": {
+        "Snom": { "slotMin": 0, "slotMax": 39 },
+        "Sneasel": { "slotMin": 40, "slotMax": 64 },
+        "Snover": { "slotMin": 65, "slotMax": 84 },
+        "Delibird": { "slotMin": 85, "slotMax": 94 },
+        "Darumaka-1": { "slotMin": 95, "slotMax": 99 }
+      }
+    }
+  },
+  "Route 9": {
+    "All Weather": {
+      "minLevel": 38,
+      "maxLevel": 42,
+      "encounters": {
+        "Cramorant": { "slotMin": 0, "slotMax": 39 },
+        "Octillery": { "slotMin": 40, "slotMax": 69 },
+        "Kingler": { "slotMin": 70, "slotMax": 94 },
+        "Pincurchin": { "slotMin": 95, "slotMax": 99 }
+      }
+    }
+  },
+  "Route 9 (in Circhester Bay)": {
+    "All Weather": {
+      "minLevel": 39,
+      "maxLevel": 43,
+      "encounters": {
+        "Cramorant": { "slotMin": 0, "slotMax": 39 },
+        "Gastrodon-1": { "slotMin": 40, "slotMax": 69 },
+        "Inkay": { "slotMin": 70, "slotMax": 94 },
+        "Pincurchin": { "slotMin": 95, "slotMax": 99 }
+      }
+    }
+  },
+  "Route 9 (in Outer Spikemuth)": {
+    "All Weather": {
+      "minLevel": 40,
+      "maxLevel": 44,
+      "encounters": {
+        "Perrserker": { "slotMin": 0, "slotMax": 39 },
+        "Thievul": { "slotMin": 40, "slotMax": 69 },
+        "Liepard": { "slotMin": 70, "slotMax": 94 },
+        "Morpeko": { "slotMin": 95, "slotMax": 99 }
+      }
+    }
+  },
+  "Route 10 (Near Station)": {
+    "All Weather": {
+      "minLevel": 43,
+      "maxLevel": 46,
+      "encounters": {
+        "Klang": { "slotMin": 0, "slotMax": 29 },
+        "Vanillish": { "slotMin": 30, "slotMax": 59 },
+        "Rhydon": { "slotMin": 60, "slotMax": 84 },
+        "Snom": { "slotMin": 85, "slotMax": 94 },
+        "Darumaka-1": { "slotMin": 95, "slotMax": 99 }
+      }
+    }
+  },
+  "Stony Wilderness": {
+    "Normal Weather": {
+      "minLevel": 27,
+      "maxLevel": 29,
+      "encounters": {
+        "Gurdurr": { "slotMin": 0, "slotMax": 39 },
+        "Ribombee": { "slotMin": 40, "slotMax": 69 },
+        "Impidimp": { "slotMin": 70, "slotMax": 89 },
+        "Eldegoss": { "slotMin": 90, "slotMax": 99 }
+      }
+    },
+    "Overcast": {
+      "minLevel": 27,
+      "maxLevel": 29,
+      "encounters": {
+        "Cottonee": { "slotMin": 0, "slotMax": 39 },
+        "Swirlix": { "slotMin": 40, "slotMax": 69 },
+        "Ribombee": { "slotMin": 70, "slotMax": 89 },
+        "Impidimp": { "slotMin": 90, "slotMax": 99 }
+      }
+    },
+    "Raining": {
+      "minLevel": 26,
+      "maxLevel": 28,
+      "encounters": {
+        "Barboach": { "slotMin": 0, "slotMax": 39 },
+        "Shellos-1": { "slotMin": 40, "slotMax": 69 },
+        "Impidimp": { "slotMin": 70, "slotMax": 89 },
+        "Pikachu": { "slotMin": 90, "slotMax": 99 }
+      }
+    },
+    "Thunderstorm": {
+      "minLevel": 26,
+      "maxLevel": 28,
+      "encounters": {
+        "Toxel": { "slotMin": 0, "slotMax": 39 },
+        "Gurdurr": { "slotMin": 40, "slotMax": 69 },
+        "Impidimp": { "slotMin": 70, "slotMax": 89 },
+        "Applin": { "slotMin": 90, "slotMax": 99 }
+      }
+    },
+    "Intense Sun": {
+      "minLevel": 26,
+      "maxLevel": 28,
+      "encounters": {
+        "Carkol": { "slotMin": 0, "slotMax": 39 },
+        "Gurdurr": { "slotMin": 40, "slotMax": 69 },
+        "Impidimp": { "slotMin": 70, "slotMax": 89 },
+        "Drilbur": { "slotMin": 90, "slotMax": 99 }
+      }
+    },
+    "Snowing": {
+      "minLevel": 26,
+      "maxLevel": 28,
+      "encounters": {
+        "Cubchoo": { "slotMin": 0, "slotMax": 39 },
+        "Sneasel": { "slotMin": 40, "slotMax": 69 },
+        "Impidimp": { "slotMin": 70, "slotMax": 89 },
+        "Gurdurr": { "slotMin": 90, "slotMax": 99 }
+      }
+    },
+    "Snowstorm": {
+      "minLevel": 26,
+      "maxLevel": 28,
+      "encounters": {
+        "Sneasel": { "slotMin": 0, "slotMax": 39 },
+        "Pawniard": { "slotMin": 40, "slotMax": 69 },
+        "Cubchoo": { "slotMin": 70, "slotMax": 89 },
+        "Impidimp": { "slotMin": 90, "slotMax": 99 }
+      }
+    },
+    "Sandstorm": {
+      "minLevel": 26,
+      "maxLevel": 28,
+      "encounters": {
+        "Rhyhorn": { "slotMin": 0, "slotMax": 39 },
+        "Drilbur": { "slotMin": 40, "slotMax": 69 },
+        "Boldore": { "slotMin": 70, "slotMax": 89 },
+        "Shuckle": { "slotMin": 90, "slotMax": 99 }
+      }
+    },
+    "Heavy Fog": {
+      "minLevel": 26,
+      "maxLevel": 28,
+      "encounters": {
+        "Thievul": { "slotMin": 0, "slotMax": 39 },
+        "Dottler": { "slotMin": 40, "slotMax": 69 },
+        "Impidimp": { "slotMin": 70, "slotMax": 89 },
+        "Togetic": { "slotMin": 90, "slotMax": 99 }
+      }
+    }
+  },
+  "Dusty Bowl": {
+    "Normal Weather": {
+      "minLevel": 40,
+      "maxLevel": 45,
+      "encounters": {
+        "Eldegoss": { "slotMin": 0, "slotMax": 39 },
+        "Dubwool": { "slotMin": 40, "slotMax": 69 },
+        "Hattrem": { "slotMin": 70, "slotMax": 89 },
+        "Applin": { "slotMin": 90, "slotMax": 99 }
+      }
+    },
+    "Overcast": {
+      "minLevel": 40,
+      "maxLevel": 45,
+      "encounters": {
+        "Skuntank": { "slotMin": 0, "slotMax": 39 },
+        "Eldegoss": { "slotMin": 40, "slotMax": 69 },
+        "Hattrem": { "slotMin": 70, "slotMax": 89 },
+        "Roselia": { "slotMin": 90, "slotMax": 99 }
+      }
+    },
+    "Raining": {
+      "minLevel": 40,
+      "maxLevel": 45,
+      "encounters": {
+        "Pelipper": { "slotMin": 0, "slotMax": 39 },
+        "Barbaracle": { "slotMin": 40, "slotMax": 69 },
+        "Eldegoss": { "slotMin": 70, "slotMax": 89 },
+        "Hattrem": { "slotMin": 90, "slotMax": 99 }
+      }
+    },
+    "Thunderstorm": {
+      "minLevel": 40,
+      "maxLevel": 45,
+      "encounters": {
+        "Drednaw": { "slotMin": 0, "slotMax": 39 },
+        "Boltund": { "slotMin": 40, "slotMax": 69 },
+        "Charjabug": { "slotMin": 70, "slotMax": 89 },
+        "Eldegoss": { "slotMin": 90, "slotMax": 99 }
+      }
+    },
+    "Intense Sun": {
+      "minLevel": 40,
+      "maxLevel": 45,
+      "encounters": {
+        "Rhydon": { "slotMin": 0, "slotMax": 57 },
+        "Stunfisk-1": { "slotMin": 58, "slotMax": 87 },
+        "Mudsdale": { "slotMin": 88, "slotMax": 97 },
+        "Coalossal": { "slotMin": 98, "slotMax": 99 }
+      }
+    },
+    "Snowing": {
+      "minLevel": 40,
+      "maxLevel": 45,
+      "encounters": {
+        "Piloswine": { "slotMin": 0, "slotMax": 39 },
+        "Abomasnow": { "slotMin": 40, "slotMax": 69 },
+        "Corviknight": { "slotMin": 70, "slotMax": 89 },
+        "Gurdurr": { "slotMin": 90, "slotMax": 99 }
+      }
+    },
+    "Snowstorm": {
+      "minLevel": 40,
+      "maxLevel": 45,
+      "encounters": {
+        "Bronzong": { "slotMin": 0, "slotMax": 39 },
+        "Klang": { "slotMin": 40, "slotMax": 69 },
+        "Hattrem": { "slotMin": 70, "slotMax": 89 },
+        "Ferrothorn": { "slotMin": 90, "slotMax": 99 }
+      }
+    },
+    "Sandstorm": {
+      "minLevel": 40,
+      "maxLevel": 45,
+      "encounters": {
+        "Dugtrio": { "slotMin": 0, "slotMax": 39 },
+        "Sudowoodo": { "slotMin": 40, "slotMax": 69 },
+        "Eldegoss": { "slotMin": 70, "slotMax": 89 },
+        "Hattrem": { "slotMin": 90, "slotMax": 99 }
+      }
+    },
+    "Heavy Fog": {
+      "minLevel": 40,
+      "maxLevel": 45,
+      "encounters": {
+        "Meowstic": { "slotMin": 0, "slotMax": 44 },
+        "Hattrem": { "slotMin": 45, "slotMax": 74 },
+        "Eldegoss": { "slotMin": 75, "slotMax": 94 },
+        "Gardevoir": { "slotMin": 95, "slotMax": 99 }
+      }
+    }
+  },
+  "Giant's Mirror": {
+    "Normal Weather": {
+      "minLevel": 27,
+      "maxLevel": 29,
+      "encounters": {
+        "Koffing": { "slotMin": 0, "slotMax": 29 },
+        "Skorupi": { "slotMin": 30, "slotMax": 59 },
+        "Dottler": { "slotMin": 60, "slotMax": 79 },
+        "Budew": { "slotMin": 80, "slotMax": 89 },
+        "Machop": { "slotMin": 90, "slotMax": 99 }
+      }
+    },
+    "Overcast": {
+      "minLevel": 27,
+      "maxLevel": 29,
+      "encounters": {
+        "Skorupi": { "slotMin": 0, "slotMax": 29 },
+        "Koffing": { "slotMin": 30, "slotMax": 59 },
+        "Roselia": { "slotMin": 60, "slotMax": 79 },
+        "Dottler": { "slotMin": 80, "slotMax": 89 },
+        "Machop": { "slotMin": 90, "slotMax": 99 }
+      }
+    },
+    "Raining": {
+      "minLevel": 26,
+      "maxLevel": 28,
+      "encounters": {
+        "Shellos-1": { "slotMin": 0, "slotMax": 29 },
+        "Skorupi": { "slotMin": 30, "slotMax": 59 },
+        "Koffing": { "slotMin": 60, "slotMax": 79 },
+        "Dottler": { "slotMin": 80, "slotMax": 89 },
+        "Machop": { "slotMin": 90, "slotMax": 99 }
+      }
+    },
+    "Thunderstorm": {
+      "minLevel": 26,
+      "maxLevel": 28,
+      "encounters": {
+        "Joltik": { "slotMin": 0, "slotMax": 29 },
+        "Applin": { "slotMin": 30, "slotMax": 59 },
+        "Skorupi": { "slotMin": 60, "slotMax": 79 },
+        "Koffing": { "slotMin": 80, "slotMax": 89 },
+        "Machop": { "slotMin": 90, "slotMax": 99 }
+      }
+    },
+    "Intense Sun": {
+      "minLevel": 26,
+      "maxLevel": 28,
+      "encounters": {
+        "Diglett": { "slotMin": 0, "slotMax": 29 },
+        "Skorupi": { "slotMin": 30, "slotMax": 59 },
+        "Koffing": { "slotMin": 60, "slotMax": 79 },
+        "Torkoal": { "slotMin": 80, "slotMax": 89 },
+        "Machop": { "slotMin": 90, "slotMax": 99 }
+      }
+    },
+    "Snowing": {
+      "minLevel": 26,
+      "maxLevel": 28,
+      "encounters": {
+        "Swinub": { "slotMin": 0, "slotMax": 29 },
+        "Cubchoo": { "slotMin": 30, "slotMax": 59 },
+        "Snover": { "slotMin": 60, "slotMax": 79 },
+        "Koffing": { "slotMin": 80, "slotMax": 89 },
+        "Machop": { "slotMin": 90, "slotMax": 99 }
+      }
+    },
+    "Snowstorm": {
+      "minLevel": 26,
+      "maxLevel": 28,
+      "encounters": {
+        "Cubchoo": { "slotMin": 0, "slotMax": 29 },
+        "Swinub": { "slotMin": 30, "slotMax": 59 },
+        "Snover": { "slotMin": 60, "slotMax": 79 },
+        "Koffing": { "slotMin": 80, "slotMax": 89 },
+        "Machop": { "slotMin": 90, "slotMax": 99 }
+      }
+    },
+    "Sandstorm": {
+      "minLevel": 26,
+      "maxLevel": 28,
+      "encounters": {
+        "Hippowdon": { "slotMin": 0, "slotMax": 29 },
+        "Diggersby": { "slotMin": 30, "slotMax": 59 },
+        "Dottler": { "slotMin": 60, "slotMax": 79 },
+        "Koffing": { "slotMin": 80, "slotMax": 89 },
+        "Machop": { "slotMin": 90, "slotMax": 99 }
+      }
+    },
+    "Heavy Fog": {
+      "minLevel": 26,
+      "maxLevel": 28,
+      "encounters": {
+        "Impidimp": { "slotMin": 0, "slotMax": 34 },
+        "Milcery": { "slotMin": 35, "slotMax": 66 },
+        "Koffing": { "slotMin": 67, "slotMax": 86 },
+        "Machop": { "slotMin": 87, "slotMax": 96 },
+        "Mimikyu": { "slotMin": 97, "slotMax": 99 }
+      }
+    }
+  },
+  "Hammerlocke Hills": {
+    "Normal Weather": {
+      "minLevel": 28,
+      "maxLevel": 30,
+      "encounters": {
+        "Espurr": { "slotMin": 0, "slotMax": 39 },
+        "Inkay": { "slotMin": 40, "slotMax": 64 },
+        "Corvisquire": { "slotMin": 65, "slotMax": 79 },
+        "Dubwool": { "slotMin": 80, "slotMax": 89 },
+        "Klink": { "slotMin": 90, "slotMax": 99 }
+      }
+    },
+    "Overcast": {
+      "minLevel": 28,
+      "maxLevel": 30,
+      "encounters": {
+        "Inkay": { "slotMin": 0, "slotMax": 34 },
+        "Machoke": { "slotMin": 35, "slotMax": 59 },
+        "Thievul": { "slotMin": 60, "slotMax": 74 },
+        "Espurr": { "slotMin": 75, "slotMax": 84 },
+        "Klink": { "slotMin": 85, "slotMax": 94 },
+        "Hawlucha": { "slotMin": 95, "slotMax": 99 }
+      }
+    },
+    "Raining": {
+      "minLevel": 28,
+      "maxLevel": 30,
+      "encounters": {
+        "Pelipper": { "slotMin": 0, "slotMax": 39 },
+        "Karrablast": { "slotMin": 40, "slotMax": 69 },
+        "Inkay": { "slotMin": 70, "slotMax": 84 },
+        "Klink": { "slotMin": 85, "slotMax": 94 },
+        "Shelmet": { "slotMin": 95, "slotMax": 99 }
+      }
+    },
+    "Thunderstorm": {
+      "minLevel": 28,
+      "maxLevel": 30,
+      "encounters": {
+        "Toxel": { "slotMin": 0, "slotMax": 39 },
+        "Charjabug": { "slotMin": 40, "slotMax": 64 },
+        "Karrablast": { "slotMin": 65, "slotMax": 79 },
+        "Espurr": { "slotMin": 80, "slotMax": 89 },
+        "Klink": { "slotMin": 90, "slotMax": 99 }
+      }
+    },
+    "Intense Sun": {
+      "minLevel": 28,
+      "maxLevel": 30,
+      "encounters": {
+        "Growlithe": { "slotMin": 0, "slotMax": 39 },
+        "Baltoy": { "slotMin": 40, "slotMax": 64 },
+        "Inkay": { "slotMin": 65, "slotMax": 79 },
+        "Espurr": { "slotMin": 80, "slotMax": 89 },
+        "Klink": { "slotMin": 90, "slotMax": 99 }
+      }
+    },
+    "Snowing": {
+      "minLevel": 28,
+      "maxLevel": 30,
+      "encounters": {
+        "Swinub": { "slotMin": 0, "slotMax": 39 },
+        "Inkay": { "slotMin": 40, "slotMax": 64 },
+        "Delibird": { "slotMin": 65, "slotMax": 79 },
+        "Espurr": { "slotMin": 80, "slotMax": 89 },
+        "Klink": { "slotMin": 90, "slotMax": 99 }
+      }
+    },
+    "Snowstorm": {
+      "minLevel": 28,
+      "maxLevel": 30,
+      "encounters": {
+        "Snorunt": { "slotMin": 0, "slotMax": 39 },
+        "Vanillite": { "slotMin": 40, "slotMax": 64 },
+        "Honedge": { "slotMin": 65, "slotMax": 79 },
+        "Inkay": { "slotMin": 80, "slotMax": 89 },
+        "Klink": { "slotMin": 90, "slotMax": 99 }
+      }
+    },
+    "Sandstorm": {
+      "minLevel": 28,
+      "maxLevel": 30,
+      "encounters": {
+        "Dugtrio": { "slotMin": 0, "slotMax": 39 },
+        "Dwebble": { "slotMin": 40, "slotMax": 64 },
+        "Drilbur": { "slotMin": 65, "slotMax": 79 },
+        "Espurr": { "slotMin": 80, "slotMax": 89 },
+        "Klink": { "slotMin": 90, "slotMax": 99 }
+      }
+    },
+    "Heavy Fog": {
+      "minLevel": 28,
+      "maxLevel": 30,
+      "encounters": {
+        "Espurr": { "slotMin": 0, "slotMax": 39 },
+        "Hatenna": { "slotMin": 40, "slotMax": 64 },
+        "Inkay": { "slotMin": 65, "slotMax": 79 },
+        "Impidimp": { "slotMin": 80, "slotMax": 89 },
+        "Klink": { "slotMin": 90, "slotMax": 99 }
+      }
+    }
+  },
+  "Giant's Cap": {
+    "Normal Weather": {
+      "minLevel": 27,
+      "maxLevel": 29,
+      "encounters": {
+        "Nuzleaf": { "slotMin": 0, "slotMax": 39 },
+        "Dottler": { "slotMin": 40, "slotMax": 69 },
+        "Eldegoss": { "slotMin": 70, "slotMax": 89 },
+        "Stunky": { "slotMin": 90, "slotMax": 99 }
+      }
+    },
+    "Overcast": {
+      "minLevel": 27,
+      "maxLevel": 29,
+      "encounters": {
+        "Eldegoss": { "slotMin": 0, "slotMax": 39 },
+        "Dottler": { "slotMin": 40, "slotMax": 69 },
+        "Munna": { "slotMin": 70, "slotMax": 89 },
+        "Karrablast": { "slotMin": 90, "slotMax": 99 }
+      }
+    },
+    "Raining": {
+      "minLevel": 26,
+      "maxLevel": 28,
+      "encounters": {
+        "Palpitoad": { "slotMin": 0, "slotMax": 39 },
+        "Shellos-1": { "slotMin": 40, "slotMax": 69 },
+        "Dottler": { "slotMin": 70, "slotMax": 89 },
+        "Eldegoss": { "slotMin": 90, "slotMax": 99 }
+      }
+    },
+    "Thunderstorm": {
+      "minLevel": 26,
+      "maxLevel": 28,
+      "encounters": {
+        "Joltik": { "slotMin": 0, "slotMax": 39 },
+        "Toxel": { "slotMin": 40, "slotMax": 69 },
+        "Shellos-1": { "slotMin": 70, "slotMax": 89 },
+        "Dottler": { "slotMin": 90, "slotMax": 99 }
+      }
+    },
+    "Intense Sun": {
+      "minLevel": 26,
+      "maxLevel": 28,
+      "encounters": {
+        "Golett": { "slotMin": 0, "slotMax": 39 },
+        "Baltoy": { "slotMin": 40, "slotMax": 69 },
+        "Drilbur": { "slotMin": 70, "slotMax": 89 },
+        "Dugtrio": { "slotMin": 90, "slotMax": 99 }
+      }
+    },
+    "Snowing": {
+      "minLevel": 26,
+      "maxLevel": 28,
+      "encounters": {
+        "Snover": { "slotMin": 0, "slotMax": 39 },
+        "Snorunt": { "slotMin": 40, "slotMax": 69 },
+        "Delibird": { "slotMin": 70, "slotMax": 89 },
+        "Dottler": { "slotMin": 90, "slotMax": 99 }
+      }
+    },
+    "Snowstorm": {
+      "minLevel": 26,
+      "maxLevel": 28,
+      "encounters": {
+        "Snorunt": { "slotMin": 0, "slotMax": 39 },
+        "Pawniard": { "slotMin": 40, "slotMax": 69 },
+        "Delibird": { "slotMin": 70, "slotMax": 89 },
+        "Dottler": { "slotMin": 90, "slotMax": 99 }
+      }
+    },
+    "Sandstorm": {
+      "minLevel": 26,
+      "maxLevel": 28,
+      "encounters": {
+        "Golett": { "slotMin": 0, "slotMax": 39 },
+        "Drilbur": { "slotMin": 40, "slotMax": 69 },
+        "Mudbray": { "slotMin": 70, "slotMax": 89 },
+        "Dottler": { "slotMin": 90, "slotMax": 99 }
+      }
+    },
+    "Heavy Fog": {
+      "minLevel": 26,
+      "maxLevel": 28,
+      "encounters": {
+        "Munna": { "slotMin": 0, "slotMax": 39 },
+        "Dottler": { "slotMin": 40, "slotMax": 69 },
+        "Duskull": { "slotMin": 70, "slotMax": 89 },
+        "Eldegoss": { "slotMin": 90, "slotMax": 99 }
+      }
+    }
+  },
+  "Lake of Outrage": {
+    "Normal Weather": {
+      "minLevel": 50,
+      "maxLevel": 52,
+      "encounters": {
+        "Corviknight": { "slotMin": 0, "slotMax": 39 },
+        "Obstagoon": { "slotMin": 40, "slotMax": 64 },
+        "Bewear": { "slotMin": 65, "slotMax": 84 },
+        "Orbeetle": { "slotMin": 85, "slotMax": 97 },
+        "Ditto": { "slotMin": 98, "slotMax": 99 }
+      }
+    },
+    "Overcast": {
+      "minLevel": 50,
+      "maxLevel": 52,
+      "encounters": {
+        "Skuntank": { "slotMin": 0, "slotMax": 32 },
+        "Grimmsnarl": { "slotMin": 33, "slotMax": 57 },
+        "Corviknight": { "slotMin": 58, "slotMax": 77 },
+        "Pangoro": { "slotMin": 78, "slotMax": 87 },
+        "Falinks": { "slotMin": 88, "slotMax": 93 },
+        "Jangmo-o": { "slotMin": 94, "slotMax": 98 },
+        "Dreepy": { "slotMin": 99, "slotMax": 99 }
+      }
+    },
+    "Raining": {
+      "minLevel": 50,
+      "maxLevel": 52,
+      "encounters": {
+        "Pelipper": { "slotMin": 0, "slotMax": 37 },
+        "Cramorant": { "slotMin": 38, "slotMax": 62 },
+        "Corviknight": { "slotMin": 63, "slotMax": 82 },
+        "Quagsire": { "slotMin": 83, "slotMax": 95 },
+        "Barbaracle": { "slotMin": 96, "slotMax": 97 },
+        "Deino": { "slotMin": 98, "slotMax": 99 }
+      }
+    },
+    "Thunderstorm": {
+      "minLevel": 50,
+      "maxLevel": 52,
+      "encounters": {
+        "Boltund": { "slotMin": 0, "slotMax": 34 },
+        "Drednaw": { "slotMin": 35, "slotMax": 57 },
+        "Corviknight": { "slotMin": 58, "slotMax": 77 },
+        "Jellicent": { "slotMin": 78, "slotMax": 93 },
+        "Zweilous": { "slotMin": 94, "slotMax": 95 },
+        "Dreepy": { "slotMin": 96, "slotMax": 97 },
+        "Hakamo-o": { "slotMin": 98, "slotMax": 99 }
+      }
+    },
+    "Intense Sun": {
+      "minLevel": 50,
+      "maxLevel": 52,
+      "encounters": {
+        "Rhydon": { "slotMin": 0, "slotMax": 32 },
+        "Coalossal": { "slotMin": 33, "slotMax": 57 },
+        "Corviknight": { "slotMin": 58, "slotMax": 77 },
+        "Sandaconda": { "slotMin": 78, "slotMax": 90 },
+        "Jangmo-o": { "slotMin": 91, "slotMax": 95 },
+        "Turtonator": { "slotMin": 96, "slotMax": 97 },
+        "Stonjourner": { "slotMin": 98, "slotMax": 99 }
+      }
+    },
+    "Snowing": {
+      "minLevel": 50,
+      "maxLevel": 52,
+      "encounters": {
+        "Snom": { "slotMin": 0, "slotMax": 39 },
+        "Piloswine": { "slotMin": 40, "slotMax": 64 },
+        "Corviknight": { "slotMin": 65, "slotMax": 84 },
+        "Mr. Mime-1": { "slotMin": 85, "slotMax": 97 },
+        "Obstagoon": { "slotMin": 98, "slotMax": 99 }
+      }
+    },
+    "Snowstorm": {
+      "minLevel": 50,
+      "maxLevel": 52,
+      "encounters": {
+        "Perrserker": { "slotMin": 0, "slotMax": 39 },
+        "Doublade": { "slotMin": 40, "slotMax": 64 },
+        "Corviknight": { "slotMin": 65, "slotMax": 84 },
+        "Togedemaru": { "slotMin": 85, "slotMax": 97 },
+        "Duraludon": { "slotMin": 98, "slotMax": 99 }
+      }
+    },
+    "Sandstorm": {
+      "minLevel": 50,
+      "maxLevel": 52,
+      "encounters": {
+        "Dugtrio": { "slotMin": 0, "slotMax": 39 },
+        "Hippowdon": { "slotMin": 40, "slotMax": 64 },
+        "Corviknight": { "slotMin": 65, "slotMax": 84 },
+        "Stunfisk-1": { "slotMin": 85, "slotMax": 94 },
+        "Stonjourner": { "slotMin": 95, "slotMax": 99 }
+      }
+    },
+    "Heavy Fog": {
+      "minLevel": 50,
+      "maxLevel": 52,
+      "encounters": {
+        "Claydol": { "slotMin": 0, "slotMax": 34 },
+        "Bronzong": { "slotMin": 35, "slotMax": 59 },
+        "Corviknight": { "slotMin": 60, "slotMax": 82 },
+        "Indeedee": { "slotMin": 83, "slotMax": 96 },
+        "Dreepy": { "slotMin": 97, "slotMax": 98 },
+        "Gardevoir": { "slotMin": 99, "slotMax": 99 }
+      }
+    }
+  },
+  "Route 2 (High Level)": {
+    "All Weather": {
+      "minLevel": 37,
+      "maxLevel": 40,
+      "encounters": {
+        "Gossifleur": { "slotMin": 0, "slotMax": 34 },
+        "Purrloin": { "slotMin": 35, "slotMax": 64 },
+        "Seedot": { "slotMin": 65, "slotMax": 84 },
+        "Blipbug": { "slotMin": 85, "slotMax": 94 },
+        "Chewtle": { "slotMin": 95, "slotMax": 99 }
+      }
+    }
+  },
+  "Route 10": {
+    "All Weather": {
+      "minLevel": 44,
+      "maxLevel": 46,
+      "encounters": {
+        "Vanillish": { "slotMin": 0, "slotMax": 29 },
+        "Abomasnow": { "slotMin": 30, "slotMax": 57 },
+        "Beartic": { "slotMin": 58, "slotMax": 82 },
+        "Snom": { "slotMin": 83, "slotMax": 92 },
+        "Darumaka-1": { "slotMin": 93, "slotMax": 97 },
+        "Stonjourner": { "slotMin": 98, "slotMax": 99 }
+      }
+    }
+  },
+  "Slumbering Weald (High Level)": {
+    "All Weather": {
+      "minLevel": 45,
+      "maxLevel": 47,
+      "encounters": {
+        "Weezing-1": { "slotMin": 0, "slotMax": 29 },
+        "Munna": { "slotMin": 30, "slotMax": 54 },
+        "Corviknight": { "slotMin": 55, "slotMax": 74 },
+        "Orbeetle": { "slotMin": 75, "slotMax": 89 },
+        "Butterfree": { "slotMin": 90, "slotMax": 94 },
+        "Stunfisk-1": { "slotMin": 95, "slotMax": 99 }
+      }
+    }
+  },
+  "Fields of Honor": {
+    "Normal Weather": {
+      "minLevel": 13,
+      "maxLevel": 18,
+      "encounters": {
+        "Blipbug": { "slotMin": 0, "slotMax": 29 },
+        "Buneary": { "slotMin": 30, "slotMax": 44 },
+        "Jigglypuff": { "slotMin": 60, "slotMax": 74 },
+        "Happiny": { "slotMin": 90, "slotMax": 99 }
+      }
+    },
+    "Overcast": {
+      "minLevel": 13,
+      "maxLevel": 18,
+      "encounters": {
+        "Blipbug": { "slotMin": 0, "slotMax": 29 },
+        "Buneary": { "slotMin": 30, "slotMax": 44 },
+        "Jigglypuff": { "slotMin": 60, "slotMax": 74 },
+        "Inkay": { "slotMin": 75, "slotMax": 89 },
+        "Happiny": { "slotMin": 90, "slotMax": 99 }
+      }
+    },
+    "Raining": {
+      "minLevel": 13,
+      "maxLevel": 18,
+      "encounters": {
+        "Blipbug": { "slotMin": 0, "slotMax": 29 },
+        "Buneary": { "slotMin": 30, "slotMax": 44 },
+        "Jigglypuff": { "slotMin": 60, "slotMax": 74 },
+        "Krabby": { "slotMin": 75, "slotMax": 89 },
+        "Happiny": { "slotMin": 90, "slotMax": 99 }
+      }
+    },
+    "Thunderstorm": {
+      "minLevel": 13,
+      "maxLevel": 18,
+      "encounters": {
+        "Blipbug": { "slotMin": 0, "slotMax": 29 },
+        "Buneary": { "slotMin": 30, "slotMax": 44 },
+        "Jigglypuff": { "slotMin": 60, "slotMax": 74 },
+        "Krabby": { "slotMin": 75, "slotMax": 89 },
+        "Happiny": { "slotMin": 90, "slotMax": 99 }
+      }
+    },
+    "Intense Sun": {
+      "minLevel": 13,
+      "maxLevel": 18,
+      "encounters": {
+        "Blipbug": { "slotMin": 0, "slotMax": 29 },
+        "Buneary": { "slotMin": 30, "slotMax": 44 },
+        "Jigglypuff": { "slotMin": 60, "slotMax": 74 },
+        "Fomantis": { "slotMin": 75, "slotMax": 89 },
+        "Happiny": { "slotMin": 90, "slotMax": 99 }
+      }
+    },
+    "Snowing": {
+      "minLevel": 13,
+      "maxLevel": 18,
+      "encounters": {
+        "Blipbug": { "slotMin": 0, "slotMax": 29 },
+        "Buneary": { "slotMin": 30, "slotMax": 44 },
+        "Jigglypuff": { "slotMin": 60, "slotMax": 74 },
+        "Happiny": { "slotMin": 90, "slotMax": 99 }
+      }
+    },
+    "Snowstorm": {
+      "minLevel": 13,
+      "maxLevel": 18,
+      "encounters": {
+        "Blipbug": { "slotMin": 0, "slotMax": 29 },
+        "Buneary": { "slotMin": 30, "slotMax": 44 },
+        "Jigglypuff": { "slotMin": 60, "slotMax": 74 },
+        "Happiny": { "slotMin": 90, "slotMax": 99 }
+      }
+    },
+    "Sandstorm": {
+      "minLevel": 13,
+      "maxLevel": 18,
+      "encounters": {
+        "Blipbug": { "slotMin": 0, "slotMax": 29 },
+        "Buneary": { "slotMin": 30, "slotMax": 44 },
+        "Jigglypuff": { "slotMin": 60, "slotMax": 74 },
+        "Happiny": { "slotMin": 90, "slotMax": 99 }
+      }
+    },
+    "Heavy Fog": {
+      "minLevel": 13,
+      "maxLevel": 18,
+      "encounters": {
+        "Blipbug": { "slotMin": 0, "slotMax": 29 },
+        "Buneary": { "slotMin": 30, "slotMax": 44 },
+        "Jigglypuff": { "slotMin": 60, "slotMax": 74 },
+        "Ralts": { "slotMin": 75, "slotMax": 89 },
+        "Happiny": { "slotMin": 90, "slotMax": 99 }
+      }
+    }
+  },
+  "Soothing Wetlands": {
+    "Normal Weather": {
+      "minLevel": 13,
+      "maxLevel": 18,
+      "encounters": {
+        "Shelmet": { "slotMin": 0, "slotMax": 29 },
+        "Skorupi": { "slotMin": 30, "slotMax": 44 },
+        "Dunsparce": { "slotMin": 60, "slotMax": 74 },
+        "Happiny": { "slotMin": 90, "slotMax": 99 }
+      }
+    },
+    "Overcast": {
+      "minLevel": 13,
+      "maxLevel": 18,
+      "encounters": {
+        "Shelmet": { "slotMin": 0, "slotMax": 29 },
+        "Skorupi": { "slotMin": 30, "slotMax": 44 },
+        "Dunsparce": { "slotMin": 60, "slotMax": 74 },
+        "Pawniard": { "slotMin": 75, "slotMax": 89 },
+        "Happiny": { "slotMin": 90, "slotMax": 99 }
+      }
+    },
+    "Raining": {
+      "minLevel": 13,
+      "maxLevel": 18,
+      "encounters": {
+        "Shelmet": { "slotMin": 0, "slotMax": 29 },
+        "Skorupi": { "slotMin": 30, "slotMax": 44 },
+        "Dunsparce": { "slotMin": 60, "slotMax": 74 },
+        "Corphish": { "slotMin": 75, "slotMax": 89 },
+        "Happiny": { "slotMin": 90, "slotMax": 99 }
+      }
+    },
+    "Thunderstorm": {
+      "minLevel": 13,
+      "maxLevel": 18,
+      "encounters": {
+        "Shelmet": { "slotMin": 0, "slotMax": 29 },
+        "Skorupi": { "slotMin": 30, "slotMax": 44 },
+        "Dunsparce": { "slotMin": 60, "slotMax": 74 },
+        "Corphish": { "slotMin": 75, "slotMax": 89 },
+        "Happiny": { "slotMin": 90, "slotMax": 99 }
+      }
+    },
+    "Intense Sun": {
+      "minLevel": 13,
+      "maxLevel": 18,
+      "encounters": {
+        "Shelmet": { "slotMin": 0, "slotMax": 29 },
+        "Skorupi": { "slotMin": 30, "slotMax": 44 },
+        "Dunsparce": { "slotMin": 60, "slotMax": 74 },
+        "Fomantis": { "slotMin": 75, "slotMax": 89 },
+        "Happiny": { "slotMin": 90, "slotMax": 99 }
+      }
+    },
+    "Snowing": {
+      "minLevel": 13,
+      "maxLevel": 18,
+      "encounters": {
+        "Shelmet": { "slotMin": 0, "slotMax": 29 },
+        "Skorupi": { "slotMin": 30, "slotMax": 44 },
+        "Dunsparce": { "slotMin": 60, "slotMax": 74 },
+        "Happiny": { "slotMin": 90, "slotMax": 99 }
+      }
+    },
+    "Snowstorm": {
+      "minLevel": 13,
+      "maxLevel": 18,
+      "encounters": {
+        "Shelmet": { "slotMin": 0, "slotMax": 29 },
+        "Skorupi": { "slotMin": 30, "slotMax": 44 },
+        "Dunsparce": { "slotMin": 60, "slotMax": 74 },
+        "Happiny": { "slotMin": 90, "slotMax": 99 }
+      }
+    },
+    "Sandstorm": {
+      "minLevel": 13,
+      "maxLevel": 18,
+      "encounters": {
+        "Shelmet": { "slotMin": 0, "slotMax": 29 },
+        "Skorupi": { "slotMin": 30, "slotMax": 44 },
+        "Dunsparce": { "slotMin": 60, "slotMax": 74 },
+        "Happiny": { "slotMin": 90, "slotMax": 99 }
+      }
+    },
+    "Heavy Fog": {
+      "minLevel": 13,
+      "maxLevel": 18,
+      "encounters": {
+        "Shelmet": { "slotMin": 0, "slotMax": 29 },
+        "Skorupi": { "slotMin": 30, "slotMax": 44 },
+        "Dunsparce": { "slotMin": 60, "slotMax": 74 },
+        "Happiny": { "slotMin": 90, "slotMax": 99 }
+      }
+    }
+  },
+  "Forest of Focus": {
+    "Normal Weather": {
+      "minLevel": 13,
+      "maxLevel": 18,
+      "encounters": {
+        "Karrablast": { "slotMin": 0, "slotMax": 29 },
+        "Venipede": { "slotMin": 30, "slotMax": 44 },
+        "Foongus": { "slotMin": 60, "slotMax": 74 },
+        "Happiny": { "slotMin": 90, "slotMax": 99 }
+      }
+    },
+    "Overcast": {
+      "minLevel": 13,
+      "maxLevel": 18,
+      "encounters": {
+        "Karrablast": { "slotMin": 0, "slotMax": 29 },
+        "Venipede": { "slotMin": 30, "slotMax": 44 },
+        "Foongus": { "slotMin": 60, "slotMax": 74 },
+        "Pawniard": { "slotMin": 75, "slotMax": 89 },
+        "Happiny": { "slotMin": 90, "slotMax": 99 }
+      }
+    },
+    "Raining": {
+      "minLevel": 13,
+      "maxLevel": 18,
+      "encounters": {
+        "Karrablast": { "slotMin": 0, "slotMax": 29 },
+        "Venipede": { "slotMin": 30, "slotMax": 44 },
+        "Foongus": { "slotMin": 60, "slotMax": 74 },
+        "Corphish": { "slotMin": 75, "slotMax": 89 },
+        "Happiny": { "slotMin": 90, "slotMax": 99 }
+      }
+    },
+    "Thunderstorm": {
+      "minLevel": 13,
+      "maxLevel": 18,
+      "encounters": {
+        "Karrablast": { "slotMin": 0, "slotMax": 29 },
+        "Venipede": { "slotMin": 30, "slotMax": 44 },
+        "Foongus": { "slotMin": 60, "slotMax": 74 },
+        "Corphish": { "slotMin": 75, "slotMax": 89 },
+        "Happiny": { "slotMin": 90, "slotMax": 99 }
+      }
+    },
+    "Intense Sun": {
+      "minLevel": 13,
+      "maxLevel": 18,
+      "encounters": {
+        "Karrablast": { "slotMin": 0, "slotMax": 29 },
+        "Venipede": { "slotMin": 30, "slotMax": 44 },
+        "Foongus": { "slotMin": 60, "slotMax": 74 },
+        "Fomantis": { "slotMin": 75, "slotMax": 89 },
+        "Happiny": { "slotMin": 90, "slotMax": 99 }
+      }
+    },
+    "Snowing": {
+      "minLevel": 13,
+      "maxLevel": 18,
+      "encounters": {
+        "Karrablast": { "slotMin": 0, "slotMax": 29 },
+        "Venipede": { "slotMin": 30, "slotMax": 44 },
+        "Foongus": { "slotMin": 60, "slotMax": 74 },
+        "Happiny": { "slotMin": 90, "slotMax": 99 }
+      }
+    },
+    "Snowstorm": {
+      "minLevel": 13,
+      "maxLevel": 18,
+      "encounters": {
+        "Karrablast": { "slotMin": 0, "slotMax": 29 },
+        "Venipede": { "slotMin": 30, "slotMax": 44 },
+        "Foongus": { "slotMin": 60, "slotMax": 74 },
+        "Happiny": { "slotMin": 90, "slotMax": 99 }
+      }
+    },
+    "Sandstorm": {
+      "minLevel": 13,
+      "maxLevel": 18,
+      "encounters": {
+        "Karrablast": { "slotMin": 0, "slotMax": 29 },
+        "Venipede": { "slotMin": 30, "slotMax": 44 },
+        "Foongus": { "slotMin": 60, "slotMax": 74 },
+        "Silicobra": { "slotMin": 75, "slotMax": 89 },
+        "Happiny": { "slotMin": 90, "slotMax": 99 }
+      }
+    },
+    "Heavy Fog": {
+      "minLevel": 13,
+      "maxLevel": 18,
+      "encounters": {
+        "Karrablast": { "slotMin": 0, "slotMax": 29 },
+        "Venipede": { "slotMin": 30, "slotMax": 44 },
+        "Foongus": { "slotMin": 60, "slotMax": 74 },
+        "Zorua": { "slotMin": 75, "slotMax": 89 },
+        "Happiny": { "slotMin": 90, "slotMax": 99 }
+      }
+    }
+  },
+  "Challenge Beach": {
+    "Normal Weather": {
+      "minLevel": 13,
+      "maxLevel": 18,
+      "encounters": {
+        "Blipbug": { "slotMin": 0, "slotMax": 29 },
+        "Buneary": { "slotMin": 30, "slotMax": 44 },
+        "Jigglypuff": { "slotMin": 60, "slotMax": 74 },
+        "Happiny": { "slotMin": 90, "slotMax": 99 }
+      }
+    },
+    "Overcast": {
+      "minLevel": 13,
+      "maxLevel": 18,
+      "encounters": {
+        "Blipbug": { "slotMin": 0, "slotMax": 29 },
+        "Buneary": { "slotMin": 30, "slotMax": 44 },
+        "Jigglypuff": { "slotMin": 60, "slotMax": 74 },
+        "Inkay": { "slotMin": 75, "slotMax": 89 },
+        "Happiny": { "slotMin": 90, "slotMax": 99 }
+      }
+    },
+    "Raining": {
+      "minLevel": 13,
+      "maxLevel": 18,
+      "encounters": {
+        "Blipbug": { "slotMin": 0, "slotMax": 29 },
+        "Buneary": { "slotMin": 30, "slotMax": 44 },
+        "Jigglypuff": { "slotMin": 60, "slotMax": 74 },
+        "Shinx": { "slotMin": 75, "slotMax": 89 },
+        "Happiny": { "slotMin": 90, "slotMax": 99 }
+      }
+    },
+    "Thunderstorm": {
+      "minLevel": 13,
+      "maxLevel": 18,
+      "encounters": {
+        "Blipbug": { "slotMin": 0, "slotMax": 29 },
+        "Buneary": { "slotMin": 30, "slotMax": 44 },
+        "Jigglypuff": { "slotMin": 60, "slotMax": 74 },
+        "Shinx": { "slotMin": 75, "slotMax": 89 },
+        "Happiny": { "slotMin": 90, "slotMax": 99 }
+      }
+    },
+    "Intense Sun": {
+      "minLevel": 13,
+      "maxLevel": 18,
+      "encounters": {
+        "Blipbug": { "slotMin": 0, "slotMax": 29 },
+        "Buneary": { "slotMin": 30, "slotMax": 44 },
+        "Jigglypuff": { "slotMin": 60, "slotMax": 74 },
+        "Fomantis": { "slotMin": 75, "slotMax": 89 },
+        "Happiny": { "slotMin": 90, "slotMax": 99 }
+      }
+    },
+    "Snowing": {
+      "minLevel": 13,
+      "maxLevel": 18,
+      "encounters": {
+        "Blipbug": { "slotMin": 0, "slotMax": 29 },
+        "Buneary": { "slotMin": 30, "slotMax": 44 },
+        "Jigglypuff": { "slotMin": 60, "slotMax": 74 },
+        "Happiny": { "slotMin": 90, "slotMax": 99 }
+      }
+    },
+    "Snowstorm": {
+      "minLevel": 13,
+      "maxLevel": 18,
+      "encounters": {
+        "Blipbug": { "slotMin": 0, "slotMax": 29 },
+        "Buneary": { "slotMin": 30, "slotMax": 44 },
+        "Jigglypuff": { "slotMin": 60, "slotMax": 74 },
+        "Happiny": { "slotMin": 90, "slotMax": 99 }
+      }
+    },
+    "Sandstorm": {
+      "minLevel": 13,
+      "maxLevel": 18,
+      "encounters": {
+        "Blipbug": { "slotMin": 0, "slotMax": 29 },
+        "Buneary": { "slotMin": 30, "slotMax": 44 },
+        "Jigglypuff": { "slotMin": 60, "slotMax": 74 },
+        "Happiny": { "slotMin": 90, "slotMax": 99 }
+      }
+    },
+    "Heavy Fog": {
+      "minLevel": 13,
+      "maxLevel": 18,
+      "encounters": {
+        "Blipbug": { "slotMin": 0, "slotMax": 29 },
+        "Buneary": { "slotMin": 30, "slotMax": 44 },
+        "Jigglypuff": { "slotMin": 60, "slotMax": 74 },
+        "Happiny": { "slotMin": 90, "slotMax": 99 }
+      }
+    }
+  },
+  "Challenge Road": {
+    "Normal Weather": {
+      "minLevel": 19,
+      "maxLevel": 24,
+      "encounters": {
+        "Blipbug": { "slotMin": 0, "slotMax": 29 },
+        "Roggenrola": { "slotMin": 30, "slotMax": 44 },
+        "Mienfoo": { "slotMin": 60, "slotMax": 74 },
+        "Happiny": { "slotMin": 90, "slotMax": 99 }
+      }
+    },
+    "Overcast": {
+      "minLevel": 19,
+      "maxLevel": 24,
+      "encounters": {
+        "Blipbug": { "slotMin": 0, "slotMax": 29 },
+        "Roggenrola": { "slotMin": 30, "slotMax": 44 },
+        "Mienfoo": { "slotMin": 60, "slotMax": 74 },
+        "Pawniard": { "slotMin": 75, "slotMax": 89 },
+        "Happiny": { "slotMin": 90, "slotMax": 99 }
+      }
+    },
+    "Raining": {
+      "minLevel": 19,
+      "maxLevel": 24,
+      "encounters": {
+        "Blipbug": { "slotMin": 0, "slotMax": 29 },
+        "Roggenrola": { "slotMin": 30, "slotMax": 44 },
+        "Mienfoo": { "slotMin": 60, "slotMax": 74 },
+        "Shinx": { "slotMin": 75, "slotMax": 89 },
+        "Happiny": { "slotMin": 90, "slotMax": 99 }
+      }
+    },
+    "Thunderstorm": {
+      "minLevel": 19,
+      "maxLevel": 24,
+      "encounters": {
+        "Blipbug": { "slotMin": 0, "slotMax": 29 },
+        "Roggenrola": { "slotMin": 30, "slotMax": 44 },
+        "Mienfoo": { "slotMin": 60, "slotMax": 74 },
+        "Shinx": { "slotMin": 75, "slotMax": 89 },
+        "Happiny": { "slotMin": 90, "slotMax": 99 }
+      }
+    },
+    "Intense Sun": {
+      "minLevel": 19,
+      "maxLevel": 24,
+      "encounters": {
+        "Blipbug": { "slotMin": 0, "slotMax": 29 },
+        "Roggenrola": { "slotMin": 30, "slotMax": 44 },
+        "Mienfoo": { "slotMin": 60, "slotMax": 74 },
+        "Fletchling": { "slotMin": 75, "slotMax": 89 },
+        "Happiny": { "slotMin": 90, "slotMax": 99 }
+      }
+    },
+    "Snowing": {
+      "minLevel": 19,
+      "maxLevel": 24,
+      "encounters": {
+        "Blipbug": { "slotMin": 0, "slotMax": 29 },
+        "Roggenrola": { "slotMin": 30, "slotMax": 44 },
+        "Mienfoo": { "slotMin": 60, "slotMax": 74 },
+        "Happiny": { "slotMin": 90, "slotMax": 99 }
+      }
+    },
+    "Snowstorm": {
+      "minLevel": 19,
+      "maxLevel": 24,
+      "encounters": {
+        "Blipbug": { "slotMin": 0, "slotMax": 29 },
+        "Roggenrola": { "slotMin": 30, "slotMax": 44 },
+        "Mienfoo": { "slotMin": 60, "slotMax": 74 },
+        "Happiny": { "slotMin": 90, "slotMax": 99 }
+      }
+    },
+    "Sandstorm": {
+      "minLevel": 19,
+      "maxLevel": 24,
+      "encounters": {
+        "Blipbug": { "slotMin": 0, "slotMax": 29 },
+        "Roggenrola": { "slotMin": 30, "slotMax": 44 },
+        "Mienfoo": { "slotMin": 60, "slotMax": 74 },
+        "Silicobra": { "slotMin": 75, "slotMax": 89 },
+        "Happiny": { "slotMin": 90, "slotMax": 99 }
+      }
+    },
+    "Heavy Fog": {
+      "minLevel": 19,
+      "maxLevel": 24,
+      "encounters": {
+        "Blipbug": { "slotMin": 0, "slotMax": 29 },
+        "Roggenrola": { "slotMin": 30, "slotMax": 44 },
+        "Mienfoo": { "slotMin": 60, "slotMax": 74 },
+        "Happiny": { "slotMin": 90, "slotMax": 99 }
+      }
+    }
+  },
+  "Courageous Cavern": {
+    "All Weather": {
+      "minLevel": 16,
+      "maxLevel": 21,
+      "encounters": { "Chewtle": { "slotMin": 0, "slotMax": 99 } }
+    }
+  },
+  "Loop Lagoon": {
+    "Normal Weather": {
+      "minLevel": 19,
+      "maxLevel": 24,
+      "encounters": {
+        "Blipbug": { "slotMin": 0, "slotMax": 29 },
+        "Clobbopus": { "slotMin": 30, "slotMax": 44 },
+        "Wingull": { "slotMin": 60, "slotMax": 74 },
+        "Happiny": { "slotMin": 90, "slotMax": 99 }
+      }
+    },
+    "Overcast": {
+      "minLevel": 19,
+      "maxLevel": 24,
+      "encounters": {
+        "Blipbug": { "slotMin": 0, "slotMax": 29 },
+        "Clobbopus": { "slotMin": 30, "slotMax": 44 },
+        "Wingull": { "slotMin": 60, "slotMax": 74 },
+        "Inkay": { "slotMin": 75, "slotMax": 89 },
+        "Happiny": { "slotMin": 90, "slotMax": 99 }
+      }
+    },
+    "Raining": {
+      "minLevel": 19,
+      "maxLevel": 24,
+      "encounters": {
+        "Blipbug": { "slotMin": 0, "slotMax": 29 },
+        "Clobbopus": { "slotMin": 30, "slotMax": 44 },
+        "Wingull": { "slotMin": 60, "slotMax": 74 },
+        "Krabby": { "slotMin": 75, "slotMax": 89 },
+        "Happiny": { "slotMin": 90, "slotMax": 99 }
+      }
+    },
+    "Thunderstorm": {
+      "minLevel": 19,
+      "maxLevel": 24,
+      "encounters": {
+        "Blipbug": { "slotMin": 0, "slotMax": 29 },
+        "Clobbopus": { "slotMin": 30, "slotMax": 44 },
+        "Wingull": { "slotMin": 60, "slotMax": 74 },
+        "Krabby": { "slotMin": 75, "slotMax": 89 },
+        "Happiny": { "slotMin": 90, "slotMax": 99 }
+      }
+    },
+    "Intense Sun": {
+      "minLevel": 19,
+      "maxLevel": 24,
+      "encounters": {
+        "Blipbug": { "slotMin": 0, "slotMax": 29 },
+        "Clobbopus": { "slotMin": 30, "slotMax": 44 },
+        "Wingull": { "slotMin": 60, "slotMax": 74 },
+        "Fletchling": { "slotMin": 75, "slotMax": 89 },
+        "Happiny": { "slotMin": 90, "slotMax": 99 }
+      }
+    },
+    "Snowing": {
+      "minLevel": 19,
+      "maxLevel": 24,
+      "encounters": {
+        "Blipbug": { "slotMin": 0, "slotMax": 29 },
+        "Clobbopus": { "slotMin": 30, "slotMax": 44 },
+        "Wingull": { "slotMin": 60, "slotMax": 74 },
+        "Happiny": { "slotMin": 90, "slotMax": 99 }
+      }
+    },
+    "Snowstorm": {
+      "minLevel": 19,
+      "maxLevel": 24,
+      "encounters": {
+        "Blipbug": { "slotMin": 0, "slotMax": 29 },
+        "Clobbopus": { "slotMin": 30, "slotMax": 44 },
+        "Wingull": { "slotMin": 60, "slotMax": 74 },
+        "Happiny": { "slotMin": 90, "slotMax": 99 }
+      }
+    },
+    "Sandstorm": {
+      "minLevel": 19,
+      "maxLevel": 24,
+      "encounters": {
+        "Blipbug": { "slotMin": 0, "slotMax": 29 },
+        "Clobbopus": { "slotMin": 30, "slotMax": 44 },
+        "Wingull": { "slotMin": 60, "slotMax": 74 },
+        "Happiny": { "slotMin": 90, "slotMax": 99 }
+      }
+    },
+    "Heavy Fog": {
+      "minLevel": 19,
+      "maxLevel": 24,
+      "encounters": {
+        "Blipbug": { "slotMin": 0, "slotMax": 29 },
+        "Clobbopus": { "slotMin": 30, "slotMax": 44 },
+        "Wingull": { "slotMin": 60, "slotMax": 74 },
+        "Drifloon": { "slotMin": 75, "slotMax": 89 },
+        "Happiny": { "slotMin": 90, "slotMax": 99 }
+      }
+    }
+  },
+  "Training Lowlands": {
+    "Normal Weather": {
+      "minLevel": 16,
+      "maxLevel": 21,
+      "encounters": {
+        "Blipbug": { "slotMin": 0, "slotMax": 29 },
+        "Lillipup": { "slotMin": 30, "slotMax": 44 },
+        "Happiny": { "slotMin": 90, "slotMax": 99 }
+      }
+    },
+    "Overcast": {
+      "minLevel": 16,
+      "maxLevel": 21,
+      "encounters": {
+        "Blipbug": { "slotMin": 0, "slotMax": 29 },
+        "Lillipup": { "slotMin": 30, "slotMax": 44 },
+        "Inkay": { "slotMin": 75, "slotMax": 89 },
+        "Happiny": { "slotMin": 90, "slotMax": 99 }
+      }
+    },
+    "Raining": {
+      "minLevel": 16,
+      "maxLevel": 21,
+      "encounters": {
+        "Blipbug": { "slotMin": 0, "slotMax": 29 },
+        "Lillipup": { "slotMin": 30, "slotMax": 44 },
+        "Shinx": { "slotMin": 75, "slotMax": 89 },
+        "Happiny": { "slotMin": 90, "slotMax": 99 }
+      }
+    },
+    "Thunderstorm": {
+      "minLevel": 16,
+      "maxLevel": 21,
+      "encounters": {
+        "Blipbug": { "slotMin": 0, "slotMax": 29 },
+        "Lillipup": { "slotMin": 30, "slotMax": 44 },
+        "Shinx": { "slotMin": 75, "slotMax": 89 },
+        "Happiny": { "slotMin": 90, "slotMax": 99 }
+      }
+    },
+    "Intense Sun": {
+      "minLevel": 16,
+      "maxLevel": 21,
+      "encounters": {
+        "Blipbug": { "slotMin": 0, "slotMax": 29 },
+        "Lillipup": { "slotMin": 30, "slotMax": 44 },
+        "Fomantis": { "slotMin": 75, "slotMax": 89 },
+        "Happiny": { "slotMin": 90, "slotMax": 99 }
+      }
+    },
+    "Snowing": {
+      "minLevel": 16,
+      "maxLevel": 21,
+      "encounters": {
+        "Blipbug": { "slotMin": 0, "slotMax": 29 },
+        "Lillipup": { "slotMin": 30, "slotMax": 44 },
+        "Happiny": { "slotMin": 90, "slotMax": 99 }
+      }
+    },
+    "Snowstorm": {
+      "minLevel": 16,
+      "maxLevel": 21,
+      "encounters": {
+        "Blipbug": { "slotMin": 0, "slotMax": 29 },
+        "Lillipup": { "slotMin": 30, "slotMax": 44 },
+        "Happiny": { "slotMin": 90, "slotMax": 99 }
+      }
+    },
+    "Sandstorm": {
+      "minLevel": 16,
+      "maxLevel": 21,
+      "encounters": {
+        "Blipbug": { "slotMin": 0, "slotMax": 29 },
+        "Lillipup": { "slotMin": 30, "slotMax": 44 },
+        "Silicobra": { "slotMin": 75, "slotMax": 89 },
+        "Happiny": { "slotMin": 90, "slotMax": 99 }
+      }
+    },
+    "Heavy Fog": {
+      "minLevel": 16,
+      "maxLevel": 21,
+      "encounters": {
+        "Blipbug": { "slotMin": 0, "slotMax": 29 },
+        "Lillipup": { "slotMin": 30, "slotMax": 44 },
+        "Happiny": { "slotMin": 90, "slotMax": 99 }
+      }
+    }
+  },
+  "Workout Sea": {
+    "All Weather": {
+      "minLevel": 43,
+      "maxLevel": 48,
+      "encounters": {
+        "Blipbug": { "slotMin": 0, "slotMax": 29 },
+        "Ditto": { "slotMin": 30, "slotMax": 44 },
+        "Exeggcute": { "slotMin": 60, "slotMax": 74 },
+        "Happiny": { "slotMin": 90, "slotMax": 99 }
+      }
+    }
+  },
+  "Stepping-Stone Sea": {
+    "All Weather": {
+      "minLevel": 43,
+      "maxLevel": 48,
+      "encounters": {
+        "Blipbug": { "slotMin": 0, "slotMax": 29 },
+        "Skwovet": { "slotMin": 30, "slotMax": 44 },
+        "Exeggcute": { "slotMin": 60, "slotMax": 74 },
+        "Happiny": { "slotMin": 90, "slotMax": 99 }
+      }
+    }
+  },
+  "Insular Sea": {
+    "All Weather": {
+      "minLevel": 43,
+      "maxLevel": 48,
+      "encounters": {
+        "Blipbug": { "slotMin": 0, "slotMax": 29 },
+        "Wingull": { "slotMin": 30, "slotMax": 44 },
+        "Exeggcute": { "slotMin": 60, "slotMax": 74 },
+        "Happiny": { "slotMin": 90, "slotMax": 99 }
+      }
+    }
+  },
+  "Honeycalm Sea": {
+    "All Weather": {
+      "minLevel": 43,
+      "maxLevel": 48,
+      "encounters": { "Tentacool": { "slotMin": 0, "slotMax": 99 } }
+    }
+  },
+  "Honeycalm Island": {
+    "All Weather": {
+      "minLevel": 43,
+      "maxLevel": 48,
+      "encounters": {
+        "Blipbug": { "slotMin": 0, "slotMax": 29 },
+        "Combee": { "slotMin": 30, "slotMax": 44 },
+        "Petilil": { "slotMin": 60, "slotMax": 74 },
+        "Happiny": { "slotMin": 90, "slotMax": 99 }
+      }
+    }
+  },
+  "Slippery Slope": {
+    "Normal Weather": {
+      "minLevel": 60,
+      "maxLevel": 65,
+      "encounters": {
+        "Mime Jr.": { "slotMin": 0, "slotMax": 19 },
+        "Snom": { "slotMin": 20, "slotMax": 39 },
+        "Smoochum": { "slotMin": 40, "slotMax": 59 },
+        "Swinub": { "slotMin": 60, "slotMax": 79 },
+        "Wooloo": { "slotMin": 80, "slotMax": 99 }
+      }
+    },
+    "Overcast": {
+      "minLevel": 60,
+      "maxLevel": 65,
+      "encounters": {
+        "Mime Jr.": { "slotMin": 0, "slotMax": 19 },
+        "Snom": { "slotMin": 20, "slotMax": 39 },
+        "Smoochum": { "slotMin": 40, "slotMax": 59 },
+        "Swinub": { "slotMin": 60, "slotMax": 79 },
+        "Swablu": { "slotMin": 80, "slotMax": 99 }
+      }
+    },
+    "Raining": {
+      "minLevel": 60,
+      "maxLevel": 65,
+      "encounters": { "Mime Jr.": { "slotMin": 0, "slotMax": 99 } }
+    },
+    "Thunderstorm": {
+      "minLevel": 60,
+      "maxLevel": 65,
+      "encounters": { "Mime Jr.": { "slotMin": 0, "slotMax": 99 } }
+    },
+    "Intense Sun": {
+      "minLevel": 60,
+      "maxLevel": 65,
+      "encounters": {
+        "Wooloo": { "slotMin": 0, "slotMax": 17 },
+        "Magby": { "slotMin": 18, "slotMax": 35 },
+        "Mime Jr.": { "slotMin": 36, "slotMax": 51 },
+        "Snom": { "slotMin": 52, "slotMax": 67 },
+        "Smoochum": { "slotMin": 68, "slotMax": 83 },
+        "Swinub": { "slotMin": 84, "slotMax": 99 }
+      }
+    },
+    "Snowing": {
+      "minLevel": 60,
+      "maxLevel": 65,
+      "encounters": {
+        "Mime Jr.": { "slotMin": 0, "slotMax": 24 },
+        "Snom": { "slotMin": 25, "slotMax": 49 },
+        "Smoochum": { "slotMin": 50, "slotMax": 74 },
+        "Swinub": { "slotMin": 75, "slotMax": 99 }
+      }
+    },
+    "Snowstorm": {
+      "minLevel": 60,
+      "maxLevel": 65,
+      "encounters": {
+        "Mime Jr.": { "slotMin": 0, "slotMax": 24 },
+        "Snom": { "slotMin": 25, "slotMax": 49 },
+        "Smoochum": { "slotMin": 50, "slotMax": 74 },
+        "Swinub": { "slotMin": 75, "slotMax": 99 }
+      }
+    },
+    "Sandstorm": {
+      "minLevel": 60,
+      "maxLevel": 65,
+      "encounters": { "Mime Jr.": { "slotMin": 0, "slotMax": 99 } }
+    },
+    "Heavy Fog": {
+      "minLevel": 60,
+      "maxLevel": 65,
+      "encounters": {
+        "Hatenna": { "slotMin": 0, "slotMax": 17 },
+        "Gothita": { "slotMin": 18, "slotMax": 35 },
+        "Mime Jr.": { "slotMin": 36, "slotMax": 51 },
+        "Snom": { "slotMin": 52, "slotMax": 67 },
+        "Smoochum": { "slotMin": 68, "slotMax": 83 },
+        "Swinub": { "slotMin": 84, "slotMax": 99 }
+      }
+    }
+  },
+  "Frostpoint Field": {
+    "Normal Weather": {
+      "minLevel": 60,
+      "maxLevel": 65,
+      "encounters": {
+        "Mime Jr.": { "slotMin": 0, "slotMax": 24 },
+        "Snover": { "slotMin": 25, "slotMax": 49 },
+        "Smoochum": { "slotMin": 50, "slotMax": 74 },
+        "Wooloo": { "slotMin": 75, "slotMax": 99 }
+      }
+    },
+    "Overcast": {
+      "minLevel": 60,
+      "maxLevel": 65,
+      "encounters": {
+        "Mime Jr.": { "slotMin": 0, "slotMax": 24 },
+        "Snover": { "slotMin": 25, "slotMax": 49 },
+        "Smoochum": { "slotMin": 50, "slotMax": 74 },
+        "Swablu": { "slotMin": 75, "slotMax": 99 }
+      }
+    },
+    "Raining": {
+      "minLevel": 60,
+      "maxLevel": 65,
+      "encounters": { "Mime Jr.": { "slotMin": 0, "slotMax": 99 } }
+    },
+    "Thunderstorm": {
+      "minLevel": 60,
+      "maxLevel": 65,
+      "encounters": { "Mime Jr.": { "slotMin": 0, "slotMax": 99 } }
+    },
+    "Intense Sun": {
+      "minLevel": 60,
+      "maxLevel": 65,
+      "encounters": {
+        "Mime Jr.": { "slotMin": 0, "slotMax": 19 },
+        "Snover": { "slotMin": 20, "slotMax": 39 },
+        "Smoochum": { "slotMin": 40, "slotMax": 59 },
+        "Wooloo": { "slotMin": 60, "slotMax": 79 },
+        "Magby": { "slotMin": 80, "slotMax": 99 }
+      }
+    },
+    "Snowing": {
+      "minLevel": 60,
+      "maxLevel": 65,
+      "encounters": {
+        "Mime Jr.": { "slotMin": 0, "slotMax": 24 },
+        "Snover": { "slotMin": 25, "slotMax": 49 },
+        "Smoochum": { "slotMin": 50, "slotMax": 74 },
+        "Vanillite": { "slotMin": 75, "slotMax": 99 }
+      }
+    },
+    "Snowstorm": {
+      "minLevel": 60,
+      "maxLevel": 65,
+      "encounters": {
+        "Mime Jr.": { "slotMin": 0, "slotMax": 24 },
+        "Snover": { "slotMin": 25, "slotMax": 49 },
+        "Smoochum": { "slotMin": 50, "slotMax": 74 },
+        "Vanillite": { "slotMin": 75, "slotMax": 99 }
+      }
+    },
+    "Sandstorm": {
+      "minLevel": 60,
+      "maxLevel": 65,
+      "encounters": { "Mime Jr.": { "slotMin": 0, "slotMax": 99 } }
+    },
+    "Heavy Fog": {
+      "minLevel": 60,
+      "maxLevel": 65,
+      "encounters": {
+        "Mime Jr.": { "slotMin": 0, "slotMax": 19 },
+        "Snover": { "slotMin": 20, "slotMax": 39 },
+        "Smoochum": { "slotMin": 40, "slotMax": 59 },
+        "Hatenna": { "slotMin": 60, "slotMax": 79 },
+        "Gothita": { "slotMin": 80, "slotMax": 99 }
+      }
+    }
+  },
+  "Giant's Bed": {
+    "Normal Weather": {
+      "minLevel": 60,
+      "maxLevel": 65,
+      "encounters": {
+        "Mime Jr.": { "slotMin": 0, "slotMax": 19 },
+        "Nidoran♂": { "slotMin": 20, "slotMax": 39 },
+        "Nidoran♀": { "slotMin": 40, "slotMax": 59 },
+        "Shelmet": { "slotMin": 60, "slotMax": 79 },
+        "Wooloo": { "slotMin": 80, "slotMax": 99 }
+      }
+    },
+    "Overcast": {
+      "minLevel": 60,
+      "maxLevel": 65,
+      "encounters": {
+        "Mime Jr.": { "slotMin": 0, "slotMax": 19 },
+        "Nidoran♂": { "slotMin": 20, "slotMax": 39 },
+        "Nidoran♀": { "slotMin": 40, "slotMax": 59 },
+        "Shelmet": { "slotMin": 60, "slotMax": 79 },
+        "Swablu": { "slotMin": 80, "slotMax": 99 }
+      }
+    },
+    "Raining": {
+      "minLevel": 60,
+      "maxLevel": 65,
+      "encounters": {
+        "Mime Jr.": { "slotMin": 0, "slotMax": 19 },
+        "Nidoran♂": { "slotMin": 20, "slotMax": 39 },
+        "Nidoran♀": { "slotMin": 40, "slotMax": 59 },
+        "Shelmet": { "slotMin": 60, "slotMax": 79 },
+        "Dewpider": { "slotMin": 80, "slotMax": 99 }
+      }
+    },
+    "Thunderstorm": {
+      "minLevel": 60,
+      "maxLevel": 65,
+      "encounters": {
+        "Dewpider": { "slotMin": 0, "slotMax": 17 },
+        "Elekid": { "slotMin": 18, "slotMax": 35 },
+        "Mime Jr.": { "slotMin": 36, "slotMax": 51 },
+        "Nidoran♂": { "slotMin": 52, "slotMax": 67 },
+        "Nidoran♀": { "slotMin": 68, "slotMax": 83 },
+        "Shelmet": { "slotMin": 84, "slotMax": 99 }
+      }
+    },
+    "Intense Sun": {
+      "minLevel": 60,
+      "maxLevel": 65,
+      "encounters": {
+        "Wooloo": { "slotMin": 0, "slotMax": 17 },
+        "Magby": { "slotMin": 18, "slotMax": 35 },
+        "Mime Jr.": { "slotMin": 36, "slotMax": 51 },
+        "Nidoran♂": { "slotMin": 52, "slotMax": 67 },
+        "Nidoran♀": { "slotMin": 68, "slotMax": 83 },
+        "Shelmet": { "slotMin": 84, "slotMax": 99 }
+      }
+    },
+    "Snowing": {
+      "minLevel": 60,
+      "maxLevel": 65,
+      "encounters": {
+        "Mime Jr.": { "slotMin": 0, "slotMax": 19 },
+        "Nidoran♂": { "slotMin": 20, "slotMax": 39 },
+        "Nidoran♀": { "slotMin": 40, "slotMax": 59 },
+        "Shelmet": { "slotMin": 60, "slotMax": 79 },
+        "Vanillite": { "slotMin": 80, "slotMax": 99 }
+      }
+    },
+    "Snowstorm": {
+      "minLevel": 60,
+      "maxLevel": 65,
+      "encounters": {
+        "Mime Jr.": { "slotMin": 0, "slotMax": 19 },
+        "Nidoran♂": { "slotMin": 20, "slotMax": 39 },
+        "Nidoran♀": { "slotMin": 40, "slotMax": 59 },
+        "Shelmet": { "slotMin": 60, "slotMax": 79 },
+        "Vanillite": { "slotMin": 80, "slotMax": 99 }
+      }
+    },
+    "Sandstorm": {
+      "minLevel": 60,
+      "maxLevel": 65,
+      "encounters": { "Mime Jr.": { "slotMin": 0, "slotMax": 99 } }
+    },
+    "Heavy Fog": {
+      "minLevel": 60,
+      "maxLevel": 65,
+      "encounters": {
+        "Mime Jr.": { "slotMin": 0, "slotMax": 19 },
+        "Nidoran♂": { "slotMin": 20, "slotMax": 39 },
+        "Nidoran♀": { "slotMin": 40, "slotMax": 59 },
+        "Shelmet": { "slotMin": 60, "slotMax": 79 },
+        "Hatenna": { "slotMin": 80, "slotMax": 99 }
+      }
+    }
+  },
+  "Old Cemetery": {
+    "Normal Weather": {
+      "minLevel": 60,
+      "maxLevel": 65,
+      "encounters": {
+        "Mime Jr.": { "slotMin": 0, "slotMax": 19 },
+        "Nidoran♂": { "slotMin": 20, "slotMax": 39 },
+        "Nidoran♀": { "slotMin": 40, "slotMax": 59 },
+        "Karrablast": { "slotMin": 60, "slotMax": 79 },
+        "Sinistea": { "slotMin": 80, "slotMax": 98 },
+        "Sinistea-1": { "slotMin": 99, "slotMax": 99 }
+      }
+    },
+    "Overcast": {
+      "minLevel": 60,
+      "maxLevel": 65,
+      "encounters": {
+        "Phantump": { "slotMin": 0, "slotMax": 17 },
+        "Sinistea": { "slotMin": 18, "slotMax": 34 },
+        "Mime Jr.": { "slotMin": 35, "slotMax": 50 },
+        "Nidoran♂": { "slotMin": 51, "slotMax": 66 },
+        "Nidoran♀": { "slotMin": 67, "slotMax": 82 },
+        "Karrablast": { "slotMin": 83, "slotMax": 98 },
+        "Sinistea-1": { "slotMin": 99, "slotMax": 99 }
+      }
+    },
+    "Raining": {
+      "minLevel": 60,
+      "maxLevel": 65,
+      "encounters": {
+        "Dewpider": { "slotMin": 0, "slotMax": 17 },
+        "Sinistea": { "slotMin": 18, "slotMax": 34 },
+        "Mime Jr.": { "slotMin": 35, "slotMax": 50 },
+        "Nidoran♂": { "slotMin": 51, "slotMax": 66 },
+        "Nidoran♀": { "slotMin": 67, "slotMax": 82 },
+        "Karrablast": { "slotMin": 83, "slotMax": 98 },
+        "Sinistea-1": { "slotMin": 99, "slotMax": 99 }
+      }
+    },
+    "Thunderstorm": {
+      "minLevel": 60,
+      "maxLevel": 65,
+      "encounters": {
+        "Dewpider": { "slotMin": 0, "slotMax": 14 },
+        "Elekid": { "slotMin": 15, "slotMax": 29 },
+        "Mime Jr.": { "slotMin": 30, "slotMax": 43 },
+        "Nidoran♂": { "slotMin": 44, "slotMax": 57 },
+        "Nidoran♀": { "slotMin": 58, "slotMax": 71 },
+        "Karrablast": { "slotMin": 72, "slotMax": 85 },
+        "Sinistea": { "slotMin": 86, "slotMax": 98 },
+        "Sinistea-1": { "slotMin": 99, "slotMax": 99 }
+      }
+    },
+    "Intense Sun": {
+      "minLevel": 60,
+      "maxLevel": 65,
+      "encounters": {
+        "Magby": { "slotMin": 0, "slotMax": 17 },
+        "Sinistea": { "slotMin": 18, "slotMax": 34 },
+        "Mime Jr.": { "slotMin": 35, "slotMax": 50 },
+        "Nidoran♂": { "slotMin": 51, "slotMax": 66 },
+        "Nidoran♀": { "slotMin": 67, "slotMax": 82 },
+        "Karrablast": { "slotMin": 83, "slotMax": 98 },
+        "Sinistea-1": { "slotMin": 99, "slotMax": 99 }
+      }
+    },
+    "Snowing": {
+      "minLevel": 60,
+      "maxLevel": 65,
+      "encounters": {
+        "Vanillite": { "slotMin": 0, "slotMax": 17 },
+        "Sinistea": { "slotMin": 18, "slotMax": 34 },
+        "Mime Jr.": { "slotMin": 35, "slotMax": 50 },
+        "Nidoran♂": { "slotMin": 51, "slotMax": 66 },
+        "Nidoran♀": { "slotMin": 67, "slotMax": 82 },
+        "Karrablast": { "slotMin": 83, "slotMax": 98 },
+        "Sinistea-1": { "slotMin": 99, "slotMax": 99 }
+      }
+    },
+    "Snowstorm": {
+      "minLevel": 60,
+      "maxLevel": 65,
+      "encounters": {
+        "Vanillite": { "slotMin": 0, "slotMax": 17 },
+        "Sinistea": { "slotMin": 18, "slotMax": 34 },
+        "Mime Jr.": { "slotMin": 35, "slotMax": 50 },
+        "Nidoran♂": { "slotMin": 51, "slotMax": 66 },
+        "Nidoran♀": { "slotMin": 67, "slotMax": 82 },
+        "Karrablast": { "slotMin": 83, "slotMax": 98 },
+        "Sinistea-1": { "slotMin": 99, "slotMax": 99 }
+      }
+    },
+    "Sandstorm": {
+      "minLevel": 60,
+      "maxLevel": 65,
+      "encounters": { "Mime Jr.": { "slotMin": 0, "slotMax": 99 } }
+    },
+    "Heavy Fog": {
+      "minLevel": 60,
+      "maxLevel": 65,
+      "encounters": {
+        "Hatenna": { "slotMin": 0, "slotMax": 17 },
+        "Sinistea": { "slotMin": 18, "slotMax": 34 },
+        "Mime Jr.": { "slotMin": 35, "slotMax": 50 },
+        "Nidoran♂": { "slotMin": 51, "slotMax": 66 },
+        "Nidoran♀": { "slotMin": 67, "slotMax": 82 },
+        "Karrablast": { "slotMin": 83, "slotMax": 98 },
+        "Sinistea-1": { "slotMin": 99, "slotMax": 99 }
+      }
+    }
+  },
+  "Snowslide Slope": {
+    "Normal Weather": {
+      "minLevel": 60,
+      "maxLevel": 65,
+      "encounters": {
+        "Mime Jr.": { "slotMin": 0, "slotMax": 24 },
+        "Beldum": { "slotMin": 25, "slotMax": 49 },
+        "Snom": { "slotMin": 50, "slotMax": 74 },
+        "Wooloo": { "slotMin": 75, "slotMax": 99 }
+      }
+    },
+    "Overcast": {
+      "minLevel": 60,
+      "maxLevel": 65,
+      "encounters": {
+        "Mime Jr.": { "slotMin": 0, "slotMax": 24 },
+        "Beldum": { "slotMin": 25, "slotMax": 49 },
+        "Snom": { "slotMin": 50, "slotMax": 74 },
+        "Phantump": { "slotMin": 75, "slotMax": 99 }
+      }
+    },
+    "Raining": {
+      "minLevel": 60,
+      "maxLevel": 65,
+      "encounters": { "Mime Jr.": { "slotMin": 0, "slotMax": 99 } }
+    },
+    "Thunderstorm": {
+      "minLevel": 60,
+      "maxLevel": 65,
+      "encounters": { "Mime Jr.": { "slotMin": 0, "slotMax": 99 } }
+    },
+    "Intense Sun": {
+      "minLevel": 60,
+      "maxLevel": 65,
+      "encounters": {
+        "Mime Jr.": { "slotMin": 0, "slotMax": 19 },
+        "Beldum": { "slotMin": 20, "slotMax": 39 },
+        "Snom": { "slotMin": 40, "slotMax": 59 },
+        "Wooloo": { "slotMin": 60, "slotMax": 79 },
+        "Magby": { "slotMin": 80, "slotMax": 99 }
+      }
+    },
+    "Snowing": {
+      "minLevel": 60,
+      "maxLevel": 65,
+      "encounters": {
+        "Mime Jr.": { "slotMin": 0, "slotMax": 24 },
+        "Beldum": { "slotMin": 25, "slotMax": 49 },
+        "Snom": { "slotMin": 50, "slotMax": 74 },
+        "Vanillite": { "slotMin": 75, "slotMax": 99 }
+      }
+    },
+    "Snowstorm": {
+      "minLevel": 60,
+      "maxLevel": 65,
+      "encounters": {
+        "Mime Jr.": { "slotMin": 0, "slotMax": 24 },
+        "Beldum": { "slotMin": 25, "slotMax": 49 },
+        "Snom": { "slotMin": 50, "slotMax": 74 },
+        "Vanillite": { "slotMin": 75, "slotMax": 99 }
+      }
+    },
+    "Sandstorm": {
+      "minLevel": 60,
+      "maxLevel": 65,
+      "encounters": { "Mime Jr.": { "slotMin": 0, "slotMax": 99 } }
+    },
+    "Heavy Fog": {
+      "minLevel": 60,
+      "maxLevel": 65,
+      "encounters": {
+        "Snom": { "slotMin": 0, "slotMax": 33 },
+        "Mime Jr.": { "slotMin": 34, "slotMax": 66 },
+        "Beldum": { "slotMin": 67, "slotMax": 99 }
+      }
+    }
+  },
+  "Giant's Foot": {
+    "Normal Weather": {
+      "minLevel": 60,
+      "maxLevel": 65,
+      "encounters": {
+        "Mime Jr.": { "slotMin": 0, "slotMax": 24 },
+        "Cufant": { "slotMin": 25, "slotMax": 49 },
+        "Bronzor": { "slotMin": 50, "slotMax": 74 },
+        "Sizzlipede": { "slotMin": 75, "slotMax": 99 }
+      }
+    },
+    "Overcast": {
+      "minLevel": 60,
+      "maxLevel": 65,
+      "encounters": {
+        "Mime Jr.": { "slotMin": 0, "slotMax": 24 },
+        "Cufant": { "slotMin": 25, "slotMax": 49 },
+        "Bronzor": { "slotMin": 50, "slotMax": 74 },
+        "Phantump": { "slotMin": 75, "slotMax": 99 }
+      }
+    },
+    "Raining": {
+      "minLevel": 60,
+      "maxLevel": 65,
+      "encounters": {
+        "Mime Jr.": { "slotMin": 0, "slotMax": 24 },
+        "Cufant": { "slotMin": 25, "slotMax": 49 },
+        "Bronzor": { "slotMin": 50, "slotMax": 74 },
+        "Dewpider": { "slotMin": 75, "slotMax": 99 }
+      }
+    },
+    "Thunderstorm": {
+      "minLevel": 60,
+      "maxLevel": 65,
+      "encounters": {
+        "Mime Jr.": { "slotMin": 0, "slotMax": 19 },
+        "Cufant": { "slotMin": 20, "slotMax": 39 },
+        "Bronzor": { "slotMin": 40, "slotMax": 59 },
+        "Dewpider": { "slotMin": 60, "slotMax": 79 },
+        "Elekid": { "slotMin": 80, "slotMax": 99 }
+      }
+    },
+    "Intense Sun": {
+      "minLevel": 60,
+      "maxLevel": 65,
+      "encounters": {
+        "Mime Jr.": { "slotMin": 0, "slotMax": 19 },
+        "Cufant": { "slotMin": 20, "slotMax": 39 },
+        "Bronzor": { "slotMin": 40, "slotMax": 59 },
+        "Sizzlipede": { "slotMin": 60, "slotMax": 79 },
+        "Magby": { "slotMin": 80, "slotMax": 99 }
+      }
+    },
+    "Snowing": {
+      "minLevel": 60,
+      "maxLevel": 65,
+      "encounters": {
+        "Mime Jr.": { "slotMin": 0, "slotMax": 24 },
+        "Cufant": { "slotMin": 25, "slotMax": 49 },
+        "Bronzor": { "slotMin": 50, "slotMax": 74 },
+        "Vanillite": { "slotMin": 75, "slotMax": 99 }
+      }
+    },
+    "Snowstorm": {
+      "minLevel": 60,
+      "maxLevel": 65,
+      "encounters": {
+        "Mime Jr.": { "slotMin": 0, "slotMax": 24 },
+        "Cufant": { "slotMin": 25, "slotMax": 49 },
+        "Bronzor": { "slotMin": 50, "slotMax": 74 },
+        "Vanillite": { "slotMin": 75, "slotMax": 99 }
+      }
+    },
+    "Sandstorm": {
+      "minLevel": 60,
+      "maxLevel": 65,
+      "encounters": { "Mime Jr.": { "slotMin": 0, "slotMax": 99 } }
+    },
+    "Heavy Fog": {
+      "minLevel": 60,
+      "maxLevel": 65,
+      "encounters": {
+        "Mime Jr.": { "slotMin": 0, "slotMax": 24 },
+        "Cufant": { "slotMin": 25, "slotMax": 49 },
+        "Bronzor": { "slotMin": 50, "slotMax": 74 },
+        "Hatenna": { "slotMin": 75, "slotMax": 99 }
+      }
+    }
+  },
+  "Frigid Sea": {
+    "Normal Weather": {
+      "minLevel": 60,
+      "maxLevel": 65,
+      "encounters": {
+        "Bergmite": { "slotMin": 0, "slotMax": 33 },
+        "Mime Jr.": { "slotMin": 34, "slotMax": 66 },
+        "Spheal": { "slotMin": 67, "slotMax": 99 }
+      }
+    },
+    "Overcast": {
+      "minLevel": 60,
+      "maxLevel": 65,
+      "encounters": {
+        "Bergmite": { "slotMin": 0, "slotMax": 33 },
+        "Mime Jr.": { "slotMin": 34, "slotMax": 66 },
+        "Spheal": { "slotMin": 67, "slotMax": 99 }
+      }
+    },
+    "Raining": {
+      "minLevel": 60,
+      "maxLevel": 65,
+      "encounters": {
+        "Mime Jr.": { "slotMin": 0, "slotMax": 24 },
+        "Spheal": { "slotMin": 25, "slotMax": 49 },
+        "Bergmite": { "slotMin": 50, "slotMax": 74 },
+        "Dewpider": { "slotMin": 75, "slotMax": 99 }
+      }
+    },
+    "Thunderstorm": {
+      "minLevel": 60,
+      "maxLevel": 65,
+      "encounters": {
+        "Mime Jr.": { "slotMin": 0, "slotMax": 19 },
+        "Spheal": { "slotMin": 20, "slotMax": 39 },
+        "Bergmite": { "slotMin": 40, "slotMax": 59 },
+        "Dewpider": { "slotMin": 60, "slotMax": 79 },
+        "Elekid": { "slotMin": 80, "slotMax": 99 }
+      }
+    },
+    "Intense Sun": {
+      "minLevel": 60,
+      "maxLevel": 65,
+      "encounters": { "Mime Jr.": { "slotMin": 0, "slotMax": 99 } }
+    },
+    "Snowing": {
+      "minLevel": 60,
+      "maxLevel": 65,
+      "encounters": {
+        "Mime Jr.": { "slotMin": 0, "slotMax": 24 },
+        "Spheal": { "slotMin": 25, "slotMax": 49 },
+        "Bergmite": { "slotMin": 50, "slotMax": 74 },
+        "Vanillite": { "slotMin": 75, "slotMax": 99 }
+      }
+    },
+    "Snowstorm": {
+      "minLevel": 60,
+      "maxLevel": 65,
+      "encounters": {
+        "Mime Jr.": { "slotMin": 0, "slotMax": 24 },
+        "Spheal": { "slotMin": 25, "slotMax": 49 },
+        "Bergmite": { "slotMin": 50, "slotMax": 74 },
+        "Vanillite": { "slotMin": 75, "slotMax": 99 }
+      }
+    },
+    "Sandstorm": {
+      "minLevel": 60,
+      "maxLevel": 65,
+      "encounters": { "Mime Jr.": { "slotMin": 0, "slotMax": 99 } }
+    },
+    "Heavy Fog": {
+      "minLevel": 60,
+      "maxLevel": 65,
+      "encounters": {
+        "Mime Jr.": { "slotMin": 0, "slotMax": 24 },
+        "Spheal": { "slotMin": 25, "slotMax": 49 },
+        "Bergmite": { "slotMin": 50, "slotMax": 74 },
+        "Hatenna": { "slotMin": 75, "slotMax": 99 }
+      }
+    }
+  },
+  "Three-Point Pass": {
+    "Normal Weather": {
+      "minLevel": 60,
+      "maxLevel": 65,
+      "encounters": {
+        "Mime Jr.": { "slotMin": 0, "slotMax": 24 },
+        "Bronzor": { "slotMin": 25, "slotMax": 49 },
+        "Bergmite": { "slotMin": 50, "slotMax": 74 },
+        "Wooloo": { "slotMin": 75, "slotMax": 99 }
+      }
+    },
+    "Overcast": {
+      "minLevel": 60,
+      "maxLevel": 65,
+      "encounters": {
+        "Mime Jr.": { "slotMin": 0, "slotMax": 24 },
+        "Bronzor": { "slotMin": 25, "slotMax": 49 },
+        "Bergmite": { "slotMin": 50, "slotMax": 74 },
+        "Phantump": { "slotMin": 75, "slotMax": 99 }
+      }
+    },
+    "Raining": {
+      "minLevel": 60,
+      "maxLevel": 65,
+      "encounters": {
+        "Mime Jr.": { "slotMin": 0, "slotMax": 24 },
+        "Bronzor": { "slotMin": 25, "slotMax": 49 },
+        "Bergmite": { "slotMin": 50, "slotMax": 74 },
+        "Dewpider": { "slotMin": 75, "slotMax": 99 }
+      }
+    },
+    "Thunderstorm": {
+      "minLevel": 60,
+      "maxLevel": 65,
+      "encounters": {
+        "Mime Jr.": { "slotMin": 0, "slotMax": 19 },
+        "Bronzor": { "slotMin": 20, "slotMax": 39 },
+        "Bergmite": { "slotMin": 40, "slotMax": 59 },
+        "Dewpider": { "slotMin": 60, "slotMax": 79 },
+        "Elekid": { "slotMin": 80, "slotMax": 99 }
+      }
+    },
+    "Intense Sun": {
+      "minLevel": 60,
+      "maxLevel": 65,
+      "encounters": {
+        "Mime Jr.": { "slotMin": 0, "slotMax": 19 },
+        "Bronzor": { "slotMin": 20, "slotMax": 39 },
+        "Bergmite": { "slotMin": 40, "slotMax": 59 },
+        "Wooloo": { "slotMin": 60, "slotMax": 79 },
+        "Magby": { "slotMin": 80, "slotMax": 99 }
+      }
+    },
+    "Snowing": {
+      "minLevel": 60,
+      "maxLevel": 65,
+      "encounters": {
+        "Mime Jr.": { "slotMin": 0, "slotMax": 24 },
+        "Bronzor": { "slotMin": 25, "slotMax": 49 },
+        "Bergmite": { "slotMin": 50, "slotMax": 74 },
+        "Vanillite": { "slotMin": 75, "slotMax": 99 }
+      }
+    },
+    "Snowstorm": {
+      "minLevel": 60,
+      "maxLevel": 65,
+      "encounters": {
+        "Mime Jr.": { "slotMin": 0, "slotMax": 24 },
+        "Bronzor": { "slotMin": 25, "slotMax": 49 },
+        "Bergmite": { "slotMin": 50, "slotMax": 74 },
+        "Vanillite": { "slotMin": 75, "slotMax": 99 }
+      }
+    },
+    "Sandstorm": {
+      "minLevel": 60,
+      "maxLevel": 65,
+      "encounters": { "Mime Jr.": { "slotMin": 0, "slotMax": 99 } }
+    },
+    "Heavy Fog": {
+      "minLevel": 60,
+      "maxLevel": 65,
+      "encounters": {
+        "Mime Jr.": { "slotMin": 0, "slotMax": 24 },
+        "Bronzor": { "slotMin": 25, "slotMax": 49 },
+        "Bergmite": { "slotMin": 50, "slotMax": 74 },
+        "Hatenna": { "slotMin": 75, "slotMax": 99 }
+      }
+    }
+  },
+  "Ballimere Lake": {
+    "Normal Weather": {
+      "minLevel": 60,
+      "maxLevel": 65,
+      "encounters": {
+        "Mime Jr.": { "slotMin": 0, "slotMax": 18 },
+        "Skwovet": { "slotMin": 19, "slotMax": 37 },
+        "Yamper": { "slotMin": 38, "slotMax": 56 },
+        "Gossifleur": { "slotMin": 57, "slotMax": 75 },
+        "Cottonee": { "slotMin": 76, "slotMax": 94 },
+        "Munchlax": { "slotMin": 95, "slotMax": 99 }
+      }
+    },
+    "Overcast": {
+      "minLevel": 60,
+      "maxLevel": 65,
+      "encounters": {
+        "Skwovet": { "slotMin": 0, "slotMax": 31 },
+        "Yamper": { "slotMin": 32, "slotMax": 63 },
+        "Mime Jr.": { "slotMin": 64, "slotMax": 94 },
+        "Munchlax": { "slotMin": 95, "slotMax": 99 }
+      }
+    },
+    "Raining": {
+      "minLevel": 60,
+      "maxLevel": 65,
+      "encounters": {
+        "Mime Jr.": { "slotMin": 0, "slotMax": 18 },
+        "Skwovet": { "slotMin": 19, "slotMax": 37 },
+        "Yamper": { "slotMin": 38, "slotMax": 56 },
+        "Dewpider": { "slotMin": 57, "slotMax": 75 },
+        "Cottonee": { "slotMin": 76, "slotMax": 94 },
+        "Munchlax": { "slotMin": 95, "slotMax": 99 }
+      }
+    },
+    "Thunderstorm": {
+      "minLevel": 60,
+      "maxLevel": 65,
+      "encounters": {
+        "Mime Jr.": { "slotMin": 0, "slotMax": 18 },
+        "Skwovet": { "slotMin": 19, "slotMax": 37 },
+        "Yamper": { "slotMin": 38, "slotMax": 56 },
+        "Dewpider": { "slotMin": 57, "slotMax": 75 },
+        "Elekid": { "slotMin": 76, "slotMax": 94 },
+        "Munchlax": { "slotMin": 95, "slotMax": 99 }
+      }
+    },
+    "Intense Sun": {
+      "minLevel": 60,
+      "maxLevel": 65,
+      "encounters": {
+        "Mime Jr.": { "slotMin": 0, "slotMax": 18 },
+        "Skwovet": { "slotMin": 19, "slotMax": 37 },
+        "Yamper": { "slotMin": 38, "slotMax": 56 },
+        "Gossifleur": { "slotMin": 57, "slotMax": 75 },
+        "Magby": { "slotMin": 76, "slotMax": 94 },
+        "Munchlax": { "slotMin": 95, "slotMax": 99 }
+      }
+    },
+    "Snowing": {
+      "minLevel": 60,
+      "maxLevel": 65,
+      "encounters": {
+        "Skwovet": { "slotMin": 0, "slotMax": 23 },
+        "Yamper": { "slotMin": 24, "slotMax": 47 },
+        "Vanillite": { "slotMin": 48, "slotMax": 71 },
+        "Mime Jr.": { "slotMin": 72, "slotMax": 94 },
+        "Munchlax": { "slotMin": 95, "slotMax": 99 }
+      }
+    },
+    "Snowstorm": {
+      "minLevel": 60,
+      "maxLevel": 65,
+      "encounters": { "Mime Jr.": { "slotMin": 0, "slotMax": 99 } }
+    },
+    "Sandstorm": {
+      "minLevel": 60,
+      "maxLevel": 65,
+      "encounters": { "Mime Jr.": { "slotMin": 0, "slotMax": 99 } }
+    },
+    "Heavy Fog": {
+      "minLevel": 60,
+      "maxLevel": 65,
+      "encounters": {
+        "Skwovet": { "slotMin": 0, "slotMax": 23 },
+        "Yamper": { "slotMin": 24, "slotMax": 47 },
+        "Hatenna": { "slotMin": 48, "slotMax": 71 },
+        "Mime Jr.": { "slotMin": 72, "slotMax": 94 },
+        "Munchlax": { "slotMin": 95, "slotMax": 99 }
+      }
+    }
+  }
+}

@@ -1,0 +1,7040 @@
+{
+  "Bulbasaur": {
+    "eggMoveCount": 6,
+    "eggMoves": [
+      "Skull Bash",
+      "Petal Dance",
+      "Curse",
+      "Ingrain",
+      "Nature Power",
+      "Toxic"
+    ],
+    "hasItems": false,
+    "items": []
+  },
+  "Ivysaur": {
+    "eggMoveCount": 6,
+    "eggMoves": [
+      "Skull Bash",
+      "Petal Dance",
+      "Curse",
+      "Ingrain",
+      "Nature Power",
+      "Toxic"
+    ],
+    "hasItems": false,
+    "items": []
+  },
+  "Venusaur": {
+    "eggMoveCount": 6,
+    "eggMoves": [
+      "Skull Bash",
+      "Petal Dance",
+      "Curse",
+      "Ingrain",
+      "Nature Power",
+      "Toxic"
+    ],
+    "hasItems": false,
+    "items": []
+  },
+  "Charmander": {
+    "eggMoveCount": 8,
+    "eggMoves": [
+      "Belly Drum",
+      "Ancient Power",
+      "Bite",
+      "Dragon Rush",
+      "Metal Claw",
+      "Counter",
+      "Wing Attack",
+      "Dragon Tail"
+    ],
+    "hasItems": false,
+    "items": []
+  },
+  "Charmeleon": {
+    "eggMoveCount": 8,
+    "eggMoves": [
+      "Belly Drum",
+      "Ancient Power",
+      "Bite",
+      "Dragon Rush",
+      "Metal Claw",
+      "Counter",
+      "Wing Attack",
+      "Dragon Tail"
+    ],
+    "hasItems": false,
+    "items": []
+  },
+  "Charizard": {
+    "eggMoveCount": 8,
+    "eggMoves": [
+      "Belly Drum",
+      "Ancient Power",
+      "Bite",
+      "Dragon Rush",
+      "Metal Claw",
+      "Counter",
+      "Wing Attack",
+      "Dragon Tail"
+    ],
+    "hasItems": false,
+    "items": []
+  },
+  "Squirtle": {
+    "eggMoveCount": 10,
+    "eggMoves": [
+      "Mirror Coat",
+      "Haze",
+      "Mist",
+      "Flail",
+      "Yawn",
+      "Fake Out",
+      "Aqua Ring",
+      "Aqua Jet",
+      "Water Spout",
+      "Life Dew"
+    ],
+    "hasItems": false,
+    "items": []
+  },
+  "Wartortle": {
+    "eggMoveCount": 10,
+    "eggMoves": [
+      "Mirror Coat",
+      "Haze",
+      "Mist",
+      "Flail",
+      "Yawn",
+      "Fake Out",
+      "Aqua Ring",
+      "Aqua Jet",
+      "Water Spout",
+      "Life Dew"
+    ],
+    "hasItems": false,
+    "items": []
+  },
+  "Blastoise": {
+    "eggMoveCount": 10,
+    "eggMoves": [
+      "Mirror Coat",
+      "Haze",
+      "Mist",
+      "Flail",
+      "Yawn",
+      "Fake Out",
+      "Aqua Ring",
+      "Aqua Jet",
+      "Water Spout",
+      "Life Dew"
+    ],
+    "hasItems": false,
+    "items": []
+  },
+  "Caterpie": {
+    "eggMoveCount": 0,
+    "eggMoves": [],
+    "hasItems": false,
+    "items": []
+  },
+  "Metapod": {
+    "eggMoveCount": 0,
+    "eggMoves": [],
+    "hasItems": false,
+    "items": []
+  },
+  "Butterfree": {
+    "eggMoveCount": 0,
+    "eggMoves": [],
+    "hasItems": true,
+    "items": ["None", "Silver Powder", "None"]
+  },
+  "Pikachu": {
+    "eggMoveCount": 7,
+    "eggMoves": [
+      "Present",
+      "Wish",
+      "Charge",
+      "Fake Out",
+      "Tickle",
+      "Flail",
+      "Disarming Voice"
+    ],
+    "hasItems": true,
+    "items": ["None", "Light Ball", "None"]
+  },
+  "Pikachu-1": {
+    "eggMoveCount": 0,
+    "eggMoves": [],
+    "hasItems": true,
+    "items": ["None", "Light Ball", "None"]
+  },
+  "Pikachu-2": {
+    "eggMoveCount": 0,
+    "eggMoves": [],
+    "hasItems": true,
+    "items": ["None", "Light Ball", "None"]
+  },
+  "Pikachu-3": {
+    "eggMoveCount": 0,
+    "eggMoves": [],
+    "hasItems": true,
+    "items": ["None", "Light Ball", "None"]
+  },
+  "Pikachu-4": {
+    "eggMoveCount": 0,
+    "eggMoves": [],
+    "hasItems": true,
+    "items": ["None", "Light Ball", "None"]
+  },
+  "Pikachu-5": {
+    "eggMoveCount": 0,
+    "eggMoves": [],
+    "hasItems": true,
+    "items": ["None", "Light Ball", "None"]
+  },
+  "Pikachu-6": {
+    "eggMoveCount": 0,
+    "eggMoves": [],
+    "hasItems": true,
+    "items": ["None", "Light Ball", "None"]
+  },
+  "Pikachu-7": {
+    "eggMoveCount": 0,
+    "eggMoves": [],
+    "hasItems": true,
+    "items": ["None", "Light Ball", "None"]
+  },
+  "Pikachu-9": {
+    "eggMoveCount": 0,
+    "eggMoves": [],
+    "hasItems": true,
+    "items": ["None", "Light Ball", "None"]
+  },
+  "Raichu": {
+    "eggMoveCount": 0,
+    "eggMoves": [],
+    "hasItems": false,
+    "items": []
+  },
+  "Raichu-1": {
+    "eggMoveCount": 0,
+    "eggMoves": [],
+    "hasItems": false,
+    "items": []
+  },
+  "Sandshrew": {
+    "eggMoveCount": 6,
+    "eggMoves": [
+      "Counter",
+      "Flail",
+      "Mud-Slap",
+      "Night Slash",
+      "Metal Claw",
+      "Hone Claws"
+    ],
+    "hasItems": true,
+    "items": ["None", "Grip Claw", "None"]
+  },
+  "Sandshrew-1": {
+    "eggMoveCount": 6,
+    "eggMoves": [
+      "Counter",
+      "Crush Claw",
+      "Flail",
+      "Curse",
+      "Night Slash",
+      "Hone Claws"
+    ],
+    "hasItems": true,
+    "items": ["None", "Grip Claw", "None"]
+  },
+  "Sandslash": {
+    "eggMoveCount": 6,
+    "eggMoves": [
+      "Counter",
+      "Flail",
+      "Mud-Slap",
+      "Night Slash",
+      "Metal Claw",
+      "Hone Claws"
+    ],
+    "hasItems": true,
+    "items": ["None", "Grip Claw", "None"]
+  },
+  "Sandslash-1": {
+    "eggMoveCount": 6,
+    "eggMoves": [
+      "Counter",
+      "Crush Claw",
+      "Flail",
+      "Curse",
+      "Night Slash",
+      "Hone Claws"
+    ],
+    "hasItems": true,
+    "items": ["None", "Grip Claw", "None"]
+  },
+  "Nidoran♀": {
+    "eggMoveCount": 7,
+    "eggMoves": [
+      "Counter",
+      "Disable",
+      "Poison Tail",
+      "Skull Bash",
+      "Supersonic",
+      "Take Down",
+      "Poison Fang"
+    ],
+    "hasItems": false,
+    "items": []
+  },
+  "Nidorina": {
+    "eggMoveCount": 7,
+    "eggMoves": [
+      "Counter",
+      "Disable",
+      "Poison Tail",
+      "Skull Bash",
+      "Supersonic",
+      "Take Down",
+      "Poison Fang"
+    ],
+    "hasItems": false,
+    "items": []
+  },
+  "Nidoqueen": {
+    "eggMoveCount": 7,
+    "eggMoves": [
+      "Counter",
+      "Disable",
+      "Poison Tail",
+      "Skull Bash",
+      "Supersonic",
+      "Take Down",
+      "Poison Fang"
+    ],
+    "hasItems": false,
+    "items": []
+  },
+  "Nidoran♂": {
+    "eggMoveCount": 10,
+    "eggMoves": [
+      "Confusion",
+      "Counter",
+      "Disable",
+      "Head Smash",
+      "Poison Tail",
+      "Sucker Punch",
+      "Supersonic",
+      "Take Down",
+      "Horn Drill",
+      "Thrash"
+    ],
+    "hasItems": false,
+    "items": []
+  },
+  "Nidorino": {
+    "eggMoveCount": 10,
+    "eggMoves": [
+      "Confusion",
+      "Counter",
+      "Disable",
+      "Head Smash",
+      "Poison Tail",
+      "Sucker Punch",
+      "Supersonic",
+      "Take Down",
+      "Horn Drill",
+      "Thrash"
+    ],
+    "hasItems": false,
+    "items": []
+  },
+  "Nidoking": {
+    "eggMoveCount": 10,
+    "eggMoves": [
+      "Confusion",
+      "Counter",
+      "Disable",
+      "Head Smash",
+      "Poison Tail",
+      "Sucker Punch",
+      "Supersonic",
+      "Take Down",
+      "Horn Drill",
+      "Thrash"
+    ],
+    "hasItems": false,
+    "items": []
+  },
+  "Clefairy": {
+    "eggMoveCount": 5,
+    "eggMoves": ["Present", "Wish", "Aromatherapy", "Tickle", "Heal Pulse"],
+    "hasItems": true,
+    "items": ["None", "Moon Stone", "None"]
+  },
+  "Clefable": {
+    "eggMoveCount": 0,
+    "eggMoves": [],
+    "hasItems": true,
+    "items": ["None", "Moon Stone", "None"]
+  },
+  "Vulpix": {
+    "eggMoveCount": 7,
+    "eggMoves": [
+      "Hypnosis",
+      "Flail",
+      "Howl",
+      "Memento",
+      "Baby-Doll Eyes",
+      "Roar",
+      "Flame Charge"
+    ],
+    "hasItems": true,
+    "items": ["None", "Charcoal", "None"]
+  },
+  "Vulpix-1": {
+    "eggMoveCount": 7,
+    "eggMoves": [
+      "Freeze-Dry",
+      "Hypnosis",
+      "Flail",
+      "Howl",
+      "Moonblast",
+      "Baby-Doll Eyes",
+      "Roar"
+    ],
+    "hasItems": true,
+    "items": ["None", "Snowball", "None"]
+  },
+  "Ninetales": {
+    "eggMoveCount": 7,
+    "eggMoves": [
+      "Hypnosis",
+      "Flail",
+      "Howl",
+      "Memento",
+      "Baby-Doll Eyes",
+      "Roar",
+      "Flame Charge"
+    ],
+    "hasItems": true,
+    "items": ["None", "Charcoal", "None"]
+  },
+  "Ninetales-1": {
+    "eggMoveCount": 7,
+    "eggMoves": [
+      "Freeze-Dry",
+      "Hypnosis",
+      "Flail",
+      "Howl",
+      "Moonblast",
+      "Baby-Doll Eyes",
+      "Roar"
+    ],
+    "hasItems": true,
+    "items": ["None", "Snowball", "None"]
+  },
+  "Jigglypuff": {
+    "eggMoveCount": 8,
+    "eggMoves": [
+      "Covet",
+      "Gravity",
+      "Heal Pulse",
+      "Last Resort",
+      "Perish Song",
+      "Present",
+      "Wish",
+      "Rollout"
+    ],
+    "hasItems": true,
+    "items": ["None", "Moon Stone", "None"]
+  },
+  "Wigglytuff": {
+    "eggMoveCount": 0,
+    "eggMoves": [],
+    "hasItems": true,
+    "items": ["None", "Moon Stone", "None"]
+  },
+  "Zubat": {
+    "eggMoveCount": 7,
+    "eggMoves": [
+      "Curse",
+      "Defog",
+      "Gust",
+      "Hypnosis",
+      "Quick Attack",
+      "Whirlwind",
+      "Wing Attack"
+    ],
+    "hasItems": false,
+    "items": []
+  },
+  "Golbat": {
+    "eggMoveCount": 7,
+    "eggMoves": [
+      "Curse",
+      "Defog",
+      "Gust",
+      "Hypnosis",
+      "Quick Attack",
+      "Whirlwind",
+      "Wing Attack"
+    ],
+    "hasItems": false,
+    "items": []
+  },
+  "Oddish": {
+    "eggMoveCount": 10,
+    "eggMoves": [
+      "Razor Leaf",
+      "Flail",
+      "Synthesis",
+      "Ingrain",
+      "Tickle",
+      "Teeter Dance",
+      "Nature Power",
+      "After You",
+      "Strength Sap",
+      "Leech Seed"
+    ],
+    "hasItems": true,
+    "items": ["None", "Absorb Bulb", "None"]
+  },
+  "Gloom": {
+    "eggMoveCount": 10,
+    "eggMoves": [
+      "Razor Leaf",
+      "Flail",
+      "Synthesis",
+      "Ingrain",
+      "Tickle",
+      "Teeter Dance",
+      "Nature Power",
+      "After You",
+      "Strength Sap",
+      "Leech Seed"
+    ],
+    "hasItems": true,
+    "items": ["None", "Absorb Bulb", "None"]
+  },
+  "Vileplume": {
+    "eggMoveCount": 10,
+    "eggMoves": [
+      "Razor Leaf",
+      "Flail",
+      "Synthesis",
+      "Ingrain",
+      "Tickle",
+      "Teeter Dance",
+      "Nature Power",
+      "After You",
+      "Strength Sap",
+      "Leech Seed"
+    ],
+    "hasItems": true,
+    "items": ["None", "Absorb Bulb", "None"]
+  },
+  "Diglett": {
+    "eggMoveCount": 5,
+    "eggMoves": [
+      "Ancient Power",
+      "Headbutt",
+      "Final Gambit",
+      "Memento",
+      "Hone Claws"
+    ],
+    "hasItems": true,
+    "items": ["None", "Soft Sand", "None"]
+  },
+  "Diglett-1": {
+    "eggMoveCount": 7,
+    "eggMoves": [
+      "Metal Sound",
+      "Ancient Power",
+      "Thrash",
+      "Headbutt",
+      "Final Gambit",
+      "Memento",
+      "Hone Claws"
+    ],
+    "hasItems": true,
+    "items": ["None", "Soft Sand", "None"]
+  },
+  "Dugtrio": {
+    "eggMoveCount": 5,
+    "eggMoves": [
+      "Ancient Power",
+      "Headbutt",
+      "Final Gambit",
+      "Memento",
+      "Hone Claws"
+    ],
+    "hasItems": true,
+    "items": ["None", "Soft Sand", "None"]
+  },
+  "Dugtrio-1": {
+    "eggMoveCount": 7,
+    "eggMoves": [
+      "Metal Sound",
+      "Ancient Power",
+      "Thrash",
+      "Headbutt",
+      "Final Gambit",
+      "Memento",
+      "Hone Claws"
+    ],
+    "hasItems": true,
+    "items": ["None", "Soft Sand", "None"]
+  },
+  "Meowth": {
+    "eggMoveCount": 6,
+    "eggMoves": [
+      "Spite",
+      "Hypnosis",
+      "Last Resort",
+      "Flail",
+      "Tail Whip",
+      "Covet"
+    ],
+    "hasItems": true,
+    "items": ["None", "Quick Claw", "None"]
+  },
+  "Meowth-1": {
+    "eggMoveCount": 6,
+    "eggMoves": [
+      "Spite",
+      "Hypnosis",
+      "Parting Shot",
+      "Flail",
+      "Flatter",
+      "Covet"
+    ],
+    "hasItems": true,
+    "items": ["None", "Quick Claw", "None"]
+  },
+  "Meowth-2": {
+    "eggMoveCount": 6,
+    "eggMoves": [
+      "Spite",
+      "Double-Edge",
+      "Curse",
+      "Flail",
+      "Night Slash",
+      "Covet"
+    ],
+    "hasItems": false,
+    "items": []
+  },
+  "Persian": {
+    "eggMoveCount": 6,
+    "eggMoves": [
+      "Spite",
+      "Hypnosis",
+      "Last Resort",
+      "Flail",
+      "Tail Whip",
+      "Covet"
+    ],
+    "hasItems": true,
+    "items": ["None", "Quick Claw", "None"]
+  },
+  "Persian-1": {
+    "eggMoveCount": 6,
+    "eggMoves": [
+      "Spite",
+      "Hypnosis",
+      "Parting Shot",
+      "Flail",
+      "Flatter",
+      "Covet"
+    ],
+    "hasItems": true,
+    "items": ["None", "Quick Claw", "None"]
+  },
+  "Psyduck": {
+    "eggMoveCount": 7,
+    "eggMoves": [
+      "Clear Smog",
+      "Confuse Ray",
+      "Cross Chop",
+      "Hypnosis",
+      "Psybeam",
+      "Simple Beam",
+      "Yawn"
+    ],
+    "hasItems": false,
+    "items": []
+  },
+  "Golduck": {
+    "eggMoveCount": 7,
+    "eggMoves": [
+      "Clear Smog",
+      "Confuse Ray",
+      "Cross Chop",
+      "Hypnosis",
+      "Psybeam",
+      "Simple Beam",
+      "Yawn"
+    ],
+    "hasItems": false,
+    "items": []
+  },
+  "Growlithe": {
+    "eggMoveCount": 5,
+    "eggMoves": [
+      "Thrash",
+      "Double-Edge",
+      "Morning Sun",
+      "Covet",
+      "Double Kick"
+    ],
+    "hasItems": false,
+    "items": []
+  },
+  "Arcanine": {
+    "eggMoveCount": 5,
+    "eggMoves": [
+      "Thrash",
+      "Double-Edge",
+      "Morning Sun",
+      "Covet",
+      "Double Kick"
+    ],
+    "hasItems": false,
+    "items": []
+  },
+  "Poliwag": {
+    "eggMoveCount": 6,
+    "eggMoves": [
+      "Endeavor",
+      "Haze",
+      "Mist",
+      "Mind Reader",
+      "Splash",
+      "Water Pulse"
+    ],
+    "hasItems": false,
+    "items": []
+  },
+  "Poliwhirl": {
+    "eggMoveCount": 6,
+    "eggMoves": [
+      "Endeavor",
+      "Haze",
+      "Mist",
+      "Mind Reader",
+      "Splash",
+      "Water Pulse"
+    ],
+    "hasItems": true,
+    "items": ["None", "King’s Rock", "None"]
+  },
+  "Poliwrath": {
+    "eggMoveCount": 6,
+    "eggMoves": [
+      "Endeavor",
+      "Haze",
+      "Mist",
+      "Mind Reader",
+      "Splash",
+      "Water Pulse"
+    ],
+    "hasItems": true,
+    "items": ["None", "King’s Rock", "None"]
+  },
+  "Abra": {
+    "eggMoveCount": 3,
+    "eggMoves": ["Confusion", "Guard Split", "Magic Coat"],
+    "hasItems": true,
+    "items": ["None", "Twisted Spoon", "None"]
+  },
+  "Kadabra": {
+    "eggMoveCount": 3,
+    "eggMoves": ["Confusion", "Guard Split", "Magic Coat"],
+    "hasItems": true,
+    "items": ["None", "Twisted Spoon", "None"]
+  },
+  "Alakazam": {
+    "eggMoveCount": 3,
+    "eggMoves": ["Confusion", "Guard Split", "Magic Coat"],
+    "hasItems": true,
+    "items": ["None", "Twisted Spoon", "None"]
+  },
+  "Machop": {
+    "eggMoveCount": 5,
+    "eggMoves": [
+      "Counter",
+      "Bullet Punch",
+      "Tickle",
+      "Quick Guard",
+      "Submission"
+    ],
+    "hasItems": true,
+    "items": ["None", "Focus Band", "None"]
+  },
+  "Machoke": {
+    "eggMoveCount": 5,
+    "eggMoves": [
+      "Counter",
+      "Bullet Punch",
+      "Tickle",
+      "Quick Guard",
+      "Submission"
+    ],
+    "hasItems": true,
+    "items": ["None", "Focus Band", "None"]
+  },
+  "Machamp": {
+    "eggMoveCount": 5,
+    "eggMoves": [
+      "Counter",
+      "Bullet Punch",
+      "Tickle",
+      "Quick Guard",
+      "Submission"
+    ],
+    "hasItems": true,
+    "items": ["None", "Focus Band", "None"]
+  },
+  "Tentacool": {
+    "eggMoveCount": 9,
+    "eggMoves": [
+      "Acupressure",
+      "Aqua Ring",
+      "Aurora Beam",
+      "Confuse Ray",
+      "Haze",
+      "Knock Off",
+      "Mirror Coat",
+      "Rapid Spin",
+      "Tickle"
+    ],
+    "hasItems": true,
+    "items": ["None", "Poison Barb", "None"]
+  },
+  "Tentacruel": {
+    "eggMoveCount": 9,
+    "eggMoves": [
+      "Acupressure",
+      "Aqua Ring",
+      "Aurora Beam",
+      "Confuse Ray",
+      "Haze",
+      "Knock Off",
+      "Mirror Coat",
+      "Rapid Spin",
+      "Tickle"
+    ],
+    "hasItems": true,
+    "items": ["None", "Poison Barb", "None"]
+  },
+  "Ponyta": {
+    "eggMoveCount": 6,
+    "eggMoves": [
+      "Thrash",
+      "Double Kick",
+      "Hypnosis",
+      "Double-Edge",
+      "Horn Drill",
+      "Morning Sun"
+    ],
+    "hasItems": false,
+    "items": []
+  },
+  "Ponyta-1": {
+    "eggMoveCount": 6,
+    "eggMoves": [
+      "Thrash",
+      "Double Kick",
+      "Hypnosis",
+      "Double-Edge",
+      "Horn Drill",
+      "Morning Sun"
+    ],
+    "hasItems": false,
+    "items": []
+  },
+  "Rapidash": {
+    "eggMoveCount": 6,
+    "eggMoves": [
+      "Thrash",
+      "Double Kick",
+      "Hypnosis",
+      "Double-Edge",
+      "Horn Drill",
+      "Morning Sun"
+    ],
+    "hasItems": false,
+    "items": []
+  },
+  "Rapidash-1": {
+    "eggMoveCount": 6,
+    "eggMoves": [
+      "Thrash",
+      "Double Kick",
+      "Hypnosis",
+      "Double-Edge",
+      "Horn Drill",
+      "Morning Sun"
+    ],
+    "hasItems": false,
+    "items": []
+  },
+  "Slowpoke": {
+    "eggMoveCount": 4,
+    "eggMoves": ["Belch", "Belly Drum", "Block", "Stomp"],
+    "hasItems": true,
+    "items": ["None", "Lagging Tail", "None"]
+  },
+  "Slowpoke-1": {
+    "eggMoveCount": 4,
+    "eggMoves": ["Belch", "Belly Drum", "Block", "Stomp"],
+    "hasItems": false,
+    "items": []
+  },
+  "Slowbro": {
+    "eggMoveCount": 4,
+    "eggMoves": ["Belch", "Belly Drum", "Block", "Stomp"],
+    "hasItems": true,
+    "items": ["None", "King’s Rock", "None"]
+  },
+  "Slowbro-2": {
+    "eggMoveCount": 4,
+    "eggMoves": ["Belch", "Belly Drum", "Block", "Stomp"],
+    "hasItems": false,
+    "items": []
+  },
+  "Magnemite": {
+    "eggMoveCount": 0,
+    "eggMoves": [],
+    "hasItems": true,
+    "items": ["None", "Metal Coat", "None"]
+  },
+  "Magneton": {
+    "eggMoveCount": 0,
+    "eggMoves": [],
+    "hasItems": true,
+    "items": ["None", "Metal Coat", "None"]
+  },
+  "Farfetch’d": {
+    "eggMoveCount": 13,
+    "eggMoves": [
+      "Gust",
+      "Quick Attack",
+      "Flail",
+      "Feather Dance",
+      "Curse",
+      "Covet",
+      "Night Slash",
+      "Roost",
+      "Simple Beam",
+      "First Impression",
+      "Final Gambit",
+      "Feint",
+      "Sky Attack"
+    ],
+    "hasItems": true,
+    "items": ["None", "Leek", "None"]
+  },
+  "Farfetch’d-1": {
+    "eggMoveCount": 11,
+    "eggMoves": [
+      "Counter",
+      "Quick Attack",
+      "Flail",
+      "Quick Guard",
+      "Curse",
+      "Covet",
+      "Night Slash",
+      "Simple Beam",
+      "Double-Edge",
+      "Feint",
+      "Sky Attack"
+    ],
+    "hasItems": true,
+    "items": ["Leek", "None", "None"]
+  },
+  "Shellder": {
+    "eggMoveCount": 4,
+    "eggMoves": ["Bubble Beam", "Water Pulse", "Aqua Ring", "Life Dew"],
+    "hasItems": true,
+    "items": ["Pearl", "Big Pearl", "None"]
+  },
+  "Cloyster": {
+    "eggMoveCount": 4,
+    "eggMoves": ["Bubble Beam", "Water Pulse", "Aqua Ring", "Life Dew"],
+    "hasItems": true,
+    "items": ["Pearl", "Big Pearl", "None"]
+  },
+  "Gastly": {
+    "eggMoveCount": 9,
+    "eggMoves": [
+      "Perish Song",
+      "Haze",
+      "Astonish",
+      "Grudge",
+      "Disable",
+      "Clear Smog",
+      "Smog",
+      "Reflect Type",
+      "Toxic"
+    ],
+    "hasItems": false,
+    "items": []
+  },
+  "Haunter": {
+    "eggMoveCount": 9,
+    "eggMoves": [
+      "Perish Song",
+      "Haze",
+      "Astonish",
+      "Grudge",
+      "Disable",
+      "Clear Smog",
+      "Smog",
+      "Reflect Type",
+      "Toxic"
+    ],
+    "hasItems": false,
+    "items": []
+  },
+  "Gengar": {
+    "eggMoveCount": 9,
+    "eggMoves": [
+      "Perish Song",
+      "Haze",
+      "Astonish",
+      "Grudge",
+      "Disable",
+      "Clear Smog",
+      "Smog",
+      "Reflect Type",
+      "Toxic"
+    ],
+    "hasItems": false,
+    "items": []
+  },
+  "Onix": {
+    "eggMoveCount": 7,
+    "eggMoves": [
+      "Flail",
+      "Block",
+      "Defense Curl",
+      "Wide Guard",
+      "Rollout",
+      "Dragon Tail",
+      "Head Smash"
+    ],
+    "hasItems": false,
+    "items": []
+  },
+  "Krabby": {
+    "eggMoveCount": 5,
+    "eggMoves": [
+      "Knock Off",
+      "Ancient Power",
+      "Hammer Arm",
+      "Slash",
+      "Night Slash"
+    ],
+    "hasItems": false,
+    "items": []
+  },
+  "Kingler": {
+    "eggMoveCount": 5,
+    "eggMoves": [
+      "Knock Off",
+      "Ancient Power",
+      "Hammer Arm",
+      "Slash",
+      "Night Slash"
+    ],
+    "hasItems": false,
+    "items": []
+  },
+  "Exeggcute": {
+    "eggMoveCount": 8,
+    "eggMoves": [
+      "Ancient Power",
+      "Block",
+      "Curse",
+      "Ingrain",
+      "Moonlight",
+      "Sleep Powder",
+      "Stun Spore",
+      "Poison Powder"
+    ],
+    "hasItems": true,
+    "items": ["None", "Psychic Seed", "None"]
+  },
+  "Exeggutor": {
+    "eggMoveCount": 8,
+    "eggMoves": [
+      "Ancient Power",
+      "Block",
+      "Curse",
+      "Ingrain",
+      "Moonlight",
+      "Sleep Powder",
+      "Stun Spore",
+      "Poison Powder"
+    ],
+    "hasItems": false,
+    "items": []
+  },
+  "Exeggutor-1": {
+    "eggMoveCount": 0,
+    "eggMoves": [],
+    "hasItems": false,
+    "items": []
+  },
+  "Cubone": {
+    "eggMoveCount": 8,
+    "eggMoves": [
+      "Ancient Power",
+      "Belly Drum",
+      "Detect",
+      "Double Kick",
+      "Perish Song",
+      "Skull Bash",
+      "Curse",
+      "Leer"
+    ],
+    "hasItems": true,
+    "items": ["None", "Thick Club", "None"]
+  },
+  "Marowak": {
+    "eggMoveCount": 8,
+    "eggMoves": [
+      "Ancient Power",
+      "Belly Drum",
+      "Detect",
+      "Double Kick",
+      "Perish Song",
+      "Skull Bash",
+      "Curse",
+      "Leer"
+    ],
+    "hasItems": true,
+    "items": ["None", "Thick Club", "None"]
+  },
+  "Marowak-1": {
+    "eggMoveCount": 0,
+    "eggMoves": [],
+    "hasItems": true,
+    "items": ["None", "Thick Club", "None"]
+  },
+  "Hitmonlee": {
+    "eggMoveCount": 8,
+    "eggMoves": [
+      "Rapid Spin",
+      "High Jump Kick",
+      "Mach Punch",
+      "Mind Reader",
+      "Counter",
+      "Vacuum Wave",
+      "Bullet Punch",
+      "Feint"
+    ],
+    "hasItems": false,
+    "items": []
+  },
+  "Hitmonchan": {
+    "eggMoveCount": 8,
+    "eggMoves": [
+      "Rapid Spin",
+      "High Jump Kick",
+      "Mach Punch",
+      "Mind Reader",
+      "Counter",
+      "Vacuum Wave",
+      "Bullet Punch",
+      "Feint"
+    ],
+    "hasItems": false,
+    "items": []
+  },
+  "Lickitung": {
+    "eggMoveCount": 4,
+    "eggMoves": ["Belch", "Curse", "Hammer Arm", "Thrash"],
+    "hasItems": true,
+    "items": ["None", "Lagging Tail", "None"]
+  },
+  "Koffing": {
+    "eggMoveCount": 8,
+    "eggMoves": [
+      "Psybeam",
+      "Pain Split",
+      "Grudge",
+      "Spite",
+      "Curse",
+      "Stockpile",
+      "Swallow",
+      "Spit Up"
+    ],
+    "hasItems": true,
+    "items": ["None", "Smoke Ball", "None"]
+  },
+  "Weezing": {
+    "eggMoveCount": 0,
+    "eggMoves": [],
+    "hasItems": true,
+    "items": ["None", "Smoke Ball", "None"]
+  },
+  "Weezing-1": {
+    "eggMoveCount": 8,
+    "eggMoves": [
+      "Psybeam",
+      "Pain Split",
+      "Grudge",
+      "Spite",
+      "Curse",
+      "Stockpile",
+      "Swallow",
+      "Spit Up"
+    ],
+    "hasItems": true,
+    "items": ["None", "Misty Seed", "None"]
+  },
+  "Rhyhorn": {
+    "eggMoveCount": 7,
+    "eggMoves": [
+      "Counter",
+      "Curse",
+      "Dragon Rush",
+      "Skull Bash",
+      "Metal Burst",
+      "Guard Split",
+      "Rock Polish"
+    ],
+    "hasItems": false,
+    "items": []
+  },
+  "Rhydon": {
+    "eggMoveCount": 7,
+    "eggMoves": [
+      "Counter",
+      "Curse",
+      "Dragon Rush",
+      "Skull Bash",
+      "Metal Burst",
+      "Guard Split",
+      "Rock Polish"
+    ],
+    "hasItems": false,
+    "items": []
+  },
+  "Chansey": {
+    "eggMoveCount": 4,
+    "eggMoves": ["Aromatherapy", "Gravity", "Present", "Seismic Toss"],
+    "hasItems": false,
+    "items": []
+  },
+  "Tangela": {
+    "eggMoveCount": 6,
+    "eggMoves": [
+      "Confusion",
+      "Endeavor",
+      "Flail",
+      "Leech Seed",
+      "Nature Power",
+      "Rage Powder"
+    ],
+    "hasItems": false,
+    "items": []
+  },
+  "Kangaskhan": {
+    "eggMoveCount": 6,
+    "eggMoves": [
+      "Circle Throw",
+      "Counter",
+      "Disable",
+      "Double-Edge",
+      "Endeavor",
+      "Hammer Arm"
+    ],
+    "hasItems": false,
+    "items": []
+  },
+  "Horsea": {
+    "eggMoveCount": 7,
+    "eggMoves": [
+      "Aurora Beam",
+      "Clear Smog",
+      "Disable",
+      "Flail",
+      "Octazooka",
+      "Splash",
+      "Water Pulse"
+    ],
+    "hasItems": true,
+    "items": ["None", "Dragon Scale", "None"]
+  },
+  "Seadra": {
+    "eggMoveCount": 7,
+    "eggMoves": [
+      "Aurora Beam",
+      "Clear Smog",
+      "Disable",
+      "Flail",
+      "Octazooka",
+      "Splash",
+      "Water Pulse"
+    ],
+    "hasItems": true,
+    "items": ["None", "Dragon Scale", "None"]
+  },
+  "Goldeen": {
+    "eggMoveCount": 5,
+    "eggMoves": ["Psybeam", "Haze", "Aqua Tail", "Acupressure", "Mud-Slap"],
+    "hasItems": true,
+    "items": ["None", "Mystic Water", "None"]
+  },
+  "Seaking": {
+    "eggMoveCount": 5,
+    "eggMoves": ["Psybeam", "Haze", "Aqua Tail", "Acupressure", "Mud-Slap"],
+    "hasItems": true,
+    "items": ["None", "Mystic Water", "None"]
+  },
+  "Staryu": {
+    "eggMoveCount": 0,
+    "eggMoves": [],
+    "hasItems": true,
+    "items": ["Stardust", "Star Piece", "None"]
+  },
+  "Starmie": {
+    "eggMoveCount": 0,
+    "eggMoves": [],
+    "hasItems": true,
+    "items": ["Stardust", "Star Piece", "None"]
+  },
+  "Mr. Mime": {
+    "eggMoveCount": 5,
+    "eggMoves": [
+      "Hypnosis",
+      "Fake Out",
+      "Confuse Ray",
+      "Power Split",
+      "Tickle"
+    ],
+    "hasItems": false,
+    "items": []
+  },
+  "Mr. Mime-1": {
+    "eggMoveCount": 5,
+    "eggMoves": [
+      "Hypnosis",
+      "Fake Out",
+      "Confuse Ray",
+      "Power Split",
+      "Tickle"
+    ],
+    "hasItems": false,
+    "items": []
+  },
+  "Scyther": {
+    "eggMoveCount": 5,
+    "eggMoves": ["Counter", "Defog", "Night Slash", "Feint", "Quick Guard"],
+    "hasItems": false,
+    "items": []
+  },
+  "Jynx": {
+    "eggMoveCount": 3,
+    "eggMoves": ["Fake Out", "Wish", "Role Play"],
+    "hasItems": false,
+    "items": []
+  },
+  "Electabuzz": {
+    "eggMoveCount": 5,
+    "eggMoves": [
+      "Cross Chop",
+      "Dynamic Punch",
+      "Focus Punch",
+      "Hammer Arm",
+      "Feint"
+    ],
+    "hasItems": true,
+    "items": ["None", "Electirizer", "None"]
+  },
+  "Magmar": {
+    "eggMoveCount": 5,
+    "eggMoves": [
+      "Belch",
+      "Dynamic Punch",
+      "Focus Punch",
+      "Mach Punch",
+      "Cross Chop"
+    ],
+    "hasItems": true,
+    "items": ["None", "Magmarizer", "None"]
+  },
+  "Pinsir": {
+    "eggMoveCount": 5,
+    "eggMoves": ["Feint", "Flail", "Thrash", "Fury Attack", "Quick Attack"],
+    "hasItems": false,
+    "items": []
+  },
+  "Tauros": {
+    "eggMoveCount": 0,
+    "eggMoves": [],
+    "hasItems": false,
+    "items": []
+  },
+  "Magikarp": {
+    "eggMoveCount": 0,
+    "eggMoves": [],
+    "hasItems": false,
+    "items": []
+  },
+  "Gyarados": {
+    "eggMoveCount": 0,
+    "eggMoves": [],
+    "hasItems": false,
+    "items": []
+  },
+  "Lapras": {
+    "eggMoveCount": 7,
+    "eggMoves": [
+      "Tickle",
+      "Curse",
+      "Horn Drill",
+      "Ancient Power",
+      "Fissure",
+      "Freeze-Dry",
+      "Sparkling Aria"
+    ],
+    "hasItems": true,
+    "items": ["Mystic Water", "Mystic Water", "None"]
+  },
+  "Ditto": {
+    "eggMoveCount": 0,
+    "eggMoves": [],
+    "hasItems": true,
+    "items": ["Quick Powder", "Metal Powder", "None"]
+  },
+  "Eevee": {
+    "eggMoveCount": 8,
+    "eggMoves": [
+      "Flail",
+      "Curse",
+      "Tickle",
+      "Yawn",
+      "Detect",
+      "Double Kick",
+      "Mud-Slap",
+      "Wish"
+    ],
+    "hasItems": false,
+    "items": []
+  },
+  "Vaporeon": {
+    "eggMoveCount": 8,
+    "eggMoves": [
+      "Flail",
+      "Curse",
+      "Tickle",
+      "Yawn",
+      "Detect",
+      "Double Kick",
+      "Mud-Slap",
+      "Wish"
+    ],
+    "hasItems": false,
+    "items": []
+  },
+  "Jolteon": {
+    "eggMoveCount": 8,
+    "eggMoves": [
+      "Flail",
+      "Curse",
+      "Tickle",
+      "Yawn",
+      "Detect",
+      "Double Kick",
+      "Mud-Slap",
+      "Wish"
+    ],
+    "hasItems": false,
+    "items": []
+  },
+  "Flareon": {
+    "eggMoveCount": 8,
+    "eggMoves": [
+      "Flail",
+      "Curse",
+      "Tickle",
+      "Yawn",
+      "Detect",
+      "Double Kick",
+      "Mud-Slap",
+      "Wish"
+    ],
+    "hasItems": false,
+    "items": []
+  },
+  "Porygon": {
+    "eggMoveCount": 0,
+    "eggMoves": [],
+    "hasItems": false,
+    "items": []
+  },
+  "Omanyte": {
+    "eggMoveCount": 10,
+    "eggMoves": [
+      "Aurora Beam",
+      "Bubble Beam",
+      "Haze",
+      "Knock Off",
+      "Reflect Type",
+      "Slam",
+      "Supersonic",
+      "Water Pulse",
+      "Bite",
+      "Tickle"
+    ],
+    "hasItems": false,
+    "items": []
+  },
+  "Omastar": {
+    "eggMoveCount": 10,
+    "eggMoves": [
+      "Aurora Beam",
+      "Bubble Beam",
+      "Haze",
+      "Knock Off",
+      "Reflect Type",
+      "Slam",
+      "Supersonic",
+      "Water Pulse",
+      "Bite",
+      "Tickle"
+    ],
+    "hasItems": false,
+    "items": []
+  },
+  "Kabuto": {
+    "eggMoveCount": 8,
+    "eggMoves": [
+      "Aurora Beam",
+      "Bubble Beam",
+      "Confuse Ray",
+      "Flail",
+      "Knock Off",
+      "Rapid Spin",
+      "Take Down",
+      "Mega Drain"
+    ],
+    "hasItems": false,
+    "items": []
+  },
+  "Kabutops": {
+    "eggMoveCount": 8,
+    "eggMoves": [
+      "Aurora Beam",
+      "Bubble Beam",
+      "Confuse Ray",
+      "Flail",
+      "Knock Off",
+      "Rapid Spin",
+      "Take Down",
+      "Mega Drain"
+    ],
+    "hasItems": false,
+    "items": []
+  },
+  "Aerodactyl": {
+    "eggMoveCount": 6,
+    "eggMoves": [
+      "Curse",
+      "Dragon Breath",
+      "Roost",
+      "Tailwind",
+      "Whirlwind",
+      "Wide Guard"
+    ],
+    "hasItems": false,
+    "items": []
+  },
+  "Snorlax": {
+    "eggMoveCount": 5,
+    "eggMoves": ["Double-Edge", "Curse", "Fissure", "Counter", "Belch"],
+    "hasItems": true,
+    "items": ["Leftovers", "Leftovers", "None"]
+  },
+  "Articuno": {
+    "eggMoveCount": 0,
+    "eggMoves": [],
+    "hasItems": false,
+    "items": []
+  },
+  "Articuno-1": {
+    "eggMoveCount": 0,
+    "eggMoves": [],
+    "hasItems": false,
+    "items": []
+  },
+  "Zapdos": {
+    "eggMoveCount": 0,
+    "eggMoves": [],
+    "hasItems": false,
+    "items": []
+  },
+  "Zapdos-1": {
+    "eggMoveCount": 0,
+    "eggMoves": [],
+    "hasItems": false,
+    "items": []
+  },
+  "Moltres": {
+    "eggMoveCount": 0,
+    "eggMoves": [],
+    "hasItems": false,
+    "items": []
+  },
+  "Moltres-1": {
+    "eggMoveCount": 0,
+    "eggMoves": [],
+    "hasItems": false,
+    "items": []
+  },
+  "Dratini": {
+    "eggMoveCount": 6,
+    "eggMoves": [
+      "Aqua Jet",
+      "Dragon Breath",
+      "Extreme Speed",
+      "Mist",
+      "Supersonic",
+      "Water Pulse"
+    ],
+    "hasItems": true,
+    "items": ["None", "Dragon Scale", "None"]
+  },
+  "Dragonair": {
+    "eggMoveCount": 6,
+    "eggMoves": [
+      "Aqua Jet",
+      "Dragon Breath",
+      "Extreme Speed",
+      "Mist",
+      "Supersonic",
+      "Water Pulse"
+    ],
+    "hasItems": true,
+    "items": ["None", "Dragon Scale", "None"]
+  },
+  "Dragonite": {
+    "eggMoveCount": 6,
+    "eggMoves": [
+      "Aqua Jet",
+      "Dragon Breath",
+      "Extreme Speed",
+      "Mist",
+      "Supersonic",
+      "Water Pulse"
+    ],
+    "hasItems": true,
+    "items": ["None", "Dragon Scale", "None"]
+  },
+  "Mewtwo": {
+    "eggMoveCount": 0,
+    "eggMoves": [],
+    "hasItems": false,
+    "items": []
+  },
+  "Mew": {
+    "eggMoveCount": 0,
+    "eggMoves": [],
+    "hasItems": true,
+    "items": ["Lum Berry", "Lum Berry", "None"]
+  },
+  "Hoothoot": {
+    "eggMoveCount": 6,
+    "eggMoves": [
+      "Supersonic",
+      "Wing Attack",
+      "Whirlwind",
+      "Feather Dance",
+      "Night Shade",
+      "Defog"
+    ],
+    "hasItems": false,
+    "items": []
+  },
+  "Noctowl": {
+    "eggMoveCount": 6,
+    "eggMoves": [
+      "Supersonic",
+      "Wing Attack",
+      "Whirlwind",
+      "Feather Dance",
+      "Night Shade",
+      "Defog"
+    ],
+    "hasItems": false,
+    "items": []
+  },
+  "Crobat": {
+    "eggMoveCount": 7,
+    "eggMoves": [
+      "Curse",
+      "Defog",
+      "Gust",
+      "Hypnosis",
+      "Quick Attack",
+      "Whirlwind",
+      "Wing Attack"
+    ],
+    "hasItems": false,
+    "items": []
+  },
+  "Chinchou": {
+    "eggMoveCount": 4,
+    "eggMoves": ["Psybeam", "Mist", "Water Pulse", "Soak"],
+    "hasItems": false,
+    "items": []
+  },
+  "Lanturn": {
+    "eggMoveCount": 4,
+    "eggMoves": ["Psybeam", "Mist", "Water Pulse", "Soak"],
+    "hasItems": false,
+    "items": []
+  },
+  "Pichu": {
+    "eggMoveCount": 7,
+    "eggMoves": [
+      "Present",
+      "Wish",
+      "Charge",
+      "Fake Out",
+      "Tickle",
+      "Flail",
+      "Disarming Voice"
+    ],
+    "hasItems": false,
+    "items": []
+  },
+  "Cleffa": {
+    "eggMoveCount": 5,
+    "eggMoves": ["Present", "Wish", "Aromatherapy", "Tickle", "Heal Pulse"],
+    "hasItems": true,
+    "items": ["None", "Moon Stone", "None"]
+  },
+  "Igglybuff": {
+    "eggMoveCount": 8,
+    "eggMoves": [
+      "Covet",
+      "Gravity",
+      "Heal Pulse",
+      "Last Resort",
+      "Perish Song",
+      "Present",
+      "Wish",
+      "Rollout"
+    ],
+    "hasItems": false,
+    "items": []
+  },
+  "Togepi": {
+    "eggMoveCount": 6,
+    "eggMoves": [
+      "Present",
+      "Peck",
+      "Psycho Shift",
+      "Extrasensory",
+      "Morning Sun",
+      "Aerial Ace"
+    ],
+    "hasItems": false,
+    "items": []
+  },
+  "Togetic": {
+    "eggMoveCount": 6,
+    "eggMoves": [
+      "Present",
+      "Peck",
+      "Psycho Shift",
+      "Extrasensory",
+      "Morning Sun",
+      "Aerial Ace"
+    ],
+    "hasItems": false,
+    "items": []
+  },
+  "Natu": {
+    "eggMoveCount": 6,
+    "eggMoves": [
+      "Drill Peck",
+      "Quick Attack",
+      "Feather Dance",
+      "Sucker Punch",
+      "Roost",
+      "Simple Beam"
+    ],
+    "hasItems": false,
+    "items": []
+  },
+  "Xatu": {
+    "eggMoveCount": 6,
+    "eggMoves": [
+      "Drill Peck",
+      "Quick Attack",
+      "Feather Dance",
+      "Sucker Punch",
+      "Roost",
+      "Simple Beam"
+    ],
+    "hasItems": false,
+    "items": []
+  },
+  "Bellossom": {
+    "eggMoveCount": 10,
+    "eggMoves": [
+      "Razor Leaf",
+      "Flail",
+      "Synthesis",
+      "Ingrain",
+      "Tickle",
+      "Teeter Dance",
+      "Nature Power",
+      "After You",
+      "Strength Sap",
+      "Leech Seed"
+    ],
+    "hasItems": true,
+    "items": ["None", "Absorb Bulb", "None"]
+  },
+  "Marill": {
+    "eggMoveCount": 9,
+    "eggMoves": [
+      "Aqua Jet",
+      "Belly Drum",
+      "Copycat",
+      "Perish Song",
+      "Present",
+      "Sing",
+      "Soak",
+      "Supersonic",
+      "Tickle"
+    ],
+    "hasItems": false,
+    "items": []
+  },
+  "Azumarill": {
+    "eggMoveCount": 9,
+    "eggMoves": [
+      "Aqua Jet",
+      "Belly Drum",
+      "Copycat",
+      "Perish Song",
+      "Present",
+      "Sing",
+      "Soak",
+      "Supersonic",
+      "Tickle"
+    ],
+    "hasItems": false,
+    "items": []
+  },
+  "Sudowoodo": {
+    "eggMoveCount": 6,
+    "eggMoves": [
+      "Headbutt",
+      "Harden",
+      "Defense Curl",
+      "Curse",
+      "Rollout",
+      "Rock Polish"
+    ],
+    "hasItems": false,
+    "items": []
+  },
+  "Politoed": {
+    "eggMoveCount": 6,
+    "eggMoves": [
+      "Endeavor",
+      "Haze",
+      "Mist",
+      "Mind Reader",
+      "Splash",
+      "Water Pulse"
+    ],
+    "hasItems": true,
+    "items": ["None", "King’s Rock", "None"]
+  },
+  "Wooper": {
+    "eggMoveCount": 11,
+    "eggMoves": [
+      "Ancient Power",
+      "Curse",
+      "Stockpile",
+      "Swallow",
+      "Spit Up",
+      "Counter",
+      "Double Kick",
+      "Recover",
+      "After You",
+      "Acid Spray",
+      "Power-Up Punch"
+    ],
+    "hasItems": false,
+    "items": []
+  },
+  "Quagsire": {
+    "eggMoveCount": 11,
+    "eggMoves": [
+      "Ancient Power",
+      "Curse",
+      "Stockpile",
+      "Swallow",
+      "Spit Up",
+      "Counter",
+      "Double Kick",
+      "Recover",
+      "After You",
+      "Acid Spray",
+      "Power-Up Punch"
+    ],
+    "hasItems": false,
+    "items": []
+  },
+  "Espeon": {
+    "eggMoveCount": 8,
+    "eggMoves": [
+      "Flail",
+      "Curse",
+      "Tickle",
+      "Yawn",
+      "Detect",
+      "Double Kick",
+      "Mud-Slap",
+      "Wish"
+    ],
+    "hasItems": false,
+    "items": []
+  },
+  "Umbreon": {
+    "eggMoveCount": 8,
+    "eggMoves": [
+      "Flail",
+      "Curse",
+      "Tickle",
+      "Yawn",
+      "Detect",
+      "Double Kick",
+      "Mud-Slap",
+      "Wish"
+    ],
+    "hasItems": false,
+    "items": []
+  },
+  "Slowking": {
+    "eggMoveCount": 4,
+    "eggMoves": ["Belch", "Belly Drum", "Block", "Stomp"],
+    "hasItems": true,
+    "items": ["None", "King’s Rock", "None"]
+  },
+  "Slowking-1": {
+    "eggMoveCount": 4,
+    "eggMoves": ["Belch", "Belly Drum", "Block", "Stomp"],
+    "hasItems": false,
+    "items": []
+  },
+  "Wobbuffet": {
+    "eggMoveCount": 0,
+    "eggMoves": [],
+    "hasItems": false,
+    "items": []
+  },
+  "Dunsparce": {
+    "eggMoveCount": 7,
+    "eggMoves": [
+      "Astonish",
+      "Bite",
+      "Curse",
+      "Headbutt",
+      "Magic Coat",
+      "Aqua Tail",
+      "Last Resort"
+    ],
+    "hasItems": false,
+    "items": []
+  },
+  "Steelix": {
+    "eggMoveCount": 7,
+    "eggMoves": [
+      "Flail",
+      "Block",
+      "Defense Curl",
+      "Wide Guard",
+      "Rollout",
+      "Dragon Tail",
+      "Head Smash"
+    ],
+    "hasItems": true,
+    "items": ["None", "Metal Coat", "None"]
+  },
+  "Qwilfish": {
+    "eggMoveCount": 8,
+    "eggMoves": [
+      "Flail",
+      "Haze",
+      "Bubble Beam",
+      "Supersonic",
+      "Astonish",
+      "Aqua Jet",
+      "Water Pulse",
+      "Acid Spray"
+    ],
+    "hasItems": true,
+    "items": ["None", "Poison Barb", "None"]
+  },
+  "Scizor": {
+    "eggMoveCount": 5,
+    "eggMoves": ["Counter", "Defog", "Night Slash", "Feint", "Quick Guard"],
+    "hasItems": false,
+    "items": []
+  },
+  "Shuckle": {
+    "eggMoveCount": 9,
+    "eggMoves": [
+      "Sweet Scent",
+      "Knock Off",
+      "Acupressure",
+      "Acid",
+      "Final Gambit",
+      "Defense Curl",
+      "Infestation",
+      "Toxic",
+      "Covet"
+    ],
+    "hasItems": true,
+    "items": ["Berry Juice", "Berry Juice", "None"]
+  },
+  "Heracross": {
+    "eggMoveCount": 7,
+    "eggMoves": [
+      "Flail",
+      "Double-Edge",
+      "Harden",
+      "Seismic Toss",
+      "Night Slash",
+      "Feint",
+      "Take Down"
+    ],
+    "hasItems": false,
+    "items": []
+  },
+  "Sneasel": {
+    "eggMoveCount": 8,
+    "eggMoves": [
+      "Counter",
+      "Spite",
+      "Bite",
+      "Fake Out",
+      "Double Hit",
+      "Ice Shard",
+      "Feint",
+      "Icicle Crash"
+    ],
+    "hasItems": true,
+    "items": ["None", "Quick Claw", "None"]
+  },
+  "Swinub": {
+    "eggMoveCount": 7,
+    "eggMoves": [
+      "Bite",
+      "Ancient Power",
+      "Double-Edge",
+      "Fissure",
+      "Curse",
+      "Icicle Crash",
+      "Freeze-Dry"
+    ],
+    "hasItems": false,
+    "items": []
+  },
+  "Piloswine": {
+    "eggMoveCount": 7,
+    "eggMoves": [
+      "Bite",
+      "Ancient Power",
+      "Double-Edge",
+      "Fissure",
+      "Curse",
+      "Icicle Crash",
+      "Freeze-Dry"
+    ],
+    "hasItems": false,
+    "items": []
+  },
+  "Corsola": {
+    "eggMoveCount": 6,
+    "eggMoves": [
+      "Mist",
+      "Confuse Ray",
+      "Nature Power",
+      "Curse",
+      "Water Pulse",
+      "Head Smash"
+    ],
+    "hasItems": true,
+    "items": ["None", "Luminous Moss", "None"]
+  },
+  "Corsola-1": {
+    "eggMoveCount": 6,
+    "eggMoves": [
+      "Haze",
+      "Confuse Ray",
+      "Nature Power",
+      "Destiny Bond",
+      "Water Pulse",
+      "Head Smash"
+    ],
+    "hasItems": false,
+    "items": []
+  },
+  "Remoraid": {
+    "eggMoveCount": 6,
+    "eggMoves": [
+      "Octazooka",
+      "Supersonic",
+      "Haze",
+      "Flail",
+      "Water Spout",
+      "Acid Spray"
+    ],
+    "hasItems": false,
+    "items": []
+  },
+  "Octillery": {
+    "eggMoveCount": 6,
+    "eggMoves": [
+      "Octazooka",
+      "Supersonic",
+      "Haze",
+      "Flail",
+      "Water Spout",
+      "Acid Spray"
+    ],
+    "hasItems": false,
+    "items": []
+  },
+  "Delibird": {
+    "eggMoveCount": 11,
+    "eggMoves": [
+      "Aurora Beam",
+      "Quick Attack",
+      "Splash",
+      "Rapid Spin",
+      "Ice Shard",
+      "Fake Out",
+      "Freeze-Dry",
+      "Destiny Bond",
+      "Counter",
+      "Aurora Veil",
+      "Memento"
+    ],
+    "hasItems": false,
+    "items": []
+  },
+  "Mantine": {
+    "eggMoveCount": 7,
+    "eggMoves": [
+      "Twister",
+      "Haze",
+      "Slam",
+      "Mirror Coat",
+      "Splash",
+      "Tailwind",
+      "Confuse Ray"
+    ],
+    "hasItems": false,
+    "items": []
+  },
+  "Skarmory": {
+    "eggMoveCount": 7,
+    "eggMoves": [
+      "Curse",
+      "Sky Attack",
+      "Whirlwind",
+      "Air Cutter",
+      "Night Slash",
+      "Feint",
+      "Roost"
+    ],
+    "hasItems": true,
+    "items": ["None", "Metal Coat", "None"]
+  },
+  "Kingdra": {
+    "eggMoveCount": 7,
+    "eggMoves": [
+      "Aurora Beam",
+      "Clear Smog",
+      "Disable",
+      "Flail",
+      "Octazooka",
+      "Splash",
+      "Water Pulse"
+    ],
+    "hasItems": true,
+    "items": ["None", "Dragon Scale", "None"]
+  },
+  "Porygon2": {
+    "eggMoveCount": 0,
+    "eggMoves": [],
+    "hasItems": false,
+    "items": []
+  },
+  "Tyrogue": {
+    "eggMoveCount": 8,
+    "eggMoves": [
+      "Rapid Spin",
+      "High Jump Kick",
+      "Mach Punch",
+      "Mind Reader",
+      "Counter",
+      "Vacuum Wave",
+      "Bullet Punch",
+      "Feint"
+    ],
+    "hasItems": false,
+    "items": []
+  },
+  "Hitmontop": {
+    "eggMoveCount": 8,
+    "eggMoves": [
+      "Rapid Spin",
+      "High Jump Kick",
+      "Mach Punch",
+      "Mind Reader",
+      "Counter",
+      "Vacuum Wave",
+      "Bullet Punch",
+      "Feint"
+    ],
+    "hasItems": false,
+    "items": []
+  },
+  "Smoochum": {
+    "eggMoveCount": 3,
+    "eggMoves": ["Fake Out", "Wish", "Role Play"],
+    "hasItems": false,
+    "items": []
+  },
+  "Elekid": {
+    "eggMoveCount": 5,
+    "eggMoves": [
+      "Cross Chop",
+      "Dynamic Punch",
+      "Focus Punch",
+      "Hammer Arm",
+      "Feint"
+    ],
+    "hasItems": true,
+    "items": ["None", "Electirizer", "None"]
+  },
+  "Magby": {
+    "eggMoveCount": 5,
+    "eggMoves": [
+      "Belch",
+      "Dynamic Punch",
+      "Focus Punch",
+      "Mach Punch",
+      "Cross Chop"
+    ],
+    "hasItems": true,
+    "items": ["None", "Magmarizer", "None"]
+  },
+  "Miltank": {
+    "eggMoveCount": 7,
+    "eggMoves": [
+      "Belch",
+      "Curse",
+      "Double-Edge",
+      "Hammer Arm",
+      "Present",
+      "Seismic Toss",
+      "Focus Punch"
+    ],
+    "hasItems": true,
+    "items": ["Moomoo Milk", "Moomoo Milk", "None"]
+  },
+  "Blissey": {
+    "eggMoveCount": 4,
+    "eggMoves": ["Aromatherapy", "Gravity", "Present", "Seismic Toss"],
+    "hasItems": true,
+    "items": ["None", "Lucky Egg", "None"]
+  },
+  "Raikou": {
+    "eggMoveCount": 0,
+    "eggMoves": [],
+    "hasItems": false,
+    "items": []
+  },
+  "Entei": {
+    "eggMoveCount": 0,
+    "eggMoves": [],
+    "hasItems": false,
+    "items": []
+  },
+  "Suicune": {
+    "eggMoveCount": 0,
+    "eggMoves": [],
+    "hasItems": false,
+    "items": []
+  },
+  "Larvitar": {
+    "eggMoveCount": 3,
+    "eggMoves": ["Stomp", "Ancient Power", "Curse"],
+    "hasItems": false,
+    "items": []
+  },
+  "Pupitar": {
+    "eggMoveCount": 3,
+    "eggMoves": ["Stomp", "Ancient Power", "Curse"],
+    "hasItems": false,
+    "items": []
+  },
+  "Tyranitar": {
+    "eggMoveCount": 3,
+    "eggMoves": ["Stomp", "Ancient Power", "Curse"],
+    "hasItems": false,
+    "items": []
+  },
+  "Lugia": {
+    "eggMoveCount": 0,
+    "eggMoves": [],
+    "hasItems": false,
+    "items": []
+  },
+  "Ho-Oh": {
+    "eggMoveCount": 0,
+    "eggMoves": [],
+    "hasItems": false,
+    "items": []
+  },
+  "Celebi": {
+    "eggMoveCount": 0,
+    "eggMoves": [],
+    "hasItems": true,
+    "items": ["Lum Berry", "Lum Berry", "None"]
+  },
+  "Treecko": {
+    "eggMoveCount": 8,
+    "eggMoves": [
+      "Absorb",
+      "Slash",
+      "Night Slash",
+      "Double Kick",
+      "Dragon Breath",
+      "Leech Seed",
+      "Worry Seed",
+      "Synthesis"
+    ],
+    "hasItems": false,
+    "items": []
+  },
+  "Grovyle": {
+    "eggMoveCount": 8,
+    "eggMoves": [
+      "Absorb",
+      "Slash",
+      "Night Slash",
+      "Double Kick",
+      "Dragon Breath",
+      "Leech Seed",
+      "Worry Seed",
+      "Synthesis"
+    ],
+    "hasItems": false,
+    "items": []
+  },
+  "Sceptile": {
+    "eggMoveCount": 8,
+    "eggMoves": [
+      "Absorb",
+      "Slash",
+      "Night Slash",
+      "Double Kick",
+      "Dragon Breath",
+      "Leech Seed",
+      "Worry Seed",
+      "Synthesis"
+    ],
+    "hasItems": false,
+    "items": []
+  },
+  "Torchic": {
+    "eggMoveCount": 7,
+    "eggMoves": [
+      "Peck",
+      "Crush Claw",
+      "Curse",
+      "Counter",
+      "Feint",
+      "Last Resort",
+      "Night Slash"
+    ],
+    "hasItems": false,
+    "items": []
+  },
+  "Combusken": {
+    "eggMoveCount": 7,
+    "eggMoves": [
+      "Peck",
+      "Crush Claw",
+      "Curse",
+      "Counter",
+      "Feint",
+      "Last Resort",
+      "Night Slash"
+    ],
+    "hasItems": false,
+    "items": []
+  },
+  "Blaziken": {
+    "eggMoveCount": 7,
+    "eggMoves": [
+      "Peck",
+      "Crush Claw",
+      "Curse",
+      "Counter",
+      "Feint",
+      "Last Resort",
+      "Night Slash"
+    ],
+    "hasItems": false,
+    "items": []
+  },
+  "Mudkip": {
+    "eggMoveCount": 11,
+    "eggMoves": [
+      "Mud-Slap",
+      "Bite",
+      "Ancient Power",
+      "Counter",
+      "Curse",
+      "Double-Edge",
+      "Mirror Coat",
+      "Sludge",
+      "Stomp",
+      "Wide Guard",
+      "Yawn"
+    ],
+    "hasItems": false,
+    "items": []
+  },
+  "Marshtomp": {
+    "eggMoveCount": 11,
+    "eggMoves": [
+      "Mud-Slap",
+      "Bite",
+      "Ancient Power",
+      "Counter",
+      "Curse",
+      "Double-Edge",
+      "Mirror Coat",
+      "Sludge",
+      "Stomp",
+      "Wide Guard",
+      "Yawn"
+    ],
+    "hasItems": false,
+    "items": []
+  },
+  "Swampert": {
+    "eggMoveCount": 11,
+    "eggMoves": [
+      "Mud-Slap",
+      "Bite",
+      "Ancient Power",
+      "Counter",
+      "Curse",
+      "Double-Edge",
+      "Mirror Coat",
+      "Sludge",
+      "Stomp",
+      "Wide Guard",
+      "Yawn"
+    ],
+    "hasItems": false,
+    "items": []
+  },
+  "Zigzagoon": {
+    "eggMoveCount": 3,
+    "eggMoves": ["Tickle", "Simple Beam", "Extreme Speed"],
+    "hasItems": true,
+    "items": ["Potion", "Revive", "None"]
+  },
+  "Zigzagoon-1": {
+    "eggMoveCount": 3,
+    "eggMoves": ["Parting Shot", "Quick Guard", "Knock Off"],
+    "hasItems": false,
+    "items": []
+  },
+  "Linoone": {
+    "eggMoveCount": 3,
+    "eggMoves": ["Tickle", "Simple Beam", "Extreme Speed"],
+    "hasItems": true,
+    "items": ["Potion", "Max Revive", "None"]
+  },
+  "Linoone-1": {
+    "eggMoveCount": 3,
+    "eggMoves": ["Parting Shot", "Quick Guard", "Knock Off"],
+    "hasItems": false,
+    "items": []
+  },
+  "Lotad": {
+    "eggMoveCount": 7,
+    "eggMoves": [
+      "Synthesis",
+      "Razor Leaf",
+      "Sweet Scent",
+      "Leech Seed",
+      "Tickle",
+      "Counter",
+      "Teeter Dance"
+    ],
+    "hasItems": true,
+    "items": ["None", "Mental Herb", "None"]
+  },
+  "Lombre": {
+    "eggMoveCount": 7,
+    "eggMoves": [
+      "Synthesis",
+      "Razor Leaf",
+      "Sweet Scent",
+      "Leech Seed",
+      "Tickle",
+      "Counter",
+      "Teeter Dance"
+    ],
+    "hasItems": true,
+    "items": ["None", "Mental Herb", "None"]
+  },
+  "Ludicolo": {
+    "eggMoveCount": 7,
+    "eggMoves": [
+      "Synthesis",
+      "Razor Leaf",
+      "Sweet Scent",
+      "Leech Seed",
+      "Tickle",
+      "Counter",
+      "Teeter Dance"
+    ],
+    "hasItems": true,
+    "items": ["None", "Mental Herb", "None"]
+  },
+  "Seedot": {
+    "eggMoveCount": 6,
+    "eggMoves": [
+      "Leech Seed",
+      "Quick Attack",
+      "Take Down",
+      "Worry Seed",
+      "Defog",
+      "Night Slash"
+    ],
+    "hasItems": true,
+    "items": ["None", "Power Herb", "None"]
+  },
+  "Nuzleaf": {
+    "eggMoveCount": 6,
+    "eggMoves": [
+      "Leech Seed",
+      "Quick Attack",
+      "Take Down",
+      "Worry Seed",
+      "Defog",
+      "Night Slash"
+    ],
+    "hasItems": true,
+    "items": ["None", "Power Herb", "None"]
+  },
+  "Shiftry": {
+    "eggMoveCount": 6,
+    "eggMoves": [
+      "Leech Seed",
+      "Quick Attack",
+      "Take Down",
+      "Worry Seed",
+      "Defog",
+      "Night Slash"
+    ],
+    "hasItems": true,
+    "items": ["None", "Power Herb", "None"]
+  },
+  "Wingull": {
+    "eggMoveCount": 8,
+    "eggMoves": [
+      "Twister",
+      "Gust",
+      "Aqua Ring",
+      "Knock Off",
+      "Soak",
+      "Wide Guard",
+      "Air Cutter",
+      "Aerial Ace"
+    ],
+    "hasItems": true,
+    "items": ["Pretty Feather", "None", "None"]
+  },
+  "Pelipper": {
+    "eggMoveCount": 8,
+    "eggMoves": [
+      "Twister",
+      "Gust",
+      "Aqua Ring",
+      "Knock Off",
+      "Soak",
+      "Wide Guard",
+      "Air Cutter",
+      "Aerial Ace"
+    ],
+    "hasItems": true,
+    "items": ["Pretty Feather", "None", "None"]
+  },
+  "Ralts": {
+    "eggMoveCount": 8,
+    "eggMoves": [
+      "Disable",
+      "Mean Look",
+      "Memento",
+      "Destiny Bond",
+      "Grudge",
+      "Shadow Sneak",
+      "Confuse Ray",
+      "Knock Off"
+    ],
+    "hasItems": false,
+    "items": []
+  },
+  "Kirlia": {
+    "eggMoveCount": 8,
+    "eggMoves": [
+      "Disable",
+      "Mean Look",
+      "Memento",
+      "Destiny Bond",
+      "Grudge",
+      "Shadow Sneak",
+      "Confuse Ray",
+      "Knock Off"
+    ],
+    "hasItems": false,
+    "items": []
+  },
+  "Gardevoir": {
+    "eggMoveCount": 8,
+    "eggMoves": [
+      "Disable",
+      "Mean Look",
+      "Memento",
+      "Destiny Bond",
+      "Grudge",
+      "Shadow Sneak",
+      "Confuse Ray",
+      "Knock Off"
+    ],
+    "hasItems": false,
+    "items": []
+  },
+  "Nincada": {
+    "eggMoveCount": 5,
+    "eggMoves": ["Gust", "Night Slash", "Bug Bite", "Final Gambit", "Flail"],
+    "hasItems": true,
+    "items": ["None", "Soft Sand", "None"]
+  },
+  "Ninjask": {
+    "eggMoveCount": 5,
+    "eggMoves": ["Gust", "Night Slash", "Bug Bite", "Final Gambit", "Flail"],
+    "hasItems": false,
+    "items": []
+  },
+  "Shedinja": {
+    "eggMoveCount": 0,
+    "eggMoves": [],
+    "hasItems": false,
+    "items": []
+  },
+  "Whismur": {
+    "eggMoveCount": 8,
+    "eggMoves": [
+      "Circle Throw",
+      "Disarming Voice",
+      "Endeavor",
+      "Extrasensory",
+      "Hammer Arm",
+      "Smokescreen",
+      "Take Down",
+      "Whirlwind"
+    ],
+    "hasItems": false,
+    "items": []
+  },
+  "Loudred": {
+    "eggMoveCount": 8,
+    "eggMoves": [
+      "Circle Throw",
+      "Disarming Voice",
+      "Endeavor",
+      "Extrasensory",
+      "Hammer Arm",
+      "Smokescreen",
+      "Take Down",
+      "Whirlwind"
+    ],
+    "hasItems": false,
+    "items": []
+  },
+  "Exploud": {
+    "eggMoveCount": 8,
+    "eggMoves": [
+      "Circle Throw",
+      "Disarming Voice",
+      "Endeavor",
+      "Extrasensory",
+      "Hammer Arm",
+      "Smokescreen",
+      "Take Down",
+      "Whirlwind"
+    ],
+    "hasItems": false,
+    "items": []
+  },
+  "Azurill": {
+    "eggMoveCount": 9,
+    "eggMoves": [
+      "Aqua Jet",
+      "Belly Drum",
+      "Copycat",
+      "Perish Song",
+      "Present",
+      "Sing",
+      "Soak",
+      "Supersonic",
+      "Tickle"
+    ],
+    "hasItems": false,
+    "items": []
+  },
+  "Sableye": {
+    "eggMoveCount": 6,
+    "eggMoves": [
+      "Recover",
+      "Flatter",
+      "Feint",
+      "Sucker Punch",
+      "Metal Burst",
+      "Torment"
+    ],
+    "hasItems": true,
+    "items": ["None", "Wide Lens", "None"]
+  },
+  "Mawile": {
+    "eggMoveCount": 5,
+    "eggMoves": [
+      "Ancient Power",
+      "Tickle",
+      "Slam",
+      "Seismic Toss",
+      "Power-Up Punch"
+    ],
+    "hasItems": true,
+    "items": ["None", "Iron Ball", "None"]
+  },
+  "Aron": {
+    "eggMoveCount": 6,
+    "eggMoves": [
+      "Curse",
+      "Dragon Rush",
+      "Endeavor",
+      "Head Smash",
+      "Stomp",
+      "Mud-Slap"
+    ],
+    "hasItems": true,
+    "items": ["None", "Hard Stone", "None"]
+  },
+  "Lairon": {
+    "eggMoveCount": 6,
+    "eggMoves": [
+      "Curse",
+      "Dragon Rush",
+      "Endeavor",
+      "Head Smash",
+      "Stomp",
+      "Mud-Slap"
+    ],
+    "hasItems": true,
+    "items": ["None", "Hard Stone", "None"]
+  },
+  "Aggron": {
+    "eggMoveCount": 6,
+    "eggMoves": [
+      "Curse",
+      "Dragon Rush",
+      "Endeavor",
+      "Head Smash",
+      "Stomp",
+      "Mud-Slap"
+    ],
+    "hasItems": true,
+    "items": ["None", "Hard Stone", "None"]
+  },
+  "Electrike": {
+    "eggMoveCount": 4,
+    "eggMoves": ["Headbutt", "Curse", "Switcheroo", "Spark"],
+    "hasItems": false,
+    "items": []
+  },
+  "Manectric": {
+    "eggMoveCount": 4,
+    "eggMoves": ["Headbutt", "Curse", "Switcheroo", "Spark"],
+    "hasItems": false,
+    "items": []
+  },
+  "Roselia": {
+    "eggMoveCount": 6,
+    "eggMoves": [
+      "Synthesis",
+      "Cotton Spore",
+      "Sleep Powder",
+      "Razor Leaf",
+      "Extrasensory",
+      "Life Dew"
+    ],
+    "hasItems": true,
+    "items": ["None", "Poison Barb", "None"]
+  },
+  "Carvanha": {
+    "eggMoveCount": 5,
+    "eggMoves": [
+      "Ancient Power",
+      "Destiny Bond",
+      "Double-Edge",
+      "Thrash",
+      "Water Pulse"
+    ],
+    "hasItems": false,
+    "items": []
+  },
+  "Sharpedo": {
+    "eggMoveCount": 5,
+    "eggMoves": [
+      "Ancient Power",
+      "Destiny Bond",
+      "Double-Edge",
+      "Thrash",
+      "Water Pulse"
+    ],
+    "hasItems": false,
+    "items": []
+  },
+  "Wailmer": {
+    "eggMoveCount": 9,
+    "eggMoves": [
+      "Double-Edge",
+      "Thrash",
+      "Curse",
+      "Fissure",
+      "Tickle",
+      "Defense Curl",
+      "Rollout",
+      "Aqua Ring",
+      "Soak"
+    ],
+    "hasItems": false,
+    "items": []
+  },
+  "Wailord": {
+    "eggMoveCount": 9,
+    "eggMoves": [
+      "Double-Edge",
+      "Thrash",
+      "Curse",
+      "Fissure",
+      "Tickle",
+      "Defense Curl",
+      "Rollout",
+      "Aqua Ring",
+      "Soak"
+    ],
+    "hasItems": false,
+    "items": []
+  },
+  "Torkoal": {
+    "eggMoveCount": 5,
+    "eggMoves": ["Yawn", "Fissure", "Skull Bash", "Flail", "Ancient Power"],
+    "hasItems": true,
+    "items": ["None", "Charcoal", "None"]
+  },
+  "Trapinch": {
+    "eggMoveCount": 7,
+    "eggMoves": [
+      "Quick Attack",
+      "Gust",
+      "Flail",
+      "Fury Cutter",
+      "Bug Bite",
+      "Feint",
+      "First Impression"
+    ],
+    "hasItems": true,
+    "items": ["None", "Soft Sand", "None"]
+  },
+  "Vibrava": {
+    "eggMoveCount": 7,
+    "eggMoves": [
+      "Quick Attack",
+      "Gust",
+      "Flail",
+      "Fury Cutter",
+      "Bug Bite",
+      "Feint",
+      "First Impression"
+    ],
+    "hasItems": false,
+    "items": []
+  },
+  "Flygon": {
+    "eggMoveCount": 7,
+    "eggMoves": [
+      "Quick Attack",
+      "Gust",
+      "Flail",
+      "Fury Cutter",
+      "Bug Bite",
+      "Feint",
+      "First Impression"
+    ],
+    "hasItems": false,
+    "items": []
+  },
+  "Swablu": {
+    "eggMoveCount": 7,
+    "eggMoves": [
+      "Dragon Rush",
+      "Feather Dance",
+      "Haze",
+      "Defog",
+      "Tailwind",
+      "Astonish",
+      "Roost"
+    ],
+    "hasItems": false,
+    "items": []
+  },
+  "Altaria": {
+    "eggMoveCount": 7,
+    "eggMoves": [
+      "Dragon Rush",
+      "Feather Dance",
+      "Haze",
+      "Defog",
+      "Tailwind",
+      "Astonish",
+      "Roost"
+    ],
+    "hasItems": false,
+    "items": []
+  },
+  "Lunatone": {
+    "eggMoveCount": 0,
+    "eggMoves": [],
+    "hasItems": true,
+    "items": ["Stardust", "Moon Stone", "None"]
+  },
+  "Solrock": {
+    "eggMoveCount": 0,
+    "eggMoves": [],
+    "hasItems": true,
+    "items": ["Stardust", "Sun Stone", "None"]
+  },
+  "Barboach": {
+    "eggMoveCount": 4,
+    "eggMoves": ["Thrash", "Spark", "Flail", "Take Down"],
+    "hasItems": false,
+    "items": []
+  },
+  "Whiscash": {
+    "eggMoveCount": 4,
+    "eggMoves": ["Thrash", "Spark", "Flail", "Take Down"],
+    "hasItems": false,
+    "items": []
+  },
+  "Corphish": {
+    "eggMoveCount": 6,
+    "eggMoves": [
+      "Ancient Power",
+      "Metal Claw",
+      "Double-Edge",
+      "Aqua Jet",
+      "Switcheroo",
+      "Slash"
+    ],
+    "hasItems": false,
+    "items": []
+  },
+  "Crawdaunt": {
+    "eggMoveCount": 6,
+    "eggMoves": [
+      "Ancient Power",
+      "Metal Claw",
+      "Double-Edge",
+      "Aqua Jet",
+      "Switcheroo",
+      "Slash"
+    ],
+    "hasItems": false,
+    "items": []
+  },
+  "Baltoy": {
+    "eggMoveCount": 0,
+    "eggMoves": [],
+    "hasItems": true,
+    "items": ["None", "Light Clay", "None"]
+  },
+  "Claydol": {
+    "eggMoveCount": 0,
+    "eggMoves": [],
+    "hasItems": true,
+    "items": ["None", "Light Clay", "None"]
+  },
+  "Lileep": {
+    "eggMoveCount": 5,
+    "eggMoves": ["Recover", "Mirror Coat", "Tickle", "Bind", "Curse"],
+    "hasItems": true,
+    "items": ["None", "Big Root", "None"]
+  },
+  "Cradily": {
+    "eggMoveCount": 5,
+    "eggMoves": ["Recover", "Mirror Coat", "Tickle", "Bind", "Curse"],
+    "hasItems": true,
+    "items": ["None", "Big Root", "None"]
+  },
+  "Anorith": {
+    "eggMoveCount": 6,
+    "eggMoves": [
+      "Knock Off",
+      "Curse",
+      "Rapid Spin",
+      "Sand Attack",
+      "Water Pulse",
+      "Aqua Jet"
+    ],
+    "hasItems": false,
+    "items": []
+  },
+  "Armaldo": {
+    "eggMoveCount": 6,
+    "eggMoves": [
+      "Knock Off",
+      "Curse",
+      "Rapid Spin",
+      "Sand Attack",
+      "Water Pulse",
+      "Aqua Jet"
+    ],
+    "hasItems": false,
+    "items": []
+  },
+  "Feebas": {
+    "eggMoveCount": 7,
+    "eggMoves": [
+      "Mirror Coat",
+      "Dragon Breath",
+      "Hypnosis",
+      "Confuse Ray",
+      "Mist",
+      "Haze",
+      "Tickle"
+    ],
+    "hasItems": false,
+    "items": []
+  },
+  "Milotic": {
+    "eggMoveCount": 7,
+    "eggMoves": [
+      "Mirror Coat",
+      "Dragon Breath",
+      "Hypnosis",
+      "Confuse Ray",
+      "Mist",
+      "Haze",
+      "Tickle"
+    ],
+    "hasItems": false,
+    "items": []
+  },
+  "Duskull": {
+    "eggMoveCount": 4,
+    "eggMoves": ["Pain Split", "Grudge", "Memento", "Haze"],
+    "hasItems": true,
+    "items": ["None", "Spell Tag", "None"]
+  },
+  "Dusclops": {
+    "eggMoveCount": 4,
+    "eggMoves": ["Pain Split", "Grudge", "Memento", "Haze"],
+    "hasItems": true,
+    "items": ["None", "Spell Tag", "None"]
+  },
+  "Absol": {
+    "eggMoveCount": 6,
+    "eggMoves": [
+      "Curse",
+      "Double-Edge",
+      "Magic Coat",
+      "Mean Look",
+      "Bite",
+      "Feint"
+    ],
+    "hasItems": false,
+    "items": []
+  },
+  "Wynaut": {
+    "eggMoveCount": 0,
+    "eggMoves": [],
+    "hasItems": false,
+    "items": []
+  },
+  "Snorunt": {
+    "eggMoveCount": 5,
+    "eggMoves": ["Block", "Disable", "Switcheroo", "Rollout", "Icicle Crash"],
+    "hasItems": true,
+    "items": ["None", "Snowball", "None"]
+  },
+  "Glalie": {
+    "eggMoveCount": 5,
+    "eggMoves": ["Block", "Disable", "Switcheroo", "Rollout", "Icicle Crash"],
+    "hasItems": false,
+    "items": []
+  },
+  "Spheal": {
+    "eggMoveCount": 9,
+    "eggMoves": [
+      "Curse",
+      "Fissure",
+      "Stockpile",
+      "Swallow",
+      "Spit Up",
+      "Water Pulse",
+      "Yawn",
+      "Aqua Ring",
+      "Belly Drum"
+    ],
+    "hasItems": false,
+    "items": []
+  },
+  "Sealeo": {
+    "eggMoveCount": 9,
+    "eggMoves": [
+      "Curse",
+      "Fissure",
+      "Stockpile",
+      "Swallow",
+      "Spit Up",
+      "Water Pulse",
+      "Yawn",
+      "Aqua Ring",
+      "Belly Drum"
+    ],
+    "hasItems": false,
+    "items": []
+  },
+  "Walrein": {
+    "eggMoveCount": 9,
+    "eggMoves": [
+      "Curse",
+      "Fissure",
+      "Stockpile",
+      "Swallow",
+      "Spit Up",
+      "Water Pulse",
+      "Yawn",
+      "Aqua Ring",
+      "Belly Drum"
+    ],
+    "hasItems": false,
+    "items": []
+  },
+  "Relicanth": {
+    "eggMoveCount": 2,
+    "eggMoves": ["Mud-Slap", "Skull Bash"],
+    "hasItems": false,
+    "items": []
+  },
+  "Bagon": {
+    "eggMoveCount": 4,
+    "eggMoves": ["Defense Curl", "Dragon Rush", "Thrash", "Twister"],
+    "hasItems": true,
+    "items": ["None", "Dragon Fang", "None"]
+  },
+  "Shelgon": {
+    "eggMoveCount": 4,
+    "eggMoves": ["Defense Curl", "Dragon Rush", "Thrash", "Twister"],
+    "hasItems": true,
+    "items": ["None", "Dragon Fang", "None"]
+  },
+  "Salamence": {
+    "eggMoveCount": 4,
+    "eggMoves": ["Defense Curl", "Dragon Rush", "Thrash", "Twister"],
+    "hasItems": true,
+    "items": ["None", "Dragon Fang", "None"]
+  },
+  "Beldum": {
+    "eggMoveCount": 0,
+    "eggMoves": [],
+    "hasItems": true,
+    "items": ["None", "Metal Coat", "None"]
+  },
+  "Metang": {
+    "eggMoveCount": 0,
+    "eggMoves": [],
+    "hasItems": true,
+    "items": ["None", "Metal Coat", "None"]
+  },
+  "Metagross": {
+    "eggMoveCount": 0,
+    "eggMoves": [],
+    "hasItems": true,
+    "items": ["None", "Metal Coat", "None"]
+  },
+  "Regirock": {
+    "eggMoveCount": 0,
+    "eggMoves": [],
+    "hasItems": false,
+    "items": []
+  },
+  "Regice": {
+    "eggMoveCount": 0,
+    "eggMoves": [],
+    "hasItems": false,
+    "items": []
+  },
+  "Registeel": {
+    "eggMoveCount": 0,
+    "eggMoves": [],
+    "hasItems": false,
+    "items": []
+  },
+  "Latias": {
+    "eggMoveCount": 0,
+    "eggMoves": [],
+    "hasItems": false,
+    "items": []
+  },
+  "Latios": {
+    "eggMoveCount": 0,
+    "eggMoves": [],
+    "hasItems": false,
+    "items": []
+  },
+  "Kyogre": {
+    "eggMoveCount": 0,
+    "eggMoves": [],
+    "hasItems": false,
+    "items": []
+  },
+  "Groudon": {
+    "eggMoveCount": 0,
+    "eggMoves": [],
+    "hasItems": false,
+    "items": []
+  },
+  "Rayquaza": {
+    "eggMoveCount": 0,
+    "eggMoves": [],
+    "hasItems": false,
+    "items": []
+  },
+  "Jirachi": {
+    "eggMoveCount": 0,
+    "eggMoves": [],
+    "hasItems": true,
+    "items": ["Star Piece", "Star Piece", "None"]
+  },
+  "Shinx": {
+    "eggMoveCount": 7,
+    "eggMoves": [
+      "Baby-Doll Eyes",
+      "Take Down",
+      "Double Kick",
+      "Howl",
+      "Night Slash",
+      "Quick Attack",
+      "Shock Wave"
+    ],
+    "hasItems": false,
+    "items": []
+  },
+  "Luxio": {
+    "eggMoveCount": 7,
+    "eggMoves": [
+      "Baby-Doll Eyes",
+      "Take Down",
+      "Double Kick",
+      "Howl",
+      "Night Slash",
+      "Quick Attack",
+      "Shock Wave"
+    ],
+    "hasItems": false,
+    "items": []
+  },
+  "Luxray": {
+    "eggMoveCount": 7,
+    "eggMoves": [
+      "Baby-Doll Eyes",
+      "Take Down",
+      "Double Kick",
+      "Howl",
+      "Night Slash",
+      "Quick Attack",
+      "Shock Wave"
+    ],
+    "hasItems": false,
+    "items": []
+  },
+  "Budew": {
+    "eggMoveCount": 6,
+    "eggMoves": [
+      "Synthesis",
+      "Cotton Spore",
+      "Sleep Powder",
+      "Razor Leaf",
+      "Extrasensory",
+      "Life Dew"
+    ],
+    "hasItems": true,
+    "items": ["None", "Poison Barb", "None"]
+  },
+  "Roserade": {
+    "eggMoveCount": 5,
+    "eggMoves": [
+      "Cotton Spore",
+      "Sleep Powder",
+      "Razor Leaf",
+      "Extrasensory",
+      "Life Dew"
+    ],
+    "hasItems": true,
+    "items": ["None", "Poison Barb", "None"]
+  },
+  "Combee": {
+    "eggMoveCount": 0,
+    "eggMoves": [],
+    "hasItems": true,
+    "items": ["None", "Honey", "None"]
+  },
+  "Vespiquen": {
+    "eggMoveCount": 0,
+    "eggMoves": [],
+    "hasItems": true,
+    "items": ["None", "Poison Barb", "None"]
+  },
+  "Cherubi": {
+    "eggMoveCount": 10,
+    "eggMoves": [
+      "Razor Leaf",
+      "Sweet Scent",
+      "Tickle",
+      "Nature Power",
+      "Aromatherapy",
+      "Heal Pulse",
+      "Healing Wish",
+      "Defense Curl",
+      "Flower Shield",
+      "Rollout"
+    ],
+    "hasItems": true,
+    "items": ["None", "Miracle Seed", "None"]
+  },
+  "Cherrim": {
+    "eggMoveCount": 10,
+    "eggMoves": [
+      "Razor Leaf",
+      "Sweet Scent",
+      "Tickle",
+      "Nature Power",
+      "Aromatherapy",
+      "Heal Pulse",
+      "Healing Wish",
+      "Defense Curl",
+      "Flower Shield",
+      "Rollout"
+    ],
+    "hasItems": true,
+    "items": ["None", "Miracle Seed", "None"]
+  },
+  "Cherrim-1": {
+    "eggMoveCount": 0,
+    "eggMoves": [],
+    "hasItems": true,
+    "items": ["None", "Miracle Seed", "None"]
+  },
+  "Shellos": {
+    "eggMoveCount": 11,
+    "eggMoves": [
+      "Counter",
+      "Mirror Coat",
+      "Stockpile",
+      "Swallow",
+      "Spit Up",
+      "Yawn",
+      "Curse",
+      "Sludge",
+      "Clear Smog",
+      "Mist",
+      "Acid Armor"
+    ],
+    "hasItems": false,
+    "items": []
+  },
+  "Shellos-1": {
+    "eggMoveCount": 11,
+    "eggMoves": [
+      "Counter",
+      "Mirror Coat",
+      "Stockpile",
+      "Swallow",
+      "Spit Up",
+      "Yawn",
+      "Curse",
+      "Sludge",
+      "Clear Smog",
+      "Mist",
+      "Acid Armor"
+    ],
+    "hasItems": false,
+    "items": []
+  },
+  "Gastrodon": {
+    "eggMoveCount": 11,
+    "eggMoves": [
+      "Counter",
+      "Mirror Coat",
+      "Stockpile",
+      "Swallow",
+      "Spit Up",
+      "Yawn",
+      "Curse",
+      "Sludge",
+      "Clear Smog",
+      "Mist",
+      "Acid Armor"
+    ],
+    "hasItems": false,
+    "items": []
+  },
+  "Gastrodon-1": {
+    "eggMoveCount": 11,
+    "eggMoves": [
+      "Counter",
+      "Mirror Coat",
+      "Stockpile",
+      "Swallow",
+      "Spit Up",
+      "Yawn",
+      "Curse",
+      "Sludge",
+      "Clear Smog",
+      "Mist",
+      "Acid Armor"
+    ],
+    "hasItems": false,
+    "items": []
+  },
+  "Drifloon": {
+    "eggMoveCount": 6,
+    "eggMoves": [
+      "Memento",
+      "Disable",
+      "Haze",
+      "Hypnosis",
+      "Clear Smog",
+      "Defog"
+    ],
+    "hasItems": false,
+    "items": []
+  },
+  "Drifblim": {
+    "eggMoveCount": 6,
+    "eggMoves": [
+      "Memento",
+      "Disable",
+      "Haze",
+      "Hypnosis",
+      "Clear Smog",
+      "Defog"
+    ],
+    "hasItems": false,
+    "items": []
+  },
+  "Buneary": {
+    "eggMoveCount": 9,
+    "eggMoves": [
+      "Circle Throw",
+      "Copycat",
+      "Double Hit",
+      "Fake Out",
+      "Flail",
+      "Focus Punch",
+      "Sweet Kiss",
+      "Switcheroo",
+      "Teeter Dance"
+    ],
+    "hasItems": false,
+    "items": []
+  },
+  "Lopunny": {
+    "eggMoveCount": 9,
+    "eggMoves": [
+      "Circle Throw",
+      "Copycat",
+      "Double Hit",
+      "Fake Out",
+      "Flail",
+      "Focus Punch",
+      "Sweet Kiss",
+      "Switcheroo",
+      "Teeter Dance"
+    ],
+    "hasItems": false,
+    "items": []
+  },
+  "Stunky": {
+    "eggMoveCount": 6,
+    "eggMoves": ["Leer", "Smog", "Double-Edge", "Astonish", "Haze", "Slash"],
+    "hasItems": false,
+    "items": []
+  },
+  "Skuntank": {
+    "eggMoveCount": 6,
+    "eggMoves": ["Leer", "Smog", "Double-Edge", "Astonish", "Haze", "Slash"],
+    "hasItems": false,
+    "items": []
+  },
+  "Bronzor": {
+    "eggMoveCount": 0,
+    "eggMoves": [],
+    "hasItems": true,
+    "items": ["None", "Metal Coat", "None"]
+  },
+  "Bronzong": {
+    "eggMoveCount": 0,
+    "eggMoves": [],
+    "hasItems": true,
+    "items": ["None", "Metal Coat", "None"]
+  },
+  "Bonsly": {
+    "eggMoveCount": 6,
+    "eggMoves": [
+      "Headbutt",
+      "Harden",
+      "Defense Curl",
+      "Curse",
+      "Rollout",
+      "Rock Polish"
+    ],
+    "hasItems": false,
+    "items": []
+  },
+  "Mime Jr.": {
+    "eggMoveCount": 5,
+    "eggMoves": [
+      "Hypnosis",
+      "Fake Out",
+      "Confuse Ray",
+      "Power Split",
+      "Tickle"
+    ],
+    "hasItems": false,
+    "items": []
+  },
+  "Happiny": {
+    "eggMoveCount": 4,
+    "eggMoves": ["Aromatherapy", "Gravity", "Present", "Seismic Toss"],
+    "hasItems": true,
+    "items": ["Oval Stone", "None", "None"]
+  },
+  "Spiritomb": {
+    "eggMoveCount": 5,
+    "eggMoves": [
+      "Destiny Bond",
+      "Grudge",
+      "Pain Split",
+      "Smokescreen",
+      "Disable"
+    ],
+    "hasItems": false,
+    "items": []
+  },
+  "Gible": {
+    "eggMoveCount": 4,
+    "eggMoves": ["Thrash", "Metal Claw", "Double-Edge", "Twister"],
+    "hasItems": false,
+    "items": []
+  },
+  "Gabite": {
+    "eggMoveCount": 4,
+    "eggMoves": ["Thrash", "Metal Claw", "Double-Edge", "Twister"],
+    "hasItems": false,
+    "items": []
+  },
+  "Garchomp": {
+    "eggMoveCount": 4,
+    "eggMoves": ["Thrash", "Metal Claw", "Double-Edge", "Twister"],
+    "hasItems": false,
+    "items": []
+  },
+  "Munchlax": {
+    "eggMoveCount": 5,
+    "eggMoves": ["Double-Edge", "Curse", "Fissure", "Counter", "Belch"],
+    "hasItems": true,
+    "items": ["Leftovers", "Leftovers", "None"]
+  },
+  "Riolu": {
+    "eggMoveCount": 9,
+    "eggMoves": [
+      "Cross Chop",
+      "Detect",
+      "Bite",
+      "Mind Reader",
+      "High Jump Kick",
+      "Vacuum Wave",
+      "Bullet Punch",
+      "Circle Throw",
+      "Howl"
+    ],
+    "hasItems": false,
+    "items": []
+  },
+  "Lucario": {
+    "eggMoveCount": 9,
+    "eggMoves": [
+      "Cross Chop",
+      "Detect",
+      "Bite",
+      "Mind Reader",
+      "High Jump Kick",
+      "Vacuum Wave",
+      "Bullet Punch",
+      "Circle Throw",
+      "Howl"
+    ],
+    "hasItems": false,
+    "items": []
+  },
+  "Hippopotas": {
+    "eggMoveCount": 5,
+    "eggMoves": ["Stockpile", "Swallow", "Spit Up", "Curse", "Whirlwind"],
+    "hasItems": false,
+    "items": []
+  },
+  "Hippowdon": {
+    "eggMoveCount": 5,
+    "eggMoves": ["Stockpile", "Swallow", "Spit Up", "Curse", "Whirlwind"],
+    "hasItems": false,
+    "items": []
+  },
+  "Skorupi": {
+    "eggMoveCount": 4,
+    "eggMoves": ["Sand Attack", "Slash", "Confuse Ray", "Whirlwind"],
+    "hasItems": true,
+    "items": ["None", "Poison Barb", "None"]
+  },
+  "Drapion": {
+    "eggMoveCount": 4,
+    "eggMoves": ["Sand Attack", "Slash", "Confuse Ray", "Whirlwind"],
+    "hasItems": true,
+    "items": ["None", "Poison Barb", "None"]
+  },
+  "Croagunk": {
+    "eggMoveCount": 9,
+    "eggMoves": [
+      "Feint",
+      "Dynamic Punch",
+      "Headbutt",
+      "Vacuum Wave",
+      "Fake Out",
+      "Cross Chop",
+      "Bullet Punch",
+      "Counter",
+      "Quick Guard"
+    ],
+    "hasItems": true,
+    "items": ["None", "Black Sludge", "None"]
+  },
+  "Toxicroak": {
+    "eggMoveCount": 9,
+    "eggMoves": [
+      "Feint",
+      "Dynamic Punch",
+      "Headbutt",
+      "Vacuum Wave",
+      "Fake Out",
+      "Cross Chop",
+      "Bullet Punch",
+      "Counter",
+      "Quick Guard"
+    ],
+    "hasItems": true,
+    "items": ["None", "Black Sludge", "None"]
+  },
+  "Mantyke": {
+    "eggMoveCount": 7,
+    "eggMoves": [
+      "Twister",
+      "Haze",
+      "Slam",
+      "Mirror Coat",
+      "Splash",
+      "Tailwind",
+      "Confuse Ray"
+    ],
+    "hasItems": false,
+    "items": []
+  },
+  "Snover": {
+    "eggMoveCount": 5,
+    "eggMoves": ["Leech Seed", "Growth", "Double-Edge", "Stomp", "Skull Bash"],
+    "hasItems": true,
+    "items": ["None", "Never-Melt Ice", "None"]
+  },
+  "Abomasnow": {
+    "eggMoveCount": 5,
+    "eggMoves": ["Leech Seed", "Growth", "Double-Edge", "Stomp", "Skull Bash"],
+    "hasItems": true,
+    "items": ["None", "Never-Melt Ice", "None"]
+  },
+  "Weavile": {
+    "eggMoveCount": 8,
+    "eggMoves": [
+      "Counter",
+      "Spite",
+      "Bite",
+      "Fake Out",
+      "Double Hit",
+      "Ice Shard",
+      "Feint",
+      "Icicle Crash"
+    ],
+    "hasItems": true,
+    "items": ["None", "Quick Claw", "None"]
+  },
+  "Magnezone": {
+    "eggMoveCount": 0,
+    "eggMoves": [],
+    "hasItems": true,
+    "items": ["None", "Metal Coat", "None"]
+  },
+  "Lickilicky": {
+    "eggMoveCount": 4,
+    "eggMoves": ["Belch", "Curse", "Hammer Arm", "Thrash"],
+    "hasItems": true,
+    "items": ["None", "Lagging Tail", "None"]
+  },
+  "Rhyperior": {
+    "eggMoveCount": 7,
+    "eggMoves": [
+      "Counter",
+      "Curse",
+      "Dragon Rush",
+      "Skull Bash",
+      "Metal Burst",
+      "Guard Split",
+      "Rock Polish"
+    ],
+    "hasItems": false,
+    "items": []
+  },
+  "Tangrowth": {
+    "eggMoveCount": 6,
+    "eggMoves": [
+      "Confusion",
+      "Endeavor",
+      "Flail",
+      "Leech Seed",
+      "Nature Power",
+      "Rage Powder"
+    ],
+    "hasItems": false,
+    "items": []
+  },
+  "Electivire": {
+    "eggMoveCount": 0,
+    "eggMoves": [],
+    "hasItems": true,
+    "items": ["None", "Electirizer", "None"]
+  },
+  "Magmortar": {
+    "eggMoveCount": 0,
+    "eggMoves": [],
+    "hasItems": true,
+    "items": ["None", "Magmarizer", "None"]
+  },
+  "Togekiss": {
+    "eggMoveCount": 6,
+    "eggMoves": [
+      "Present",
+      "Peck",
+      "Psycho Shift",
+      "Extrasensory",
+      "Morning Sun",
+      "Aerial Ace"
+    ],
+    "hasItems": false,
+    "items": []
+  },
+  "Leafeon": {
+    "eggMoveCount": 8,
+    "eggMoves": [
+      "Flail",
+      "Curse",
+      "Tickle",
+      "Yawn",
+      "Detect",
+      "Double Kick",
+      "Mud-Slap",
+      "Wish"
+    ],
+    "hasItems": false,
+    "items": []
+  },
+  "Glaceon": {
+    "eggMoveCount": 8,
+    "eggMoves": [
+      "Flail",
+      "Curse",
+      "Tickle",
+      "Yawn",
+      "Detect",
+      "Double Kick",
+      "Mud-Slap",
+      "Wish"
+    ],
+    "hasItems": false,
+    "items": []
+  },
+  "Mamoswine": {
+    "eggMoveCount": 7,
+    "eggMoves": [
+      "Bite",
+      "Ancient Power",
+      "Double-Edge",
+      "Fissure",
+      "Curse",
+      "Icicle Crash",
+      "Freeze-Dry"
+    ],
+    "hasItems": false,
+    "items": []
+  },
+  "Porygon-Z": {
+    "eggMoveCount": 0,
+    "eggMoves": [],
+    "hasItems": false,
+    "items": []
+  },
+  "Gallade": {
+    "eggMoveCount": 8,
+    "eggMoves": [
+      "Disable",
+      "Mean Look",
+      "Memento",
+      "Destiny Bond",
+      "Grudge",
+      "Shadow Sneak",
+      "Confuse Ray",
+      "Knock Off"
+    ],
+    "hasItems": false,
+    "items": []
+  },
+  "Dusknoir": {
+    "eggMoveCount": 4,
+    "eggMoves": ["Pain Split", "Grudge", "Memento", "Haze"],
+    "hasItems": true,
+    "items": ["None", "Spell Tag", "None"]
+  },
+  "Froslass": {
+    "eggMoveCount": 5,
+    "eggMoves": ["Block", "Disable", "Switcheroo", "Rollout", "Icicle Crash"],
+    "hasItems": false,
+    "items": []
+  },
+  "Rotom": {
+    "eggMoveCount": 0,
+    "eggMoves": [],
+    "hasItems": false,
+    "items": []
+  },
+  "Rotom-1": {
+    "eggMoveCount": 0,
+    "eggMoves": [],
+    "hasItems": false,
+    "items": []
+  },
+  "Rotom-2": {
+    "eggMoveCount": 0,
+    "eggMoves": [],
+    "hasItems": false,
+    "items": []
+  },
+  "Rotom-3": {
+    "eggMoveCount": 0,
+    "eggMoves": [],
+    "hasItems": false,
+    "items": []
+  },
+  "Rotom-4": {
+    "eggMoveCount": 0,
+    "eggMoves": [],
+    "hasItems": false,
+    "items": []
+  },
+  "Rotom-5": {
+    "eggMoveCount": 0,
+    "eggMoves": [],
+    "hasItems": false,
+    "items": []
+  },
+  "Uxie": { "eggMoveCount": 0, "eggMoves": [], "hasItems": false, "items": [] },
+  "Mesprit": {
+    "eggMoveCount": 0,
+    "eggMoves": [],
+    "hasItems": false,
+    "items": []
+  },
+  "Azelf": {
+    "eggMoveCount": 0,
+    "eggMoves": [],
+    "hasItems": false,
+    "items": []
+  },
+  "Dialga": {
+    "eggMoveCount": 0,
+    "eggMoves": [],
+    "hasItems": false,
+    "items": []
+  },
+  "Palkia": {
+    "eggMoveCount": 0,
+    "eggMoves": [],
+    "hasItems": false,
+    "items": []
+  },
+  "Heatran": {
+    "eggMoveCount": 0,
+    "eggMoves": [],
+    "hasItems": false,
+    "items": []
+  },
+  "Regigigas": {
+    "eggMoveCount": 0,
+    "eggMoves": [],
+    "hasItems": false,
+    "items": []
+  },
+  "Giratina": {
+    "eggMoveCount": 0,
+    "eggMoves": [],
+    "hasItems": false,
+    "items": []
+  },
+  "Giratina-1": {
+    "eggMoveCount": 0,
+    "eggMoves": [],
+    "hasItems": false,
+    "items": []
+  },
+  "Cresselia": {
+    "eggMoveCount": 0,
+    "eggMoves": [],
+    "hasItems": false,
+    "items": []
+  },
+  "Victini": {
+    "eggMoveCount": 0,
+    "eggMoves": [],
+    "hasItems": false,
+    "items": []
+  },
+  "Lillipup": {
+    "eggMoveCount": 6,
+    "eggMoves": ["After You", "Howl", "Lick", "Mud-Slap", "Yawn", "Covet"],
+    "hasItems": false,
+    "items": []
+  },
+  "Herdier": {
+    "eggMoveCount": 6,
+    "eggMoves": ["After You", "Howl", "Lick", "Mud-Slap", "Yawn", "Covet"],
+    "hasItems": false,
+    "items": []
+  },
+  "Stoutland": {
+    "eggMoveCount": 6,
+    "eggMoves": ["After You", "Howl", "Lick", "Mud-Slap", "Yawn", "Covet"],
+    "hasItems": false,
+    "items": []
+  },
+  "Purrloin": {
+    "eggMoveCount": 6,
+    "eggMoves": [
+      "Yawn",
+      "Covet",
+      "Copycat",
+      "Slash",
+      "Double Team",
+      "Quick Attack"
+    ],
+    "hasItems": false,
+    "items": []
+  },
+  "Liepard": {
+    "eggMoveCount": 6,
+    "eggMoves": [
+      "Yawn",
+      "Covet",
+      "Copycat",
+      "Slash",
+      "Double Team",
+      "Quick Attack"
+    ],
+    "hasItems": false,
+    "items": []
+  },
+  "Munna": {
+    "eggMoveCount": 2,
+    "eggMoves": ["Curse", "Healing Wish"],
+    "hasItems": false,
+    "items": []
+  },
+  "Musharna": {
+    "eggMoveCount": 2,
+    "eggMoves": ["Curse", "Healing Wish"],
+    "hasItems": false,
+    "items": []
+  },
+  "Pidove": {
+    "eggMoveCount": 5,
+    "eggMoves": ["Hypnosis", "Wish", "Morning Sun", "Night Slash", "Defog"],
+    "hasItems": false,
+    "items": []
+  },
+  "Tranquill": {
+    "eggMoveCount": 5,
+    "eggMoves": ["Hypnosis", "Wish", "Morning Sun", "Night Slash", "Defog"],
+    "hasItems": false,
+    "items": []
+  },
+  "Unfezant": {
+    "eggMoveCount": 5,
+    "eggMoves": ["Hypnosis", "Wish", "Morning Sun", "Night Slash", "Defog"],
+    "hasItems": false,
+    "items": []
+  },
+  "Roggenrola": {
+    "eggMoveCount": 5,
+    "eggMoves": ["Curse", "Autotomize", "Take Down", "Gravity", "Wide Guard"],
+    "hasItems": true,
+    "items": ["Everstone", "Hard Stone", "None"]
+  },
+  "Boldore": {
+    "eggMoveCount": 5,
+    "eggMoves": ["Curse", "Autotomize", "Take Down", "Gravity", "Wide Guard"],
+    "hasItems": true,
+    "items": ["Everstone", "Hard Stone", "None"]
+  },
+  "Gigalith": {
+    "eggMoveCount": 5,
+    "eggMoves": ["Curse", "Autotomize", "Take Down", "Gravity", "Wide Guard"],
+    "hasItems": true,
+    "items": ["Everstone", "Hard Stone", "None"]
+  },
+  "Woobat": {
+    "eggMoveCount": 5,
+    "eggMoves": ["Knock Off", "Supersonic", "Roost", "Flatter", "Psycho Shift"],
+    "hasItems": false,
+    "items": []
+  },
+  "Swoobat": {
+    "eggMoveCount": 5,
+    "eggMoves": ["Knock Off", "Supersonic", "Roost", "Flatter", "Psycho Shift"],
+    "hasItems": false,
+    "items": []
+  },
+  "Drilbur": {
+    "eggMoveCount": 3,
+    "eggMoves": ["Metal Sound", "Submission", "Slash"],
+    "hasItems": false,
+    "items": []
+  },
+  "Excadrill": {
+    "eggMoveCount": 3,
+    "eggMoves": ["Metal Sound", "Submission", "Slash"],
+    "hasItems": false,
+    "items": []
+  },
+  "Audino": {
+    "eggMoveCount": 4,
+    "eggMoves": ["Healing Wish", "Wish", "Yawn", "Sweet Kiss"],
+    "hasItems": true,
+    "items": ["Oran Berry", "Sitrus Berry", "None"]
+  },
+  "Timburr": {
+    "eggMoveCount": 6,
+    "eggMoves": [
+      "Counter",
+      "Detect",
+      "Wide Guard",
+      "Mach Punch",
+      "Power-Up Punch",
+      "Defog"
+    ],
+    "hasItems": false,
+    "items": []
+  },
+  "Gurdurr": {
+    "eggMoveCount": 6,
+    "eggMoves": [
+      "Counter",
+      "Detect",
+      "Wide Guard",
+      "Mach Punch",
+      "Power-Up Punch",
+      "Defog"
+    ],
+    "hasItems": false,
+    "items": []
+  },
+  "Conkeldurr": {
+    "eggMoveCount": 6,
+    "eggMoves": [
+      "Counter",
+      "Detect",
+      "Wide Guard",
+      "Mach Punch",
+      "Power-Up Punch",
+      "Defog"
+    ],
+    "hasItems": false,
+    "items": []
+  },
+  "Tympole": {
+    "eggMoveCount": 4,
+    "eggMoves": ["Water Pulse", "Mist", "Toxic", "Mud-Slap"],
+    "hasItems": false,
+    "items": []
+  },
+  "Palpitoad": {
+    "eggMoveCount": 4,
+    "eggMoves": ["Water Pulse", "Mist", "Toxic", "Mud-Slap"],
+    "hasItems": false,
+    "items": []
+  },
+  "Seismitoad": {
+    "eggMoveCount": 4,
+    "eggMoves": ["Water Pulse", "Mist", "Toxic", "Mud-Slap"],
+    "hasItems": false,
+    "items": []
+  },
+  "Throh": {
+    "eggMoveCount": 0,
+    "eggMoves": [],
+    "hasItems": true,
+    "items": ["None", "Black Belt", "None"]
+  },
+  "Sawk": {
+    "eggMoveCount": 0,
+    "eggMoves": [],
+    "hasItems": true,
+    "items": ["None", "Black Belt", "None"]
+  },
+  "Venipede": {
+    "eggMoveCount": 2,
+    "eggMoves": ["Bite", "Fury Cutter"],
+    "hasItems": true,
+    "items": ["None", "Poison Barb", "None"]
+  },
+  "Whirlipede": {
+    "eggMoveCount": 2,
+    "eggMoves": ["Bite", "Fury Cutter"],
+    "hasItems": true,
+    "items": ["None", "Poison Barb", "None"]
+  },
+  "Scolipede": {
+    "eggMoveCount": 2,
+    "eggMoves": ["Bite", "Fury Cutter"],
+    "hasItems": true,
+    "items": ["None", "Poison Barb", "None"]
+  },
+  "Cottonee": {
+    "eggMoveCount": 5,
+    "eggMoves": [
+      "Tickle",
+      "Memento",
+      "Switcheroo",
+      "Worry Seed",
+      "Nature Power"
+    ],
+    "hasItems": true,
+    "items": ["None", "Absorb Bulb", "None"]
+  },
+  "Whimsicott": {
+    "eggMoveCount": 5,
+    "eggMoves": [
+      "Tickle",
+      "Memento",
+      "Switcheroo",
+      "Worry Seed",
+      "Nature Power"
+    ],
+    "hasItems": true,
+    "items": ["None", "Absorb Bulb", "None"]
+  },
+  "Petilil": {
+    "eggMoveCount": 4,
+    "eggMoves": ["Ingrain", "Healing Wish", "Sweet Scent", "Worry Seed"],
+    "hasItems": true,
+    "items": ["None", "Absorb Bulb", "None"]
+  },
+  "Lilligant": {
+    "eggMoveCount": 4,
+    "eggMoves": ["Ingrain", "Healing Wish", "Sweet Scent", "Worry Seed"],
+    "hasItems": true,
+    "items": ["None", "Absorb Bulb", "None"]
+  },
+  "Basculin": {
+    "eggMoveCount": 2,
+    "eggMoves": ["Bubble Beam", "Endeavor"],
+    "hasItems": false,
+    "items": []
+  },
+  "Basculin-1": {
+    "eggMoveCount": 2,
+    "eggMoves": ["Bubble Beam", "Endeavor"],
+    "hasItems": false,
+    "items": []
+  },
+  "Sandile": {
+    "eggMoveCount": 4,
+    "eggMoves": ["Counter", "Double-Edge", "Aqua Tail", "Spite"],
+    "hasItems": true,
+    "items": ["None", "Black Glasses", "None"]
+  },
+  "Krokorok": {
+    "eggMoveCount": 4,
+    "eggMoves": ["Counter", "Double-Edge", "Aqua Tail", "Spite"],
+    "hasItems": true,
+    "items": ["None", "Black Glasses", "None"]
+  },
+  "Krookodile": {
+    "eggMoveCount": 4,
+    "eggMoves": ["Counter", "Double-Edge", "Aqua Tail", "Spite"],
+    "hasItems": true,
+    "items": ["Black Glasses", "None", "None"]
+  },
+  "Darumaka": {
+    "eggMoveCount": 6,
+    "eggMoves": [
+      "Focus Punch",
+      "Hammer Arm",
+      "Take Down",
+      "Flame Wheel",
+      "Yawn",
+      "Extrasensory"
+    ],
+    "hasItems": false,
+    "items": []
+  },
+  "Darumaka-1": {
+    "eggMoveCount": 8,
+    "eggMoves": [
+      "Focus Punch",
+      "Hammer Arm",
+      "Take Down",
+      "Flame Wheel",
+      "Yawn",
+      "Freeze-Dry",
+      "Incinerate",
+      "Power-Up Punch"
+    ],
+    "hasItems": false,
+    "items": []
+  },
+  "Darmanitan": {
+    "eggMoveCount": 6,
+    "eggMoves": [
+      "Focus Punch",
+      "Hammer Arm",
+      "Take Down",
+      "Flame Wheel",
+      "Yawn",
+      "Extrasensory"
+    ],
+    "hasItems": false,
+    "items": []
+  },
+  "Darmanitan-1": {
+    "eggMoveCount": 0,
+    "eggMoves": [],
+    "hasItems": false,
+    "items": []
+  },
+  "Darmanitan-2": {
+    "eggMoveCount": 8,
+    "eggMoves": [
+      "Focus Punch",
+      "Hammer Arm",
+      "Take Down",
+      "Flame Wheel",
+      "Yawn",
+      "Freeze-Dry",
+      "Incinerate",
+      "Power-Up Punch"
+    ],
+    "hasItems": false,
+    "items": []
+  },
+  "Darmanitan-3": {
+    "eggMoveCount": 0,
+    "eggMoves": [],
+    "hasItems": false,
+    "items": []
+  },
+  "Maractus": {
+    "eggMoveCount": 2,
+    "eggMoves": ["Worry Seed", "Wood Hammer"],
+    "hasItems": true,
+    "items": ["None", "Miracle Seed", "None"]
+  },
+  "Dwebble": {
+    "eggMoveCount": 6,
+    "eggMoves": [
+      "Night Slash",
+      "Counter",
+      "Curse",
+      "Block",
+      "Wide Guard",
+      "Knock Off"
+    ],
+    "hasItems": true,
+    "items": ["None", "Hard Stone", "None"]
+  },
+  "Crustle": {
+    "eggMoveCount": 6,
+    "eggMoves": [
+      "Night Slash",
+      "Counter",
+      "Curse",
+      "Block",
+      "Wide Guard",
+      "Knock Off"
+    ],
+    "hasItems": true,
+    "items": ["None", "Hard Stone", "None"]
+  },
+  "Scraggy": {
+    "eggMoveCount": 6,
+    "eggMoves": [
+      "Counter",
+      "Detect",
+      "Fake Out",
+      "Quick Guard",
+      "Power-Up Punch",
+      "Acid Spray"
+    ],
+    "hasItems": true,
+    "items": ["None", "Shed Shell", "None"]
+  },
+  "Scrafty": {
+    "eggMoveCount": 6,
+    "eggMoves": [
+      "Counter",
+      "Detect",
+      "Fake Out",
+      "Quick Guard",
+      "Power-Up Punch",
+      "Acid Spray"
+    ],
+    "hasItems": true,
+    "items": ["None", "Shed Shell", "None"]
+  },
+  "Sigilyph": {
+    "eggMoveCount": 3,
+    "eggMoves": ["Psycho Shift", "Ancient Power", "Roost"],
+    "hasItems": false,
+    "items": []
+  },
+  "Yamask": {
+    "eggMoveCount": 1,
+    "eggMoves": ["Memento"],
+    "hasItems": true,
+    "items": ["None", "Spell Tag", "None"]
+  },
+  "Yamask-1": {
+    "eggMoveCount": 1,
+    "eggMoves": ["Memento"],
+    "hasItems": false,
+    "items": []
+  },
+  "Cofagrigus": {
+    "eggMoveCount": 1,
+    "eggMoves": ["Memento"],
+    "hasItems": true,
+    "items": ["None", "Spell Tag", "None"]
+  },
+  "Tirtouga": {
+    "eggMoveCount": 6,
+    "eggMoves": [
+      "Knock Off",
+      "Rollout",
+      "Rock Throw",
+      "Slam",
+      "Water Pulse",
+      "Block"
+    ],
+    "hasItems": false,
+    "items": []
+  },
+  "Carracosta": {
+    "eggMoveCount": 6,
+    "eggMoves": [
+      "Knock Off",
+      "Rollout",
+      "Rock Throw",
+      "Slam",
+      "Water Pulse",
+      "Block"
+    ],
+    "hasItems": false,
+    "items": []
+  },
+  "Archen": {
+    "eggMoveCount": 6,
+    "eggMoves": [
+      "Bite",
+      "Defog",
+      "Knock Off",
+      "Double Team",
+      "Head Smash",
+      "Switcheroo"
+    ],
+    "hasItems": false,
+    "items": []
+  },
+  "Archeops": {
+    "eggMoveCount": 6,
+    "eggMoves": [
+      "Bite",
+      "Defog",
+      "Knock Off",
+      "Double Team",
+      "Head Smash",
+      "Switcheroo"
+    ],
+    "hasItems": false,
+    "items": []
+  },
+  "Trubbish": {
+    "eggMoveCount": 5,
+    "eggMoves": ["Haze", "Curse", "Sand Attack", "Autotomize", "Rollout"],
+    "hasItems": true,
+    "items": ["None", "Silk Scarf", "None"]
+  },
+  "Garbodor": {
+    "eggMoveCount": 5,
+    "eggMoves": ["Haze", "Curse", "Sand Attack", "Autotomize", "Rollout"],
+    "hasItems": true,
+    "items": ["Silk Scarf", "Black Sludge", "None"]
+  },
+  "Zorua": {
+    "eggMoveCount": 6,
+    "eggMoves": [
+      "Copycat",
+      "Counter",
+      "Detect",
+      "Extrasensory",
+      "Memento",
+      "Sucker Punch"
+    ],
+    "hasItems": false,
+    "items": []
+  },
+  "Zoroark": {
+    "eggMoveCount": 6,
+    "eggMoves": [
+      "Copycat",
+      "Counter",
+      "Detect",
+      "Extrasensory",
+      "Memento",
+      "Sucker Punch"
+    ],
+    "hasItems": false,
+    "items": []
+  },
+  "Minccino": {
+    "eggMoveCount": 4,
+    "eggMoves": ["Tail Whip", "Aqua Tail", "Knock Off", "Flail"],
+    "hasItems": false,
+    "items": []
+  },
+  "Cinccino": {
+    "eggMoveCount": 4,
+    "eggMoves": ["Tail Whip", "Aqua Tail", "Knock Off", "Flail"],
+    "hasItems": false,
+    "items": []
+  },
+  "Gothita": {
+    "eggMoveCount": 5,
+    "eggMoves": [
+      "Mirror Coat",
+      "Mean Look",
+      "Heal Pulse",
+      "Torment",
+      "Fake Out"
+    ],
+    "hasItems": false,
+    "items": []
+  },
+  "Gothorita": {
+    "eggMoveCount": 5,
+    "eggMoves": [
+      "Mirror Coat",
+      "Mean Look",
+      "Heal Pulse",
+      "Torment",
+      "Fake Out"
+    ],
+    "hasItems": false,
+    "items": []
+  },
+  "Gothitelle": {
+    "eggMoveCount": 5,
+    "eggMoves": [
+      "Mirror Coat",
+      "Mean Look",
+      "Heal Pulse",
+      "Torment",
+      "Fake Out"
+    ],
+    "hasItems": false,
+    "items": []
+  },
+  "Solosis": {
+    "eggMoveCount": 3,
+    "eggMoves": ["Astonish", "Confuse Ray", "Acid Armor"],
+    "hasItems": false,
+    "items": []
+  },
+  "Duosion": {
+    "eggMoveCount": 3,
+    "eggMoves": ["Astonish", "Confuse Ray", "Acid Armor"],
+    "hasItems": false,
+    "items": []
+  },
+  "Reuniclus": {
+    "eggMoveCount": 3,
+    "eggMoves": ["Astonish", "Confuse Ray", "Acid Armor"],
+    "hasItems": false,
+    "items": []
+  },
+  "Vanillite": {
+    "eggMoveCount": 6,
+    "eggMoves": [
+      "Autotomize",
+      "Magnet Rise",
+      "Ice Shard",
+      "Explosion",
+      "Aurora Veil",
+      "Icicle Crash"
+    ],
+    "hasItems": true,
+    "items": ["None", "Never-Melt Ice", "None"]
+  },
+  "Vanillish": {
+    "eggMoveCount": 6,
+    "eggMoves": [
+      "Autotomize",
+      "Magnet Rise",
+      "Ice Shard",
+      "Explosion",
+      "Aurora Veil",
+      "Icicle Crash"
+    ],
+    "hasItems": true,
+    "items": ["None", "Never-Melt Ice", "None"]
+  },
+  "Vanilluxe": {
+    "eggMoveCount": 6,
+    "eggMoves": [
+      "Autotomize",
+      "Magnet Rise",
+      "Ice Shard",
+      "Explosion",
+      "Aurora Veil",
+      "Icicle Crash"
+    ],
+    "hasItems": true,
+    "items": ["Never-Melt Ice", "None", "None"]
+  },
+  "Emolga": {
+    "eggMoveCount": 6,
+    "eggMoves": ["Astonish", "Covet", "Roost", "Shock Wave", "Tickle", "Defog"],
+    "hasItems": false,
+    "items": []
+  },
+  "Karrablast": {
+    "eggMoveCount": 5,
+    "eggMoves": ["Counter", "Bug Bite", "Knock Off", "Slash", "Night Slash"],
+    "hasItems": false,
+    "items": []
+  },
+  "Escavalier": {
+    "eggMoveCount": 5,
+    "eggMoves": ["Counter", "Bug Bite", "Knock Off", "Slash", "Night Slash"],
+    "hasItems": false,
+    "items": []
+  },
+  "Foongus": {
+    "eggMoveCount": 4,
+    "eggMoves": ["Defense Curl", "Poison Powder", "Rollout", "Worry Seed"],
+    "hasItems": true,
+    "items": ["Tiny Mushroom", "Big Mushroom", "None"]
+  },
+  "Amoonguss": {
+    "eggMoveCount": 4,
+    "eggMoves": ["Defense Curl", "Poison Powder", "Rollout", "Worry Seed"],
+    "hasItems": true,
+    "items": ["Tiny Mushroom", "Big Mushroom", "None"]
+  },
+  "Frillish": {
+    "eggMoveCount": 6,
+    "eggMoves": [
+      "Acid Armor",
+      "Confuse Ray",
+      "Pain Split",
+      "Mist",
+      "Bubble Beam",
+      "Strength Sap"
+    ],
+    "hasItems": false,
+    "items": []
+  },
+  "Jellicent": {
+    "eggMoveCount": 6,
+    "eggMoves": [
+      "Acid Armor",
+      "Confuse Ray",
+      "Pain Split",
+      "Mist",
+      "Bubble Beam",
+      "Strength Sap"
+    ],
+    "hasItems": false,
+    "items": []
+  },
+  "Joltik": {
+    "eggMoveCount": 5,
+    "eggMoves": [
+      "Poison Sting",
+      "Lunge",
+      "Struggle Bug",
+      "Double Team",
+      "Infestation"
+    ],
+    "hasItems": false,
+    "items": []
+  },
+  "Galvantula": {
+    "eggMoveCount": 5,
+    "eggMoves": [
+      "Poison Sting",
+      "Lunge",
+      "Struggle Bug",
+      "Double Team",
+      "Infestation"
+    ],
+    "hasItems": false,
+    "items": []
+  },
+  "Ferroseed": {
+    "eggMoveCount": 5,
+    "eggMoves": ["Leech Seed", "Gravity", "Acid Spray", "Toxic", "Knock Off"],
+    "hasItems": true,
+    "items": ["None", "Sticky Barb", "None"]
+  },
+  "Ferrothorn": {
+    "eggMoveCount": 5,
+    "eggMoves": ["Leech Seed", "Gravity", "Acid Spray", "Toxic", "Knock Off"],
+    "hasItems": true,
+    "items": ["None", "Sticky Barb", "None"]
+  },
+  "Klink": {
+    "eggMoveCount": 0,
+    "eggMoves": [],
+    "hasItems": false,
+    "items": []
+  },
+  "Klang": {
+    "eggMoveCount": 0,
+    "eggMoves": [],
+    "hasItems": false,
+    "items": []
+  },
+  "Klinklang": {
+    "eggMoveCount": 0,
+    "eggMoves": [],
+    "hasItems": false,
+    "items": []
+  },
+  "Elgyem": {
+    "eggMoveCount": 4,
+    "eggMoves": ["Disable", "Astonish", "Psych Up", "Destiny Bond"],
+    "hasItems": false,
+    "items": []
+  },
+  "Beheeyem": {
+    "eggMoveCount": 4,
+    "eggMoves": ["Disable", "Astonish", "Psych Up", "Destiny Bond"],
+    "hasItems": false,
+    "items": []
+  },
+  "Litwick": {
+    "eggMoveCount": 4,
+    "eggMoves": ["Acid Armor", "Haze", "Clear Smog", "Power Split"],
+    "hasItems": false,
+    "items": []
+  },
+  "Lampent": {
+    "eggMoveCount": 4,
+    "eggMoves": ["Acid Armor", "Haze", "Clear Smog", "Power Split"],
+    "hasItems": false,
+    "items": []
+  },
+  "Chandelure": {
+    "eggMoveCount": 4,
+    "eggMoves": ["Acid Armor", "Haze", "Clear Smog", "Power Split"],
+    "hasItems": false,
+    "items": []
+  },
+  "Axew": {
+    "eggMoveCount": 6,
+    "eggMoves": [
+      "Counter",
+      "Night Slash",
+      "Endeavor",
+      "Harden",
+      "First Impression",
+      "Counter"
+    ],
+    "hasItems": false,
+    "items": []
+  },
+  "Fraxure": {
+    "eggMoveCount": 6,
+    "eggMoves": [
+      "Counter",
+      "Night Slash",
+      "Endeavor",
+      "Harden",
+      "First Impression",
+      "Counter"
+    ],
+    "hasItems": false,
+    "items": []
+  },
+  "Haxorus": {
+    "eggMoveCount": 6,
+    "eggMoves": [
+      "Counter",
+      "Night Slash",
+      "Endeavor",
+      "Harden",
+      "First Impression",
+      "Counter"
+    ],
+    "hasItems": false,
+    "items": []
+  },
+  "Cubchoo": {
+    "eggMoveCount": 3,
+    "eggMoves": ["Yawn", "Night Slash", "Focus Punch"],
+    "hasItems": false,
+    "items": []
+  },
+  "Beartic": {
+    "eggMoveCount": 3,
+    "eggMoves": ["Yawn", "Night Slash", "Focus Punch"],
+    "hasItems": false,
+    "items": []
+  },
+  "Cryogonal": {
+    "eggMoveCount": 0,
+    "eggMoves": [],
+    "hasItems": true,
+    "items": ["None", "Never-Melt Ice", "None"]
+  },
+  "Shelmet": {
+    "eggMoveCount": 4,
+    "eggMoves": ["Double-Edge", "Guard Split", "Mind Reader", "Feint"],
+    "hasItems": false,
+    "items": []
+  },
+  "Accelgor": {
+    "eggMoveCount": 4,
+    "eggMoves": ["Double-Edge", "Guard Split", "Mind Reader", "Feint"],
+    "hasItems": false,
+    "items": []
+  },
+  "Stunfisk": {
+    "eggMoveCount": 7,
+    "eggMoves": [
+      "Yawn",
+      "Astonish",
+      "Curse",
+      "Spite",
+      "Spark",
+      "Pain Split",
+      "Reflect Type"
+    ],
+    "hasItems": true,
+    "items": ["None", "Soft Sand", "None"]
+  },
+  "Stunfisk-1": {
+    "eggMoveCount": 8,
+    "eggMoves": [
+      "Bind",
+      "Yawn",
+      "Astonish",
+      "Curse",
+      "Spite",
+      "Counter",
+      "Pain Split",
+      "Reflect Type"
+    ],
+    "hasItems": false,
+    "items": []
+  },
+  "Mienfoo": {
+    "eggMoveCount": 4,
+    "eggMoves": ["Feint", "Knock Off", "Vital Throw", "Focus Punch"],
+    "hasItems": false,
+    "items": []
+  },
+  "Mienshao": {
+    "eggMoveCount": 4,
+    "eggMoves": ["Feint", "Knock Off", "Vital Throw", "Focus Punch"],
+    "hasItems": false,
+    "items": []
+  },
+  "Druddigon": {
+    "eggMoveCount": 4,
+    "eggMoves": ["Night Slash", "Glare", "Poison Tail", "Sucker Punch"],
+    "hasItems": true,
+    "items": ["None", "Dragon Fang", "None"]
+  },
+  "Golett": {
+    "eggMoveCount": 0,
+    "eggMoves": [],
+    "hasItems": true,
+    "items": ["None", "Light Clay", "None"]
+  },
+  "Golurk": {
+    "eggMoveCount": 0,
+    "eggMoves": [],
+    "hasItems": true,
+    "items": ["None", "Light Clay", "None"]
+  },
+  "Pawniard": {
+    "eggMoveCount": 4,
+    "eggMoves": ["Sucker Punch", "Headbutt", "Mean Look", "Quick Guard"],
+    "hasItems": false,
+    "items": []
+  },
+  "Bisharp": {
+    "eggMoveCount": 4,
+    "eggMoves": ["Sucker Punch", "Headbutt", "Mean Look", "Quick Guard"],
+    "hasItems": false,
+    "items": []
+  },
+  "Bouffalant": {
+    "eggMoveCount": 7,
+    "eggMoves": [
+      "Belch",
+      "Headbutt",
+      "Mud-Slap",
+      "Skull Bash",
+      "Stomp",
+      "Cotton Guard",
+      "Endeavor"
+    ],
+    "hasItems": false,
+    "items": []
+  },
+  "Rufflet": {
+    "eggMoveCount": 0,
+    "eggMoves": [],
+    "hasItems": false,
+    "items": []
+  },
+  "Braviary": {
+    "eggMoveCount": 0,
+    "eggMoves": [],
+    "hasItems": false,
+    "items": []
+  },
+  "Vullaby": {
+    "eggMoveCount": 3,
+    "eggMoves": ["Mean Look", "Roost", "Toxic"],
+    "hasItems": false,
+    "items": []
+  },
+  "Mandibuzz": {
+    "eggMoveCount": 3,
+    "eggMoves": ["Mean Look", "Roost", "Toxic"],
+    "hasItems": false,
+    "items": []
+  },
+  "Heatmor": {
+    "eggMoveCount": 5,
+    "eggMoves": ["Night Slash", "Curse", "Sucker Punch", "Tickle", "Belch"],
+    "hasItems": false,
+    "items": []
+  },
+  "Durant": {
+    "eggMoveCount": 5,
+    "eggMoves": [
+      "Struggle Bug",
+      "First Impression",
+      "Metal Burst",
+      "Infestation",
+      "Flail"
+    ],
+    "hasItems": false,
+    "items": []
+  },
+  "Deino": {
+    "eggMoveCount": 4,
+    "eggMoves": ["Double Hit", "Astonish", "Head Smash", "Belch"],
+    "hasItems": false,
+    "items": []
+  },
+  "Zweilous": {
+    "eggMoveCount": 4,
+    "eggMoves": ["Double Hit", "Astonish", "Head Smash", "Belch"],
+    "hasItems": false,
+    "items": []
+  },
+  "Hydreigon": {
+    "eggMoveCount": 4,
+    "eggMoves": ["Double Hit", "Astonish", "Head Smash", "Belch"],
+    "hasItems": false,
+    "items": []
+  },
+  "Larvesta": {
+    "eggMoveCount": 3,
+    "eggMoves": ["Harden", "Absorb", "Thrash"],
+    "hasItems": false,
+    "items": []
+  },
+  "Volcarona": {
+    "eggMoveCount": 3,
+    "eggMoves": ["Harden", "Absorb", "Thrash"],
+    "hasItems": true,
+    "items": ["Silver Powder", "Silver Powder", "None"]
+  },
+  "Cobalion": {
+    "eggMoveCount": 0,
+    "eggMoves": [],
+    "hasItems": false,
+    "items": []
+  },
+  "Terrakion": {
+    "eggMoveCount": 0,
+    "eggMoves": [],
+    "hasItems": false,
+    "items": []
+  },
+  "Virizion": {
+    "eggMoveCount": 0,
+    "eggMoves": [],
+    "hasItems": false,
+    "items": []
+  },
+  "Tornadus": {
+    "eggMoveCount": 0,
+    "eggMoves": [],
+    "hasItems": false,
+    "items": []
+  },
+  "Tornadus-1": {
+    "eggMoveCount": 0,
+    "eggMoves": [],
+    "hasItems": false,
+    "items": []
+  },
+  "Thundurus": {
+    "eggMoveCount": 0,
+    "eggMoves": [],
+    "hasItems": false,
+    "items": []
+  },
+  "Thundurus-1": {
+    "eggMoveCount": 0,
+    "eggMoves": [],
+    "hasItems": false,
+    "items": []
+  },
+  "Reshiram": {
+    "eggMoveCount": 0,
+    "eggMoves": [],
+    "hasItems": false,
+    "items": []
+  },
+  "Zekrom": {
+    "eggMoveCount": 0,
+    "eggMoves": [],
+    "hasItems": false,
+    "items": []
+  },
+  "Landorus": {
+    "eggMoveCount": 0,
+    "eggMoves": [],
+    "hasItems": false,
+    "items": []
+  },
+  "Landorus-1": {
+    "eggMoveCount": 0,
+    "eggMoves": [],
+    "hasItems": false,
+    "items": []
+  },
+  "Kyurem": {
+    "eggMoveCount": 0,
+    "eggMoves": [],
+    "hasItems": false,
+    "items": []
+  },
+  "Kyurem-1": {
+    "eggMoveCount": 0,
+    "eggMoves": [],
+    "hasItems": false,
+    "items": []
+  },
+  "Kyurem-2": {
+    "eggMoveCount": 0,
+    "eggMoves": [],
+    "hasItems": false,
+    "items": []
+  },
+  "Keldeo": {
+    "eggMoveCount": 0,
+    "eggMoves": [],
+    "hasItems": false,
+    "items": []
+  },
+  "Keldeo-1": {
+    "eggMoveCount": 0,
+    "eggMoves": [],
+    "hasItems": false,
+    "items": []
+  },
+  "Genesect": {
+    "eggMoveCount": 0,
+    "eggMoves": [],
+    "hasItems": false,
+    "items": []
+  },
+  "Genesect-1": {
+    "eggMoveCount": 0,
+    "eggMoves": [],
+    "hasItems": false,
+    "items": []
+  },
+  "Genesect-2": {
+    "eggMoveCount": 0,
+    "eggMoves": [],
+    "hasItems": false,
+    "items": []
+  },
+  "Genesect-3": {
+    "eggMoveCount": 0,
+    "eggMoves": [],
+    "hasItems": false,
+    "items": []
+  },
+  "Genesect-4": {
+    "eggMoveCount": 0,
+    "eggMoves": [],
+    "hasItems": false,
+    "items": []
+  },
+  "Bunnelby": {
+    "eggMoveCount": 2,
+    "eggMoves": ["Defense Curl", "Rollout"],
+    "hasItems": false,
+    "items": []
+  },
+  "Diggersby": {
+    "eggMoveCount": 2,
+    "eggMoves": ["Defense Curl", "Rollout"],
+    "hasItems": false,
+    "items": []
+  },
+  "Fletchling": {
+    "eggMoveCount": 3,
+    "eggMoves": ["Flame Charge", "Quick Guard", "Defog"],
+    "hasItems": false,
+    "items": []
+  },
+  "Fletchinder": {
+    "eggMoveCount": 3,
+    "eggMoves": ["Flame Charge", "Quick Guard", "Defog"],
+    "hasItems": false,
+    "items": []
+  },
+  "Talonflame": {
+    "eggMoveCount": 3,
+    "eggMoves": ["Flame Charge", "Quick Guard", "Defog"],
+    "hasItems": false,
+    "items": []
+  },
+  "Pancham": {
+    "eggMoveCount": 5,
+    "eggMoves": [
+      "Quash",
+      "Quick Guard",
+      "Storm Throw",
+      "Power Trip",
+      "Seismic Toss"
+    ],
+    "hasItems": true,
+    "items": ["None", "Mental Herb", "None"]
+  },
+  "Pangoro": {
+    "eggMoveCount": 5,
+    "eggMoves": [
+      "Quash",
+      "Quick Guard",
+      "Storm Throw",
+      "Power Trip",
+      "Seismic Toss"
+    ],
+    "hasItems": true,
+    "items": ["None", "Mental Herb", "None"]
+  },
+  "Espurr": {
+    "eggMoveCount": 2,
+    "eggMoves": ["Yawn", "Tickle"],
+    "hasItems": false,
+    "items": []
+  },
+  "Meowstic": {
+    "eggMoveCount": 2,
+    "eggMoves": ["Yawn", "Tickle"],
+    "hasItems": false,
+    "items": []
+  },
+  "Meowstic-1": {
+    "eggMoveCount": 2,
+    "eggMoves": ["Yawn", "Tickle"],
+    "hasItems": false,
+    "items": []
+  },
+  "Honedge": {
+    "eggMoveCount": 3,
+    "eggMoves": ["Destiny Bond", "Wide Guard", "Block"],
+    "hasItems": false,
+    "items": []
+  },
+  "Doublade": {
+    "eggMoveCount": 3,
+    "eggMoves": ["Destiny Bond", "Wide Guard", "Block"],
+    "hasItems": false,
+    "items": []
+  },
+  "Aegislash": {
+    "eggMoveCount": 3,
+    "eggMoves": ["Destiny Bond", "Wide Guard", "Block"],
+    "hasItems": false,
+    "items": []
+  },
+  "Aegislash-1": {
+    "eggMoveCount": 0,
+    "eggMoves": [],
+    "hasItems": false,
+    "items": []
+  },
+  "Spritzee": {
+    "eggMoveCount": 3,
+    "eggMoves": ["Disable", "Wish", "After You"],
+    "hasItems": false,
+    "items": []
+  },
+  "Aromatisse": {
+    "eggMoveCount": 3,
+    "eggMoves": ["Disable", "Wish", "After You"],
+    "hasItems": false,
+    "items": []
+  },
+  "Swirlix": {
+    "eggMoveCount": 4,
+    "eggMoves": ["After You", "Yawn", "Copycat", "Sticky Web"],
+    "hasItems": false,
+    "items": []
+  },
+  "Slurpuff": {
+    "eggMoveCount": 4,
+    "eggMoves": ["After You", "Yawn", "Copycat", "Sticky Web"],
+    "hasItems": false,
+    "items": []
+  },
+  "Inkay": {
+    "eggMoveCount": 3,
+    "eggMoves": ["Destiny Bond", "Disable", "Acupressure"],
+    "hasItems": false,
+    "items": []
+  },
+  "Malamar": {
+    "eggMoveCount": 3,
+    "eggMoves": ["Destiny Bond", "Disable", "Acupressure"],
+    "hasItems": false,
+    "items": []
+  },
+  "Binacle": {
+    "eggMoveCount": 3,
+    "eggMoves": ["Switcheroo", "Night Slash", "Sand Attack"],
+    "hasItems": false,
+    "items": []
+  },
+  "Barbaracle": {
+    "eggMoveCount": 3,
+    "eggMoves": ["Switcheroo", "Night Slash", "Sand Attack"],
+    "hasItems": false,
+    "items": []
+  },
+  "Skrelp": {
+    "eggMoveCount": 4,
+    "eggMoves": ["Acid Armor", "Haze", "Twister", "Dragon Tail"],
+    "hasItems": false,
+    "items": []
+  },
+  "Dragalge": {
+    "eggMoveCount": 4,
+    "eggMoves": ["Acid Armor", "Haze", "Twister", "Dragon Tail"],
+    "hasItems": false,
+    "items": []
+  },
+  "Clauncher": {
+    "eggMoveCount": 3,
+    "eggMoves": ["Entrainment", "Aqua Tail", "Bubble Beam"],
+    "hasItems": false,
+    "items": []
+  },
+  "Clawitzer": {
+    "eggMoveCount": 3,
+    "eggMoves": ["Entrainment", "Aqua Tail", "Bubble Beam"],
+    "hasItems": false,
+    "items": []
+  },
+  "Helioptile": {
+    "eggMoveCount": 3,
+    "eggMoves": ["Glare", "Dragon Rush", "Dragon Tail"],
+    "hasItems": false,
+    "items": []
+  },
+  "Heliolisk": {
+    "eggMoveCount": 3,
+    "eggMoves": ["Glare", "Dragon Rush", "Dragon Tail"],
+    "hasItems": false,
+    "items": []
+  },
+  "Tyrunt": {
+    "eggMoveCount": 4,
+    "eggMoves": ["Curse", "Rock Throw", "Poison Fang", "Rock Polish"],
+    "hasItems": false,
+    "items": []
+  },
+  "Tyrantrum": {
+    "eggMoveCount": 4,
+    "eggMoves": ["Curse", "Rock Throw", "Poison Fang", "Rock Polish"],
+    "hasItems": false,
+    "items": []
+  },
+  "Amaura": {
+    "eggMoveCount": 6,
+    "eggMoves": [
+      "Take Down",
+      "Rock Throw",
+      "Discharge",
+      "Haze",
+      "Mirror Coat",
+      "Aurora Veil"
+    ],
+    "hasItems": false,
+    "items": []
+  },
+  "Aurorus": {
+    "eggMoveCount": 6,
+    "eggMoves": [
+      "Take Down",
+      "Rock Throw",
+      "Discharge",
+      "Haze",
+      "Mirror Coat",
+      "Aurora Veil"
+    ],
+    "hasItems": false,
+    "items": []
+  },
+  "Sylveon": {
+    "eggMoveCount": 8,
+    "eggMoves": [
+      "Flail",
+      "Curse",
+      "Tickle",
+      "Yawn",
+      "Detect",
+      "Double Kick",
+      "Mud-Slap",
+      "Wish"
+    ],
+    "hasItems": false,
+    "items": []
+  },
+  "Hawlucha": {
+    "eggMoveCount": 6,
+    "eggMoves": [
+      "Entrainment",
+      "Quick Guard",
+      "Feint",
+      "Defog",
+      "Mean Look",
+      "Cross Chop"
+    ],
+    "hasItems": true,
+    "items": ["None", "King’s Rock", "None"]
+  },
+  "Dedenne": {
+    "eggMoveCount": 3,
+    "eggMoves": ["Covet", "Tearful Look", "Magnet Rise"],
+    "hasItems": false,
+    "items": []
+  },
+  "Carbink": {
+    "eggMoveCount": 0,
+    "eggMoves": [],
+    "hasItems": false,
+    "items": []
+  },
+  "Goomy": {
+    "eggMoveCount": 2,
+    "eggMoves": ["Counter", "Life Dew"],
+    "hasItems": true,
+    "items": ["None", "Shed Shell", "None"]
+  },
+  "Sliggoo": {
+    "eggMoveCount": 2,
+    "eggMoves": ["Counter", "Life Dew"],
+    "hasItems": true,
+    "items": ["None", "Shed Shell", "None"]
+  },
+  "Goodra": {
+    "eggMoveCount": 2,
+    "eggMoves": ["Counter", "Life Dew"],
+    "hasItems": false,
+    "items": []
+  },
+  "Klefki": {
+    "eggMoveCount": 2,
+    "eggMoves": ["Switcheroo", "Magnet Rise"],
+    "hasItems": false,
+    "items": []
+  },
+  "Phantump": {
+    "eggMoveCount": 3,
+    "eggMoves": ["Grudge", "Sucker Punch", "Disable"],
+    "hasItems": false,
+    "items": []
+  },
+  "Trevenant": {
+    "eggMoveCount": 3,
+    "eggMoves": ["Grudge", "Sucker Punch", "Disable"],
+    "hasItems": false,
+    "items": []
+  },
+  "Pumpkaboo": {
+    "eggMoveCount": 3,
+    "eggMoves": ["Disable", "Destiny Bond", "Curse"],
+    "hasItems": false,
+    "items": []
+  },
+  "Pumpkaboo-1": {
+    "eggMoveCount": 3,
+    "eggMoves": ["Disable", "Destiny Bond", "Curse"],
+    "hasItems": false,
+    "items": []
+  },
+  "Pumpkaboo-2": {
+    "eggMoveCount": 3,
+    "eggMoves": ["Disable", "Destiny Bond", "Curse"],
+    "hasItems": false,
+    "items": []
+  },
+  "Pumpkaboo-3": {
+    "eggMoveCount": 3,
+    "eggMoves": ["Disable", "Destiny Bond", "Curse"],
+    "hasItems": true,
+    "items": ["Miracle Seed", "Miracle Seed", "None"]
+  },
+  "Gourgeist": {
+    "eggMoveCount": 3,
+    "eggMoves": ["Disable", "Destiny Bond", "Curse"],
+    "hasItems": false,
+    "items": []
+  },
+  "Gourgeist-1": {
+    "eggMoveCount": 3,
+    "eggMoves": ["Disable", "Destiny Bond", "Curse"],
+    "hasItems": false,
+    "items": []
+  },
+  "Gourgeist-2": {
+    "eggMoveCount": 3,
+    "eggMoves": ["Disable", "Destiny Bond", "Curse"],
+    "hasItems": false,
+    "items": []
+  },
+  "Gourgeist-3": {
+    "eggMoveCount": 3,
+    "eggMoves": ["Disable", "Destiny Bond", "Curse"],
+    "hasItems": true,
+    "items": ["Miracle Seed", "Miracle Seed", "None"]
+  },
+  "Bergmite": {
+    "eggMoveCount": 3,
+    "eggMoves": ["Mist", "Mirror Coat", "Aurora Veil"],
+    "hasItems": false,
+    "items": []
+  },
+  "Avalugg": {
+    "eggMoveCount": 3,
+    "eggMoves": ["Mist", "Mirror Coat", "Aurora Veil"],
+    "hasItems": false,
+    "items": []
+  },
+  "Noibat": {
+    "eggMoveCount": 2,
+    "eggMoves": ["Defog", "Dragon Rush"],
+    "hasItems": false,
+    "items": []
+  },
+  "Noivern": {
+    "eggMoveCount": 2,
+    "eggMoves": ["Defog", "Dragon Rush"],
+    "hasItems": false,
+    "items": []
+  },
+  "Xerneas": {
+    "eggMoveCount": 0,
+    "eggMoves": [],
+    "hasItems": false,
+    "items": []
+  },
+  "Xerneas-1": {
+    "eggMoveCount": 0,
+    "eggMoves": [],
+    "hasItems": false,
+    "items": []
+  },
+  "Yveltal": {
+    "eggMoveCount": 0,
+    "eggMoves": [],
+    "hasItems": false,
+    "items": []
+  },
+  "Zygarde": {
+    "eggMoveCount": 0,
+    "eggMoves": [],
+    "hasItems": false,
+    "items": []
+  },
+  "Zygarde-1": {
+    "eggMoveCount": 0,
+    "eggMoves": [],
+    "hasItems": false,
+    "items": []
+  },
+  "Zygarde-2": {
+    "eggMoveCount": 0,
+    "eggMoves": [],
+    "hasItems": false,
+    "items": []
+  },
+  "Zygarde-3": {
+    "eggMoveCount": 0,
+    "eggMoves": [],
+    "hasItems": false,
+    "items": []
+  },
+  "Zygarde-4": {
+    "eggMoveCount": 0,
+    "eggMoves": [],
+    "hasItems": false,
+    "items": []
+  },
+  "Diancie": {
+    "eggMoveCount": 0,
+    "eggMoves": [],
+    "hasItems": false,
+    "items": []
+  },
+  "Volcanion": {
+    "eggMoveCount": 0,
+    "eggMoves": [],
+    "hasItems": false,
+    "items": []
+  },
+  "Rowlet": {
+    "eggMoveCount": 4,
+    "eggMoves": ["Confuse Ray", "Defog", "Knock Off", "Double Team"],
+    "hasItems": false,
+    "items": []
+  },
+  "Dartrix": {
+    "eggMoveCount": 4,
+    "eggMoves": ["Confuse Ray", "Defog", "Knock Off", "Double Team"],
+    "hasItems": false,
+    "items": []
+  },
+  "Decidueye": {
+    "eggMoveCount": 4,
+    "eggMoves": ["Confuse Ray", "Defog", "Knock Off", "Double Team"],
+    "hasItems": false,
+    "items": []
+  },
+  "Litten": {
+    "eggMoveCount": 3,
+    "eggMoves": ["Fake Out", "Power Trip", "Parting Shot"],
+    "hasItems": false,
+    "items": []
+  },
+  "Torracat": {
+    "eggMoveCount": 3,
+    "eggMoves": ["Fake Out", "Power Trip", "Parting Shot"],
+    "hasItems": false,
+    "items": []
+  },
+  "Incineroar": {
+    "eggMoveCount": 3,
+    "eggMoves": ["Fake Out", "Power Trip", "Parting Shot"],
+    "hasItems": false,
+    "items": []
+  },
+  "Popplio": {
+    "eggMoveCount": 3,
+    "eggMoves": ["Aqua Ring", "Perish Song", "Life Dew"],
+    "hasItems": false,
+    "items": []
+  },
+  "Brionne": {
+    "eggMoveCount": 3,
+    "eggMoves": ["Aqua Ring", "Perish Song", "Life Dew"],
+    "hasItems": false,
+    "items": []
+  },
+  "Primarina": {
+    "eggMoveCount": 3,
+    "eggMoves": ["Aqua Ring", "Perish Song", "Life Dew"],
+    "hasItems": false,
+    "items": []
+  },
+  "Grubbin": {
+    "eggMoveCount": 2,
+    "eggMoves": ["Harden", "Discharge"],
+    "hasItems": false,
+    "items": []
+  },
+  "Charjabug": {
+    "eggMoveCount": 2,
+    "eggMoves": ["Harden", "Discharge"],
+    "hasItems": true,
+    "items": ["None", "Cell Battery", "None"]
+  },
+  "Vikavolt": {
+    "eggMoveCount": 2,
+    "eggMoves": ["Harden", "Discharge"],
+    "hasItems": false,
+    "items": []
+  },
+  "Cutiefly": {
+    "eggMoveCount": 3,
+    "eggMoves": ["Moonblast", "Sticky Web", "Aromatic Mist"],
+    "hasItems": true,
+    "items": ["None", "Honey", "None"]
+  },
+  "Ribombee": {
+    "eggMoveCount": 3,
+    "eggMoves": ["Moonblast", "Sticky Web", "Aromatic Mist"],
+    "hasItems": true,
+    "items": ["None", "Honey", "None"]
+  },
+  "Rockruff": {
+    "eggMoveCount": 3,
+    "eggMoves": ["Thrash", "Endeavor", "Last Resort"],
+    "hasItems": false,
+    "items": []
+  },
+  "Rockruff-1": {
+    "eggMoveCount": 3,
+    "eggMoves": ["Thrash", "Endeavor", "Last Resort"],
+    "hasItems": false,
+    "items": []
+  },
+  "Lycanroc": {
+    "eggMoveCount": 3,
+    "eggMoves": ["Thrash", "Endeavor", "Last Resort"],
+    "hasItems": false,
+    "items": []
+  },
+  "Lycanroc-1": {
+    "eggMoveCount": 3,
+    "eggMoves": ["Thrash", "Endeavor", "Last Resort"],
+    "hasItems": false,
+    "items": []
+  },
+  "Lycanroc-2": {
+    "eggMoveCount": 3,
+    "eggMoves": ["Thrash", "Endeavor", "Last Resort"],
+    "hasItems": false,
+    "items": []
+  },
+  "Wishiwashi": {
+    "eggMoveCount": 3,
+    "eggMoves": ["Mist", "Water Pulse", "Take Down"],
+    "hasItems": false,
+    "items": []
+  },
+  "Wishiwashi-1": {
+    "eggMoveCount": 3,
+    "eggMoves": ["Mist", "Water Pulse", "Take Down"],
+    "hasItems": false,
+    "items": []
+  },
+  "Mareanie": {
+    "eggMoveCount": 5,
+    "eggMoves": ["Stockpile", "Swallow", "Spit Up", "Haze", "Infestation"],
+    "hasItems": true,
+    "items": ["None", "Poison Barb", "None"]
+  },
+  "Toxapex": {
+    "eggMoveCount": 5,
+    "eggMoves": ["Stockpile", "Swallow", "Spit Up", "Haze", "Infestation"],
+    "hasItems": true,
+    "items": ["None", "Poison Barb", "None"]
+  },
+  "Mudbray": {
+    "eggMoveCount": 4,
+    "eggMoves": ["Double-Edge", "Fissure", "Smack Down", "Roar"],
+    "hasItems": true,
+    "items": ["None", "Light Clay", "None"]
+  },
+  "Mudsdale": {
+    "eggMoveCount": 4,
+    "eggMoves": ["Double-Edge", "Fissure", "Smack Down", "Roar"],
+    "hasItems": true,
+    "items": ["None", "Light Clay", "None"]
+  },
+  "Dewpider": {
+    "eggMoveCount": 4,
+    "eggMoves": ["Power Split", "Stockpile", "Spit Up", "Sticky Web"],
+    "hasItems": true,
+    "items": ["None", "Mystic Water", "None"]
+  },
+  "Araquanid": {
+    "eggMoveCount": 4,
+    "eggMoves": ["Power Split", "Stockpile", "Spit Up", "Sticky Web"],
+    "hasItems": true,
+    "items": ["None", "Mystic Water", "None"]
+  },
+  "Fomantis": {
+    "eggMoveCount": 3,
+    "eggMoves": ["Aromatherapy", "Defog", "Worry Seed"],
+    "hasItems": true,
+    "items": ["None", "Miracle Seed", "None"]
+  },
+  "Lurantis": {
+    "eggMoveCount": 3,
+    "eggMoves": ["Aromatherapy", "Defog", "Worry Seed"],
+    "hasItems": true,
+    "items": ["None", "Miracle Seed", "None"]
+  },
+  "Morelull": {
+    "eggMoveCount": 4,
+    "eggMoves": ["Poison Powder", "Stun Spore", "Growth", "Leech Seed"],
+    "hasItems": true,
+    "items": ["Tiny Mushroom", "Big Mushroom", "None"]
+  },
+  "Shiinotic": {
+    "eggMoveCount": 4,
+    "eggMoves": ["Poison Powder", "Stun Spore", "Growth", "Leech Seed"],
+    "hasItems": true,
+    "items": ["Tiny Mushroom", "Big Mushroom", "None"]
+  },
+  "Salandit": {
+    "eggMoveCount": 4,
+    "eggMoves": ["Belch", "Sand Attack", "Fake Out", "Mud-Slap"],
+    "hasItems": true,
+    "items": ["None", "Smoke Ball", "None"]
+  },
+  "Salazzle": {
+    "eggMoveCount": 4,
+    "eggMoves": ["Belch", "Sand Attack", "Fake Out", "Mud-Slap"],
+    "hasItems": true,
+    "items": ["None", "Smoke Ball", "None"]
+  },
+  "Stufful": {
+    "eggMoveCount": 4,
+    "eggMoves": ["Force Palm", "Rollout", "Defense Curl", "Stomp"],
+    "hasItems": false,
+    "items": []
+  },
+  "Bewear": {
+    "eggMoveCount": 4,
+    "eggMoves": ["Force Palm", "Rollout", "Defense Curl", "Stomp"],
+    "hasItems": false,
+    "items": []
+  },
+  "Bounsweet": {
+    "eggMoveCount": 3,
+    "eggMoves": ["Synthesis", "Acupressure", "Endeavor"],
+    "hasItems": true,
+    "items": ["None", "Grassy Seed", "None"]
+  },
+  "Steenee": {
+    "eggMoveCount": 3,
+    "eggMoves": ["Synthesis", "Acupressure", "Endeavor"],
+    "hasItems": true,
+    "items": ["None", "Grassy Seed", "None"]
+  },
+  "Tsareena": {
+    "eggMoveCount": 3,
+    "eggMoves": ["Synthesis", "Acupressure", "Endeavor"],
+    "hasItems": true,
+    "items": ["Grassy Seed", "None", "None"]
+  },
+  "Comfey": {
+    "eggMoveCount": 3,
+    "eggMoves": ["After You", "Worry Seed", "Leaf Tornado"],
+    "hasItems": true,
+    "items": ["None", "Misty Seed", "None"]
+  },
+  "Oranguru": {
+    "eggMoveCount": 4,
+    "eggMoves": ["Extrasensory", "Yawn", "Last Resort", "Dream Eater"],
+    "hasItems": false,
+    "items": []
+  },
+  "Passimian": {
+    "eggMoveCount": 7,
+    "eggMoves": [
+      "Seismic Toss",
+      "Vital Throw",
+      "Quick Guard",
+      "Quick Attack",
+      "Feint",
+      "Counter",
+      "Knock Off"
+    ],
+    "hasItems": false,
+    "items": []
+  },
+  "Wimpod": {
+    "eggMoveCount": 5,
+    "eggMoves": ["Metal Claw", "Wide Guard", "Harden", "Aqua Jet", "Rollout"],
+    "hasItems": false,
+    "items": []
+  },
+  "Golisopod": {
+    "eggMoveCount": 5,
+    "eggMoves": ["Metal Claw", "Wide Guard", "Harden", "Aqua Jet", "Rollout"],
+    "hasItems": false,
+    "items": []
+  },
+  "Sandygast": {
+    "eggMoveCount": 6,
+    "eggMoves": [
+      "Ancient Power",
+      "Destiny Bond",
+      "Spit Up",
+      "Stockpile",
+      "Swallow",
+      "Curse"
+    ],
+    "hasItems": true,
+    "items": ["None", "Spell Tag", "None"]
+  },
+  "Palossand": {
+    "eggMoveCount": 6,
+    "eggMoves": [
+      "Ancient Power",
+      "Destiny Bond",
+      "Spit Up",
+      "Stockpile",
+      "Swallow",
+      "Curse"
+    ],
+    "hasItems": true,
+    "items": ["None", "Spell Tag", "None"]
+  },
+  "Pyukumuku": {
+    "eggMoveCount": 4,
+    "eggMoves": ["Tickle", "Spite", "Mirror Coat", "Swagger"],
+    "hasItems": false,
+    "items": []
+  },
+  "Type: Null": {
+    "eggMoveCount": 0,
+    "eggMoves": [],
+    "hasItems": false,
+    "items": []
+  },
+  "Silvally": {
+    "eggMoveCount": 0,
+    "eggMoves": [],
+    "hasItems": false,
+    "items": []
+  },
+  "Silvally-1": {
+    "eggMoveCount": 0,
+    "eggMoves": [],
+    "hasItems": false,
+    "items": []
+  },
+  "Silvally-2": {
+    "eggMoveCount": 0,
+    "eggMoves": [],
+    "hasItems": false,
+    "items": []
+  },
+  "Silvally-3": {
+    "eggMoveCount": 0,
+    "eggMoves": [],
+    "hasItems": false,
+    "items": []
+  },
+  "Silvally-4": {
+    "eggMoveCount": 0,
+    "eggMoves": [],
+    "hasItems": false,
+    "items": []
+  },
+  "Silvally-5": {
+    "eggMoveCount": 0,
+    "eggMoves": [],
+    "hasItems": false,
+    "items": []
+  },
+  "Silvally-6": {
+    "eggMoveCount": 0,
+    "eggMoves": [],
+    "hasItems": false,
+    "items": []
+  },
+  "Silvally-7": {
+    "eggMoveCount": 0,
+    "eggMoves": [],
+    "hasItems": false,
+    "items": []
+  },
+  "Silvally-8": {
+    "eggMoveCount": 0,
+    "eggMoves": [],
+    "hasItems": false,
+    "items": []
+  },
+  "Silvally-9": {
+    "eggMoveCount": 0,
+    "eggMoves": [],
+    "hasItems": false,
+    "items": []
+  },
+  "Silvally-10": {
+    "eggMoveCount": 0,
+    "eggMoves": [],
+    "hasItems": false,
+    "items": []
+  },
+  "Silvally-11": {
+    "eggMoveCount": 0,
+    "eggMoves": [],
+    "hasItems": false,
+    "items": []
+  },
+  "Silvally-12": {
+    "eggMoveCount": 0,
+    "eggMoves": [],
+    "hasItems": false,
+    "items": []
+  },
+  "Silvally-13": {
+    "eggMoveCount": 0,
+    "eggMoves": [],
+    "hasItems": false,
+    "items": []
+  },
+  "Silvally-14": {
+    "eggMoveCount": 0,
+    "eggMoves": [],
+    "hasItems": false,
+    "items": []
+  },
+  "Silvally-15": {
+    "eggMoveCount": 0,
+    "eggMoves": [],
+    "hasItems": false,
+    "items": []
+  },
+  "Silvally-16": {
+    "eggMoveCount": 0,
+    "eggMoves": [],
+    "hasItems": false,
+    "items": []
+  },
+  "Silvally-17": {
+    "eggMoveCount": 0,
+    "eggMoves": [],
+    "hasItems": false,
+    "items": []
+  },
+  "Turtonator": {
+    "eggMoveCount": 4,
+    "eggMoves": ["Wide Guard", "Head Smash", "Rapid Spin", "Curse"],
+    "hasItems": true,
+    "items": ["None", "Charcoal", "None"]
+  },
+  "Togedemaru": {
+    "eggMoveCount": 6,
+    "eggMoves": [
+      "Present",
+      "Wish",
+      "Fake Out",
+      "Tickle",
+      "Flail",
+      "Disarming Voice"
+    ],
+    "hasItems": true,
+    "items": ["None", "Electric Seed", "None"]
+  },
+  "Mimikyu": {
+    "eggMoveCount": 3,
+    "eggMoves": ["Grudge", "Destiny Bond", "Curse"],
+    "hasItems": true,
+    "items": ["None", "Chesto Berry", "None"]
+  },
+  "Mimikyu-1": {
+    "eggMoveCount": 3,
+    "eggMoves": ["Grudge", "Destiny Bond", "Curse"],
+    "hasItems": false,
+    "items": []
+  },
+  "Drampa": {
+    "eggMoveCount": 3,
+    "eggMoves": ["Dragon Rush", "Mist", "Tickle"],
+    "hasItems": true,
+    "items": ["None", "Persim Berry", "None"]
+  },
+  "Dhelmise": {
+    "eggMoveCount": 0,
+    "eggMoves": [],
+    "hasItems": false,
+    "items": []
+  },
+  "Jangmo-o": {
+    "eggMoveCount": 3,
+    "eggMoves": ["Counter", "Dragon Breath", "Focus Punch"],
+    "hasItems": true,
+    "items": ["None", "Razor Claw", "None"]
+  },
+  "Hakamo-o": {
+    "eggMoveCount": 3,
+    "eggMoves": ["Counter", "Dragon Breath", "Focus Punch"],
+    "hasItems": true,
+    "items": ["None", "Razor Claw", "None"]
+  },
+  "Kommo-o": {
+    "eggMoveCount": 3,
+    "eggMoves": ["Counter", "Dragon Breath", "Focus Punch"],
+    "hasItems": true,
+    "items": ["Razor Claw", "None", "None"]
+  },
+  "Tapu Koko": {
+    "eggMoveCount": 0,
+    "eggMoves": [],
+    "hasItems": false,
+    "items": []
+  },
+  "Tapu Lele": {
+    "eggMoveCount": 0,
+    "eggMoves": [],
+    "hasItems": false,
+    "items": []
+  },
+  "Tapu Bulu": {
+    "eggMoveCount": 0,
+    "eggMoves": [],
+    "hasItems": false,
+    "items": []
+  },
+  "Tapu Fini": {
+    "eggMoveCount": 0,
+    "eggMoves": [],
+    "hasItems": false,
+    "items": []
+  },
+  "Cosmog": {
+    "eggMoveCount": 0,
+    "eggMoves": [],
+    "hasItems": false,
+    "items": []
+  },
+  "Cosmoem": {
+    "eggMoveCount": 0,
+    "eggMoves": [],
+    "hasItems": false,
+    "items": []
+  },
+  "Solgaleo": {
+    "eggMoveCount": 0,
+    "eggMoves": [],
+    "hasItems": false,
+    "items": []
+  },
+  "Lunala": {
+    "eggMoveCount": 0,
+    "eggMoves": [],
+    "hasItems": false,
+    "items": []
+  },
+  "Nihilego": {
+    "eggMoveCount": 0,
+    "eggMoves": [],
+    "hasItems": false,
+    "items": []
+  },
+  "Buzzwole": {
+    "eggMoveCount": 0,
+    "eggMoves": [],
+    "hasItems": false,
+    "items": []
+  },
+  "Pheromosa": {
+    "eggMoveCount": 0,
+    "eggMoves": [],
+    "hasItems": false,
+    "items": []
+  },
+  "Xurkitree": {
+    "eggMoveCount": 0,
+    "eggMoves": [],
+    "hasItems": false,
+    "items": []
+  },
+  "Celesteela": {
+    "eggMoveCount": 0,
+    "eggMoves": [],
+    "hasItems": false,
+    "items": []
+  },
+  "Kartana": {
+    "eggMoveCount": 0,
+    "eggMoves": [],
+    "hasItems": false,
+    "items": []
+  },
+  "Guzzlord": {
+    "eggMoveCount": 0,
+    "eggMoves": [],
+    "hasItems": false,
+    "items": []
+  },
+  "Necrozma": {
+    "eggMoveCount": 0,
+    "eggMoves": [],
+    "hasItems": false,
+    "items": []
+  },
+  "Necrozma-1": {
+    "eggMoveCount": 0,
+    "eggMoves": [],
+    "hasItems": false,
+    "items": []
+  },
+  "Necrozma-2": {
+    "eggMoveCount": 0,
+    "eggMoves": [],
+    "hasItems": false,
+    "items": []
+  },
+  "Magearna": {
+    "eggMoveCount": 0,
+    "eggMoves": [],
+    "hasItems": false,
+    "items": []
+  },
+  "Magearna-1": {
+    "eggMoveCount": 0,
+    "eggMoves": [],
+    "hasItems": false,
+    "items": []
+  },
+  "Marshadow": {
+    "eggMoveCount": 0,
+    "eggMoves": [],
+    "hasItems": false,
+    "items": []
+  },
+  "Poipole": {
+    "eggMoveCount": 0,
+    "eggMoves": [],
+    "hasItems": false,
+    "items": []
+  },
+  "Naganadel": {
+    "eggMoveCount": 0,
+    "eggMoves": [],
+    "hasItems": false,
+    "items": []
+  },
+  "Stakataka": {
+    "eggMoveCount": 0,
+    "eggMoves": [],
+    "hasItems": false,
+    "items": []
+  },
+  "Blacephalon": {
+    "eggMoveCount": 0,
+    "eggMoves": [],
+    "hasItems": false,
+    "items": []
+  },
+  "Zeraora": {
+    "eggMoveCount": 0,
+    "eggMoves": [],
+    "hasItems": false,
+    "items": []
+  },
+  "Meltan": {
+    "eggMoveCount": 0,
+    "eggMoves": [],
+    "hasItems": false,
+    "items": []
+  },
+  "Melmetal": {
+    "eggMoveCount": 0,
+    "eggMoves": [],
+    "hasItems": false,
+    "items": []
+  },
+  "Grookey": {
+    "eggMoveCount": 7,
+    "eggMoves": [
+      "Growth",
+      "Hammer Arm",
+      "Fake Out",
+      "Strength",
+      "Nature Power",
+      "Worry Seed",
+      "Leech Seed"
+    ],
+    "hasItems": false,
+    "items": []
+  },
+  "Thwackey": {
+    "eggMoveCount": 7,
+    "eggMoves": [
+      "Growth",
+      "Hammer Arm",
+      "Fake Out",
+      "Strength",
+      "Nature Power",
+      "Worry Seed",
+      "Leech Seed"
+    ],
+    "hasItems": false,
+    "items": []
+  },
+  "Rillaboom": {
+    "eggMoveCount": 7,
+    "eggMoves": [
+      "Growth",
+      "Hammer Arm",
+      "Fake Out",
+      "Strength",
+      "Nature Power",
+      "Worry Seed",
+      "Leech Seed"
+    ],
+    "hasItems": false,
+    "items": []
+  },
+  "Scorbunny": {
+    "eggMoveCount": 4,
+    "eggMoves": ["High Jump Kick", "Sand Attack", "Sucker Punch", "Super Fang"],
+    "hasItems": false,
+    "items": []
+  },
+  "Raboot": {
+    "eggMoveCount": 4,
+    "eggMoves": ["High Jump Kick", "Sand Attack", "Sucker Punch", "Super Fang"],
+    "hasItems": false,
+    "items": []
+  },
+  "Cinderace": {
+    "eggMoveCount": 4,
+    "eggMoves": ["High Jump Kick", "Sand Attack", "Sucker Punch", "Super Fang"],
+    "hasItems": false,
+    "items": []
+  },
+  "Sobble": {
+    "eggMoveCount": 7,
+    "eggMoves": [
+      "Aqua Jet",
+      "Double Team",
+      "Aqua Ring",
+      "Mist",
+      "Haze",
+      "Ice Shard",
+      "Fell Stinger"
+    ],
+    "hasItems": false,
+    "items": []
+  },
+  "Drizzile": {
+    "eggMoveCount": 7,
+    "eggMoves": [
+      "Aqua Jet",
+      "Double Team",
+      "Aqua Ring",
+      "Mist",
+      "Haze",
+      "Ice Shard",
+      "Fell Stinger"
+    ],
+    "hasItems": false,
+    "items": []
+  },
+  "Inteleon": {
+    "eggMoveCount": 7,
+    "eggMoves": [
+      "Aqua Jet",
+      "Double Team",
+      "Aqua Ring",
+      "Mist",
+      "Haze",
+      "Ice Shard",
+      "Fell Stinger"
+    ],
+    "hasItems": false,
+    "items": []
+  },
+  "Skwovet": {
+    "eggMoveCount": 4,
+    "eggMoves": ["Rollout", "Defense Curl", "Last Resort", "Belly Drum"],
+    "hasItems": true,
+    "items": ["None", "Oran Berry", "None"]
+  },
+  "Greedent": {
+    "eggMoveCount": 4,
+    "eggMoves": ["Rollout", "Defense Curl", "Last Resort", "Belly Drum"],
+    "hasItems": true,
+    "items": ["None", "Sitrus Berry", "None"]
+  },
+  "Rookidee": {
+    "eggMoveCount": 7,
+    "eggMoves": [
+      "Sky Attack",
+      "Sand Attack",
+      "Tailwind",
+      "Defog",
+      "Rock Smash",
+      "Spite",
+      "Roost"
+    ],
+    "hasItems": false,
+    "items": []
+  },
+  "Corvisquire": {
+    "eggMoveCount": 7,
+    "eggMoves": [
+      "Sky Attack",
+      "Sand Attack",
+      "Tailwind",
+      "Defog",
+      "Rock Smash",
+      "Spite",
+      "Roost"
+    ],
+    "hasItems": false,
+    "items": []
+  },
+  "Corviknight": {
+    "eggMoveCount": 7,
+    "eggMoves": [
+      "Sky Attack",
+      "Sand Attack",
+      "Tailwind",
+      "Defog",
+      "Rock Smash",
+      "Spite",
+      "Roost"
+    ],
+    "hasItems": false,
+    "items": []
+  },
+  "Blipbug": {
+    "eggMoveCount": 4,
+    "eggMoves": ["Infestation", "Supersonic", "Sticky Web", "Recover"],
+    "hasItems": false,
+    "items": []
+  },
+  "Dottler": {
+    "eggMoveCount": 4,
+    "eggMoves": ["Infestation", "Supersonic", "Sticky Web", "Recover"],
+    "hasItems": true,
+    "items": ["None", "Psychic Seed", "None"]
+  },
+  "Orbeetle": {
+    "eggMoveCount": 4,
+    "eggMoves": ["Infestation", "Supersonic", "Sticky Web", "Recover"],
+    "hasItems": true,
+    "items": ["None", "Psychic Seed", "None"]
+  },
+  "Nickit": {
+    "eggMoveCount": 4,
+    "eggMoves": ["Quick Guard", "Knock Off", "Howl", "Torment"],
+    "hasItems": false,
+    "items": []
+  },
+  "Thievul": {
+    "eggMoveCount": 4,
+    "eggMoves": ["Quick Guard", "Knock Off", "Howl", "Torment"],
+    "hasItems": false,
+    "items": []
+  },
+  "Gossifleur": {
+    "eggMoveCount": 6,
+    "eggMoves": [
+      "Growth",
+      "Leech Seed",
+      "Worry Seed",
+      "Poison Powder",
+      "Stun Spore",
+      "Sleep Powder"
+    ],
+    "hasItems": false,
+    "items": []
+  },
+  "Eldegoss": {
+    "eggMoveCount": 6,
+    "eggMoves": [
+      "Growth",
+      "Leech Seed",
+      "Worry Seed",
+      "Poison Powder",
+      "Stun Spore",
+      "Sleep Powder"
+    ],
+    "hasItems": false,
+    "items": []
+  },
+  "Wooloo": {
+    "eggMoveCount": 3,
+    "eggMoves": ["Stomp", "Swagger", "Counter"],
+    "hasItems": false,
+    "items": []
+  },
+  "Dubwool": {
+    "eggMoveCount": 3,
+    "eggMoves": ["Stomp", "Swagger", "Counter"],
+    "hasItems": false,
+    "items": []
+  },
+  "Chewtle": {
+    "eggMoveCount": 3,
+    "eggMoves": ["Skull Bash", "Gastro Acid", "Dragon Tail"],
+    "hasItems": false,
+    "items": []
+  },
+  "Drednaw": {
+    "eggMoveCount": 3,
+    "eggMoves": ["Skull Bash", "Gastro Acid", "Dragon Tail"],
+    "hasItems": false,
+    "items": []
+  },
+  "Yamper": {
+    "eggMoveCount": 5,
+    "eggMoves": [
+      "Double-Edge",
+      "Sand Attack",
+      "Flame Charge",
+      "Discharge",
+      "Howl"
+    ],
+    "hasItems": false,
+    "items": []
+  },
+  "Boltund": {
+    "eggMoveCount": 5,
+    "eggMoves": [
+      "Double-Edge",
+      "Sand Attack",
+      "Flame Charge",
+      "Discharge",
+      "Howl"
+    ],
+    "hasItems": false,
+    "items": []
+  },
+  "Rolycoly": {
+    "eggMoveCount": 3,
+    "eggMoves": ["Explosion", "Mud-Slap", "Block"],
+    "hasItems": false,
+    "items": []
+  },
+  "Carkol": {
+    "eggMoveCount": 3,
+    "eggMoves": ["Explosion", "Mud-Slap", "Block"],
+    "hasItems": false,
+    "items": []
+  },
+  "Coalossal": {
+    "eggMoveCount": 3,
+    "eggMoves": ["Explosion", "Mud-Slap", "Block"],
+    "hasItems": false,
+    "items": []
+  },
+  "Applin": {
+    "eggMoveCount": 4,
+    "eggMoves": ["Sucker Punch", "Rollout", "Defense Curl", "Recycle"],
+    "hasItems": false,
+    "items": []
+  },
+  "Flapple": {
+    "eggMoveCount": 4,
+    "eggMoves": ["Sucker Punch", "Rollout", "Defense Curl", "Recycle"],
+    "hasItems": false,
+    "items": []
+  },
+  "Appletun": {
+    "eggMoveCount": 4,
+    "eggMoves": ["Sucker Punch", "Rollout", "Defense Curl", "Recycle"],
+    "hasItems": false,
+    "items": []
+  },
+  "Silicobra": {
+    "eggMoveCount": 5,
+    "eggMoves": [
+      "Dragon Rush",
+      "Mud-Slap",
+      "Last Resort",
+      "Belch",
+      "Poison Tail"
+    ],
+    "hasItems": false,
+    "items": []
+  },
+  "Sandaconda": {
+    "eggMoveCount": 5,
+    "eggMoves": [
+      "Dragon Rush",
+      "Mud-Slap",
+      "Last Resort",
+      "Belch",
+      "Poison Tail"
+    ],
+    "hasItems": false,
+    "items": []
+  },
+  "Cramorant": {
+    "eggMoveCount": 5,
+    "eggMoves": ["Defog", "Aerial Ace", "Feather Dance", "Aqua Ring", "Roost"],
+    "hasItems": false,
+    "items": []
+  },
+  "Cramorant-1": {
+    "eggMoveCount": 5,
+    "eggMoves": ["Defog", "Aerial Ace", "Feather Dance", "Aqua Ring", "Roost"],
+    "hasItems": false,
+    "items": []
+  },
+  "Cramorant-2": {
+    "eggMoveCount": 5,
+    "eggMoves": ["Defog", "Aerial Ace", "Feather Dance", "Aqua Ring", "Roost"],
+    "hasItems": false,
+    "items": []
+  },
+  "Arrokuda": {
+    "eggMoveCount": 4,
+    "eggMoves": ["Thrash", "Acupressure", "Slash", "Night Slash"],
+    "hasItems": false,
+    "items": []
+  },
+  "Barraskewda": {
+    "eggMoveCount": 4,
+    "eggMoves": ["Thrash", "Acupressure", "Slash", "Night Slash"],
+    "hasItems": false,
+    "items": []
+  },
+  "Toxel": {
+    "eggMoveCount": 3,
+    "eggMoves": ["Endeavor", "Metal Sound", "Power-Up Punch"],
+    "hasItems": false,
+    "items": []
+  },
+  "Toxtricity": {
+    "eggMoveCount": 3,
+    "eggMoves": ["Endeavor", "Metal Sound", "Power-Up Punch"],
+    "hasItems": false,
+    "items": []
+  },
+  "Toxtricity-1": {
+    "eggMoveCount": 3,
+    "eggMoves": ["Endeavor", "Metal Sound", "Power-Up Punch"],
+    "hasItems": false,
+    "items": []
+  },
+  "Sizzlipede": {
+    "eggMoveCount": 4,
+    "eggMoves": ["Knock Off", "Struggle Bug", "Rollout", "Defense Curl"],
+    "hasItems": false,
+    "items": []
+  },
+  "Centiskorch": {
+    "eggMoveCount": 4,
+    "eggMoves": ["Knock Off", "Struggle Bug", "Rollout", "Defense Curl"],
+    "hasItems": false,
+    "items": []
+  },
+  "Clobbopus": {
+    "eggMoveCount": 6,
+    "eggMoves": [
+      "Pain Split",
+      "Soak",
+      "Sucker Punch",
+      "Circle Throw",
+      "Seismic Toss",
+      "Power-Up Punch"
+    ],
+    "hasItems": false,
+    "items": []
+  },
+  "Grapploct": {
+    "eggMoveCount": 6,
+    "eggMoves": [
+      "Pain Split",
+      "Soak",
+      "Sucker Punch",
+      "Circle Throw",
+      "Seismic Toss",
+      "Power-Up Punch"
+    ],
+    "hasItems": false,
+    "items": []
+  },
+  "Sinistea": {
+    "eggMoveCount": 0,
+    "eggMoves": [],
+    "hasItems": false,
+    "items": []
+  },
+  "Sinistea-1": {
+    "eggMoveCount": 0,
+    "eggMoves": [],
+    "hasItems": false,
+    "items": []
+  },
+  "Polteageist": {
+    "eggMoveCount": 0,
+    "eggMoves": [],
+    "hasItems": false,
+    "items": []
+  },
+  "Polteageist-1": {
+    "eggMoveCount": 0,
+    "eggMoves": [],
+    "hasItems": false,
+    "items": []
+  },
+  "Hatenna": {
+    "eggMoveCount": 4,
+    "eggMoves": ["Aromatic Mist", "Nuzzle", "After You", "Quash"],
+    "hasItems": false,
+    "items": []
+  },
+  "Hattrem": {
+    "eggMoveCount": 4,
+    "eggMoves": ["Aromatic Mist", "Nuzzle", "After You", "Quash"],
+    "hasItems": false,
+    "items": []
+  },
+  "Hatterene": {
+    "eggMoveCount": 4,
+    "eggMoves": ["Aromatic Mist", "Nuzzle", "After You", "Quash"],
+    "hasItems": false,
+    "items": []
+  },
+  "Impidimp": {
+    "eggMoveCount": 0,
+    "eggMoves": [],
+    "hasItems": false,
+    "items": []
+  },
+  "Morgrem": {
+    "eggMoveCount": 0,
+    "eggMoves": [],
+    "hasItems": false,
+    "items": []
+  },
+  "Grimmsnarl": {
+    "eggMoveCount": 0,
+    "eggMoves": [],
+    "hasItems": false,
+    "items": []
+  },
+  "Obstagoon": {
+    "eggMoveCount": 3,
+    "eggMoves": ["Parting Shot", "Quick Guard", "Knock Off"],
+    "hasItems": false,
+    "items": []
+  },
+  "Perrserker": {
+    "eggMoveCount": 6,
+    "eggMoves": [
+      "Spite",
+      "Double-Edge",
+      "Curse",
+      "Flail",
+      "Night Slash",
+      "Covet"
+    ],
+    "hasItems": false,
+    "items": []
+  },
+  "Cursola": {
+    "eggMoveCount": 6,
+    "eggMoves": [
+      "Haze",
+      "Confuse Ray",
+      "Nature Power",
+      "Destiny Bond",
+      "Water Pulse",
+      "Head Smash"
+    ],
+    "hasItems": false,
+    "items": []
+  },
+  "Sirfetch’d": {
+    "eggMoveCount": 11,
+    "eggMoves": [
+      "Counter",
+      "Quick Attack",
+      "Flail",
+      "Quick Guard",
+      "Curse",
+      "Covet",
+      "Night Slash",
+      "Simple Beam",
+      "Double-Edge",
+      "Feint",
+      "Sky Attack"
+    ],
+    "hasItems": true,
+    "items": ["None", "Leek", "None"]
+  },
+  "Mr. Rime": {
+    "eggMoveCount": 4,
+    "eggMoves": ["Fake Out", "Confuse Ray", "Power Split", "Tickle"],
+    "hasItems": false,
+    "items": []
+  },
+  "Runerigus": {
+    "eggMoveCount": 1,
+    "eggMoves": ["Memento"],
+    "hasItems": false,
+    "items": []
+  },
+  "Milcery": {
+    "eggMoveCount": 2,
+    "eggMoves": ["Baby-Doll Eyes", "Last Resort"],
+    "hasItems": false,
+    "items": []
+  },
+  "Alcremie": {
+    "eggMoveCount": 2,
+    "eggMoves": ["Baby-Doll Eyes", "Last Resort"],
+    "hasItems": false,
+    "items": []
+  },
+  "Alcremie-1": {
+    "eggMoveCount": 2,
+    "eggMoves": ["Baby-Doll Eyes", "Last Resort"],
+    "hasItems": false,
+    "items": []
+  },
+  "Alcremie-2": {
+    "eggMoveCount": 2,
+    "eggMoves": ["Baby-Doll Eyes", "Last Resort"],
+    "hasItems": false,
+    "items": []
+  },
+  "Alcremie-3": {
+    "eggMoveCount": 2,
+    "eggMoves": ["Baby-Doll Eyes", "Last Resort"],
+    "hasItems": false,
+    "items": []
+  },
+  "Alcremie-4": {
+    "eggMoveCount": 2,
+    "eggMoves": ["Baby-Doll Eyes", "Last Resort"],
+    "hasItems": false,
+    "items": []
+  },
+  "Alcremie-5": {
+    "eggMoveCount": 2,
+    "eggMoves": ["Baby-Doll Eyes", "Last Resort"],
+    "hasItems": false,
+    "items": []
+  },
+  "Alcremie-6": {
+    "eggMoveCount": 2,
+    "eggMoves": ["Baby-Doll Eyes", "Last Resort"],
+    "hasItems": false,
+    "items": []
+  },
+  "Alcremie-7": {
+    "eggMoveCount": 2,
+    "eggMoves": ["Baby-Doll Eyes", "Last Resort"],
+    "hasItems": false,
+    "items": []
+  },
+  "Alcremie-8": {
+    "eggMoveCount": 2,
+    "eggMoves": ["Baby-Doll Eyes", "Last Resort"],
+    "hasItems": false,
+    "items": []
+  },
+  "Falinks": {
+    "eggMoveCount": 0,
+    "eggMoves": [],
+    "hasItems": false,
+    "items": []
+  },
+  "Pincurchin": {
+    "eggMoveCount": 2,
+    "eggMoves": ["Memento", "Sucker Punch"],
+    "hasItems": false,
+    "items": []
+  },
+  "Snom": {
+    "eggMoveCount": 3,
+    "eggMoves": ["Fairy Wind", "Mirror Coat", "Bug Bite"],
+    "hasItems": true,
+    "items": ["None", "Snowball", "None"]
+  },
+  "Frosmoth": {
+    "eggMoveCount": 3,
+    "eggMoves": ["Fairy Wind", "Mirror Coat", "Bug Bite"],
+    "hasItems": false,
+    "items": []
+  },
+  "Stonjourner": {
+    "eggMoveCount": 2,
+    "eggMoves": ["Curse", "Ancient Power"],
+    "hasItems": false,
+    "items": []
+  },
+  "Eiscue": {
+    "eggMoveCount": 6,
+    "eggMoves": [
+      "Soak",
+      "Aqua Ring",
+      "Belly Drum",
+      "Double-Edge",
+      "Icicle Crash",
+      "Head Smash"
+    ],
+    "hasItems": false,
+    "items": []
+  },
+  "Eiscue-1": {
+    "eggMoveCount": 6,
+    "eggMoves": [
+      "Soak",
+      "Aqua Ring",
+      "Belly Drum",
+      "Double-Edge",
+      "Icicle Crash",
+      "Head Smash"
+    ],
+    "hasItems": false,
+    "items": []
+  },
+  "Indeedee": {
+    "eggMoveCount": 3,
+    "eggMoves": ["Psych Up", "Fake Out", "Extrasensory"],
+    "hasItems": false,
+    "items": []
+  },
+  "Indeedee-1": {
+    "eggMoveCount": 4,
+    "eggMoves": ["Psych Up", "Fake Out", "Psycho Shift", "Heal Pulse"],
+    "hasItems": false,
+    "items": []
+  },
+  "Morpeko": {
+    "eggMoveCount": 8,
+    "eggMoves": [
+      "Swagger",
+      "Super Fang",
+      "Charge",
+      "Tickle",
+      "Rapid Spin",
+      "Quash",
+      "Parting Shot",
+      "Fake Out"
+    ],
+    "hasItems": false,
+    "items": []
+  },
+  "Morpeko-1": {
+    "eggMoveCount": 8,
+    "eggMoves": [
+      "Swagger",
+      "Super Fang",
+      "Charge",
+      "Tickle",
+      "Rapid Spin",
+      "Quash",
+      "Parting Shot",
+      "Fake Out"
+    ],
+    "hasItems": false,
+    "items": []
+  },
+  "Cufant": {
+    "eggMoveCount": 8,
+    "eggMoves": [
+      "Double-Edge",
+      "Belch",
+      "Curse",
+      "Slam",
+      "Fissure",
+      "Swagger",
+      "Whirlwind",
+      "Defense Curl"
+    ],
+    "hasItems": true,
+    "items": ["None", "Lagging Tail", "None"]
+  },
+  "Copperajah": {
+    "eggMoveCount": 8,
+    "eggMoves": [
+      "Double-Edge",
+      "Belch",
+      "Curse",
+      "Slam",
+      "Fissure",
+      "Swagger",
+      "Whirlwind",
+      "Defense Curl"
+    ],
+    "hasItems": true,
+    "items": ["None", "Lagging Tail", "None"]
+  },
+  "Dracozolt": {
+    "eggMoveCount": 0,
+    "eggMoves": [],
+    "hasItems": false,
+    "items": []
+  },
+  "Arctozolt": {
+    "eggMoveCount": 0,
+    "eggMoves": [],
+    "hasItems": false,
+    "items": []
+  },
+  "Dracovish": {
+    "eggMoveCount": 0,
+    "eggMoves": [],
+    "hasItems": false,
+    "items": []
+  },
+  "Arctovish": {
+    "eggMoveCount": 0,
+    "eggMoves": [],
+    "hasItems": false,
+    "items": []
+  },
+  "Duraludon": {
+    "eggMoveCount": 3,
+    "eggMoves": ["Slash", "Night Slash", "Mirror Coat"],
+    "hasItems": false,
+    "items": []
+  },
+  "Dreepy": {
+    "eggMoveCount": 7,
+    "eggMoves": [
+      "Curse",
+      "Grudge",
+      "Confuse Ray",
+      "Double Team",
+      "Disable",
+      "Dragon Tail",
+      "Sucker Punch"
+    ],
+    "hasItems": false,
+    "items": []
+  },
+  "Drakloak": {
+    "eggMoveCount": 7,
+    "eggMoves": [
+      "Curse",
+      "Grudge",
+      "Confuse Ray",
+      "Double Team",
+      "Disable",
+      "Dragon Tail",
+      "Sucker Punch"
+    ],
+    "hasItems": false,
+    "items": []
+  },
+  "Dragapult": {
+    "eggMoveCount": 7,
+    "eggMoves": [
+      "Curse",
+      "Grudge",
+      "Confuse Ray",
+      "Double Team",
+      "Disable",
+      "Dragon Tail",
+      "Sucker Punch"
+    ],
+    "hasItems": false,
+    "items": []
+  },
+  "Zacian": {
+    "eggMoveCount": 0,
+    "eggMoves": [],
+    "hasItems": false,
+    "items": []
+  },
+  "Zacian-1": {
+    "eggMoveCount": 0,
+    "eggMoves": [],
+    "hasItems": false,
+    "items": []
+  },
+  "Zamazenta": {
+    "eggMoveCount": 0,
+    "eggMoves": [],
+    "hasItems": false,
+    "items": []
+  },
+  "Zamazenta-1": {
+    "eggMoveCount": 0,
+    "eggMoves": [],
+    "hasItems": false,
+    "items": []
+  },
+  "Eternatus": {
+    "eggMoveCount": 0,
+    "eggMoves": [],
+    "hasItems": false,
+    "items": []
+  },
+  "Eternatus-1": {
+    "eggMoveCount": 0,
+    "eggMoves": [],
+    "hasItems": false,
+    "items": []
+  },
+  "Kubfu": {
+    "eggMoveCount": 0,
+    "eggMoves": [],
+    "hasItems": false,
+    "items": []
+  },
+  "Urshifu": {
+    "eggMoveCount": 0,
+    "eggMoves": [],
+    "hasItems": false,
+    "items": []
+  },
+  "Urshifu-1": {
+    "eggMoveCount": 0,
+    "eggMoves": [],
+    "hasItems": false,
+    "items": []
+  },
+  "Zarude": {
+    "eggMoveCount": 0,
+    "eggMoves": [],
+    "hasItems": false,
+    "items": []
+  },
+  "Zarude-1": {
+    "eggMoveCount": 0,
+    "eggMoves": [],
+    "hasItems": false,
+    "items": []
+  },
+  "Regieleki": {
+    "eggMoveCount": 0,
+    "eggMoves": [],
+    "hasItems": false,
+    "items": []
+  },
+  "Regidrago": {
+    "eggMoveCount": 0,
+    "eggMoves": [],
+    "hasItems": false,
+    "items": []
+  },
+  "Glastrier": {
+    "eggMoveCount": 0,
+    "eggMoves": [],
+    "hasItems": false,
+    "items": []
+  },
+  "Spectrier": {
+    "eggMoveCount": 0,
+    "eggMoves": [],
+    "hasItems": false,
+    "items": []
+  },
+  "Calyrex": {
+    "eggMoveCount": 0,
+    "eggMoves": [],
+    "hasItems": false,
+    "items": []
+  },
+  "Calyrex-1": {
+    "eggMoveCount": 0,
+    "eggMoves": [],
+    "hasItems": false,
+    "items": []
+  }
+}

@@ -1,0 +1,466 @@
+{
+  "Route 2": {
+    "Fishing": {
+      "minLevel": 4,
+      "maxLevel": 6,
+      "encounters": {
+        "Magikarp": { "slotMin": 0, "slotMax": 79 },
+        "Chewtle": { "slotMin": 80, "slotMax": 94 },
+        "Arrokuda": { "slotMin": 95, "slotMax": 99 }
+      }
+    }
+  },
+  "East Lake Axewell": {
+    "Fishing": {
+      "minLevel": 8,
+      "maxLevel": 12,
+      "encounters": {
+        "Magikarp": { "slotMin": 0, "slotMax": 49 },
+        "Goldeen": { "slotMin": 50, "slotMax": 74 },
+        "Shellder": { "slotMin": 75, "slotMax": 94 },
+        "Wishiwashi": { "slotMin": 95, "slotMax": 99 }
+      }
+    }
+  },
+  "West Lake Axewell": {
+    "Fishing": {
+      "minLevel": 7,
+      "maxLevel": 11,
+      "encounters": {
+        "Magikarp": { "slotMin": 0, "slotMax": 49 },
+        "Goldeen": { "slotMin": 50, "slotMax": 84 },
+        "Remoraid": { "slotMin": 85, "slotMax": 94 },
+        "Wishiwashi": { "slotMin": 95, "slotMax": 99 }
+      }
+    }
+  },
+  "Axew's Eye": {
+    "Fishing": {
+      "minLevel": 35,
+      "maxLevel": 40,
+      "encounters": {
+        "Magikarp": { "slotMin": 0, "slotMax": 49 },
+        "Octillery": { "slotMin": 50, "slotMax": 74 },
+        "Wishiwashi": { "slotMin": 75, "slotMax": 94 },
+        "Gyarados": { "slotMin": 95, "slotMax": 99 }
+      }
+    }
+  },
+  "South Lake Miloch": {
+    "Fishing": {
+      "minLevel": 11,
+      "maxLevel": 13,
+      "encounters": {
+        "Magikarp": { "slotMin": 0, "slotMax": 49 },
+        "Remoraid": { "slotMin": 50, "slotMax": 89 },
+        "Barboach": { "slotMin": 90, "slotMax": 98 },
+        "Pyukumuku": { "slotMin": 99, "slotMax": 99 }
+      }
+    }
+  },
+  "Giant's Seat": {
+    "Fishing": {
+      "minLevel": 30,
+      "maxLevel": 35,
+      "encounters": {
+        "Shellder": { "slotMin": 0, "slotMax": 59 },
+        "Pyukumuku": { "slotMin": 60, "slotMax": 84 },
+        "Gyarados": { "slotMin": 85, "slotMax": 94 },
+        "Cloyster": { "slotMin": 95, "slotMax": 99 }
+      }
+    }
+  },
+  "North Lake Miloch": {
+    "Fishing": {
+      "minLevel": 14,
+      "maxLevel": 16,
+      "encounters": {
+        "Magikarp": { "slotMin": 0, "slotMax": 57 },
+        "Barboach": { "slotMin": 58, "slotMax": 97 },
+        "Basculin-1": { "slotMin": 98, "slotMax": 99 }
+      }
+    }
+  },
+  "Motostoke Riverbank": {
+    "Fishing": {
+      "minLevel": 26,
+      "maxLevel": 28,
+      "encounters": {
+        "Arrokuda": { "slotMin": 0, "slotMax": 49 },
+        "Basculin-1": { "slotMin": 50, "slotMax": 84 },
+        "Barraskewda": { "slotMin": 85, "slotMax": 94 },
+        "Mareanie": { "slotMin": 95, "slotMax": 99 }
+      }
+    }
+  },
+  "Bridge Field": {
+    "Fishing": {
+      "minLevel": 26,
+      "maxLevel": 28,
+      "encounters": {
+        "Drednaw": { "slotMin": 0, "slotMax": 29 },
+        "Magikarp": { "slotMin": 30, "slotMax": 59 },
+        "Lanturn": { "slotMin": 60, "slotMax": 84 },
+        "Qwilfish": { "slotMin": 85, "slotMax": 94 },
+        "Gyarados": { "slotMin": 95, "slotMax": 99 }
+      }
+    }
+  },
+  "Route 4": {
+    "Fishing": {
+      "minLevel": 13,
+      "maxLevel": 15,
+      "encounters": {
+        "Magikarp": { "slotMin": 0, "slotMax": 69 },
+        "Chewtle": { "slotMin": 70, "slotMax": 89 },
+        "Goldeen": { "slotMin": 90, "slotMax": 99 }
+      }
+    }
+  },
+  "City of Motostoke": {
+    "Fishing": {
+      "minLevel": 7,
+      "maxLevel": 11,
+      "encounters": {
+        "Magikarp": { "slotMin": 0, "slotMax": 49 },
+        "Chewtle": { "slotMin": 50, "slotMax": 89 },
+        "Barboach": { "slotMin": 90, "slotMax": 99 }
+      }
+    }
+  },
+  "Route 5": {
+    "Fishing": {
+      "minLevel": 16,
+      "maxLevel": 18,
+      "encounters": {
+        "Magikarp": { "slotMin": 0, "slotMax": 69 },
+        "Chewtle": { "slotMin": 70, "slotMax": 89 },
+        "Goldeen": { "slotMin": 90, "slotMax": 99 }
+      }
+    }
+  },
+  "Town of Hulbury": {
+    "Fishing": {
+      "minLevel": 20,
+      "maxLevel": 24,
+      "encounters": {
+        "Arrokuda": { "slotMin": 0, "slotMax": 49 },
+        "Chinchou": { "slotMin": 50, "slotMax": 69 },
+        "Chewtle": { "slotMin": 70, "slotMax": 84 },
+        "Basculin-1": { "slotMin": 85, "slotMax": 94 },
+        "Wishiwashi": { "slotMin": 95, "slotMax": 99 }
+      }
+    }
+  },
+  "Galar Mine No. 2": {
+    "Fishing": {
+      "minLevel": 20,
+      "maxLevel": 24,
+      "encounters": {
+        "Barboach": { "slotMin": 0, "slotMax": 54 },
+        "Chewtle": { "slotMin": 55, "slotMax": 84 },
+        "Corphish": { "slotMin": 85, "slotMax": 99 }
+      }
+    }
+  },
+  "Route 6": {
+    "Fishing": {
+      "minLevel": 28,
+      "maxLevel": 30,
+      "encounters": {
+        "Magikarp": { "slotMin": 0, "slotMax": 69 },
+        "Drednaw": { "slotMin": 70, "slotMax": 89 },
+        "Goldeen": { "slotMin": 90, "slotMax": 99 }
+      }
+    }
+  },
+  "Route 9": {
+    "Fishing": {
+      "minLevel": 38,
+      "maxLevel": 42,
+      "encounters": {
+        "Octillery": { "slotMin": 0, "slotMax": 59 },
+        "Wishiwashi": { "slotMin": 60, "slotMax": 89 },
+        "Pyukumuku": { "slotMin": 90, "slotMax": 99 }
+      }
+    }
+  },
+  "Route 9 (in Circhester Bay)": {
+    "Fishing": {
+      "minLevel": 39,
+      "maxLevel": 43,
+      "encounters": {
+        "Mantyke": { "slotMin": 0, "slotMax": 49 },
+        "Wailmer": { "slotMin": 50, "slotMax": 83 },
+        "Mantine": { "slotMin": 84, "slotMax": 93 },
+        "Wailord": { "slotMin": 94, "slotMax": 98 },
+        "Lapras": { "slotMin": 99, "slotMax": 99 }
+      }
+    }
+  },
+  "Dusty Bowl": {
+    "Fishing": {
+      "minLevel": 40,
+      "maxLevel": 45,
+      "encounters": {
+        "Barraskewda": { "slotMin": 0, "slotMax": 49 },
+        "Lanturn": { "slotMin": 50, "slotMax": 84 },
+        "Qwilfish": { "slotMin": 85, "slotMax": 94 },
+        "Gyarados": { "slotMin": 95, "slotMax": 99 }
+      }
+    }
+  },
+  "Giant's Mirror": {
+    "Fishing": {
+      "minLevel": 26,
+      "maxLevel": 28,
+      "encounters": {
+        "Drednaw": { "slotMin": 0, "slotMax": 49 },
+        "Mareanie": { "slotMin": 50, "slotMax": 84 },
+        "Chinchou": { "slotMin": 85, "slotMax": 94 },
+        "Gyarados": { "slotMin": 95, "slotMax": 99 }
+      }
+    }
+  },
+  "Giant's Cap": {
+    "Fishing": {
+      "minLevel": 26,
+      "maxLevel": 28,
+      "encounters": {
+        "Goldeen": { "slotMin": 0, "slotMax": 49 },
+        "Krabby": { "slotMin": 50, "slotMax": 84 },
+        "Corphish": { "slotMin": 85, "slotMax": 94 },
+        "Gyarados": { "slotMin": 95, "slotMax": 99 }
+      }
+    }
+  },
+  "Lake of Outrage": {
+    "Fishing": {
+      "minLevel": 50,
+      "maxLevel": 52,
+      "encounters": {
+        "Barraskewda": { "slotMin": 0, "slotMax": 49 },
+        "Lanturn": { "slotMin": 50, "slotMax": 84 },
+        "Qwilfish": { "slotMin": 85, "slotMax": 94 },
+        "Gyarados": { "slotMin": 95, "slotMax": 99 }
+      }
+    }
+  },
+  "Route 2 (High Level)": {
+    "Fishing": {
+      "minLevel": 37,
+      "maxLevel": 40,
+      "encounters": {
+        "Magikarp": { "slotMin": 0, "slotMax": 49 },
+        "Chewtle": { "slotMin": 50, "slotMax": 89 },
+        "Feebas": { "slotMin": 99, "slotMax": 99 }
+      }
+    }
+  },
+  "Slumbering Weald (High Level)": {
+    "Fishing": {
+      "minLevel": 45,
+      "maxLevel": 47,
+      "encounters": {
+        "Whiscash": { "slotMin": 0, "slotMax": 59 },
+        "Barboach": { "slotMin": 60, "slotMax": 79 },
+        "Magikarp": { "slotMin": 80, "slotMax": 99 }
+      }
+    }
+  },
+  "Fields of Honor": {
+    "Fishing": {
+      "minLevel": 13,
+      "maxLevel": 18,
+      "encounters": {
+        "Magikarp": { "slotMin": 0, "slotMax": 49 },
+        "Remoraid": { "slotMin": 50, "slotMax": 89 },
+        "Octillery": { "slotMin": 90, "slotMax": 99 }
+      }
+    }
+  },
+  "Soothing Wetlands": {
+    "Fishing": {
+      "minLevel": 13,
+      "maxLevel": 18,
+      "encounters": {
+        "Magikarp": { "slotMin": 0, "slotMax": 49 },
+        "Barboach": { "slotMin": 50, "slotMax": 89 },
+        "Whiscash": { "slotMin": 90, "slotMax": 99 }
+      }
+    }
+  },
+  "Forest of Focus": {
+    "Fishing": {
+      "minLevel": 13,
+      "maxLevel": 18,
+      "encounters": {
+        "Magikarp": { "slotMin": 0, "slotMax": 39 },
+        "Goldeen": { "slotMin": 40, "slotMax": 79 },
+        "Arrokuda": { "slotMin": 80, "slotMax": 99 }
+      }
+    }
+  },
+  "Challenge Beach": {
+    "Fishing": {
+      "minLevel": 13,
+      "maxLevel": 18,
+      "encounters": {
+        "Magikarp": { "slotMin": 0, "slotMax": 49 },
+        "Wishiwashi": { "slotMin": 50, "slotMax": 89 },
+        "Dhelmise": { "slotMin": 90, "slotMax": 99 }
+      }
+    }
+  },
+  "Courageous Cavern": {
+    "Fishing": {
+      "minLevel": 16,
+      "maxLevel": 21,
+      "encounters": {
+        "Magikarp": { "slotMin": 0, "slotMax": 49 },
+        "Shellder": { "slotMin": 50, "slotMax": 89 },
+        "Cloyster": { "slotMin": 90, "slotMax": 99 }
+      }
+    }
+  },
+  "Loop Lagoon": {
+    "Fishing": {
+      "minLevel": 19,
+      "maxLevel": 24,
+      "encounters": {
+        "Magikarp": { "slotMin": 0, "slotMax": 49 },
+        "Shellder": { "slotMin": 50, "slotMax": 89 },
+        "Cloyster": { "slotMin": 90, "slotMax": 99 }
+      }
+    }
+  },
+  "Training Lowlands": {
+    "Fishing": {
+      "minLevel": 16,
+      "maxLevel": 21,
+      "encounters": {
+        "Magikarp": { "slotMin": 0, "slotMax": 49 },
+        "Carvanha": { "slotMin": 50, "slotMax": 89 },
+        "Sharpedo": { "slotMin": 90, "slotMax": 99 }
+      }
+    }
+  },
+  "Workout Sea": {
+    "Fishing": {
+      "minLevel": 43,
+      "maxLevel": 48,
+      "encounters": {
+        "Magikarp": { "slotMin": 0, "slotMax": 49 },
+        "Remoraid": { "slotMin": 50, "slotMax": 89 },
+        "Octillery": { "slotMin": 90, "slotMax": 99 }
+      }
+    }
+  },
+  "Stepping-Stone Sea": {
+    "Fishing": {
+      "minLevel": 43,
+      "maxLevel": 48,
+      "encounters": {
+        "Magikarp": { "slotMin": 0, "slotMax": 59 },
+        "Wishiwashi": { "slotMin": 60, "slotMax": 99 }
+      }
+    }
+  },
+  "Insular Sea": {
+    "Fishing": {
+      "minLevel": 43,
+      "maxLevel": 48,
+      "encounters": {
+        "Magikarp": { "slotMin": 0, "slotMax": 59 },
+        "Wishiwashi": { "slotMin": 60, "slotMax": 99 }
+      }
+    }
+  },
+  "Honeycalm Sea": {
+    "Fishing": {
+      "minLevel": 43,
+      "maxLevel": 48,
+      "encounters": {
+        "Magikarp": { "slotMin": 0, "slotMax": 59 },
+        "Wishiwashi": { "slotMin": 60, "slotMax": 99 }
+      }
+    }
+  },
+  "Honeycalm Island": {
+    "Fishing": {
+      "minLevel": 43,
+      "maxLevel": 48,
+      "encounters": {
+        "Magikarp": { "slotMin": 0, "slotMax": 59 },
+        "Wishiwashi": { "slotMin": 60, "slotMax": 99 }
+      }
+    }
+  },
+  "Giant's Bed": {
+    "Fishing": {
+      "minLevel": 60,
+      "maxLevel": 65,
+      "encounters": {
+        "Magikarp": { "slotMin": 0, "slotMax": 19 },
+        "Barboach": { "slotMin": 20, "slotMax": 39 },
+        "Basculin-1": { "slotMin": 40, "slotMax": 59 },
+        "Gyarados": { "slotMin": 60, "slotMax": 74 },
+        "Whiscash": { "slotMin": 75, "slotMax": 89 },
+        "Lileep": { "slotMin": 90, "slotMax": 99 }
+      }
+    }
+  },
+  "Snowslide Slope": {
+    "Fishing": {
+      "minLevel": 60,
+      "maxLevel": 65,
+      "encounters": {
+        "Magikarp": { "slotMin": 0, "slotMax": 44 },
+        "Basculin-1": { "slotMin": 45, "slotMax": 84 },
+        "Gyarados": { "slotMin": 85, "slotMax": 99 }
+      }
+    }
+  },
+  "Giant's Foot": {
+    "Fishing": {
+      "minLevel": 60,
+      "maxLevel": 65,
+      "encounters": {
+        "Magikarp": { "slotMin": 0, "slotMax": 19 },
+        "Barboach": { "slotMin": 20, "slotMax": 39 },
+        "Basculin-1": { "slotMin": 40, "slotMax": 59 },
+        "Whiscash": { "slotMin": 60, "slotMax": 74 },
+        "Gyarados": { "slotMin": 75, "slotMax": 89 },
+        "Lileep": { "slotMin": 90, "slotMax": 99 }
+      }
+    }
+  },
+  "Frigid Sea": {
+    "Fishing": {
+      "minLevel": 60,
+      "maxLevel": 65,
+      "encounters": {
+        "Magikarp": { "slotMin": 0, "slotMax": 29 },
+        "Basculin-1": { "slotMin": 30, "slotMax": 59 },
+        "Wailmer": { "slotMin": 60, "slotMax": 79 },
+        "Gyarados": { "slotMin": 80, "slotMax": 94 },
+        "Dhelmise": { "slotMin": 95, "slotMax": 99 }
+      }
+    }
+  },
+  "Ballimere Lake": {
+    "Fishing": {
+      "minLevel": 60,
+      "maxLevel": 65,
+      "encounters": {
+        "Magikarp": { "slotMin": 0, "slotMax": 19 },
+        "Basculin-1": { "slotMin": 20, "slotMax": 39 },
+        "Barboach": { "slotMin": 40, "slotMax": 59 },
+        "Gyarados": { "slotMin": 60, "slotMax": 74 },
+        "Whiscash": { "slotMin": 75, "slotMax": 89 },
+        "Feebas": { "slotMin": 90, "slotMax": 94 },
+        "Dratini": { "slotMin": 95, "slotMax": 99 }
+      }
+    }
+  }
+}

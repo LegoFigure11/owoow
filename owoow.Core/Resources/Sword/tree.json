@@ -1,0 +1,318 @@
+{
+  "Rolling Fields": {
+    "Shaking Trees": {
+      "minLevel": 7,
+      "maxLevel": 10,
+      "encounters": {
+        "Skwovet": { "slotMin": 0, "slotMax": 79 },
+        "Cherubi": { "slotMin": 80, "slotMax": 99 }
+      }
+    }
+  },
+  "Dappled Grove": {
+    "Shaking Trees": {
+      "minLevel": 11,
+      "maxLevel": 15,
+      "encounters": {
+        "Skwovet": { "slotMin": 0, "slotMax": 69 },
+        "Cherubi": { "slotMin": 70, "slotMax": 99 }
+      }
+    }
+  },
+  "Watchtower Ruins": {
+    "Shaking Trees": {
+      "minLevel": 11,
+      "maxLevel": 14,
+      "encounters": {
+        "Skwovet": { "slotMin": 0, "slotMax": 49 },
+        "Cherubi": { "slotMin": 50, "slotMax": 99 }
+      }
+    }
+  },
+  "Axew's Eye": {
+    "Shaking Trees": {
+      "minLevel": 35,
+      "maxLevel": 40,
+      "encounters": {
+        "Greedent": { "slotMin": 0, "slotMax": 74 },
+        "Cherubi": { "slotMin": 75, "slotMax": 99 }
+      }
+    }
+  },
+  "Giant's Seat": {
+    "Shaking Trees": {
+      "minLevel": 30,
+      "maxLevel": 35,
+      "encounters": {
+        "Greedent": { "slotMin": 0, "slotMax": 69 },
+        "Cherubi": { "slotMin": 70, "slotMax": 99 }
+      }
+    }
+  },
+  "North Lake Miloch": {
+    "Shaking Trees": {
+      "minLevel": 14,
+      "maxLevel": 16,
+      "encounters": {
+        "Skwovet": { "slotMin": 0, "slotMax": 49 },
+        "Cherubi": { "slotMin": 50, "slotMax": 99 }
+      }
+    }
+  },
+  "Route 3": {
+    "Shaking Trees": {
+      "minLevel": 8,
+      "maxLevel": 13,
+      "encounters": {
+        "Skwovet": { "slotMin": 0, "slotMax": 79 },
+        "Cherubi": { "slotMin": 80, "slotMax": 99 }
+      }
+    }
+  },
+  "Motostoke Riverbank": {
+    "Shaking Trees": {
+      "minLevel": 26,
+      "maxLevel": 28,
+      "encounters": {
+        "Greedent": { "slotMin": 0, "slotMax": 49 },
+        "Skwovet": { "slotMin": 50, "slotMax": 84 },
+        "Cherubi": { "slotMin": 85, "slotMax": 99 }
+      }
+    }
+  },
+  "Bridge Field": {
+    "Shaking Trees": {
+      "minLevel": 26,
+      "maxLevel": 28,
+      "encounters": {
+        "Greedent": { "slotMin": 0, "slotMax": 74 },
+        "Cherubi": { "slotMin": 75, "slotMax": 99 }
+      }
+    }
+  },
+  "Route 4": {
+    "Shaking Trees": {
+      "minLevel": 13,
+      "maxLevel": 15,
+      "encounters": { "Skwovet": { "slotMin": 0, "slotMax": 99 } }
+    }
+  },
+  "Route 5": {
+    "Shaking Trees": {
+      "minLevel": 16,
+      "maxLevel": 18,
+      "encounters": { "Skwovet": { "slotMin": 0, "slotMax": 99 } }
+    }
+  },
+  "Route 6": {
+    "Shaking Trees": {
+      "minLevel": 28,
+      "maxLevel": 30,
+      "encounters": { "Greedent": { "slotMin": 0, "slotMax": 99 } }
+    }
+  },
+  "Route 7": {
+    "Shaking Trees": {
+      "minLevel": 36,
+      "maxLevel": 40,
+      "encounters": { "Greedent": { "slotMin": 0, "slotMax": 99 } }
+    }
+  },
+  "Route 9 (in Circhester Bay)": {
+    "Shaking Trees": {
+      "minLevel": 39,
+      "maxLevel": 43,
+      "encounters": { "Greedent": { "slotMin": 0, "slotMax": 99 } }
+    }
+  },
+  "Route 9 (in Outer Spikemuth)": {
+    "Shaking Trees": {
+      "minLevel": 40,
+      "maxLevel": 44,
+      "encounters": { "Greedent": { "slotMin": 0, "slotMax": 99 } }
+    }
+  },
+  "Giant's Mirror": {
+    "Shaking Trees": {
+      "minLevel": 26,
+      "maxLevel": 28,
+      "encounters": {
+        "Greedent": { "slotMin": 0, "slotMax": 74 },
+        "Cherubi": { "slotMin": 75, "slotMax": 99 }
+      }
+    }
+  },
+  "Hammerlocke Hills": {
+    "Shaking Trees": {
+      "minLevel": 28,
+      "maxLevel": 30,
+      "encounters": {
+        "Greedent": { "slotMin": 0, "slotMax": 74 },
+        "Cherubi": { "slotMin": 75, "slotMax": 99 }
+      }
+    }
+  },
+  "Giant's Cap": {
+    "Shaking Trees": {
+      "minLevel": 26,
+      "maxLevel": 28,
+      "encounters": {
+        "Greedent": { "slotMin": 0, "slotMax": 74 },
+        "Cherubi": { "slotMin": 75, "slotMax": 99 }
+      }
+    }
+  },
+  "Lake of Outrage": {
+    "Shaking Trees": {
+      "minLevel": 50,
+      "maxLevel": 52,
+      "encounters": {
+        "Greedent": { "slotMin": 0, "slotMax": 94 },
+        "Cherubi": { "slotMin": 95, "slotMax": 99 }
+      }
+    }
+  },
+  "Fields of Honor": {
+    "Shaking Trees": {
+      "minLevel": 13,
+      "maxLevel": 18,
+      "encounters": {
+        "Skwovet": { "slotMin": 0, "slotMax": 59 },
+        "Applin": { "slotMin": 60, "slotMax": 89 }
+      }
+    }
+  },
+  "Soothing Wetlands": {
+    "Shaking Trees": {
+      "minLevel": 13,
+      "maxLevel": 18,
+      "encounters": {
+        "Skwovet": { "slotMin": 0, "slotMax": 59 },
+        "Applin": { "slotMin": 60, "slotMax": 89 }
+      }
+    }
+  },
+  "Forest of Focus": {
+    "Shaking Trees": {
+      "minLevel": 13,
+      "maxLevel": 18,
+      "encounters": {
+        "Skwovet": { "slotMin": 0, "slotMax": 59 },
+        "Applin": { "slotMin": 60, "slotMax": 89 },
+        "Emolga": { "slotMin": 90, "slotMax": 99 }
+      }
+    }
+  },
+  "Challenge Beach": {
+    "Shaking Trees": {
+      "minLevel": 13,
+      "maxLevel": 18,
+      "encounters": {
+        "Skwovet": { "slotMin": 0, "slotMax": 59 },
+        "Applin": { "slotMin": 60, "slotMax": 89 }
+      }
+    }
+  },
+  "Loop Lagoon": {
+    "Shaking Trees": {
+      "minLevel": 19,
+      "maxLevel": 24,
+      "encounters": {
+        "Skwovet": { "slotMin": 0, "slotMax": 59 },
+        "Applin": { "slotMin": 60, "slotMax": 89 }
+      }
+    }
+  },
+  "Training Lowlands": {
+    "Shaking Trees": {
+      "minLevel": 16,
+      "maxLevel": 21,
+      "encounters": {
+        "Skwovet": { "slotMin": 0, "slotMax": 59 },
+        "Applin": { "slotMin": 60, "slotMax": 89 }
+      }
+    }
+  },
+  "Workout Sea": {
+    "Shaking Trees": {
+      "minLevel": 43,
+      "maxLevel": 48,
+      "encounters": {
+        "Skwovet": { "slotMin": 0, "slotMax": 59 },
+        "Applin": { "slotMin": 60, "slotMax": 89 }
+      }
+    }
+  },
+  "Stepping-Stone Sea": {
+    "Shaking Trees": {
+      "minLevel": 43,
+      "maxLevel": 48,
+      "encounters": {
+        "Skwovet": { "slotMin": 0, "slotMax": 59 },
+        "Applin": { "slotMin": 60, "slotMax": 89 },
+        "Flapple": { "slotMin": 90, "slotMax": 99 }
+      }
+    }
+  },
+  "Insular Sea": {
+    "Shaking Trees": {
+      "minLevel": 43,
+      "maxLevel": 48,
+      "encounters": {
+        "Skwovet": { "slotMin": 0, "slotMax": 59 },
+        "Applin": { "slotMin": 60, "slotMax": 89 }
+      }
+    }
+  },
+  "Slippery Slope": {
+    "Shaking Trees": {
+      "minLevel": 60,
+      "maxLevel": 65,
+      "encounters": {
+        "Skwovet": { "slotMin": 0, "slotMax": 69 },
+        "Greedent": { "slotMin": 70, "slotMax": 99 }
+      }
+    }
+  },
+  "Frostpoint Field": {
+    "Shaking Trees": {
+      "minLevel": 60,
+      "maxLevel": 65,
+      "encounters": {
+        "Skwovet": { "slotMin": 0, "slotMax": 69 },
+        "Greedent": { "slotMin": 70, "slotMax": 99 }
+      }
+    }
+  },
+  "Giant's Bed": {
+    "Shaking Trees": {
+      "minLevel": 60,
+      "maxLevel": 65,
+      "encounters": {
+        "Skwovet": { "slotMin": 0, "slotMax": 79 },
+        "Greedent": { "slotMin": 80, "slotMax": 99 }
+      }
+    }
+  },
+  "Giant's Foot": {
+    "Shaking Trees": {
+      "minLevel": 60,
+      "maxLevel": 65,
+      "encounters": {
+        "Skwovet": { "slotMin": 0, "slotMax": 79 },
+        "Greedent": { "slotMin": 80, "slotMax": 99 }
+      }
+    }
+  },
+  "Ballimere Lake": {
+    "Shaking Trees": {
+      "minLevel": 60,
+      "maxLevel": 65,
+      "encounters": {
+        "Skwovet": { "slotMin": 0, "slotMax": 59 },
+        "Greedent": { "slotMin": 60, "slotMax": 89 },
+        "Munchlax": { "slotMin": 90, "slotMax": 99 }
+      }
+    }
+  }
+}
