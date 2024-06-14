@@ -8,6 +8,9 @@ public abstract class Offsets
     public const uint MainRNG = 0x4c2aac18;
     public const int MainRNG_Size = 0x10;
 
+    public const uint WildPokemon = 0x8fea3648;
+    public const int WildPokemon_Size = 0x158;
+
     public const uint MyStatus = 0x45068f18;
     public const int MyStatus_Size = 0x110;
 

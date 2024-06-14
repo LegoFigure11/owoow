@@ -1,6 +1,8 @@
 ﻿using PKHeX.Core;
 using SysBot.Base;
+using System.Drawing;
 using System.Net.Sockets;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace owoow.Core.Connection;
 
@@ -71,7 +73,13 @@ public class ConnectionWrapperAsync(SwitchConnectionConfig Config, Action<string
         var s0 = BitConverter.GetBytes(_s0);
         var s1 = BitConverter.GetBytes(_s1);
         await Connection.WriteBytesAsync(s0, MainRNG, token).ConfigureAwait(false);
-        await Connection.WriteBytesAsync(s1, MainRNG + 8, token).ConfigureAwait(false);
+        await Connection.WriteBytesAsync(s1, MainRNG + (MainRNG_Size / 2), token).ConfigureAwait(false);
+    }
+
+    public async Task<PK8> ReadWildPokemon(CancellationToken token)
+    {
+        var data = await Connection.ReadBytesAsync(WildPokemon, WildPokemon_Size, token).ConfigureAwait(false);
+        return new PK8(data);
     }
 
     private async Task ReadMyStatusAsync(CancellationToken token)

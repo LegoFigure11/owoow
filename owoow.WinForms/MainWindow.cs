@@ -21,9 +21,9 @@ public partial class MainWindow : Form
     {
         ConnectionConfig = new()
         {
-            IP = "192.168.0.0", //Config.IP,
-            Port = 6000, //protocol is SwitchProtocol.WiFi ? 6000 : Config.UsbPort,
-            Protocol = SwitchProtocol.WiFi //Config.Protocol,
+            IP = "192.168.0.0", // Config.IP,
+            Port = 6000, // protocol is SwitchProtocol.WiFi ? 6000 : Config.UsbPort,
+            Protocol = SwitchProtocol.WiFi // Config.Protocol,
         };
 
         InitializeComponent();
@@ -102,8 +102,8 @@ public partial class MainWindow : Form
                     return;
                 }
 
-                SetCheckBoxState(ConnectionWrapper.GetHasShinyCharm(), CB_ShinyCharm);
-                SetCheckBoxState(ConnectionWrapper.GetHasMarkCharm(), CB_MarkCharm);
+                SetCheckBoxCheckedState(ConnectionWrapper.GetHasShinyCharm(), CB_ShinyCharm);
+                SetCheckBoxCheckedState(ConnectionWrapper.GetHasMarkCharm(), CB_MarkCharm);
                 var (tid, sid) = ConnectionWrapper.GetIDs();
                 SetTextBoxText(tid, TB_TID);
                 SetTextBoxText(sid, TB_SID);
@@ -190,7 +190,7 @@ public partial class MainWindow : Form
         SetTextBoxText(status, TB_Status);
     }
 
-    private void SetCheckBoxState(bool state, params object[] obj)
+    private void SetCheckBoxCheckedState(bool state, params object[] obj)
     {
         foreach (object o in obj)
         {
@@ -201,6 +201,20 @@ public partial class MainWindow : Form
                 Invoke(() => cb.Checked = state);
             else
                 cb.Checked = state;
+        }
+    }
+
+    private void SetCheckBoxState(bool state, params object[] obj)
+    {
+        foreach (object o in obj)
+        {
+            if (o is not CheckBox cb)
+                continue;
+
+            if (InvokeRequired)
+                Invoke(() => cb.Enabled = state);
+            else
+                cb.Enabled = state;
         }
     }
 
@@ -288,7 +302,19 @@ public partial class MainWindow : Form
         var c = e.KeyChar;
         if (c != (char)Keys.Back && !char.IsControl(c))
         {
-            if (!char.IsBetween(c, '0', '9') && !char.IsBetween(c, 'a', 'f') && !char.IsBetween(c, 'A', 'F')) e.Handled = true;
+            if (
+                !char.IsBetween(c, '0', '9') &&
+                !char.IsBetween(c, 'a', 'f') &&
+                !char.IsBetween(c, 'A', 'F')
+            )
+            {
+                e.Handled = true;
+            }
         }
+    }
+
+    private void CB_Symbol_DexRecActive_CheckedChanged(object sender, EventArgs e)
+    {
+        SetCheckBoxState(CB_Symbol_DexRecActive.Checked, CB_Symbol_DexRec1,  CB_Symbol_DexRec2, CB_Symbol_DexRec3, CB_Symbol_DexRec4);
     }
 }
