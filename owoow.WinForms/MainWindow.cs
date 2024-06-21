@@ -315,6 +315,6 @@ public partial class MainWindow : Form
 
     private void CB_Symbol_DexRecActive_CheckedChanged(object sender, EventArgs e)
     {
-        SetCheckBoxState(CB_Symbol_DexRecActive.Checked, CB_Symbol_DexRec1,  CB_Symbol_DexRec2, CB_Symbol_DexRec3, CB_Symbol_DexRec4);
+        SetCheckBoxState(CB_Symbol_DexRecActive.Checked, CB_Symbol_DexRec1, CB_Symbol_DexRec2, CB_Symbol_DexRec3, CB_Symbol_DexRec4);
     }
 }

@@ -29,6 +29,43 @@
         private void InitializeComponent()
         {
             GB_SeedControlsContainer = new GroupBox();
+            GB_Filters = new GroupBox();
+            B_Spe_Max = new Button();
+            B_Spe_Min = new Button();
+            L_Spe = new Label();
+            L_SpeSpacer = new Label();
+            NUD_Spe_Max = new NumericUpDown();
+            NUD_Spe_Min = new NumericUpDown();
+            B_SpD_Max = new Button();
+            B_SpD_Min = new Button();
+            L_SpD = new Label();
+            L_SpDSpacer = new Label();
+            NUD_SpD_Max = new NumericUpDown();
+            NUD_SpD_Min = new NumericUpDown();
+            B_SpA_Max = new Button();
+            B_SpA_Min = new Button();
+            L_SpA = new Label();
+            L_SpASpacer = new Label();
+            NUD_SpA_Max = new NumericUpDown();
+            NUD_SpA_Min = new NumericUpDown();
+            B_Def_Max = new Button();
+            B_Def_Min = new Button();
+            L_Def = new Label();
+            L_DefSpacer = new Label();
+            NUD_Def_Max = new NumericUpDown();
+            NUD_Def_Min = new NumericUpDown();
+            B_Atk_Max = new Button();
+            B_Atk_Min = new Button();
+            L_Atk = new Label();
+            L_AtkSpacer = new Label();
+            NUD_Atk_Max = new NumericUpDown();
+            NUD_Atk_Min = new NumericUpDown();
+            B_HP_Max = new Button();
+            B_HP_Min = new Button();
+            L_HP = new Label();
+            L_HPSpacer = new Label();
+            NUD_HP_Max = new NumericUpDown();
+            NUD_HP_Min = new NumericUpDown();
             TC_EncounterType = new TabControl();
             TP_Static = new TabPage();
             TP_Symbol = new TabPage();
@@ -39,7 +76,7 @@
             CB_Symbol_DexRec1 = new CheckBox();
             CB_Symbol_DexRecActive = new CheckBox();
             label2 = new Label();
-            comboBox1 = new ComboBox();
+            CB_Symbol_LeadAbility = new ComboBox();
             TP_Hidden = new TabPage();
             TP_Fishing = new TabPage();
             GB_Seed = new GroupBox();
@@ -68,62 +105,33 @@
             TB_SID = new TextBox();
             CB_ShinyCharm = new CheckBox();
             TB_TID = new TextBox();
-            NUD_HP_Min = new NumericUpDown();
-            GB_Filters = new GroupBox();
-            NUD_HP_Max = new NumericUpDown();
-            L_HPSpacer = new Label();
-            L_HP = new Label();
-            B_HP_Min = new Button();
-            B_HP_Max = new Button();
-            B_Atk_Max = new Button();
-            B_Atk_Min = new Button();
-            L_Atk = new Label();
-            L_AtkSpacer = new Label();
-            NUD_Atk_Max = new NumericUpDown();
-            NUD_Atk_Min = new NumericUpDown();
-            B_Def_Max = new Button();
-            B_Def_Min = new Button();
-            L_Def = new Label();
-            L_DefSpacer = new Label();
-            NUD_Def_Max = new NumericUpDown();
-            NUD_Def_Min = new NumericUpDown();
-            B_SpA_Max = new Button();
-            B_SpA_Min = new Button();
-            L_SpA = new Label();
-            L_SpASpacer = new Label();
-            NUD_SpA_Max = new NumericUpDown();
-            NUD_SpA_Min = new NumericUpDown();
-            B_SpD_Max = new Button();
-            B_SpD_Min = new Button();
-            L_SpD = new Label();
-            L_SpDSpacer = new Label();
-            NUD_SpD_Max = new NumericUpDown();
-            NUD_SpD_Min = new NumericUpDown();
-            B_Spe_Max = new Button();
-            B_Spe_Min = new Button();
-            L_Spe = new Label();
-            L_SpeSpacer = new Label();
-            NUD_Spe_Max = new NumericUpDown();
-            NUD_Spe_Min = new NumericUpDown();
+            GB_Static_EncounterSettings = new GroupBox();
+            CB_Static_Area = new ComboBox();
+            CB_Static_Weather = new ComboBox();
+            CB_Static_Species = new ComboBox();
+            label3 = new Label();
+            label4 = new Label();
+            label5 = new Label();
             GB_SeedControlsContainer.SuspendLayout();
+            GB_Filters.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)NUD_Spe_Max).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)NUD_Spe_Min).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)NUD_SpD_Max).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)NUD_SpD_Min).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)NUD_SpA_Max).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)NUD_SpA_Min).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)NUD_Def_Max).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)NUD_Def_Min).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)NUD_Atk_Max).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)NUD_Atk_Min).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)NUD_HP_Max).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)NUD_HP_Min).BeginInit();
             TC_EncounterType.SuspendLayout();
             TP_Symbol.SuspendLayout();
             GB_Seed.SuspendLayout();
             GB_Connection.SuspendLayout();
             GB_SAVInfo.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)NUD_HP_Min).BeginInit();
-            GB_Filters.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)NUD_HP_Max).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)NUD_Atk_Max).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)NUD_Atk_Min).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)NUD_Def_Max).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)NUD_Def_Min).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)NUD_SpA_Max).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)NUD_SpA_Min).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)NUD_SpD_Max).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)NUD_SpD_Min).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)NUD_Spe_Max).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)NUD_Spe_Min).BeginInit();
+            GB_Static_EncounterSettings.SuspendLayout();
             SuspendLayout();
             // 
             // GB_SeedControlsContainer
@@ -139,6 +147,368 @@
             GB_SeedControlsContainer.Size = new Size(788, 295);
             GB_SeedControlsContainer.TabIndex = 11;
             GB_SeedControlsContainer.TabStop = false;
+            // 
+            // GB_Filters
+            // 
+            GB_Filters.Controls.Add(B_Spe_Max);
+            GB_Filters.Controls.Add(B_Spe_Min);
+            GB_Filters.Controls.Add(L_Spe);
+            GB_Filters.Controls.Add(L_SpeSpacer);
+            GB_Filters.Controls.Add(NUD_Spe_Max);
+            GB_Filters.Controls.Add(NUD_Spe_Min);
+            GB_Filters.Controls.Add(B_SpD_Max);
+            GB_Filters.Controls.Add(B_SpD_Min);
+            GB_Filters.Controls.Add(L_SpD);
+            GB_Filters.Controls.Add(L_SpDSpacer);
+            GB_Filters.Controls.Add(NUD_SpD_Max);
+            GB_Filters.Controls.Add(NUD_SpD_Min);
+            GB_Filters.Controls.Add(B_SpA_Max);
+            GB_Filters.Controls.Add(B_SpA_Min);
+            GB_Filters.Controls.Add(L_SpA);
+            GB_Filters.Controls.Add(L_SpASpacer);
+            GB_Filters.Controls.Add(NUD_SpA_Max);
+            GB_Filters.Controls.Add(NUD_SpA_Min);
+            GB_Filters.Controls.Add(B_Def_Max);
+            GB_Filters.Controls.Add(B_Def_Min);
+            GB_Filters.Controls.Add(L_Def);
+            GB_Filters.Controls.Add(L_DefSpacer);
+            GB_Filters.Controls.Add(NUD_Def_Max);
+            GB_Filters.Controls.Add(NUD_Def_Min);
+            GB_Filters.Controls.Add(B_Atk_Max);
+            GB_Filters.Controls.Add(B_Atk_Min);
+            GB_Filters.Controls.Add(L_Atk);
+            GB_Filters.Controls.Add(L_AtkSpacer);
+            GB_Filters.Controls.Add(NUD_Atk_Max);
+            GB_Filters.Controls.Add(NUD_Atk_Min);
+            GB_Filters.Controls.Add(B_HP_Max);
+            GB_Filters.Controls.Add(B_HP_Min);
+            GB_Filters.Controls.Add(L_HP);
+            GB_Filters.Controls.Add(L_HPSpacer);
+            GB_Filters.Controls.Add(NUD_HP_Max);
+            GB_Filters.Controls.Add(NUD_HP_Min);
+            GB_Filters.Location = new Point(534, 35);
+            GB_Filters.Name = "GB_Filters";
+            GB_Filters.Size = new Size(186, 220);
+            GB_Filters.TabIndex = 5;
+            GB_Filters.TabStop = false;
+            // 
+            // B_Spe_Max
+            // 
+            B_Spe_Max.Location = new Point(153, 141);
+            B_Spe_Max.Name = "B_Spe_Max";
+            B_Spe_Max.Size = new Size(27, 25);
+            B_Spe_Max.TabIndex = 39;
+            B_Spe_Max.Text = "31";
+            B_Spe_Max.UseVisualStyleBackColor = true;
+            // 
+            // B_Spe_Min
+            // 
+            B_Spe_Min.Location = new Point(124, 141);
+            B_Spe_Min.Name = "B_Spe_Min";
+            B_Spe_Min.Size = new Size(27, 25);
+            B_Spe_Min.TabIndex = 38;
+            B_Spe_Min.Text = "0";
+            B_Spe_Min.UseVisualStyleBackColor = true;
+            // 
+            // L_Spe
+            // 
+            L_Spe.AutoSize = true;
+            L_Spe.Location = new Point(7, 146);
+            L_Spe.Name = "L_Spe";
+            L_Spe.Size = new Size(29, 15);
+            L_Spe.TabIndex = 37;
+            L_Spe.Text = "Spe:";
+            // 
+            // L_SpeSpacer
+            // 
+            L_SpeSpacer.AutoSize = true;
+            L_SpeSpacer.Location = new Point(75, 144);
+            L_SpeSpacer.Name = "L_SpeSpacer";
+            L_SpeSpacer.Size = new Size(12, 15);
+            L_SpeSpacer.TabIndex = 36;
+            L_SpeSpacer.Text = "-";
+            // 
+            // NUD_Spe_Max
+            // 
+            NUD_Spe_Max.Location = new Point(87, 142);
+            NUD_Spe_Max.Maximum = new decimal(new int[] { 31, 0, 0, 0 });
+            NUD_Spe_Max.Name = "NUD_Spe_Max";
+            NUD_Spe_Max.Size = new Size(32, 23);
+            NUD_Spe_Max.TabIndex = 35;
+            NUD_Spe_Max.Value = new decimal(new int[] { 31, 0, 0, 0 });
+            // 
+            // NUD_Spe_Min
+            // 
+            NUD_Spe_Min.Location = new Point(42, 142);
+            NUD_Spe_Min.Maximum = new decimal(new int[] { 31, 0, 0, 0 });
+            NUD_Spe_Min.Name = "NUD_Spe_Min";
+            NUD_Spe_Min.Size = new Size(32, 23);
+            NUD_Spe_Min.TabIndex = 34;
+            // 
+            // B_SpD_Max
+            // 
+            B_SpD_Max.Location = new Point(153, 116);
+            B_SpD_Max.Name = "B_SpD_Max";
+            B_SpD_Max.Size = new Size(27, 25);
+            B_SpD_Max.TabIndex = 33;
+            B_SpD_Max.Text = "31";
+            B_SpD_Max.UseVisualStyleBackColor = true;
+            // 
+            // B_SpD_Min
+            // 
+            B_SpD_Min.Location = new Point(124, 116);
+            B_SpD_Min.Name = "B_SpD_Min";
+            B_SpD_Min.Size = new Size(27, 25);
+            B_SpD_Min.TabIndex = 32;
+            B_SpD_Min.Text = "0";
+            B_SpD_Min.UseVisualStyleBackColor = true;
+            // 
+            // L_SpD
+            // 
+            L_SpD.AutoSize = true;
+            L_SpD.Location = new Point(5, 122);
+            L_SpD.Name = "L_SpD";
+            L_SpD.Size = new Size(31, 15);
+            L_SpD.TabIndex = 31;
+            L_SpD.Text = "SpD:";
+            // 
+            // L_SpDSpacer
+            // 
+            L_SpDSpacer.AutoSize = true;
+            L_SpDSpacer.Location = new Point(75, 119);
+            L_SpDSpacer.Name = "L_SpDSpacer";
+            L_SpDSpacer.Size = new Size(12, 15);
+            L_SpDSpacer.TabIndex = 30;
+            L_SpDSpacer.Text = "-";
+            // 
+            // NUD_SpD_Max
+            // 
+            NUD_SpD_Max.Location = new Point(87, 117);
+            NUD_SpD_Max.Maximum = new decimal(new int[] { 31, 0, 0, 0 });
+            NUD_SpD_Max.Name = "NUD_SpD_Max";
+            NUD_SpD_Max.Size = new Size(32, 23);
+            NUD_SpD_Max.TabIndex = 29;
+            NUD_SpD_Max.Value = new decimal(new int[] { 31, 0, 0, 0 });
+            // 
+            // NUD_SpD_Min
+            // 
+            NUD_SpD_Min.Location = new Point(42, 117);
+            NUD_SpD_Min.Maximum = new decimal(new int[] { 31, 0, 0, 0 });
+            NUD_SpD_Min.Name = "NUD_SpD_Min";
+            NUD_SpD_Min.Size = new Size(32, 23);
+            NUD_SpD_Min.TabIndex = 28;
+            // 
+            // B_SpA_Max
+            // 
+            B_SpA_Max.Location = new Point(153, 91);
+            B_SpA_Max.Name = "B_SpA_Max";
+            B_SpA_Max.Size = new Size(27, 25);
+            B_SpA_Max.TabIndex = 27;
+            B_SpA_Max.Text = "31";
+            B_SpA_Max.UseVisualStyleBackColor = true;
+            // 
+            // B_SpA_Min
+            // 
+            B_SpA_Min.Location = new Point(124, 91);
+            B_SpA_Min.Name = "B_SpA_Min";
+            B_SpA_Min.Size = new Size(27, 25);
+            B_SpA_Min.TabIndex = 26;
+            B_SpA_Min.Text = "0";
+            B_SpA_Min.UseVisualStyleBackColor = true;
+            // 
+            // L_SpA
+            // 
+            L_SpA.AutoSize = true;
+            L_SpA.Location = new Point(5, 94);
+            L_SpA.Name = "L_SpA";
+            L_SpA.Size = new Size(31, 15);
+            L_SpA.TabIndex = 25;
+            L_SpA.Text = "SpA:";
+            // 
+            // L_SpASpacer
+            // 
+            L_SpASpacer.AutoSize = true;
+            L_SpASpacer.Location = new Point(75, 94);
+            L_SpASpacer.Name = "L_SpASpacer";
+            L_SpASpacer.Size = new Size(12, 15);
+            L_SpASpacer.TabIndex = 24;
+            L_SpASpacer.Text = "-";
+            // 
+            // NUD_SpA_Max
+            // 
+            NUD_SpA_Max.Location = new Point(87, 92);
+            NUD_SpA_Max.Maximum = new decimal(new int[] { 31, 0, 0, 0 });
+            NUD_SpA_Max.Name = "NUD_SpA_Max";
+            NUD_SpA_Max.Size = new Size(32, 23);
+            NUD_SpA_Max.TabIndex = 23;
+            NUD_SpA_Max.Value = new decimal(new int[] { 31, 0, 0, 0 });
+            // 
+            // NUD_SpA_Min
+            // 
+            NUD_SpA_Min.Location = new Point(42, 92);
+            NUD_SpA_Min.Maximum = new decimal(new int[] { 31, 0, 0, 0 });
+            NUD_SpA_Min.Name = "NUD_SpA_Min";
+            NUD_SpA_Min.Size = new Size(32, 23);
+            NUD_SpA_Min.TabIndex = 22;
+            // 
+            // B_Def_Max
+            // 
+            B_Def_Max.Location = new Point(153, 66);
+            B_Def_Max.Name = "B_Def_Max";
+            B_Def_Max.Size = new Size(27, 25);
+            B_Def_Max.TabIndex = 21;
+            B_Def_Max.Text = "31";
+            B_Def_Max.UseVisualStyleBackColor = true;
+            // 
+            // B_Def_Min
+            // 
+            B_Def_Min.Location = new Point(124, 66);
+            B_Def_Min.Name = "B_Def_Min";
+            B_Def_Min.Size = new Size(27, 25);
+            B_Def_Min.TabIndex = 20;
+            B_Def_Min.Text = "0";
+            B_Def_Min.UseVisualStyleBackColor = true;
+            // 
+            // L_Def
+            // 
+            L_Def.AutoSize = true;
+            L_Def.Location = new Point(8, 69);
+            L_Def.Name = "L_Def";
+            L_Def.Size = new Size(28, 15);
+            L_Def.TabIndex = 19;
+            L_Def.Text = "Def:";
+            // 
+            // L_DefSpacer
+            // 
+            L_DefSpacer.AutoSize = true;
+            L_DefSpacer.Location = new Point(75, 69);
+            L_DefSpacer.Name = "L_DefSpacer";
+            L_DefSpacer.Size = new Size(12, 15);
+            L_DefSpacer.TabIndex = 18;
+            L_DefSpacer.Text = "-";
+            // 
+            // NUD_Def_Max
+            // 
+            NUD_Def_Max.Location = new Point(87, 67);
+            NUD_Def_Max.Maximum = new decimal(new int[] { 31, 0, 0, 0 });
+            NUD_Def_Max.Name = "NUD_Def_Max";
+            NUD_Def_Max.Size = new Size(32, 23);
+            NUD_Def_Max.TabIndex = 17;
+            NUD_Def_Max.Value = new decimal(new int[] { 31, 0, 0, 0 });
+            // 
+            // NUD_Def_Min
+            // 
+            NUD_Def_Min.Location = new Point(42, 67);
+            NUD_Def_Min.Maximum = new decimal(new int[] { 31, 0, 0, 0 });
+            NUD_Def_Min.Name = "NUD_Def_Min";
+            NUD_Def_Min.Size = new Size(32, 23);
+            NUD_Def_Min.TabIndex = 16;
+            // 
+            // B_Atk_Max
+            // 
+            B_Atk_Max.Location = new Point(153, 41);
+            B_Atk_Max.Name = "B_Atk_Max";
+            B_Atk_Max.Size = new Size(27, 25);
+            B_Atk_Max.TabIndex = 15;
+            B_Atk_Max.Text = "31";
+            B_Atk_Max.UseVisualStyleBackColor = true;
+            // 
+            // B_Atk_Min
+            // 
+            B_Atk_Min.Location = new Point(124, 41);
+            B_Atk_Min.Name = "B_Atk_Min";
+            B_Atk_Min.Size = new Size(27, 25);
+            B_Atk_Min.TabIndex = 14;
+            B_Atk_Min.Text = "0";
+            B_Atk_Min.UseVisualStyleBackColor = true;
+            // 
+            // L_Atk
+            // 
+            L_Atk.AutoSize = true;
+            L_Atk.Location = new Point(8, 44);
+            L_Atk.Name = "L_Atk";
+            L_Atk.Size = new Size(28, 15);
+            L_Atk.TabIndex = 13;
+            L_Atk.Text = "Atk:";
+            // 
+            // L_AtkSpacer
+            // 
+            L_AtkSpacer.AutoSize = true;
+            L_AtkSpacer.Location = new Point(75, 44);
+            L_AtkSpacer.Name = "L_AtkSpacer";
+            L_AtkSpacer.Size = new Size(12, 15);
+            L_AtkSpacer.TabIndex = 12;
+            L_AtkSpacer.Text = "-";
+            // 
+            // NUD_Atk_Max
+            // 
+            NUD_Atk_Max.Location = new Point(87, 42);
+            NUD_Atk_Max.Maximum = new decimal(new int[] { 31, 0, 0, 0 });
+            NUD_Atk_Max.Name = "NUD_Atk_Max";
+            NUD_Atk_Max.Size = new Size(32, 23);
+            NUD_Atk_Max.TabIndex = 11;
+            NUD_Atk_Max.Value = new decimal(new int[] { 31, 0, 0, 0 });
+            // 
+            // NUD_Atk_Min
+            // 
+            NUD_Atk_Min.Location = new Point(42, 42);
+            NUD_Atk_Min.Maximum = new decimal(new int[] { 31, 0, 0, 0 });
+            NUD_Atk_Min.Name = "NUD_Atk_Min";
+            NUD_Atk_Min.Size = new Size(32, 23);
+            NUD_Atk_Min.TabIndex = 10;
+            // 
+            // B_HP_Max
+            // 
+            B_HP_Max.Location = new Point(153, 16);
+            B_HP_Max.Name = "B_HP_Max";
+            B_HP_Max.Size = new Size(27, 25);
+            B_HP_Max.TabIndex = 9;
+            B_HP_Max.Text = "31";
+            B_HP_Max.UseVisualStyleBackColor = true;
+            // 
+            // B_HP_Min
+            // 
+            B_HP_Min.Location = new Point(124, 16);
+            B_HP_Min.Name = "B_HP_Min";
+            B_HP_Min.Size = new Size(27, 25);
+            B_HP_Min.TabIndex = 8;
+            B_HP_Min.Text = "0";
+            B_HP_Min.UseVisualStyleBackColor = true;
+            // 
+            // L_HP
+            // 
+            L_HP.AutoSize = true;
+            L_HP.Location = new Point(10, 19);
+            L_HP.Name = "L_HP";
+            L_HP.Size = new Size(26, 15);
+            L_HP.TabIndex = 7;
+            L_HP.Text = "HP:";
+            // 
+            // L_HPSpacer
+            // 
+            L_HPSpacer.AutoSize = true;
+            L_HPSpacer.Location = new Point(75, 19);
+            L_HPSpacer.Name = "L_HPSpacer";
+            L_HPSpacer.Size = new Size(12, 15);
+            L_HPSpacer.TabIndex = 6;
+            L_HPSpacer.Text = "-";
+            // 
+            // NUD_HP_Max
+            // 
+            NUD_HP_Max.Location = new Point(87, 17);
+            NUD_HP_Max.Maximum = new decimal(new int[] { 31, 0, 0, 0 });
+            NUD_HP_Max.Name = "NUD_HP_Max";
+            NUD_HP_Max.Size = new Size(32, 23);
+            NUD_HP_Max.TabIndex = 5;
+            NUD_HP_Max.Value = new decimal(new int[] { 31, 0, 0, 0 });
+            // 
+            // NUD_HP_Min
+            // 
+            NUD_HP_Min.Location = new Point(42, 17);
+            NUD_HP_Min.Maximum = new decimal(new int[] { 31, 0, 0, 0 });
+            NUD_HP_Min.Name = "NUD_HP_Min";
+            NUD_HP_Min.Size = new Size(32, 23);
+            NUD_HP_Min.TabIndex = 4;
             // 
             // TC_EncounterType
             // 
@@ -164,6 +534,7 @@
             // 
             // TP_Symbol
             // 
+            TP_Symbol.Controls.Add(GB_Static_EncounterSettings);
             TP_Symbol.Controls.Add(checkBox1);
             TP_Symbol.Controls.Add(CB_Symbol_DexRec4);
             TP_Symbol.Controls.Add(CB_Symbol_DexRec3);
@@ -171,7 +542,7 @@
             TP_Symbol.Controls.Add(CB_Symbol_DexRec1);
             TP_Symbol.Controls.Add(CB_Symbol_DexRecActive);
             TP_Symbol.Controls.Add(label2);
-            TP_Symbol.Controls.Add(comboBox1);
+            TP_Symbol.Controls.Add(CB_Symbol_LeadAbility);
             TP_Symbol.Location = new Point(4, 24);
             TP_Symbol.Name = "TP_Symbol";
             TP_Symbol.Padding = new Padding(3);
@@ -184,7 +555,7 @@
             // 
             checkBox1.AutoSize = true;
             checkBox1.CheckAlign = ContentAlignment.MiddleRight;
-            checkBox1.Location = new Point(16, 47);
+            checkBox1.Location = new Point(14, 196);
             checkBox1.Name = "checkBox1";
             checkBox1.Size = new Size(96, 19);
             checkBox1.TabIndex = 8;
@@ -195,7 +566,7 @@
             // 
             CB_Symbol_DexRec4.AutoSize = true;
             CB_Symbol_DexRec4.Enabled = false;
-            CB_Symbol_DexRec4.Location = new Point(141, 79);
+            CB_Symbol_DexRec4.Location = new Point(139, 228);
             CB_Symbol_DexRec4.Name = "CB_Symbol_DexRec4";
             CB_Symbol_DexRec4.Size = new Size(121, 19);
             CB_Symbol_DexRec4.TabIndex = 6;
@@ -206,7 +577,7 @@
             // 
             CB_Symbol_DexRec3.AutoSize = true;
             CB_Symbol_DexRec3.Enabled = false;
-            CB_Symbol_DexRec3.Location = new Point(141, 63);
+            CB_Symbol_DexRec3.Location = new Point(139, 212);
             CB_Symbol_DexRec3.Name = "CB_Symbol_DexRec3";
             CB_Symbol_DexRec3.Size = new Size(121, 19);
             CB_Symbol_DexRec3.TabIndex = 7;
@@ -217,7 +588,7 @@
             // 
             CB_Symbol_DexRec2.AutoSize = true;
             CB_Symbol_DexRec2.Enabled = false;
-            CB_Symbol_DexRec2.Location = new Point(141, 47);
+            CB_Symbol_DexRec2.Location = new Point(139, 196);
             CB_Symbol_DexRec2.Name = "CB_Symbol_DexRec2";
             CB_Symbol_DexRec2.Size = new Size(121, 19);
             CB_Symbol_DexRec2.TabIndex = 5;
@@ -228,7 +599,7 @@
             // 
             CB_Symbol_DexRec1.AutoSize = true;
             CB_Symbol_DexRec1.Enabled = false;
-            CB_Symbol_DexRec1.Location = new Point(141, 31);
+            CB_Symbol_DexRec1.Location = new Point(139, 180);
             CB_Symbol_DexRec1.Name = "CB_Symbol_DexRec1";
             CB_Symbol_DexRec1.Size = new Size(121, 19);
             CB_Symbol_DexRec1.TabIndex = 4;
@@ -239,7 +610,7 @@
             // 
             CB_Symbol_DexRecActive.AutoSize = true;
             CB_Symbol_DexRecActive.CheckAlign = ContentAlignment.MiddleRight;
-            CB_Symbol_DexRecActive.Location = new Point(6, 31);
+            CB_Symbol_DexRecActive.Location = new Point(4, 180);
             CB_Symbol_DexRecActive.Name = "CB_Symbol_DexRecActive";
             CB_Symbol_DexRecActive.Size = new Size(106, 19);
             CB_Symbol_DexRecActive.TabIndex = 3;
@@ -250,21 +621,21 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(6, 9);
+            label2.Location = new Point(4, 158);
             label2.Name = "label2";
             label2.Size = new Size(72, 15);
             label2.TabIndex = 1;
             label2.Text = "Lead Ability:";
             // 
-            // comboBox1
+            // CB_Symbol_LeadAbility
             // 
-            comboBox1.FormattingEnabled = true;
-            comboBox1.Items.AddRange(new object[] { "None", "Compound Eyes/Super Luck", "Synchronize", "Cute Charm", "Magnet Pull", "Lightning Rod/Static", "Flash Fire", "Storm Drain", "Harvest" });
-            comboBox1.Location = new Point(84, 6);
-            comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(173, 23);
-            comboBox1.TabIndex = 0;
-            comboBox1.Text = "None";
+            CB_Symbol_LeadAbility.FormattingEnabled = true;
+            CB_Symbol_LeadAbility.Items.AddRange(new object[] { "None", "Compound Eyes/Super Luck", "Synchronize", "Cute Charm", "Magnet Pull", "Lightning Rod/Static", "Flash Fire", "Storm Drain", "Harvest" });
+            CB_Symbol_LeadAbility.Location = new Point(82, 155);
+            CB_Symbol_LeadAbility.Name = "CB_Symbol_LeadAbility";
+            CB_Symbol_LeadAbility.Size = new Size(173, 23);
+            CB_Symbol_LeadAbility.TabIndex = 0;
+            CB_Symbol_LeadAbility.Text = "None";
             // 
             // TP_Hidden
             // 
@@ -579,367 +950,74 @@
             TB_TID.TabIndex = 8;
             TB_TID.Text = "12345";
             // 
-            // NUD_HP_Min
-            // 
-            NUD_HP_Min.Location = new Point(42, 17);
-            NUD_HP_Min.Maximum = new decimal(new int[] { 31, 0, 0, 0 });
-            NUD_HP_Min.Name = "NUD_HP_Min";
-            NUD_HP_Min.Size = new Size(32, 23);
-            NUD_HP_Min.TabIndex = 4;
-            // 
-            // GB_Filters
-            // 
-            GB_Filters.Controls.Add(B_Spe_Max);
-            GB_Filters.Controls.Add(B_Spe_Min);
-            GB_Filters.Controls.Add(L_Spe);
-            GB_Filters.Controls.Add(L_SpeSpacer);
-            GB_Filters.Controls.Add(NUD_Spe_Max);
-            GB_Filters.Controls.Add(NUD_Spe_Min);
-            GB_Filters.Controls.Add(B_SpD_Max);
-            GB_Filters.Controls.Add(B_SpD_Min);
-            GB_Filters.Controls.Add(L_SpD);
-            GB_Filters.Controls.Add(L_SpDSpacer);
-            GB_Filters.Controls.Add(NUD_SpD_Max);
-            GB_Filters.Controls.Add(NUD_SpD_Min);
-            GB_Filters.Controls.Add(B_SpA_Max);
-            GB_Filters.Controls.Add(B_SpA_Min);
-            GB_Filters.Controls.Add(L_SpA);
-            GB_Filters.Controls.Add(L_SpASpacer);
-            GB_Filters.Controls.Add(NUD_SpA_Max);
-            GB_Filters.Controls.Add(NUD_SpA_Min);
-            GB_Filters.Controls.Add(B_Def_Max);
-            GB_Filters.Controls.Add(B_Def_Min);
-            GB_Filters.Controls.Add(L_Def);
-            GB_Filters.Controls.Add(L_DefSpacer);
-            GB_Filters.Controls.Add(NUD_Def_Max);
-            GB_Filters.Controls.Add(NUD_Def_Min);
-            GB_Filters.Controls.Add(B_Atk_Max);
-            GB_Filters.Controls.Add(B_Atk_Min);
-            GB_Filters.Controls.Add(L_Atk);
-            GB_Filters.Controls.Add(L_AtkSpacer);
-            GB_Filters.Controls.Add(NUD_Atk_Max);
-            GB_Filters.Controls.Add(NUD_Atk_Min);
-            GB_Filters.Controls.Add(B_HP_Max);
-            GB_Filters.Controls.Add(B_HP_Min);
-            GB_Filters.Controls.Add(L_HP);
-            GB_Filters.Controls.Add(L_HPSpacer);
-            GB_Filters.Controls.Add(NUD_HP_Max);
-            GB_Filters.Controls.Add(NUD_HP_Min);
-            GB_Filters.Location = new Point(534, 35);
-            GB_Filters.Name = "GB_Filters";
-            GB_Filters.Size = new Size(186, 220);
-            GB_Filters.TabIndex = 5;
-            GB_Filters.TabStop = false;
-            // 
-            // NUD_HP_Max
-            // 
-            NUD_HP_Max.Location = new Point(87, 17);
-            NUD_HP_Max.Maximum = new decimal(new int[] { 31, 0, 0, 0 });
-            NUD_HP_Max.Name = "NUD_HP_Max";
-            NUD_HP_Max.Size = new Size(32, 23);
-            NUD_HP_Max.TabIndex = 5;
-            NUD_HP_Max.Value = new decimal(new int[] { 31, 0, 0, 0 });
-            // 
-            // L_HPSpacer
-            // 
-            L_HPSpacer.AutoSize = true;
-            L_HPSpacer.Location = new Point(75, 19);
-            L_HPSpacer.Name = "L_HPSpacer";
-            L_HPSpacer.Size = new Size(12, 15);
-            L_HPSpacer.TabIndex = 6;
-            L_HPSpacer.Text = "-";
-            // 
-            // L_HP
-            // 
-            L_HP.AutoSize = true;
-            L_HP.Location = new Point(10, 19);
-            L_HP.Name = "L_HP";
-            L_HP.Size = new Size(26, 15);
-            L_HP.TabIndex = 7;
-            L_HP.Text = "HP:";
-            // 
-            // B_HP_Min
-            // 
-            B_HP_Min.Location = new Point(124, 16);
-            B_HP_Min.Name = "B_HP_Min";
-            B_HP_Min.Size = new Size(27, 25);
-            B_HP_Min.TabIndex = 8;
-            B_HP_Min.Text = "0";
-            B_HP_Min.UseVisualStyleBackColor = true;
-            // 
-            // B_HP_Max
-            // 
-            B_HP_Max.Location = new Point(153, 16);
-            B_HP_Max.Name = "B_HP_Max";
-            B_HP_Max.Size = new Size(27, 25);
-            B_HP_Max.TabIndex = 9;
-            B_HP_Max.Text = "31";
-            B_HP_Max.UseVisualStyleBackColor = true;
-            // 
-            // B_Atk_Max
-            // 
-            B_Atk_Max.Location = new Point(153, 41);
-            B_Atk_Max.Name = "B_Atk_Max";
-            B_Atk_Max.Size = new Size(27, 25);
-            B_Atk_Max.TabIndex = 15;
-            B_Atk_Max.Text = "31";
-            B_Atk_Max.UseVisualStyleBackColor = true;
-            // 
-            // B_Atk_Min
-            // 
-            B_Atk_Min.Location = new Point(124, 41);
-            B_Atk_Min.Name = "B_Atk_Min";
-            B_Atk_Min.Size = new Size(27, 25);
-            B_Atk_Min.TabIndex = 14;
-            B_Atk_Min.Text = "0";
-            B_Atk_Min.UseVisualStyleBackColor = true;
-            // 
-            // L_Atk
-            // 
-            L_Atk.AutoSize = true;
-            L_Atk.Location = new Point(8, 44);
-            L_Atk.Name = "L_Atk";
-            L_Atk.Size = new Size(28, 15);
-            L_Atk.TabIndex = 13;
-            L_Atk.Text = "Atk:";
-            // 
-            // L_AtkSpacer
-            // 
-            L_AtkSpacer.AutoSize = true;
-            L_AtkSpacer.Location = new Point(75, 44);
-            L_AtkSpacer.Name = "L_AtkSpacer";
-            L_AtkSpacer.Size = new Size(12, 15);
-            L_AtkSpacer.TabIndex = 12;
-            L_AtkSpacer.Text = "-";
-            // 
-            // NUD_Atk_Max
-            // 
-            NUD_Atk_Max.Location = new Point(87, 42);
-            NUD_Atk_Max.Maximum = new decimal(new int[] { 31, 0, 0, 0 });
-            NUD_Atk_Max.Name = "NUD_Atk_Max";
-            NUD_Atk_Max.Size = new Size(32, 23);
-            NUD_Atk_Max.TabIndex = 11;
-            NUD_Atk_Max.Value = new decimal(new int[] { 31, 0, 0, 0 });
-            // 
-            // NUD_Atk_Min
-            // 
-            NUD_Atk_Min.Location = new Point(42, 42);
-            NUD_Atk_Min.Maximum = new decimal(new int[] { 31, 0, 0, 0 });
-            NUD_Atk_Min.Name = "NUD_Atk_Min";
-            NUD_Atk_Min.Size = new Size(32, 23);
-            NUD_Atk_Min.TabIndex = 10;
-            // 
-            // B_Def_Max
-            // 
-            B_Def_Max.Location = new Point(153, 66);
-            B_Def_Max.Name = "B_Def_Max";
-            B_Def_Max.Size = new Size(27, 25);
-            B_Def_Max.TabIndex = 21;
-            B_Def_Max.Text = "31";
-            B_Def_Max.UseVisualStyleBackColor = true;
-            // 
-            // B_Def_Min
-            // 
-            B_Def_Min.Location = new Point(124, 66);
-            B_Def_Min.Name = "B_Def_Min";
-            B_Def_Min.Size = new Size(27, 25);
-            B_Def_Min.TabIndex = 20;
-            B_Def_Min.Text = "0";
-            B_Def_Min.UseVisualStyleBackColor = true;
-            // 
-            // L_Def
-            // 
-            L_Def.AutoSize = true;
-            L_Def.Location = new Point(8, 69);
-            L_Def.Name = "L_Def";
-            L_Def.Size = new Size(28, 15);
-            L_Def.TabIndex = 19;
-            L_Def.Text = "Def:";
-            // 
-            // L_DefSpacer
-            // 
-            L_DefSpacer.AutoSize = true;
-            L_DefSpacer.Location = new Point(75, 69);
-            L_DefSpacer.Name = "L_DefSpacer";
-            L_DefSpacer.Size = new Size(12, 15);
-            L_DefSpacer.TabIndex = 18;
-            L_DefSpacer.Text = "-";
-            // 
-            // NUD_Def_Max
-            // 
-            NUD_Def_Max.Location = new Point(87, 67);
-            NUD_Def_Max.Maximum = new decimal(new int[] { 31, 0, 0, 0 });
-            NUD_Def_Max.Name = "NUD_Def_Max";
-            NUD_Def_Max.Size = new Size(32, 23);
-            NUD_Def_Max.TabIndex = 17;
-            NUD_Def_Max.Value = new decimal(new int[] { 31, 0, 0, 0 });
-            // 
-            // NUD_Def_Min
-            // 
-            NUD_Def_Min.Location = new Point(42, 67);
-            NUD_Def_Min.Maximum = new decimal(new int[] { 31, 0, 0, 0 });
-            NUD_Def_Min.Name = "NUD_Def_Min";
-            NUD_Def_Min.Size = new Size(32, 23);
-            NUD_Def_Min.TabIndex = 16;
-            // 
-            // B_SpA_Max
-            // 
-            B_SpA_Max.Location = new Point(153, 91);
-            B_SpA_Max.Name = "B_SpA_Max";
-            B_SpA_Max.Size = new Size(27, 25);
-            B_SpA_Max.TabIndex = 27;
-            B_SpA_Max.Text = "31";
-            B_SpA_Max.UseVisualStyleBackColor = true;
-            // 
-            // B_SpA_Min
-            // 
-            B_SpA_Min.Location = new Point(124, 91);
-            B_SpA_Min.Name = "B_SpA_Min";
-            B_SpA_Min.Size = new Size(27, 25);
-            B_SpA_Min.TabIndex = 26;
-            B_SpA_Min.Text = "0";
-            B_SpA_Min.UseVisualStyleBackColor = true;
-            // 
-            // L_SpA
-            // 
-            L_SpA.AutoSize = true;
-            L_SpA.Location = new Point(5, 94);
-            L_SpA.Name = "L_SpA";
-            L_SpA.Size = new Size(31, 15);
-            L_SpA.TabIndex = 25;
-            L_SpA.Text = "SpA:";
-            // 
-            // L_SpASpacer
-            // 
-            L_SpASpacer.AutoSize = true;
-            L_SpASpacer.Location = new Point(75, 94);
-            L_SpASpacer.Name = "L_SpASpacer";
-            L_SpASpacer.Size = new Size(12, 15);
-            L_SpASpacer.TabIndex = 24;
-            L_SpASpacer.Text = "-";
-            // 
-            // NUD_SpA_Max
-            // 
-            NUD_SpA_Max.Location = new Point(87, 92);
-            NUD_SpA_Max.Maximum = new decimal(new int[] { 31, 0, 0, 0 });
-            NUD_SpA_Max.Name = "NUD_SpA_Max";
-            NUD_SpA_Max.Size = new Size(32, 23);
-            NUD_SpA_Max.TabIndex = 23;
-            NUD_SpA_Max.Value = new decimal(new int[] { 31, 0, 0, 0 });
-            // 
-            // NUD_SpA_Min
-            // 
-            NUD_SpA_Min.Location = new Point(42, 92);
-            NUD_SpA_Min.Maximum = new decimal(new int[] { 31, 0, 0, 0 });
-            NUD_SpA_Min.Name = "NUD_SpA_Min";
-            NUD_SpA_Min.Size = new Size(32, 23);
-            NUD_SpA_Min.TabIndex = 22;
-            // 
-            // B_SpD_Max
-            // 
-            B_SpD_Max.Location = new Point(153, 116);
-            B_SpD_Max.Name = "B_SpD_Max";
-            B_SpD_Max.Size = new Size(27, 25);
-            B_SpD_Max.TabIndex = 33;
-            B_SpD_Max.Text = "31";
-            B_SpD_Max.UseVisualStyleBackColor = true;
-            // 
-            // B_SpD_Min
-            // 
-            B_SpD_Min.Location = new Point(124, 116);
-            B_SpD_Min.Name = "B_SpD_Min";
-            B_SpD_Min.Size = new Size(27, 25);
-            B_SpD_Min.TabIndex = 32;
-            B_SpD_Min.Text = "0";
-            B_SpD_Min.UseVisualStyleBackColor = true;
-            // 
-            // L_SpD
-            // 
-            L_SpD.AutoSize = true;
-            L_SpD.Location = new Point(5, 122);
-            L_SpD.Name = "L_SpD";
-            L_SpD.Size = new Size(31, 15);
-            L_SpD.TabIndex = 31;
-            L_SpD.Text = "SpD:";
-            // 
-            // L_SpDSpacer
-            // 
-            L_SpDSpacer.AutoSize = true;
-            L_SpDSpacer.Location = new Point(75, 119);
-            L_SpDSpacer.Name = "L_SpDSpacer";
-            L_SpDSpacer.Size = new Size(12, 15);
-            L_SpDSpacer.TabIndex = 30;
-            L_SpDSpacer.Text = "-";
-            // 
-            // NUD_SpD_Max
-            // 
-            NUD_SpD_Max.Location = new Point(87, 117);
-            NUD_SpD_Max.Maximum = new decimal(new int[] { 31, 0, 0, 0 });
-            NUD_SpD_Max.Name = "NUD_SpD_Max";
-            NUD_SpD_Max.Size = new Size(32, 23);
-            NUD_SpD_Max.TabIndex = 29;
-            NUD_SpD_Max.Value = new decimal(new int[] { 31, 0, 0, 0 });
-            // 
-            // NUD_SpD_Min
-            // 
-            NUD_SpD_Min.Location = new Point(42, 117);
-            NUD_SpD_Min.Maximum = new decimal(new int[] { 31, 0, 0, 0 });
-            NUD_SpD_Min.Name = "NUD_SpD_Min";
-            NUD_SpD_Min.Size = new Size(32, 23);
-            NUD_SpD_Min.TabIndex = 28;
-            // 
-            // B_Spe_Max
-            // 
-            B_Spe_Max.Location = new Point(153, 141);
-            B_Spe_Max.Name = "B_Spe_Max";
-            B_Spe_Max.Size = new Size(27, 25);
-            B_Spe_Max.TabIndex = 39;
-            B_Spe_Max.Text = "31";
-            B_Spe_Max.UseVisualStyleBackColor = true;
-            // 
-            // B_Spe_Min
-            // 
-            B_Spe_Min.Location = new Point(124, 141);
-            B_Spe_Min.Name = "B_Spe_Min";
-            B_Spe_Min.Size = new Size(27, 25);
-            B_Spe_Min.TabIndex = 38;
-            B_Spe_Min.Text = "0";
-            B_Spe_Min.UseVisualStyleBackColor = true;
-            // 
-            // L_Spe
-            // 
-            L_Spe.AutoSize = true;
-            L_Spe.Location = new Point(7, 146);
-            L_Spe.Name = "L_Spe";
-            L_Spe.Size = new Size(29, 15);
-            L_Spe.TabIndex = 37;
-            L_Spe.Text = "Spe:";
-            // 
-            // L_SpeSpacer
-            // 
-            L_SpeSpacer.AutoSize = true;
-            L_SpeSpacer.Location = new Point(75, 144);
-            L_SpeSpacer.Name = "L_SpeSpacer";
-            L_SpeSpacer.Size = new Size(12, 15);
-            L_SpeSpacer.TabIndex = 36;
-            L_SpeSpacer.Text = "-";
-            // 
-            // NUD_Spe_Max
-            // 
-            NUD_Spe_Max.Location = new Point(87, 142);
-            NUD_Spe_Max.Maximum = new decimal(new int[] { 31, 0, 0, 0 });
-            NUD_Spe_Max.Name = "NUD_Spe_Max";
-            NUD_Spe_Max.Size = new Size(32, 23);
-            NUD_Spe_Max.TabIndex = 35;
-            NUD_Spe_Max.Value = new decimal(new int[] { 31, 0, 0, 0 });
-            // 
-            // NUD_Spe_Min
-            // 
-            NUD_Spe_Min.Location = new Point(42, 142);
-            NUD_Spe_Min.Maximum = new decimal(new int[] { 31, 0, 0, 0 });
-            NUD_Spe_Min.Name = "NUD_Spe_Min";
-            NUD_Spe_Min.Size = new Size(32, 23);
-            NUD_Spe_Min.TabIndex = 34;
+            // GB_Static_EncounterSettings
+            // 
+            GB_Static_EncounterSettings.Controls.Add(label5);
+            GB_Static_EncounterSettings.Controls.Add(label4);
+            GB_Static_EncounterSettings.Controls.Add(label3);
+            GB_Static_EncounterSettings.Controls.Add(CB_Static_Species);
+            GB_Static_EncounterSettings.Controls.Add(CB_Static_Weather);
+            GB_Static_EncounterSettings.Controls.Add(CB_Static_Area);
+            GB_Static_EncounterSettings.Location = new Point(6, 2);
+            GB_Static_EncounterSettings.Name = "GB_Static_EncounterSettings";
+            GB_Static_EncounterSettings.Size = new Size(249, 102);
+            GB_Static_EncounterSettings.TabIndex = 9;
+            GB_Static_EncounterSettings.TabStop = false;
+            GB_Static_EncounterSettings.Text = "Encounter Settings";
+            // 
+            // CB_Static_Area
+            // 
+            CB_Static_Area.FormattingEnabled = true;
+            CB_Static_Area.Location = new Point(70, 22);
+            CB_Static_Area.Name = "CB_Static_Area";
+            CB_Static_Area.Size = new Size(173, 23);
+            CB_Static_Area.TabIndex = 10;
+            CB_Static_Area.Text = "None";
+            // 
+            // CB_Static_Weather
+            // 
+            CB_Static_Weather.FormattingEnabled = true;
+            CB_Static_Weather.Location = new Point(70, 47);
+            CB_Static_Weather.Name = "CB_Static_Weather";
+            CB_Static_Weather.Size = new Size(173, 23);
+            CB_Static_Weather.TabIndex = 11;
+            CB_Static_Weather.Text = "None";
+            // 
+            // CB_Static_Species
+            // 
+            CB_Static_Species.FormattingEnabled = true;
+            CB_Static_Species.Location = new Point(70, 72);
+            CB_Static_Species.Name = "CB_Static_Species";
+            CB_Static_Species.Size = new Size(173, 23);
+            CB_Static_Species.TabIndex = 12;
+            CB_Static_Species.Text = "None";
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Location = new Point(30, 25);
+            label3.Name = "label3";
+            label3.Size = new Size(34, 15);
+            label3.TabIndex = 8;
+            label3.Text = "Area:";
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Location = new Point(10, 50);
+            label4.Name = "label4";
+            label4.Size = new Size(54, 15);
+            label4.TabIndex = 13;
+            label4.Text = "Weather:";
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Location = new Point(22, 75);
+            label5.Name = "label5";
+            label5.Size = new Size(42, 15);
+            label5.TabIndex = 14;
+            label5.Text = "Target:";
             // 
             // MainWindow
             // 
@@ -952,6 +1030,20 @@
             Text = "owoow (´・ω・`)";
             Load += MainWindow_Load;
             GB_SeedControlsContainer.ResumeLayout(false);
+            GB_Filters.ResumeLayout(false);
+            GB_Filters.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)NUD_Spe_Max).EndInit();
+            ((System.ComponentModel.ISupportInitialize)NUD_Spe_Min).EndInit();
+            ((System.ComponentModel.ISupportInitialize)NUD_SpD_Max).EndInit();
+            ((System.ComponentModel.ISupportInitialize)NUD_SpD_Min).EndInit();
+            ((System.ComponentModel.ISupportInitialize)NUD_SpA_Max).EndInit();
+            ((System.ComponentModel.ISupportInitialize)NUD_SpA_Min).EndInit();
+            ((System.ComponentModel.ISupportInitialize)NUD_Def_Max).EndInit();
+            ((System.ComponentModel.ISupportInitialize)NUD_Def_Min).EndInit();
+            ((System.ComponentModel.ISupportInitialize)NUD_Atk_Max).EndInit();
+            ((System.ComponentModel.ISupportInitialize)NUD_Atk_Min).EndInit();
+            ((System.ComponentModel.ISupportInitialize)NUD_HP_Max).EndInit();
+            ((System.ComponentModel.ISupportInitialize)NUD_HP_Min).EndInit();
             TC_EncounterType.ResumeLayout(false);
             TP_Symbol.ResumeLayout(false);
             TP_Symbol.PerformLayout();
@@ -961,20 +1053,8 @@
             GB_Connection.PerformLayout();
             GB_SAVInfo.ResumeLayout(false);
             GB_SAVInfo.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)NUD_HP_Min).EndInit();
-            GB_Filters.ResumeLayout(false);
-            GB_Filters.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)NUD_HP_Max).EndInit();
-            ((System.ComponentModel.ISupportInitialize)NUD_Atk_Max).EndInit();
-            ((System.ComponentModel.ISupportInitialize)NUD_Atk_Min).EndInit();
-            ((System.ComponentModel.ISupportInitialize)NUD_Def_Max).EndInit();
-            ((System.ComponentModel.ISupportInitialize)NUD_Def_Min).EndInit();
-            ((System.ComponentModel.ISupportInitialize)NUD_SpA_Max).EndInit();
-            ((System.ComponentModel.ISupportInitialize)NUD_SpA_Min).EndInit();
-            ((System.ComponentModel.ISupportInitialize)NUD_SpD_Max).EndInit();
-            ((System.ComponentModel.ISupportInitialize)NUD_SpD_Min).EndInit();
-            ((System.ComponentModel.ISupportInitialize)NUD_Spe_Max).EndInit();
-            ((System.ComponentModel.ISupportInitialize)NUD_Spe_Min).EndInit();
+            GB_Static_EncounterSettings.ResumeLayout(false);
+            GB_Static_EncounterSettings.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -1011,7 +1091,7 @@
         private TabPage TP_Symbol;
         private TabPage TP_Hidden;
         private TabPage TP_Fishing;
-        private ComboBox comboBox1;
+        private ComboBox CB_Symbol_LeadAbility;
         private Label label2;
         private CheckBox CB_Symbol_DexRecActive;
         private CheckBox CB_Symbol_DexRec1;
@@ -1056,5 +1136,12 @@
         private Label L_SpASpacer;
         private NumericUpDown NUD_SpA_Max;
         private NumericUpDown NUD_SpA_Min;
+        private GroupBox GB_Static_EncounterSettings;
+        private ComboBox CB_Static_Area;
+        private ComboBox CB_Static_Species;
+        private ComboBox CB_Static_Weather;
+        private Label label5;
+        private Label label4;
+        private Label label3;
     }
 }

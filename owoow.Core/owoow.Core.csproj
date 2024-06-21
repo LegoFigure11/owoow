@@ -8,26 +8,26 @@
 
   <ItemGroup>
     <None Remove="Resources\Personal\personal.json" />
-    <None Remove="Resources\Shield\fishing.json" />
-    <None Remove="Resources\Shield\hidden.json" />
-    <None Remove="Resources\Shield\symbol.json" />
-    <None Remove="Resources\Shield\tree.json" />
-    <None Remove="Resources\Sword\fishing.json" />
-    <None Remove="Resources\Sword\hidden.json" />
-    <None Remove="Resources\Sword\symbol.json" />
-    <None Remove="Resources\Sword\tree.json" />
+    <None Remove="Resources\Shield\sh_fishing.json" />
+    <None Remove="Resources\Shield\sh_hidden.json" />
+    <None Remove="Resources\Shield\sh_symbol.json" />
+    <None Remove="Resources\Shield\sh_tree.json" />
+    <None Remove="Resources\Sword\sw_fishing.json" />
+    <None Remove="Resources\Sword\sw_hidden.json" />
+    <None Remove="Resources\Sword\sw_symbol.json" />
+    <None Remove="Resources\Sword\sw_tree.json" />
   </ItemGroup>
 
   <ItemGroup>
     <EmbeddedResource Include="Resources\Personal\personal.json" />
-    <EmbeddedResource Include="Resources\Shield\fishing.json" />
-    <EmbeddedResource Include="Resources\Shield\hidden.json" />
-    <EmbeddedResource Include="Resources\Shield\symbol.json" />
-    <EmbeddedResource Include="Resources\Shield\tree.json" />
-    <EmbeddedResource Include="Resources\Sword\fishing.json" />
-    <EmbeddedResource Include="Resources\Sword\hidden.json" />
-    <EmbeddedResource Include="Resources\Sword\symbol.json" />
-    <EmbeddedResource Include="Resources\Sword\tree.json" />
+    <EmbeddedResource Include="Resources\Shield\sh_fishing.json" />
+    <EmbeddedResource Include="Resources\Shield\sh_hidden.json" />
+    <EmbeddedResource Include="Resources\Shield\sh_symbol.json" />
+    <EmbeddedResource Include="Resources\Shield\sh_tree.json" />
+    <EmbeddedResource Include="Resources\Sword\sw_fishing.json" />
+    <EmbeddedResource Include="Resources\Sword\sw_hidden.json" />
+    <EmbeddedResource Include="Resources\Sword\sw_symbol.json" />
+    <EmbeddedResource Include="Resources\Sword\sw_tree.json" />
   </ItemGroup>
 
   <ItemGroup>
