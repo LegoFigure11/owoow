@@ -1,6 +1,7 @@
 using owoow.Core.Connection;
 using SysBot.Base;
 using System.Globalization;
+using static owoow.Core.Encounters;
 using static owoow.Core.RNG.Util;
 
 namespace owoow.WinForms;
@@ -37,6 +38,9 @@ public partial class MainWindow : Form
         SetTextBoxText(string.Empty, TB_CurrentAdvances, TB_CurrentS0, TB_CurrentS1);
 
         TB_Status.Text = "Not Connected.";
+        SetAreaOptions();
+        //SetWeatherOptions();
+        //SetSpeciesOptions();
     }
 
     private void Connect(CancellationToken token)
@@ -190,6 +194,70 @@ public partial class MainWindow : Form
         SetTextBoxText(status, TB_Status);
     }
 
+    private void SetAreaOptions()
+    {
+        var tab = TC_EncounterType.SelectedTab;
+        if (tab != null)
+        {
+            if (Controls.Find($"CB_{tab.Text}_Area", true).FirstOrDefault() is ComboBox target)
+            {
+                target.Items.Clear();
+                var areas = GetAreaList("Shield", tab.Text).ToArray();
+                Array.Sort(areas);
+                foreach (var area in areas)
+                {
+                    target.Items.Add(area);
+                }
+                target.SelectedIndex = 0;
+            }
+        }
+    }
+
+    private void SetWeatherOptions()
+    {
+        var tab = TC_EncounterType.SelectedTab;
+        if (tab != null)
+        {
+            if (Controls.Find($"CB_{tab.Text}_Weather", true).FirstOrDefault() is ComboBox target)
+            {
+                if (Controls.Find($"CB_{tab.Text}_Area", true).FirstOrDefault() is ComboBox area)
+                {
+                    target.Items.Clear();
+                    var weathers = GetWeatherList("Shield", tab.Text, $"{area.SelectedItem}").ToArray();
+                    foreach (var weather in weathers)
+                    {
+                        target.Items.Add(weather);
+                    }
+                    target.SelectedIndex = 0;
+                }
+            }
+        }
+    }
+
+    private void SetSpeciesOptions()
+    {
+        var tab = TC_EncounterType.SelectedTab;
+        if (tab != null)
+        {
+            if (Controls.Find($"CB_{tab.Text}_Species", true).FirstOrDefault() is ComboBox target)
+            {
+                if (Controls.Find($"CB_{tab.Text}_Weather", true).FirstOrDefault() is ComboBox weather)
+                {
+                    if (Controls.Find($"CB_{tab.Text}_Area", true).FirstOrDefault() is ComboBox area)
+                    {
+                        target.Items.Clear();
+                        var species = GetSpeciesList("Shield", tab.Text, $"{area.SelectedItem}", $"{weather.SelectedItem}").ToArray();
+                        foreach (var specie in species)
+                        {
+                            target.Items.Add(specie);
+                        }
+                        target.SelectedIndex = 0;
+                    }
+                }
+            }
+        }
+    }
+
     private void SetCheckBoxCheckedState(bool state, params object[] obj)
     {
         foreach (object o in obj)
@@ -316,5 +384,20 @@ public partial class MainWindow : Form
     private void CB_Symbol_DexRecActive_CheckedChanged(object sender, EventArgs e)
     {
         SetCheckBoxState(CB_Symbol_DexRecActive.Checked, CB_Symbol_DexRec1, CB_Symbol_DexRec2, CB_Symbol_DexRec3, CB_Symbol_DexRec4);
+    }
+
+    private void TC_EncounterType_SelectedIndexChanged(object sender, EventArgs e)
+    {
+        SetAreaOptions();
+    }
+
+    private void CB_Area_SelectedIndexChanged(object sender, EventArgs e)
+    {
+        SetWeatherOptions();
+    }
+
+    private void CB_Weather_SelectedIndexChanged(object sender, EventArgs e)
+    {
+        SetSpeciesOptions();
     }
 }

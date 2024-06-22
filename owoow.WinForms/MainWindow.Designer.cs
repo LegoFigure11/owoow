@@ -69,6 +69,13 @@
             TC_EncounterType = new TabControl();
             TP_Static = new TabPage();
             TP_Symbol = new TabPage();
+            GB_Static_EncounterSettings = new GroupBox();
+            L_Symbol_Target = new Label();
+            L_Symbol_Weather = new Label();
+            L_Symbol_Area = new Label();
+            CB_Symbol_Species = new ComboBox();
+            CB_Symbol_Weather = new ComboBox();
+            CB_Symbol_Area = new ComboBox();
             checkBox1 = new CheckBox();
             CB_Symbol_DexRec4 = new CheckBox();
             CB_Symbol_DexRec3 = new CheckBox();
@@ -105,13 +112,6 @@
             TB_SID = new TextBox();
             CB_ShinyCharm = new CheckBox();
             TB_TID = new TextBox();
-            GB_Static_EncounterSettings = new GroupBox();
-            CB_Static_Area = new ComboBox();
-            CB_Static_Weather = new ComboBox();
-            CB_Static_Species = new ComboBox();
-            label3 = new Label();
-            label4 = new Label();
-            label5 = new Label();
             GB_SeedControlsContainer.SuspendLayout();
             GB_Filters.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)NUD_Spe_Max).BeginInit();
@@ -128,10 +128,10 @@
             ((System.ComponentModel.ISupportInitialize)NUD_HP_Min).BeginInit();
             TC_EncounterType.SuspendLayout();
             TP_Symbol.SuspendLayout();
+            GB_Static_EncounterSettings.SuspendLayout();
             GB_Seed.SuspendLayout();
             GB_Connection.SuspendLayout();
             GB_SAVInfo.SuspendLayout();
-            GB_Static_EncounterSettings.SuspendLayout();
             SuspendLayout();
             // 
             // GB_SeedControlsContainer
@@ -521,6 +521,7 @@
             TC_EncounterType.SelectedIndex = 0;
             TC_EncounterType.Size = new Size(269, 287);
             TC_EncounterType.TabIndex = 3;
+            TC_EncounterType.SelectedIndexChanged += TC_EncounterType_SelectedIndexChanged;
             // 
             // TP_Static
             // 
@@ -551,11 +552,82 @@
             TP_Symbol.Text = "Symbol";
             TP_Symbol.UseVisualStyleBackColor = true;
             // 
+            // GB_Static_EncounterSettings
+            // 
+            GB_Static_EncounterSettings.Controls.Add(L_Symbol_Target);
+            GB_Static_EncounterSettings.Controls.Add(L_Symbol_Weather);
+            GB_Static_EncounterSettings.Controls.Add(L_Symbol_Area);
+            GB_Static_EncounterSettings.Controls.Add(CB_Symbol_Species);
+            GB_Static_EncounterSettings.Controls.Add(CB_Symbol_Weather);
+            GB_Static_EncounterSettings.Controls.Add(CB_Symbol_Area);
+            GB_Static_EncounterSettings.Location = new Point(6, 2);
+            GB_Static_EncounterSettings.Name = "GB_Static_EncounterSettings";
+            GB_Static_EncounterSettings.Size = new Size(249, 102);
+            GB_Static_EncounterSettings.TabIndex = 9;
+            GB_Static_EncounterSettings.TabStop = false;
+            GB_Static_EncounterSettings.Text = "Encounter Settings";
+            // 
+            // L_Symbol_Target
+            // 
+            L_Symbol_Target.AutoSize = true;
+            L_Symbol_Target.Location = new Point(22, 75);
+            L_Symbol_Target.Name = "L_Symbol_Target";
+            L_Symbol_Target.Size = new Size(42, 15);
+            L_Symbol_Target.TabIndex = 14;
+            L_Symbol_Target.Text = "Target:";
+            // 
+            // L_Symbol_Weather
+            // 
+            L_Symbol_Weather.AutoSize = true;
+            L_Symbol_Weather.Location = new Point(10, 50);
+            L_Symbol_Weather.Name = "L_Symbol_Weather";
+            L_Symbol_Weather.Size = new Size(54, 15);
+            L_Symbol_Weather.TabIndex = 13;
+            L_Symbol_Weather.Text = "Weather:";
+            // 
+            // L_Symbol_Area
+            // 
+            L_Symbol_Area.AutoSize = true;
+            L_Symbol_Area.Location = new Point(30, 25);
+            L_Symbol_Area.Name = "L_Symbol_Area";
+            L_Symbol_Area.Size = new Size(34, 15);
+            L_Symbol_Area.TabIndex = 8;
+            L_Symbol_Area.Text = "Area:";
+            // 
+            // CB_Symbol_Species
+            // 
+            CB_Symbol_Species.FormattingEnabled = true;
+            CB_Symbol_Species.Location = new Point(70, 72);
+            CB_Symbol_Species.Name = "CB_Symbol_Species";
+            CB_Symbol_Species.Size = new Size(173, 23);
+            CB_Symbol_Species.TabIndex = 12;
+            CB_Symbol_Species.Text = "None";
+            // 
+            // CB_Symbol_Weather
+            // 
+            CB_Symbol_Weather.FormattingEnabled = true;
+            CB_Symbol_Weather.Location = new Point(70, 47);
+            CB_Symbol_Weather.Name = "CB_Symbol_Weather";
+            CB_Symbol_Weather.Size = new Size(173, 23);
+            CB_Symbol_Weather.TabIndex = 11;
+            CB_Symbol_Weather.Text = "None";
+            CB_Symbol_Weather.SelectedIndexChanged += CB_Weather_SelectedIndexChanged;
+            // 
+            // CB_Symbol_Area
+            // 
+            CB_Symbol_Area.FormattingEnabled = true;
+            CB_Symbol_Area.Location = new Point(70, 22);
+            CB_Symbol_Area.Name = "CB_Symbol_Area";
+            CB_Symbol_Area.Size = new Size(173, 23);
+            CB_Symbol_Area.TabIndex = 10;
+            CB_Symbol_Area.Text = "None";
+            CB_Symbol_Area.SelectedIndexChanged += CB_Area_SelectedIndexChanged;
+            // 
             // checkBox1
             // 
             checkBox1.AutoSize = true;
             checkBox1.CheckAlign = ContentAlignment.MiddleRight;
-            checkBox1.Location = new Point(14, 196);
+            checkBox1.Location = new Point(14, 147);
             checkBox1.Name = "checkBox1";
             checkBox1.Size = new Size(96, 19);
             checkBox1.TabIndex = 8;
@@ -566,7 +638,7 @@
             // 
             CB_Symbol_DexRec4.AutoSize = true;
             CB_Symbol_DexRec4.Enabled = false;
-            CB_Symbol_DexRec4.Location = new Point(139, 228);
+            CB_Symbol_DexRec4.Location = new Point(139, 179);
             CB_Symbol_DexRec4.Name = "CB_Symbol_DexRec4";
             CB_Symbol_DexRec4.Size = new Size(121, 19);
             CB_Symbol_DexRec4.TabIndex = 6;
@@ -577,7 +649,7 @@
             // 
             CB_Symbol_DexRec3.AutoSize = true;
             CB_Symbol_DexRec3.Enabled = false;
-            CB_Symbol_DexRec3.Location = new Point(139, 212);
+            CB_Symbol_DexRec3.Location = new Point(139, 163);
             CB_Symbol_DexRec3.Name = "CB_Symbol_DexRec3";
             CB_Symbol_DexRec3.Size = new Size(121, 19);
             CB_Symbol_DexRec3.TabIndex = 7;
@@ -588,7 +660,7 @@
             // 
             CB_Symbol_DexRec2.AutoSize = true;
             CB_Symbol_DexRec2.Enabled = false;
-            CB_Symbol_DexRec2.Location = new Point(139, 196);
+            CB_Symbol_DexRec2.Location = new Point(139, 147);
             CB_Symbol_DexRec2.Name = "CB_Symbol_DexRec2";
             CB_Symbol_DexRec2.Size = new Size(121, 19);
             CB_Symbol_DexRec2.TabIndex = 5;
@@ -599,7 +671,7 @@
             // 
             CB_Symbol_DexRec1.AutoSize = true;
             CB_Symbol_DexRec1.Enabled = false;
-            CB_Symbol_DexRec1.Location = new Point(139, 180);
+            CB_Symbol_DexRec1.Location = new Point(139, 131);
             CB_Symbol_DexRec1.Name = "CB_Symbol_DexRec1";
             CB_Symbol_DexRec1.Size = new Size(121, 19);
             CB_Symbol_DexRec1.TabIndex = 4;
@@ -610,7 +682,7 @@
             // 
             CB_Symbol_DexRecActive.AutoSize = true;
             CB_Symbol_DexRecActive.CheckAlign = ContentAlignment.MiddleRight;
-            CB_Symbol_DexRecActive.Location = new Point(4, 180);
+            CB_Symbol_DexRecActive.Location = new Point(4, 131);
             CB_Symbol_DexRecActive.Name = "CB_Symbol_DexRecActive";
             CB_Symbol_DexRecActive.Size = new Size(106, 19);
             CB_Symbol_DexRecActive.TabIndex = 3;
@@ -621,7 +693,7 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(4, 158);
+            label2.Location = new Point(4, 109);
             label2.Name = "label2";
             label2.Size = new Size(72, 15);
             label2.TabIndex = 1;
@@ -631,7 +703,7 @@
             // 
             CB_Symbol_LeadAbility.FormattingEnabled = true;
             CB_Symbol_LeadAbility.Items.AddRange(new object[] { "None", "Compound Eyes/Super Luck", "Synchronize", "Cute Charm", "Magnet Pull", "Lightning Rod/Static", "Flash Fire", "Storm Drain", "Harvest" });
-            CB_Symbol_LeadAbility.Location = new Point(82, 155);
+            CB_Symbol_LeadAbility.Location = new Point(82, 106);
             CB_Symbol_LeadAbility.Name = "CB_Symbol_LeadAbility";
             CB_Symbol_LeadAbility.Size = new Size(173, 23);
             CB_Symbol_LeadAbility.TabIndex = 0;
@@ -950,75 +1022,6 @@
             TB_TID.TabIndex = 8;
             TB_TID.Text = "12345";
             // 
-            // GB_Static_EncounterSettings
-            // 
-            GB_Static_EncounterSettings.Controls.Add(label5);
-            GB_Static_EncounterSettings.Controls.Add(label4);
-            GB_Static_EncounterSettings.Controls.Add(label3);
-            GB_Static_EncounterSettings.Controls.Add(CB_Static_Species);
-            GB_Static_EncounterSettings.Controls.Add(CB_Static_Weather);
-            GB_Static_EncounterSettings.Controls.Add(CB_Static_Area);
-            GB_Static_EncounterSettings.Location = new Point(6, 2);
-            GB_Static_EncounterSettings.Name = "GB_Static_EncounterSettings";
-            GB_Static_EncounterSettings.Size = new Size(249, 102);
-            GB_Static_EncounterSettings.TabIndex = 9;
-            GB_Static_EncounterSettings.TabStop = false;
-            GB_Static_EncounterSettings.Text = "Encounter Settings";
-            // 
-            // CB_Static_Area
-            // 
-            CB_Static_Area.FormattingEnabled = true;
-            CB_Static_Area.Location = new Point(70, 22);
-            CB_Static_Area.Name = "CB_Static_Area";
-            CB_Static_Area.Size = new Size(173, 23);
-            CB_Static_Area.TabIndex = 10;
-            CB_Static_Area.Text = "None";
-            // 
-            // CB_Static_Weather
-            // 
-            CB_Static_Weather.FormattingEnabled = true;
-            CB_Static_Weather.Location = new Point(70, 47);
-            CB_Static_Weather.Name = "CB_Static_Weather";
-            CB_Static_Weather.Size = new Size(173, 23);
-            CB_Static_Weather.TabIndex = 11;
-            CB_Static_Weather.Text = "None";
-            // 
-            // CB_Static_Species
-            // 
-            CB_Static_Species.FormattingEnabled = true;
-            CB_Static_Species.Location = new Point(70, 72);
-            CB_Static_Species.Name = "CB_Static_Species";
-            CB_Static_Species.Size = new Size(173, 23);
-            CB_Static_Species.TabIndex = 12;
-            CB_Static_Species.Text = "None";
-            // 
-            // label3
-            // 
-            label3.AutoSize = true;
-            label3.Location = new Point(30, 25);
-            label3.Name = "label3";
-            label3.Size = new Size(34, 15);
-            label3.TabIndex = 8;
-            label3.Text = "Area:";
-            // 
-            // label4
-            // 
-            label4.AutoSize = true;
-            label4.Location = new Point(10, 50);
-            label4.Name = "label4";
-            label4.Size = new Size(54, 15);
-            label4.TabIndex = 13;
-            label4.Text = "Weather:";
-            // 
-            // label5
-            // 
-            label5.AutoSize = true;
-            label5.Location = new Point(22, 75);
-            label5.Name = "label5";
-            label5.Size = new Size(42, 15);
-            label5.TabIndex = 14;
-            label5.Text = "Target:";
-            // 
             // MainWindow
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -1047,14 +1050,14 @@
             TC_EncounterType.ResumeLayout(false);
             TP_Symbol.ResumeLayout(false);
             TP_Symbol.PerformLayout();
+            GB_Static_EncounterSettings.ResumeLayout(false);
+            GB_Static_EncounterSettings.PerformLayout();
             GB_Seed.ResumeLayout(false);
             GB_Seed.PerformLayout();
             GB_Connection.ResumeLayout(false);
             GB_Connection.PerformLayout();
             GB_SAVInfo.ResumeLayout(false);
             GB_SAVInfo.PerformLayout();
-            GB_Static_EncounterSettings.ResumeLayout(false);
-            GB_Static_EncounterSettings.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -1137,11 +1140,11 @@
         private NumericUpDown NUD_SpA_Max;
         private NumericUpDown NUD_SpA_Min;
         private GroupBox GB_Static_EncounterSettings;
-        private ComboBox CB_Static_Area;
-        private ComboBox CB_Static_Species;
-        private ComboBox CB_Static_Weather;
-        private Label label5;
-        private Label label4;
-        private Label label3;
+        private ComboBox CB_Symbol_Area;
+        private ComboBox CB_Symbol_Species;
+        private ComboBox CB_Symbol_Weather;
+        private Label L_Symbol_Target;
+        private Label L_Symbol_Weather;
+        private Label L_Symbol_Area;
     }
 }
