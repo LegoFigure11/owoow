@@ -5,9 +5,9 @@ public interface IEncounterTableEntry : IEncounter, IEncounterEntry, IPersonal
 }
 
 
-public class EncounterTableEntry(IPersonal personal, IEncounterEntry encounterEntry, IEncounter encounter) : IEncounterTableEntry
+public class EncounterTableEntry(IPersonal personal, IEncounterEntry entry, IEncounter encounter) : IEncounterTableEntry
 {
-    public string Species { get; } = encounterEntry.Species!;
+    public string Species { get; } = entry.Species!;
 
     public byte EggMoveCount { get; } = personal.EggMoveCount;
     public string[] EggMoves { get; } = personal.EggMoves!;
@@ -16,8 +16,8 @@ public class EncounterTableEntry(IPersonal personal, IEncounterEntry encounterEn
     public short DevId { get; } = personal.DevId;
     public string[] Types { get; } = personal.Types!;
 
-    public int SlotMin { get; } = encounterEntry.SlotMin;
-    public int SlotMax { get; } = encounterEntry.SlotMax;
+    public int SlotMin { get; } = entry.SlotMin;
+    public int SlotMax { get; } = entry.SlotMax;
 
     public int MinLevel { get; } = encounter.MinLevel;
     public int MaxLevel { get; } = encounter.MaxLevel;

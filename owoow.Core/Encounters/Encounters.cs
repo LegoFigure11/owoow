@@ -28,62 +28,53 @@ public static class Encounters
         ShieldSymbol = JsonSerializer.Deserialize<Dictionary<string, Dictionary<string, Encounter>>>(Utils.GetStringResource("sh_symbol.json") ?? "{}");
     }
 
-    public static IReadOnlyList<string> GetAreaList(string game, string tabName)
+    public static Encounter GetEncounters(string game, string tabName, string area, string weather) => game switch
     {
-        return game switch
+        "Sword" => tabName switch
         {
-            "Sword" => tabName switch
-            {
-                "Fishing" => [.. SwordFishing!.Keys],
-                "Hidden" => [.. SwordHidden!.Keys],
-                _ => [.. SwordSymbol!.Keys],
-            },
-            _ => tabName switch
-            {
-                "Fishing" => [.. ShieldFishing!.Keys],
-                "Hidden" => [.. ShieldHidden!.Keys],
-                _ => [.. ShieldSymbol!.Keys],
-            },
-        };
-    }
+            "Fishing" => SwordFishing![area][weather],
+            "Hidden" => SwordHidden![area][weather],
+            _ => SwordSymbol![area][weather],
+        },
+        _ => tabName switch
+        {
+            "Fishing" => ShieldFishing![area][weather],
+            "Hidden" => ShieldHidden![area][weather],
+            _ => ShieldSymbol![area][weather],
+        },
+    };
 
-    public static IReadOnlyList<string> GetWeatherList(string game, string tabName, string area)
+    public static IReadOnlyList<string> GetAreaList(string game, string tabName) => game switch
     {
-        return game switch
+        "Sword" => tabName switch
         {
-            "Sword" => tabName switch
-            {
-                "Fishing" => [.. SwordFishing![area].Keys],
-                "Hidden" => [.. SwordHidden![area].Keys],
-                _ => [.. SwordSymbol![area].Keys],
-            },
-            _ => tabName switch
-            {
-                "Fishing" => [.. ShieldFishing![area].Keys],
-                "Hidden" => [.. ShieldHidden![area].Keys],
-                _ => [.. ShieldSymbol![area].Keys],
-            },
-        };
-    }
+            "Fishing" => [.. SwordFishing!.Keys],
+            "Hidden" => [.. SwordHidden!.Keys],
+            _ => [.. SwordSymbol!.Keys],
+        },
+        _ => tabName switch
+        {
+            "Fishing" => [.. ShieldFishing!.Keys],
+            "Hidden" => [.. ShieldHidden!.Keys],
+            _ => [.. ShieldSymbol!.Keys],
+        },
+    };
 
-    public static Encounter GetEncounters(string game, string tabName, string area, string weather)
+    public static IReadOnlyList<string> GetWeatherList(string game, string tabName, string area) => game switch
     {
-        return game switch
+        "Sword" => tabName switch
         {
-            "Sword" => tabName switch
-            {
-                "Fishing" => SwordFishing![area][weather],
-                "Hidden" => SwordHidden![area][weather],
-                _ => SwordSymbol![area][weather],
-            },
-            _ => tabName switch
-            {
-                "Fishing" => ShieldFishing![area][weather],
-                "Hidden" => ShieldHidden![area][weather],
-                _ => ShieldSymbol![area][weather],
-            },
-        };
-    }
+            "Fishing" => [.. SwordFishing![area].Keys],
+            "Hidden" => [.. SwordHidden![area].Keys],
+            _ => [.. SwordSymbol![area].Keys],
+        },
+        _ => tabName switch
+        {
+            "Fishing" => [.. ShieldFishing![area].Keys],
+            "Hidden" => [.. ShieldHidden![area].Keys],
+            _ => [.. ShieldSymbol![area].Keys],
+        },
+    };
 
     public static IReadOnlyList<string> GetSpeciesList(string game, string tabName, string area, string weather)
     {
@@ -95,23 +86,5 @@ public static class Encounters
                 ret.Add(v.Species!);
         }
         return ret.AsReadOnly();
-    }
-
-    public static IDictionary<int, IEncounterTableEntry> GetEncounterTable(string game, string tabName, string area, string weather)
-    {
-        var enc = GetEncounters(game, tabName, area, weather);
-        Dictionary<int, IEncounterTableEntry> table = [];
-
-        foreach (var v in enc.Encounters!.Values)
-        {
-            if (Personal is null || v is null) continue;
-            for (var i = v.SlotMin; i <= v.SlotMax; i++)
-            {
-                var t = new EncounterTableEntry(Personal[v.Species!], v, enc);
-                table.Add(i, t);
-            }
-        }
-
-        return table;
     }
 }

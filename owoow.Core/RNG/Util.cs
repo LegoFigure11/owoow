@@ -44,4 +44,14 @@ public static class Util
         }
         return "None";
     }
+
+    public static string GetLeadAbilityType(string ability) => ability switch
+    {
+        "Magnet Pull" => "Steel",
+        "Lightning Rod/Static" => "Electric",
+        "Flash Fire" => "Fire",
+        "Storm Drain" => "Water",
+        "Harvest" => "Grass",
+        _ => string.Empty,
+    };
 }

@@ -1,5 +1,5 @@
-using owoow.Core;
 using owoow.Core.Connection;
+using owoow.Core.EncounterTable;
 using SysBot.Base;
 using System.Globalization;
 using static owoow.Core.Encounters;
@@ -17,6 +17,7 @@ public partial class MainWindow : Form
     private readonly SwitchConnectionConfig ConnectionConfig;
 
     bool stop;
+    bool reset;
     long total;
 
     public MainWindow()
@@ -146,7 +147,15 @@ public partial class MainWindow : Form
                             var adv = GetAdvancesPassed(_s0, _s1, s0, s1);
                             if (adv > 0)
                             {
-                                total += adv;
+                                if (reset)
+                                {
+                                    total = 0;
+                                    reset = false;
+                                }
+                                else
+                                {
+                                    total += adv;
+                                }
 
                                 _s0 = s0;
                                 _s1 = s1;
@@ -250,6 +259,7 @@ public partial class MainWindow : Form
                     {
                         target.Items.Clear();
                         var species = GetSpeciesList(CB_Game.Text, tab.Text, $"{area.SelectedItem}", $"{weather.SelectedItem}").ToArray();
+                        Array.Sort(species);
                         foreach (var specie in species)
                         {
                             target.Items.Add(specie);
@@ -366,7 +376,7 @@ public partial class MainWindow : Form
                         ulong s0 = ulong.Parse(TB_Seed0.Text, NumberStyles.AllowHexSpecifier);
                         ulong s1 = ulong.Parse(TB_Seed1.Text, NumberStyles.AllowHexSpecifier);
                         await ConnectionWrapper.WriteRNGState(s0, s1, Source.Token);
-                        total = -50_000; // Hacky Current Advances reset
+                        reset = true;
                     }
                     catch (Exception ex)
                     {
@@ -420,17 +430,7 @@ public partial class MainWindow : Form
 
     private void B_Symbol_Search_Click(object sender, EventArgs e)
     {
-        var table = GetEncounterTable(CB_Game.Text, "Symbol", CB_Symbol_Area.Text, CB_Symbol_Weather.Text);
-        if (table.Count != 100)
-        {
-            var ex = new Exception(
-                @$"Encounter table missing entries! Please report this as a bug.
-                Game: {CB_Game.Text}
-                Encounter Type: Symbol
-                Area: {CB_Symbol_Area.Text}
-                Count: {table.Count} (Expected 100)"
-                );
-            this.DisplayMessageBox(ex.Message);
-        }
+        var table = new EncounterTable(CB_Game.Text, "Symbol", CB_Symbol_Area.Text, CB_Symbol_Weather.Text, CB_Symbol_LeadAbility.Text);
+
     }
 }
