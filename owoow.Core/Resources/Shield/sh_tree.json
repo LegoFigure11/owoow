@@ -4,8 +4,16 @@
       "MinLevel": 7,
       "MaxLevel": 10,
       "Encounters": {
-        "Skwovet": { "SlotMin": 0, "SlotMax": 79 },
-        "Cherubi": { "SlotMin": 80, "SlotMax": 99 }
+        "0": {
+          "Species": "Skwovet",
+          "SlotMin": 0,
+          "SlotMax": 79
+        },
+        "1": {
+          "Species": "Cherubi",
+          "SlotMin": 80,
+          "SlotMax": 99
+        }
       }
     }
   },
@@ -14,8 +22,16 @@
       "MinLevel": 11,
       "MaxLevel": 15,
       "Encounters": {
-        "Skwovet": { "SlotMin": 0, "SlotMax": 69 },
-        "Cherubi": { "SlotMin": 70, "SlotMax": 99 }
+        "0": {
+          "Species": "Skwovet",
+          "SlotMin": 0,
+          "SlotMax": 69
+        },
+        "1": {
+          "Species": "Cherubi",
+          "SlotMin": 70,
+          "SlotMax": 99
+        }
       }
     }
   },
@@ -24,8 +40,16 @@
       "MinLevel": 11,
       "MaxLevel": 14,
       "Encounters": {
-        "Skwovet": { "SlotMin": 0, "SlotMax": 49 },
-        "Cherubi": { "SlotMin": 50, "SlotMax": 99 }
+        "0": {
+          "Species": "Skwovet",
+          "SlotMin": 0,
+          "SlotMax": 49
+        },
+        "1": {
+          "Species": "Cherubi",
+          "SlotMin": 50,
+          "SlotMax": 99
+        }
       }
     }
   },
@@ -34,8 +58,16 @@
       "MinLevel": 35,
       "MaxLevel": 40,
       "Encounters": {
-        "Greedent": { "SlotMin": 0, "SlotMax": 74 },
-        "Cherubi": { "SlotMin": 75, "SlotMax": 99 }
+        "0": {
+          "Species": "Greedent",
+          "SlotMin": 0,
+          "SlotMax": 74
+        },
+        "1": {
+          "Species": "Cherubi",
+          "SlotMin": 75,
+          "SlotMax": 99
+        }
       }
     }
   },
@@ -44,8 +76,16 @@
       "MinLevel": 30,
       "MaxLevel": 35,
       "Encounters": {
-        "Greedent": { "SlotMin": 0, "SlotMax": 69 },
-        "Cherubi": { "SlotMin": 70, "SlotMax": 99 }
+        "0": {
+          "Species": "Greedent",
+          "SlotMin": 0,
+          "SlotMax": 69
+        },
+        "1": {
+          "Species": "Cherubi",
+          "SlotMin": 70,
+          "SlotMax": 99
+        }
       }
     }
   },
@@ -54,8 +94,16 @@
       "MinLevel": 14,
       "MaxLevel": 16,
       "Encounters": {
-        "Skwovet": { "SlotMin": 0, "SlotMax": 49 },
-        "Cherubi": { "SlotMin": 50, "SlotMax": 99 }
+        "0": {
+          "Species": "Skwovet",
+          "SlotMin": 0,
+          "SlotMax": 49
+        },
+        "1": {
+          "Species": "Cherubi",
+          "SlotMin": 50,
+          "SlotMax": 99
+        }
       }
     }
   },
@@ -64,8 +112,16 @@
       "MinLevel": 8,
       "MaxLevel": 13,
       "Encounters": {
-        "Skwovet": { "SlotMin": 0, "SlotMax": 79 },
-        "Cherubi": { "SlotMin": 80, "SlotMax": 99 }
+        "0": {
+          "Species": "Skwovet",
+          "SlotMin": 0,
+          "SlotMax": 79
+        },
+        "1": {
+          "Species": "Cherubi",
+          "SlotMin": 80,
+          "SlotMax": 99
+        }
       }
     }
   },
@@ -74,9 +130,21 @@
       "MinLevel": 26,
       "MaxLevel": 28,
       "Encounters": {
-        "Greedent": { "SlotMin": 0, "SlotMax": 49 },
-        "Skwovet": { "SlotMin": 50, "SlotMax": 84 },
-        "Cherubi": { "SlotMin": 85, "SlotMax": 99 }
+        "0": {
+          "Species": "Greedent",
+          "SlotMin": 0,
+          "SlotMax": 49
+        },
+        "1": {
+          "Species": "Skwovet",
+          "SlotMin": 50,
+          "SlotMax": 84
+        },
+        "2": {
+          "Species": "Cherubi",
+          "SlotMin": 85,
+          "SlotMax": 99
+        }
       }
     }
   },
@@ -85,8 +153,16 @@
       "MinLevel": 26,
       "MaxLevel": 28,
       "Encounters": {
-        "Greedent": { "SlotMin": 0, "SlotMax": 74 },
-        "Cherubi": { "SlotMin": 75, "SlotMax": 99 }
+        "0": {
+          "Species": "Greedent",
+          "SlotMin": 0,
+          "SlotMax": 74
+        },
+        "1": {
+          "Species": "Cherubi",
+          "SlotMin": 75,
+          "SlotMax": 99
+        }
       }
     }
   },
@@ -94,42 +170,78 @@
     "Shaking Trees": {
       "MinLevel": 13,
       "MaxLevel": 15,
-      "Encounters": { "Skwovet": { "SlotMin": 0, "SlotMax": 99 } }
+      "Encounters": {
+        "0": {
+          "Species": "Skwovet",
+          "SlotMin": 0,
+          "SlotMax": 99
+        }
+      }
     }
   },
   "Route 5": {
     "Shaking Trees": {
       "MinLevel": 16,
       "MaxLevel": 18,
-      "Encounters": { "Skwovet": { "SlotMin": 0, "SlotMax": 99 } }
+      "Encounters": {
+        "0": {
+          "Species": "Skwovet",
+          "SlotMin": 0,
+          "SlotMax": 99
+        }
+      }
     }
   },
   "Route 6": {
     "Shaking Trees": {
       "MinLevel": 28,
       "MaxLevel": 30,
-      "Encounters": { "Greedent": { "SlotMin": 0, "SlotMax": 99 } }
+      "Encounters": {
+        "0": {
+          "Species": "Greedent",
+          "SlotMin": 0,
+          "SlotMax": 99
+        }
+      }
     }
   },
   "Route 7": {
     "Shaking Trees": {
       "MinLevel": 36,
       "MaxLevel": 40,
-      "Encounters": { "Greedent": { "SlotMin": 0, "SlotMax": 99 } }
+      "Encounters": {
+        "0": {
+          "Species": "Greedent",
+          "SlotMin": 0,
+          "SlotMax": 99
+        }
+      }
     }
   },
   "Route 9 (in Circhester Bay)": {
     "Shaking Trees": {
       "MinLevel": 39,
       "MaxLevel": 43,
-      "Encounters": { "Greedent": { "SlotMin": 0, "SlotMax": 99 } }
+      "Encounters": {
+        "0": {
+          "Species": "Greedent",
+          "SlotMin": 0,
+          "SlotMax": 99
+        }
+      }
     }
   },
   "Route 9 (in Outer Spikemuth)": {
     "Shaking Trees": {
       "MinLevel": 40,
       "MaxLevel": 44,
-      "Encounters": { "Greedent": { "SlotMin": 0, "SlotMax": 99 } }
+      "Encounters": {
+        "0": {
+          "Species": "Greedent",
+          "SlotMin": 0,
+          "SlotMax": 99
+        }
+      }
     }
   },
   "Giant's Mirror": {
@@ -137,8 +249,16 @@
       "MinLevel": 26,
       "MaxLevel": 28,
       "Encounters": {
-        "Greedent": { "SlotMin": 0, "SlotMax": 74 },
-        "Cherubi": { "SlotMin": 75, "SlotMax": 99 }
+        "0": {
+          "Species": "Greedent",
+          "SlotMin": 0,
+          "SlotMax": 74
+        },
+        "1": {
+          "Species": "Cherubi",
+          "SlotMin": 75,
+          "SlotMax": 99
+        }
       }
     }
   },
@@ -147,8 +267,16 @@
       "MinLevel": 28,
       "MaxLevel": 30,
       "Encounters": {
-        "Greedent": { "SlotMin": 0, "SlotMax": 74 },
-        "Cherubi": { "SlotMin": 75, "SlotMax": 99 }
+        "0": {
+          "Species": "Greedent",
+          "SlotMin": 0,
+          "SlotMax": 74
+        },
+        "1": {
+          "Species": "Cherubi",
+          "SlotMin": 75,
+          "SlotMax": 99
+        }
       }
     }
   },
@@ -157,8 +285,16 @@
       "MinLevel": 26,
       "MaxLevel": 28,
       "Encounters": {
-        "Greedent": { "SlotMin": 0, "SlotMax": 74 },
-        "Cherubi": { "SlotMin": 75, "SlotMax": 99 }
+        "0": {
+          "Species": "Greedent",
+          "SlotMin": 0,
+          "SlotMax": 74
+        },
+        "1": {
+          "Species": "Cherubi",
+          "SlotMin": 75,
+          "SlotMax": 99
+        }
       }
     }
   },
@@ -167,8 +303,16 @@
       "MinLevel": 50,
       "MaxLevel": 52,
       "Encounters": {
-        "Greedent": { "SlotMin": 0, "SlotMax": 94 },
-        "Cherubi": { "SlotMin": 95, "SlotMax": 99 }
+        "0": {
+          "Species": "Greedent",
+          "SlotMin": 0,
+          "SlotMax": 94
+        },
+        "1": {
+          "Species": "Cherubi",
+          "SlotMin": 95,
+          "SlotMax": 99
+        }
       }
     }
   },
@@ -177,8 +321,21 @@
       "MinLevel": 13,
       "MaxLevel": 18,
       "Encounters": {
-        "Skwovet": { "SlotMin": 0, "SlotMax": 59 },
-        "Applin": { "SlotMin": 60, "SlotMax": 89 }
+        "0": {
+          "Species": "Skwovet",
+          "SlotMin": 0,
+          "SlotMax": 59
+        },
+        "1": {
+          "Species": "Applin",
+          "SlotMin": 60,
+          "SlotMax": 89
+        },
+        "2": {
+          "Species": "Skwovet",
+          "SlotMin": 90,
+          "SlotMax": 99
+        }
       }
     }
   },
@@ -187,8 +344,21 @@
       "MinLevel": 13,
       "MaxLevel": 18,
       "Encounters": {
-        "Skwovet": { "SlotMin": 0, "SlotMax": 59 },
-        "Applin": { "SlotMin": 60, "SlotMax": 89 }
+        "0": {
+          "Species": "Skwovet",
+          "SlotMin": 0,
+          "SlotMax": 59
+        },
+        "1": {
+          "Species": "Applin",
+          "SlotMin": 60,
+          "SlotMax": 89
+        },
+        "2": {
+          "Species": "Skwovet",
+          "SlotMin": 90,
+          "SlotMax": 99
+        }
       }
     }
   },
@@ -197,9 +367,21 @@
       "MinLevel": 13,
       "MaxLevel": 18,
       "Encounters": {
-        "Skwovet": { "SlotMin": 0, "SlotMax": 59 },
-        "Applin": { "SlotMin": 60, "SlotMax": 89 },
-        "Emolga": { "SlotMin": 90, "SlotMax": 99 }
+        "0": {
+          "Species": "Skwovet",
+          "SlotMin": 0,
+          "SlotMax": 59
+        },
+        "1": {
+          "Species": "Applin",
+          "SlotMin": 60,
+          "SlotMax": 89
+        },
+        "2": {
+          "Species": "Emolga",
+          "SlotMin": 90,
+          "SlotMax": 99
+        }
       }
     }
   },
@@ -208,8 +390,21 @@
       "MinLevel": 13,
       "MaxLevel": 18,
       "Encounters": {
-        "Skwovet": { "SlotMin": 0, "SlotMax": 59 },
-        "Applin": { "SlotMin": 60, "SlotMax": 89 }
+        "0": {
+          "Species": "Skwovet",
+          "SlotMin": 0,
+          "SlotMax": 59
+        },
+        "1": {
+          "Species": "Applin",
+          "SlotMin": 60,
+          "SlotMax": 89
+        },
+        "2": {
+          "Species": "Skwovet",
+          "SlotMin": 90,
+          "SlotMax": 99
+        }
       }
     }
   },
@@ -218,8 +413,21 @@
       "MinLevel": 19,
       "MaxLevel": 24,
       "Encounters": {
-        "Skwovet": { "SlotMin": 0, "SlotMax": 59 },
-        "Applin": { "SlotMin": 60, "SlotMax": 89 }
+        "0": {
+          "Species": "Skwovet",
+          "SlotMin": 0,
+          "SlotMax": 59
+        },
+        "1": {
+          "Species": "Applin",
+          "SlotMin": 60,
+          "SlotMax": 89
+        },
+        "2": {
+          "Species": "Skwovet",
+          "SlotMin": 90,
+          "SlotMax": 99
+        }
       }
     }
   },
@@ -228,8 +436,21 @@
       "MinLevel": 16,
       "MaxLevel": 21,
       "Encounters": {
-        "Skwovet": { "SlotMin": 0, "SlotMax": 59 },
-        "Applin": { "SlotMin": 60, "SlotMax": 89 }
+        "0": {
+          "Species": "Skwovet",
+          "SlotMin": 0,
+          "SlotMax": 59
+        },
+        "1": {
+          "Species": "Applin",
+          "SlotMin": 60,
+          "SlotMax": 89
+        },
+        "2": {
+          "Species": "Skwovet",
+          "SlotMin": 90,
+          "SlotMax": 99
+        }
       }
     }
   },
@@ -238,8 +459,21 @@
       "MinLevel": 43,
       "MaxLevel": 48,
       "Encounters": {
-        "Skwovet": { "SlotMin": 0, "SlotMax": 59 },
-        "Applin": { "SlotMin": 60, "SlotMax": 89 }
+        "0": {
+          "Species": "Skwovet",
+          "SlotMin": 0,
+          "SlotMax": 59
+        },
+        "1": {
+          "Species": "Applin",
+          "SlotMin": 60,
+          "SlotMax": 89
+        },
+        "2": {
+          "Species": "Skwovet",
+          "SlotMin": 90,
+          "SlotMax": 99
+        }
       }
     }
   },
@@ -248,9 +482,21 @@
       "MinLevel": 43,
       "MaxLevel": 48,
       "Encounters": {
-        "Skwovet": { "SlotMin": 0, "SlotMax": 59 },
-        "Applin": { "SlotMin": 60, "SlotMax": 89 },
-        "Appletun": { "SlotMin": 90, "SlotMax": 99 }
+        "0": {
+          "Species": "Skwovet",
+          "SlotMin": 0,
+          "SlotMax": 59
+        },
+        "1": {
+          "Species": "Applin",
+          "SlotMin": 60,
+          "SlotMax": 89
+        },
+        "2": {
+          "Species": "Appletun",
+          "SlotMin": 90,
+          "SlotMax": 99
+        }
       }
     }
   },
@@ -259,8 +505,21 @@
       "MinLevel": 43,
       "MaxLevel": 48,
       "Encounters": {
-        "Skwovet": { "SlotMin": 0, "SlotMax": 59 },
-        "Applin": { "SlotMin": 60, "SlotMax": 89 }
+        "0": {
+          "Species": "Skwovet",
+          "SlotMin": 0,
+          "SlotMax": 59
+        },
+        "1": {
+          "Species": "Applin",
+          "SlotMin": 60,
+          "SlotMax": 89
+        },
+        "2": {
+          "Species": "Skwovet",
+          "SlotMin": 90,
+          "SlotMax": 99
+        }
       }
     }
   },
@@ -269,8 +528,16 @@
       "MinLevel": 60,
       "MaxLevel": 65,
       "Encounters": {
-        "Skwovet": { "SlotMin": 0, "SlotMax": 69 },
-        "Greedent": { "SlotMin": 70, "SlotMax": 99 }
+        "0": {
+          "Species": "Skwovet",
+          "SlotMin": 0,
+          "SlotMax": 69
+        },
+        "1": {
+          "Species": "Greedent",
+          "SlotMin": 70,
+          "SlotMax": 99
+        }
       }
     }
   },
@@ -279,8 +546,16 @@
       "MinLevel": 60,
       "MaxLevel": 65,
       "Encounters": {
-        "Skwovet": { "SlotMin": 0, "SlotMax": 69 },
-        "Greedent": { "SlotMin": 70, "SlotMax": 99 }
+        "0": {
+          "Species": "Skwovet",
+          "SlotMin": 0,
+          "SlotMax": 69
+        },
+        "1": {
+          "Species": "Greedent",
+          "SlotMin": 70,
+          "SlotMax": 99
+        }
       }
     }
   },
@@ -289,8 +564,16 @@
       "MinLevel": 60,
       "MaxLevel": 65,
       "Encounters": {
-        "Skwovet": { "SlotMin": 0, "SlotMax": 79 },
-        "Greedent": { "SlotMin": 80, "SlotMax": 99 }
+        "0": {
+          "Species": "Skwovet",
+          "SlotMin": 0,
+          "SlotMax": 79
+        },
+        "1": {
+          "Species": "Greedent",
+          "SlotMin": 80,
+          "SlotMax": 99
+        }
       }
     }
   },
@@ -299,8 +582,16 @@
       "MinLevel": 60,
       "MaxLevel": 65,
       "Encounters": {
-        "Skwovet": { "SlotMin": 0, "SlotMax": 79 },
-        "Greedent": { "SlotMin": 80, "SlotMax": 99 }
+        "0": {
+          "Species": "Skwovet",
+          "SlotMin": 0,
+          "SlotMax": 79
+        },
+        "1": {
+          "Species": "Greedent",
+          "SlotMin": 80,
+          "SlotMax": 99
+        }
       }
     }
   },
@@ -309,9 +600,21 @@
       "MinLevel": 60,
       "MaxLevel": 65,
       "Encounters": {
-        "Skwovet": { "SlotMin": 0, "SlotMax": 59 },
-        "Greedent": { "SlotMin": 60, "SlotMax": 89 },
-        "Munchlax": { "SlotMin": 90, "SlotMax": 99 }
+        "0": {
+          "Species": "Skwovet",
+          "SlotMin": 0,
+          "SlotMax": 59
+        },
+        "1": {
+          "Species": "Greedent",
+          "SlotMin": 60,
+          "SlotMax": 89
+        },
+        "2": {
+          "Species": "Munchlax",
+          "SlotMin": 90,
+          "SlotMax": 99
+        }
       }
     }
   }

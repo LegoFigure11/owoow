@@ -66,22 +66,52 @@ public static class Encounters
         };
     }
 
-    public static IReadOnlyList<string> GetSpeciesList(string game, string tabName, string area, string weather)
+    public static Encounter GetEncounters(string game, string tabName, string area, string weather)
     {
         return game switch
         {
             "Sword" => tabName switch
             {
-                "Fishing" => [.. SwordFishing![area][weather].Encounters.Keys],
-                "Hidden" => [.. SwordHidden![area][weather].Encounters.Keys],
-                _ => [.. SwordSymbol![area][weather].Encounters.Keys],
+                "Fishing" => SwordFishing![area][weather],
+                "Hidden" => SwordHidden![area][weather],
+                _ => SwordSymbol![area][weather],
             },
             _ => tabName switch
             {
-                "Fishing" => [.. ShieldFishing![area][weather].Encounters.Keys],
-                "Hidden" => [.. ShieldHidden![area][weather].Encounters.Keys],
-                _ => [.. ShieldSymbol![area][weather].Encounters.Keys],
+                "Fishing" => ShieldFishing![area][weather],
+                "Hidden" => ShieldHidden![area][weather],
+                _ => ShieldSymbol![area][weather],
             },
         };
+    }
+
+    public static IReadOnlyList<string> GetSpeciesList(string game, string tabName, string area, string weather)
+    {
+        var enc = GetEncounters(game, tabName, area, weather);
+        IList<string> ret = [];
+        foreach (var v in enc.Encounters!.Values)
+        {
+            if (!ret.Contains(v.Species!))
+                ret.Add(v.Species!);
+        }
+        return ret.AsReadOnly();
+    }
+
+    public static IDictionary<int, IEncounterTableEntry> GetEncounterTable(string game, string tabName, string area, string weather)
+    {
+        var enc = GetEncounters(game, tabName, area, weather);
+        Dictionary<int, IEncounterTableEntry> table = [];
+
+        foreach (var v in enc.Encounters!.Values)
+        {
+            if (Personal is null || v is null) continue;
+            for (var i = v.SlotMin; i <= v.SlotMax; i++)
+            {
+                var t = new EncounterTableEntry(Personal[v.Species!], v, enc);
+                table.Add(i, t);
+            }
+        }
+
+        return table;
     }
 }

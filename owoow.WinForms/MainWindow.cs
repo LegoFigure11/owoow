@@ -1,3 +1,4 @@
+using owoow.Core;
 using owoow.Core.Connection;
 using SysBot.Base;
 using System.Globalization;
@@ -112,6 +113,8 @@ public partial class MainWindow : Form
                 SetTextBoxText(tid, TB_TID);
                 SetTextBoxText(sid, TB_SID);
 
+                SetComboBoxSelectedIndex(game == "Sword" ? 0 : 1, CB_Game);
+
                 UpdateStatus("Reading RNG State...");
                 ulong _s0, _s1;
                 try
@@ -202,7 +205,7 @@ public partial class MainWindow : Form
             if (Controls.Find($"CB_{tab.Text}_Area", true).FirstOrDefault() is ComboBox target)
             {
                 target.Items.Clear();
-                var areas = GetAreaList("Shield", tab.Text).ToArray();
+                var areas = GetAreaList(CB_Game.Text, tab.Text).ToArray();
                 Array.Sort(areas);
                 foreach (var area in areas)
                 {
@@ -223,7 +226,7 @@ public partial class MainWindow : Form
                 if (Controls.Find($"CB_{tab.Text}_Area", true).FirstOrDefault() is ComboBox area)
                 {
                     target.Items.Clear();
-                    var weathers = GetWeatherList("Shield", tab.Text, $"{area.SelectedItem}").ToArray();
+                    var weathers = GetWeatherList(CB_Game.Text, tab.Text, $"{area.SelectedItem}").ToArray();
                     foreach (var weather in weathers)
                     {
                         target.Items.Add(weather);
@@ -246,7 +249,7 @@ public partial class MainWindow : Form
                     if (Controls.Find($"CB_{tab.Text}_Area", true).FirstOrDefault() is ComboBox area)
                     {
                         target.Items.Clear();
-                        var species = GetSpeciesList("Shield", tab.Text, $"{area.SelectedItem}", $"{weather.SelectedItem}").ToArray();
+                        var species = GetSpeciesList(CB_Game.Text, tab.Text, $"{area.SelectedItem}", $"{weather.SelectedItem}").ToArray();
                         foreach (var specie in species)
                         {
                             target.Items.Add(specie);
@@ -311,6 +314,20 @@ public partial class MainWindow : Form
                 Invoke(() => tb.Text = text);
             }
             else tb.Text = text;
+        }
+    }
+
+    private void SetComboBoxSelectedIndex(int index, params object[] obj)
+    {
+        foreach (object o in obj)
+        {
+            if (o is not ComboBox cb)
+                continue;
+            if (InvokeRequired)
+            {
+                Invoke(() => cb.SelectedIndex = index);
+            }
+            else cb.SelectedIndex = index;
         }
     }
 
@@ -399,5 +416,21 @@ public partial class MainWindow : Form
     private void CB_Weather_SelectedIndexChanged(object sender, EventArgs e)
     {
         SetSpeciesOptions();
+    }
+
+    private void B_Symbol_Search_Click(object sender, EventArgs e)
+    {
+        var table = GetEncounterTable(CB_Game.Text, "Symbol", CB_Symbol_Area.Text, CB_Symbol_Weather.Text);
+        if (table.Count != 100)
+        {
+            var ex = new Exception(
+                @$"Encounter table missing entries! Please report this as a bug.
+                Game: {CB_Game.Text}
+                Encounter Type: Symbol
+                Area: {CB_Symbol_Area.Text}
+                Count: {table.Count} (Expected 100)"
+                );
+            this.DisplayMessageBox(ex.Message);
+        }
     }
 }

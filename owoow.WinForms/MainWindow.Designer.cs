@@ -106,12 +106,15 @@
             L_SwitchIP = new Label();
             TB_SwitchIP = new TextBox();
             GB_SAVInfo = new GroupBox();
+            L_Game = new Label();
             CB_MarkCharm = new CheckBox();
+            CB_Game = new ComboBox();
             L_SID = new Label();
             L_TID = new Label();
             TB_SID = new TextBox();
             CB_ShinyCharm = new CheckBox();
             TB_TID = new TextBox();
+            B_Symbol_Search = new Button();
             GB_SeedControlsContainer.SuspendLayout();
             GB_Filters.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)NUD_Spe_Max).BeginInit();
@@ -144,7 +147,7 @@
             GB_SeedControlsContainer.Location = new Point(0, 5);
             GB_SeedControlsContainer.Name = "GB_SeedControlsContainer";
             GB_SeedControlsContainer.RightToLeft = RightToLeft.No;
-            GB_SeedControlsContainer.Size = new Size(788, 295);
+            GB_SeedControlsContainer.Size = new Size(788, 321);
             GB_SeedControlsContainer.TabIndex = 11;
             GB_SeedControlsContainer.TabStop = false;
             // 
@@ -519,7 +522,7 @@
             TC_EncounterType.Location = new Point(206, 11);
             TC_EncounterType.Name = "TC_EncounterType";
             TC_EncounterType.SelectedIndex = 0;
-            TC_EncounterType.Size = new Size(269, 287);
+            TC_EncounterType.Size = new Size(269, 310);
             TC_EncounterType.TabIndex = 3;
             TC_EncounterType.SelectedIndexChanged += TC_EncounterType_SelectedIndexChanged;
             // 
@@ -528,13 +531,14 @@
             TP_Static.Location = new Point(4, 24);
             TP_Static.Name = "TP_Static";
             TP_Static.Padding = new Padding(3);
-            TP_Static.Size = new Size(261, 259);
+            TP_Static.Size = new Size(261, 282);
             TP_Static.TabIndex = 0;
             TP_Static.Text = "Static";
             TP_Static.UseVisualStyleBackColor = true;
             // 
             // TP_Symbol
             // 
+            TP_Symbol.Controls.Add(B_Symbol_Search);
             TP_Symbol.Controls.Add(GB_Static_EncounterSettings);
             TP_Symbol.Controls.Add(checkBox1);
             TP_Symbol.Controls.Add(CB_Symbol_DexRec4);
@@ -547,7 +551,7 @@
             TP_Symbol.Location = new Point(4, 24);
             TP_Symbol.Name = "TP_Symbol";
             TP_Symbol.Padding = new Padding(3);
-            TP_Symbol.Size = new Size(261, 259);
+            TP_Symbol.Size = new Size(261, 282);
             TP_Symbol.TabIndex = 1;
             TP_Symbol.Text = "Symbol";
             TP_Symbol.UseVisualStyleBackColor = true;
@@ -713,7 +717,7 @@
             // 
             TP_Hidden.Location = new Point(4, 24);
             TP_Hidden.Name = "TP_Hidden";
-            TP_Hidden.Size = new Size(261, 259);
+            TP_Hidden.Size = new Size(261, 282);
             TP_Hidden.TabIndex = 2;
             TP_Hidden.Text = "Hidden";
             TP_Hidden.UseVisualStyleBackColor = true;
@@ -722,7 +726,7 @@
             // 
             TP_Fishing.Location = new Point(4, 24);
             TP_Fishing.Name = "TP_Fishing";
-            TP_Fishing.Size = new Size(261, 259);
+            TP_Fishing.Size = new Size(261, 282);
             TP_Fishing.TabIndex = 3;
             TP_Fishing.Text = "Fishing";
             TP_Fishing.UseVisualStyleBackColor = true;
@@ -947,7 +951,9 @@
             // 
             // GB_SAVInfo
             // 
+            GB_SAVInfo.Controls.Add(L_Game);
             GB_SAVInfo.Controls.Add(CB_MarkCharm);
+            GB_SAVInfo.Controls.Add(CB_Game);
             GB_SAVInfo.Controls.Add(L_SID);
             GB_SAVInfo.Controls.Add(L_TID);
             GB_SAVInfo.Controls.Add(TB_SID);
@@ -955,9 +961,18 @@
             GB_SAVInfo.Controls.Add(TB_TID);
             GB_SAVInfo.Location = new Point(0, 223);
             GB_SAVInfo.Name = "GB_SAVInfo";
-            GB_SAVInfo.Size = new Size(200, 72);
+            GB_SAVInfo.Size = new Size(200, 98);
             GB_SAVInfo.TabIndex = 2;
             GB_SAVInfo.TabStop = false;
+            // 
+            // L_Game
+            // 
+            L_Game.AutoSize = true;
+            L_Game.Location = new Point(11, 69);
+            L_Game.Name = "L_Game";
+            L_Game.Size = new Size(41, 15);
+            L_Game.TabIndex = 11;
+            L_Game.Text = "Game:";
             // 
             // CB_MarkCharm
             // 
@@ -969,6 +984,15 @@
             CB_MarkCharm.TabIndex = 10;
             CB_MarkCharm.Text = "Mark Charm?";
             CB_MarkCharm.UseVisualStyleBackColor = true;
+            // 
+            // CB_Game
+            // 
+            CB_Game.FormattingEnabled = true;
+            CB_Game.Items.AddRange(new object[] { "Sword", "Shield" });
+            CB_Game.Location = new Point(71, 66);
+            CB_Game.Name = "CB_Game";
+            CB_Game.Size = new Size(118, 23);
+            CB_Game.TabIndex = 10;
             // 
             // L_SID
             // 
@@ -1021,6 +1045,16 @@
             TB_TID.Size = new Size(41, 22);
             TB_TID.TabIndex = 8;
             TB_TID.Text = "12345";
+            // 
+            // B_Symbol_Search
+            // 
+            B_Symbol_Search.Location = new Point(3, 255);
+            B_Symbol_Search.Name = "B_Symbol_Search";
+            B_Symbol_Search.Size = new Size(255, 25);
+            B_Symbol_Search.TabIndex = 20;
+            B_Symbol_Search.Text = "Search!";
+            B_Symbol_Search.UseVisualStyleBackColor = true;
+            B_Symbol_Search.Click += B_Symbol_Search_Click;
             // 
             // MainWindow
             // 
@@ -1146,5 +1180,8 @@
         private Label L_Symbol_Target;
         private Label L_Symbol_Weather;
         private Label L_Symbol_Area;
+        private Label L_Game;
+        private ComboBox CB_Game;
+        private Button B_Symbol_Search;
     }
 }

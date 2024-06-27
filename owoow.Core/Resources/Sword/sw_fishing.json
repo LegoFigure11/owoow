@@ -4,9 +4,21 @@
       "MinLevel": 4,
       "MaxLevel": 6,
       "Encounters": {
-        "Magikarp": { "SlotMin": 0, "SlotMax": 79 },
-        "Chewtle": { "SlotMin": 80, "SlotMax": 94 },
-        "Arrokuda": { "SlotMin": 95, "SlotMax": 99 }
+        "0": {
+          "Species": "Magikarp",
+          "SlotMin": 0,
+          "SlotMax": 79
+        },
+        "1": {
+          "Species": "Chewtle",
+          "SlotMin": 80,
+          "SlotMax": 94
+        },
+        "2": {
+          "Species": "Arrokuda",
+          "SlotMin": 95,
+          "SlotMax": 99
+        }
       }
     }
   },
@@ -15,10 +27,26 @@
       "MinLevel": 8,
       "MaxLevel": 12,
       "Encounters": {
-        "Magikarp": { "SlotMin": 0, "SlotMax": 49 },
-        "Goldeen": { "SlotMin": 50, "SlotMax": 74 },
-        "Shellder": { "SlotMin": 75, "SlotMax": 94 },
-        "Wishiwashi": { "SlotMin": 95, "SlotMax": 99 }
+        "0": {
+          "Species": "Magikarp",
+          "SlotMin": 0,
+          "SlotMax": 49
+        },
+        "1": {
+          "Species": "Goldeen",
+          "SlotMin": 50,
+          "SlotMax": 74
+        },
+        "2": {
+          "Species": "Shellder",
+          "SlotMin": 75,
+          "SlotMax": 94
+        },
+        "3": {
+          "Species": "Wishiwashi",
+          "SlotMin": 95,
+          "SlotMax": 99
+        }
       }
     }
   },
@@ -27,10 +55,26 @@
       "MinLevel": 7,
       "MaxLevel": 11,
       "Encounters": {
-        "Magikarp": { "SlotMin": 0, "SlotMax": 49 },
-        "Goldeen": { "SlotMin": 50, "SlotMax": 84 },
-        "Remoraid": { "SlotMin": 85, "SlotMax": 94 },
-        "Wishiwashi": { "SlotMin": 95, "SlotMax": 99 }
+        "0": {
+          "Species": "Magikarp",
+          "SlotMin": 0,
+          "SlotMax": 49
+        },
+        "1": {
+          "Species": "Goldeen",
+          "SlotMin": 50,
+          "SlotMax": 84
+        },
+        "2": {
+          "Species": "Remoraid",
+          "SlotMin": 85,
+          "SlotMax": 94
+        },
+        "3": {
+          "Species": "Wishiwashi",
+          "SlotMin": 95,
+          "SlotMax": 99
+        }
       }
     }
   },
@@ -39,10 +83,26 @@
       "MinLevel": 35,
       "MaxLevel": 40,
       "Encounters": {
-        "Magikarp": { "SlotMin": 0, "SlotMax": 49 },
-        "Octillery": { "SlotMin": 50, "SlotMax": 74 },
-        "Wishiwashi": { "SlotMin": 75, "SlotMax": 94 },
-        "Gyarados": { "SlotMin": 95, "SlotMax": 99 }
+        "0": {
+          "Species": "Magikarp",
+          "SlotMin": 0,
+          "SlotMax": 49
+        },
+        "1": {
+          "Species": "Octillery",
+          "SlotMin": 50,
+          "SlotMax": 74
+        },
+        "2": {
+          "Species": "Wishiwashi",
+          "SlotMin": 75,
+          "SlotMax": 94
+        },
+        "3": {
+          "Species": "Gyarados",
+          "SlotMin": 95,
+          "SlotMax": 99
+        }
       }
     }
   },
@@ -51,10 +111,26 @@
       "MinLevel": 11,
       "MaxLevel": 13,
       "Encounters": {
-        "Magikarp": { "SlotMin": 0, "SlotMax": 49 },
-        "Remoraid": { "SlotMin": 50, "SlotMax": 89 },
-        "Barboach": { "SlotMin": 90, "SlotMax": 98 },
-        "Pyukumuku": { "SlotMin": 99, "SlotMax": 99 }
+        "0": {
+          "Species": "Magikarp",
+          "SlotMin": 0,
+          "SlotMax": 49
+        },
+        "1": {
+          "Species": "Remoraid",
+          "SlotMin": 50,
+          "SlotMax": 89
+        },
+        "2": {
+          "Species": "Barboach",
+          "SlotMin": 90,
+          "SlotMax": 98
+        },
+        "3": {
+          "Species": "Pyukumuku",
+          "SlotMin": 99,
+          "SlotMax": 99
+        }
       }
     }
   },
@@ -63,10 +139,26 @@
       "MinLevel": 30,
       "MaxLevel": 35,
       "Encounters": {
-        "Shellder": { "SlotMin": 0, "SlotMax": 59 },
-        "Pyukumuku": { "SlotMin": 60, "SlotMax": 84 },
-        "Gyarados": { "SlotMin": 85, "SlotMax": 94 },
-        "Cloyster": { "SlotMin": 95, "SlotMax": 99 }
+        "0": {
+          "Species": "Shellder",
+          "SlotMin": 0,
+          "SlotMax": 59
+        },
+        "1": {
+          "Species": "Pyukumuku",
+          "SlotMin": 60,
+          "SlotMax": 84
+        },
+        "2": {
+          "Species": "Gyarados",
+          "SlotMin": 85,
+          "SlotMax": 94
+        },
+        "3": {
+          "Species": "Cloyster",
+          "SlotMin": 95,
+          "SlotMax": 99
+        }
       }
     }
   },
@@ -75,9 +167,21 @@
       "MinLevel": 14,
       "MaxLevel": 16,
       "Encounters": {
-        "Magikarp": { "SlotMin": 0, "SlotMax": 57 },
-        "Barboach": { "SlotMin": 58, "SlotMax": 97 },
-        "Basculin": { "SlotMin": 98, "SlotMax": 99 }
+        "0": {
+          "Species": "Magikarp",
+          "SlotMin": 0,
+          "SlotMax": 57
+        },
+        "1": {
+          "Species": "Barboach",
+          "SlotMin": 58,
+          "SlotMax": 97
+        },
+        "2": {
+          "Species": "Basculin",
+          "SlotMin": 98,
+          "SlotMax": 99
+        }
       }
     }
   },
@@ -86,10 +190,26 @@
       "MinLevel": 26,
       "MaxLevel": 28,
       "Encounters": {
-        "Arrokuda": { "SlotMin": 0, "SlotMax": 49 },
-        "Basculin": { "SlotMin": 50, "SlotMax": 84 },
-        "Barraskewda": { "SlotMin": 85, "SlotMax": 94 },
-        "Mareanie": { "SlotMin": 95, "SlotMax": 99 }
+        "0": {
+          "Species": "Arrokuda",
+          "SlotMin": 0,
+          "SlotMax": 49
+        },
+        "1": {
+          "Species": "Basculin",
+          "SlotMin": 50,
+          "SlotMax": 84
+        },
+        "2": {
+          "Species": "Barraskewda",
+          "SlotMin": 85,
+          "SlotMax": 94
+        },
+        "3": {
+          "Species": "Mareanie",
+          "SlotMin": 95,
+          "SlotMax": 99
+        }
       }
     }
   },
@@ -98,11 +218,31 @@
       "MinLevel": 26,
       "MaxLevel": 28,
       "Encounters": {
-        "Drednaw": { "SlotMin": 0, "SlotMax": 29 },
-        "Magikarp": { "SlotMin": 30, "SlotMax": 59 },
-        "Lanturn": { "SlotMin": 60, "SlotMax": 84 },
-        "Qwilfish": { "SlotMin": 85, "SlotMax": 94 },
-        "Gyarados": { "SlotMin": 95, "SlotMax": 99 }
+        "0": {
+          "Species": "Drednaw",
+          "SlotMin": 0,
+          "SlotMax": 29
+        },
+        "1": {
+          "Species": "Magikarp",
+          "SlotMin": 30,
+          "SlotMax": 59
+        },
+        "2": {
+          "Species": "Lanturn",
+          "SlotMin": 60,
+          "SlotMax": 84
+        },
+        "3": {
+          "Species": "Qwilfish",
+          "SlotMin": 85,
+          "SlotMax": 94
+        },
+        "4": {
+          "Species": "Gyarados",
+          "SlotMin": 95,
+          "SlotMax": 99
+        }
       }
     }
   },
@@ -111,9 +251,21 @@
       "MinLevel": 13,
       "MaxLevel": 15,
       "Encounters": {
-        "Magikarp": { "SlotMin": 0, "SlotMax": 69 },
-        "Chewtle": { "SlotMin": 70, "SlotMax": 89 },
-        "Goldeen": { "SlotMin": 90, "SlotMax": 99 }
+        "0": {
+          "Species": "Magikarp",
+          "SlotMin": 0,
+          "SlotMax": 69
+        },
+        "1": {
+          "Species": "Chewtle",
+          "SlotMin": 70,
+          "SlotMax": 89
+        },
+        "2": {
+          "Species": "Goldeen",
+          "SlotMin": 90,
+          "SlotMax": 99
+        }
       }
     }
   },
@@ -122,9 +274,21 @@
       "MinLevel": 7,
       "MaxLevel": 11,
       "Encounters": {
-        "Magikarp": { "SlotMin": 0, "SlotMax": 49 },
-        "Chewtle": { "SlotMin": 50, "SlotMax": 89 },
-        "Barboach": { "SlotMin": 90, "SlotMax": 99 }
+        "0": {
+          "Species": "Magikarp",
+          "SlotMin": 0,
+          "SlotMax": 49
+        },
+        "1": {
+          "Species": "Chewtle",
+          "SlotMin": 50,
+          "SlotMax": 89
+        },
+        "2": {
+          "Species": "Barboach",
+          "SlotMin": 90,
+          "SlotMax": 99
+        }
       }
     }
   },
@@ -133,9 +297,21 @@
       "MinLevel": 16,
       "MaxLevel": 18,
       "Encounters": {
-        "Magikarp": { "SlotMin": 0, "SlotMax": 69 },
-        "Chewtle": { "SlotMin": 70, "SlotMax": 89 },
-        "Goldeen": { "SlotMin": 90, "SlotMax": 99 }
+        "0": {
+          "Species": "Magikarp",
+          "SlotMin": 0,
+          "SlotMax": 69
+        },
+        "1": {
+          "Species": "Chewtle",
+          "SlotMin": 70,
+          "SlotMax": 89
+        },
+        "2": {
+          "Species": "Goldeen",
+          "SlotMin": 90,
+          "SlotMax": 99
+        }
       }
     }
   },
@@ -144,11 +320,31 @@
       "MinLevel": 20,
       "MaxLevel": 24,
       "Encounters": {
-        "Arrokuda": { "SlotMin": 0, "SlotMax": 49 },
-        "Chinchou": { "SlotMin": 50, "SlotMax": 69 },
-        "Chewtle": { "SlotMin": 70, "SlotMax": 84 },
-        "Basculin": { "SlotMin": 85, "SlotMax": 94 },
-        "Wishiwashi": { "SlotMin": 95, "SlotMax": 99 }
+        "0": {
+          "Species": "Arrokuda",
+          "SlotMin": 0,
+          "SlotMax": 49
+        },
+        "1": {
+          "Species": "Chinchou",
+          "SlotMin": 50,
+          "SlotMax": 69
+        },
+        "2": {
+          "Species": "Chewtle",
+          "SlotMin": 70,
+          "SlotMax": 84
+        },
+        "3": {
+          "Species": "Basculin",
+          "SlotMin": 85,
+          "SlotMax": 94
+        },
+        "4": {
+          "Species": "Wishiwashi",
+          "SlotMin": 95,
+          "SlotMax": 99
+        }
       }
     }
   },
@@ -157,9 +353,21 @@
       "MinLevel": 20,
       "MaxLevel": 24,
       "Encounters": {
-        "Barboach": { "SlotMin": 0, "SlotMax": 54 },
-        "Chewtle": { "SlotMin": 55, "SlotMax": 84 },
-        "Corphish": { "SlotMin": 85, "SlotMax": 99 }
+        "0": {
+          "Species": "Barboach",
+          "SlotMin": 0,
+          "SlotMax": 54
+        },
+        "1": {
+          "Species": "Chewtle",
+          "SlotMin": 55,
+          "SlotMax": 84
+        },
+        "2": {
+          "Species": "Corphish",
+          "SlotMin": 85,
+          "SlotMax": 99
+        }
       }
     }
   },
@@ -168,9 +376,21 @@
       "MinLevel": 28,
       "MaxLevel": 30,
       "Encounters": {
-        "Magikarp": { "SlotMin": 0, "SlotMax": 69 },
-        "Drednaw": { "SlotMin": 70, "SlotMax": 89 },
-        "Goldeen": { "SlotMin": 90, "SlotMax": 99 }
+        "0": {
+          "Species": "Magikarp",
+          "SlotMin": 0,
+          "SlotMax": 69
+        },
+        "1": {
+          "Species": "Drednaw",
+          "SlotMin": 70,
+          "SlotMax": 89
+        },
+        "2": {
+          "Species": "Goldeen",
+          "SlotMin": 90,
+          "SlotMax": 99
+        }
       }
     }
   },
@@ -179,9 +399,21 @@
       "MinLevel": 38,
       "MaxLevel": 42,
       "Encounters": {
-        "Octillery": { "SlotMin": 0, "SlotMax": 59 },
-        "Wishiwashi": { "SlotMin": 60, "SlotMax": 89 },
-        "Pyukumuku": { "SlotMin": 90, "SlotMax": 99 }
+        "0": {
+          "Species": "Octillery",
+          "SlotMin": 0,
+          "SlotMax": 59
+        },
+        "1": {
+          "Species": "Wishiwashi",
+          "SlotMin": 60,
+          "SlotMax": 89
+        },
+        "2": {
+          "Species": "Pyukumuku",
+          "SlotMin": 90,
+          "SlotMax": 99
+        }
       }
     }
   },
@@ -190,11 +422,31 @@
       "MinLevel": 39,
       "MaxLevel": 43,
       "Encounters": {
-        "Mantyke": { "SlotMin": 0, "SlotMax": 49 },
-        "Wailmer": { "SlotMin": 50, "SlotMax": 83 },
-        "Mantine": { "SlotMin": 84, "SlotMax": 93 },
-        "Wailord": { "SlotMin": 94, "SlotMax": 98 },
-        "Lapras": { "SlotMin": 99, "SlotMax": 99 }
+        "0": {
+          "Species": "Mantyke",
+          "SlotMin": 0,
+          "SlotMax": 49
+        },
+        "1": {
+          "Species": "Wailmer",
+          "SlotMin": 50,
+          "SlotMax": 83
+        },
+        "2": {
+          "Species": "Mantine",
+          "SlotMin": 84,
+          "SlotMax": 93
+        },
+        "3": {
+          "Species": "Wailord",
+          "SlotMin": 94,
+          "SlotMax": 98
+        },
+        "4": {
+          "Species": "Lapras",
+          "SlotMin": 99,
+          "SlotMax": 99
+        }
       }
     }
   },
@@ -203,10 +455,26 @@
       "MinLevel": 40,
       "MaxLevel": 45,
       "Encounters": {
-        "Barraskewda": { "SlotMin": 0, "SlotMax": 49 },
-        "Lanturn": { "SlotMin": 50, "SlotMax": 84 },
-        "Qwilfish": { "SlotMin": 85, "SlotMax": 94 },
-        "Gyarados": { "SlotMin": 95, "SlotMax": 99 }
+        "0": {
+          "Species": "Barraskewda",
+          "SlotMin": 0,
+          "SlotMax": 49
+        },
+        "1": {
+          "Species": "Lanturn",
+          "SlotMin": 50,
+          "SlotMax": 84
+        },
+        "2": {
+          "Species": "Qwilfish",
+          "SlotMin": 85,
+          "SlotMax": 94
+        },
+        "3": {
+          "Species": "Gyarados",
+          "SlotMin": 95,
+          "SlotMax": 99
+        }
       }
     }
   },
@@ -215,10 +483,26 @@
       "MinLevel": 26,
       "MaxLevel": 28,
       "Encounters": {
-        "Drednaw": { "SlotMin": 0, "SlotMax": 49 },
-        "Mareanie": { "SlotMin": 50, "SlotMax": 84 },
-        "Chinchou": { "SlotMin": 85, "SlotMax": 94 },
-        "Gyarados": { "SlotMin": 95, "SlotMax": 99 }
+        "0": {
+          "Species": "Drednaw",
+          "SlotMin": 0,
+          "SlotMax": 49
+        },
+        "1": {
+          "Species": "Mareanie",
+          "SlotMin": 50,
+          "SlotMax": 84
+        },
+        "2": {
+          "Species": "Chinchou",
+          "SlotMin": 85,
+          "SlotMax": 94
+        },
+        "3": {
+          "Species": "Gyarados",
+          "SlotMin": 95,
+          "SlotMax": 99
+        }
       }
     }
   },
@@ -227,10 +511,26 @@
       "MinLevel": 26,
       "MaxLevel": 28,
       "Encounters": {
-        "Goldeen": { "SlotMin": 0, "SlotMax": 49 },
-        "Krabby": { "SlotMin": 50, "SlotMax": 84 },
-        "Corphish": { "SlotMin": 85, "SlotMax": 94 },
-        "Gyarados": { "SlotMin": 95, "SlotMax": 99 }
+        "0": {
+          "Species": "Goldeen",
+          "SlotMin": 0,
+          "SlotMax": 49
+        },
+        "1": {
+          "Species": "Krabby",
+          "SlotMin": 50,
+          "SlotMax": 84
+        },
+        "2": {
+          "Species": "Corphish",
+          "SlotMin": 85,
+          "SlotMax": 94
+        },
+        "3": {
+          "Species": "Gyarados",
+          "SlotMin": 95,
+          "SlotMax": 99
+        }
       }
     }
   },
@@ -239,10 +539,26 @@
       "MinLevel": 50,
       "MaxLevel": 52,
       "Encounters": {
-        "Barraskewda": { "SlotMin": 0, "SlotMax": 49 },
-        "Lanturn": { "SlotMin": 50, "SlotMax": 84 },
-        "Qwilfish": { "SlotMin": 85, "SlotMax": 94 },
-        "Gyarados": { "SlotMin": 95, "SlotMax": 99 }
+        "0": {
+          "Species": "Barraskewda",
+          "SlotMin": 0,
+          "SlotMax": 49
+        },
+        "1": {
+          "Species": "Lanturn",
+          "SlotMin": 50,
+          "SlotMax": 84
+        },
+        "2": {
+          "Species": "Qwilfish",
+          "SlotMin": 85,
+          "SlotMax": 94
+        },
+        "3": {
+          "Species": "Gyarados",
+          "SlotMin": 95,
+          "SlotMax": 99
+        }
       }
     }
   },
@@ -251,9 +567,26 @@
       "MinLevel": 37,
       "MaxLevel": 40,
       "Encounters": {
-        "Magikarp": { "SlotMin": 0, "SlotMax": 49 },
-        "Chewtle": { "SlotMin": 50, "SlotMax": 89 },
-        "Feebas": { "SlotMin": 99, "SlotMax": 99 }
+        "0": {
+          "Species": "Magikarp",
+          "SlotMin": 0,
+          "SlotMax": 49
+        },
+        "1": {
+          "Species": "Chewtle",
+          "SlotMin": 50,
+          "SlotMax": 89
+        },
+        "2": {
+          "Species": "Magikarp",
+          "SlotMin": 90,
+          "SlotMax": 98
+        },
+        "3": {
+          "Species": "Feebas",
+          "SlotMin": 99,
+          "SlotMax": 99
+        }
       }
     }
   },
@@ -262,9 +595,21 @@
       "MinLevel": 45,
       "MaxLevel": 47,
       "Encounters": {
-        "Whiscash": { "SlotMin": 0, "SlotMax": 59 },
-        "Barboach": { "SlotMin": 60, "SlotMax": 79 },
-        "Magikarp": { "SlotMin": 80, "SlotMax": 99 }
+        "0": {
+          "Species": "Whiscash",
+          "SlotMin": 0,
+          "SlotMax": 59
+        },
+        "1": {
+          "Species": "Barboach",
+          "SlotMin": 60,
+          "SlotMax": 79
+        },
+        "2": {
+          "Species": "Magikarp",
+          "SlotMin": 80,
+          "SlotMax": 99
+        }
       }
     }
   },
@@ -273,9 +618,21 @@
       "MinLevel": 13,
       "MaxLevel": 18,
       "Encounters": {
-        "Magikarp": { "SlotMin": 0, "SlotMax": 49 },
-        "Remoraid": { "SlotMin": 50, "SlotMax": 89 },
-        "Octillery": { "SlotMin": 90, "SlotMax": 99 }
+        "0": {
+          "Species": "Magikarp",
+          "SlotMin": 0,
+          "SlotMax": 49
+        },
+        "1": {
+          "Species": "Remoraid",
+          "SlotMin": 50,
+          "SlotMax": 89
+        },
+        "2": {
+          "Species": "Octillery",
+          "SlotMin": 90,
+          "SlotMax": 99
+        }
       }
     }
   },
@@ -284,9 +641,21 @@
       "MinLevel": 13,
       "MaxLevel": 18,
       "Encounters": {
-        "Magikarp": { "SlotMin": 0, "SlotMax": 49 },
-        "Barboach": { "SlotMin": 50, "SlotMax": 89 },
-        "Whiscash": { "SlotMin": 90, "SlotMax": 99 }
+        "0": {
+          "Species": "Magikarp",
+          "SlotMin": 0,
+          "SlotMax": 49
+        },
+        "1": {
+          "Species": "Barboach",
+          "SlotMin": 50,
+          "SlotMax": 89
+        },
+        "2": {
+          "Species": "Whiscash",
+          "SlotMin": 90,
+          "SlotMax": 99
+        }
       }
     }
   },
@@ -295,9 +664,21 @@
       "MinLevel": 13,
       "MaxLevel": 18,
       "Encounters": {
-        "Magikarp": { "SlotMin": 0, "SlotMax": 39 },
-        "Goldeen": { "SlotMin": 40, "SlotMax": 79 },
-        "Arrokuda": { "SlotMin": 80, "SlotMax": 99 }
+        "0": {
+          "Species": "Magikarp",
+          "SlotMin": 0,
+          "SlotMax": 39
+        },
+        "1": {
+          "Species": "Goldeen",
+          "SlotMin": 40,
+          "SlotMax": 79
+        },
+        "2": {
+          "Species": "Arrokuda",
+          "SlotMin": 80,
+          "SlotMax": 99
+        }
       }
     }
   },
@@ -306,9 +687,21 @@
       "MinLevel": 13,
       "MaxLevel": 18,
       "Encounters": {
-        "Magikarp": { "SlotMin": 0, "SlotMax": 49 },
-        "Wishiwashi": { "SlotMin": 50, "SlotMax": 89 },
-        "Dhelmise": { "SlotMin": 90, "SlotMax": 99 }
+        "0": {
+          "Species": "Magikarp",
+          "SlotMin": 0,
+          "SlotMax": 49
+        },
+        "1": {
+          "Species": "Wishiwashi",
+          "SlotMin": 50,
+          "SlotMax": 89
+        },
+        "2": {
+          "Species": "Dhelmise",
+          "SlotMin": 90,
+          "SlotMax": 99
+        }
       }
     }
   },
@@ -317,9 +710,21 @@
       "MinLevel": 16,
       "MaxLevel": 21,
       "Encounters": {
-        "Magikarp": { "SlotMin": 0, "SlotMax": 49 },
-        "Shellder": { "SlotMin": 50, "SlotMax": 89 },
-        "Cloyster": { "SlotMin": 90, "SlotMax": 99 }
+        "0": {
+          "Species": "Magikarp",
+          "SlotMin": 0,
+          "SlotMax": 49
+        },
+        "1": {
+          "Species": "Shellder",
+          "SlotMin": 50,
+          "SlotMax": 89
+        },
+        "2": {
+          "Species": "Cloyster",
+          "SlotMin": 90,
+          "SlotMax": 99
+        }
       }
     }
   },
@@ -328,9 +733,21 @@
       "MinLevel": 19,
       "MaxLevel": 24,
       "Encounters": {
-        "Magikarp": { "SlotMin": 0, "SlotMax": 49 },
-        "Shellder": { "SlotMin": 50, "SlotMax": 89 },
-        "Cloyster": { "SlotMin": 90, "SlotMax": 99 }
+        "0": {
+          "Species": "Magikarp",
+          "SlotMin": 0,
+          "SlotMax": 49
+        },
+        "1": {
+          "Species": "Shellder",
+          "SlotMin": 50,
+          "SlotMax": 89
+        },
+        "2": {
+          "Species": "Cloyster",
+          "SlotMin": 90,
+          "SlotMax": 99
+        }
       }
     }
   },
@@ -339,9 +756,21 @@
       "MinLevel": 16,
       "MaxLevel": 21,
       "Encounters": {
-        "Magikarp": { "SlotMin": 0, "SlotMax": 49 },
-        "Carvanha": { "SlotMin": 50, "SlotMax": 89 },
-        "Sharpedo": { "SlotMin": 90, "SlotMax": 99 }
+        "0": {
+          "Species": "Magikarp",
+          "SlotMin": 0,
+          "SlotMax": 49
+        },
+        "1": {
+          "Species": "Carvanha",
+          "SlotMin": 50,
+          "SlotMax": 89
+        },
+        "2": {
+          "Species": "Sharpedo",
+          "SlotMin": 90,
+          "SlotMax": 99
+        }
       }
     }
   },
@@ -350,9 +779,21 @@
       "MinLevel": 43,
       "MaxLevel": 48,
       "Encounters": {
-        "Magikarp": { "SlotMin": 0, "SlotMax": 49 },
-        "Remoraid": { "SlotMin": 50, "SlotMax": 89 },
-        "Octillery": { "SlotMin": 90, "SlotMax": 99 }
+        "0": {
+          "Species": "Magikarp",
+          "SlotMin": 0,
+          "SlotMax": 49
+        },
+        "1": {
+          "Species": "Remoraid",
+          "SlotMin": 50,
+          "SlotMax": 89
+        },
+        "2": {
+          "Species": "Octillery",
+          "SlotMin": 90,
+          "SlotMax": 99
+        }
       }
     }
   },
@@ -361,8 +802,16 @@
       "MinLevel": 43,
       "MaxLevel": 48,
       "Encounters": {
-        "Magikarp": { "SlotMin": 0, "SlotMax": 59 },
-        "Wishiwashi": { "SlotMin": 60, "SlotMax": 99 }
+        "0": {
+          "Species": "Magikarp",
+          "SlotMin": 0,
+          "SlotMax": 59
+        },
+        "1": {
+          "Species": "Wishiwashi",
+          "SlotMin": 60,
+          "SlotMax": 99
+        }
       }
     }
   },
@@ -371,8 +820,16 @@
       "MinLevel": 43,
       "MaxLevel": 48,
       "Encounters": {
-        "Magikarp": { "SlotMin": 0, "SlotMax": 59 },
-        "Wishiwashi": { "SlotMin": 60, "SlotMax": 99 }
+        "0": {
+          "Species": "Magikarp",
+          "SlotMin": 0,
+          "SlotMax": 59
+        },
+        "1": {
+          "Species": "Wishiwashi",
+          "SlotMin": 60,
+          "SlotMax": 99
+        }
       }
     }
   },
@@ -381,8 +838,16 @@
       "MinLevel": 43,
       "MaxLevel": 48,
       "Encounters": {
-        "Magikarp": { "SlotMin": 0, "SlotMax": 59 },
-        "Wishiwashi": { "SlotMin": 60, "SlotMax": 99 }
+        "0": {
+          "Species": "Magikarp",
+          "SlotMin": 0,
+          "SlotMax": 59
+        },
+        "1": {
+          "Species": "Wishiwashi",
+          "SlotMin": 60,
+          "SlotMax": 99
+        }
       }
     }
   },
@@ -391,8 +856,16 @@
       "MinLevel": 43,
       "MaxLevel": 48,
       "Encounters": {
-        "Magikarp": { "SlotMin": 0, "SlotMax": 59 },
-        "Wishiwashi": { "SlotMin": 60, "SlotMax": 99 }
+        "0": {
+          "Species": "Magikarp",
+          "SlotMin": 0,
+          "SlotMax": 59
+        },
+        "1": {
+          "Species": "Wishiwashi",
+          "SlotMin": 60,
+          "SlotMax": 99
+        }
       }
     }
   },
@@ -401,12 +874,36 @@
       "MinLevel": 60,
       "MaxLevel": 65,
       "Encounters": {
-        "Magikarp": { "SlotMin": 0, "SlotMax": 19 },
-        "Barboach": { "SlotMin": 20, "SlotMax": 39 },
-        "Basculin": { "SlotMin": 40, "SlotMax": 59 },
-        "Gyarados": { "SlotMin": 60, "SlotMax": 74 },
-        "Whiscash": { "SlotMin": 75, "SlotMax": 89 },
-        "Lileep": { "SlotMin": 90, "SlotMax": 99 }
+        "0": {
+          "Species": "Magikarp",
+          "SlotMin": 0,
+          "SlotMax": 19
+        },
+        "1": {
+          "Species": "Barboach",
+          "SlotMin": 20,
+          "SlotMax": 39
+        },
+        "2": {
+          "Species": "Basculin",
+          "SlotMin": 40,
+          "SlotMax": 59
+        },
+        "3": {
+          "Species": "Gyarados",
+          "SlotMin": 60,
+          "SlotMax": 74
+        },
+        "4": {
+          "Species": "Whiscash",
+          "SlotMin": 75,
+          "SlotMax": 89
+        },
+        "5": {
+          "Species": "Lileep",
+          "SlotMin": 90,
+          "SlotMax": 99
+        }
       }
     }
   },
@@ -415,9 +912,21 @@
       "MinLevel": 60,
       "MaxLevel": 65,
       "Encounters": {
-        "Magikarp": { "SlotMin": 0, "SlotMax": 44 },
-        "Basculin": { "SlotMin": 45, "SlotMax": 84 },
-        "Gyarados": { "SlotMin": 85, "SlotMax": 99 }
+        "0": {
+          "Species": "Magikarp",
+          "SlotMin": 0,
+          "SlotMax": 44
+        },
+        "1": {
+          "Species": "Basculin",
+          "SlotMin": 45,
+          "SlotMax": 84
+        },
+        "2": {
+          "Species": "Gyarados",
+          "SlotMin": 85,
+          "SlotMax": 99
+        }
       }
     }
   },
@@ -426,12 +935,36 @@
       "MinLevel": 60,
       "MaxLevel": 65,
       "Encounters": {
-        "Magikarp": { "SlotMin": 0, "SlotMax": 19 },
-        "Barboach": { "SlotMin": 20, "SlotMax": 39 },
-        "Basculin": { "SlotMin": 40, "SlotMax": 59 },
-        "Whiscash": { "SlotMin": 60, "SlotMax": 74 },
-        "Gyarados": { "SlotMin": 75, "SlotMax": 89 },
-        "Lileep": { "SlotMin": 90, "SlotMax": 99 }
+        "0": {
+          "Species": "Magikarp",
+          "SlotMin": 0,
+          "SlotMax": 19
+        },
+        "1": {
+          "Species": "Barboach",
+          "SlotMin": 20,
+          "SlotMax": 39
+        },
+        "2": {
+          "Species": "Basculin",
+          "SlotMin": 40,
+          "SlotMax": 59
+        },
+        "3": {
+          "Species": "Whiscash",
+          "SlotMin": 60,
+          "SlotMax": 74
+        },
+        "4": {
+          "Species": "Gyarados",
+          "SlotMin": 75,
+          "SlotMax": 89
+        },
+        "5": {
+          "Species": "Lileep",
+          "SlotMin": 90,
+          "SlotMax": 99
+        }
       }
     }
   },
@@ -440,11 +973,31 @@
       "MinLevel": 60,
       "MaxLevel": 65,
       "Encounters": {
-        "Magikarp": { "SlotMin": 0, "SlotMax": 29 },
-        "Basculin": { "SlotMin": 30, "SlotMax": 59 },
-        "Wailmer": { "SlotMin": 60, "SlotMax": 79 },
-        "Gyarados": { "SlotMin": 80, "SlotMax": 94 },
-        "Dhelmise": { "SlotMin": 95, "SlotMax": 99 }
+        "0": {
+          "Species": "Magikarp",
+          "SlotMin": 0,
+          "SlotMax": 29
+        },
+        "1": {
+          "Species": "Basculin",
+          "SlotMin": 30,
+          "SlotMax": 59
+        },
+        "2": {
+          "Species": "Wailmer",
+          "SlotMin": 60,
+          "SlotMax": 79
+        },
+        "3": {
+          "Species": "Gyarados",
+          "SlotMin": 80,
+          "SlotMax": 94
+        },
+        "4": {
+          "Species": "Dhelmise",
+          "SlotMin": 95,
+          "SlotMax": 99
+        }
       }
     }
   },
@@ -453,13 +1006,41 @@
       "MinLevel": 60,
       "MaxLevel": 65,
       "Encounters": {
-        "Magikarp": { "SlotMin": 0, "SlotMax": 19 },
-        "Basculin": { "SlotMin": 20, "SlotMax": 39 },
-        "Barboach": { "SlotMin": 40, "SlotMax": 59 },
-        "Gyarados": { "SlotMin": 60, "SlotMax": 74 },
-        "Whiscash": { "SlotMin": 75, "SlotMax": 89 },
-        "Feebas": { "SlotMin": 90, "SlotMax": 94 },
-        "Dratini": { "SlotMin": 95, "SlotMax": 99 }
+        "0": {
+          "Species": "Magikarp",
+          "SlotMin": 0,
+          "SlotMax": 19
+        },
+        "1": {
+          "Species": "Basculin",
+          "SlotMin": 20,
+          "SlotMax": 39
+        },
+        "2": {
+          "Species": "Barboach",
+          "SlotMin": 40,
+          "SlotMax": 59
+        },
+        "3": {
+          "Species": "Gyarados",
+          "SlotMin": 60,
+          "SlotMax": 74
+        },
+        "4": {
+          "Species": "Whiscash",
+          "SlotMin": 75,
+          "SlotMax": 89
+        },
+        "5": {
+          "Species": "Feebas",
+          "SlotMin": 90,
+          "SlotMax": 94
+        },
+        "6": {
+          "Species": "Dratini",
+          "SlotMin": 95,
+          "SlotMax": 99
+        }
       }
     }
   }
