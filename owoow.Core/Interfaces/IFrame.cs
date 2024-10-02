@@ -1,0 +1,66 @@
+﻿namespace owoow.Core.Interfaces
+{
+    internal interface IFrame
+    {
+        ulong Advances { get; }
+        string Jump { get; }
+        char Animation { get; }
+        string Species { get; }
+        string Shiny { get; }
+        string Brilliant { get; }
+        
+        byte Level { get; }
+        string Ability { get; }
+        string Nature { get; }
+        char Gender { get; }
+
+        byte H { get; }
+        byte A { get; }
+        byte B { get; }
+        byte C { get; }
+        byte D { get; }
+        byte S { get; }
+
+        string Mark { get; }
+        string PID { get; }
+        string EC { get; }
+
+        string Item { get; }
+        string EggMove { get; }
+
+        string Seed0 { get; }
+        string Seed1 { get; }
+    }
+
+    public class Frame : IFrame
+    {
+        public ulong Advances { get; set; } = 0;
+        public string Jump { get; set; } = string.Empty;
+        public char Animation { get; set; } = ' ';
+        public string Species { get; set; } = string.Empty;
+        public string Shiny { get; set; } = string.Empty;
+        public string Brilliant { get; set; } = string.Empty;
+
+        public byte Level { get; set; } = 0;
+        public string Ability { get; set; } = string.Empty;
+        public string Nature { get; set; } = string.Empty;
+        public char Gender { get; set; } = ' ';
+
+        public byte H { get; set; } = 0;
+        public byte A { get; set; } = 0;
+        public byte B { get; set; } = 0;
+        public byte C { get; set; } = 0;
+        public byte D { get; set; } = 0;
+        public byte S { get; set; } = 0;
+
+        public string Mark { get; set; } = string.Empty;
+        public string EC { get; set; } = string.Empty;
+        public string PID { get; set; } = string.Empty;
+
+        public string Item { get; set; } = string.Empty;
+        public string EggMove { get; set; } = string.Empty;
+
+        public string Seed0 { get; set; } = string.Empty;
+        public string Seed1 { get; set; } = string.Empty;
+    }
+}

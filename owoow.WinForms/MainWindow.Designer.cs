@@ -69,6 +69,9 @@
             TC_EncounterType = new TabControl();
             TP_Static = new TabPage();
             TP_Symbol = new TabPage();
+            label3 = new Label();
+            B_Symbol_Search = new Button();
+            label4 = new Label();
             GB_Static_EncounterSettings = new GroupBox();
             L_Symbol_Target = new Label();
             L_Symbol_Weather = new Label();
@@ -76,7 +79,9 @@
             CB_Symbol_Species = new ComboBox();
             CB_Symbol_Weather = new ComboBox();
             CB_Symbol_Area = new ComboBox();
+            TB_Symbol_Advances = new TextBox();
             checkBox1 = new CheckBox();
+            TB_Symbol_Initial = new TextBox();
             CB_Symbol_DexRec4 = new CheckBox();
             CB_Symbol_DexRec3 = new CheckBox();
             CB_Symbol_DexRec2 = new CheckBox();
@@ -114,7 +119,6 @@
             TB_SID = new TextBox();
             CB_ShinyCharm = new CheckBox();
             TB_TID = new TextBox();
-            B_Symbol_Search = new Button();
             GB_SeedControlsContainer.SuspendLayout();
             GB_Filters.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)NUD_Spe_Max).BeginInit();
@@ -538,9 +542,13 @@
             // 
             // TP_Symbol
             // 
+            TP_Symbol.Controls.Add(label3);
             TP_Symbol.Controls.Add(B_Symbol_Search);
+            TP_Symbol.Controls.Add(label4);
             TP_Symbol.Controls.Add(GB_Static_EncounterSettings);
+            TP_Symbol.Controls.Add(TB_Symbol_Advances);
             TP_Symbol.Controls.Add(checkBox1);
+            TP_Symbol.Controls.Add(TB_Symbol_Initial);
             TP_Symbol.Controls.Add(CB_Symbol_DexRec4);
             TP_Symbol.Controls.Add(CB_Symbol_DexRec3);
             TP_Symbol.Controls.Add(CB_Symbol_DexRec2);
@@ -555,6 +563,34 @@
             TP_Symbol.TabIndex = 1;
             TP_Symbol.Text = "Symbol";
             TP_Symbol.UseVisualStyleBackColor = true;
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Location = new Point(61, 231);
+            label3.Name = "label3";
+            label3.Size = new Size(15, 15);
+            label3.TabIndex = 11;
+            label3.Text = "+";
+            // 
+            // B_Symbol_Search
+            // 
+            B_Symbol_Search.Location = new Point(3, 255);
+            B_Symbol_Search.Name = "B_Symbol_Search";
+            B_Symbol_Search.Size = new Size(255, 25);
+            B_Symbol_Search.TabIndex = 20;
+            B_Symbol_Search.Text = "Search!";
+            B_Symbol_Search.UseVisualStyleBackColor = true;
+            B_Symbol_Search.Click += B_Symbol_Search_Click;
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Location = new Point(13, 208);
+            label4.Name = "label4";
+            label4.Size = new Size(63, 15);
+            label4.TabIndex = 10;
+            label4.Text = "Initial Adv.";
             // 
             // GB_Static_EncounterSettings
             // 
@@ -627,6 +663,17 @@
             CB_Symbol_Area.Text = "None";
             CB_Symbol_Area.SelectedIndexChanged += CB_Area_SelectedIndexChanged;
             // 
+            // TB_Symbol_Advances
+            // 
+            TB_Symbol_Advances.CharacterCasing = CharacterCasing.Upper;
+            TB_Symbol_Advances.Font = new Font("Consolas", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            TB_Symbol_Advances.Location = new Point(82, 229);
+            TB_Symbol_Advances.MaxLength = 16;
+            TB_Symbol_Advances.Name = "TB_Symbol_Advances";
+            TB_Symbol_Advances.Size = new Size(173, 22);
+            TB_Symbol_Advances.TabIndex = 9;
+            TB_Symbol_Advances.Text = "5000";
+            // 
             // checkBox1
             // 
             checkBox1.AutoSize = true;
@@ -637,6 +684,17 @@
             checkBox1.TabIndex = 8;
             checkBox1.Text = "KO Respawn?";
             checkBox1.UseVisualStyleBackColor = true;
+            // 
+            // TB_Symbol_Initial
+            // 
+            TB_Symbol_Initial.CharacterCasing = CharacterCasing.Upper;
+            TB_Symbol_Initial.Font = new Font("Consolas", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            TB_Symbol_Initial.Location = new Point(82, 205);
+            TB_Symbol_Initial.MaxLength = 16;
+            TB_Symbol_Initial.Name = "TB_Symbol_Initial";
+            TB_Symbol_Initial.Size = new Size(173, 22);
+            TB_Symbol_Initial.TabIndex = 8;
+            TB_Symbol_Initial.Text = "0";
             // 
             // CB_Symbol_DexRec4
             // 
@@ -1046,16 +1104,6 @@
             TB_TID.TabIndex = 8;
             TB_TID.Text = "12345";
             // 
-            // B_Symbol_Search
-            // 
-            B_Symbol_Search.Location = new Point(3, 255);
-            B_Symbol_Search.Name = "B_Symbol_Search";
-            B_Symbol_Search.Size = new Size(255, 25);
-            B_Symbol_Search.TabIndex = 20;
-            B_Symbol_Search.Text = "Search!";
-            B_Symbol_Search.UseVisualStyleBackColor = true;
-            B_Symbol_Search.Click += B_Symbol_Search_Click;
-            // 
             // MainWindow
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -1183,5 +1231,9 @@
         private Label L_Game;
         private ComboBox CB_Game;
         private Button B_Symbol_Search;
+        private Label label3;
+        private Label label4;
+        private TextBox TB_Symbol_Advances;
+        private TextBox TB_Symbol_Initial;
     }
 }

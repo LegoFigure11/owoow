@@ -1,10 +1,12 @@
-﻿using PKHeX.Core;
+﻿using owoow.Core.Interfaces;
+using PKHeX.Core;
 
 namespace owoow.Core.RNG;
 
 public static class Util
 {
     private static readonly string[] PersonalityMarks = ["Rowdy", "Absent-Minded", "Jittery", "Excited", "Charismatic", "Calmness", "Intense", "Zoned-Out", "Joyful", "Angry", "Smiley", "Teary", "Upbeat", "Peeved", "Intellectual", "Ferocious", "Crafty", "Scowling", "Kindly", "Flustered", "Pumped-Up", "Zero Energy", "Prideful", "Unsure", "Humble", "Thorny", "Vigor", "Slump"];
+    private static readonly IReadOnlyList<string> Natures = GameInfo.GetStrings(1).Natures;
 
     public static uint GetAdvancesPassed(ulong s0, ulong s1, ulong _s0, ulong _s1)
     {
@@ -24,7 +26,7 @@ public static class Util
         return i;
     }
 
-    public static string GenerateMark(ref Xoroshiro128Plus rng, bool Weather, bool Fishing, int MarkRolls)
+    public static string GenerateMark(ref Xoroshiro128Plus rng, int MarkRolls, bool Weather = false, bool Fishing = false)
     {
         for (int i = 0; i < MarkRolls; i++)
         {
@@ -45,6 +47,57 @@ public static class Util
         return "None";
     }
 
+    public static bool GenerateIsShiny(ref Xoroshiro128Plus rng, int rolls, uint tsv)
+    {
+        bool shiny = false;
+        for (int i = 0; i < rolls; i++)
+        {
+            var pid = (uint)rng.Next();
+            shiny = GetShinyValue(GetShinyValue(pid), tsv) < 16;
+            if (shiny) break;
+        }
+        return shiny;
+    }
+
+    public static char GenerateGender(ref Xoroshiro128Plus rng, bool isCC)
+    {
+        if (isCC) return 'C';
+        // check personal here for gender data
+        return rng.NextInt(2) == 0 ? 'F' : 'M';
+    }
+
+    public static string GenerateNature(ref Xoroshiro128Plus rng, bool sync)
+    {
+        var nature = Natures[(int)rng.NextInt(25)];
+        if (sync) nature = "Sync";
+        return nature;
+    }
+
+    public static string GenerateAbility(ref Xoroshiro128Plus rng, IEncounterTableEntry enc, bool locked = false)
+    {
+        ulong roll = 2;
+        if (!locked) roll = rng.NextInt(2);
+        return $"{roll}";
+        //return Encounters.Personal[enc.Species].Abili
+    }
+
+    public static string GenerateItem(ref Xoroshiro128Plus rng, IEncounterTableEntry enc)
+    {
+        string item = "None";
+        if (enc.HasItems)
+        {
+            var roll = rng.NextInt(100);
+            item = roll switch
+            {
+                <= 49 => enc.Items![0],
+                <= 54 => enc.Items![1],
+                <= 55 => enc.Items![2],
+                _ => "None",
+            };
+        }
+        return item;
+    }
+
     public static string GetLeadAbilityType(string ability) => ability switch
     {
         "Magnet Pull" => "Steel",
@@ -54,4 +107,7 @@ public static class Util
         "Harvest" => "Grass",
         _ => string.Empty,
     };
+
+    public static uint GetShinyValue(uint x, uint y) => x ^ y;
+    public static uint GetShinyValue(uint x) => (x >> 16) ^ (x & 0xFFFF);
 }

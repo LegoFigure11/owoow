@@ -1,5 +1,7 @@
 using owoow.Core.Connection;
 using owoow.Core.EncounterTable;
+using owoow.Core.Interfaces;
+using PKHeX.Core;
 using SysBot.Base;
 using System.Globalization;
 using static owoow.Core.Encounters;
@@ -430,7 +432,69 @@ public partial class MainWindow : Form
 
     private void B_Symbol_Search_Click(object sender, EventArgs e)
     {
+        SetButtonState(false, sender);
+
         var table = new EncounterTable(CB_Game.Text, "Symbol", CB_Symbol_Area.Text, CB_Symbol_Weather.Text, CB_Symbol_LeadAbility.Text);
 
+        var initial = ulong.Parse(TB_Symbol_Initial.Text);
+        var advances = ulong.Parse(TB_Symbol_Advances.Text);
+
+        var numTasks = (byte)(advances < 1_000 ? 1 : advances < 50_000 ? 2 : 4);
+        var interval = advances / numTasks;
+
+        var s0 = ulong.Parse(TB_Seed0.Text, NumberStyles.AllowHexSpecifier);
+        var s1 = ulong.Parse(TB_Seed1.Text, NumberStyles.AllowHexSpecifier);
+
+        Core.RNG.GeneratorConfig config = new()
+        {
+            TargetSpecies = CB_Symbol_Species.Text,
+            LeadAbility = CB_Symbol_LeadAbility.Text,
+
+            ShinyRolls = CB_ShinyCharm.Checked ? 3 : 1,
+            MarkRolls = CB_MarkCharm.Checked ? 3 : 1,
+        };
+
+        var rng = new Xoroshiro128Plus(s0, s1);
+
+        List<Frame>[] results = [];
+
+        List<Task<List<Frame>>> tasks = [];
+        for (byte i = 0; i < numTasks; i++)
+        {
+            var last = i == numTasks - 1;
+
+            var (_s0, _s1) = rng.GetState();
+            var start = initial + (i * interval);
+            var end = initial + (interval * (i + (uint)1)) - 1;
+
+            if (last) end += advances % interval;
+
+            tasks.Add(Core.RNG.Generators.Symbol.Generate(_s0, _s1, table, start, end, config));
+
+            if (!last)
+            {
+                for (ulong j = 0; j < interval; j++)
+                {
+                    rng.Next();
+                }
+            }
+        }
+
+        Task.Run(async () =>
+        {
+            results = await Task.WhenAll(tasks);
+            List<Frame> AllResults = [];
+            foreach (var result in results)
+            {
+                AllResults.AddRange(result);
+            }
+            foreach (var result in AllResults)
+            {
+                System.Diagnostics.Debug.Print($"{result.Advances:D5} | {result.Species} | Level {result.Level}");
+            }
+            System.Diagnostics.Debug.Print($"{AllResults.Count} results");
+            _ = true;
+            SetButtonState(true, sender);
+        });
     }
 }
