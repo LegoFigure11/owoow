@@ -490,7 +490,7 @@ public partial class MainWindow : Form
             }
             foreach (var result in AllResults)
             {
-                System.Diagnostics.Debug.Print($"{result.Advances:D5} | {result.Species} | Level {result.Level}");
+                System.Diagnostics.Debug.Print($"{result.Advances:D5} | {result.Species} | Level {result.Level} | Gender: {result.Gender} | Nature: {result.Nature} | Ability: {result.Ability} | Item: {result.Item}");
             }
             System.Diagnostics.Debug.Print($"{AllResults.Count} results");
             _ = true;

@@ -59,12 +59,17 @@ public static class Util
         return shiny;
     }
 
-    public static char GenerateGender(ref Xoroshiro128Plus rng, bool isCC)
+    public static char GenerateGender(ref Xoroshiro128Plus rng, IEncounterTableEntry enc, bool isCC = false)
     {
-        if (isCC) return 'C';
-        // check personal here for gender data
-        // do the roll anyway regardless though
-        return rng.NextInt(2) == 0 ? 'F' : 'M';
+        var roll = ' ';
+        if (!isCC) roll = rng.NextInt(2) == 0 ? 'F' : 'M'; // 50/50 regardless of gender ratio
+        return enc.Gender switch
+        {
+            >= 255 => '-',
+            >= 254 => 'F',
+            >= 1   => isCC ? 'C' : roll, 
+            _      => 'M',
+        };
     }
 
     public static string GenerateNature(ref Xoroshiro128Plus rng, bool sync)
@@ -89,9 +94,9 @@ public static class Util
             var roll = rng.NextInt(100);
             item = roll switch
             {
-                <= 49 => $"{enc.Items![0]} (50%)",
-                <= 54 => $"{enc.Items![1]} (5%)",
-                <= 55 => $"{enc.Items![2]} (1%)",
+                <= 49 => enc.Items![0] != "None" ? $"{enc.Items![0]} (50%)" : "None",
+                <= 54 => enc.Items![1] != "None" ? $"{enc.Items![1]} (5%)" : "None",
+                <= 55 => enc.Items![2] != "None" ? $"{enc.Items![2]} (1%)" : "None",
                 _ => "None",
             };
         }

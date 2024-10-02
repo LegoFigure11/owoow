@@ -9,6 +9,7 @@ public interface IPersonal
     string[]? Types { get; }
     string[]? Abilities { get; }
     short DevId { get; }
+    short Gender { get; }
 }
 
 public class Personal : IPersonal
@@ -20,4 +21,5 @@ public class Personal : IPersonal
     public string[]? Types { get; set; }
     public string[]? Abilities { get; set; }
     public short DevId { get; set; }
+    public short Gender { get; set; }
 }

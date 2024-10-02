@@ -87,7 +87,7 @@ public class Symbol
                 IsShiny = Util.GenerateIsShiny(ref rng, config.ShinyRolls, config.TSV);
 
                 // GENDER
-                Gender = Util.GenerateGender(ref rng, CuteCharm);
+                Gender = Util.GenerateGender(ref rng, Encounter, CuteCharm);
 
                 // NATURE
                 Nature = Util.GenerateNature(ref rng, config.AbilityIsSync);
@@ -109,9 +109,13 @@ public class Symbol
 
                     Animation = (_s0 & 1 ^ _s1 & 1) == 1 ? 'P' : 'S',
 
-
                     Species = Encounter.Species!,
                     Level = (byte)Level,
+
+                    Gender = Gender,
+                    Nature = Nature,
+                    Ability = Ability,
+                    Item = Item,
 
                     Seed0 = $"{_s0:X16}",
                     Seed1 = $"{_s1:X16}",

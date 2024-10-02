@@ -14,6 +14,7 @@ public class EncounterTableEntry(IPersonal personal, IEncounterEntry entry, IEnc
     public bool HasItems { get; } = personal.HasItems;
     public string[] Items { get; } = personal.Items!;
     public short DevId { get; } = personal.DevId;
+    public short Gender { get; } = personal.Gender;
     public string[] Types { get; } = personal.Types!;
     public string[] Abilities { get; } = personal.Abilities!;
 
