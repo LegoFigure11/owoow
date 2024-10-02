@@ -63,6 +63,7 @@ public static class Util
     {
         if (isCC) return 'C';
         // check personal here for gender data
+        // do the roll anyway regardless though
         return rng.NextInt(2) == 0 ? 'F' : 'M';
     }
 
@@ -77,8 +78,7 @@ public static class Util
     {
         ulong roll = 2;
         if (!locked) roll = rng.NextInt(2);
-        return $"{roll}";
-        //return Encounters.Personal[enc.Species].Abili
+        return enc.Abilities![roll];
     }
 
     public static string GenerateItem(ref Xoroshiro128Plus rng, IEncounterTableEntry enc)
@@ -89,9 +89,9 @@ public static class Util
             var roll = rng.NextInt(100);
             item = roll switch
             {
-                <= 49 => enc.Items![0],
-                <= 54 => enc.Items![1],
-                <= 55 => enc.Items![2],
+                <= 49 => $"{enc.Items![0]} (50%)",
+                <= 54 => $"{enc.Items![1]} (5%)",
+                <= 55 => $"{enc.Items![2]} (1%)",
                 _ => "None",
             };
         }

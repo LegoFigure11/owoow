@@ -7,6 +7,7 @@ public interface IPersonal
     bool HasItems { get; }
     string[]? Items { get; }
     string[]? Types { get; }
+    string[]? Abilities { get; }
     short DevId { get; }
 }
 
@@ -17,5 +18,6 @@ public class Personal : IPersonal
     public bool HasItems { get; set; }
     public string[]? Items { get; set; }
     public string[]? Types { get; set; }
+    public string[]? Abilities { get; set; }
     public short DevId { get; set; }
 }

@@ -15,6 +15,7 @@ public class EncounterTableEntry(IPersonal personal, IEncounterEntry entry, IEnc
     public string[] Items { get; } = personal.Items!;
     public short DevId { get; } = personal.DevId;
     public string[] Types { get; } = personal.Types!;
+    public string[] Abilities { get; } = personal.Abilities!;
 
     public int SlotMin { get; } = entry.SlotMin;
     public int SlotMax { get; } = entry.SlotMax;
