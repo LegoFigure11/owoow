@@ -80,14 +80,8 @@
             CB_Symbol_Weather = new ComboBox();
             CB_Symbol_Area = new ComboBox();
             TB_Symbol_Advances = new TextBox();
-            checkBox1 = new CheckBox();
             TB_Symbol_Initial = new TextBox();
-            CB_Symbol_DexRec4 = new CheckBox();
-            CB_Symbol_DexRec3 = new CheckBox();
-            CB_Symbol_DexRec2 = new CheckBox();
-            CB_Symbol_DexRec1 = new CheckBox();
-            CB_Symbol_DexRecActive = new CheckBox();
-            label2 = new Label();
+            L_Symbol_LeadAbility = new Label();
             CB_Symbol_LeadAbility = new ComboBox();
             TP_Hidden = new TabPage();
             TP_Fishing = new TabPage();
@@ -119,6 +113,8 @@
             TB_SID = new TextBox();
             CB_ShinyCharm = new CheckBox();
             TB_TID = new TextBox();
+            L_Symbol_KOs = new Label();
+            TB_Symbol_KOs = new TextBox();
             GB_SeedControlsContainer.SuspendLayout();
             GB_Filters.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)NUD_Spe_Max).BeginInit();
@@ -542,19 +538,15 @@
             // 
             // TP_Symbol
             // 
+            TP_Symbol.Controls.Add(L_Symbol_KOs);
+            TP_Symbol.Controls.Add(TB_Symbol_KOs);
             TP_Symbol.Controls.Add(label3);
             TP_Symbol.Controls.Add(B_Symbol_Search);
             TP_Symbol.Controls.Add(label4);
             TP_Symbol.Controls.Add(GB_Static_EncounterSettings);
             TP_Symbol.Controls.Add(TB_Symbol_Advances);
-            TP_Symbol.Controls.Add(checkBox1);
             TP_Symbol.Controls.Add(TB_Symbol_Initial);
-            TP_Symbol.Controls.Add(CB_Symbol_DexRec4);
-            TP_Symbol.Controls.Add(CB_Symbol_DexRec3);
-            TP_Symbol.Controls.Add(CB_Symbol_DexRec2);
-            TP_Symbol.Controls.Add(CB_Symbol_DexRec1);
-            TP_Symbol.Controls.Add(CB_Symbol_DexRecActive);
-            TP_Symbol.Controls.Add(label2);
+            TP_Symbol.Controls.Add(L_Symbol_LeadAbility);
             TP_Symbol.Controls.Add(CB_Symbol_LeadAbility);
             TP_Symbol.Location = new Point(4, 24);
             TP_Symbol.Name = "TP_Symbol";
@@ -673,17 +665,7 @@
             TB_Symbol_Advances.Size = new Size(173, 22);
             TB_Symbol_Advances.TabIndex = 9;
             TB_Symbol_Advances.Text = "5000";
-            // 
-            // checkBox1
-            // 
-            checkBox1.AutoSize = true;
-            checkBox1.CheckAlign = ContentAlignment.MiddleRight;
-            checkBox1.Location = new Point(14, 147);
-            checkBox1.Name = "checkBox1";
-            checkBox1.Size = new Size(96, 19);
-            checkBox1.TabIndex = 8;
-            checkBox1.Text = "KO Respawn?";
-            checkBox1.UseVisualStyleBackColor = true;
+            TB_Symbol_Advances.TextAlign = HorizontalAlignment.Right;
             // 
             // TB_Symbol_Initial
             // 
@@ -695,71 +677,16 @@
             TB_Symbol_Initial.Size = new Size(173, 22);
             TB_Symbol_Initial.TabIndex = 8;
             TB_Symbol_Initial.Text = "0";
+            TB_Symbol_Initial.TextAlign = HorizontalAlignment.Right;
             // 
-            // CB_Symbol_DexRec4
+            // L_Symbol_LeadAbility
             // 
-            CB_Symbol_DexRec4.AutoSize = true;
-            CB_Symbol_DexRec4.Enabled = false;
-            CB_Symbol_DexRec4.Location = new Point(139, 179);
-            CB_Symbol_DexRec4.Name = "CB_Symbol_DexRec4";
-            CB_Symbol_DexRec4.Size = new Size(121, 19);
-            CB_Symbol_DexRec4.TabIndex = 6;
-            CB_Symbol_DexRec4.Text = "DexRec 4 in table?";
-            CB_Symbol_DexRec4.UseVisualStyleBackColor = true;
-            // 
-            // CB_Symbol_DexRec3
-            // 
-            CB_Symbol_DexRec3.AutoSize = true;
-            CB_Symbol_DexRec3.Enabled = false;
-            CB_Symbol_DexRec3.Location = new Point(139, 163);
-            CB_Symbol_DexRec3.Name = "CB_Symbol_DexRec3";
-            CB_Symbol_DexRec3.Size = new Size(121, 19);
-            CB_Symbol_DexRec3.TabIndex = 7;
-            CB_Symbol_DexRec3.Text = "DexRec 3 in table?";
-            CB_Symbol_DexRec3.UseVisualStyleBackColor = true;
-            // 
-            // CB_Symbol_DexRec2
-            // 
-            CB_Symbol_DexRec2.AutoSize = true;
-            CB_Symbol_DexRec2.Enabled = false;
-            CB_Symbol_DexRec2.Location = new Point(139, 147);
-            CB_Symbol_DexRec2.Name = "CB_Symbol_DexRec2";
-            CB_Symbol_DexRec2.Size = new Size(121, 19);
-            CB_Symbol_DexRec2.TabIndex = 5;
-            CB_Symbol_DexRec2.Text = "DexRec 2 in table?";
-            CB_Symbol_DexRec2.UseVisualStyleBackColor = true;
-            // 
-            // CB_Symbol_DexRec1
-            // 
-            CB_Symbol_DexRec1.AutoSize = true;
-            CB_Symbol_DexRec1.Enabled = false;
-            CB_Symbol_DexRec1.Location = new Point(139, 131);
-            CB_Symbol_DexRec1.Name = "CB_Symbol_DexRec1";
-            CB_Symbol_DexRec1.Size = new Size(121, 19);
-            CB_Symbol_DexRec1.TabIndex = 4;
-            CB_Symbol_DexRec1.Text = "DexRec 1 in table?";
-            CB_Symbol_DexRec1.UseVisualStyleBackColor = true;
-            // 
-            // CB_Symbol_DexRecActive
-            // 
-            CB_Symbol_DexRecActive.AutoSize = true;
-            CB_Symbol_DexRecActive.CheckAlign = ContentAlignment.MiddleRight;
-            CB_Symbol_DexRecActive.Location = new Point(4, 131);
-            CB_Symbol_DexRecActive.Name = "CB_Symbol_DexRecActive";
-            CB_Symbol_DexRecActive.Size = new Size(106, 19);
-            CB_Symbol_DexRecActive.TabIndex = 3;
-            CB_Symbol_DexRecActive.Text = "DexRec Active?";
-            CB_Symbol_DexRecActive.UseVisualStyleBackColor = true;
-            CB_Symbol_DexRecActive.CheckedChanged += CB_Symbol_DexRecActive_CheckedChanged;
-            // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.Location = new Point(4, 109);
-            label2.Name = "label2";
-            label2.Size = new Size(72, 15);
-            label2.TabIndex = 1;
-            label2.Text = "Lead Ability:";
+            L_Symbol_LeadAbility.AutoSize = true;
+            L_Symbol_LeadAbility.Location = new Point(4, 109);
+            L_Symbol_LeadAbility.Name = "L_Symbol_LeadAbility";
+            L_Symbol_LeadAbility.Size = new Size(72, 15);
+            L_Symbol_LeadAbility.TabIndex = 1;
+            L_Symbol_LeadAbility.Text = "Lead Ability:";
             // 
             // CB_Symbol_LeadAbility
             // 
@@ -1104,6 +1031,27 @@
             TB_TID.TabIndex = 8;
             TB_TID.Text = "12345";
             // 
+            // L_Symbol_KOs
+            // 
+            L_Symbol_KOs.AutoSize = true;
+            L_Symbol_KOs.Location = new Point(46, 133);
+            L_Symbol_KOs.Name = "L_Symbol_KOs";
+            L_Symbol_KOs.Size = new Size(30, 15);
+            L_Symbol_KOs.TabIndex = 22;
+            L_Symbol_KOs.Text = "KOs:";
+            // 
+            // TB_Symbol_KOs
+            // 
+            TB_Symbol_KOs.CharacterCasing = CharacterCasing.Upper;
+            TB_Symbol_KOs.Font = new Font("Consolas", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            TB_Symbol_KOs.Location = new Point(82, 131);
+            TB_Symbol_KOs.MaxLength = 16;
+            TB_Symbol_KOs.Name = "TB_Symbol_KOs";
+            TB_Symbol_KOs.Size = new Size(173, 22);
+            TB_Symbol_KOs.TabIndex = 21;
+            TB_Symbol_KOs.Text = "500";
+            TB_Symbol_KOs.TextAlign = HorizontalAlignment.Right;
+            // 
             // MainWindow
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -1177,13 +1125,7 @@
         private TabPage TP_Hidden;
         private TabPage TP_Fishing;
         private ComboBox CB_Symbol_LeadAbility;
-        private Label label2;
-        private CheckBox CB_Symbol_DexRecActive;
-        private CheckBox CB_Symbol_DexRec1;
-        private CheckBox CB_Symbol_DexRec4;
-        private CheckBox CB_Symbol_DexRec3;
-        private CheckBox CB_Symbol_DexRec2;
-        private CheckBox checkBox1;
+        private Label L_Symbol_LeadAbility;
         private GroupBox GB_Filters;
         private Label L_HP;
         private Label L_HPSpacer;
@@ -1235,5 +1177,7 @@
         private Label label4;
         private TextBox TB_Symbol_Advances;
         private TextBox TB_Symbol_Initial;
+        private Label L_Symbol_KOs;
+        private TextBox TB_Symbol_KOs;
     }
 }

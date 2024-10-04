@@ -1,5 +1,8 @@
 ﻿using owoow.Core.Interfaces;
 using PKHeX.Core;
+using static owoow.Core.RNG.Generators.Common;
+using static owoow.Core.RNG.Generators.Fixed;
+using static owoow.Core.RNG.Validator.Validator;
 
 namespace owoow.Core.RNG.Generators;
 
@@ -21,9 +24,8 @@ public class Symbol
             bool EncounterSlotChosen = false;
 
             ulong Level;
-            uint LevelDelta;
 
-            ulong Aura;
+            bool IsAura;
             bool IsShiny;
             uint PID;
             uint EC;
@@ -33,7 +35,17 @@ public class Symbol
             string Nature;
             string Item;
 
+            ulong AuraIVs;
+            string AuraEggMove;
+
+            bool PassIVs;
+            uint[] IVs;
+
+            uint Height;
+
             string Mark;
+
+            (uint AuraThreshold, uint AuraRolls) = Util.GetBrilliantInfo(config.AuraKOs);
 
             for (ulong i = start; i <= end; i++)
             {
@@ -53,7 +65,7 @@ public class Symbol
                 if (Lead >= 49 && config.AbilityIsTypePulling && table.AbilityTable.Count > 0)
                 {
                     ActiveTable = table.AbilityTable;
-                    EncounterSlot = rng.NextInt((ulong)ActiveTable.Count);
+                    EncounterSlot = GenerateEncounterSlot(ref rng, (uint)ActiveTable.Count);
                     EncounterSlotChosen = true;
                 }
                 else
@@ -63,7 +75,7 @@ public class Symbol
 
                 if (!EncounterSlotChosen)
                 {
-                    EncounterSlot = rng.NextInt(100);
+                    EncounterSlot = GenerateEncounterSlot(ref rng);
                 }
 
                 Encounter = ActiveTable[(int)EncounterSlot];
@@ -74,40 +86,88 @@ public class Symbol
                 }
 
                 // LEVEL
-                LevelDelta = (uint)(Encounter.MaxLevel - Encounter.MinLevel);
-                Level = rng.NextInt(LevelDelta) + (uint)Encounter.MinLevel;
+                Level = GenerateLevel(ref rng, Encounter);
 
                 // MARK -- DISCARDED
-                Util.GenerateMark(ref rng, config.MarkRolls,config.WeatherActive);
+                _ = GenerateMark(ref rng, config.MarkRolls, config.WeatherActive);
 
                 // BRILLIANT AURA
-                Aura = rng.NextInt(1000);
+                IsAura = GenerateIsAura(ref rng, AuraThreshold);
+                if (!CheckIsAura(IsAura, config.TargetAura))
+                {
+                    outer.Next();
+                    continue;
+                }
 
                 // SHINY
-                IsShiny = Util.GenerateIsShiny(ref rng, config.ShinyRolls, config.TSV);
+                IsShiny = GenerateIsShiny(ref rng, config.ShinyRolls, config.TSV);
 
                 // GENDER
-                Gender = Util.GenerateGender(ref rng, Encounter, CuteCharm);
+                Gender = GenerateGender(ref rng, Encounter, CuteCharm);
 
                 // NATURE
-                Nature = Util.GenerateNature(ref rng, config.AbilityIsSync);
+                Nature = GenerateNature(ref rng, config.AbilityIsSync);
+                if (!CheckNature(Nature, config.TargetNature))
+                {
+                    outer.Next();
+                    continue;
+                }
 
                 // ABILITY
-                Ability = Util.GenerateAbility(ref rng, Encounter);
+                Ability = GenerateAbility(ref rng, Encounter);
 
                 // HELD ITEM
-                Item = Util.GenerateItem(ref rng, Encounter);
+                Item = GenerateItem(ref rng, Encounter);
 
                 // AURA IVS/EMS
+                AuraIVs = 0;
+                AuraEggMove = string.Empty;
+                if (IsAura)
+                {
+                    Level = (ulong)Encounter.MaxLevel;
+                    AuraIVs = GenerateAuraIVs(ref rng);
+                    AuraEggMove = GenerateAuraEggMove(ref rng, Encounter);
+                }
 
+                // FIXED SEED
+                var go = new Xoroshiro128Plus(GenerateFixedSeed(ref rng), 0x82A2B175229D6A5B);
 
-                var (_s0, _s1) = outer.GetState();
+                // ENCRYPTION CONSTANT
+                EC = GenerateEC(ref go);
+                if (!CheckEC(EC, config.RareEC))
+                {
+                    outer.Next();
+                    continue;
+                }
+
+                // PID
+                PID = GeneratePID(ref go, IsShiny, config.TSV);
+                if (!CheckIsShiny(Util.GetShinyXOR(PID, config.TSV), config.TargetShiny))
+                {
+                    outer.Next();
+                    continue;
+                }
+
+                // IVS
+                (PassIVs, IVs) = GenerateIVs(ref go, AuraIVs, config);
+                if (!PassIVs)
+                {
+                    outer.Next();
+                    continue;
+                }
+
+                // HEIGHT
+                Height = GenerateHeightWeightScale(ref rng);
+
+                // MARK
+                Mark = GenerateMark(ref rng, config.MarkRolls, config.WeatherActive);
+
                 // Matches, keep!
                 frames.Add(new Frame()
                 {
                     Advances = i,
 
-                    Animation = (_s0 & 1 ^ _s1 & 1) == 1 ? 'P' : 'S',
+                    Animation = (os.s0 & 1 ^ os.s1 & 1) == 1 ? 'P' : 'S',
 
                     Species = Encounter.Species!,
                     Level = (byte)Level,
@@ -117,8 +177,8 @@ public class Symbol
                     Ability = Ability,
                     Item = Item,
 
-                    Seed0 = $"{_s0:X16}",
-                    Seed1 = $"{_s1:X16}",
+                    Seed0 = $"{os.s0:X16}",
+                    Seed1 = $"{os.s1:X16}",
                 }) ;
                 outer.Next();
             }

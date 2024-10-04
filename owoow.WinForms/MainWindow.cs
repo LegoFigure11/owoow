@@ -410,11 +410,6 @@ public partial class MainWindow : Form
         }
     }
 
-    private void CB_Symbol_DexRecActive_CheckedChanged(object sender, EventArgs e)
-    {
-        SetCheckBoxState(CB_Symbol_DexRecActive.Checked, CB_Symbol_DexRec1, CB_Symbol_DexRec2, CB_Symbol_DexRec3, CB_Symbol_DexRec4);
-    }
-
     private void TC_EncounterType_SelectedIndexChanged(object sender, EventArgs e)
     {
         SetAreaOptions();
@@ -452,6 +447,8 @@ public partial class MainWindow : Form
 
             ShinyRolls = CB_ShinyCharm.Checked ? 3 : 1,
             MarkRolls = CB_MarkCharm.Checked ? 3 : 1,
+
+            AuraKOs = int.Parse(TB_Symbol_KOs.Text),
         };
 
         var rng = new Xoroshiro128Plus(s0, s1);
