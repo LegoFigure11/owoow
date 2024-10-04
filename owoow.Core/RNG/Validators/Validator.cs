@@ -1,7 +1,7 @@
 ﻿using owoow.Core.Enums;
 using PKHeX.Core;
 
-namespace owoow.Core.RNG.Validator
+namespace owoow.Core.RNG.Validators
 {
     public static class Validator
     {
@@ -18,9 +18,9 @@ namespace owoow.Core.RNG.Validator
 
         public static bool CheckIsShiny(uint xor, ShinyType target) => target switch
         {
-            ShinyType.Either => xor < 16,
             ShinyType.Square => xor == 0,
             ShinyType.Star => xor > 0 && xor < 16,
+            ShinyType.Either => xor < 16,
             ShinyType.None => xor >= 16,
             _ => true,
         };

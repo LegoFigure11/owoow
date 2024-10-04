@@ -2,7 +2,7 @@
 using PKHeX.Core;
 using static owoow.Core.RNG.Generators.Common;
 using static owoow.Core.RNG.Generators.Fixed;
-using static owoow.Core.RNG.Validator.Validator;
+using static owoow.Core.RNG.Validators.Validator;
 
 namespace owoow.Core.RNG.Generators;
 
