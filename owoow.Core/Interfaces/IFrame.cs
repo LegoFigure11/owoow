@@ -7,7 +7,7 @@
         char Animation { get; }
         string Species { get; }
         string Shiny { get; }
-        string Brilliant { get; }
+        char Brilliant { get; }
         
         byte Level { get; }
         string Ability { get; }
@@ -24,6 +24,7 @@
         string Mark { get; }
         string PID { get; }
         string EC { get; }
+        string Height { get; }
 
         string Item { get; }
         string EggMove { get; }
@@ -39,7 +40,7 @@
         public char Animation { get; set; } = ' ';
         public string Species { get; set; } = string.Empty;
         public string Shiny { get; set; } = string.Empty;
-        public string Brilliant { get; set; } = string.Empty;
+        public char Brilliant { get; set; } = ' ';
 
         public byte Level { get; set; } = 0;
         public string Ability { get; set; } = string.Empty;
@@ -56,6 +57,7 @@
         public string Mark { get; set; } = string.Empty;
         public string EC { get; set; } = string.Empty;
         public string PID { get; set; } = string.Empty;
+        public string Height { get; set; } = string.Empty;
 
         public string Item { get; set; } = string.Empty;
         public string EggMove { get; set; } = string.Empty;

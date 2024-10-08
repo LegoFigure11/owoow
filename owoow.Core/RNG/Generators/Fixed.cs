@@ -36,15 +36,14 @@ public static class Fixed
         return (uint)rng.NextInt(6);
     }
 
-    public static uint GenerateIV(ref Xoroshiro128Plus rng)
+    public static byte GenerateIV(ref Xoroshiro128Plus rng)
     {
-        return (uint)rng.NextInt(32);
+        return (byte)rng.NextInt(32);
     }
 
-    public static (bool, uint[]) GenerateIVs(ref Xoroshiro128Plus rng, ulong aura, GeneratorConfig config)
+    public static (bool, byte[]) GenerateIVs(ref Xoroshiro128Plus rng, ulong aura, GeneratorConfig config)
     {
-        bool pass = true;
-        uint[] ivs = [32, 32, 32, 32, 32, 32];
+        byte[] ivs = [32, 32, 32, 32, 32, 32];
         var g = (int)aura + config.GuaranteedIVs;
         // Guaranteed
         for (var i = 0; i < g; i++)
@@ -56,17 +55,17 @@ public static class Fixed
             } while (ivs[idx] != 32);
 
             ivs[idx] = 31;
-            // CHECK FOR PASS
-            // can just early return instead of break
+            
+            if (config.FiltersEnabled && ivs[idx] > config.TargetMaxIVs[idx]) return (false, ivs);
         }
         // Random
         for (var i = 0; i < 6; i++)
         {
             if (ivs[i] == 32) ivs[i] = GenerateIV(ref rng);
-            // CHECK FOR PASS
-            // early return
+
+            if (config.FiltersEnabled && (ivs[i] < config.TargetMinIVs[i] || ivs[i] > config.TargetMaxIVs[i])) return (false, ivs);
         }
-        return (pass, ivs);
+        return (true, ivs);
     }
 
     public static uint GenerateHeightWeightScale(ref Xoroshiro128Plus rng)

@@ -21,4 +21,8 @@
       <HintPath>..\owoow.Core\Connection\deps\SysBot.Base.dll</HintPath>
     </Reference>
   </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="deps\" />
+  </ItemGroup>
 </Project>

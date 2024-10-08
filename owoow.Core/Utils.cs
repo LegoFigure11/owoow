@@ -1,4 +1,5 @@
-﻿using System.Reflection;
+﻿using PKHeX.Core;
+using System.Reflection;
 
 namespace owoow.Core;
 
@@ -47,5 +48,19 @@ public static class Utils
 
         using var reader = new StreamReader(resource);
         return reader.ReadToEnd();
+    }
+
+    public static bool HasMark(IRibbonIndex pk, out RibbonIndex result)
+    {
+        result = default;
+        for (var mark = RibbonIndex.MarkLunchtime; mark <= RibbonIndex.MarkSlump; mark++)
+        {
+            if (pk.GetRibbon((int)mark))
+            {
+                result = mark;
+                return true;
+            }
+        }
+        return false;
     }
 }

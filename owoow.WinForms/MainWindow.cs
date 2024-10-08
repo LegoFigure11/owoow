@@ -1,3 +1,4 @@
+﻿using owoow.Core;
 using owoow.Core.Connection;
 using owoow.Core.EncounterTable;
 using owoow.Core.Interfaces;
@@ -6,6 +7,7 @@ using SysBot.Base;
 using System.Globalization;
 using static owoow.Core.Encounters;
 using static owoow.Core.RNG.Util;
+using static owoow.Core.RNG.FilterUtil;
 
 namespace owoow.WinForms;
 
@@ -18,8 +20,11 @@ public partial class MainWindow : Form
     private ConnectionWrapperAsync ConnectionWrapper = default!;
     private readonly SwitchConnectionConfig ConnectionConfig;
 
+    private readonly GameStrings Strings = GameInfo.GetStrings(1);
+
     bool stop;
     bool reset;
+    bool pause = false;
     long total;
 
     public MainWindow()
@@ -39,7 +44,8 @@ public partial class MainWindow : Form
         TB_SwitchIP.Text = "192.168.0.0";
 
         SetTextBoxText("0", TB_Seed0, TB_Seed1);
-        SetTextBoxText(string.Empty, TB_CurrentAdvances, TB_CurrentS0, TB_CurrentS1);
+        SetTextBoxText(string.Empty, TB_CurrentAdvances, TB_AdvancesIncrease, TB_CurrentS0, TB_CurrentS1, TB_Wild);
+        SetComboBoxSelectedIndex(0, CB_Filter_Shiny, CB_Filter_Mark, CB_Filter_Aura, CB_Filter_Height);
 
         TB_Status.Text = "Not Connected.";
         SetAreaOptions();
@@ -105,7 +111,7 @@ public partial class MainWindow : Form
                     finally
                     {
                         SetButtonState(true, B_Connect);
-                        this.DisplayMessageBox("Unable to detect Pok�mon Sword or Pok�mon Shield running on your Switch!");
+                        this.DisplayMessageBox("Unable to detect Pokémon Sword or Pokémon Shield running on your Switch!");
                     }
                     return;
                 }
@@ -134,7 +140,7 @@ public partial class MainWindow : Form
                     return;
                 }
 
-                SetButtonState(true, B_Disconnect, B_CopyToInitial);
+                SetButtonState(true, B_Disconnect, B_CopyToInitial, B_ReadEncounter);
 
                 UpdateStatus("Monitoring RNG State...");
                 try
@@ -143,7 +149,7 @@ public partial class MainWindow : Form
                     stop = false;
                     while (!stop)
                     {
-                        if (ConnectionWrapper.Connected)
+                        if (ConnectionWrapper.Connected && !pause)
                         {
                             var (s0, s1) = await ConnectionWrapper.ReadRNGState(token).ConfigureAwait(false);
                             var adv = GetAdvancesPassed(_s0, _s1, s0, s1);
@@ -165,6 +171,7 @@ public partial class MainWindow : Form
                                 SetTextBoxText($"{_s0:X16}", TB_CurrentS0);
                                 SetTextBoxText($"{_s1:X16}", TB_CurrentS1);
                                 SetTextBoxText($"{total:N0}", TB_CurrentAdvances);
+                                SetTextBoxText($"{adv:N0}", TB_AdvancesIncrease);
                             }
                         }
                     }
@@ -343,6 +350,20 @@ public partial class MainWindow : Form
         }
     }
 
+    private void SetBindingSourceDataSource(object source, params object[] obj)
+    {
+        foreach (object o in obj)
+        {
+            if (o is not BindingSource b)
+                continue;
+            if (InvokeRequired)
+            {
+                Invoke(() => b.DataSource = source);
+            }
+            else b.DataSource = source;
+        }
+    }
+
     private void B_Connect_Click(object sender, EventArgs e)
     {
         lock (_connectLock)
@@ -394,6 +415,77 @@ public partial class MainWindow : Form
         }
     }
 
+    private void B_ReadEncounter_Click(object sender, EventArgs e)
+    {
+        Task.Run(
+            async () =>
+            {
+                try
+                {
+                    pause = true;
+                    await Task.Delay(100, Source.Token);
+                    SetTextBoxText("Reading encounter...", TB_Wild);
+                    var pk = await ConnectionWrapper.ReadWildPokemon(Source.Token);
+                    if (pk.Valid)
+                    {
+                        bool HasRibbon = Utils.HasMark(pk, out RibbonIndex mark);
+
+                        var n = Environment.NewLine;
+
+                        string form = pk.Form == 0 ? string.Empty : $"-{pk.Form}";
+                        string gender = pk.Gender switch
+                        {
+                            0 => " (M)",
+                            1 => " (F)",
+                            _ => string.Empty,
+                        };
+                        string shiny = pk.ShinyXor switch
+                        {
+                            0 => "■ - ",
+                            < 16 => "★ -",
+                            _ => string.Empty,
+                        };
+
+
+                        string item = pk.HeldItem > 0 ? $" @ {Strings.Item[pk.HeldItem]}" : string.Empty;
+                        string markString = HasRibbon ? $"{n}Mark: {mark.ToString().Replace("Mark", "")}" : string.Empty;
+
+                        var scaleS = (IScaledSize)pk;
+                        string scale = $"Height: {PokeSizeDetailedUtil.GetSizeRating(scaleS.HeightScalar)} ({scaleS.HeightScalar})";
+
+                        string moves = string.Empty;
+
+
+                        foreach (int move in pk.Moves)
+                        {
+                            if (move == 0) break;
+                            moves += $"{n}- {Strings.Move[move]}";
+                        }
+
+                        string output = $"{shiny}{(Species)pk.Species}{form}{gender}{item}{n}EC: {pk.EncryptionConstant:X8}{n}PID: {pk.PID:X8}{n}{Strings.Natures[(int)pk.Nature]} Nature{n}Ability: {Strings.Ability[pk.Ability]}{n}IVs: {pk.IV_HP}/{pk.IV_ATK}/{pk.IV_DEF}/{pk.IV_SPA}/{pk.IV_SPD}/{pk.IV_SPE}{n}{scale}{markString}{moves}";
+
+                        pause = false;
+                        //PB_PokemonSprite.Image = pk.Sprite();
+                        SetTextBoxText(output, TB_Wild);
+                    }
+                    else
+                    {
+                        pause = false;
+                        PB_PokemonSprite.Image = null;
+                        SetTextBoxText("No encounter present.", TB_Wild);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    pause = false;
+                    PB_PokemonSprite.Image = null;
+                    SetTextBoxText(string.Empty, TB_Wild);
+                    this.DisplayMessageBox(ex.Message);
+                }
+            }
+        );
+    }
+
     private void KeyPress_AllowOnlyHex(object sender, KeyPressEventArgs e)
     {
         var c = e.KeyChar;
@@ -440,15 +532,31 @@ public partial class MainWindow : Form
         var s0 = ulong.Parse(TB_Seed0.Text, NumberStyles.AllowHexSpecifier);
         var s1 = ulong.Parse(TB_Seed1.Text, NumberStyles.AllowHexSpecifier);
 
+        _ = CB_Symbol_Weather;
+
         Core.RNG.GeneratorConfig config = new()
         {
             TargetSpecies = CB_Symbol_Species.Text,
             LeadAbility = CB_Symbol_LeadAbility.Text,
 
+            Weather = $"{CB_Symbol_Weather.SelectedItem}",
+
             ShinyRolls = CB_ShinyCharm.Checked ? 3 : 1,
             MarkRolls = CB_MarkCharm.Checked ? 3 : 1,
 
+            TargetShiny = GetFilterShinyType(CB_Filter_Shiny.SelectedIndex),
+            TargetAura = GetFilterAuraType(CB_Filter_Aura.SelectedIndex),
+            TargetMark = GetFilterMarkype(CB_Filter_Mark.SelectedIndex),
+
+            TargetMinIVs = [(uint)NUD_HP_Min.Value, (uint)NUD_Atk_Min.Value, (uint)NUD_Def_Min.Value, (uint)NUD_SpA_Min.Value, (uint)NUD_SpD_Min.Value, (uint)NUD_Spe_Min.Value],
+            TargetMaxIVs = [(uint)NUD_HP_Max.Value, (uint)NUD_Atk_Max.Value, (uint)NUD_Def_Max.Value, (uint)NUD_SpA_Max.Value, (uint)NUD_SpD_Max.Value, (uint)NUD_Spe_Max.Value],
+
             AuraKOs = int.Parse(TB_Symbol_KOs.Text),
+
+            FiltersEnabled = CB_EnableFilters.Checked,
+
+            TID = uint.Parse(TB_TID.Text),
+            SID = uint.Parse(TB_SID.Text),
         };
 
         var rng = new Xoroshiro128Plus(s0, s1);
@@ -485,13 +593,28 @@ public partial class MainWindow : Form
             {
                 AllResults.AddRange(result);
             }
-            foreach (var result in AllResults)
-            {
-                System.Diagnostics.Debug.Print($"{result.Advances:D5} | {result.Species} | Level {result.Level} | Gender: {result.Gender} | Nature: {result.Nature} | Ability: {result.Ability} | Item: {result.Item}");
-            }
-            System.Diagnostics.Debug.Print($"{AllResults.Count} results");
-            _ = true;
+
+            SetBindingSourceDataSource(AllResults, ResultsSource);
+
             SetButtonState(true, sender);
         });
+    }
+
+    private void B_IV_Max_Click(object sender, EventArgs e)
+    {
+        var stat = ((Button)sender).Name.Replace("B_", string.Empty).Replace("_Max", string.Empty);
+        var min = (NumericUpDown)Controls.Find($"NUD_{stat}_Min", true).FirstOrDefault()!;
+        var max = (NumericUpDown)Controls.Find($"NUD_{stat}_Max", true).FirstOrDefault()!;
+        min.Value = 31;
+        max.Value = 31;
+    }
+
+    private void B_IV_Min_Click(object sender, EventArgs e)
+    {
+        var stat = ((Button)sender).Name.Replace("B_", string.Empty).Replace("_Min", string.Empty);
+        var min = (NumericUpDown)Controls.Find($"NUD_{stat}_Min", true).FirstOrDefault()!;
+        var max = (NumericUpDown)Controls.Find($"NUD_{stat}_Max", true).FirstOrDefault()!;
+        min.Value = 0;
+        max.Value = 0;
     }
 }

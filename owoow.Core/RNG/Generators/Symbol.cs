@@ -15,6 +15,8 @@ public class Symbol
             List<Frame> frames = [];
             var outer = new Xoroshiro128Plus(s0, s1);
 
+            bool FiltersEnabled = config.FiltersEnabled;
+
             ulong Lead;
             IDictionary<int, IEncounterTableEntry> ActiveTable;
             IEncounterTableEntry Encounter;
@@ -27,6 +29,7 @@ public class Symbol
 
             bool IsAura;
             bool IsShiny;
+            uint ShinyXOR;
             uint PID;
             uint EC;
 
@@ -39,11 +42,11 @@ public class Symbol
             string AuraEggMove;
 
             bool PassIVs;
-            uint[] IVs;
+            byte[] IVs;
 
             uint Height;
 
-            string Mark;
+            RibbonIndex Mark;
 
             (uint AuraThreshold, uint AuraRolls) = Util.GetBrilliantInfo(config.AuraKOs);
 
@@ -55,8 +58,11 @@ public class Symbol
                 EncounterSlotChosen = false;
                 CuteCharm = false;
 
+                rng.NextInt();
+                rng.NextInt(100);
+
                 // LEAD ABILITY ACTIVATION & ENCOUNTER SLOT
-                Lead = rng.NextInt(100);
+                Lead = GenerateLeadAbilityActivation(ref rng);
 
                 if ((Lead + 1) < 66 && config.AbilityIsCuteCharm)
                 {
@@ -79,7 +85,7 @@ public class Symbol
                 }
 
                 Encounter = ActiveTable[(int)EncounterSlot];
-                if (Encounter.Species != config.TargetSpecies)
+                if (FiltersEnabled && Encounter.Species != config.TargetSpecies)
                 {
                     outer.Next();
                     continue;
@@ -93,7 +99,7 @@ public class Symbol
 
                 // BRILLIANT AURA
                 IsAura = GenerateIsAura(ref rng, AuraThreshold);
-                if (!CheckIsAura(IsAura, config.TargetAura))
+                if (FiltersEnabled && !CheckIsAura(IsAura, config.TargetAura))
                 {
                     outer.Next();
                     continue;
@@ -107,7 +113,7 @@ public class Symbol
 
                 // NATURE
                 Nature = GenerateNature(ref rng, config.AbilityIsSync);
-                if (!CheckNature(Nature, config.TargetNature))
+                if (FiltersEnabled && !CheckNature(Nature, config.TargetNature))
                 {
                     outer.Next();
                     continue;
@@ -121,7 +127,7 @@ public class Symbol
 
                 // AURA IVS/EMS
                 AuraIVs = 0;
-                AuraEggMove = string.Empty;
+                AuraEggMove = "-";
                 if (IsAura)
                 {
                     Level = (ulong)Encounter.MaxLevel;
@@ -134,7 +140,7 @@ public class Symbol
 
                 // ENCRYPTION CONSTANT
                 EC = GenerateEC(ref go);
-                if (!CheckEC(EC, config.RareEC))
+                if (FiltersEnabled && !CheckEC(EC, config.RareEC))
                 {
                     outer.Next();
                     continue;
@@ -142,7 +148,8 @@ public class Symbol
 
                 // PID
                 PID = GeneratePID(ref go, IsShiny, config.TSV);
-                if (!CheckIsShiny(Util.GetShinyXOR(PID, config.TSV), config.TargetShiny))
+                ShinyXOR = Util.GetShinyXOR(PID, config.TSV);
+                if (FiltersEnabled && !CheckIsShiny(ShinyXOR, config.TargetShiny))
                 {
                     outer.Next();
                     continue;
@@ -150,17 +157,22 @@ public class Symbol
 
                 // IVS
                 (PassIVs, IVs) = GenerateIVs(ref go, AuraIVs, config);
-                if (!PassIVs)
+                if (!PassIVs) // FiltersEnabled check takes place in GenerateIVs
                 {
                     outer.Next();
                     continue;
                 }
 
                 // HEIGHT
-                Height = GenerateHeightWeightScale(ref rng);
+                Height = GenerateHeightWeightScale(ref go);
 
                 // MARK
                 Mark = GenerateMark(ref rng, config.MarkRolls, config.WeatherActive);
+                if (FiltersEnabled && !CheckMark(Mark, config.TargetMark))
+                {
+                    outer.Next();
+                    continue;
+                }
 
                 // Matches, keep!
                 frames.Add(new Frame()
@@ -169,7 +181,10 @@ public class Symbol
 
                     Animation = (os.s0 & 1 ^ os.s1 & 1) == 1 ? 'P' : 'S',
 
+                    Brilliant = IsAura ? 'Y' : 'N',
+
                     Species = Encounter.Species!,
+                    Shiny = Util.GetShinyType(ShinyXOR),
                     Level = (byte)Level,
 
                     Gender = Gender,
@@ -177,9 +192,23 @@ public class Symbol
                     Ability = Ability,
                     Item = Item,
 
+                    PID = $"{PID:X8}",
+                    EC = $"{EC:X8}",
+
+                    H = IVs[0],
+                    A = IVs[1],
+                    B = IVs[2],
+                    C = IVs[3],
+                    D = IVs[4],
+                    S = IVs[5],
+
+                    Height = $"{Height}",
+
+                    Mark = Util.GetRibbonName(Mark),
+
                     Seed0 = $"{os.s0:X16}",
                     Seed1 = $"{os.s1:X16}",
-                }) ;
+                });
                 outer.Next();
             }
             return frames;

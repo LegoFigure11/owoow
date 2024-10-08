@@ -1,10 +1,5 @@
 ﻿using owoow.Core.Enums;
 using PKHeX.Core;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace owoow.Core.RNG;
 
@@ -15,6 +10,10 @@ public class GeneratorConfig
     public AuraType TargetAura { get; set; } = AuraType.Any;
     public Nature TargetNature { get; set; } = Nature.Random;
     public ShinyType TargetShiny { get; set; } = ShinyType.Any;
+    public RibbonIndex TargetMark { get; set; } = RibbonIndex.MAX_COUNT + 1;
+
+    public uint[] TargetMinIVs { get; set; } = [ 0,  0,  0,  0,  0,  0];
+    public uint[] TargetMaxIVs { get; set; } = [31, 31, 31, 31, 31, 31];
 
     public bool RareEC { get; set; } = false;
 
@@ -36,4 +35,6 @@ public class GeneratorConfig
 
     public string Weather { get; set; } = string.Empty;
     public bool WeatherActive => Weather != "Normal Weather";
+
+    public bool FiltersEnabled { get; set; } = false;
 };

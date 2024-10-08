@@ -5,6 +5,11 @@ namespace owoow.Core.RNG.Generators;
 
 public static class Common
 {
+    public static ulong GenerateLeadAbilityActivation(ref Xoroshiro128Plus rng)
+    {
+        return rng.NextInt(100);
+    }
+
     public static ulong GenerateEncounterSlot(ref Xoroshiro128Plus rng, uint max = 100)
     {
         return rng.NextInt(max);
@@ -12,29 +17,29 @@ public static class Common
 
     public static ulong GenerateLevel(ref Xoroshiro128Plus rng, IEncounterTableEntry enc)
     {
-        ulong delta = (ulong)(enc.MaxLevel - enc.MinLevel);
+        ulong delta = (ulong)(enc.MaxLevel - enc.MinLevel) + 1;
         return rng.NextInt(delta) + (uint)enc.MinLevel;
     }
 
-    public static string GenerateMark(ref Xoroshiro128Plus rng, int rolls, bool isWeather = false, bool isFishing = false)
+    public static RibbonIndex GenerateMark(ref Xoroshiro128Plus rng, int rolls, bool isWeather = false, bool isFishing = false)
     {
         for (int i = 0; i < rolls; i++)
         {
             uint rare = (uint)rng.NextInt(1000);
             uint personality = (uint)rng.NextInt(100);
             uint uncommon = (uint)rng.NextInt(50);
-            uint weather = (uint)rng.NextInt(50);
+            uint weather = (uint)rng.NextInt(50); RibbonIndex.MarkRare.GetPropertyName();
             uint time = (uint)rng.NextInt(50);
             uint fishing = (uint)rng.NextInt(25);
 
-            if (rare == 0) return "Rare";
-            if (personality == 0) return Util.PersonalityMarks[rng.NextInt(28)]; // Util.PersonalityMarks.Size
-            if (uncommon == 0) return "Uncommon";
-            if (weather == 0 && isWeather) return "Weather";
-            if (time == 0) return "Time";
-            if (fishing == 0 && isFishing) return "Fishing";
+            if (rare == 0) return RibbonIndex.MarkRare;
+            if (personality == 0) return (RibbonIndex)((ulong)RibbonIndex.MarkRowdy + rng.NextInt(28));
+            if (uncommon == 0) return RibbonIndex.MarkUncommon;
+            if (weather == 0 && isWeather) return RibbonIndex.MarkCloudy;
+            if (time == 0) return RibbonIndex.MarkLunchtime;
+            if (fishing == 0 && isFishing) return RibbonIndex.MarkFishing;
         }
-        return "None";
+        return RibbonIndex.MAX_COUNT;
     }
 
     public static bool GenerateIsAura(ref Xoroshiro128Plus rng, uint thresh)

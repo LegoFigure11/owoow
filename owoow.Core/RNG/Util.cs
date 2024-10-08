@@ -51,4 +51,19 @@ public static class Util
     public static uint GetShinyValue(uint x) => (x >> 16) ^ (x & 0xFFFF);
 
     public static uint GetShinyXOR(uint pid, uint tsv) => GetShinyValue(GetShinyValue(pid), tsv);
+
+    public static string GetShinyType(uint xor) => xor switch
+    {
+        0 => "Square",
+        < 16 => $"Star ({xor})",
+        _ => "No",
+    };
+
+    public static string GetRibbonName(RibbonIndex rib) => rib switch
+    {
+        RibbonIndex.MAX_COUNT => "None",
+        RibbonIndex.MarkLunchtime => "Time",
+        RibbonIndex.MarkCloudy => "Weather",
+        _ => rib.GetPropertyName().Replace("RibbonMark", string.Empty),
+    };
 }
