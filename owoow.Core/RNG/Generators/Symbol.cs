@@ -38,7 +38,7 @@ public class Symbol
             string Nature;
             string Item;
 
-            ulong AuraIVs;
+            int AuraIVs;
             string AuraEggMove;
 
             bool PassIVs;
@@ -48,7 +48,7 @@ public class Symbol
 
             RibbonIndex Mark;
 
-            (uint AuraThreshold, uint AuraRolls) = Util.GetBrilliantInfo(config.AuraKOs);
+            (uint AuraThreshold, int AuraRolls) = Util.GetBrilliantInfo(config.AuraKOs);
 
             for (ulong i = start; i <= end; i++)
             {
@@ -106,7 +106,7 @@ public class Symbol
                 }
 
                 // SHINY
-                IsShiny = GenerateIsShiny(ref rng, config.ShinyRolls, config.TSV);
+                IsShiny = GenerateIsShiny(ref rng, config.ShinyRolls + (IsAura ? AuraRolls : 0), config.TSV);
 
                 // GENDER
                 Gender = GenerateGender(ref rng, Encounter, CuteCharm);

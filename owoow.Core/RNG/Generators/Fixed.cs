@@ -41,10 +41,10 @@ public static class Fixed
         return (byte)rng.NextInt(32);
     }
 
-    public static (bool, byte[]) GenerateIVs(ref Xoroshiro128Plus rng, ulong aura, GeneratorConfig config)
+    public static (bool, byte[]) GenerateIVs(ref Xoroshiro128Plus rng, int aura, GeneratorConfig config)
     {
         byte[] ivs = [32, 32, 32, 32, 32, 32];
-        var g = (int)aura + config.GuaranteedIVs;
+        var g = aura + config.GuaranteedIVs;
         // Guaranteed
         for (var i = 0; i < g; i++)
         {

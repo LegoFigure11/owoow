@@ -25,7 +25,7 @@ public static class Util
         return i;
     }
 
-    public static (uint threshold, uint rolls) GetBrilliantInfo(int KOs) => KOs switch
+    public static (uint threshold, int rolls) GetBrilliantInfo(int KOs) => KOs switch
     {
         >= 500 => (30, 6),
         >= 300 => (30, 5),

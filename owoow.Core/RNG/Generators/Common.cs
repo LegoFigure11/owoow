@@ -103,9 +103,9 @@ public static class Common
         return item;
     }
 
-    public static ulong GenerateAuraIVs(ref Xoroshiro128Plus rng)
+    public static int GenerateAuraIVs(ref Xoroshiro128Plus rng)
     {
-        return rng.NextInt(2) | 2;
+        return (int)rng.NextInt(2) | 2;
     }
 
     public static string GenerateAuraEggMove(ref Xoroshiro128Plus rng, IEncounterTableEntry enc)
