@@ -17,6 +17,15 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Reference Include="PKHeX.Drawing">
+      <HintPath>deps\PKHeX.Drawing.dll</HintPath>
+    </Reference>
+    <Reference Include="PKHeX.Drawing.Misc">
+      <HintPath>deps\PKHeX.Drawing.Misc.dll</HintPath>
+    </Reference>
+    <Reference Include="PKHeX.Drawing.PokeSprite">
+      <HintPath>deps\PKHeX.Drawing.PokeSprite.dll</HintPath>
+    </Reference>
     <Reference Include="SysBot.Base">
       <HintPath>..\owoow.Core\Connection\deps\SysBot.Base.dll</HintPath>
     </Reference>
