@@ -206,6 +206,8 @@ public class Symbol
 
                     Mark = Util.GetRibbonName(Mark),
 
+                    EggMove = AuraEggMove,
+
                     Seed0 = $"{os.s0:X16}",
                     Seed1 = $"{os.s1:X16}",
                 });
@@ -214,21 +216,4 @@ public class Symbol
             return frames;
         });
     }
-    // Lead Rand(100)
-    // CC if r + 1 <= 66;
-    // Type if r >= 49
-
-    // if KO_Respawn
-    // Rand(100) > 49
-
-    // if (TypePullingAbility)
-    // total = slots where type is ability.type
-    // rand(total)
-
-    // if (DexRec) 
-    // active = rand(100)
-    // if active > 49
-    // rand(4), if exists in table then use that as slot
-
-    // if no slot by now, slot = rand(100);
 }
