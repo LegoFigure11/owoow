@@ -898,13 +898,13 @@
           "SlotMax": 84
         },
         "3": {
-          "Species": "Onix",
+          "Species": "Stufful",
           "SlotMin": 85,
-          "SlotMax": 94
+          "SlotMax": 89
         },
         "4": {
-          "Species": "Stufful",
-          "SlotMin": 95,
+          "Species": "Onix",
+          "SlotMin": 90,
           "SlotMax": 99
         }
       }
@@ -981,13 +981,13 @@
           "SlotMax": 84
         },
         "3": {
-          "Species": "Onix",
+          "Species": "Stufful",
           "SlotMin": 85,
-          "SlotMax": 94
+          "SlotMax": 89
         },
         "4": {
-          "Species": "Stufful",
-          "SlotMin": 95,
+          "Species": "Onix",
+          "SlotMin": 90,
           "SlotMax": 99
         }
       }
@@ -1743,18 +1743,18 @@
           "SlotMax": 59
         },
         "2": {
-          "Species": "Onix",
+          "Species": "Tranquill",
           "SlotMin": 60,
-          "SlotMax": 79
+          "SlotMax": 74
         },
         "3": {
-          "Species": "Tranquill",
-          "SlotMin": 80,
-          "SlotMax": 94
+          "Species": "Bronzor",
+          "SlotMin": 75,
+          "SlotMax": 79
         },
         "4": {
-          "Species": "Bronzor",
-          "SlotMin": 95,
+          "Species": "Onix",
+          "SlotMin": 80,
           "SlotMax": 99
         }
       }
@@ -1774,18 +1774,18 @@
           "SlotMax": 59
         },
         "2": {
-          "Species": "Onix",
+          "Species": "Haunter",
           "SlotMin": 60,
-          "SlotMax": 79
+          "SlotMax": 74
         },
         "3": {
-          "Species": "Haunter",
-          "SlotMin": 80,
-          "SlotMax": 94
+          "Species": "Bronzor",
+          "SlotMin": 75,
+          "SlotMax": 79
         },
         "4": {
-          "Species": "Bronzor",
-          "SlotMin": 95,
+          "Species": "Onix",
+          "SlotMin": 80,
           "SlotMax": 99
         }
       }
@@ -1857,18 +1857,18 @@
           "SlotMax": 59
         },
         "2": {
-          "Species": "Onix",
+          "Species": "Mudsdale",
           "SlotMin": 60,
-          "SlotMax": 79
+          "SlotMax": 74
         },
         "3": {
-          "Species": "Mudsdale",
-          "SlotMin": 80,
-          "SlotMax": 94
+          "Species": "Bronzor",
+          "SlotMin": 75,
+          "SlotMax": 79
         },
         "4": {
-          "Species": "Bronzor",
-          "SlotMin": 95,
+          "Species": "Onix",
+          "SlotMin": 80,
           "SlotMax": 99
         }
       }
@@ -1940,18 +1940,18 @@
           "SlotMax": 59
         },
         "2": {
-          "Species": "Onix",
+          "Species": "Dwebble",
           "SlotMin": 60,
-          "SlotMax": 79
+          "SlotMax": 74
         },
         "3": {
-          "Species": "Dwebble",
-          "SlotMin": 80,
-          "SlotMax": 94
+          "Species": "Bronzor",
+          "SlotMin": 75,
+          "SlotMax": 79
         },
         "4": {
-          "Species": "Bronzor",
-          "SlotMin": 95,
+          "Species": "Onix",
+          "SlotMin": 80,
           "SlotMax": 99
         }
       }
@@ -2636,18 +2636,18 @@
           "SlotMax": 54
         },
         "2": {
-          "Species": "Palpitoad",
+          "Species": "Inkay",
           "SlotMin": 55,
-          "SlotMax": 74
+          "SlotMax": 64
         },
         "3": {
-          "Species": "Inkay",
-          "SlotMin": 75,
-          "SlotMax": 84
+          "Species": "Wimpod",
+          "SlotMin": 65,
+          "SlotMax": 74
         },
         "4": {
-          "Species": "Wimpod",
-          "SlotMin": 85,
+          "Species": "Palpitoad",
+          "SlotMin": 75,
           "SlotMax": 94
         },
         "5": {
@@ -2662,13 +2662,13 @@
       "MaxLevel": 28,
       "Encounters": {
         "0": {
-          "Species": "Binacle",
+          "Species": "Noibat",
           "SlotMin": 0,
-          "SlotMax": 24
+          "SlotMax": 19
         },
         "1": {
-          "Species": "Noibat",
-          "SlotMin": 25,
+          "Species": "Binacle",
+          "SlotMin": 20,
           "SlotMax": 44
         },
         "2": {
@@ -2677,13 +2677,13 @@
           "SlotMax": 64
         },
         "3": {
-          "Species": "Palpitoad",
+          "Species": "Inkay",
           "SlotMin": 65,
-          "SlotMax": 84
+          "SlotMax": 74
         },
         "4": {
-          "Species": "Inkay",
-          "SlotMin": 85,
+          "Species": "Palpitoad",
+          "SlotMin": 75,
           "SlotMax": 94
         },
         "5": {
@@ -2857,13 +2857,13 @@
           "SlotMax": 74
         },
         "3": {
-          "Species": "Palpitoad",
+          "Species": "Thievul",
           "SlotMin": 75,
-          "SlotMax": 84
+          "SlotMax": 79
         },
         "4": {
-          "Species": "Thievul",
-          "SlotMin": 85,
+          "Species": "Palpitoad",
+          "SlotMin": 80,
           "SlotMax": 89
         },
         "5": {
@@ -2981,13 +2981,13 @@
           "SlotMax": 79
         },
         "4": {
-          "Species": "Applin",
+          "Species": "Dewpider",
           "SlotMin": 80,
-          "SlotMax": 89
+          "SlotMax": 84
         },
         "5": {
-          "Species": "Dewpider",
-          "SlotMin": 90,
+          "Species": "Applin",
+          "SlotMin": 85,
           "SlotMax": 94
         },
         "6": {
@@ -3004,23 +3004,23 @@
       "MaxLevel": 24,
       "Encounters": {
         "0": {
-          "Species": "Wimpod",
+          "Species": "Binacle",
           "SlotMin": 0,
-          "SlotMax": 19
+          "SlotMax": 9
         },
         "1": {
-          "Species": "Noibat",
-          "SlotMin": 20,
-          "SlotMax": 39
+          "Species": "Wimpod",
+          "SlotMin": 10,
+          "SlotMax": 29
         },
         "2": {
-          "Species": "Scraggy",
-          "SlotMin": 40,
-          "SlotMax": 54
+          "Species": "Noibat",
+          "SlotMin": 30,
+          "SlotMax": 49
         },
         "3": {
-          "Species": "Binacle",
-          "SlotMin": 55,
+          "Species": "Scraggy",
+          "SlotMin": 50,
           "SlotMax": 64
         },
         "4": {
@@ -3034,13 +3034,13 @@
           "SlotMax": 84
         },
         "6": {
-          "Species": "Chewtle",
+          "Species": "Stunfisk-1",
           "SlotMin": 85,
-          "SlotMax": 94
+          "SlotMax": 89
         },
         "7": {
-          "Species": "Stunfisk-1",
-          "SlotMin": 95,
+          "Species": "Chewtle",
+          "SlotMin": 90,
           "SlotMax": 99
         }
       }
@@ -3072,13 +3072,13 @@
           "SlotMax": 84
         },
         "4": {
-          "Species": "Woobat",
+          "Species": "Roggenrola",
           "SlotMin": 85,
-          "SlotMax": 94
+          "SlotMax": 89
         },
         "5": {
-          "Species": "Roggenrola",
-          "SlotMin": 95,
+          "Species": "Woobat",
+          "SlotMin": 90,
           "SlotMax": 99
         }
       }
@@ -4143,13 +4143,13 @@
           "SlotMax": 87
         },
         "2": {
-          "Species": "Mudsdale",
+          "Species": "Coalossal",
           "SlotMin": 88,
-          "SlotMax": 97
+          "SlotMax": 89
         },
         "3": {
-          "Species": "Coalossal",
-          "SlotMin": 98,
+          "Species": "Mudsdale",
+          "SlotMin": 90,
           "SlotMax": 99
         }
       }
@@ -4528,13 +4528,13 @@
           "SlotMax": 86
         },
         "3": {
-          "Species": "Machop",
+          "Species": "Mimikyu",
           "SlotMin": 87,
-          "SlotMax": 96
+          "SlotMax": 89
         },
         "4": {
-          "Species": "Mimikyu",
-          "SlotMin": 97,
+          "Species": "Machop",
+          "SlotMin": 90,
           "SlotMax": 99
         }
       }
@@ -4597,13 +4597,13 @@
           "SlotMax": 84
         },
         "4": {
-          "Species": "Klink",
+          "Species": "Hawlucha",
           "SlotMin": 85,
-          "SlotMax": 94
+          "SlotMax": 89
         },
         "5": {
-          "Species": "Hawlucha",
-          "SlotMin": 95,
+          "Species": "Klink",
+          "SlotMin": 90,
           "SlotMax": 99
         }
       }
@@ -4628,13 +4628,13 @@
           "SlotMax": 84
         },
         "3": {
-          "Species": "Klink",
+          "Species": "Shelmet",
           "SlotMin": 85,
-          "SlotMax": 94
+          "SlotMax": 89
         },
         "4": {
-          "Species": "Shelmet",
-          "SlotMin": 95,
+          "Species": "Klink",
+          "SlotMin": 90,
           "SlotMax": 99
         }
       }
@@ -5124,13 +5124,13 @@
           "SlotMax": 93
         },
         "5": {
-          "Species": "Jangmo-o",
+          "Species": "Dreepy",
           "SlotMin": 94,
-          "SlotMax": 98
+          "SlotMax": 94
         },
         "6": {
-          "Species": "Dreepy",
-          "SlotMin": 99,
+          "Species": "Jangmo-o",
+          "SlotMin": 95,
           "SlotMax": 99
         }
       }
@@ -5237,18 +5237,18 @@
           "SlotMax": 90
         },
         "4": {
-          "Species": "Jangmo-o",
+          "Species": "Turtonator",
           "SlotMin": 91,
-          "SlotMax": 95
+          "SlotMax": 92
         },
         "5": {
-          "Species": "Turtonator",
-          "SlotMin": 96,
-          "SlotMax": 97
+          "Species": "Stonjourner",
+          "SlotMin": 93,
+          "SlotMax": 94
         },
         "6": {
-          "Species": "Stonjourner",
-          "SlotMin": 98,
+          "Species": "Jangmo-o",
+          "SlotMin": 95,
           "SlotMax": 99
         }
       }
@@ -5371,13 +5371,13 @@
           "SlotMax": 96
         },
         "4": {
-          "Species": "Dreepy",
+          "Species": "Gardevoir",
           "SlotMin": 97,
-          "SlotMax": 98
+          "SlotMax": 97
         },
         "5": {
-          "Species": "Gardevoir",
-          "SlotMin": 99,
+          "Species": "Dreepy",
+          "SlotMin": 98,
           "SlotMax": 99
         }
       }
@@ -8042,33 +8042,33 @@
       "MaxLevel": 65,
       "Encounters": {
         "0": {
-          "Species": "Wooloo",
+          "Species": "Mime Jr.",
           "SlotMin": 0,
-          "SlotMax": 17
+          "SlotMax": 15
         },
         "1": {
-          "Species": "Magby",
-          "SlotMin": 18,
-          "SlotMax": 35
+          "Species": "Snom",
+          "SlotMin": 16,
+          "SlotMax": 31
         },
         "2": {
-          "Species": "Mime Jr.",
-          "SlotMin": 36,
-          "SlotMax": 51
+          "Species": "Smoochum",
+          "SlotMin": 32,
+          "SlotMax": 47
         },
         "3": {
-          "Species": "Snom",
-          "SlotMin": 52,
-          "SlotMax": 67
+          "Species": "Swinub",
+          "SlotMin": 48,
+          "SlotMax": 63
         },
         "4": {
-          "Species": "Smoochum",
-          "SlotMin": 68,
-          "SlotMax": 83
+          "Species": "Wooloo",
+          "SlotMin": 64,
+          "SlotMax": 81
         },
         "5": {
-          "Species": "Swinub",
-          "SlotMin": 84,
+          "Species": "Magby",
+          "SlotMin": 82,
           "SlotMax": 99
         }
       }
@@ -8141,33 +8141,33 @@
       "MaxLevel": 65,
       "Encounters": {
         "0": {
-          "Species": "Hatenna",
+          "Species": "Mime Jr.",
           "SlotMin": 0,
-          "SlotMax": 17
+          "SlotMax": 15
         },
         "1": {
-          "Species": "Gothita",
-          "SlotMin": 18,
-          "SlotMax": 35
+          "Species": "Snom",
+          "SlotMin": 16,
+          "SlotMax": 31
         },
         "2": {
-          "Species": "Mime Jr.",
-          "SlotMin": 36,
-          "SlotMax": 51
+          "Species": "Smoochum",
+          "SlotMin": 32,
+          "SlotMax": 47
         },
         "3": {
-          "Species": "Snom",
-          "SlotMin": 52,
-          "SlotMax": 67
+          "Species": "Swinub",
+          "SlotMin": 48,
+          "SlotMax": 63
         },
         "4": {
-          "Species": "Smoochum",
-          "SlotMin": 68,
-          "SlotMax": 83
+          "Species": "Hatenna",
+          "SlotMin": 64,
+          "SlotMax": 81
         },
         "5": {
-          "Species": "Swinub",
-          "SlotMin": 84,
+          "Species": "Gothita",
+          "SlotMin": 82,
           "SlotMax": 99
         }
       }
@@ -8473,33 +8473,33 @@
       "MaxLevel": 65,
       "Encounters": {
         "0": {
-          "Species": "Dewpider",
+          "Species": "Mime Jr.",
           "SlotMin": 0,
-          "SlotMax": 17
+          "SlotMax": 15
         },
         "1": {
-          "Species": "Elekid",
-          "SlotMin": 18,
-          "SlotMax": 35
+          "Species": "Nidoran♂",
+          "SlotMin": 16,
+          "SlotMax": 31
         },
         "2": {
-          "Species": "Mime Jr.",
-          "SlotMin": 36,
-          "SlotMax": 51
+          "Species": "Nidoran♀",
+          "SlotMin": 32,
+          "SlotMax": 47
         },
         "3": {
-          "Species": "Nidoran♂",
-          "SlotMin": 52,
-          "SlotMax": 67
+          "Species": "Shelmet",
+          "SlotMin": 48,
+          "SlotMax": 63
         },
         "4": {
-          "Species": "Nidoran♀",
-          "SlotMin": 68,
-          "SlotMax": 83
+          "Species": "Dewpider",
+          "SlotMin": 64,
+          "SlotMax": 81
         },
         "5": {
-          "Species": "Shelmet",
-          "SlotMin": 84,
+          "Species": "Elekid",
+          "SlotMin": 82,
           "SlotMax": 99
         }
       }
@@ -8509,33 +8509,33 @@
       "MaxLevel": 65,
       "Encounters": {
         "0": {
-          "Species": "Wooloo",
+          "Species": "Mime Jr.",
           "SlotMin": 0,
-          "SlotMax": 17
+          "SlotMax": 15
         },
         "1": {
-          "Species": "Magby",
-          "SlotMin": 18,
-          "SlotMax": 35
+          "Species": "Nidoran♂",
+          "SlotMin": 16,
+          "SlotMax": 31
         },
         "2": {
-          "Species": "Mime Jr.",
-          "SlotMin": 36,
-          "SlotMax": 51
+          "Species": "Nidoran♀",
+          "SlotMin": 32,
+          "SlotMax": 47
         },
         "3": {
-          "Species": "Nidoran♂",
-          "SlotMin": 52,
-          "SlotMax": 67
+          "Species": "Shelmet",
+          "SlotMin": 48,
+          "SlotMax": 63
         },
         "4": {
-          "Species": "Nidoran♀",
-          "SlotMin": 68,
-          "SlotMax": 83
+          "Species": "Wooloo",
+          "SlotMin": 64,
+          "SlotMax": 81
         },
         "5": {
-          "Species": "Shelmet",
-          "SlotMin": 84,
+          "Species": "Magby",
+          "SlotMin": 82,
           "SlotMax": 99
         }
       }
@@ -8687,38 +8687,38 @@
       "MaxLevel": 65,
       "Encounters": {
         "0": {
-          "Species": "Phantump",
+          "Species": "Mime Jr.",
           "SlotMin": 0,
-          "SlotMax": 17
+          "SlotMax": 15
         },
         "1": {
-          "Species": "Sinistea",
-          "SlotMin": 18,
-          "SlotMax": 34
+          "Species": "Nidoran♂",
+          "SlotMin": 16,
+          "SlotMax": 31
         },
         "2": {
-          "Species": "Mime Jr.",
-          "SlotMin": 35,
-          "SlotMax": 50
+          "Species": "Nidoran♀",
+          "SlotMin": 32,
+          "SlotMax": 47
         },
         "3": {
-          "Species": "Nidoran♂",
-          "SlotMin": 51,
-          "SlotMax": 66
+          "Species": "Karrablast",
+          "SlotMin": 48,
+          "SlotMax": 63
         },
         "4": {
-          "Species": "Nidoran♀",
-          "SlotMin": 67,
-          "SlotMax": 82
+          "Species": "Sinistea",
+          "SlotMin": 64,
+          "SlotMax": 80
         },
         "5": {
-          "Species": "Karrablast",
-          "SlotMin": 83,
-          "SlotMax": 98
+          "Species": "Sinistea-1",
+          "SlotMin": 81,
+          "SlotMax": 81
         },
         "6": {
-          "Species": "Sinistea-1",
-          "SlotMin": 99,
+          "Species": "Phantump",
+          "SlotMin": 82,
           "SlotMax": 99
         }
       }
@@ -8728,38 +8728,38 @@
       "MaxLevel": 65,
       "Encounters": {
         "0": {
-          "Species": "Dewpider",
+          "Species": "Mime Jr.",
           "SlotMin": 0,
-          "SlotMax": 17
+          "SlotMax": 15
         },
         "1": {
-          "Species": "Sinistea",
-          "SlotMin": 18,
-          "SlotMax": 34
+          "Species": "Nidoran♂",
+          "SlotMin": 16,
+          "SlotMax": 31
         },
         "2": {
-          "Species": "Mime Jr.",
-          "SlotMin": 35,
-          "SlotMax": 50
+          "Species": "Nidoran♀",
+          "SlotMin": 32,
+          "SlotMax": 47
         },
         "3": {
-          "Species": "Nidoran♂",
-          "SlotMin": 51,
-          "SlotMax": 66
+          "Species": "Karrablast",
+          "SlotMin": 48,
+          "SlotMax": 63
         },
         "4": {
-          "Species": "Nidoran♀",
-          "SlotMin": 67,
-          "SlotMax": 82
+          "Species": "Sinistea",
+          "SlotMin": 64,
+          "SlotMax": 80
         },
         "5": {
-          "Species": "Karrablast",
-          "SlotMin": 83,
-          "SlotMax": 98
+          "Species": "Sinistea-1",
+          "SlotMin": 81,
+          "SlotMax": 81
         },
         "6": {
-          "Species": "Sinistea-1",
-          "SlotMin": 99,
+          "Species": "Dewpider",
+          "SlotMin": 82,
           "SlotMax": 99
         }
       }
@@ -8769,43 +8769,43 @@
       "MaxLevel": 65,
       "Encounters": {
         "0": {
-          "Species": "Dewpider",
+          "Species": "Mime Jr.",
           "SlotMin": 0,
-          "SlotMax": 14
+          "SlotMax": 13
         },
         "1": {
-          "Species": "Elekid",
-          "SlotMin": 15,
-          "SlotMax": 29
+          "Species": "Nidoran♂",
+          "SlotMin": 14,
+          "SlotMax": 27
         },
         "2": {
-          "Species": "Mime Jr.",
-          "SlotMin": 30,
-          "SlotMax": 43
+          "Species": "Nidoran♀",
+          "SlotMin": 28,
+          "SlotMax": 41
         },
         "3": {
-          "Species": "Nidoran♂",
-          "SlotMin": 44,
-          "SlotMax": 57
+          "Species": "Karrablast",
+          "SlotMin": 42,
+          "SlotMax": 55
         },
         "4": {
-          "Species": "Nidoran♀",
-          "SlotMin": 58,
-          "SlotMax": 71
+          "Species": "Sinistea",
+          "SlotMin": 56,
+          "SlotMax": 68
         },
         "5": {
-          "Species": "Karrablast",
-          "SlotMin": 72,
-          "SlotMax": 85
+          "Species": "Sinistea-1",
+          "SlotMin": 69,
+          "SlotMax": 69
         },
         "6": {
-          "Species": "Sinistea",
-          "SlotMin": 86,
-          "SlotMax": 98
+          "Species": "Dewpider",
+          "SlotMin": 70,
+          "SlotMax": 84
         },
         "7": {
-          "Species": "Sinistea-1",
-          "SlotMin": 99,
+          "Species": "Elekid",
+          "SlotMin": 85,
           "SlotMax": 99
         }
       }
@@ -8815,38 +8815,38 @@
       "MaxLevel": 65,
       "Encounters": {
         "0": {
-          "Species": "Magby",
+          "Species": "Mime Jr.",
           "SlotMin": 0,
-          "SlotMax": 17
+          "SlotMax": 15
         },
         "1": {
-          "Species": "Sinistea",
-          "SlotMin": 18,
-          "SlotMax": 34
+          "Species": "Nidoran♂",
+          "SlotMin": 16,
+          "SlotMax": 31
         },
         "2": {
-          "Species": "Mime Jr.",
-          "SlotMin": 35,
-          "SlotMax": 50
+          "Species": "Nidoran♀",
+          "SlotMin": 32,
+          "SlotMax": 47
         },
         "3": {
-          "Species": "Nidoran♂",
-          "SlotMin": 51,
-          "SlotMax": 66
+          "Species": "Karrablast",
+          "SlotMin": 48,
+          "SlotMax": 63
         },
         "4": {
-          "Species": "Nidoran♀",
-          "SlotMin": 67,
-          "SlotMax": 82
+          "Species": "Sinistea",
+          "SlotMin": 64,
+          "SlotMax": 80
         },
         "5": {
-          "Species": "Karrablast",
-          "SlotMin": 83,
-          "SlotMax": 98
+          "Species": "Sinistea-1",
+          "SlotMin": 81,
+          "SlotMax": 81
         },
         "6": {
-          "Species": "Sinistea-1",
-          "SlotMin": 99,
+          "Species": "Magby",
+          "SlotMin": 82,
           "SlotMax": 99
         }
       }
@@ -8856,38 +8856,38 @@
       "MaxLevel": 65,
       "Encounters": {
         "0": {
-          "Species": "Vanillite",
+          "Species": "Mime Jr.",
           "SlotMin": 0,
-          "SlotMax": 17
+          "SlotMax": 15
         },
         "1": {
-          "Species": "Sinistea",
-          "SlotMin": 18,
-          "SlotMax": 34
+          "Species": "Nidoran♂",
+          "SlotMin": 16,
+          "SlotMax": 31
         },
         "2": {
-          "Species": "Mime Jr.",
-          "SlotMin": 35,
-          "SlotMax": 50
+          "Species": "Nidoran♀",
+          "SlotMin": 32,
+          "SlotMax": 47
         },
         "3": {
-          "Species": "Nidoran♂",
-          "SlotMin": 51,
-          "SlotMax": 66
+          "Species": "Karrablast",
+          "SlotMin": 48,
+          "SlotMax": 63
         },
         "4": {
-          "Species": "Nidoran♀",
-          "SlotMin": 67,
-          "SlotMax": 82
+          "Species": "Sinistea",
+          "SlotMin": 64,
+          "SlotMax": 80
         },
         "5": {
-          "Species": "Karrablast",
-          "SlotMin": 83,
-          "SlotMax": 98
+          "Species": "Sinistea-1",
+          "SlotMin": 81,
+          "SlotMax": 81
         },
         "6": {
-          "Species": "Sinistea-1",
-          "SlotMin": 99,
+          "Species": "Vanillite",
+          "SlotMin": 82,
           "SlotMax": 99
         }
       }
@@ -8897,38 +8897,38 @@
       "MaxLevel": 65,
       "Encounters": {
         "0": {
-          "Species": "Vanillite",
+          "Species": "Mime Jr.",
           "SlotMin": 0,
-          "SlotMax": 17
+          "SlotMax": 15
         },
         "1": {
-          "Species": "Sinistea",
-          "SlotMin": 18,
-          "SlotMax": 34
+          "Species": "Nidoran♂",
+          "SlotMin": 16,
+          "SlotMax": 31
         },
         "2": {
-          "Species": "Mime Jr.",
-          "SlotMin": 35,
-          "SlotMax": 50
+          "Species": "Nidoran♀",
+          "SlotMin": 32,
+          "SlotMax": 47
         },
         "3": {
-          "Species": "Nidoran♂",
-          "SlotMin": 51,
-          "SlotMax": 66
+          "Species": "Karrablast",
+          "SlotMin": 48,
+          "SlotMax": 63
         },
         "4": {
-          "Species": "Nidoran♀",
-          "SlotMin": 67,
-          "SlotMax": 82
+          "Species": "Sinistea",
+          "SlotMin": 64,
+          "SlotMax": 80
         },
         "5": {
-          "Species": "Karrablast",
-          "SlotMin": 83,
-          "SlotMax": 98
+          "Species": "Sinistea-1",
+          "SlotMin": 81,
+          "SlotMax": 81
         },
         "6": {
-          "Species": "Sinistea-1",
-          "SlotMin": 99,
+          "Species": "Vanillite",
+          "SlotMin": 82,
           "SlotMax": 99
         }
       }
@@ -8949,38 +8949,38 @@
       "MaxLevel": 65,
       "Encounters": {
         "0": {
-          "Species": "Hatenna",
+          "Species": "Mime Jr.",
           "SlotMin": 0,
-          "SlotMax": 17
+          "SlotMax": 15
         },
         "1": {
-          "Species": "Sinistea",
-          "SlotMin": 18,
-          "SlotMax": 34
+          "Species": "Nidoran♂",
+          "SlotMin": 16,
+          "SlotMax": 31
         },
         "2": {
-          "Species": "Mime Jr.",
-          "SlotMin": 35,
-          "SlotMax": 50
+          "Species": "Nidoran♀",
+          "SlotMin": 32,
+          "SlotMax": 47
         },
         "3": {
-          "Species": "Nidoran♂",
-          "SlotMin": 51,
-          "SlotMax": 66
+          "Species": "Karrablast",
+          "SlotMin": 48,
+          "SlotMax": 63
         },
         "4": {
-          "Species": "Nidoran♀",
-          "SlotMin": 67,
-          "SlotMax": 82
+          "Species": "Sinistea",
+          "SlotMin": 64,
+          "SlotMax": 80
         },
         "5": {
-          "Species": "Karrablast",
-          "SlotMin": 83,
-          "SlotMax": 98
+          "Species": "Sinistea-1",
+          "SlotMin": 81,
+          "SlotMax": 81
         },
         "6": {
-          "Species": "Sinistea-1",
-          "SlotMin": 99,
+          "Species": "Hatenna",
+          "SlotMin": 82,
           "SlotMax": 99
         }
       }
@@ -9160,18 +9160,18 @@
       "MaxLevel": 65,
       "Encounters": {
         "0": {
-          "Species": "Snom",
+          "Species": "Mime Jr.",
           "SlotMin": 0,
-          "SlotMax": 33
+          "SlotMax": 32
         },
         "1": {
-          "Species": "Mime Jr.",
-          "SlotMin": 34,
-          "SlotMax": 66
+          "Species": "Beldum",
+          "SlotMin": 33,
+          "SlotMax": 65
         },
         "2": {
-          "Species": "Beldum",
-          "SlotMin": 67,
+          "Species": "Snom",
+          "SlotMin": 66,
           "SlotMax": 99
         }
       }
@@ -9414,18 +9414,18 @@
       "MaxLevel": 65,
       "Encounters": {
         "0": {
-          "Species": "Bergmite",
+          "Species": "Mime Jr.",
           "SlotMin": 0,
-          "SlotMax": 33
+          "SlotMax": 32
         },
         "1": {
-          "Species": "Mime Jr.",
-          "SlotMin": 34,
-          "SlotMax": 66
+          "Species": "Spheal",
+          "SlotMin": 33,
+          "SlotMax": 65
         },
         "2": {
-          "Species": "Spheal",
-          "SlotMin": 67,
+          "Species": "Bergmite",
+          "SlotMin": 66,
           "SlotMax": 99
         }
       }
@@ -9435,18 +9435,18 @@
       "MaxLevel": 65,
       "Encounters": {
         "0": {
-          "Species": "Bergmite",
+          "Species": "Mime Jr.",
           "SlotMin": 0,
-          "SlotMax": 33
+          "SlotMax": 32
         },
         "1": {
-          "Species": "Mime Jr.",
-          "SlotMin": 34,
-          "SlotMax": 66
+          "Species": "Spheal",
+          "SlotMin": 33,
+          "SlotMax": 65
         },
         "2": {
-          "Species": "Spheal",
-          "SlotMin": 67,
+          "Species": "Bergmite",
+          "SlotMin": 66,
           "SlotMax": 99
         }
       }
@@ -9882,18 +9882,18 @@
       "MaxLevel": 65,
       "Encounters": {
         "0": {
-          "Species": "Skwovet",
+          "Species": "Mime Jr.",
           "SlotMin": 0,
-          "SlotMax": 31
+          "SlotMax": 30
         },
         "1": {
-          "Species": "Yamper",
-          "SlotMin": 32,
-          "SlotMax": 63
+          "Species": "Skwovet",
+          "SlotMin": 31,
+          "SlotMax": 62
         },
         "2": {
-          "Species": "Mime Jr.",
-          "SlotMin": 64,
+          "Species": "Yamper",
+          "SlotMin": 63,
           "SlotMax": 94
         },
         "3": {
@@ -10016,23 +10016,23 @@
       "MaxLevel": 65,
       "Encounters": {
         "0": {
-          "Species": "Skwovet",
+          "Species": "Mime Jr.",
           "SlotMin": 0,
-          "SlotMax": 23
+          "SlotMax": 22
         },
         "1": {
-          "Species": "Yamper",
-          "SlotMin": 24,
-          "SlotMax": 47
+          "Species": "Skwovet",
+          "SlotMin": 23,
+          "SlotMax": 46
         },
         "2": {
-          "Species": "Vanillite",
-          "SlotMin": 48,
-          "SlotMax": 71
+          "Species": "Yamper",
+          "SlotMin": 47,
+          "SlotMax": 70
         },
         "3": {
-          "Species": "Mime Jr.",
-          "SlotMin": 72,
+          "Species": "Vanillite",
+          "SlotMin": 71,
           "SlotMax": 94
         },
         "4": {
@@ -10069,23 +10069,23 @@
       "MaxLevel": 65,
       "Encounters": {
         "0": {
-          "Species": "Skwovet",
+          "Species": "Mime Jr.",
           "SlotMin": 0,
-          "SlotMax": 23
+          "SlotMax": 22
         },
         "1": {
-          "Species": "Yamper",
-          "SlotMin": 24,
-          "SlotMax": 47
+          "Species": "Skwovet",
+          "SlotMin": 23,
+          "SlotMax": 46
         },
         "2": {
-          "Species": "Hatenna",
-          "SlotMin": 48,
-          "SlotMax": 71
+          "Species": "Yamper",
+          "SlotMin": 47,
+          "SlotMax": 70
         },
         "3": {
-          "Species": "Mime Jr.",
-          "SlotMin": 72,
+          "Species": "Hatenna",
+          "SlotMin": 71,
           "SlotMax": 94
         },
         "4": {

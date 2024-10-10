@@ -224,23 +224,23 @@
           "SlotMax": 29
         },
         "1": {
-          "Species": "Magikarp",
+          "Species": "Lanturn",
           "SlotMin": 30,
-          "SlotMax": 59
+          "SlotMax": 54
         },
         "2": {
-          "Species": "Lanturn",
-          "SlotMin": 60,
-          "SlotMax": 84
+          "Species": "Qwilfish",
+          "SlotMin": 55,
+          "SlotMax": 64
         },
         "3": {
-          "Species": "Qwilfish",
-          "SlotMin": 85,
-          "SlotMax": 94
+          "Species": "Gyarados",
+          "SlotMin": 65,
+          "SlotMax": 69
         },
         "4": {
-          "Species": "Gyarados",
-          "SlotMin": 95,
+          "Species": "Magikarp",
+          "SlotMin": 70,
           "SlotMax": 99
         }
       }
@@ -326,13 +326,13 @@
           "SlotMax": 49
         },
         "1": {
-          "Species": "Chinchou",
+          "Species": "Chewtle",
           "SlotMin": 50,
-          "SlotMax": 69
+          "SlotMax": 64
         },
         "2": {
-          "Species": "Chewtle",
-          "SlotMin": 70,
+          "Species": "Chinchou",
+          "SlotMin": 65,
           "SlotMax": 84
         },
         "3": {
@@ -885,23 +885,23 @@
           "SlotMax": 39
         },
         "2": {
-          "Species": "Basculin",
+          "Species": "Gyarados",
           "SlotMin": 40,
-          "SlotMax": 59
+          "SlotMax": 54
         },
         "3": {
-          "Species": "Gyarados",
-          "SlotMin": 60,
-          "SlotMax": 74
+          "Species": "Whiscash",
+          "SlotMin": 55,
+          "SlotMax": 69
         },
         "4": {
-          "Species": "Whiscash",
-          "SlotMin": 75,
-          "SlotMax": 89
+          "Species": "Lileep",
+          "SlotMin": 70,
+          "SlotMax": 79
         },
         "5": {
-          "Species": "Lileep",
-          "SlotMin": 90,
+          "Species": "Basculin",
+          "SlotMin": 80,
           "SlotMax": 99
         }
       }
@@ -946,23 +946,23 @@
           "SlotMax": 39
         },
         "2": {
-          "Species": "Basculin",
+          "Species": "Whiscash",
           "SlotMin": 40,
-          "SlotMax": 59
+          "SlotMax": 54
         },
         "3": {
-          "Species": "Whiscash",
-          "SlotMin": 60,
-          "SlotMax": 74
+          "Species": "Gyarados",
+          "SlotMin": 55,
+          "SlotMax": 69
         },
         "4": {
-          "Species": "Gyarados",
-          "SlotMin": 75,
-          "SlotMax": 89
+          "Species": "Lileep",
+          "SlotMin": 70,
+          "SlotMax": 79
         },
         "5": {
-          "Species": "Lileep",
-          "SlotMin": 90,
+          "Species": "Basculin",
+          "SlotMin": 80,
           "SlotMax": 99
         }
       }
@@ -984,13 +984,13 @@
           "SlotMax": 59
         },
         "2": {
-          "Species": "Wailmer",
+          "Species": "Gyarados",
           "SlotMin": 60,
-          "SlotMax": 79
+          "SlotMax": 74
         },
         "3": {
-          "Species": "Gyarados",
-          "SlotMin": 80,
+          "Species": "Wailmer",
+          "SlotMin": 75,
           "SlotMax": 94
         },
         "4": {
@@ -1012,33 +1012,33 @@
           "SlotMax": 19
         },
         "1": {
-          "Species": "Basculin",
+          "Species": "Feebas",
           "SlotMin": 20,
-          "SlotMax": 39
+          "SlotMax": 24
         },
         "2": {
-          "Species": "Barboach",
-          "SlotMin": 40,
-          "SlotMax": 59
+          "Species": "Dratini",
+          "SlotMin": 25,
+          "SlotMax": 29
         },
         "3": {
           "Species": "Gyarados",
-          "SlotMin": 60,
-          "SlotMax": 74
+          "SlotMin": 30,
+          "SlotMax": 44
         },
         "4": {
-          "Species": "Whiscash",
-          "SlotMin": 75,
-          "SlotMax": 89
+          "Species": "Basculin",
+          "SlotMin": 45,
+          "SlotMax": 64
         },
         "5": {
-          "Species": "Feebas",
-          "SlotMin": 90,
-          "SlotMax": 94
+          "Species": "Barboach",
+          "SlotMin": 65,
+          "SlotMax": 84
         },
         "6": {
-          "Species": "Dratini",
-          "SlotMin": 95,
+          "Species": "Whiscash",
+          "SlotMin": 85,
           "SlotMax": 99
         }
       }
