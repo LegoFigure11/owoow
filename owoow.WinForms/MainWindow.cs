@@ -9,6 +9,7 @@ using static owoow.Core.Encounters;
 using static owoow.Core.RNG.Util;
 using static owoow.Core.RNG.FilterUtil;
 using PKHeX.Drawing.PokeSprite;
+using owoow.Core.RNG.Generators.Overworld;
 
 namespace owoow.WinForms;
 
@@ -337,6 +338,34 @@ public partial class MainWindow : Form
         }
     }
 
+    private void SetTextBoxState(bool enabled, params object[] obj)
+    {
+        foreach (object o in obj)
+        {
+            if (o is not TextBox tb)
+                continue;
+            if (InvokeRequired)
+            {
+                Invoke(() => tb.Enabled = enabled);
+            }
+            else tb.Enabled = enabled;
+        }
+    }
+
+    private void SetPictureBoxImage(Image img, params object[] obj)
+    {
+        foreach (object o in obj)
+        {
+            if (o is not PictureBox pb)
+                continue;
+            if (InvokeRequired)
+            {
+                Invoke(() => pb.Image = img);
+            }
+            else pb.Image = img;
+        }
+    }
+
     private void SetComboBoxSelectedIndex(int index, params object[] obj)
     {
         foreach (object o in obj)
@@ -466,7 +495,7 @@ public partial class MainWindow : Form
                         string output = $"{shiny}{(Species)pk.Species}{form}{gender}{item}{n}EC: {pk.EncryptionConstant:X8}{n}PID: {pk.PID:X8}{n}{Strings.Natures[(int)pk.Nature]} Nature{n}Ability: {Strings.Ability[pk.Ability]}{n}IVs: {pk.IV_HP}/{pk.IV_ATK}/{pk.IV_DEF}/{pk.IV_SPA}/{pk.IV_SPD}/{pk.IV_SPE}{n}{scale}{markString}{moves}";
 
                         pause = false;
-                        PB_PokemonSprite.Image = pk.Sprite();
+                        // SetPictureBoxImage(pk.Sprite(), PB_PokemonSprite);
                         SetTextBoxText(output, TB_Wild);
                     }
                     else
@@ -575,7 +604,7 @@ public partial class MainWindow : Form
 
             if (last) end += advances % interval;
 
-            tasks.Add(Core.RNG.Generators.Symbol.Generate(_s0, _s1, table, start, end, config));
+            tasks.Add(Symbol.Generate(_s0, _s1, table, start, end, config));
 
             if (!last)
             {

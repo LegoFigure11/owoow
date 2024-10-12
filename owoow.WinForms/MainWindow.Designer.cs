@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
-            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             GB_SeedControlsContainer = new GroupBox();
             GB_WildView = new GroupBox();
             PB_PokemonSprite = new PictureBox();
@@ -84,6 +84,9 @@
             TC_EncounterType = new TabControl();
             TP_Static = new TabPage();
             TP_Symbol = new TabPage();
+            CB_Symbol_MenuClose = new CheckBox();
+            L_Symbol_NPCs = new Label();
+            TB_Symbol_NPCs = new TextBox();
             L_Symbol_KOs = new Label();
             TB_Symbol_KOs = new TextBox();
             label3 = new Label();
@@ -733,6 +736,9 @@
             // 
             // TP_Symbol
             // 
+            TP_Symbol.Controls.Add(CB_Symbol_MenuClose);
+            TP_Symbol.Controls.Add(L_Symbol_NPCs);
+            TP_Symbol.Controls.Add(TB_Symbol_NPCs);
             TP_Symbol.Controls.Add(L_Symbol_KOs);
             TP_Symbol.Controls.Add(TB_Symbol_KOs);
             TP_Symbol.Controls.Add(label3);
@@ -750,6 +756,41 @@
             TP_Symbol.TabIndex = 1;
             TP_Symbol.Text = "Symbol";
             TP_Symbol.UseVisualStyleBackColor = true;
+            // 
+            // CB_Symbol_MenuClose
+            // 
+            CB_Symbol_MenuClose.AutoSize = true;
+            CB_Symbol_MenuClose.CheckAlign = ContentAlignment.MiddleRight;
+            CB_Symbol_MenuClose.Location = new Point(6, 183);
+            CB_Symbol_MenuClose.Name = "CB_Symbol_MenuClose";
+            CB_Symbol_MenuClose.Size = new Size(144, 19);
+            CB_Symbol_MenuClose.TabIndex = 49;
+            CB_Symbol_MenuClose.Tag = "";
+            CB_Symbol_MenuClose.Text = "Consider Menu Close?";
+            CB_Symbol_MenuClose.UseVisualStyleBackColor = true;
+            CB_Symbol_MenuClose.CheckedChanged += CB_MenuClose_CheckedChanged;
+            // 
+            // L_Symbol_NPCs
+            // 
+            L_Symbol_NPCs.AutoSize = true;
+            L_Symbol_NPCs.Location = new Point(175, 184);
+            L_Symbol_NPCs.Name = "L_Symbol_NPCs";
+            L_Symbol_NPCs.Size = new Size(39, 15);
+            L_Symbol_NPCs.TabIndex = 24;
+            L_Symbol_NPCs.Text = "NPCs:";
+            // 
+            // TB_Symbol_NPCs
+            // 
+            TB_Symbol_NPCs.CharacterCasing = CharacterCasing.Upper;
+            TB_Symbol_NPCs.Enabled = false;
+            TB_Symbol_NPCs.Font = new Font("Consolas", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            TB_Symbol_NPCs.Location = new Point(220, 182);
+            TB_Symbol_NPCs.MaxLength = 16;
+            TB_Symbol_NPCs.Name = "TB_Symbol_NPCs";
+            TB_Symbol_NPCs.Size = new Size(35, 22);
+            TB_Symbol_NPCs.TabIndex = 23;
+            TB_Symbol_NPCs.Text = "3";
+            TB_Symbol_NPCs.TextAlign = HorizontalAlignment.Right;
             // 
             // L_Symbol_KOs
             // 
@@ -1266,9 +1307,9 @@
             // 
             DGV_Results.AllowUserToAddRows = false;
             DGV_Results.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle1.BackColor = Color.WhiteSmoke;
-            dataGridViewCellStyle1.ForeColor = Color.Black;
-            DGV_Results.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.BackColor = Color.WhiteSmoke;
+            dataGridViewCellStyle2.ForeColor = Color.Black;
+            DGV_Results.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle2;
             DGV_Results.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             DGV_Results.AutoGenerateColumns = false;
             DGV_Results.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -1627,5 +1668,8 @@
         private DataGridViewTextBoxColumn eggMoveDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn seed0DataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn seed1DataGridViewTextBoxColumn;
+        private Label L_Symbol_NPCs;
+        private TextBox TB_Symbol_NPCs;
+        private CheckBox CB_Symbol_MenuClose;
     }
 }
