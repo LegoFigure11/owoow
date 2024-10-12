@@ -177,7 +177,7 @@ public class Symbol
                 // Matches, keep!
                 frames.Add(new Frame()
                 {
-                    Advances = i,
+                    Advances = $"{i:N0}",
 
                     Animation = (os.s0 & 1 ^ os.s1 & 1) == 1 ? 'P' : 'S',
 

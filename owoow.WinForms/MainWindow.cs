@@ -9,7 +9,7 @@ using static owoow.Core.Encounters;
 using static owoow.Core.RNG.Util;
 using static owoow.Core.RNG.FilterUtil;
 using PKHeX.Drawing.PokeSprite;
-using owoow.Core.RNG.Generators.Overworld;
+using owoow.Core.RNG.Generators;
 
 namespace owoow.WinForms;
 
@@ -60,7 +60,7 @@ public partial class MainWindow : Form
         Task.Run(
             async () =>
             {
-                SetButtonState(false, B_Connect);
+                SetControlEnabledState(false, B_Connect);
                 try
                 {
                     ConnectionConfig.IP = TB_SwitchIP.Text;
@@ -69,14 +69,14 @@ public partial class MainWindow : Form
                         .ConfigureAwait(false);
                     if (!success)
                     {
-                        SetButtonState(true, B_Connect);
+                        SetControlEnabledState(true, B_Connect);
                         this.DisplayMessageBox(err);
                         return;
                     }
                 }
                 catch (Exception ex)
                 {
-                    SetButtonState(true, B_Connect);
+                    SetControlEnabledState(true, B_Connect);
                     this.DisplayMessageBox(ex.Message);
                     return;
                 }
@@ -101,7 +101,7 @@ public partial class MainWindow : Form
                             .ConfigureAwait(false);
                         if (!success)
                         {
-                            SetButtonState(true, B_Connect);
+                            SetControlEnabledState(true, B_Connect);
                             this.DisplayMessageBox(err);
                             return;
                         }
@@ -112,7 +112,7 @@ public partial class MainWindow : Form
                     }
                     finally
                     {
-                        SetButtonState(true, B_Connect);
+                        SetControlEnabledState(true, B_Connect);
                         this.DisplayMessageBox("Unable to detect Pokémon Sword or Pokémon Shield running on your Switch!");
                     }
                     return;
@@ -133,7 +133,7 @@ public partial class MainWindow : Form
                     (_s0, _s1) = await ConnectionWrapper.ReadRNGState(token).ConfigureAwait(false);
                     SetTextBoxText($"{_s0:X16}", TB_Seed0, TB_CurrentS0);
                     SetTextBoxText($"{_s1:X16}", TB_Seed1, TB_CurrentS1);
-                    SetTextBoxText("0", TB_CurrentAdvances);
+                    SetTextBoxText("0", TB_CurrentAdvances, TB_AdvancesIncrease);
 
                 }
                 catch (Exception ex)
@@ -142,7 +142,7 @@ public partial class MainWindow : Form
                     return;
                 }
 
-                SetButtonState(true, B_Disconnect, B_CopyToInitial, B_ReadEncounter);
+                SetControlEnabledState(true, B_Disconnect, B_CopyToInitial, B_ReadEncounter);
 
                 UpdateStatus("Monitoring RNG State...");
                 try
@@ -192,7 +192,7 @@ public partial class MainWindow : Form
         Task.Run(
             async () =>
             {
-                SetButtonState(false, B_Disconnect);
+                SetControlEnabledState(false, B_Disconnect);
                 stop = true;
                 try
                 {
@@ -205,7 +205,7 @@ public partial class MainWindow : Form
                 }
                 await Source.CancelAsync();
                 Source = new();
-                SetButtonState(true, B_Connect);
+                SetControlEnabledState(true, B_Connect);
             },
             token
         );
@@ -296,31 +296,17 @@ public partial class MainWindow : Form
         }
     }
 
-    private void SetCheckBoxState(bool state, params object[] obj)
+    private void SetControlEnabledState(bool state, params object[] obj)
     {
         foreach (object o in obj)
         {
-            if (o is not CheckBox cb)
+            if (o is not Control c)
                 continue;
 
             if (InvokeRequired)
-                Invoke(() => cb.Enabled = state);
+                Invoke(() => c.Enabled = state);
             else
-                cb.Enabled = state;
-        }
-    }
-
-    private void SetButtonState(bool state, params object[] obj)
-    {
-        foreach (object o in obj)
-        {
-            if (o is not Button b)
-                continue;
-
-            if (InvokeRequired)
-                Invoke(() => b.Enabled = state);
-            else
-                b.Enabled = state;
+                c.Enabled = state;
         }
     }
 
@@ -549,7 +535,7 @@ public partial class MainWindow : Form
 
     private void B_Symbol_Search_Click(object sender, EventArgs e)
     {
-        SetButtonState(false, sender);
+        SetControlEnabledState(false, sender);
 
         var table = new EncounterTable(CB_Game.Text, "Symbol", CB_Symbol_Area.Text, CB_Symbol_Weather.Text, CB_Symbol_LeadAbility.Text);
 
@@ -626,7 +612,7 @@ public partial class MainWindow : Form
 
             SetBindingSourceDataSource(AllResults, ResultsSource);
 
-            SetButtonState(true, sender);
+            SetControlEnabledState(true, sender);
         });
     }
 

@@ -2,7 +2,7 @@
 {
     internal interface IFrame
     {
-        ulong Advances { get; }
+        string Advances { get; }
         string Jump { get; }
         char Animation { get; }
         string Species { get; }
@@ -35,7 +35,7 @@
 
     public class Frame : IFrame
     {
-        public ulong Advances { get; set; } = 0;
+        public string Advances { get; set; } = string.Empty;
         public string Jump { get; set; } = string.Empty;
         public char Animation { get; set; } = ' ';
         public string Species { get; set; } = string.Empty;
