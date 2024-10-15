@@ -12,18 +12,18 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "owoow.WinForms", "owoow.Win
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
-		Debug|Any CPU = Debug|Any CPU
-		Release|Any CPU = Release|Any CPU
+		Debug|x64 = Debug|x64
+		Release|x64 = Release|x64
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{3735B69D-F459-4801-AA65-D9FE272F07C0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{3735B69D-F459-4801-AA65-D9FE272F07C0}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{3735B69D-F459-4801-AA65-D9FE272F07C0}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{3735B69D-F459-4801-AA65-D9FE272F07C0}.Release|Any CPU.Build.0 = Release|Any CPU
-		{0BBAFAAE-D1BD-459E-8196-D0A985AD7966}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{0BBAFAAE-D1BD-459E-8196-D0A985AD7966}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{0BBAFAAE-D1BD-459E-8196-D0A985AD7966}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{0BBAFAAE-D1BD-459E-8196-D0A985AD7966}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3735B69D-F459-4801-AA65-D9FE272F07C0}.Debug|x64.ActiveCfg = Debug|x64
+		{3735B69D-F459-4801-AA65-D9FE272F07C0}.Debug|x64.Build.0 = Debug|x64
+		{3735B69D-F459-4801-AA65-D9FE272F07C0}.Release|x64.ActiveCfg = Release|x64
+		{3735B69D-F459-4801-AA65-D9FE272F07C0}.Release|x64.Build.0 = Release|x64
+		{0BBAFAAE-D1BD-459E-8196-D0A985AD7966}.Debug|x64.ActiveCfg = Debug|x64
+		{0BBAFAAE-D1BD-459E-8196-D0A985AD7966}.Debug|x64.Build.0 = Debug|x64
+		{0BBAFAAE-D1BD-459E-8196-D0A985AD7966}.Release|x64.ActiveCfg = Release|x64
+		{0BBAFAAE-D1BD-459E-8196-D0A985AD7966}.Release|x64.Build.0 = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
