@@ -55,7 +55,7 @@ public static class Fixed
             } while (ivs[idx] != 32);
 
             ivs[idx] = 31;
-            
+
             if (config.FiltersEnabled && ivs[idx] > config.TargetMaxIVs[idx]) return (false, ivs);
         }
         // Random

@@ -8,7 +8,7 @@
         string Species { get; }
         string Shiny { get; }
         char Brilliant { get; }
-        
+
         byte Level { get; }
         string Ability { get; }
         string Nature { get; }

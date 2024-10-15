@@ -10,7 +10,8 @@ public class Symbol
 {
     public static Task<List<Frame>> Generate(ulong s0, ulong s1, EncounterTable.EncounterTable table, ulong start, ulong end, GeneratorConfig config)
     {
-        return Task.Run(() => {
+        return Task.Run(() =>
+        {
 
             List<Frame> frames = [];
             var outer = new Xoroshiro128Plus(s0, s1);

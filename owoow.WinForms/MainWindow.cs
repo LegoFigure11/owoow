@@ -2,15 +2,14 @@
 using owoow.Core.Connection;
 using owoow.Core.EncounterTable;
 using owoow.Core.Interfaces;
+using owoow.Core.RNG.Generators;
+using owoow.WinForms.Subforms;
 using PKHeX.Core;
 using SysBot.Base;
 using System.Globalization;
 using static owoow.Core.Encounters;
-using static owoow.Core.RNG.Util;
 using static owoow.Core.RNG.FilterUtil;
-using PKHeX.Drawing.PokeSprite;
-using owoow.Core.RNG.Generators;
-using owoow.WinForms.Subforms;
+using static owoow.Core.RNG.Util;
 
 namespace owoow.WinForms;
 
