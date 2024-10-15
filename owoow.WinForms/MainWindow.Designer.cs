@@ -30,6 +30,7 @@
         {
             components = new System.ComponentModel.Container();
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainWindow));
             GB_SeedControlsContainer = new GroupBox();
             GB_WildView = new GroupBox();
             PB_PokemonSprite = new PictureBox();
@@ -1530,6 +1531,7 @@
             ClientSize = new Size(891, 646);
             Controls.Add(DGV_Results);
             Controls.Add(GB_SeedControlsContainer);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "MainWindow";
             RightToLeft = RightToLeft.No;
             Text = "owoow (´・ω・`)";
