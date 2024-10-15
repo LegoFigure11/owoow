@@ -4,7 +4,6 @@ namespace owoow.Core.RNG;
 
 public static class Util
 {
-    public static readonly string[] PersonalityMarks = ["Rowdy", "Absent-Minded", "Jittery", "Excited", "Charismatic", "Calmness", "Intense", "Zoned-Out", "Joyful", "Angry", "Smiley", "Teary", "Upbeat", "Peeved", "Intellectual", "Ferocious", "Crafty", "Scowling", "Kindly", "Flustered", "Pumped-Up", "Zero Energy", "Prideful", "Unsure", "Humble", "Thorny", "Vigor", "Slump"];
     public static readonly IReadOnlyList<string> Natures = GameInfo.GetStrings(1).Natures;
 
     public static uint GetAdvancesPassed(ulong s0, ulong s1, ulong _s0, ulong _s1)
