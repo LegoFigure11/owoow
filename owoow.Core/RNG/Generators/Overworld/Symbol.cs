@@ -46,6 +46,8 @@ public class Symbol
 
             uint Height;
 
+            uint Jump = 0;
+
             RibbonIndex Mark;
 
             (uint AuraThreshold, int AuraRolls) = Util.GetBrilliantInfo(config.AuraKOs);
@@ -57,6 +59,11 @@ public class Symbol
 
                 EncounterSlotChosen = false;
                 CuteCharm = false;
+
+                if (config.ConsiderMenuClose)
+                {
+                    Jump = MenuClose.GetAdvances(ref rng, config.MenuCloseNPCs, config.MenuCloseIsHoldingDirection);
+                }
 
                 rng.NextInt();
                 rng.NextInt(100);
@@ -178,6 +185,8 @@ public class Symbol
                 frames.Add(new Frame()
                 {
                     Advances = $"{i:N0}",
+
+                    Jump = $"+{Jump}",
 
                     Animation = (os.s0 & 1 ^ os.s1 & 1) == 1 ? 'P' : 'S',
 

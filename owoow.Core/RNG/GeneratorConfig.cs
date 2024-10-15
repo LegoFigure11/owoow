@@ -36,5 +36,9 @@ public class GeneratorConfig
     public string Weather { get; set; } = string.Empty;
     public bool WeatherActive => Weather != "Normal Weather";
 
+    public bool ConsiderMenuClose { get; set; } = false;
+    public bool MenuCloseIsHoldingDirection { get; set; } = false;
+    public uint MenuCloseNPCs { get; set; } = 0;
+
     public bool FiltersEnabled { get; set; } = false;
 };

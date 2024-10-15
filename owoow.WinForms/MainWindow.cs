@@ -10,6 +10,7 @@ using static owoow.Core.RNG.Util;
 using static owoow.Core.RNG.FilterUtil;
 using PKHeX.Drawing.PokeSprite;
 using owoow.Core.RNG.Generators;
+using owoow.WinForms.Subforms;
 
 namespace owoow.WinForms;
 
@@ -282,104 +283,6 @@ public partial class MainWindow : Form
         }
     }
 
-    private void SetCheckBoxCheckedState(bool state, params object[] obj)
-    {
-        foreach (object o in obj)
-        {
-            if (o is not CheckBox cb)
-                continue;
-
-            if (InvokeRequired)
-                Invoke(() => cb.Checked = state);
-            else
-                cb.Checked = state;
-        }
-    }
-
-    private void SetControlEnabledState(bool state, params object[] obj)
-    {
-        foreach (object o in obj)
-        {
-            if (o is not Control c)
-                continue;
-
-            if (InvokeRequired)
-                Invoke(() => c.Enabled = state);
-            else
-                c.Enabled = state;
-        }
-    }
-
-    private void SetTextBoxText(string text, params object[] obj)
-    {
-        foreach (object o in obj)
-        {
-            if (o is not TextBox tb)
-                continue;
-            if (InvokeRequired)
-            {
-                Invoke(() => tb.Text = text);
-            }
-            else tb.Text = text;
-        }
-    }
-
-    private void SetTextBoxState(bool enabled, params object[] obj)
-    {
-        foreach (object o in obj)
-        {
-            if (o is not TextBox tb)
-                continue;
-            if (InvokeRequired)
-            {
-                Invoke(() => tb.Enabled = enabled);
-            }
-            else tb.Enabled = enabled;
-        }
-    }
-
-    private void SetPictureBoxImage(Image img, params object[] obj)
-    {
-        foreach (object o in obj)
-        {
-            if (o is not PictureBox pb)
-                continue;
-            if (InvokeRequired)
-            {
-                Invoke(() => pb.Image = img);
-            }
-            else pb.Image = img;
-        }
-    }
-
-    private void SetComboBoxSelectedIndex(int index, params object[] obj)
-    {
-        foreach (object o in obj)
-        {
-            if (o is not ComboBox cb)
-                continue;
-            if (InvokeRequired)
-            {
-                Invoke(() => cb.SelectedIndex = index);
-            }
-            else cb.SelectedIndex = index;
-        }
-    }
-
-    private void SetBindingSourceDataSource(object source, params object[] obj)
-    {
-        foreach (object o in obj)
-        {
-            if (o is not BindingSource b)
-                continue;
-            if (InvokeRequired)
-            {
-                Invoke(() => b.DataSource = source);
-            }
-            else b.DataSource = source;
-        }
-    }
-
     private void B_Connect_Click(object sender, EventArgs e)
     {
         lock (_connectLock)
@@ -502,7 +405,7 @@ public partial class MainWindow : Form
         );
     }
 
-    private void KeyPress_AllowOnlyHex(object sender, KeyPressEventArgs e)
+    public void KeyPress_AllowOnlyHex(object sender, KeyPressEventArgs e)
     {
         var c = e.KeyChar;
         if (c != (char)Keys.Back && !char.IsControl(c))
@@ -548,7 +451,7 @@ public partial class MainWindow : Form
         var s0 = ulong.Parse(TB_Seed0.Text, NumberStyles.AllowHexSpecifier);
         var s1 = ulong.Parse(TB_Seed1.Text, NumberStyles.AllowHexSpecifier);
 
-        _ = CB_Symbol_Weather;
+        var MenuClose = CB_Symbol_MenuClose.Checked;
 
         Core.RNG.GeneratorConfig config = new()
         {
@@ -568,6 +471,10 @@ public partial class MainWindow : Form
             TargetMaxIVs = [(uint)NUD_HP_Max.Value, (uint)NUD_Atk_Max.Value, (uint)NUD_Def_Max.Value, (uint)NUD_SpA_Max.Value, (uint)NUD_SpD_Max.Value, (uint)NUD_Spe_Max.Value],
 
             AuraKOs = int.Parse(TB_Symbol_KOs.Text),
+
+            ConsiderMenuClose = MenuClose,
+            MenuCloseIsHoldingDirection = CB_Symbol_MenuClose_Direction.Checked,
+            MenuCloseNPCs = uint.Parse(TB_Symbol_NPCs.Text),
 
             FiltersEnabled = CB_EnableFilters.Checked,
 
@@ -632,5 +539,112 @@ public partial class MainWindow : Form
         var max = (NumericUpDown)Controls.Find($"NUD_{stat}_Max", true).FirstOrDefault()!;
         min.Value = 0;
         max.Value = 0;
+    }
+
+    private void CB_MenuClose_CheckedChanged(object sender, EventArgs e)
+    {
+        var cb = (CheckBox)sender;
+        var tab = cb.Name.Replace("CB_", string.Empty).Replace("_MenuClose", string.Empty);
+        SetControlEnabledState(cb.Checked, Controls.Find($"TB_{tab}_NPCs", true).FirstOrDefault()!, Controls.Find($"B_{tab}_MenuClose", true).FirstOrDefault()!, Controls.Find($"CB_{tab}_MenuClose_Direction", true).FirstOrDefault()!);
+    }
+
+    public void SetCheckBoxCheckedState(bool state, params object[] obj)
+    {
+        foreach (object o in obj)
+        {
+            if (o is not CheckBox cb)
+                continue;
+
+            if (InvokeRequired)
+                Invoke(() => cb.Checked = state);
+            else
+                cb.Checked = state;
+        }
+    }
+
+    public void SetControlEnabledState(bool state, params object[] obj)
+    {
+        foreach (object o in obj)
+        {
+            if (o is not Control c)
+                continue;
+
+            if (InvokeRequired)
+                Invoke(() => c.Enabled = state);
+            else
+                c.Enabled = state;
+        }
+    }
+
+    public void SetTextBoxText(string text, params object[] obj)
+    {
+        foreach (object o in obj)
+        {
+            if (o is not TextBox tb)
+                continue;
+            if (InvokeRequired)
+            {
+                Invoke(() => tb.Text = text);
+            }
+            else tb.Text = text;
+        }
+    }
+
+    private void SetPictureBoxImage(Image img, params object[] obj)
+    {
+        foreach (object o in obj)
+        {
+            if (o is not PictureBox pb)
+                continue;
+            if (InvokeRequired)
+            {
+                Invoke(() => pb.Image = img);
+            }
+            else pb.Image = img;
+        }
+    }
+
+    private void SetComboBoxSelectedIndex(int index, params object[] obj)
+    {
+        foreach (object o in obj)
+        {
+            if (o is not ComboBox cb)
+                continue;
+            if (InvokeRequired)
+            {
+                Invoke(() => cb.SelectedIndex = index);
+            }
+            else cb.SelectedIndex = index;
+        }
+    }
+
+    public void SetBindingSourceDataSource(object source, params object[] obj)
+    {
+        foreach (object o in obj)
+        {
+            if (o is not BindingSource b)
+                continue;
+            if (InvokeRequired)
+            {
+                Invoke(() => b.DataSource = source);
+            }
+            else b.DataSource = source;
+        }
+    }
+
+    public bool MenuCloseTimelineFormOpen = false;
+    MenuCloseTimeline MenuCloseTimelineForm;
+    private void B_MenuClose_Click(object sender, EventArgs e)
+    {
+        if (!MenuCloseTimelineFormOpen)
+        {
+            MenuCloseTimelineFormOpen = true;
+            MenuCloseTimelineForm = new MenuCloseTimeline(this, ((Button)sender).Name.Replace("B_", string.Empty).Replace("_MenuClose", string.Empty));
+            MenuCloseTimelineForm.Show();
+        }
+        else
+        {
+            MenuCloseTimelineForm.Focus();
+        }
     }
 }

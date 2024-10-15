@@ -33,6 +33,14 @@
         string Seed1 { get; }
     }
 
+    internal interface IMenuCloseFrame
+    {
+        string Advances { get; }
+        string Jump { get; }
+        string Seed0 { get; }
+        string Seed1 { get; }
+    }
+
     public class Frame : IFrame
     {
         public string Advances { get; set; } = string.Empty;
@@ -62,6 +70,14 @@
         public string Item { get; set; } = string.Empty;
         public string EggMove { get; set; } = string.Empty;
 
+        public string Seed0 { get; set; } = string.Empty;
+        public string Seed1 { get; set; } = string.Empty;
+    }
+
+    public class MenuCloseFrame : IMenuCloseFrame
+    {
+        public string Advances { get; set; } = string.Empty;
+        public string Jump { get; set; } = string.Empty;
         public string Seed0 { get; set; } = string.Empty;
         public string Seed1 { get; set; } = string.Empty;
     }

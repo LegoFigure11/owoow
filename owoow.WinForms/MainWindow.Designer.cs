@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
-            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             GB_SeedControlsContainer = new GroupBox();
             GB_WildView = new GroupBox();
             PB_PokemonSprite = new PictureBox();
@@ -84,6 +84,8 @@
             TC_EncounterType = new TabControl();
             TP_Static = new TabPage();
             TP_Symbol = new TabPage();
+            B_Symbol_MenuClose = new Button();
+            CB_Symbol_MenuClose_Direction = new CheckBox();
             CB_Symbol_MenuClose = new CheckBox();
             L_Symbol_NPCs = new Label();
             TB_Symbol_NPCs = new TextBox();
@@ -736,6 +738,8 @@
             // 
             // TP_Symbol
             // 
+            TP_Symbol.Controls.Add(B_Symbol_MenuClose);
+            TP_Symbol.Controls.Add(CB_Symbol_MenuClose_Direction);
             TP_Symbol.Controls.Add(CB_Symbol_MenuClose);
             TP_Symbol.Controls.Add(L_Symbol_NPCs);
             TP_Symbol.Controls.Add(TB_Symbol_NPCs);
@@ -757,11 +761,35 @@
             TP_Symbol.Text = "Symbol";
             TP_Symbol.UseVisualStyleBackColor = true;
             // 
+            // B_Symbol_MenuClose
+            // 
+            B_Symbol_MenuClose.Enabled = false;
+            B_Symbol_MenuClose.Location = new Point(155, 156);
+            B_Symbol_MenuClose.Name = "B_Symbol_MenuClose";
+            B_Symbol_MenuClose.Size = new Size(100, 25);
+            B_Symbol_MenuClose.TabIndex = 22;
+            B_Symbol_MenuClose.Text = "Calibrate NPCs";
+            B_Symbol_MenuClose.UseVisualStyleBackColor = true;
+            B_Symbol_MenuClose.Click += B_MenuClose_Click;
+            // 
+            // CB_Symbol_MenuClose_Direction
+            // 
+            CB_Symbol_MenuClose_Direction.AutoSize = true;
+            CB_Symbol_MenuClose_Direction.CheckAlign = ContentAlignment.MiddleRight;
+            CB_Symbol_MenuClose_Direction.Enabled = false;
+            CB_Symbol_MenuClose_Direction.Location = new Point(25, 182);
+            CB_Symbol_MenuClose_Direction.Name = "CB_Symbol_MenuClose_Direction";
+            CB_Symbol_MenuClose_Direction.Size = new Size(125, 19);
+            CB_Symbol_MenuClose_Direction.TabIndex = 50;
+            CB_Symbol_MenuClose_Direction.Tag = "";
+            CB_Symbol_MenuClose_Direction.Text = "Holding Direction?";
+            CB_Symbol_MenuClose_Direction.UseVisualStyleBackColor = true;
+            // 
             // CB_Symbol_MenuClose
             // 
             CB_Symbol_MenuClose.AutoSize = true;
             CB_Symbol_MenuClose.CheckAlign = ContentAlignment.MiddleRight;
-            CB_Symbol_MenuClose.Location = new Point(6, 183);
+            CB_Symbol_MenuClose.Location = new Point(6, 158);
             CB_Symbol_MenuClose.Name = "CB_Symbol_MenuClose";
             CB_Symbol_MenuClose.Size = new Size(144, 19);
             CB_Symbol_MenuClose.TabIndex = 49;
@@ -1307,9 +1335,9 @@
             // 
             DGV_Results.AllowUserToAddRows = false;
             DGV_Results.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle2.BackColor = Color.WhiteSmoke;
-            dataGridViewCellStyle2.ForeColor = Color.Black;
-            DGV_Results.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle1.BackColor = Color.WhiteSmoke;
+            dataGridViewCellStyle1.ForeColor = Color.Black;
+            DGV_Results.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             DGV_Results.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             DGV_Results.AutoGenerateColumns = false;
             DGV_Results.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -1545,10 +1573,9 @@
         private GroupBox GB_Seed;
         private Label L_Seed1;
         private Label L_Seed0;
-        private TextBox TB_Seed1;
-        private TextBox TB_Seed0;
+        public TextBox TB_Seed1;
+        public TextBox TB_Seed0;
         private GroupBox GB_Connection;
-        private TextBox TB_CurrentAdvances;
         private Label L_CurrentAdvances;
         private Button B_Disconnect;
         private Button B_Connect;
@@ -1671,5 +1698,8 @@
         private Label L_Symbol_NPCs;
         private TextBox TB_Symbol_NPCs;
         private CheckBox CB_Symbol_MenuClose;
+        private CheckBox CB_Symbol_MenuClose_Direction;
+        private Button B_Symbol_MenuClose;
+        public TextBox TB_CurrentAdvances;
     }
 }
