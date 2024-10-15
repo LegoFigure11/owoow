@@ -1,0 +1,44 @@
+name: .NET Core Desktop
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+
+  build:
+
+    env:
+      Configuration: 'Release'
+
+    runs-on: windows-latest
+
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v4
+      with:
+        fetch-depth: 0
+
+    - name: Install .NET Core
+      uses: actions/setup-dotnet@v4
+      with:
+        dotnet-version: |
+          8.0.x
+
+    - name: Restore the solution
+      run: dotnet restore
+    
+    - name: Publish
+      run: |
+        dotnet build --configuration $env:Configuration --no-restore
+        dotnet publish -c $env:Configuration -r win-x64 --self-contained false
+
+    - name: Archive production artifacts
+      if: ${{ success() }}
+      uses: actions/upload-artifact@v4
+      with:
+        name: owoow
+        path: |
+          ./owoow.WinForms/bin/Release/net8.0-windows/publish/win-64/
