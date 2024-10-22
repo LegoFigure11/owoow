@@ -59,11 +59,11 @@ public static class Common
         return shiny;
     }
 
-    public static char GenerateGender(ref Xoroshiro128Plus rng, IEncounterTableEntry enc, bool isCC = false)
+    public static char GenerateGender(ref Xoroshiro128Plus rng, short gender, bool isCC = false)
     {
         var roll = ' ';
         if (!isCC) roll = rng.NextInt(2) == 0 ? 'F' : 'M'; // 50/50 regardless of gender ratio
-        return enc.Gender switch
+        return gender switch
         {
             >= 255 => '-',
             >= 254 => 'F',
@@ -79,11 +79,10 @@ public static class Common
         return nature;
     }
 
-    public static string GenerateAbility(ref Xoroshiro128Plus rng, IEncounterTableEntry enc, bool locked = false)
+    public static string GenerateAbility(ref Xoroshiro128Plus rng, string[]? abilities, bool locked = false, ulong roll = 2)
     {
-        ulong roll = 2;
         if (!locked) roll = rng.NextInt(2);
-        return enc.Abilities![roll];
+        return abilities![roll];
     }
 
     public static string GenerateItem(ref Xoroshiro128Plus rng, IEncounterTableEntry enc)

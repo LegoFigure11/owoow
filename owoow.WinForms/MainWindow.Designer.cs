@@ -84,6 +84,25 @@
             NUD_HP_Min = new NumericUpDown();
             TC_EncounterType = new TabControl();
             TP_Static = new TabPage();
+            B_Static_MenuClose = new Button();
+            CB_Static_MenuClose_Direction = new CheckBox();
+            CB_Static_MenuClose = new CheckBox();
+            L_Static_NPCs = new Label();
+            TB_Static_NPCs = new TextBox();
+            L_Static_Advances = new Label();
+            B_Static_Search = new Button();
+            L_Static_Initial = new Label();
+            GB_Static_EncounterSettings = new GroupBox();
+            L_Static_Species = new Label();
+            L_Static_Weather = new Label();
+            L_Static_Area = new Label();
+            CB_Static_Species = new ComboBox();
+            CB_Static_Weather = new ComboBox();
+            CB_Static_Area = new ComboBox();
+            TB_Static_Advances = new TextBox();
+            TB_Static_Initial = new TextBox();
+            L_Static_LeadAbility = new Label();
+            CB_Static_LeadAbility = new ComboBox();
             TP_Symbol = new TabPage();
             B_Symbol_MenuClose = new Button();
             CB_Symbol_MenuClose_Direction = new CheckBox();
@@ -95,8 +114,8 @@
             label3 = new Label();
             B_Symbol_Search = new Button();
             label4 = new Label();
-            GB_Static_EncounterSettings = new GroupBox();
-            L_Symbol_Target = new Label();
+            GB_Symbol_EncounterSettings = new GroupBox();
+            L_Symbol_Species = new Label();
             L_Symbol_Weather = new Label();
             L_Symbol_Area = new Label();
             CB_Symbol_Species = new ComboBox();
@@ -107,6 +126,25 @@
             L_Symbol_LeadAbility = new Label();
             CB_Symbol_LeadAbility = new ComboBox();
             TP_Hidden = new TabPage();
+            button1 = new Button();
+            checkBox1 = new CheckBox();
+            checkBox2 = new CheckBox();
+            label2 = new Label();
+            textBox1 = new TextBox();
+            label6 = new Label();
+            button2 = new Button();
+            label7 = new Label();
+            GB_Hidden_EncounterSettings = new GroupBox();
+            L_Hidden_Target = new Label();
+            L_Hidden_Weather = new Label();
+            L_Hidden_Area = new Label();
+            CB_Hidden_Species = new ComboBox();
+            CB_Hidden_Weather = new ComboBox();
+            CB_Hidden_Area = new ComboBox();
+            textBox3 = new TextBox();
+            textBox4 = new TextBox();
+            label11 = new Label();
+            CB_Hidden_LeadAbility = new ComboBox();
             TP_Fishing = new TabPage();
             GB_Seed = new GroupBox();
             L_Seed1 = new Label();
@@ -180,8 +218,12 @@
             ((System.ComponentModel.ISupportInitialize)NUD_HP_Max).BeginInit();
             ((System.ComponentModel.ISupportInitialize)NUD_HP_Min).BeginInit();
             TC_EncounterType.SuspendLayout();
-            TP_Symbol.SuspendLayout();
+            TP_Static.SuspendLayout();
             GB_Static_EncounterSettings.SuspendLayout();
+            TP_Symbol.SuspendLayout();
+            GB_Symbol_EncounterSettings.SuspendLayout();
+            TP_Hidden.SuspendLayout();
+            GB_Hidden_EncounterSettings.SuspendLayout();
             GB_Seed.SuspendLayout();
             GB_Connection.SuspendLayout();
             GB_SAVInfo.SuspendLayout();
@@ -729,6 +771,19 @@
             // 
             // TP_Static
             // 
+            TP_Static.Controls.Add(B_Static_MenuClose);
+            TP_Static.Controls.Add(CB_Static_MenuClose_Direction);
+            TP_Static.Controls.Add(CB_Static_MenuClose);
+            TP_Static.Controls.Add(L_Static_NPCs);
+            TP_Static.Controls.Add(TB_Static_NPCs);
+            TP_Static.Controls.Add(L_Static_Advances);
+            TP_Static.Controls.Add(B_Static_Search);
+            TP_Static.Controls.Add(L_Static_Initial);
+            TP_Static.Controls.Add(GB_Static_EncounterSettings);
+            TP_Static.Controls.Add(TB_Static_Advances);
+            TP_Static.Controls.Add(TB_Static_Initial);
+            TP_Static.Controls.Add(L_Static_LeadAbility);
+            TP_Static.Controls.Add(CB_Static_LeadAbility);
             TP_Static.Location = new Point(4, 24);
             TP_Static.Name = "TP_Static";
             TP_Static.Padding = new Padding(3);
@@ -736,6 +791,207 @@
             TP_Static.TabIndex = 0;
             TP_Static.Text = "Static";
             TP_Static.UseVisualStyleBackColor = true;
+            // 
+            // B_Static_MenuClose
+            // 
+            B_Static_MenuClose.Enabled = false;
+            B_Static_MenuClose.Location = new Point(155, 156);
+            B_Static_MenuClose.Name = "B_Static_MenuClose";
+            B_Static_MenuClose.Size = new Size(100, 25);
+            B_Static_MenuClose.TabIndex = 60;
+            B_Static_MenuClose.Text = "Calibrate NPCs";
+            B_Static_MenuClose.UseVisualStyleBackColor = true;
+            B_Static_MenuClose.Click += B_MenuClose_Click;
+            // 
+            // CB_Static_MenuClose_Direction
+            // 
+            CB_Static_MenuClose_Direction.AutoSize = true;
+            CB_Static_MenuClose_Direction.CheckAlign = ContentAlignment.MiddleRight;
+            CB_Static_MenuClose_Direction.Enabled = false;
+            CB_Static_MenuClose_Direction.Location = new Point(25, 182);
+            CB_Static_MenuClose_Direction.Name = "CB_Static_MenuClose_Direction";
+            CB_Static_MenuClose_Direction.Size = new Size(125, 19);
+            CB_Static_MenuClose_Direction.TabIndex = 65;
+            CB_Static_MenuClose_Direction.Tag = "";
+            CB_Static_MenuClose_Direction.Text = "Holding Direction?";
+            CB_Static_MenuClose_Direction.UseVisualStyleBackColor = true;
+            // 
+            // CB_Static_MenuClose
+            // 
+            CB_Static_MenuClose.AutoSize = true;
+            CB_Static_MenuClose.CheckAlign = ContentAlignment.MiddleRight;
+            CB_Static_MenuClose.Location = new Point(6, 158);
+            CB_Static_MenuClose.Name = "CB_Static_MenuClose";
+            CB_Static_MenuClose.Size = new Size(144, 19);
+            CB_Static_MenuClose.TabIndex = 64;
+            CB_Static_MenuClose.Tag = "";
+            CB_Static_MenuClose.Text = "Consider Menu Close?";
+            CB_Static_MenuClose.UseVisualStyleBackColor = true;
+            CB_Static_MenuClose.CheckedChanged += CB_MenuClose_CheckedChanged;
+            // 
+            // L_Static_NPCs
+            // 
+            L_Static_NPCs.AutoSize = true;
+            L_Static_NPCs.Location = new Point(175, 184);
+            L_Static_NPCs.Name = "L_Static_NPCs";
+            L_Static_NPCs.Size = new Size(39, 15);
+            L_Static_NPCs.TabIndex = 63;
+            L_Static_NPCs.Text = "NPCs:";
+            // 
+            // TB_Static_NPCs
+            // 
+            TB_Static_NPCs.CharacterCasing = CharacterCasing.Upper;
+            TB_Static_NPCs.Enabled = false;
+            TB_Static_NPCs.Font = new Font("Consolas", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            TB_Static_NPCs.Location = new Point(220, 182);
+            TB_Static_NPCs.MaxLength = 16;
+            TB_Static_NPCs.Name = "TB_Static_NPCs";
+            TB_Static_NPCs.Size = new Size(35, 22);
+            TB_Static_NPCs.TabIndex = 62;
+            TB_Static_NPCs.Text = "3";
+            TB_Static_NPCs.TextAlign = HorizontalAlignment.Right;
+            // 
+            // L_Static_Advances
+            // 
+            L_Static_Advances.AutoSize = true;
+            L_Static_Advances.Location = new Point(61, 231);
+            L_Static_Advances.Name = "L_Static_Advances";
+            L_Static_Advances.Size = new Size(15, 15);
+            L_Static_Advances.TabIndex = 57;
+            L_Static_Advances.Text = "+";
+            // 
+            // B_Static_Search
+            // 
+            B_Static_Search.Location = new Point(3, 255);
+            B_Static_Search.Name = "B_Static_Search";
+            B_Static_Search.Size = new Size(255, 25);
+            B_Static_Search.TabIndex = 58;
+            B_Static_Search.Text = "Search!";
+            B_Static_Search.UseVisualStyleBackColor = true;
+            B_Static_Search.Click += B_Static_Search_Click;
+            // 
+            // L_Static_Initial
+            // 
+            L_Static_Initial.AutoSize = true;
+            L_Static_Initial.Location = new Point(13, 208);
+            L_Static_Initial.Name = "L_Static_Initial";
+            L_Static_Initial.Size = new Size(63, 15);
+            L_Static_Initial.TabIndex = 56;
+            L_Static_Initial.Text = "Initial Adv.";
+            // 
+            // GB_Static_EncounterSettings
+            // 
+            GB_Static_EncounterSettings.Controls.Add(L_Static_Species);
+            GB_Static_EncounterSettings.Controls.Add(L_Static_Weather);
+            GB_Static_EncounterSettings.Controls.Add(L_Static_Area);
+            GB_Static_EncounterSettings.Controls.Add(CB_Static_Species);
+            GB_Static_EncounterSettings.Controls.Add(CB_Static_Weather);
+            GB_Static_EncounterSettings.Controls.Add(CB_Static_Area);
+            GB_Static_EncounterSettings.Location = new Point(6, 2);
+            GB_Static_EncounterSettings.Name = "GB_Static_EncounterSettings";
+            GB_Static_EncounterSettings.Size = new Size(249, 102);
+            GB_Static_EncounterSettings.TabIndex = 54;
+            GB_Static_EncounterSettings.TabStop = false;
+            GB_Static_EncounterSettings.Text = "Encounter Settings - Static";
+            // 
+            // L_Static_Species
+            // 
+            L_Static_Species.AutoSize = true;
+            L_Static_Species.Location = new Point(22, 75);
+            L_Static_Species.Name = "L_Static_Species";
+            L_Static_Species.Size = new Size(42, 15);
+            L_Static_Species.TabIndex = 14;
+            L_Static_Species.Text = "Target:";
+            // 
+            // L_Static_Weather
+            // 
+            L_Static_Weather.AutoSize = true;
+            L_Static_Weather.Location = new Point(10, 50);
+            L_Static_Weather.Name = "L_Static_Weather";
+            L_Static_Weather.Size = new Size(54, 15);
+            L_Static_Weather.TabIndex = 13;
+            L_Static_Weather.Text = "Weather:";
+            // 
+            // L_Static_Area
+            // 
+            L_Static_Area.AutoSize = true;
+            L_Static_Area.Location = new Point(30, 25);
+            L_Static_Area.Name = "L_Static_Area";
+            L_Static_Area.Size = new Size(34, 15);
+            L_Static_Area.TabIndex = 8;
+            L_Static_Area.Text = "Area:";
+            // 
+            // CB_Static_Species
+            // 
+            CB_Static_Species.FormattingEnabled = true;
+            CB_Static_Species.Location = new Point(70, 72);
+            CB_Static_Species.Name = "CB_Static_Species";
+            CB_Static_Species.Size = new Size(173, 23);
+            CB_Static_Species.TabIndex = 12;
+            CB_Static_Species.Text = "None";
+            // 
+            // CB_Static_Weather
+            // 
+            CB_Static_Weather.FormattingEnabled = true;
+            CB_Static_Weather.Location = new Point(70, 47);
+            CB_Static_Weather.Name = "CB_Static_Weather";
+            CB_Static_Weather.Size = new Size(173, 23);
+            CB_Static_Weather.TabIndex = 11;
+            CB_Static_Weather.Text = "None";
+            CB_Static_Weather.SelectedIndexChanged += CB_Weather_SelectedIndexChanged;
+            // 
+            // CB_Static_Area
+            // 
+            CB_Static_Area.FormattingEnabled = true;
+            CB_Static_Area.Location = new Point(70, 22);
+            CB_Static_Area.Name = "CB_Static_Area";
+            CB_Static_Area.Size = new Size(173, 23);
+            CB_Static_Area.TabIndex = 10;
+            CB_Static_Area.Text = "None";
+            CB_Static_Area.SelectedIndexChanged += CB_Area_SelectedIndexChanged;
+            // 
+            // TB_Static_Advances
+            // 
+            TB_Static_Advances.CharacterCasing = CharacterCasing.Upper;
+            TB_Static_Advances.Font = new Font("Consolas", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            TB_Static_Advances.Location = new Point(82, 229);
+            TB_Static_Advances.MaxLength = 16;
+            TB_Static_Advances.Name = "TB_Static_Advances";
+            TB_Static_Advances.Size = new Size(173, 22);
+            TB_Static_Advances.TabIndex = 55;
+            TB_Static_Advances.Text = "5000";
+            TB_Static_Advances.TextAlign = HorizontalAlignment.Right;
+            // 
+            // TB_Static_Initial
+            // 
+            TB_Static_Initial.CharacterCasing = CharacterCasing.Upper;
+            TB_Static_Initial.Font = new Font("Consolas", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            TB_Static_Initial.Location = new Point(82, 205);
+            TB_Static_Initial.MaxLength = 16;
+            TB_Static_Initial.Name = "TB_Static_Initial";
+            TB_Static_Initial.Size = new Size(173, 22);
+            TB_Static_Initial.TabIndex = 53;
+            TB_Static_Initial.Text = "0";
+            TB_Static_Initial.TextAlign = HorizontalAlignment.Right;
+            // 
+            // L_Static_LeadAbility
+            // 
+            L_Static_LeadAbility.AutoSize = true;
+            L_Static_LeadAbility.Location = new Point(4, 109);
+            L_Static_LeadAbility.Name = "L_Static_LeadAbility";
+            L_Static_LeadAbility.Size = new Size(72, 15);
+            L_Static_LeadAbility.TabIndex = 52;
+            L_Static_LeadAbility.Text = "Lead Ability:";
+            // 
+            // CB_Static_LeadAbility
+            // 
+            CB_Static_LeadAbility.FormattingEnabled = true;
+            CB_Static_LeadAbility.Items.AddRange(new object[] { "None", "Compound Eyes/Super Luck", "Synchronize", "Cute Charm", "Magnet Pull", "Lightning Rod/Static", "Flash Fire", "Storm Drain", "Harvest" });
+            CB_Static_LeadAbility.Location = new Point(82, 106);
+            CB_Static_LeadAbility.Name = "CB_Static_LeadAbility";
+            CB_Static_LeadAbility.Size = new Size(173, 23);
+            CB_Static_LeadAbility.TabIndex = 51;
+            CB_Static_LeadAbility.Text = "None";
             // 
             // TP_Symbol
             // 
@@ -749,7 +1005,7 @@
             TP_Symbol.Controls.Add(label3);
             TP_Symbol.Controls.Add(B_Symbol_Search);
             TP_Symbol.Controls.Add(label4);
-            TP_Symbol.Controls.Add(GB_Static_EncounterSettings);
+            TP_Symbol.Controls.Add(GB_Symbol_EncounterSettings);
             TP_Symbol.Controls.Add(TB_Symbol_Advances);
             TP_Symbol.Controls.Add(TB_Symbol_Initial);
             TP_Symbol.Controls.Add(L_Symbol_LeadAbility);
@@ -870,29 +1126,29 @@
             label4.TabIndex = 10;
             label4.Text = "Initial Adv.";
             // 
-            // GB_Static_EncounterSettings
+            // GB_Symbol_EncounterSettings
             // 
-            GB_Static_EncounterSettings.Controls.Add(L_Symbol_Target);
-            GB_Static_EncounterSettings.Controls.Add(L_Symbol_Weather);
-            GB_Static_EncounterSettings.Controls.Add(L_Symbol_Area);
-            GB_Static_EncounterSettings.Controls.Add(CB_Symbol_Species);
-            GB_Static_EncounterSettings.Controls.Add(CB_Symbol_Weather);
-            GB_Static_EncounterSettings.Controls.Add(CB_Symbol_Area);
-            GB_Static_EncounterSettings.Location = new Point(6, 2);
-            GB_Static_EncounterSettings.Name = "GB_Static_EncounterSettings";
-            GB_Static_EncounterSettings.Size = new Size(249, 102);
-            GB_Static_EncounterSettings.TabIndex = 9;
-            GB_Static_EncounterSettings.TabStop = false;
-            GB_Static_EncounterSettings.Text = "Encounter Settings";
+            GB_Symbol_EncounterSettings.Controls.Add(L_Symbol_Species);
+            GB_Symbol_EncounterSettings.Controls.Add(L_Symbol_Weather);
+            GB_Symbol_EncounterSettings.Controls.Add(L_Symbol_Area);
+            GB_Symbol_EncounterSettings.Controls.Add(CB_Symbol_Species);
+            GB_Symbol_EncounterSettings.Controls.Add(CB_Symbol_Weather);
+            GB_Symbol_EncounterSettings.Controls.Add(CB_Symbol_Area);
+            GB_Symbol_EncounterSettings.Location = new Point(6, 2);
+            GB_Symbol_EncounterSettings.Name = "GB_Symbol_EncounterSettings";
+            GB_Symbol_EncounterSettings.Size = new Size(249, 102);
+            GB_Symbol_EncounterSettings.TabIndex = 9;
+            GB_Symbol_EncounterSettings.TabStop = false;
+            GB_Symbol_EncounterSettings.Text = "Encounter Settings - Symbol";
             // 
-            // L_Symbol_Target
+            // L_Symbol_Species
             // 
-            L_Symbol_Target.AutoSize = true;
-            L_Symbol_Target.Location = new Point(22, 75);
-            L_Symbol_Target.Name = "L_Symbol_Target";
-            L_Symbol_Target.Size = new Size(42, 15);
-            L_Symbol_Target.TabIndex = 14;
-            L_Symbol_Target.Text = "Target:";
+            L_Symbol_Species.AutoSize = true;
+            L_Symbol_Species.Location = new Point(22, 75);
+            L_Symbol_Species.Name = "L_Symbol_Species";
+            L_Symbol_Species.Size = new Size(42, 15);
+            L_Symbol_Species.TabIndex = 14;
+            L_Symbol_Species.Text = "Target:";
             // 
             // L_Symbol_Weather
             // 
@@ -986,12 +1242,223 @@
             // 
             // TP_Hidden
             // 
+            TP_Hidden.Controls.Add(button1);
+            TP_Hidden.Controls.Add(checkBox1);
+            TP_Hidden.Controls.Add(checkBox2);
+            TP_Hidden.Controls.Add(label2);
+            TP_Hidden.Controls.Add(textBox1);
+            TP_Hidden.Controls.Add(label6);
+            TP_Hidden.Controls.Add(button2);
+            TP_Hidden.Controls.Add(label7);
+            TP_Hidden.Controls.Add(GB_Hidden_EncounterSettings);
+            TP_Hidden.Controls.Add(textBox3);
+            TP_Hidden.Controls.Add(textBox4);
+            TP_Hidden.Controls.Add(label11);
+            TP_Hidden.Controls.Add(CB_Hidden_LeadAbility);
             TP_Hidden.Location = new Point(4, 24);
             TP_Hidden.Name = "TP_Hidden";
             TP_Hidden.Size = new Size(261, 282);
             TP_Hidden.TabIndex = 2;
             TP_Hidden.Text = "Hidden";
             TP_Hidden.UseVisualStyleBackColor = true;
+            // 
+            // button1
+            // 
+            button1.Enabled = false;
+            button1.Location = new Point(155, 156);
+            button1.Name = "button1";
+            button1.Size = new Size(100, 25);
+            button1.TabIndex = 60;
+            button1.Text = "Calibrate NPCs";
+            button1.UseVisualStyleBackColor = true;
+            // 
+            // checkBox1
+            // 
+            checkBox1.AutoSize = true;
+            checkBox1.CheckAlign = ContentAlignment.MiddleRight;
+            checkBox1.Enabled = false;
+            checkBox1.Location = new Point(25, 182);
+            checkBox1.Name = "checkBox1";
+            checkBox1.Size = new Size(125, 19);
+            checkBox1.TabIndex = 65;
+            checkBox1.Tag = "";
+            checkBox1.Text = "Holding Direction?";
+            checkBox1.UseVisualStyleBackColor = true;
+            // 
+            // checkBox2
+            // 
+            checkBox2.AutoSize = true;
+            checkBox2.CheckAlign = ContentAlignment.MiddleRight;
+            checkBox2.Location = new Point(6, 158);
+            checkBox2.Name = "checkBox2";
+            checkBox2.Size = new Size(144, 19);
+            checkBox2.TabIndex = 64;
+            checkBox2.Tag = "";
+            checkBox2.Text = "Consider Menu Close?";
+            checkBox2.UseVisualStyleBackColor = true;
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Location = new Point(175, 184);
+            label2.Name = "label2";
+            label2.Size = new Size(39, 15);
+            label2.TabIndex = 63;
+            label2.Text = "NPCs:";
+            // 
+            // textBox1
+            // 
+            textBox1.CharacterCasing = CharacterCasing.Upper;
+            textBox1.Enabled = false;
+            textBox1.Font = new Font("Consolas", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            textBox1.Location = new Point(220, 182);
+            textBox1.MaxLength = 16;
+            textBox1.Name = "textBox1";
+            textBox1.Size = new Size(35, 22);
+            textBox1.TabIndex = 62;
+            textBox1.Text = "3";
+            textBox1.TextAlign = HorizontalAlignment.Right;
+            // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Location = new Point(61, 231);
+            label6.Name = "label6";
+            label6.Size = new Size(15, 15);
+            label6.TabIndex = 57;
+            label6.Text = "+";
+            // 
+            // button2
+            // 
+            button2.Location = new Point(3, 255);
+            button2.Name = "button2";
+            button2.Size = new Size(255, 25);
+            button2.TabIndex = 58;
+            button2.Text = "Search!";
+            button2.UseVisualStyleBackColor = true;
+            // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.Location = new Point(13, 208);
+            label7.Name = "label7";
+            label7.Size = new Size(63, 15);
+            label7.TabIndex = 56;
+            label7.Text = "Initial Adv.";
+            // 
+            // GB_Hidden_EncounterSettings
+            // 
+            GB_Hidden_EncounterSettings.Controls.Add(L_Hidden_Target);
+            GB_Hidden_EncounterSettings.Controls.Add(L_Hidden_Weather);
+            GB_Hidden_EncounterSettings.Controls.Add(L_Hidden_Area);
+            GB_Hidden_EncounterSettings.Controls.Add(CB_Hidden_Species);
+            GB_Hidden_EncounterSettings.Controls.Add(CB_Hidden_Weather);
+            GB_Hidden_EncounterSettings.Controls.Add(CB_Hidden_Area);
+            GB_Hidden_EncounterSettings.Location = new Point(6, 2);
+            GB_Hidden_EncounterSettings.Name = "GB_Hidden_EncounterSettings";
+            GB_Hidden_EncounterSettings.Size = new Size(249, 102);
+            GB_Hidden_EncounterSettings.TabIndex = 54;
+            GB_Hidden_EncounterSettings.TabStop = false;
+            GB_Hidden_EncounterSettings.Text = "Encounter Settings - Hidden";
+            // 
+            // L_Hidden_Target
+            // 
+            L_Hidden_Target.AutoSize = true;
+            L_Hidden_Target.Location = new Point(22, 75);
+            L_Hidden_Target.Name = "L_Hidden_Target";
+            L_Hidden_Target.Size = new Size(42, 15);
+            L_Hidden_Target.TabIndex = 14;
+            L_Hidden_Target.Text = "Target:";
+            // 
+            // L_Hidden_Weather
+            // 
+            L_Hidden_Weather.AutoSize = true;
+            L_Hidden_Weather.Location = new Point(10, 50);
+            L_Hidden_Weather.Name = "L_Hidden_Weather";
+            L_Hidden_Weather.Size = new Size(54, 15);
+            L_Hidden_Weather.TabIndex = 13;
+            L_Hidden_Weather.Text = "Weather:";
+            // 
+            // L_Hidden_Area
+            // 
+            L_Hidden_Area.AutoSize = true;
+            L_Hidden_Area.Location = new Point(30, 25);
+            L_Hidden_Area.Name = "L_Hidden_Area";
+            L_Hidden_Area.Size = new Size(34, 15);
+            L_Hidden_Area.TabIndex = 8;
+            L_Hidden_Area.Text = "Area:";
+            // 
+            // CB_Hidden_Species
+            // 
+            CB_Hidden_Species.FormattingEnabled = true;
+            CB_Hidden_Species.Location = new Point(70, 72);
+            CB_Hidden_Species.Name = "CB_Hidden_Species";
+            CB_Hidden_Species.Size = new Size(173, 23);
+            CB_Hidden_Species.TabIndex = 12;
+            CB_Hidden_Species.Text = "None";
+            // 
+            // CB_Hidden_Weather
+            // 
+            CB_Hidden_Weather.FormattingEnabled = true;
+            CB_Hidden_Weather.Location = new Point(70, 47);
+            CB_Hidden_Weather.Name = "CB_Hidden_Weather";
+            CB_Hidden_Weather.Size = new Size(173, 23);
+            CB_Hidden_Weather.TabIndex = 11;
+            CB_Hidden_Weather.Text = "None";
+            CB_Hidden_Weather.SelectedIndexChanged += CB_Weather_SelectedIndexChanged;
+            // 
+            // CB_Hidden_Area
+            // 
+            CB_Hidden_Area.FormattingEnabled = true;
+            CB_Hidden_Area.Location = new Point(70, 22);
+            CB_Hidden_Area.Name = "CB_Hidden_Area";
+            CB_Hidden_Area.Size = new Size(173, 23);
+            CB_Hidden_Area.TabIndex = 10;
+            CB_Hidden_Area.Text = "None";
+            CB_Hidden_Area.SelectedIndexChanged += CB_Area_SelectedIndexChanged;
+            // 
+            // textBox3
+            // 
+            textBox3.CharacterCasing = CharacterCasing.Upper;
+            textBox3.Font = new Font("Consolas", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            textBox3.Location = new Point(82, 229);
+            textBox3.MaxLength = 16;
+            textBox3.Name = "textBox3";
+            textBox3.Size = new Size(173, 22);
+            textBox3.TabIndex = 55;
+            textBox3.Text = "5000";
+            textBox3.TextAlign = HorizontalAlignment.Right;
+            // 
+            // textBox4
+            // 
+            textBox4.CharacterCasing = CharacterCasing.Upper;
+            textBox4.Font = new Font("Consolas", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            textBox4.Location = new Point(82, 205);
+            textBox4.MaxLength = 16;
+            textBox4.Name = "textBox4";
+            textBox4.Size = new Size(173, 22);
+            textBox4.TabIndex = 53;
+            textBox4.Text = "0";
+            textBox4.TextAlign = HorizontalAlignment.Right;
+            // 
+            // label11
+            // 
+            label11.AutoSize = true;
+            label11.Location = new Point(4, 109);
+            label11.Name = "label11";
+            label11.Size = new Size(72, 15);
+            label11.TabIndex = 52;
+            label11.Text = "Lead Ability:";
+            // 
+            // CB_Hidden_LeadAbility
+            // 
+            CB_Hidden_LeadAbility.FormattingEnabled = true;
+            CB_Hidden_LeadAbility.Items.AddRange(new object[] { "None", "Compound Eyes/Super Luck", "Synchronize", "Cute Charm", "Magnet Pull", "Lightning Rod/Static", "Flash Fire", "Storm Drain", "Harvest", "Illuminate", "Arena Trap", "No Guard", "Stench", "Quick Feet", "White Smoke", "Infiltrator" });
+            CB_Hidden_LeadAbility.Location = new Point(82, 106);
+            CB_Hidden_LeadAbility.Name = "CB_Hidden_LeadAbility";
+            CB_Hidden_LeadAbility.Size = new Size(173, 23);
+            CB_Hidden_LeadAbility.TabIndex = 51;
+            CB_Hidden_LeadAbility.Text = "None";
             // 
             // TP_Fishing
             // 
@@ -1555,10 +2022,18 @@
             ((System.ComponentModel.ISupportInitialize)NUD_HP_Max).EndInit();
             ((System.ComponentModel.ISupportInitialize)NUD_HP_Min).EndInit();
             TC_EncounterType.ResumeLayout(false);
-            TP_Symbol.ResumeLayout(false);
-            TP_Symbol.PerformLayout();
+            TP_Static.ResumeLayout(false);
+            TP_Static.PerformLayout();
             GB_Static_EncounterSettings.ResumeLayout(false);
             GB_Static_EncounterSettings.PerformLayout();
+            TP_Symbol.ResumeLayout(false);
+            TP_Symbol.PerformLayout();
+            GB_Symbol_EncounterSettings.ResumeLayout(false);
+            GB_Symbol_EncounterSettings.PerformLayout();
+            TP_Hidden.ResumeLayout(false);
+            TP_Hidden.PerformLayout();
+            GB_Hidden_EncounterSettings.ResumeLayout(false);
+            GB_Hidden_EncounterSettings.PerformLayout();
             GB_Seed.ResumeLayout(false);
             GB_Seed.PerformLayout();
             GB_Connection.ResumeLayout(false);
@@ -1641,11 +2116,11 @@
         private Label L_SpASpacer;
         private NumericUpDown NUD_SpA_Max;
         private NumericUpDown NUD_SpA_Min;
-        private GroupBox GB_Static_EncounterSettings;
+        private GroupBox GB_Symbol_EncounterSettings;
         private ComboBox CB_Symbol_Area;
         private ComboBox CB_Symbol_Species;
         private ComboBox CB_Symbol_Weather;
-        private Label L_Symbol_Target;
+        private Label L_Symbol_Species;
         private Label L_Symbol_Weather;
         private Label L_Symbol_Area;
         private Label L_Game;
@@ -1703,5 +2178,43 @@
         private CheckBox CB_Symbol_MenuClose_Direction;
         private Button B_Symbol_MenuClose;
         public TextBox TB_CurrentAdvances;
+        private Button button1;
+        private CheckBox checkBox1;
+        private CheckBox checkBox2;
+        private Label label2;
+        private TextBox textBox1;
+        private Label label6;
+        private Button button2;
+        private Label label7;
+        private GroupBox GB_Hidden_EncounterSettings;
+        private Label L_Hidden_Target;
+        private Label L_Hidden_Weather;
+        private Label L_Hidden_Area;
+        private ComboBox CB_Hidden_Species;
+        private ComboBox CB_Hidden_Weather;
+        private ComboBox CB_Hidden_Area;
+        private TextBox textBox3;
+        private TextBox textBox4;
+        private Label label11;
+        private ComboBox CB_Hidden_LeadAbility;
+        private Button B_Static_MenuClose;
+        private CheckBox CB_Static_MenuClose_Direction;
+        private CheckBox CB_Static_MenuClose;
+        private Label L_Static_NPCs;
+        private TextBox TB_Static_NPCs;
+        private Label L_Static_Advances;
+        private Button B_Static_Search;
+        private Label L_Static_Initial;
+        private GroupBox GB_Static_EncounterSettings;
+        private Label L_Static_Species;
+        private Label L_Static_Weather;
+        private Label L_Static_Area;
+        private ComboBox CB_Static_Species;
+        private ComboBox CB_Static_Weather;
+        private ComboBox CB_Static_Area;
+        private TextBox TB_Static_Advances;
+        private TextBox TB_Static_Initial;
+        private Label L_Static_LeadAbility;
+        private ComboBox CB_Static_LeadAbility;
     }
 }

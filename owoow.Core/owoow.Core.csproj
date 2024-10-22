@@ -11,10 +11,12 @@
     <None Remove="Resources\Personal\personal.json" />
     <None Remove="Resources\Shield\sh_fishing.json" />
     <None Remove="Resources\Shield\sh_hidden.json" />
+    <None Remove="Resources\Shield\sh_static.json" />
     <None Remove="Resources\Shield\sh_symbol.json" />
     <None Remove="Resources\Shield\sh_tree.json" />
     <None Remove="Resources\Sword\sw_fishing.json" />
     <None Remove="Resources\Sword\sw_hidden.json" />
+    <None Remove="Resources\Sword\sw_static.json" />
     <None Remove="Resources\Sword\sw_symbol.json" />
     <None Remove="Resources\Sword\sw_tree.json" />
   </ItemGroup>
@@ -25,15 +27,17 @@
     <EmbeddedResource Include="Resources\Shield\sh_hidden.json" />
     <EmbeddedResource Include="Resources\Shield\sh_symbol.json" />
     <EmbeddedResource Include="Resources\Shield\sh_tree.json" />
+    <EmbeddedResource Include="Resources\Shield\sh_static.json" />
     <EmbeddedResource Include="Resources\Sword\sw_fishing.json" />
     <EmbeddedResource Include="Resources\Sword\sw_hidden.json" />
+    <EmbeddedResource Include="Resources\Sword\sw_static.json" />
     <EmbeddedResource Include="Resources\Sword\sw_symbol.json" />
     <EmbeddedResource Include="Resources\Sword\sw_tree.json" />
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="NLog" Version="5.2.8" />
-    <PackageReference Include="PKHeX.Core" Version="24.3.26" />
+    <PackageReference Include="PKHeX.Core" Version="24.7.27" />
   </ItemGroup>
 
   <ItemGroup>

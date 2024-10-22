@@ -7,6 +7,7 @@ public class EncounterTable(string game, string tabName, string area, string wea
 {
     public IDictionary<int, IEncounterTableEntry> MainTable { get; set; } = GetEncounterTable(game, tabName, area, weather)!;
     public IDictionary<int, IEncounterTableEntry> AbilityTable { get; set; } = GetAbilityTable(game, tabName, area, weather, leadAbility)!;
+    public IDictionary<int, IEncounterStaticTableEntry> StaticTable { get; set; } = GetStaticTable(game, area, weather);
 
     private const byte EXPECTED_COUNT = 100;
 
@@ -53,6 +54,24 @@ public class EncounterTable(string game, string tabName, string area, string wea
             var t = new EncounterTableEntry(Encounters.Personal[v.Species!], v, enc);
             if (t.Types.Contains(type))
             {
+                table.Add(i++, t);
+            }
+        }
+        return table;
+    }
+
+    public static IDictionary<int, IEncounterStaticTableEntry> GetStaticTable(string game, string area, string weather)
+    {
+        var enc = GetStaticEncounters(game, area, weather);
+        Dictionary<int, IEncounterStaticTableEntry> table = [];
+        var i = 0;
+        if (enc is not null)
+        {
+            foreach (var v in enc.Encounters!.Values)
+            {
+                if (Encounters.Personal is null) continue;
+
+                var t = new EncounterStaticTableEntry(Encounters.Personal[v.Species!], v);
                 table.Add(i++, t);
             }
         }

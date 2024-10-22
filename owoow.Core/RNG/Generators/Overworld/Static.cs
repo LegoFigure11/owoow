@@ -6,7 +6,7 @@ using static owoow.Core.RNG.Validators.Validator;
 
 namespace owoow.Core.RNG.Generators;
 
-public class Symbol
+public class Static
 {
     public static Task<List<Frame>> Generate(ulong s0, ulong s1, EncounterTable.EncounterTable table, ulong start, ulong end, GeneratorConfig config)
     {
@@ -19,16 +19,8 @@ public class Symbol
             bool FiltersEnabled = config.FiltersEnabled;
 
             ulong Lead;
-            IDictionary<int, IEncounterTableEntry> ActiveTable;
-            IEncounterTableEntry Encounter;
             bool CuteCharm = false;
 
-            ulong EncounterSlot = 0;
-            bool EncounterSlotChosen = false;
-
-            ulong Level;
-
-            bool IsAura;
             bool IsShiny;
             uint ShinyXOR;
             uint PID;
@@ -37,10 +29,6 @@ public class Symbol
             char Gender;
             string Ability;
             string Nature;
-            string Item;
-
-            int AuraIVs;
-            string AuraEggMove;
 
             bool PassIVs;
             byte[] IVs;
@@ -49,16 +37,15 @@ public class Symbol
 
             uint Jump = 0;
 
-            RibbonIndex Mark;
+            IEncounterStaticTableEntry Encounter = table.StaticTable.Values.Where(enc => enc.Species == config.TargetSpecies).FirstOrDefault()!;
 
-            (uint AuraThreshold, int AuraRolls) = Util.GetBrilliantInfo(config.AuraKOs);
+            RibbonIndex Mark;
 
             for (ulong i = start; i <= end; i++)
             {
                 var os = outer.GetState();
                 var rng = new Xoroshiro128Plus(os.s0, os.s1);
 
-                EncounterSlotChosen = false;
                 CuteCharm = false;
 
                 if (config.ConsiderMenuClose)
@@ -66,55 +53,18 @@ public class Symbol
                     Jump = MenuClose.GetAdvances(ref rng, config.MenuCloseNPCs, config.MenuCloseIsHoldingDirection);
                 }
 
-                rng.NextInt();
                 rng.NextInt(100);
 
-                // LEAD ABILITY ACTIVATION & ENCOUNTER SLOT
+                // LEAD ABILITY ACTIVATION
                 Lead = GenerateLeadAbilityActivation(ref rng);
 
                 if ((Lead + 1) < 66 && config.AbilityIsCuteCharm)
                 {
                     CuteCharm = true;
                 }
-                if (Lead >= 49 && config.AbilityIsTypePulling && table.AbilityTable.Count > 0)
-                {
-                    ActiveTable = table.AbilityTable;
-                    EncounterSlot = GenerateEncounterSlot(ref rng, (uint)ActiveTable.Count);
-                    EncounterSlotChosen = true;
-                }
-                else
-                {
-                    ActiveTable = table.MainTable;
-                }
-
-                if (!EncounterSlotChosen)
-                {
-                    EncounterSlot = GenerateEncounterSlot(ref rng);
-                }
-
-                Encounter = ActiveTable[(int)EncounterSlot];
-                if (FiltersEnabled && Encounter.Species != config.TargetSpecies)
-                {
-                    outer.Next();
-                    continue;
-                }
-
-                // LEVEL
-                Level = GenerateLevel(ref rng, Encounter);
-
-                // MARK -- DISCARDED
-                _ = GenerateMark(ref rng, config.MarkRolls, config.WeatherActive);
-
-                // BRILLIANT AURA
-                IsAura = GenerateIsAura(ref rng, AuraThreshold);
-                if (FiltersEnabled && !CheckIsAura(IsAura, config.TargetAura))
-                {
-                    outer.Next();
-                    continue;
-                }
 
                 // SHINY
-                IsShiny = GenerateIsShiny(ref rng, config.ShinyRolls + (IsAura ? AuraRolls : 0), config.TSV);
+                IsShiny = !Encounter.IsShinyLocked && GenerateIsShiny(ref rng, config.ShinyRolls, config.TSV);
 
                 // GENDER
                 Gender = GenerateGender(ref rng, Encounter.Gender, CuteCharm);
@@ -128,20 +78,7 @@ public class Symbol
                 }
 
                 // ABILITY
-                Ability = GenerateAbility(ref rng, Encounter.Abilities);
-
-                // HELD ITEM
-                Item = GenerateItem(ref rng, Encounter);
-
-                // AURA IVS/EMS
-                AuraIVs = 0;
-                AuraEggMove = "-";
-                if (IsAura)
-                {
-                    Level = (ulong)Encounter.MaxLevel;
-                    AuraIVs = GenerateAuraIVs(ref rng);
-                    AuraEggMove = GenerateAuraEggMove(ref rng, Encounter);
-                }
+                Ability = GenerateAbility(ref rng, Encounter.Abilities, Encounter.IsAbilityLocked, Encounter.Ability);
 
                 // FIXED SEED
                 var go = new Xoroshiro128Plus(GenerateFixedSeed(ref rng), 0x82A2B175229D6A5B);
@@ -164,7 +101,7 @@ public class Symbol
                 }
 
                 // IVS
-                (PassIVs, IVs) = GenerateIVs(ref go, AuraIVs, config);
+                (PassIVs, IVs) = GenerateIVs(ref go, Encounter.GuaranteedIVs, config);
                 if (!PassIVs) // FiltersEnabled check takes place in GenerateIVs
                 {
                     outer.Next();
@@ -191,16 +128,13 @@ public class Symbol
 
                     Animation = (os.s0 & 1 ^ os.s1 & 1) == 1 ? 'P' : 'S',
 
-                    Brilliant = IsAura ? 'Y' : 'N',
-
                     Species = Encounter.Species!,
                     Shiny = Util.GetShinyType(ShinyXOR),
-                    Level = (byte)Level,
+                    Level = (byte)Encounter.Level,
 
                     Gender = Gender,
                     Nature = Nature,
                     Ability = Ability,
-                    Item = Item,
 
                     PID = $"{PID:X8}",
                     EC = $"{EC:X8}",
@@ -215,8 +149,6 @@ public class Symbol
                     Height = $"{Height}",
 
                     Mark = Util.GetRibbonName(Mark),
-
-                    EggMove = AuraEggMove,
 
                     Seed0 = $"{os.s0:X16}",
                     Seed1 = $"{os.s1:X16}",
