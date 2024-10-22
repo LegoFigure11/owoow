@@ -383,7 +383,7 @@ public partial class MainWindow : Form
                         string output = $"{shiny}{(Species)pk.Species}{form}{gender}{item}{n}EC: {pk.EncryptionConstant:X8}{n}PID: {pk.PID:X8}{n}{Strings.Natures[(int)pk.Nature]} Nature{n}Ability: {Strings.Ability[pk.Ability]}{n}IVs: {pk.IV_HP}/{pk.IV_ATK}/{pk.IV_DEF}/{pk.IV_SPA}/{pk.IV_SPD}/{pk.IV_SPE}{n}{scale}{markString}{moves}";
 
                         pause = false;
-                        // SetPictureBoxImage(pk.Sprite(), PB_PokemonSprite);
+                        SetPictureBoxImage(pk.Sprite(), PB_PokemonSprite);
                         SetTextBoxText(output, TB_Wild);
                     }
                     else
