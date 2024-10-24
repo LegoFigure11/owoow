@@ -1,4 +1,5 @@
-﻿using PKHeX.Core;
+﻿using owoow.Core.Enums;
+using PKHeX.Core;
 
 namespace owoow.Core.RNG;
 
@@ -36,15 +37,31 @@ public static class Util
         _ => (0, 0),
     };
 
-    public static string GetLeadAbilityType(string ability) => ability switch
+    public static string GetTypePullingLeadAbilityType(string ability) => ability switch
     {
         "Magnet Pull" => "Steel",
-        "Lightning Rod/Static" => "Electric",
+        "Lightning Rod" or "Static" => "Electric",
         "Flash Fire" => "Fire",
         "Storm Drain" => "Water",
         "Harvest" => "Grass",
         _ => string.Empty,
     };
+
+    public static uint GetHiddenEncounterModifiedRate(uint step, AbilityType ability)
+    {
+        var rate = Math.Min((step + 1) * 22, 100);
+        switch (ability)
+        {
+            case AbilityType.DecreseEncounterRate:
+                rate >>= 3;
+                break;
+
+            case AbilityType.IncreaseEncounterRate:
+                rate <<= 1;
+                break;
+        };
+        return Math.Min(rate, 100);
+    }
 
     public static uint GetShinyValue(uint x, uint y) => x ^ y;
     public static uint GetShinyValue(uint x) => (x >> 16) ^ (x & 0xFFFF);

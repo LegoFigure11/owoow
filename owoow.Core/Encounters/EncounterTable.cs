@@ -45,7 +45,7 @@ public class EncounterTable(string game, string tabName, string area, string wea
     {
         var enc = GetEncounters(game, tabName, area, weather);
         Dictionary<int, IEncounterTableEntry> table = [];
-        var type = RNG.Util.GetLeadAbilityType(ability);
+        var type = RNG.Util.GetTypePullingLeadAbilityType(ability);
         var i = 0;
         foreach (var v in enc.Encounters!.Values)
         {

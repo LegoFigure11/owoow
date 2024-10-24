@@ -524,6 +524,91 @@ public partial class MainWindow : Form
         });
     }
 
+    private void B_Hidden_Search_Click(object sender, EventArgs e)
+    {
+        SetControlEnabledState(false, sender);
+
+        var table = new EncounterTable(CB_Game.Text, "Hidden", CB_Hidden_Area.Text, CB_Hidden_Weather.Text, CB_Hidden_LeadAbility.Text);
+
+        var initial = ulong.Parse(TB_Hidden_Initial.Text);
+        var advances = ulong.Parse(TB_Hidden_Advances.Text);
+
+        var numTasks = (byte)(advances < 1_000 ? 1 : advances < 50_000 ? 2 : 4);
+        var interval = advances / numTasks;
+
+        var s0 = ulong.Parse(TB_Seed0.Text, NumberStyles.AllowHexSpecifier);
+        var s1 = ulong.Parse(TB_Seed1.Text, NumberStyles.AllowHexSpecifier);
+
+        var MenuClose = CB_Hidden_MenuClose.Checked;
+
+        Core.RNG.GeneratorConfig config = new()
+        {
+            TargetSpecies = CB_Hidden_Species.Text,
+            LeadAbility = CB_Hidden_LeadAbility.Text,
+
+            Weather = $"{CB_Hidden_Weather.SelectedItem}",
+
+            ShinyRolls = CB_ShinyCharm.Checked ? 3 : 1,
+            MarkRolls = CB_MarkCharm.Checked ? 3 : 1,
+
+            TargetShiny = GetFilterShinyType(CB_Filter_Shiny.SelectedIndex),
+            TargetMark = GetFilterMarkype(CB_Filter_Mark.SelectedIndex),
+
+            TargetMinIVs = [(uint)NUD_HP_Min.Value, (uint)NUD_Atk_Min.Value, (uint)NUD_Def_Min.Value, (uint)NUD_SpA_Min.Value, (uint)NUD_SpD_Min.Value, (uint)NUD_Spe_Min.Value],
+            TargetMaxIVs = [(uint)NUD_HP_Max.Value, (uint)NUD_Atk_Max.Value, (uint)NUD_Def_Max.Value, (uint)NUD_SpA_Max.Value, (uint)NUD_SpD_Max.Value, (uint)NUD_Spe_Max.Value],
+
+            ConsiderMenuClose = MenuClose,
+            MenuCloseIsHoldingDirection = CB_Hidden_MenuClose_Direction.Checked,
+            MenuCloseNPCs = uint.Parse(TB_Hidden_NPCs.Text),
+
+            FiltersEnabled = CB_EnableFilters.Checked,
+
+            TID = uint.Parse(TB_TID.Text),
+            SID = uint.Parse(TB_SID.Text),
+        };
+
+        var rng = new Xoroshiro128Plus(s0, s1);
+
+        List<Frame>[] results = [];
+
+        List<Task<List<Frame>>> tasks = [];
+        for (byte i = 0; i < numTasks; i++)
+        {
+            var last = i == numTasks - 1;
+
+            var (_s0, _s1) = rng.GetState();
+            var start = initial + (i * interval);
+            var end = initial + (interval * (i + (uint)1)) - 1;
+
+            if (last) end += advances % interval;
+
+            tasks.Add(Hidden.Generate(_s0, _s1, table, start, end, config));
+
+            if (!last)
+            {
+                for (ulong j = 0; j < interval; j++)
+                {
+                    rng.Next();
+                }
+            }
+        }
+
+        Task.Run(async () =>
+        {
+            results = await Task.WhenAll(tasks);
+            List<Frame> AllResults = [];
+            foreach (var result in results)
+            {
+                AllResults.AddRange(result);
+            }
+
+            SetBindingSourceDataSource(AllResults, ResultsSource);
+            DGV_Results.SanitizeColumns(this);
+
+            SetControlEnabledState(true, sender);
+        });
+    }
+
     private void B_Static_Search_Click(object sender, EventArgs e)
     {
         SetControlEnabledState(false, sender);
@@ -552,7 +637,6 @@ public partial class MainWindow : Form
             MarkRolls = CB_MarkCharm.Checked ? 3 : 1,
 
             TargetShiny = GetFilterShinyType(CB_Filter_Shiny.SelectedIndex),
-            TargetAura = GetFilterAuraType(CB_Filter_Aura.SelectedIndex),
             TargetMark = GetFilterMarkype(CB_Filter_Mark.SelectedIndex),
 
             TargetMinIVs = [(uint)NUD_HP_Min.Value, (uint)NUD_Atk_Min.Value, (uint)NUD_Def_Min.Value, (uint)NUD_SpA_Min.Value, (uint)NUD_SpD_Min.Value, (uint)NUD_Spe_Min.Value],

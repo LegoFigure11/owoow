@@ -10,6 +10,11 @@ public static class Common
         return rng.NextInt(100);
     }
 
+    public static ulong GenerateEncounterRate(ref Xoroshiro128Plus rng, uint max = 100)
+    {
+        return rng.NextInt(max);
+    }
+
     public static ulong GenerateEncounterSlot(ref Xoroshiro128Plus rng, uint max = 100)
     {
         return rng.NextInt(max);

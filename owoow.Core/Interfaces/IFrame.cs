@@ -4,6 +4,7 @@
     {
         string Advances { get; }
         string Jump { get; }
+        byte Step { get; }
         char Animation { get; }
         string Species { get; }
         string Shiny { get; }
@@ -45,6 +46,7 @@
     {
         public string Advances { get; set; } = string.Empty;
         public string Jump { get; set; } = string.Empty;
+        public byte Step { get; set; } = 0;
         public char Animation { get; set; } = ' ';
         public string Species { get; set; } = string.Empty;
         public string Shiny { get; set; } = string.Empty;

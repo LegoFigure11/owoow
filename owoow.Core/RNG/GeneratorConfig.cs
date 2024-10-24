@@ -18,9 +18,16 @@ public class GeneratorConfig
     public bool RareEC { get; set; } = false;
 
     public string LeadAbility { get; set; } = string.Empty;
-    public bool AbilityIsTypePulling => Util.GetLeadAbilityType(LeadAbility) != string.Empty;
-    public bool AbilityIsSync => LeadAbility == "Synchronize";
-    public bool AbilityIsCuteCharm => LeadAbility == "Cute Charm";
+    public AbilityType AbilityType => LeadAbility switch
+    {
+        "Illuminate" or "Arena Trap" or "No Guard" => AbilityType.IncreaseEncounterRate,
+        "Stench" or "Quick Feet" or "White Smoke" or "Infiltrator" => AbilityType.DecreseEncounterRate,
+        "Synchronize" => AbilityType.Synchronize,
+        "Cute Charm" => AbilityType.CuteCharm,
+        "Magnet Pull" or "Lightning Rod" or "Static" or "Flash Fire" or "Storm Drain" or "Harvest" => AbilityType.TypePulling,
+        "Super Luck" or "Compund Eyes" => AbilityType.IncreaseItemRate,
+        _ => AbilityType.NoEffect,
+    };
 
     public uint TID { get; set; } = 0;
     public uint SID { get; set; } = 0;

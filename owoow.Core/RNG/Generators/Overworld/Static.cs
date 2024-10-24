@@ -1,4 +1,5 @@
-﻿using owoow.Core.Interfaces;
+﻿using owoow.Core.Enums;
+using owoow.Core.Interfaces;
 using PKHeX.Core;
 using static owoow.Core.RNG.Generators.Common;
 using static owoow.Core.RNG.Generators.Fixed;
@@ -58,7 +59,7 @@ public class Static
                 // LEAD ABILITY ACTIVATION
                 Lead = GenerateLeadAbilityActivation(ref rng);
 
-                if ((Lead + 1) < 66 && config.AbilityIsCuteCharm)
+                if (config.AbilityType == AbilityType.CuteCharm && (Lead + 1) <= 66)
                 {
                     CuteCharm = true;
                 }
@@ -70,7 +71,7 @@ public class Static
                 Gender = GenerateGender(ref rng, Encounter.Gender, CuteCharm);
 
                 // NATURE
-                Nature = GenerateNature(ref rng, config.AbilityIsSync);
+                Nature = GenerateNature(ref rng, config.AbilityType == AbilityType.Synchronize);
                 if (FiltersEnabled && !CheckNature(Nature, config.TargetNature))
                 {
                     outer.Next();
