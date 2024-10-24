@@ -25,7 +25,7 @@ public class GeneratorConfig
         "Synchronize" => AbilityType.Synchronize,
         "Cute Charm" => AbilityType.CuteCharm,
         "Magnet Pull" or "Lightning Rod" or "Static" or "Flash Fire" or "Storm Drain" or "Harvest" => AbilityType.TypePulling,
-        "Super Luck" or "Compund Eyes" => AbilityType.IncreaseItemRate,
+        "Super Luck" or "Compound Eyes" => AbilityType.IncreaseItemRate,
         _ => AbilityType.NoEffect,
     };
 

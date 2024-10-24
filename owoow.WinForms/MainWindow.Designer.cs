@@ -176,7 +176,6 @@
             CB_ShinyCharm = new CheckBox();
             TB_TID = new TextBox();
             DGV_Results = new DataGridView();
-            ResultsSource = new BindingSource(components);
             advancesDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             jumpDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             stepDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
@@ -202,6 +201,7 @@
             eggMoveDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             seed0DataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             seed1DataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            ResultsSource = new BindingSource(components);
             GB_SeedControlsContainer.SuspendLayout();
             GB_WildView.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)PB_PokemonSprite).BeginInit();
@@ -987,7 +987,7 @@
             // CB_Static_LeadAbility
             // 
             CB_Static_LeadAbility.FormattingEnabled = true;
-            CB_Static_LeadAbility.Items.AddRange(new object[] { "None", "Compound Eyes/Super Luck", "Synchronize", "Cute Charm", "Magnet Pull", "Lightning Rod/Static", "Flash Fire", "Storm Drain", "Harvest" });
+            CB_Static_LeadAbility.Items.AddRange(new object[] { "None", "Compound Eyes", "Super Luck", "Synchronize", "Cute Charm", "Magnet Pull", "Lightning Rod", "Static", "Flash Fire", "Storm Drain", "Harvest" });
             CB_Static_LeadAbility.Location = new Point(82, 106);
             CB_Static_LeadAbility.Name = "CB_Static_LeadAbility";
             CB_Static_LeadAbility.Size = new Size(173, 23);
@@ -1234,7 +1234,7 @@
             // CB_Symbol_LeadAbility
             // 
             CB_Symbol_LeadAbility.FormattingEnabled = true;
-            CB_Symbol_LeadAbility.Items.AddRange(new object[] { "None", "Compound Eyes/Super Luck", "Synchronize", "Cute Charm", "Magnet Pull", "Lightning Rod/Static", "Flash Fire", "Storm Drain", "Harvest" });
+            CB_Symbol_LeadAbility.Items.AddRange(new object[] { "None", "Compound Eyes", "Super Luck", "Synchronize", "Cute Charm", "Magnet Pull", "Lightning Rod", "Static", "Flash Fire", "Storm Drain", "Harvest" });
             CB_Symbol_LeadAbility.Location = new Point(82, 106);
             CB_Symbol_LeadAbility.Name = "CB_Symbol_LeadAbility";
             CB_Symbol_LeadAbility.Size = new Size(173, 23);
@@ -1457,7 +1457,7 @@
             // CB_Hidden_LeadAbility
             // 
             CB_Hidden_LeadAbility.FormattingEnabled = true;
-            CB_Hidden_LeadAbility.Items.AddRange(new object[] { "None", "Compound Eyes/Super Luck", "Synchronize", "Cute Charm", "Magnet Pull", "Lightning Rod/Static", "Flash Fire", "Storm Drain", "Harvest", "Illuminate", "Arena Trap", "No Guard", "Stench", "Quick Feet", "White Smoke", "Infiltrator" });
+            CB_Hidden_LeadAbility.Items.AddRange(new object[] { "None", "Compound Eyes", "Super Luck", "Synchronize", "Cute Charm", "Magnet Pull", "Lightning Rod", "Static", "Flash Fire", "Storm Drain", "Harvest", "Illuminate", "Arena Trap", "No Guard", "Stench", "Quick Feet", "White Smoke", "Infiltrator" });
             CB_Hidden_LeadAbility.Location = new Point(82, 106);
             CB_Hidden_LeadAbility.Name = "CB_Hidden_LeadAbility";
             CB_Hidden_LeadAbility.Size = new Size(173, 23);
@@ -1823,10 +1823,6 @@
             DGV_Results.Size = new Size(869, 302);
             DGV_Results.TabIndex = 12;
             // 
-            // ResultsSource
-            // 
-            ResultsSource.DataSource = typeof(Core.Interfaces.Frame);
-            // 
             // advancesDataGridViewTextBoxColumn
             // 
             advancesDataGridViewTextBoxColumn.DataPropertyName = "Advances";
@@ -2001,6 +1997,10 @@
             seed1DataGridViewTextBoxColumn.HeaderText = "Seed1";
             seed1DataGridViewTextBoxColumn.Name = "seed1DataGridViewTextBoxColumn";
             seed1DataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // ResultsSource
+            // 
+            ResultsSource.DataSource = typeof(Core.Interfaces.Frame);
             // 
             // MainWindow
             // 
