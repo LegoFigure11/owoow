@@ -176,6 +176,7 @@
             CB_ShinyCharm = new CheckBox();
             TB_TID = new TextBox();
             DGV_Results = new DataGridView();
+            ResultsSource = new BindingSource(components);
             advancesDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             jumpDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             stepDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
@@ -201,7 +202,6 @@
             eggMoveDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             seed0DataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             seed1DataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            ResultsSource = new BindingSource(components);
             GB_SeedControlsContainer.SuspendLayout();
             GB_WildView.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)PB_PokemonSprite).BeginInit();
@@ -1823,6 +1823,10 @@
             DGV_Results.Size = new Size(869, 302);
             DGV_Results.TabIndex = 12;
             // 
+            // ResultsSource
+            // 
+            ResultsSource.DataSource = typeof(Core.Interfaces.Frame);
+            // 
             // advancesDataGridViewTextBoxColumn
             // 
             advancesDataGridViewTextBoxColumn.DataPropertyName = "Advances";
@@ -1903,42 +1907,42 @@
             // hDataGridViewTextBoxColumn
             // 
             hDataGridViewTextBoxColumn.DataPropertyName = "H";
-            hDataGridViewTextBoxColumn.HeaderText = "H";
+            hDataGridViewTextBoxColumn.HeaderText = "HP";
             hDataGridViewTextBoxColumn.Name = "hDataGridViewTextBoxColumn";
             hDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // aDataGridViewTextBoxColumn
             // 
             aDataGridViewTextBoxColumn.DataPropertyName = "A";
-            aDataGridViewTextBoxColumn.HeaderText = "A";
+            aDataGridViewTextBoxColumn.HeaderText = "Atk";
             aDataGridViewTextBoxColumn.Name = "aDataGridViewTextBoxColumn";
             aDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // bDataGridViewTextBoxColumn
             // 
             bDataGridViewTextBoxColumn.DataPropertyName = "B";
-            bDataGridViewTextBoxColumn.HeaderText = "B";
+            bDataGridViewTextBoxColumn.HeaderText = "Def";
             bDataGridViewTextBoxColumn.Name = "bDataGridViewTextBoxColumn";
             bDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // cDataGridViewTextBoxColumn
             // 
             cDataGridViewTextBoxColumn.DataPropertyName = "C";
-            cDataGridViewTextBoxColumn.HeaderText = "C";
+            cDataGridViewTextBoxColumn.HeaderText = "SpA";
             cDataGridViewTextBoxColumn.Name = "cDataGridViewTextBoxColumn";
             cDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // dDataGridViewTextBoxColumn
             // 
             dDataGridViewTextBoxColumn.DataPropertyName = "D";
-            dDataGridViewTextBoxColumn.HeaderText = "D";
+            dDataGridViewTextBoxColumn.HeaderText = "SpD";
             dDataGridViewTextBoxColumn.Name = "dDataGridViewTextBoxColumn";
             dDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // sDataGridViewTextBoxColumn
             // 
             sDataGridViewTextBoxColumn.DataPropertyName = "S";
-            sDataGridViewTextBoxColumn.HeaderText = "S";
+            sDataGridViewTextBoxColumn.HeaderText = "Spe";
             sDataGridViewTextBoxColumn.Name = "sDataGridViewTextBoxColumn";
             sDataGridViewTextBoxColumn.ReadOnly = true;
             // 
@@ -1997,10 +2001,6 @@
             seed1DataGridViewTextBoxColumn.HeaderText = "Seed1";
             seed1DataGridViewTextBoxColumn.Name = "seed1DataGridViewTextBoxColumn";
             seed1DataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // ResultsSource
-            // 
-            ResultsSource.DataSource = typeof(Core.Interfaces.Frame);
             // 
             // MainWindow
             // 
