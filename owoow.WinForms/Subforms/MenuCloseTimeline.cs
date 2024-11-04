@@ -18,7 +18,7 @@ public partial class MenuCloseTimeline : Form
 
         f.SetTextBoxText(f.TB_Seed0.Text, TB_Seed0);
         f.SetTextBoxText(f.TB_Seed1.Text, TB_Seed1);
-        f.SetTextBoxText(f.TB_CurrentAdvances.Text == string.Empty ? "0" : f.TB_CurrentAdvances.Text, TB_Timeline_Initial);
+        f.SetTextBoxText(string.IsNullOrEmpty(f.TB_CurrentAdvances.Text) ? "0" : f.TB_CurrentAdvances.Text, TB_Timeline_Initial);
         f.SetTextBoxText(((TextBox)f.Controls.Find($"TB_{Tab}_NPCs", true).FirstOrDefault()!).Text, TB_Timeline_NPCs);
         f.SetCheckBoxCheckedState(((CheckBox)f.Controls.Find($"CB_{Tab}_MenuClose_Direction", true).FirstOrDefault()!).Checked, CB_Timeline_MenuClose_Direction);
     }
