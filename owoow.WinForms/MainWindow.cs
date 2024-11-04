@@ -466,6 +466,7 @@ public partial class MainWindow : Form
             TargetShiny = GetFilterShinyType(CB_Filter_Shiny.SelectedIndex),
             TargetAura = GetFilterAuraType(CB_Filter_Aura.SelectedIndex),
             TargetMark = GetFilterMarkype(CB_Filter_Mark.SelectedIndex),
+            TargetScale = GetFilterScaleType(CB_Filter_Height.SelectedIndex),
 
             TargetMinIVs = [(uint)NUD_HP_Min.Value, (uint)NUD_Atk_Min.Value, (uint)NUD_Def_Min.Value, (uint)NUD_SpA_Min.Value, (uint)NUD_SpD_Min.Value, (uint)NUD_Spe_Min.Value],
             TargetMaxIVs = [(uint)NUD_HP_Max.Value, (uint)NUD_Atk_Max.Value, (uint)NUD_Def_Max.Value, (uint)NUD_SpA_Max.Value, (uint)NUD_SpD_Max.Value, (uint)NUD_Spe_Max.Value],
@@ -553,6 +554,7 @@ public partial class MainWindow : Form
 
             TargetShiny = GetFilterShinyType(CB_Filter_Shiny.SelectedIndex),
             TargetMark = GetFilterMarkype(CB_Filter_Mark.SelectedIndex),
+            TargetScale = GetFilterScaleType(CB_Filter_Height.SelectedIndex),
 
             TargetMinIVs = [(uint)NUD_HP_Min.Value, (uint)NUD_Atk_Min.Value, (uint)NUD_Def_Min.Value, (uint)NUD_SpA_Min.Value, (uint)NUD_SpD_Min.Value, (uint)NUD_Spe_Min.Value],
             TargetMaxIVs = [(uint)NUD_HP_Max.Value, (uint)NUD_Atk_Max.Value, (uint)NUD_Def_Max.Value, (uint)NUD_SpA_Max.Value, (uint)NUD_SpD_Max.Value, (uint)NUD_Spe_Max.Value],
@@ -638,6 +640,7 @@ public partial class MainWindow : Form
 
             TargetShiny = GetFilterShinyType(CB_Filter_Shiny.SelectedIndex),
             TargetMark = GetFilterMarkype(CB_Filter_Mark.SelectedIndex),
+            TargetScale = GetFilterScaleType(CB_Filter_Height.SelectedIndex),
 
             TargetMinIVs = [(uint)NUD_HP_Min.Value, (uint)NUD_Atk_Min.Value, (uint)NUD_Def_Min.Value, (uint)NUD_SpA_Min.Value, (uint)NUD_SpD_Min.Value, (uint)NUD_Spe_Min.Value],
             TargetMaxIVs = [(uint)NUD_HP_Max.Value, (uint)NUD_Atk_Max.Value, (uint)NUD_Def_Max.Value, (uint)NUD_SpA_Max.Value, (uint)NUD_SpD_Max.Value, (uint)NUD_Spe_Max.Value],

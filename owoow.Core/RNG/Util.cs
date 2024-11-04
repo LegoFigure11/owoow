@@ -75,6 +75,19 @@ public static class Util
         _ => "No",
     };
 
+    public static string GetHeightString(uint height) => height switch
+    {
+        >= 255 => $"XXXL ({height})",
+        >= 231 => $"XXL ({height})",
+        >= 196 => $"XL ({height})",
+        >= 156 => $"L ({height})",
+        >= 100 => $"M ({height})",
+        >= 60 => $"S ({height})",
+        >= 25 => $"XS ({height})",
+        >= 1 => $"XXS ({height})",
+        _ => $"XXXS ({height})",
+    };
+
     public static string GetRibbonName(RibbonIndex rib) => rib switch
     {
         RibbonIndex.MAX_COUNT => "None",

@@ -11,6 +11,7 @@ public class GeneratorConfig
     public Nature TargetNature { get; set; } = Nature.Random;
     public ShinyType TargetShiny { get; set; } = ShinyType.Any;
     public RibbonIndex TargetMark { get; set; } = RibbonIndex.MAX_COUNT + 1;
+    public ScaleType TargetScale { get; set; } = ScaleType.Any;
 
     public uint[] TargetMinIVs { get; set; } = [0, 0, 0, 0, 0, 0];
     public uint[] TargetMaxIVs { get; set; } = [31, 31, 31, 31, 31, 31];

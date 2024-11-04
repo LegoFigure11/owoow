@@ -111,6 +111,11 @@ public class Static
 
                 // HEIGHT
                 Height = GenerateHeightWeightScale(ref go);
+                if (FiltersEnabled && !CheckHeight(Height, config.TargetScale))
+                {
+                    outer.Next();
+                    continue;
+                }
 
                 // MARK
                 Mark = GenerateMark(ref rng, config.MarkRolls, config.WeatherActive);
@@ -147,7 +152,7 @@ public class Static
                     D = IVs[4],
                     S = IVs[5],
 
-                    Height = $"{Height}",
+                    Height = Util.GetHeightString(Height),
 
                     Mark = Util.GetRibbonName(Mark),
 

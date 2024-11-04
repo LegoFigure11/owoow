@@ -21,6 +21,8 @@ public static class FilterUtil
         _ => AuraType.Any,
     };
 
+    public static ScaleType GetFilterScaleType(int selected) => (ScaleType)selected;
+
     public static RibbonIndex GetFilterMarkype(int selected) => selected switch
     {
         1 => RibbonIndex.MAX_COUNT, // None

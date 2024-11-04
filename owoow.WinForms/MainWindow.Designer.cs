@@ -367,7 +367,7 @@
             // CB_Filter_Height
             // 
             CB_Filter_Height.FormattingEnabled = true;
-            CB_Filter_Height.Items.AddRange(new object[] { "soon:tm:" });
+            CB_Filter_Height.Items.AddRange(new object[] { "Ignore", "XXXS", "XXS", "XS", "S", "M", "L", "XL", "XXL", "XXXL", "XXXS or XXXL" });
             CB_Filter_Height.Location = new Point(58, 249);
             CB_Filter_Height.Name = "CB_Filter_Height";
             CB_Filter_Height.Size = new Size(138, 23);
