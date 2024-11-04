@@ -46,11 +46,11 @@
             TB_Timeline_Advances = new TextBox();
             TB_Timeline_Initial = new TextBox();
             DGV_Results = new DataGridView();
+            MenuCloseResultsSource = new BindingSource(components);
             advancesDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             jumpDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             seed0DataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             seed1DataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            MenuCloseResultsSource = new BindingSource(components);
             GB_Seed.SuspendLayout();
             GB_SearchSettings.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)DGV_Results).BeginInit();
@@ -231,37 +231,45 @@
             DGV_Results.Size = new Size(570, 427);
             DGV_Results.TabIndex = 13;
             // 
+            // MenuCloseResultsSource
+            // 
+            MenuCloseResultsSource.DataSource = typeof(Core.Interfaces.MenuCloseFrame);
+            // 
             // advancesDataGridViewTextBoxColumn
             // 
+            advancesDataGridViewTextBoxColumn.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
             advancesDataGridViewTextBoxColumn.DataPropertyName = "Advances";
             advancesDataGridViewTextBoxColumn.HeaderText = "Advances";
             advancesDataGridViewTextBoxColumn.Name = "advancesDataGridViewTextBoxColumn";
             advancesDataGridViewTextBoxColumn.ReadOnly = true;
+            advancesDataGridViewTextBoxColumn.Width = 83;
             // 
             // jumpDataGridViewTextBoxColumn
             // 
+            jumpDataGridViewTextBoxColumn.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
             jumpDataGridViewTextBoxColumn.DataPropertyName = "Jump";
             jumpDataGridViewTextBoxColumn.HeaderText = "Jump";
             jumpDataGridViewTextBoxColumn.Name = "jumpDataGridViewTextBoxColumn";
             jumpDataGridViewTextBoxColumn.ReadOnly = true;
+            jumpDataGridViewTextBoxColumn.Width = 61;
             // 
             // seed0DataGridViewTextBoxColumn
             // 
+            seed0DataGridViewTextBoxColumn.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
             seed0DataGridViewTextBoxColumn.DataPropertyName = "Seed0";
             seed0DataGridViewTextBoxColumn.HeaderText = "Seed0";
             seed0DataGridViewTextBoxColumn.Name = "seed0DataGridViewTextBoxColumn";
             seed0DataGridViewTextBoxColumn.ReadOnly = true;
+            seed0DataGridViewTextBoxColumn.Width = 63;
             // 
             // seed1DataGridViewTextBoxColumn
             // 
+            seed1DataGridViewTextBoxColumn.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
             seed1DataGridViewTextBoxColumn.DataPropertyName = "Seed1";
             seed1DataGridViewTextBoxColumn.HeaderText = "Seed1";
             seed1DataGridViewTextBoxColumn.Name = "seed1DataGridViewTextBoxColumn";
             seed1DataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // MenuCloseResultsSource
-            // 
-            MenuCloseResultsSource.DataSource = typeof(Core.Interfaces.MenuCloseFrame);
+            seed1DataGridViewTextBoxColumn.Width = 63;
             // 
             // MenuCloseTimeline
             // 
@@ -301,10 +309,10 @@
         private Label L_Symbol_NPCs;
         private TextBox TB_Timeline_NPCs;
         private DataGridView DGV_Results;
+        private BindingSource MenuCloseResultsSource;
         private DataGridViewTextBoxColumn advancesDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn jumpDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn seed0DataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn seed1DataGridViewTextBoxColumn;
-        private BindingSource MenuCloseResultsSource;
     }
 }

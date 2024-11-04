@@ -1829,178 +1829,228 @@
             // 
             // advancesDataGridViewTextBoxColumn
             // 
+            advancesDataGridViewTextBoxColumn.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
             advancesDataGridViewTextBoxColumn.DataPropertyName = "Advances";
             advancesDataGridViewTextBoxColumn.HeaderText = "Advances";
             advancesDataGridViewTextBoxColumn.Name = "advancesDataGridViewTextBoxColumn";
             advancesDataGridViewTextBoxColumn.ReadOnly = true;
+            advancesDataGridViewTextBoxColumn.Width = 83;
             // 
             // jumpDataGridViewTextBoxColumn
             // 
+            jumpDataGridViewTextBoxColumn.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
             jumpDataGridViewTextBoxColumn.DataPropertyName = "Jump";
             jumpDataGridViewTextBoxColumn.HeaderText = "Jump";
             jumpDataGridViewTextBoxColumn.Name = "jumpDataGridViewTextBoxColumn";
             jumpDataGridViewTextBoxColumn.ReadOnly = true;
+            jumpDataGridViewTextBoxColumn.Width = 61;
             // 
             // stepDataGridViewTextBoxColumn
             // 
+            stepDataGridViewTextBoxColumn.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
             stepDataGridViewTextBoxColumn.DataPropertyName = "Step";
             stepDataGridViewTextBoxColumn.HeaderText = "Step";
             stepDataGridViewTextBoxColumn.Name = "stepDataGridViewTextBoxColumn";
             stepDataGridViewTextBoxColumn.ReadOnly = true;
+            stepDataGridViewTextBoxColumn.Width = 55;
             // 
             // animationDataGridViewTextBoxColumn
             // 
+            animationDataGridViewTextBoxColumn.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
             animationDataGridViewTextBoxColumn.DataPropertyName = "Animation";
             animationDataGridViewTextBoxColumn.HeaderText = "Animation";
             animationDataGridViewTextBoxColumn.Name = "animationDataGridViewTextBoxColumn";
             animationDataGridViewTextBoxColumn.ReadOnly = true;
+            animationDataGridViewTextBoxColumn.Width = 88;
             // 
             // speciesDataGridViewTextBoxColumn
             // 
+            speciesDataGridViewTextBoxColumn.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
             speciesDataGridViewTextBoxColumn.DataPropertyName = "Species";
             speciesDataGridViewTextBoxColumn.HeaderText = "Species";
             speciesDataGridViewTextBoxColumn.Name = "speciesDataGridViewTextBoxColumn";
             speciesDataGridViewTextBoxColumn.ReadOnly = true;
+            speciesDataGridViewTextBoxColumn.Width = 71;
             // 
             // shinyDataGridViewTextBoxColumn
             // 
+            shinyDataGridViewTextBoxColumn.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
             shinyDataGridViewTextBoxColumn.DataPropertyName = "Shiny";
             shinyDataGridViewTextBoxColumn.HeaderText = "Shiny";
             shinyDataGridViewTextBoxColumn.Name = "shinyDataGridViewTextBoxColumn";
             shinyDataGridViewTextBoxColumn.ReadOnly = true;
+            shinyDataGridViewTextBoxColumn.Width = 61;
             // 
             // brilliantDataGridViewTextBoxColumn
             // 
+            brilliantDataGridViewTextBoxColumn.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
             brilliantDataGridViewTextBoxColumn.DataPropertyName = "Brilliant";
             brilliantDataGridViewTextBoxColumn.HeaderText = "Brilliant";
             brilliantDataGridViewTextBoxColumn.Name = "brilliantDataGridViewTextBoxColumn";
             brilliantDataGridViewTextBoxColumn.ReadOnly = true;
+            brilliantDataGridViewTextBoxColumn.Width = 72;
             // 
             // levelDataGridViewTextBoxColumn
             // 
+            levelDataGridViewTextBoxColumn.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
             levelDataGridViewTextBoxColumn.DataPropertyName = "Level";
             levelDataGridViewTextBoxColumn.HeaderText = "Level";
             levelDataGridViewTextBoxColumn.Name = "levelDataGridViewTextBoxColumn";
             levelDataGridViewTextBoxColumn.ReadOnly = true;
+            levelDataGridViewTextBoxColumn.Width = 59;
             // 
             // abilityDataGridViewTextBoxColumn
             // 
+            abilityDataGridViewTextBoxColumn.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
             abilityDataGridViewTextBoxColumn.DataPropertyName = "Ability";
             abilityDataGridViewTextBoxColumn.HeaderText = "Ability";
             abilityDataGridViewTextBoxColumn.Name = "abilityDataGridViewTextBoxColumn";
             abilityDataGridViewTextBoxColumn.ReadOnly = true;
+            abilityDataGridViewTextBoxColumn.Width = 66;
             // 
             // natureDataGridViewTextBoxColumn
             // 
+            natureDataGridViewTextBoxColumn.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
             natureDataGridViewTextBoxColumn.DataPropertyName = "Nature";
             natureDataGridViewTextBoxColumn.HeaderText = "Nature";
             natureDataGridViewTextBoxColumn.Name = "natureDataGridViewTextBoxColumn";
             natureDataGridViewTextBoxColumn.ReadOnly = true;
+            natureDataGridViewTextBoxColumn.Width = 68;
             // 
             // genderDataGridViewTextBoxColumn
             // 
+            genderDataGridViewTextBoxColumn.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
             genderDataGridViewTextBoxColumn.DataPropertyName = "Gender";
             genderDataGridViewTextBoxColumn.HeaderText = "Gender";
             genderDataGridViewTextBoxColumn.Name = "genderDataGridViewTextBoxColumn";
             genderDataGridViewTextBoxColumn.ReadOnly = true;
+            genderDataGridViewTextBoxColumn.Width = 70;
             // 
             // hDataGridViewTextBoxColumn
             // 
+            hDataGridViewTextBoxColumn.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
             hDataGridViewTextBoxColumn.DataPropertyName = "H";
             hDataGridViewTextBoxColumn.HeaderText = "HP";
             hDataGridViewTextBoxColumn.Name = "hDataGridViewTextBoxColumn";
             hDataGridViewTextBoxColumn.ReadOnly = true;
+            hDataGridViewTextBoxColumn.Width = 48;
             // 
             // aDataGridViewTextBoxColumn
             // 
+            aDataGridViewTextBoxColumn.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
             aDataGridViewTextBoxColumn.DataPropertyName = "A";
             aDataGridViewTextBoxColumn.HeaderText = "Atk";
             aDataGridViewTextBoxColumn.Name = "aDataGridViewTextBoxColumn";
             aDataGridViewTextBoxColumn.ReadOnly = true;
+            aDataGridViewTextBoxColumn.Width = 50;
             // 
             // bDataGridViewTextBoxColumn
             // 
+            bDataGridViewTextBoxColumn.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
             bDataGridViewTextBoxColumn.DataPropertyName = "B";
             bDataGridViewTextBoxColumn.HeaderText = "Def";
             bDataGridViewTextBoxColumn.Name = "bDataGridViewTextBoxColumn";
             bDataGridViewTextBoxColumn.ReadOnly = true;
+            bDataGridViewTextBoxColumn.Width = 50;
             // 
             // cDataGridViewTextBoxColumn
             // 
+            cDataGridViewTextBoxColumn.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
             cDataGridViewTextBoxColumn.DataPropertyName = "C";
             cDataGridViewTextBoxColumn.HeaderText = "SpA";
             cDataGridViewTextBoxColumn.Name = "cDataGridViewTextBoxColumn";
             cDataGridViewTextBoxColumn.ReadOnly = true;
+            cDataGridViewTextBoxColumn.Width = 53;
             // 
             // dDataGridViewTextBoxColumn
             // 
+            dDataGridViewTextBoxColumn.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
             dDataGridViewTextBoxColumn.DataPropertyName = "D";
             dDataGridViewTextBoxColumn.HeaderText = "SpD";
             dDataGridViewTextBoxColumn.Name = "dDataGridViewTextBoxColumn";
             dDataGridViewTextBoxColumn.ReadOnly = true;
+            dDataGridViewTextBoxColumn.Width = 53;
             // 
             // sDataGridViewTextBoxColumn
             // 
+            sDataGridViewTextBoxColumn.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
             sDataGridViewTextBoxColumn.DataPropertyName = "S";
             sDataGridViewTextBoxColumn.HeaderText = "Spe";
             sDataGridViewTextBoxColumn.Name = "sDataGridViewTextBoxColumn";
             sDataGridViewTextBoxColumn.ReadOnly = true;
+            sDataGridViewTextBoxColumn.Width = 51;
             // 
             // markDataGridViewTextBoxColumn
             // 
+            markDataGridViewTextBoxColumn.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
             markDataGridViewTextBoxColumn.DataPropertyName = "Mark";
             markDataGridViewTextBoxColumn.HeaderText = "Mark";
             markDataGridViewTextBoxColumn.Name = "markDataGridViewTextBoxColumn";
             markDataGridViewTextBoxColumn.ReadOnly = true;
+            markDataGridViewTextBoxColumn.Width = 59;
             // 
             // eCDataGridViewTextBoxColumn
             // 
+            eCDataGridViewTextBoxColumn.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
             eCDataGridViewTextBoxColumn.DataPropertyName = "EC";
             eCDataGridViewTextBoxColumn.HeaderText = "EC";
             eCDataGridViewTextBoxColumn.Name = "eCDataGridViewTextBoxColumn";
             eCDataGridViewTextBoxColumn.ReadOnly = true;
+            eCDataGridViewTextBoxColumn.Width = 46;
             // 
             // pIDDataGridViewTextBoxColumn
             // 
+            pIDDataGridViewTextBoxColumn.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
             pIDDataGridViewTextBoxColumn.DataPropertyName = "PID";
             pIDDataGridViewTextBoxColumn.HeaderText = "PID";
             pIDDataGridViewTextBoxColumn.Name = "pIDDataGridViewTextBoxColumn";
             pIDDataGridViewTextBoxColumn.ReadOnly = true;
+            pIDDataGridViewTextBoxColumn.Width = 50;
             // 
             // heightDataGridViewTextBoxColumn
             // 
+            heightDataGridViewTextBoxColumn.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
             heightDataGridViewTextBoxColumn.DataPropertyName = "Height";
             heightDataGridViewTextBoxColumn.HeaderText = "Height";
             heightDataGridViewTextBoxColumn.Name = "heightDataGridViewTextBoxColumn";
             heightDataGridViewTextBoxColumn.ReadOnly = true;
+            heightDataGridViewTextBoxColumn.Width = 68;
             // 
             // itemDataGridViewTextBoxColumn
             // 
+            itemDataGridViewTextBoxColumn.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
             itemDataGridViewTextBoxColumn.DataPropertyName = "Item";
             itemDataGridViewTextBoxColumn.HeaderText = "Item";
             itemDataGridViewTextBoxColumn.Name = "itemDataGridViewTextBoxColumn";
             itemDataGridViewTextBoxColumn.ReadOnly = true;
+            itemDataGridViewTextBoxColumn.Width = 56;
             // 
             // eggMoveDataGridViewTextBoxColumn
             // 
+            eggMoveDataGridViewTextBoxColumn.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
             eggMoveDataGridViewTextBoxColumn.DataPropertyName = "EggMove";
-            eggMoveDataGridViewTextBoxColumn.HeaderText = "EggMove";
+            eggMoveDataGridViewTextBoxColumn.HeaderText = "Egg Move";
             eggMoveDataGridViewTextBoxColumn.Name = "eggMoveDataGridViewTextBoxColumn";
             eggMoveDataGridViewTextBoxColumn.ReadOnly = true;
+            eggMoveDataGridViewTextBoxColumn.Width = 85;
             // 
             // seed0DataGridViewTextBoxColumn
             // 
+            seed0DataGridViewTextBoxColumn.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
             seed0DataGridViewTextBoxColumn.DataPropertyName = "Seed0";
             seed0DataGridViewTextBoxColumn.HeaderText = "Seed0";
             seed0DataGridViewTextBoxColumn.Name = "seed0DataGridViewTextBoxColumn";
             seed0DataGridViewTextBoxColumn.ReadOnly = true;
+            seed0DataGridViewTextBoxColumn.Width = 63;
             // 
             // seed1DataGridViewTextBoxColumn
             // 
+            seed1DataGridViewTextBoxColumn.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
             seed1DataGridViewTextBoxColumn.DataPropertyName = "Seed1";
             seed1DataGridViewTextBoxColumn.HeaderText = "Seed1";
             seed1DataGridViewTextBoxColumn.Name = "seed1DataGridViewTextBoxColumn";
             seed1DataGridViewTextBoxColumn.ReadOnly = true;
+            seed1DataGridViewTextBoxColumn.Width = 63;
             // 
             // MainWindow
             // 
