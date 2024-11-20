@@ -54,7 +54,7 @@ public class Static
                     Jump = MenuClose.GetAdvances(ref rng, config.MenuCloseNPCs, config.MenuCloseIsHoldingDirection, config.Weather);
                 }
 
-                rng.NextInt(100);
+                // rng.NextInt(100);
 
                 // LEAD ABILITY ACTIVATION
                 Lead = GenerateLeadAbilityActivation(ref rng);
