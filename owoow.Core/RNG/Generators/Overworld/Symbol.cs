@@ -5,7 +5,7 @@ using static owoow.Core.RNG.Generators.Common;
 using static owoow.Core.RNG.Generators.Fixed;
 using static owoow.Core.RNG.Validators.Validator;
 
-namespace owoow.Core.RNG.Generators;
+namespace owoow.Core.RNG.Generators.Overworld;
 
 public class Symbol
 {
@@ -64,7 +64,7 @@ public class Symbol
 
                 if (config.ConsiderMenuClose)
                 {
-                    Jump = MenuClose.GetAdvances(ref rng, config.MenuCloseNPCs, config.MenuCloseIsHoldingDirection);
+                    Jump = MenuClose.GetAdvances(ref rng, config.MenuCloseNPCs, config.MenuCloseIsHoldingDirection, config.Weather);
                 }
 
                 rng.NextInt();
@@ -73,7 +73,7 @@ public class Symbol
                 // LEAD ABILITY ACTIVATION & ENCOUNTER SLOT
                 Lead = GenerateLeadAbilityActivation(ref rng);
 
-                if ((Lead + 1) <= 66 && config.AbilityType == AbilityType.CuteCharm)
+                if (Lead + 1 <= 66 && config.AbilityType == AbilityType.CuteCharm)
                 {
                     CuteCharm = true;
                 }

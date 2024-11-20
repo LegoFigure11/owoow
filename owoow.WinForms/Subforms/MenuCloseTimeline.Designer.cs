@@ -40,17 +40,19 @@
             CB_Timeline_MenuClose_Direction = new CheckBox();
             L_Symbol_NPCs = new Label();
             TB_Timeline_NPCs = new TextBox();
-            label3 = new Label();
+            L_Timeline_Plus = new Label();
             B_Timeline_Search = new Button();
-            label4 = new Label();
+            L_Timeline_Initial = new Label();
             TB_Timeline_Advances = new TextBox();
             TB_Timeline_Initial = new TextBox();
             DGV_Results = new DataGridView();
-            MenuCloseResultsSource = new BindingSource(components);
             advancesDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             jumpDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             seed0DataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             seed1DataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            MenuCloseResultsSource = new BindingSource(components);
+            L_Timeline_Weather = new Label();
+            CB_Timeline_Weather = new ComboBox();
             GB_Seed.SuspendLayout();
             GB_SearchSettings.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)DGV_Results).BeginInit();
@@ -112,17 +114,19 @@
             // 
             // GB_SearchSettings
             // 
+            GB_SearchSettings.Controls.Add(L_Timeline_Weather);
+            GB_SearchSettings.Controls.Add(CB_Timeline_Weather);
             GB_SearchSettings.Controls.Add(CB_Timeline_MenuClose_Direction);
             GB_SearchSettings.Controls.Add(L_Symbol_NPCs);
             GB_SearchSettings.Controls.Add(TB_Timeline_NPCs);
-            GB_SearchSettings.Controls.Add(label3);
+            GB_SearchSettings.Controls.Add(L_Timeline_Plus);
             GB_SearchSettings.Controls.Add(B_Timeline_Search);
-            GB_SearchSettings.Controls.Add(label4);
+            GB_SearchSettings.Controls.Add(L_Timeline_Initial);
             GB_SearchSettings.Controls.Add(TB_Timeline_Advances);
             GB_SearchSettings.Controls.Add(TB_Timeline_Initial);
             GB_SearchSettings.Location = new Point(0, 53);
             GB_SearchSettings.Name = "GB_SearchSettings";
-            GB_SearchSettings.Size = new Size(212, 118);
+            GB_SearchSettings.Size = new Size(212, 149);
             GB_SearchSettings.TabIndex = 3;
             GB_SearchSettings.TabStop = false;
             // 
@@ -130,7 +134,7 @@
             // 
             CB_Timeline_MenuClose_Direction.AutoSize = true;
             CB_Timeline_MenuClose_Direction.CheckAlign = ContentAlignment.MiddleRight;
-            CB_Timeline_MenuClose_Direction.Location = new Point(0, 90);
+            CB_Timeline_MenuClose_Direction.Location = new Point(0, 120);
             CB_Timeline_MenuClose_Direction.Name = "CB_Timeline_MenuClose_Direction";
             CB_Timeline_MenuClose_Direction.Size = new Size(125, 19);
             CB_Timeline_MenuClose_Direction.TabIndex = 53;
@@ -141,7 +145,7 @@
             // L_Symbol_NPCs
             // 
             L_Symbol_NPCs.AutoSize = true;
-            L_Symbol_NPCs.Location = new Point(126, 91);
+            L_Symbol_NPCs.Location = new Point(126, 121);
             L_Symbol_NPCs.Name = "L_Symbol_NPCs";
             L_Symbol_NPCs.Size = new Size(39, 15);
             L_Symbol_NPCs.TabIndex = 52;
@@ -151,7 +155,7 @@
             // 
             TB_Timeline_NPCs.CharacterCasing = CharacterCasing.Upper;
             TB_Timeline_NPCs.Font = new Font("Consolas", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            TB_Timeline_NPCs.Location = new Point(171, 89);
+            TB_Timeline_NPCs.Location = new Point(171, 119);
             TB_Timeline_NPCs.MaxLength = 16;
             TB_Timeline_NPCs.Name = "TB_Timeline_NPCs";
             TB_Timeline_NPCs.Size = new Size(35, 22);
@@ -159,18 +163,18 @@
             TB_Timeline_NPCs.Text = "3";
             TB_Timeline_NPCs.TextAlign = HorizontalAlignment.Right;
             // 
-            // label3
+            // L_Timeline_Plus
             // 
-            label3.AutoSize = true;
-            label3.Location = new Point(67, 38);
-            label3.Name = "label3";
-            label3.Size = new Size(15, 15);
-            label3.TabIndex = 24;
-            label3.Text = "+";
+            L_Timeline_Plus.AutoSize = true;
+            L_Timeline_Plus.Location = new Point(67, 38);
+            L_Timeline_Plus.Name = "L_Timeline_Plus";
+            L_Timeline_Plus.Size = new Size(15, 15);
+            L_Timeline_Plus.TabIndex = 24;
+            L_Timeline_Plus.Text = "+";
             // 
             // B_Timeline_Search
             // 
-            B_Timeline_Search.Location = new Point(6, 62);
+            B_Timeline_Search.Location = new Point(6, 92);
             B_Timeline_Search.Name = "B_Timeline_Search";
             B_Timeline_Search.Size = new Size(200, 25);
             B_Timeline_Search.TabIndex = 25;
@@ -178,14 +182,14 @@
             B_Timeline_Search.UseVisualStyleBackColor = true;
             B_Timeline_Search.Click += B_Symbol_Search_Click;
             // 
-            // label4
+            // L_Timeline_Initial
             // 
-            label4.AutoSize = true;
-            label4.Location = new Point(19, 15);
-            label4.Name = "label4";
-            label4.Size = new Size(63, 15);
-            label4.TabIndex = 23;
-            label4.Text = "Initial Adv.";
+            L_Timeline_Initial.AutoSize = true;
+            L_Timeline_Initial.Location = new Point(19, 15);
+            L_Timeline_Initial.Name = "L_Timeline_Initial";
+            L_Timeline_Initial.Size = new Size(63, 15);
+            L_Timeline_Initial.TabIndex = 23;
+            L_Timeline_Initial.Text = "Initial Adv.";
             // 
             // TB_Timeline_Advances
             // 
@@ -231,10 +235,6 @@
             DGV_Results.Size = new Size(570, 427);
             DGV_Results.TabIndex = 13;
             // 
-            // MenuCloseResultsSource
-            // 
-            MenuCloseResultsSource.DataSource = typeof(Core.Interfaces.MenuCloseFrame);
-            // 
             // advancesDataGridViewTextBoxColumn
             // 
             advancesDataGridViewTextBoxColumn.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
@@ -271,6 +271,29 @@
             seed1DataGridViewTextBoxColumn.ReadOnly = true;
             seed1DataGridViewTextBoxColumn.Width = 63;
             // 
+            // MenuCloseResultsSource
+            // 
+            MenuCloseResultsSource.DataSource = typeof(Core.Interfaces.MenuCloseFrame);
+            // 
+            // L_Timeline_Weather
+            // 
+            L_Timeline_Weather.AutoSize = true;
+            L_Timeline_Weather.Location = new Point(28, 63);
+            L_Timeline_Weather.Name = "L_Timeline_Weather";
+            L_Timeline_Weather.Size = new Size(54, 15);
+            L_Timeline_Weather.TabIndex = 55;
+            L_Timeline_Weather.Text = "Weather:";
+            // 
+            // CB_Timeline_Weather
+            // 
+            CB_Timeline_Weather.FormattingEnabled = true;
+            CB_Timeline_Weather.Items.AddRange(new object[] { "All Weather", "Normal Weather", "Overcast", "Raining", "Thunderstorm", "Intense Sun", "Snowing", "Snowstorm", "Heavy Fog" });
+            CB_Timeline_Weather.Location = new Point(88, 60);
+            CB_Timeline_Weather.Name = "CB_Timeline_Weather";
+            CB_Timeline_Weather.Size = new Size(118, 23);
+            CB_Timeline_Weather.TabIndex = 54;
+            CB_Timeline_Weather.Text = "None";
+            // 
             // MenuCloseTimeline
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -300,9 +323,9 @@
         private TextBox TB_Seed1;
         private TextBox TB_Seed0;
         private GroupBox GB_SearchSettings;
-        private Label label3;
+        private Label L_Timeline_Plus;
         private Button B_Timeline_Search;
-        private Label label4;
+        private Label L_Timeline_Initial;
         private TextBox TB_Timeline_Advances;
         private TextBox TB_Timeline_Initial;
         private CheckBox CB_Timeline_MenuClose_Direction;
@@ -314,5 +337,7 @@
         private DataGridViewTextBoxColumn jumpDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn seed0DataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn seed1DataGridViewTextBoxColumn;
+        private Label L_Timeline_Weather;
+        private ComboBox CB_Timeline_Weather;
     }
 }

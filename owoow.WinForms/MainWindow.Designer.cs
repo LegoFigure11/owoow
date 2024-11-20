@@ -176,7 +176,6 @@
             CB_ShinyCharm = new CheckBox();
             TB_TID = new TextBox();
             DGV_Results = new DataGridView();
-            ResultsSource = new BindingSource(components);
             advancesDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             jumpDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             stepDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
@@ -202,6 +201,13 @@
             eggMoveDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             seed0DataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             seed1DataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            ResultsSource = new BindingSource(components);
+            GB_SwitchControls = new GroupBox();
+            GB_Subwindows = new GroupBox();
+            B_EncounterLookup = new Button();
+            GB_SeedSearch = new GroupBox();
+            B_SeedSearch_Settings = new Button();
+            B_SeedSearch = new Button();
             GB_SeedControlsContainer.SuspendLayout();
             GB_WildView.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)PB_PokemonSprite).BeginInit();
@@ -230,6 +236,8 @@
             GB_SAVInfo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)DGV_Results).BeginInit();
             ((System.ComponentModel.ISupportInitialize)ResultsSource).BeginInit();
+            GB_Subwindows.SuspendLayout();
+            GB_SeedSearch.SuspendLayout();
             SuspendLayout();
             // 
             // GB_SeedControlsContainer
@@ -1820,12 +1828,8 @@
             DGV_Results.ReadOnly = true;
             DGV_Results.RowHeadersVisible = false;
             DGV_Results.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            DGV_Results.Size = new Size(869, 302);
+            DGV_Results.Size = new Size(1093, 302);
             DGV_Results.TabIndex = 12;
-            // 
-            // ResultsSource
-            // 
-            ResultsSource.DataSource = typeof(Core.Interfaces.Frame);
             // 
             // advancesDataGridViewTextBoxColumn
             // 
@@ -2052,11 +2056,75 @@
             seed1DataGridViewTextBoxColumn.ReadOnly = true;
             seed1DataGridViewTextBoxColumn.Width = 63;
             // 
+            // ResultsSource
+            // 
+            ResultsSource.DataSource = typeof(Core.Interfaces.Frame);
+            // 
+            // GB_SwitchControls
+            // 
+            GB_SwitchControls.Location = new Point(891, 5);
+            GB_SwitchControls.Name = "GB_SwitchControls";
+            GB_SwitchControls.Size = new Size(212, 220);
+            GB_SwitchControls.TabIndex = 22;
+            GB_SwitchControls.TabStop = false;
+            // 
+            // GB_Subwindows
+            // 
+            GB_Subwindows.Controls.Add(B_EncounterLookup);
+            GB_Subwindows.Location = new Point(891, 271);
+            GB_Subwindows.Name = "GB_Subwindows";
+            GB_Subwindows.Size = new Size(212, 55);
+            GB_Subwindows.TabIndex = 23;
+            GB_Subwindows.TabStop = false;
+            // 
+            // B_EncounterLookup
+            // 
+            B_EncounterLookup.Enabled = false;
+            B_EncounterLookup.Location = new Point(4, 21);
+            B_EncounterLookup.Name = "B_EncounterLookup";
+            B_EncounterLookup.Size = new Size(204, 25);
+            B_EncounterLookup.TabIndex = 21;
+            B_EncounterLookup.Text = "Encounter Lookup";
+            B_EncounterLookup.UseVisualStyleBackColor = true;
+            // 
+            // GB_SeedSearch
+            // 
+            GB_SeedSearch.Controls.Add(B_SeedSearch_Settings);
+            GB_SeedSearch.Controls.Add(B_SeedSearch);
+            GB_SeedSearch.Location = new Point(891, 209);
+            GB_SeedSearch.Name = "GB_SeedSearch";
+            GB_SeedSearch.Size = new Size(212, 79);
+            GB_SeedSearch.TabIndex = 24;
+            GB_SeedSearch.TabStop = false;
+            // 
+            // B_SeedSearch_Settings
+            // 
+            B_SeedSearch_Settings.Enabled = false;
+            B_SeedSearch_Settings.Location = new Point(4, 48);
+            B_SeedSearch_Settings.Name = "B_SeedSearch_Settings";
+            B_SeedSearch_Settings.Size = new Size(204, 25);
+            B_SeedSearch_Settings.TabIndex = 22;
+            B_SeedSearch_Settings.Text = "Seed Reset Settings";
+            B_SeedSearch_Settings.UseVisualStyleBackColor = true;
+            // 
+            // B_SeedSearch
+            // 
+            B_SeedSearch.Enabled = false;
+            B_SeedSearch.Location = new Point(4, 21);
+            B_SeedSearch.Name = "B_SeedSearch";
+            B_SeedSearch.Size = new Size(204, 25);
+            B_SeedSearch.TabIndex = 21;
+            B_SeedSearch.Text = "Reset for Seed";
+            B_SeedSearch.UseVisualStyleBackColor = true;
+            // 
             // MainWindow
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(891, 646);
+            ClientSize = new Size(1115, 646);
+            Controls.Add(GB_SwitchControls);
+            Controls.Add(GB_SeedSearch);
+            Controls.Add(GB_Subwindows);
             Controls.Add(DGV_Results);
             Controls.Add(GB_SeedControlsContainer);
             Icon = (Icon)resources.GetObject("$this.Icon");
@@ -2103,6 +2171,8 @@
             GB_SAVInfo.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)DGV_Results).EndInit();
             ((System.ComponentModel.ISupportInitialize)ResultsSource).EndInit();
+            GB_Subwindows.ResumeLayout(false);
+            GB_SeedSearch.ResumeLayout(false);
             ResumeLayout(false);
         }
 
@@ -2278,5 +2348,11 @@
         private DataGridViewTextBoxColumn eggMoveDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn seed0DataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn seed1DataGridViewTextBoxColumn;
+        private GroupBox GB_SwitchControls;
+        private GroupBox GB_Subwindows;
+        private Button B_EncounterLookup;
+        private GroupBox GB_SeedSearch;
+        private Button B_SeedSearch;
+        private Button B_SeedSearch_Settings;
     }
 }

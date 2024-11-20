@@ -2,7 +2,7 @@
 using owoow.Core.Connection;
 using owoow.Core.EncounterTable;
 using owoow.Core.Interfaces;
-using owoow.Core.RNG.Generators;
+using owoow.Core.RNG.Generators.Overworld;
 using owoow.WinForms.Subforms;
 using PKHeX.Core;
 using PKHeX.Drawing.PokeSprite;
@@ -17,7 +17,7 @@ namespace owoow.WinForms;
 public partial class MainWindow : Form
 {
     private static CancellationTokenSource Source = new();
-    private static readonly object _connectLock = new();
+    private static readonly Lock _connectLock = new();
 
     //private readonly ClientConfig Config;
     private ConnectionWrapperAsync ConnectionWrapper = default!;
@@ -369,8 +369,7 @@ public partial class MainWindow : Form
                         string item = pk.HeldItem > 0 ? $" @ {Strings.Item[pk.HeldItem]}" : string.Empty;
                         string markString = HasRibbon ? $"{n}Mark: {mark.ToString().Replace("Mark", "")}" : string.Empty;
 
-                        var scaleS = (IScaledSize)pk;
-                        string scale = $"Height: {PokeSizeDetailedUtil.GetSizeRating(scaleS.HeightScalar)} ({scaleS.HeightScalar})";
+                        string scale = $"Height: {PokeSizeDetailedUtil.GetSizeRating(pk.HeightScalar)} ({pk.HeightScalar})";
 
                         string moves = string.Empty;
 
@@ -458,7 +457,7 @@ public partial class MainWindow : Form
             TargetSpecies = CB_Symbol_Species.Text,
             LeadAbility = CB_Symbol_LeadAbility.Text,
 
-            Weather = $"{CB_Symbol_Weather.SelectedItem}",
+            Weather = GetWeatherType($"{CB_Symbol_Weather.SelectedItem}"),
 
             ShinyRolls = CB_ShinyCharm.Checked ? 3 : 1,
             MarkRolls = CB_MarkCharm.Checked ? 3 : 1,
@@ -547,7 +546,7 @@ public partial class MainWindow : Form
             TargetSpecies = CB_Hidden_Species.Text,
             LeadAbility = CB_Hidden_LeadAbility.Text,
 
-            Weather = $"{CB_Hidden_Weather.SelectedItem}",
+            Weather = GetWeatherType($"{CB_Hidden_Weather.SelectedItem}"),
 
             ShinyRolls = CB_ShinyCharm.Checked ? 3 : 1,
             MarkRolls = CB_MarkCharm.Checked ? 3 : 1,
@@ -633,7 +632,7 @@ public partial class MainWindow : Form
             TargetSpecies = CB_Static_Species.Text,
             LeadAbility = CB_Static_LeadAbility.Text,
 
-            Weather = $"{CB_Symbol_Weather.SelectedItem}",
+            Weather = GetWeatherType($"{CB_Symbol_Weather.SelectedItem}"),
 
             ShinyRolls = CB_ShinyCharm.Checked ? 3 : 1,
             MarkRolls = CB_MarkCharm.Checked ? 3 : 1,
@@ -778,7 +777,7 @@ public partial class MainWindow : Form
         }
     }
 
-    private void SetComboBoxSelectedIndex(int index, params object[] obj)
+    public void SetComboBoxSelectedIndex(int index, params object[] obj)
     {
         foreach (object o in obj)
         {
@@ -850,7 +849,7 @@ public static class Extension
                     var row = dgv.Rows[0];
                     if (row is not null)
                     {
-                        var fv = row.Cells[col.Index].FormattedValue.ToString();
+                        var fv = row.Cells[col.Index].FormattedValue!.ToString();
                         if (fv is null) continue;
                         var vis = string.IsNullOrEmpty(fv.Trim());
                         mw.SetDataGridViewColumnVisibility(!vis, col.Index, dgv);

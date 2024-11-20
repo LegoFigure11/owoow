@@ -41,8 +41,8 @@ public class GeneratorConfig
 
     public int GuaranteedIVs { get; set; } = 0;
 
-    public string Weather { get; set; } = string.Empty;
-    public bool WeatherActive => Weather != "Normal Weather";
+    public WeatherType Weather { get; set; } = WeatherType.AllWeather;
+    public bool WeatherActive => Weather != WeatherType.NormalWeather;
 
     public bool ConsiderMenuClose { get; set; } = false;
     public bool MenuCloseIsHoldingDirection { get; set; } = false;

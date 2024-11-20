@@ -21,6 +21,7 @@ public partial class MenuCloseTimeline : Form
         f.SetTextBoxText(string.IsNullOrEmpty(f.TB_CurrentAdvances.Text) ? "0" : f.TB_CurrentAdvances.Text, TB_Timeline_Initial);
         f.SetTextBoxText(((TextBox)f.Controls.Find($"TB_{Tab}_NPCs", true).FirstOrDefault()!).Text, TB_Timeline_NPCs);
         f.SetCheckBoxCheckedState(((CheckBox)f.Controls.Find($"CB_{Tab}_MenuClose_Direction", true).FirstOrDefault()!).Checked, CB_Timeline_MenuClose_Direction);
+        f.SetComboBoxSelectedIndex(CB_Timeline_Weather.Items.IndexOf($"{((ComboBox)f.Controls.Find($"CB_{Tab}_Weather", true).FirstOrDefault()!).SelectedItem}"), CB_Timeline_Weather);
     }
 
     private void B_Symbol_Search_Click(object sender, EventArgs e)
@@ -37,6 +38,7 @@ public partial class MenuCloseTimeline : Form
         {
             MenuCloseIsHoldingDirection = CB_Timeline_MenuClose_Direction.Checked,
             MenuCloseNPCs = uint.Parse(TB_Timeline_NPCs.Text),
+            Weather = Core.RNG.Util.GetWeatherType($"{CB_Timeline_Weather.SelectedItem}"),
         };
 
         var rng = new Xoroshiro128Plus(s0, s1);

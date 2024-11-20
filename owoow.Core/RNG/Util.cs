@@ -95,4 +95,17 @@ public static class Util
         RibbonIndex.MarkCloudy => "Weather",
         _ => rib.GetPropertyName().Replace("RibbonMark", string.Empty),
     };
+
+    public static WeatherType GetWeatherType(string weather) => weather switch
+    {
+        "Normal Weather" => WeatherType.NormalWeather,
+        "Overcast" => WeatherType.Overcast,
+        "Raining" => WeatherType.Raining,
+        "Thunderstorm" => WeatherType.Thunderstorm,
+        "Intense Sun" => WeatherType.IntenseSun,
+        "Snowing" => WeatherType.Snowing,
+        "Snowstorm" => WeatherType.Snowstorm,
+        "Heavy Fog" => WeatherType.HeavyFog,
+        _ => WeatherType.AllWeather,
+    };
 }
