@@ -484,6 +484,8 @@ public partial class MainWindow : Form
 
         var rng = new Xoroshiro128Plus(s0, s1);
 
+        for (ulong i = 0; i < initial; i++) rng.Next();
+
         List<Frame>[] results = [];
 
         List<Task<List<Frame>>> tasks = [];
@@ -570,6 +572,8 @@ public partial class MainWindow : Form
 
         var rng = new Xoroshiro128Plus(s0, s1);
 
+        for (ulong i = 0; i < initial; i++) rng.Next();
+
         List<Frame>[] results = [];
 
         List<Task<List<Frame>>> tasks = [];
@@ -655,6 +659,8 @@ public partial class MainWindow : Form
         };
 
         var rng = new Xoroshiro128Plus(s0, s1);
+
+        for (ulong i = 0; i < initial; i++) rng.Next();
 
         List<Frame>[] results = [];
 
