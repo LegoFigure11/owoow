@@ -10,14 +10,14 @@ public static class MenuClose
     {
         for (int i = 0; i < NPCs; i++) rng.NextInt(91);
 
-        if (type == MenuCloseType.Regular)
+        if (type is not MenuCloseType.HoldingDirection)
         {
-            rng.Next();
-            rng.NextInt(61);
             if (weather is WeatherType.NormalWeather or WeatherType.Overcast or WeatherType.HeavyFog)
             {
-                rng.NextInt(2);
+                rng.NextInt(); // technically a rand(2) but functionally the same
             }
+
+            rng.NextInt(61);
         }
     }
 
@@ -65,7 +65,7 @@ public static class MenuClose
 
                 if (adv == 0)
                 {
-                    advances++;
+                    advances++; // fail-safe in case of seed (0, 0)
                 }
                 else
                 {

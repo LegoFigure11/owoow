@@ -67,8 +67,7 @@ public class Symbol
                     Jump = MenuClose.GetAdvances(ref rng, config.MenuCloseNPCs, config.MenuCloseIsHoldingDirection, config.Weather);
                 }
 
-                rng.NextInt();
-                rng.NextInt(100);
+                DoPlacementRolls(ref rng); // Assume placement succeeds on the first attempt
 
                 // LEAD ABILITY ACTIVATION & ENCOUNTER SLOT
                 Lead = GenerateLeadAbilityActivation(ref rng);
@@ -132,7 +131,7 @@ public class Symbol
                 Ability = GenerateAbility(ref rng, Encounter.Abilities);
 
                 // HELD ITEM
-                Item = GenerateItem(ref rng, Encounter);
+                Item = GenerateItem(ref rng, Encounter, config.AbilityType);
 
                 // AURA IVS/EMS
                 AuraIVs = 0;

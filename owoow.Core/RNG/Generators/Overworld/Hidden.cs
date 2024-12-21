@@ -67,11 +67,8 @@ public class Hidden
                     Jump = MenuClose.GetAdvances(ref rng, config.MenuCloseNPCs, config.MenuCloseIsHoldingDirection, config.Weather);
                 }
 
-                rng.NextInt();
-                rng.NextInt(100);
-
                 // ENCOUNTER RATE, LEAD ABILITY ACTIVATION & ENCOUNTER SLOT
-                while (!CanGenerate) // does this stop after 5 iters?
+                while (!CanGenerate)
                 {
                     Lead = GenerateLeadAbilityActivation(ref rng);
                     BaseEncounterRate = Util.GetHiddenEncounterModifiedRate(step, config.AbilityType);
@@ -134,7 +131,7 @@ public class Hidden
                 Ability = GenerateAbility(ref rng, Encounter.Abilities);
 
                 // HELD ITEM
-                Item = GenerateItem(ref rng, Encounter);
+                Item = GenerateItem(ref rng, Encounter, config.AbilityType);
 
                 // FIXED SEED
                 var go = new Xoroshiro128Plus(GenerateFixedSeed(ref rng), 0x82A2B175229D6A5B);

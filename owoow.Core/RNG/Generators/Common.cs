@@ -1,10 +1,17 @@
-﻿using owoow.Core.Interfaces;
+﻿using owoow.Core.Enums;
+using owoow.Core.Interfaces;
 using PKHeX.Core;
 
 namespace owoow.Core.RNG.Generators;
 
 public static class Common
 {
+    public static void DoPlacementRolls(ref Xoroshiro128Plus rng)
+    {
+        rng.NextInt(361);
+        rng.Next();
+    }
+
     public static ulong GenerateLeadAbilityActivation(ref Xoroshiro128Plus rng)
     {
         return rng.NextInt(100);
@@ -90,21 +97,38 @@ public static class Common
         return abilities![roll];
     }
 
-    public static string GenerateItem(ref Xoroshiro128Plus rng, IEncounterTableEntry enc)
+    public static string GenerateItem(ref Xoroshiro128Plus rng, IEncounterTableEntry enc, AbilityType ab = AbilityType.NoEffect)
     {
-        string item = "None";
         if (enc.HasItems)
         {
-            var roll = rng.NextInt(100);
-            item = roll switch
+            if (enc.Items![0] != enc.Items![1])
             {
-                <= 49 => enc.Items![0] != "None" ? $"{enc.Items![0]} (50%)" : "None",
-                <= 54 => enc.Items![1] != "None" ? $"{enc.Items![1]} (5%)" : "None",
-                <= 55 => enc.Items![2] != "None" ? $"{enc.Items![2]} (1%)" : "None",
-                _ => "None",
-            };
+                var roll = rng.NextInt(100);
+                if (ab == AbilityType.IncreaseItemRate)
+                {
+                    return roll switch
+                    {
+                        <= 59 => enc.Items![0] != "None" ? $"{enc.Items![0]} (60%)" : "None",
+                        <= 79 => enc.Items![1] != "None" ? $"{enc.Items![1]} (20%)" : "None",
+                        _ => "None",
+                    };
+                }
+                else
+                {
+                    return roll switch
+                    {
+                        <= 49 => enc.Items![0] != "None" ? $"{enc.Items![0]} (50%)" : "None",
+                        <= 54 => enc.Items![1] != "None" ? $"{enc.Items![1]} (5%)" : "None",
+                        _ => "None",
+                    };
+                }
+            }
+            else
+            {
+                return $"{enc.Items![0]} (100%)";
+            }
         }
-        return item;
+        return "None";
     }
 
     public static int GenerateAuraIVs(ref Xoroshiro128Plus rng)
