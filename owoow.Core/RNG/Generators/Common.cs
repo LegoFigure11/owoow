@@ -12,6 +12,11 @@ public static class Common
         rng.Next();
     }
 
+    public static ulong GenerateDexRecActivation(ref Xoroshiro128Plus rng)
+    {
+        return rng.NextInt(100);
+    }
+
     public static ulong GenerateLeadAbilityActivation(ref Xoroshiro128Plus rng)
     {
         return rng.NextInt(100);

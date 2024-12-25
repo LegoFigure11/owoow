@@ -20,11 +20,13 @@ public class Symbol
             bool FiltersEnabled = config.FiltersEnabled;
 
             ulong Lead;
+            ulong DexRec;
             IDictionary<int, IEncounterTableEntry> ActiveTable;
             IEncounterTableEntry Encounter;
             bool CuteCharm = false;
 
             ulong EncounterSlot = 0;
+            short DexRecSlot = 0;
             bool EncounterSlotChosen = false;
 
             ulong Level;
@@ -85,6 +87,22 @@ public class Symbol
                 else
                 {
                     ActiveTable = table.MainTable;
+                }
+
+                // POKEDEX RECOMMENDATION
+                if (!EncounterSlotChosen)
+                {
+                    DexRec = GenerateDexRecActivation(ref rng);
+                    if (DexRec > 49 && config.IsDexRecActive)
+                    {
+                        DexRecSlot = (short)config.DexRecSlots[GenerateEncounterSlot(ref rng, 4)];
+                        var DexRecMatchingSpecies = ActiveTable.Where(enc => enc.Value.DevId == DexRecSlot);
+                        if (DexRecMatchingSpecies.Any())
+                        {
+                            EncounterSlot = (ulong)DexRecMatchingSpecies.First().Key;
+                            EncounterSlotChosen = true;
+                        }
+                    }
                 }
 
                 if (!EncounterSlotChosen)
