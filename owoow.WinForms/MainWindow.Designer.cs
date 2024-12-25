@@ -32,6 +32,32 @@
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainWindow));
             GB_SeedControlsContainer = new GroupBox();
+            P_EncounterSettings = new Panel();
+            GB_DexRec = new GroupBox();
+            B_RefreshDexRec = new Button();
+            CB_DexRec4 = new ComboBox();
+            CB_DexRec3 = new ComboBox();
+            CB_DexRec2 = new ComboBox();
+            CB_DexRec1 = new ComboBox();
+            GB_Advanced = new GroupBox();
+            B_CalculateRain = new Button();
+            label6 = new Label();
+            numericUpDown4 = new NumericUpDown();
+            label5 = new Label();
+            numericUpDown3 = new NumericUpDown();
+            label3 = new Label();
+            numericUpDown2 = new NumericUpDown();
+            B_CalculateAreaLoad = new Button();
+            label2 = new Label();
+            numericUpDown1 = new NumericUpDown();
+            checkBox2 = new CheckBox();
+            checkBox1 = new CheckBox();
+            GB_SwitchControls = new GroupBox();
+            GB_SeedSearch = new GroupBox();
+            B_SeedSearch_Settings = new Button();
+            B_SeedSearch = new Button();
+            GB_Subwindows = new GroupBox();
+            B_EncounterLookup = new Button();
             GB_WildView = new GroupBox();
             PB_PokemonSprite = new PictureBox();
             B_ReadEncounter = new Button();
@@ -202,13 +228,16 @@
             seed0DataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             seed1DataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             ResultsSource = new BindingSource(components);
-            GB_SwitchControls = new GroupBox();
-            GB_Subwindows = new GroupBox();
-            B_EncounterLookup = new Button();
-            GB_SeedSearch = new GroupBox();
-            B_SeedSearch_Settings = new Button();
-            B_SeedSearch = new Button();
             GB_SeedControlsContainer.SuspendLayout();
+            P_EncounterSettings.SuspendLayout();
+            GB_DexRec.SuspendLayout();
+            GB_Advanced.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)numericUpDown4).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)numericUpDown3).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)numericUpDown2).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)numericUpDown1).BeginInit();
+            GB_SeedSearch.SuspendLayout();
+            GB_Subwindows.SuspendLayout();
             GB_WildView.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)PB_PokemonSprite).BeginInit();
             GB_Filters.SuspendLayout();
@@ -236,12 +265,14 @@
             GB_SAVInfo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)DGV_Results).BeginInit();
             ((System.ComponentModel.ISupportInitialize)ResultsSource).BeginInit();
-            GB_Subwindows.SuspendLayout();
-            GB_SeedSearch.SuspendLayout();
             SuspendLayout();
             // 
             // GB_SeedControlsContainer
             // 
+            GB_SeedControlsContainer.Controls.Add(P_EncounterSettings);
+            GB_SeedControlsContainer.Controls.Add(GB_SwitchControls);
+            GB_SeedControlsContainer.Controls.Add(GB_SeedSearch);
+            GB_SeedControlsContainer.Controls.Add(GB_Subwindows);
             GB_SeedControlsContainer.Controls.Add(GB_WildView);
             GB_SeedControlsContainer.Controls.Add(GB_Filters);
             GB_SeedControlsContainer.Controls.Add(TC_EncounterType);
@@ -251,16 +282,289 @@
             GB_SeedControlsContainer.Location = new Point(0, 5);
             GB_SeedControlsContainer.Name = "GB_SeedControlsContainer";
             GB_SeedControlsContainer.RightToLeft = RightToLeft.No;
-            GB_SeedControlsContainer.Size = new Size(892, 321);
+            GB_SeedControlsContainer.Size = new Size(1315, 321);
             GB_SeedControlsContainer.TabIndex = 11;
             GB_SeedControlsContainer.TabStop = false;
+            // 
+            // P_EncounterSettings
+            // 
+            P_EncounterSettings.Controls.Add(GB_DexRec);
+            P_EncounterSettings.Controls.Add(GB_Advanced);
+            P_EncounterSettings.Location = new Point(482, 9);
+            P_EncounterSettings.Name = "P_EncounterSettings";
+            P_EncounterSettings.Size = new Size(212, 308);
+            P_EncounterSettings.TabIndex = 28;
+            // 
+            // GB_DexRec
+            // 
+            GB_DexRec.Controls.Add(B_RefreshDexRec);
+            GB_DexRec.Controls.Add(CB_DexRec4);
+            GB_DexRec.Controls.Add(CB_DexRec3);
+            GB_DexRec.Controls.Add(CB_DexRec2);
+            GB_DexRec.Controls.Add(CB_DexRec1);
+            GB_DexRec.Location = new Point(1, 0);
+            GB_DexRec.Name = "GB_DexRec";
+            GB_DexRec.Size = new Size(212, 150);
+            GB_DexRec.TabIndex = 55;
+            GB_DexRec.TabStop = false;
+            GB_DexRec.Text = "Pokédex Recommendation";
+            // 
+            // B_RefreshDexRec
+            // 
+            B_RefreshDexRec.Enabled = false;
+            B_RefreshDexRec.Location = new Point(6, 125);
+            B_RefreshDexRec.Name = "B_RefreshDexRec";
+            B_RefreshDexRec.Size = new Size(199, 23);
+            B_RefreshDexRec.TabIndex = 28;
+            B_RefreshDexRec.Text = "Refresh";
+            B_RefreshDexRec.UseVisualStyleBackColor = true;
+            // 
+            // CB_DexRec4
+            // 
+            CB_DexRec4.Enabled = false;
+            CB_DexRec4.FormattingEnabled = true;
+            CB_DexRec4.Location = new Point(6, 100);
+            CB_DexRec4.Name = "CB_DexRec4";
+            CB_DexRec4.Size = new Size(199, 23);
+            CB_DexRec4.TabIndex = 27;
+            CB_DexRec4.Text = "WWWWWWWWWWWW";
+            // 
+            // CB_DexRec3
+            // 
+            CB_DexRec3.Enabled = false;
+            CB_DexRec3.FormattingEnabled = true;
+            CB_DexRec3.Location = new Point(6, 75);
+            CB_DexRec3.Name = "CB_DexRec3";
+            CB_DexRec3.Size = new Size(199, 23);
+            CB_DexRec3.TabIndex = 25;
+            CB_DexRec3.Text = "WWWWWWWWWWWW";
+            // 
+            // CB_DexRec2
+            // 
+            CB_DexRec2.Enabled = false;
+            CB_DexRec2.FormattingEnabled = true;
+            CB_DexRec2.Location = new Point(6, 50);
+            CB_DexRec2.Name = "CB_DexRec2";
+            CB_DexRec2.Size = new Size(199, 23);
+            CB_DexRec2.TabIndex = 23;
+            CB_DexRec2.Text = "WWWWWWWWWWWW";
+            // 
+            // CB_DexRec1
+            // 
+            CB_DexRec1.Enabled = false;
+            CB_DexRec1.FormattingEnabled = true;
+            CB_DexRec1.Location = new Point(6, 25);
+            CB_DexRec1.Name = "CB_DexRec1";
+            CB_DexRec1.Size = new Size(199, 23);
+            CB_DexRec1.TabIndex = 21;
+            CB_DexRec1.Text = "WWWWWWWWWWWW";
+            // 
+            // GB_Advanced
+            // 
+            GB_Advanced.Controls.Add(B_CalculateRain);
+            GB_Advanced.Controls.Add(label6);
+            GB_Advanced.Controls.Add(numericUpDown4);
+            GB_Advanced.Controls.Add(label5);
+            GB_Advanced.Controls.Add(numericUpDown3);
+            GB_Advanced.Controls.Add(label3);
+            GB_Advanced.Controls.Add(numericUpDown2);
+            GB_Advanced.Controls.Add(B_CalculateAreaLoad);
+            GB_Advanced.Controls.Add(label2);
+            GB_Advanced.Controls.Add(numericUpDown1);
+            GB_Advanced.Controls.Add(checkBox2);
+            GB_Advanced.Controls.Add(checkBox1);
+            GB_Advanced.Location = new Point(1, 150);
+            GB_Advanced.Name = "GB_Advanced";
+            GB_Advanced.Size = new Size(212, 162);
+            GB_Advanced.TabIndex = 56;
+            GB_Advanced.TabStop = false;
+            GB_Advanced.Text = "Advanced Settings";
+            // 
+            // B_CalculateRain
+            // 
+            B_CalculateRain.Enabled = false;
+            B_CalculateRain.Location = new Point(120, 130);
+            B_CalculateRain.Name = "B_CalculateRain";
+            B_CalculateRain.Size = new Size(86, 23);
+            B_CalculateRain.TabIndex = 16;
+            B_CalculateRain.Text = "Calculate";
+            B_CalculateRain.UseVisualStyleBackColor = true;
+            // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Enabled = false;
+            label6.Location = new Point(5, 132);
+            label6.Name = "label6";
+            label6.Size = new Size(64, 15);
+            label6.TabIndex = 15;
+            label6.Text = "Encounter:";
+            // 
+            // numericUpDown4
+            // 
+            numericUpDown4.Enabled = false;
+            numericUpDown4.Location = new Point(75, 130);
+            numericUpDown4.Maximum = new decimal(new int[] { 999, 0, 0, 0 });
+            numericUpDown4.Name = "numericUpDown4";
+            numericUpDown4.Size = new Size(39, 23);
+            numericUpDown4.TabIndex = 14;
+            numericUpDown4.Value = new decimal(new int[] { 999, 0, 0, 0 });
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Enabled = false;
+            label5.Location = new Point(28, 107);
+            label5.Name = "label5";
+            label5.Size = new Size(41, 15);
+            label5.TabIndex = 12;
+            label5.Text = "Menu:";
+            // 
+            // numericUpDown3
+            // 
+            numericUpDown3.Enabled = false;
+            numericUpDown3.Location = new Point(75, 105);
+            numericUpDown3.Maximum = new decimal(new int[] { 999, 0, 0, 0 });
+            numericUpDown3.Name = "numericUpDown3";
+            numericUpDown3.Size = new Size(39, 23);
+            numericUpDown3.TabIndex = 11;
+            numericUpDown3.Value = new decimal(new int[] { 999, 0, 0, 0 });
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Enabled = false;
+            label3.Location = new Point(8, 82);
+            label3.Name = "label3";
+            label3.Size = new Size(61, 15);
+            label3.TabIndex = 9;
+            label3.Text = "Summary:";
+            // 
+            // numericUpDown2
+            // 
+            numericUpDown2.Enabled = false;
+            numericUpDown2.Location = new Point(75, 80);
+            numericUpDown2.Maximum = new decimal(new int[] { 999, 0, 0, 0 });
+            numericUpDown2.Name = "numericUpDown2";
+            numericUpDown2.Size = new Size(39, 23);
+            numericUpDown2.TabIndex = 8;
+            numericUpDown2.Value = new decimal(new int[] { 999, 0, 0, 0 });
+            // 
+            // B_CalculateAreaLoad
+            // 
+            B_CalculateAreaLoad.Enabled = false;
+            B_CalculateAreaLoad.Location = new Point(120, 35);
+            B_CalculateAreaLoad.Name = "B_CalculateAreaLoad";
+            B_CalculateAreaLoad.Size = new Size(86, 23);
+            B_CalculateAreaLoad.TabIndex = 7;
+            B_CalculateAreaLoad.Text = "Calculate";
+            B_CalculateAreaLoad.UseVisualStyleBackColor = true;
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Enabled = false;
+            label2.Location = new Point(6, 37);
+            label2.Name = "label2";
+            label2.Size = new Size(63, 15);
+            label2.TabIndex = 6;
+            label2.Text = "Area Load:";
+            // 
+            // numericUpDown1
+            // 
+            numericUpDown1.Enabled = false;
+            numericUpDown1.Location = new Point(75, 35);
+            numericUpDown1.Maximum = new decimal(new int[] { 999, 0, 0, 0 });
+            numericUpDown1.Name = "numericUpDown1";
+            numericUpDown1.Size = new Size(39, 23);
+            numericUpDown1.TabIndex = 5;
+            numericUpDown1.Value = new decimal(new int[] { 999, 0, 0, 0 });
+            // 
+            // checkBox2
+            // 
+            checkBox2.AutoSize = true;
+            checkBox2.Enabled = false;
+            checkBox2.Location = new Point(6, 18);
+            checkBox2.Name = "checkBox2";
+            checkBox2.Size = new Size(46, 19);
+            checkBox2.TabIndex = 1;
+            checkBox2.Text = "Fly?";
+            checkBox2.UseVisualStyleBackColor = true;
+            // 
+            // checkBox1
+            // 
+            checkBox1.AutoSize = true;
+            checkBox1.Enabled = false;
+            checkBox1.Location = new Point(6, 60);
+            checkBox1.Name = "checkBox1";
+            checkBox1.Size = new Size(168, 19);
+            checkBox1.TabIndex = 0;
+            checkBox1.Text = "Raining/Thunderstorming?";
+            checkBox1.UseVisualStyleBackColor = true;
+            // 
+            // GB_SwitchControls
+            // 
+            GB_SwitchControls.Location = new Point(1103, 0);
+            GB_SwitchControls.Name = "GB_SwitchControls";
+            GB_SwitchControls.Size = new Size(212, 195);
+            GB_SwitchControls.TabIndex = 25;
+            GB_SwitchControls.TabStop = false;
+            // 
+            // GB_SeedSearch
+            // 
+            GB_SeedSearch.Controls.Add(B_SeedSearch_Settings);
+            GB_SeedSearch.Controls.Add(B_SeedSearch);
+            GB_SeedSearch.Location = new Point(1103, 181);
+            GB_SeedSearch.Name = "GB_SeedSearch";
+            GB_SeedSearch.Size = new Size(212, 102);
+            GB_SeedSearch.TabIndex = 27;
+            GB_SeedSearch.TabStop = false;
+            // 
+            // B_SeedSearch_Settings
+            // 
+            B_SeedSearch_Settings.Enabled = false;
+            B_SeedSearch_Settings.Location = new Point(4, 48);
+            B_SeedSearch_Settings.Name = "B_SeedSearch_Settings";
+            B_SeedSearch_Settings.Size = new Size(204, 25);
+            B_SeedSearch_Settings.TabIndex = 22;
+            B_SeedSearch_Settings.Text = "Seed Reset Settings";
+            B_SeedSearch_Settings.UseVisualStyleBackColor = true;
+            // 
+            // B_SeedSearch
+            // 
+            B_SeedSearch.Enabled = false;
+            B_SeedSearch.Location = new Point(4, 21);
+            B_SeedSearch.Name = "B_SeedSearch";
+            B_SeedSearch.Size = new Size(204, 25);
+            B_SeedSearch.TabIndex = 21;
+            B_SeedSearch.Text = "Reset for Seed";
+            B_SeedSearch.UseVisualStyleBackColor = true;
+            // 
+            // GB_Subwindows
+            // 
+            GB_Subwindows.Controls.Add(B_EncounterLookup);
+            GB_Subwindows.Location = new Point(1103, 266);
+            GB_Subwindows.Name = "GB_Subwindows";
+            GB_Subwindows.Size = new Size(212, 55);
+            GB_Subwindows.TabIndex = 26;
+            GB_Subwindows.TabStop = false;
+            // 
+            // B_EncounterLookup
+            // 
+            B_EncounterLookup.Enabled = false;
+            B_EncounterLookup.Location = new Point(4, 21);
+            B_EncounterLookup.Name = "B_EncounterLookup";
+            B_EncounterLookup.Size = new Size(204, 25);
+            B_EncounterLookup.TabIndex = 21;
+            B_EncounterLookup.Text = "Encounter Lookup";
+            B_EncounterLookup.UseVisualStyleBackColor = true;
             // 
             // GB_WildView
             // 
             GB_WildView.Controls.Add(PB_PokemonSprite);
             GB_WildView.Controls.Add(B_ReadEncounter);
             GB_WildView.Controls.Add(TB_Wild);
-            GB_WildView.Location = new Point(680, 0);
+            GB_WildView.Location = new Point(892, 0);
             GB_WildView.Name = "GB_WildView";
             GB_WildView.Size = new Size(212, 321);
             GB_WildView.TabIndex = 6;
@@ -343,7 +647,7 @@
             GB_Filters.Controls.Add(L_HPSpacer);
             GB_Filters.Controls.Add(NUD_HP_Max);
             GB_Filters.Controls.Add(NUD_HP_Min);
-            GB_Filters.Location = new Point(482, 0);
+            GB_Filters.Location = new Point(694, 0);
             GB_Filters.Name = "GB_Filters";
             GB_Filters.Size = new Size(199, 321);
             GB_Filters.TabIndex = 5;
@@ -1828,7 +2132,7 @@
             DGV_Results.ReadOnly = true;
             DGV_Results.RowHeadersVisible = false;
             DGV_Results.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            DGV_Results.Size = new Size(1093, 302);
+            DGV_Results.Size = new Size(1302, 302);
             DGV_Results.TabIndex = 12;
             // 
             // advancesDataGridViewTextBoxColumn
@@ -2060,71 +2364,11 @@
             // 
             ResultsSource.DataSource = typeof(Core.Interfaces.Frame);
             // 
-            // GB_SwitchControls
-            // 
-            GB_SwitchControls.Location = new Point(891, 5);
-            GB_SwitchControls.Name = "GB_SwitchControls";
-            GB_SwitchControls.Size = new Size(212, 220);
-            GB_SwitchControls.TabIndex = 22;
-            GB_SwitchControls.TabStop = false;
-            // 
-            // GB_Subwindows
-            // 
-            GB_Subwindows.Controls.Add(B_EncounterLookup);
-            GB_Subwindows.Location = new Point(891, 271);
-            GB_Subwindows.Name = "GB_Subwindows";
-            GB_Subwindows.Size = new Size(212, 55);
-            GB_Subwindows.TabIndex = 23;
-            GB_Subwindows.TabStop = false;
-            // 
-            // B_EncounterLookup
-            // 
-            B_EncounterLookup.Enabled = false;
-            B_EncounterLookup.Location = new Point(4, 21);
-            B_EncounterLookup.Name = "B_EncounterLookup";
-            B_EncounterLookup.Size = new Size(204, 25);
-            B_EncounterLookup.TabIndex = 21;
-            B_EncounterLookup.Text = "Encounter Lookup";
-            B_EncounterLookup.UseVisualStyleBackColor = true;
-            // 
-            // GB_SeedSearch
-            // 
-            GB_SeedSearch.Controls.Add(B_SeedSearch_Settings);
-            GB_SeedSearch.Controls.Add(B_SeedSearch);
-            GB_SeedSearch.Location = new Point(891, 209);
-            GB_SeedSearch.Name = "GB_SeedSearch";
-            GB_SeedSearch.Size = new Size(212, 79);
-            GB_SeedSearch.TabIndex = 24;
-            GB_SeedSearch.TabStop = false;
-            // 
-            // B_SeedSearch_Settings
-            // 
-            B_SeedSearch_Settings.Enabled = false;
-            B_SeedSearch_Settings.Location = new Point(4, 48);
-            B_SeedSearch_Settings.Name = "B_SeedSearch_Settings";
-            B_SeedSearch_Settings.Size = new Size(204, 25);
-            B_SeedSearch_Settings.TabIndex = 22;
-            B_SeedSearch_Settings.Text = "Seed Reset Settings";
-            B_SeedSearch_Settings.UseVisualStyleBackColor = true;
-            // 
-            // B_SeedSearch
-            // 
-            B_SeedSearch.Enabled = false;
-            B_SeedSearch.Location = new Point(4, 21);
-            B_SeedSearch.Name = "B_SeedSearch";
-            B_SeedSearch.Size = new Size(204, 25);
-            B_SeedSearch.TabIndex = 21;
-            B_SeedSearch.Text = "Reset for Seed";
-            B_SeedSearch.UseVisualStyleBackColor = true;
-            // 
             // MainWindow
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1115, 646);
-            Controls.Add(GB_SwitchControls);
-            Controls.Add(GB_SeedSearch);
-            Controls.Add(GB_Subwindows);
+            ClientSize = new Size(1324, 646);
             Controls.Add(DGV_Results);
             Controls.Add(GB_SeedControlsContainer);
             Icon = (Icon)resources.GetObject("$this.Icon");
@@ -2133,6 +2377,16 @@
             Text = "owoow (´・ω・`)";
             Load += MainWindow_Load;
             GB_SeedControlsContainer.ResumeLayout(false);
+            P_EncounterSettings.ResumeLayout(false);
+            GB_DexRec.ResumeLayout(false);
+            GB_Advanced.ResumeLayout(false);
+            GB_Advanced.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)numericUpDown4).EndInit();
+            ((System.ComponentModel.ISupportInitialize)numericUpDown3).EndInit();
+            ((System.ComponentModel.ISupportInitialize)numericUpDown2).EndInit();
+            ((System.ComponentModel.ISupportInitialize)numericUpDown1).EndInit();
+            GB_SeedSearch.ResumeLayout(false);
+            GB_Subwindows.ResumeLayout(false);
             GB_WildView.ResumeLayout(false);
             GB_WildView.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)PB_PokemonSprite).EndInit();
@@ -2171,8 +2425,6 @@
             GB_SAVInfo.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)DGV_Results).EndInit();
             ((System.ComponentModel.ISupportInitialize)ResultsSource).EndInit();
-            GB_Subwindows.ResumeLayout(false);
-            GB_SeedSearch.ResumeLayout(false);
             ResumeLayout(false);
         }
 
@@ -2349,10 +2601,30 @@
         private DataGridViewTextBoxColumn seed0DataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn seed1DataGridViewTextBoxColumn;
         private GroupBox GB_SwitchControls;
+        private GroupBox GB_SeedSearch;
+        private Button B_SeedSearch_Settings;
+        private Button B_SeedSearch;
         private GroupBox GB_Subwindows;
         private Button B_EncounterLookup;
-        private GroupBox GB_SeedSearch;
-        private Button B_SeedSearch;
-        private Button B_SeedSearch_Settings;
+        private Panel P_EncounterSettings;
+        private GroupBox GB_DexRec;
+        private ComboBox CB_DexRec4;
+        private ComboBox CB_DexRec3;
+        private ComboBox CB_DexRec2;
+        private ComboBox CB_DexRec1;
+        private GroupBox GB_Advanced;
+        private NumericUpDown numericUpDown1;
+        private CheckBox checkBox2;
+        private CheckBox checkBox1;
+        private Button B_CalculateRain;
+        private Label label6;
+        private NumericUpDown numericUpDown4;
+        private Label label5;
+        private NumericUpDown numericUpDown3;
+        private Label label3;
+        private NumericUpDown numericUpDown2;
+        private Button B_CalculateAreaLoad;
+        private Label label2;
+        private Button B_RefreshDexRec;
     }
 }

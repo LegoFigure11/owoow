@@ -48,7 +48,7 @@ public partial class MainWindow : Form
 
         SetTextBoxText("0", TB_Seed0, TB_Seed1);
         SetTextBoxText(string.Empty, TB_CurrentAdvances, TB_AdvancesIncrease, TB_CurrentS0, TB_CurrentS1, TB_Wild);
-        SetComboBoxSelectedIndex(0, CB_Filter_Shiny, CB_Filter_Mark, CB_Filter_Aura, CB_Filter_Height);
+        SetComboBoxSelectedIndex(0, CB_Filter_Shiny, CB_Filter_Mark, CB_Filter_Aura, CB_Filter_Height, CB_Game);
 
         TB_Status.Text = "Not Connected.";
         SetAreaOptions();
