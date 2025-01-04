@@ -767,6 +767,7 @@
             L_Spe.Size = new Size(29, 15);
             L_Spe.TabIndex = 37;
             L_Spe.Text = "Spe:";
+            L_Spe.Click += IV_Label_Click;
             // 
             // L_SpeSpacer
             // 
@@ -822,6 +823,7 @@
             L_SpD.Size = new Size(31, 15);
             L_SpD.TabIndex = 31;
             L_SpD.Text = "SpD:";
+            L_SpD.Click += IV_Label_Click;
             // 
             // L_SpDSpacer
             // 
@@ -877,6 +879,7 @@
             L_SpA.Size = new Size(31, 15);
             L_SpA.TabIndex = 25;
             L_SpA.Text = "SpA:";
+            L_SpA.Click += IV_Label_Click;
             // 
             // L_SpASpacer
             // 
@@ -932,6 +935,7 @@
             L_Def.Size = new Size(28, 15);
             L_Def.TabIndex = 19;
             L_Def.Text = "Def:";
+            L_Def.Click += IV_Label_Click;
             // 
             // L_DefSpacer
             // 
@@ -987,6 +991,7 @@
             L_Atk.Size = new Size(28, 15);
             L_Atk.TabIndex = 13;
             L_Atk.Text = "Atk:";
+            L_Atk.Click += IV_Label_Click;
             // 
             // L_AtkSpacer
             // 
@@ -1042,6 +1047,7 @@
             L_HP.Size = new Size(26, 15);
             L_HP.TabIndex = 7;
             L_HP.Text = "HP:";
+            L_HP.Click += IV_Label_Click;
             // 
             // L_HPSpacer
             // 

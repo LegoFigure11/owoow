@@ -720,6 +720,16 @@ public partial class MainWindow : Form
         max.Value = 0;
     }
 
+
+    private void IV_Label_Click(object sender, EventArgs e)
+    {
+        var stat = ((Label)sender).Name.Replace("L_", string.Empty);
+        var min = (NumericUpDown)Controls.Find($"NUD_{stat}_Min", true).FirstOrDefault()!;
+        var max = (NumericUpDown)Controls.Find($"NUD_{stat}_Max", true).FirstOrDefault()!;
+        min.Value = 0;
+        max.Value = 31;
+    }
+
     private void CB_MenuClose_CheckedChanged(object sender, EventArgs e)
     {
         var cb = (CheckBox)sender;
