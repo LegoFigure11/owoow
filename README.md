@@ -16,5 +16,5 @@ Successor to [LegoFigure11/swsh-overworld-rng-gui](https://github.com/LegoFigure
 - [@Billo-PS](https://github.com/Billo-PS) for research and your endless patience and testing.
 - [@Lincoln-LM](https://github.com/Lincoln-LM/) for research assistance.
 - [@kwsch](https://github.com/kwsch/) and contributors for [PKHeX](https://github.com/kwsch/PKHeX/), [pkNX](https://github.com/kwsch/pkNX), and [SysBot.NET](https://github.com/kwsch/SysBot.NET) which are all leveraged by this project in some manner.
-- nicolic. on discord for [this cat gif](https://tenor.com/view/cat-gif-25169380).
+- Nicolic for [this cat gif](https://tenor.com/view/cat-gif-25169380).
 - All existing contributors to and credits from [LegoFigure11/swsh-overworld-rng-gui](https://github.com/LegoFigure11/swsh-overworld-rng-gui) also apply.
