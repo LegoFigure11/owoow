@@ -319,6 +319,7 @@
             B_RefreshDexRec.TabIndex = 28;
             B_RefreshDexRec.Text = "Refresh";
             B_RefreshDexRec.UseVisualStyleBackColor = true;
+            B_RefreshDexRec.Click += B_RefreshDexRec_Click;
             // 
             // CB_DexRec4
             // 

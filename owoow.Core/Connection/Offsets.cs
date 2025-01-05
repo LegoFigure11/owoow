@@ -16,4 +16,7 @@ public abstract class Offsets
 
     public const uint MyItems = 0x45067a98;
     public const int MyItems_Size = 0x12f8;
+
+    public const uint DexRecommendation = 0x45072b18;
+    public const int DexRecommendation_Size = 0x20;
 }

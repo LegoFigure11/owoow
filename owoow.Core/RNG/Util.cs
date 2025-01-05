@@ -122,4 +122,16 @@ public static class Util
         }
         return 0;
     }
+
+    public static string GetDexRecommendation(ushort species)
+    {
+        if (Personal is not null)
+        {
+            foreach ((var k, var v) in Personal)
+            {
+                if (v.DevId == species) return k;
+            }
+        }
+        return "(None)";
+    }
 }

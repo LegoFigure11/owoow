@@ -74,6 +74,17 @@ public class ConnectionWrapperAsync(SwitchConnectionConfig Config, Action<string
         await Connection.WriteBytesAsync(s1, MainRNG + (MainRNG_Size / 2), token).ConfigureAwait(false);
     }
 
+    public async Task<ushort[]> ReadDexRecommendation(CancellationToken token)
+    {
+        ushort[] dexrec = [0, 0, 0, 0];
+        for (uint i = 0; i < dexrec.Length; i++)
+        {
+            var data = await Connection.ReadBytesAsync(DexRecommendation + (DexRecommendation_Size * i), 2, token).ConfigureAwait(false);
+            dexrec[i] = BitConverter.ToUInt16(data, 0);
+        }
+        return dexrec;
+    }
+
     public async Task<PK8> ReadWildPokemon(CancellationToken token)
     {
         var data = await Connection.ReadBytesAsync(WildPokemon, WildPokemon_Size, token).ConfigureAwait(false);

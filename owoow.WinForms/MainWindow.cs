@@ -128,6 +128,21 @@ public partial class MainWindow : Form
 
                 SetComboBoxSelectedIndex(game == "Sword" ? 0 : 1, CB_Game);
 
+                UpdateStatus("Reading Pokédex Recommendations...");
+                try
+                {
+                    var DexRec = await ConnectionWrapper.ReadDexRecommendation(token).ConfigureAwait(false);
+                    SetComboBoxSelectedIndex(CB_DexRec1.Items.IndexOf(GetDexRecommendation(DexRec[0])), CB_DexRec1);
+                    SetComboBoxSelectedIndex(CB_DexRec2.Items.IndexOf(GetDexRecommendation(DexRec[1])), CB_DexRec2);
+                    SetComboBoxSelectedIndex(CB_DexRec3.Items.IndexOf(GetDexRecommendation(DexRec[2])), CB_DexRec3);
+                    SetComboBoxSelectedIndex(CB_DexRec4.Items.IndexOf(GetDexRecommendation(DexRec[3])), CB_DexRec4);
+                }
+                catch (Exception ex)
+                {
+                    this.DisplayMessageBox($"Error occurred while reading Pokédex Recommendations: {ex.Message}");
+                    return;
+                }
+
                 UpdateStatus("Reading RNG State...");
                 ulong _s0, _s1;
                 try
@@ -144,7 +159,7 @@ public partial class MainWindow : Form
                     return;
                 }
 
-                SetControlEnabledState(true, B_Disconnect, B_CopyToInitial, B_ReadEncounter);
+                SetControlEnabledState(true, B_Disconnect, B_CopyToInitial, B_ReadEncounter, B_RefreshDexRec);
 
                 UpdateStatus("Monitoring RNG State...");
                 try
@@ -665,6 +680,35 @@ public partial class MainWindow : Form
             SetTextBoxText(TB_CurrentS0.Text, TB_Seed0);
             SetTextBoxText(TB_CurrentS1.Text, TB_Seed1);
         }
+    }
+
+    private void B_RefreshDexRec_Click(object sender, EventArgs e)
+    {
+        Task.Run(
+            async () => 
+            {
+                try
+                {
+                    pause = true;
+                    await Task.Delay(100, Source.Token);
+
+                    var DexRec = await ConnectionWrapper.ReadDexRecommendation(Source.Token).ConfigureAwait(false);
+
+                    SetComboBoxSelectedIndex(CB_DexRec1.Items.IndexOf(GetDexRecommendation(DexRec[0])), CB_DexRec1);
+                    SetComboBoxSelectedIndex(CB_DexRec2.Items.IndexOf(GetDexRecommendation(DexRec[1])), CB_DexRec2);
+                    SetComboBoxSelectedIndex(CB_DexRec3.Items.IndexOf(GetDexRecommendation(DexRec[2])), CB_DexRec3);
+                    SetComboBoxSelectedIndex(CB_DexRec4.Items.IndexOf(GetDexRecommendation(DexRec[3])), CB_DexRec4);
+
+                    pause = false;
+                }
+                catch (Exception ex)
+                {
+                    pause = false;
+                    this.DisplayMessageBox($"Error occurred while reading Pokédex Recommendations: {ex.Message}");
+                    return;
+                }
+            }
+        );
     }
 
     private void B_ReadEncounter_Click(object sender, EventArgs e)
