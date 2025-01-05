@@ -50,7 +50,7 @@ public class Hidden
 
             uint Height;
 
-            uint Jump = 0;
+            uint Jump;
 
             RibbonIndex Mark;
 
@@ -63,13 +63,33 @@ public class Hidden
                 CanGenerate = false;
                 CuteCharm = false;
                 step = 0;
+                Jump = 0;
+
+                #region Rain, Thunderstorm, Fly, Menu Close
+                if (config.ConsiderRain) Jump += Environment.GetRainAdvances(ref rng, config.RainTicksSummary);
+
+                if (config.ConsiderFly) Jump += Environment.GetMapMemoryRollAdvances(ref rng);
+
+                if (config.ConsiderRain) Jump += Environment.GetRainAdvances(ref rng, config.RainTicksAfterCloseMenu);
+
+                if (config.ConsiderFly)
+                {
+                    Jump += Environment.GetAreaLoadAdvances(ref rng, config.AreaLoadAdvances);
+
+                    Jump += Environment.GetAreaLoadNPCAdvances(ref rng, config.AreaLoadNPCs);
+                }
+
+                if (config.ConsiderRain) Jump += Environment.GetRainAdvances(ref rng, config.RainTicksAreaLoad);
 
                 if (config.ConsiderMenuClose)
                 {
-                    Jump = MenuClose.GetAdvances(ref rng, config.MenuCloseNPCs, config.MenuCloseIsHoldingDirection, config.Weather);
+                    Jump += MenuClose.GetAdvances(ref rng, config.MenuCloseNPCs, config.MenuCloseIsHoldingDirection, config.Weather);
                 }
 
-                // ENCOUNTER RATE, LEAD ABILITY ACTIVATION & ENCOUNTER SLOT
+                if (config.ConsiderRain) Jump += Environment.GetRainAdvances(ref rng, config.RainTicksEncounter);
+                #endregion
+
+                #region Encounter Rate, Lead Ability Activation, Encounter Slot
                 while (!CanGenerate)
                 {
                     Lead = GenerateLeadAbilityActivation(ref rng);
@@ -96,7 +116,7 @@ public class Hidden
                     ActiveTable = table.MainTable;
                 }
 
-                // POKEDEX RECOMMENDATION
+                #region Pokedex Recommendation
                 if (!EncounterSlotChosen)
                 {
                     DexRec = GenerateDexRecActivation(ref rng);
@@ -111,6 +131,7 @@ public class Hidden
                         }
                     }
                 }
+                #endregion Pokedex Recommendation
 
                 if (!EncounterSlotChosen)
                 {
@@ -123,6 +144,7 @@ public class Hidden
                     outer.Next();
                     continue;
                 }
+                #endregion Encounter Rate, Lead Ability Activation, Encounter Slot
 
                 // LEVEL
                 Level = GenerateLevel(ref rng, Encounter);

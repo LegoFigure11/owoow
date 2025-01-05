@@ -40,18 +40,17 @@
             CB_DexRec2 = new ComboBox();
             CB_DexRec1 = new ComboBox();
             GB_Advanced = new GroupBox();
+            button1 = new Button();
             B_CalculateRain = new Button();
-            label6 = new Label();
-            numericUpDown4 = new NumericUpDown();
-            label5 = new Label();
-            numericUpDown3 = new NumericUpDown();
-            label3 = new Label();
-            numericUpDown2 = new NumericUpDown();
+            L_RainEncounter = new Label();
+            NUD_RainEncounter = new NumericUpDown();
+            L_RainFly = new Label();
+            NUD_RainFly = new NumericUpDown();
             B_CalculateAreaLoad = new Button();
-            label2 = new Label();
-            numericUpDown1 = new NumericUpDown();
-            checkBox2 = new CheckBox();
-            checkBox1 = new CheckBox();
+            L_AreaLoad = new Label();
+            NUD_AreaLoad = new NumericUpDown();
+            CB_ConsiderFlying = new CheckBox();
+            CB_ConsiderRain = new CheckBox();
             GB_SwitchControls = new GroupBox();
             GB_SeedSearch = new GroupBox();
             B_SeedSearch_Settings = new Button();
@@ -228,14 +227,15 @@
             seed0DataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             seed1DataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             ResultsSource = new BindingSource(components);
+            L_FlyNPCs = new Label();
+            NUD_FlyNPCs = new NumericUpDown();
             GB_SeedControlsContainer.SuspendLayout();
             P_EncounterSettings.SuspendLayout();
             GB_DexRec.SuspendLayout();
             GB_Advanced.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)numericUpDown4).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)numericUpDown3).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)numericUpDown2).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)numericUpDown1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)NUD_RainEncounter).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)NUD_RainFly).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)NUD_AreaLoad).BeginInit();
             GB_SeedSearch.SuspendLayout();
             GB_Subwindows.SuspendLayout();
             GB_WildView.SuspendLayout();
@@ -265,6 +265,7 @@
             GB_SAVInfo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)DGV_Results).BeginInit();
             ((System.ComponentModel.ISupportInitialize)ResultsSource).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)NUD_FlyNPCs).BeginInit();
             SuspendLayout();
             // 
             // GB_SeedControlsContainer
@@ -361,18 +362,19 @@
             // 
             // GB_Advanced
             // 
+            GB_Advanced.Controls.Add(L_FlyNPCs);
+            GB_Advanced.Controls.Add(NUD_FlyNPCs);
+            GB_Advanced.Controls.Add(button1);
             GB_Advanced.Controls.Add(B_CalculateRain);
-            GB_Advanced.Controls.Add(label6);
-            GB_Advanced.Controls.Add(numericUpDown4);
-            GB_Advanced.Controls.Add(label5);
-            GB_Advanced.Controls.Add(numericUpDown3);
-            GB_Advanced.Controls.Add(label3);
-            GB_Advanced.Controls.Add(numericUpDown2);
+            GB_Advanced.Controls.Add(L_RainEncounter);
+            GB_Advanced.Controls.Add(NUD_RainEncounter);
+            GB_Advanced.Controls.Add(L_RainFly);
+            GB_Advanced.Controls.Add(NUD_RainFly);
             GB_Advanced.Controls.Add(B_CalculateAreaLoad);
-            GB_Advanced.Controls.Add(label2);
-            GB_Advanced.Controls.Add(numericUpDown1);
-            GB_Advanced.Controls.Add(checkBox2);
-            GB_Advanced.Controls.Add(checkBox1);
+            GB_Advanced.Controls.Add(L_AreaLoad);
+            GB_Advanced.Controls.Add(NUD_AreaLoad);
+            GB_Advanced.Controls.Add(CB_ConsiderFlying);
+            GB_Advanced.Controls.Add(CB_ConsiderRain);
             GB_Advanced.Location = new Point(1, 150);
             GB_Advanced.Name = "GB_Advanced";
             GB_Advanced.Size = new Size(212, 162);
@@ -380,127 +382,114 @@
             GB_Advanced.TabStop = false;
             GB_Advanced.Text = "Advanced Settings";
             // 
+            // button1
+            // 
+            button1.Enabled = false;
+            button1.Location = new Point(132, 107);
+            button1.Name = "button1";
+            button1.Size = new Size(74, 23);
+            button1.TabIndex = 17;
+            button1.Text = "Calculate";
+            button1.UseVisualStyleBackColor = true;
+            // 
             // B_CalculateRain
             // 
             B_CalculateRain.Enabled = false;
-            B_CalculateRain.Location = new Point(120, 130);
+            B_CalculateRain.Location = new Point(132, 132);
             B_CalculateRain.Name = "B_CalculateRain";
-            B_CalculateRain.Size = new Size(86, 23);
+            B_CalculateRain.Size = new Size(74, 23);
             B_CalculateRain.TabIndex = 16;
             B_CalculateRain.Text = "Calculate";
             B_CalculateRain.UseVisualStyleBackColor = true;
             // 
-            // label6
+            // L_RainEncounter
             // 
-            label6.AutoSize = true;
-            label6.Enabled = false;
-            label6.Location = new Point(5, 132);
-            label6.Name = "label6";
-            label6.Size = new Size(64, 15);
-            label6.TabIndex = 15;
-            label6.Text = "Encounter:";
+            L_RainEncounter.AutoSize = true;
+            L_RainEncounter.Enabled = false;
+            L_RainEncounter.Location = new Point(17, 136);
+            L_RainEncounter.Name = "L_RainEncounter";
+            L_RainEncounter.Size = new Size(64, 15);
+            L_RainEncounter.TabIndex = 15;
+            L_RainEncounter.Text = "Encounter:";
             // 
-            // numericUpDown4
+            // NUD_RainEncounter
             // 
-            numericUpDown4.Enabled = false;
-            numericUpDown4.Location = new Point(75, 130);
-            numericUpDown4.Maximum = new decimal(new int[] { 999, 0, 0, 0 });
-            numericUpDown4.Name = "numericUpDown4";
-            numericUpDown4.Size = new Size(39, 23);
-            numericUpDown4.TabIndex = 14;
-            numericUpDown4.Value = new decimal(new int[] { 999, 0, 0, 0 });
+            NUD_RainEncounter.Enabled = false;
+            NUD_RainEncounter.Location = new Point(87, 132);
+            NUD_RainEncounter.Maximum = new decimal(new int[] { 999, 0, 0, 0 });
+            NUD_RainEncounter.Name = "NUD_RainEncounter";
+            NUD_RainEncounter.Size = new Size(39, 23);
+            NUD_RainEncounter.TabIndex = 14;
             // 
-            // label5
+            // L_RainFly
             // 
-            label5.AutoSize = true;
-            label5.Enabled = false;
-            label5.Location = new Point(28, 107);
-            label5.Name = "label5";
-            label5.Size = new Size(41, 15);
-            label5.TabIndex = 12;
-            label5.Text = "Menu:";
+            L_RainFly.AutoSize = true;
+            L_RainFly.Enabled = false;
+            L_RainFly.Location = new Point(6, 109);
+            L_RainFly.Name = "L_RainFly";
+            L_RainFly.Size = new Size(75, 15);
+            L_RainFly.TabIndex = 12;
+            L_RainFly.Text = "During Load:";
             // 
-            // numericUpDown3
+            // NUD_RainFly
             // 
-            numericUpDown3.Enabled = false;
-            numericUpDown3.Location = new Point(75, 105);
-            numericUpDown3.Maximum = new decimal(new int[] { 999, 0, 0, 0 });
-            numericUpDown3.Name = "numericUpDown3";
-            numericUpDown3.Size = new Size(39, 23);
-            numericUpDown3.TabIndex = 11;
-            numericUpDown3.Value = new decimal(new int[] { 999, 0, 0, 0 });
-            // 
-            // label3
-            // 
-            label3.AutoSize = true;
-            label3.Enabled = false;
-            label3.Location = new Point(8, 82);
-            label3.Name = "label3";
-            label3.Size = new Size(61, 15);
-            label3.TabIndex = 9;
-            label3.Text = "Summary:";
-            // 
-            // numericUpDown2
-            // 
-            numericUpDown2.Enabled = false;
-            numericUpDown2.Location = new Point(75, 80);
-            numericUpDown2.Maximum = new decimal(new int[] { 999, 0, 0, 0 });
-            numericUpDown2.Name = "numericUpDown2";
-            numericUpDown2.Size = new Size(39, 23);
-            numericUpDown2.TabIndex = 8;
-            numericUpDown2.Value = new decimal(new int[] { 999, 0, 0, 0 });
+            NUD_RainFly.Enabled = false;
+            NUD_RainFly.Location = new Point(87, 107);
+            NUD_RainFly.Maximum = new decimal(new int[] { 999, 0, 0, 0 });
+            NUD_RainFly.Name = "NUD_RainFly";
+            NUD_RainFly.Size = new Size(39, 23);
+            NUD_RainFly.TabIndex = 11;
             // 
             // B_CalculateAreaLoad
             // 
             B_CalculateAreaLoad.Enabled = false;
-            B_CalculateAreaLoad.Location = new Point(120, 35);
+            B_CalculateAreaLoad.Location = new Point(132, 36);
             B_CalculateAreaLoad.Name = "B_CalculateAreaLoad";
-            B_CalculateAreaLoad.Size = new Size(86, 23);
+            B_CalculateAreaLoad.Size = new Size(74, 23);
             B_CalculateAreaLoad.TabIndex = 7;
             B_CalculateAreaLoad.Text = "Calculate";
             B_CalculateAreaLoad.UseVisualStyleBackColor = true;
             // 
-            // label2
+            // L_AreaLoad
             // 
-            label2.AutoSize = true;
-            label2.Enabled = false;
-            label2.Location = new Point(6, 37);
-            label2.Name = "label2";
-            label2.Size = new Size(63, 15);
-            label2.TabIndex = 6;
-            label2.Text = "Area Load:";
+            L_AreaLoad.AutoSize = true;
+            L_AreaLoad.Enabled = false;
+            L_AreaLoad.Location = new Point(18, 38);
+            L_AreaLoad.Name = "L_AreaLoad";
+            L_AreaLoad.Size = new Size(63, 15);
+            L_AreaLoad.TabIndex = 6;
+            L_AreaLoad.Text = "Area Load:";
             // 
-            // numericUpDown1
+            // NUD_AreaLoad
             // 
-            numericUpDown1.Enabled = false;
-            numericUpDown1.Location = new Point(75, 35);
-            numericUpDown1.Maximum = new decimal(new int[] { 999, 0, 0, 0 });
-            numericUpDown1.Name = "numericUpDown1";
-            numericUpDown1.Size = new Size(39, 23);
-            numericUpDown1.TabIndex = 5;
-            numericUpDown1.Value = new decimal(new int[] { 999, 0, 0, 0 });
+            NUD_AreaLoad.Enabled = false;
+            NUD_AreaLoad.Location = new Point(87, 36);
+            NUD_AreaLoad.Maximum = new decimal(new int[] { 999, 0, 0, 0 });
+            NUD_AreaLoad.Name = "NUD_AreaLoad";
+            NUD_AreaLoad.Size = new Size(39, 23);
+            NUD_AreaLoad.TabIndex = 5;
             // 
-            // checkBox2
+            // CB_ConsiderFlying
             // 
-            checkBox2.AutoSize = true;
-            checkBox2.Enabled = false;
-            checkBox2.Location = new Point(6, 18);
-            checkBox2.Name = "checkBox2";
-            checkBox2.Size = new Size(46, 19);
-            checkBox2.TabIndex = 1;
-            checkBox2.Text = "Fly?";
-            checkBox2.UseVisualStyleBackColor = true;
+            CB_ConsiderFlying.AutoSize = true;
+            CB_ConsiderFlying.Location = new Point(6, 16);
+            CB_ConsiderFlying.Name = "CB_ConsiderFlying";
+            CB_ConsiderFlying.Size = new Size(46, 19);
+            CB_ConsiderFlying.TabIndex = 1;
+            CB_ConsiderFlying.Text = "Fly?";
+            CB_ConsiderFlying.UseVisualStyleBackColor = true;
+            CB_ConsiderFlying.CheckedChanged += CB_ConsiderFlying_CheckedChanged;
             // 
-            // checkBox1
+            // CB_ConsiderRain
             // 
-            checkBox1.AutoSize = true;
-            checkBox1.Enabled = false;
-            checkBox1.Location = new Point(6, 60);
-            checkBox1.Name = "checkBox1";
-            checkBox1.Size = new Size(168, 19);
-            checkBox1.TabIndex = 0;
-            checkBox1.Text = "Raining/Thunderstorming?";
-            checkBox1.UseVisualStyleBackColor = true;
+            CB_ConsiderRain.AutoSize = true;
+            CB_ConsiderRain.Location = new Point(6, 87);
+            CB_ConsiderRain.Name = "CB_ConsiderRain";
+            CB_ConsiderRain.Size = new Size(168, 19);
+            CB_ConsiderRain.TabIndex = 0;
+            CB_ConsiderRain.Text = "Raining/Thunderstorming?";
+            CB_ConsiderRain.UseVisualStyleBackColor = true;
+            CB_ConsiderRain.CheckedChanged += CB_ConsiderRain_CheckedChanged;
             // 
             // GB_SwitchControls
             // 
@@ -2370,6 +2359,25 @@
             // 
             ResultsSource.DataSource = typeof(Core.Interfaces.Frame);
             // 
+            // L_FlyNPCs
+            // 
+            L_FlyNPCs.AutoSize = true;
+            L_FlyNPCs.Enabled = false;
+            L_FlyNPCs.Location = new Point(42, 63);
+            L_FlyNPCs.Name = "L_FlyNPCs";
+            L_FlyNPCs.Size = new Size(39, 15);
+            L_FlyNPCs.TabIndex = 19;
+            L_FlyNPCs.Text = "NPCs:";
+            // 
+            // NUD_FlyNPCs
+            // 
+            NUD_FlyNPCs.Enabled = false;
+            NUD_FlyNPCs.Location = new Point(87, 61);
+            NUD_FlyNPCs.Maximum = new decimal(new int[] { 999, 0, 0, 0 });
+            NUD_FlyNPCs.Name = "NUD_FlyNPCs";
+            NUD_FlyNPCs.Size = new Size(39, 23);
+            NUD_FlyNPCs.TabIndex = 18;
+            // 
             // MainWindow
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -2387,10 +2395,9 @@
             GB_DexRec.ResumeLayout(false);
             GB_Advanced.ResumeLayout(false);
             GB_Advanced.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)numericUpDown4).EndInit();
-            ((System.ComponentModel.ISupportInitialize)numericUpDown3).EndInit();
-            ((System.ComponentModel.ISupportInitialize)numericUpDown2).EndInit();
-            ((System.ComponentModel.ISupportInitialize)numericUpDown1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)NUD_RainEncounter).EndInit();
+            ((System.ComponentModel.ISupportInitialize)NUD_RainFly).EndInit();
+            ((System.ComponentModel.ISupportInitialize)NUD_AreaLoad).EndInit();
             GB_SeedSearch.ResumeLayout(false);
             GB_Subwindows.ResumeLayout(false);
             GB_WildView.ResumeLayout(false);
@@ -2431,6 +2438,7 @@
             GB_SAVInfo.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)DGV_Results).EndInit();
             ((System.ComponentModel.ISupportInitialize)ResultsSource).EndInit();
+            ((System.ComponentModel.ISupportInitialize)NUD_FlyNPCs).EndInit();
             ResumeLayout(false);
         }
 
@@ -2619,18 +2627,19 @@
         private ComboBox CB_DexRec2;
         private ComboBox CB_DexRec1;
         private GroupBox GB_Advanced;
-        private NumericUpDown numericUpDown1;
-        private CheckBox checkBox2;
-        private CheckBox checkBox1;
+        private NumericUpDown NUD_AreaLoad;
+        private CheckBox CB_ConsiderFlying;
+        private CheckBox CB_ConsiderRain;
         private Button B_CalculateRain;
-        private Label label6;
-        private NumericUpDown numericUpDown4;
-        private Label label5;
-        private NumericUpDown numericUpDown3;
-        private Label label3;
-        private NumericUpDown numericUpDown2;
+        private Label L_RainEncounter;
+        private NumericUpDown NUD_RainEncounter;
+        private Label L_RainFly;
+        private NumericUpDown NUD_RainFly;
         private Button B_CalculateAreaLoad;
-        private Label label2;
+        private Label L_AreaLoad;
         private Button B_RefreshDexRec;
+        private Button button1;
+        private Label L_FlyNPCs;
+        private NumericUpDown NUD_FlyNPCs;
     }
 }

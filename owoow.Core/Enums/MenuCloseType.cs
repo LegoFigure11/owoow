@@ -2,6 +2,6 @@
 
 public enum MenuCloseType
 {
-    Regular,
+    NotHoldingDirection,
     HoldingDirection,
 }

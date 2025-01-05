@@ -48,11 +48,31 @@ public class Static
                 var rng = new Xoroshiro128Plus(os.s0, os.s1);
 
                 CuteCharm = false;
+                Jump = 0;
+
+                #region Rain, Thunderstorm, Fly, Menu Close
+                if (config.ConsiderRain) Jump += Environment.GetRainAdvances(ref rng, config.RainTicksSummary);
+
+                if (config.ConsiderFly) Jump += Environment.GetMapMemoryRollAdvances(ref rng);
+
+                if (config.ConsiderRain) Jump += Environment.GetRainAdvances(ref rng, config.RainTicksAfterCloseMenu);
+
+                if (config.ConsiderFly)
+                {
+                    Jump += Environment.GetAreaLoadAdvances(ref rng, config.AreaLoadAdvances);
+
+                    Jump += Environment.GetAreaLoadNPCAdvances(ref rng, config.AreaLoadNPCs);
+                }
+
+                if (config.ConsiderRain) Jump += Environment.GetRainAdvances(ref rng, config.RainTicksAreaLoad);
 
                 if (config.ConsiderMenuClose)
                 {
-                    Jump = MenuClose.GetAdvances(ref rng, config.MenuCloseNPCs, config.MenuCloseIsHoldingDirection, config.Weather);
+                    Jump += MenuClose.GetAdvances(ref rng, config.MenuCloseNPCs, config.MenuCloseIsHoldingDirection, config.Weather);
                 }
+
+                if (config.ConsiderRain) Jump += Environment.GetRainAdvances(ref rng, config.RainTicksEncounter);
+                #endregion
 
                 // LEAD ABILITY ACTIVATION
                 Lead = GenerateLeadAbilityActivation(ref rng);

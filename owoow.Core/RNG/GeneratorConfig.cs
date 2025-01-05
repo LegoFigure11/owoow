@@ -51,5 +51,24 @@ public class GeneratorConfig
     public bool MenuCloseIsHoldingDirection { get; set; } = false;
     public uint MenuCloseNPCs { get; set; } = 0;
 
+    public bool ConsiderFly { get; set; } = false;
+    public uint AreaLoadAdvances { get; set; } = 0;
+    public uint AreaLoadNPCs { get; set; } = 0;
+    public bool ConsiderRain { get; set; } = false;
+    public uint RainTicksSummary => Weather switch
+    {
+        WeatherType.Raining => 6,
+        WeatherType.Thunderstorm => 12,
+        _ => 0,
+    };
+    public uint RainTicksAfterCloseMenu => Weather switch
+    {
+        WeatherType.Raining => 3,
+        WeatherType.Thunderstorm => 6, 
+        _ => 0
+    };
+    public uint RainTicksAreaLoad {  get; set; } = 0;
+    public uint RainTicksEncounter { get; set; } = 0;
+
     public bool FiltersEnabled { get; set; } = false;
 };

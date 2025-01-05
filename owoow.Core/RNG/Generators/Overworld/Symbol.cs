@@ -50,7 +50,7 @@ public class Symbol
 
             uint Height;
 
-            uint Jump = 0;
+            uint Jump;
 
             RibbonIndex Mark;
 
@@ -63,13 +63,35 @@ public class Symbol
 
                 EncounterSlotChosen = false;
                 CuteCharm = false;
+                Jump = 0;
+
+                #region Rain, Thunderstorm, Fly, Menu Close
+                if (config.ConsiderRain) Jump += Environment.GetRainAdvances(ref rng, config.RainTicksSummary);
+
+                if (config.ConsiderFly) Jump += Environment.GetMapMemoryRollAdvances(ref rng);
+
+                if (config.ConsiderRain) Jump += Environment.GetRainAdvances(ref rng, config.RainTicksAfterCloseMenu);
+
+                if (config.ConsiderFly)
+                {
+                    Jump += Environment.GetAreaLoadAdvances(ref rng, config.AreaLoadAdvances);
+
+                    Jump += Environment.GetAreaLoadNPCAdvances(ref rng, config.AreaLoadNPCs);
+                }
+
+                if (config.ConsiderRain) Jump += Environment.GetRainAdvances(ref rng, config.RainTicksAreaLoad);
 
                 if (config.ConsiderMenuClose)
                 {
-                    Jump = MenuClose.GetAdvances(ref rng, config.MenuCloseNPCs, config.MenuCloseIsHoldingDirection, config.Weather);
+                    Jump += MenuClose.GetAdvances(ref rng, config.MenuCloseNPCs, config.MenuCloseIsHoldingDirection, config.Weather);
                 }
 
-                DoPlacementRolls(ref rng); // Assume placement succeeds on the first attempt
+                if (config.ConsiderRain) Jump += Environment.GetRainAdvances(ref rng, config.RainTicksEncounter);
+                #endregion
+
+                // PLACEMENT (ASSUME SUCCESS)
+
+                DoPlacementRolls(ref rng);
 
                 // LEAD ABILITY ACTIVATION & ENCOUNTER SLOT
                 Lead = GenerateLeadAbilityActivation(ref rng);

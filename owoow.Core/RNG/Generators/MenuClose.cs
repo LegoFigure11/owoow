@@ -6,7 +6,7 @@ namespace owoow.Core.RNG.Generators;
 
 public static class MenuClose
 {
-    public static void Advance(ref Xoroshiro128Plus rng, uint NPCs = 0, MenuCloseType type = MenuCloseType.Regular, WeatherType weather = WeatherType.NormalWeather)
+    public static void Advance(ref Xoroshiro128Plus rng, uint NPCs = 0, MenuCloseType type = MenuCloseType.NotHoldingDirection, WeatherType weather = WeatherType.NormalWeather)
     {
         for (int i = 0; i < NPCs; i++) rng.NextInt(91);
 
@@ -21,7 +21,7 @@ public static class MenuClose
         }
     }
 
-    public static uint GetAdvances(ref Xoroshiro128Plus rng, uint NPCs = 0, MenuCloseType type = MenuCloseType.Regular, WeatherType weather = WeatherType.NormalWeather)
+    public static uint GetAdvances(ref Xoroshiro128Plus rng, uint NPCs = 0, MenuCloseType type = MenuCloseType.NotHoldingDirection, WeatherType weather = WeatherType.NormalWeather)
     {
         (ulong s0, ulong s1) = rng.GetState();
 
@@ -34,7 +34,7 @@ public static class MenuClose
 
     public static uint GetAdvances(ref Xoroshiro128Plus rng, uint NPCs = 0, bool IsHoldingDirection = false, WeatherType weather = WeatherType.NormalWeather)
     {
-        return GetAdvances(ref rng, NPCs, IsHoldingDirection ? MenuCloseType.HoldingDirection : MenuCloseType.Regular, weather);
+        return GetAdvances(ref rng, NPCs, IsHoldingDirection ? MenuCloseType.HoldingDirection : MenuCloseType.NotHoldingDirection, weather);
     }
 
     public static Task<List<MenuCloseFrame>> Generate(ulong s0, ulong s1, ulong start, ulong end, GeneratorConfig config)
