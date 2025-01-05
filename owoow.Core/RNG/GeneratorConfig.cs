@@ -57,8 +57,8 @@ public class GeneratorConfig
     public bool ConsiderRain { get; set; } = false;
     public uint RainTicksSummary => Weather switch
     {
-        WeatherType.Raining => 6,
-        WeatherType.Thunderstorm => 12,
+        WeatherType.Raining => ConsiderFly ? (uint)6 : 2,
+        WeatherType.Thunderstorm => ConsiderFly ? (uint)12 : 4,
         _ => 0,
     };
     public uint RainTicksAfterCloseMenu => Weather switch
