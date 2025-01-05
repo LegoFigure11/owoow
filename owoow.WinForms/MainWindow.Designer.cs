@@ -40,6 +40,8 @@
             CB_DexRec2 = new ComboBox();
             CB_DexRec1 = new ComboBox();
             GB_Advanced = new GroupBox();
+            L_FlyNPCs = new Label();
+            NUD_FlyNPCs = new NumericUpDown();
             button1 = new Button();
             B_CalculateRain = new Button();
             L_RainEncounter = new Label();
@@ -227,12 +229,11 @@
             seed0DataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             seed1DataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             ResultsSource = new BindingSource(components);
-            L_FlyNPCs = new Label();
-            NUD_FlyNPCs = new NumericUpDown();
             GB_SeedControlsContainer.SuspendLayout();
             P_EncounterSettings.SuspendLayout();
             GB_DexRec.SuspendLayout();
             GB_Advanced.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)NUD_FlyNPCs).BeginInit();
             ((System.ComponentModel.ISupportInitialize)NUD_RainEncounter).BeginInit();
             ((System.ComponentModel.ISupportInitialize)NUD_RainFly).BeginInit();
             ((System.ComponentModel.ISupportInitialize)NUD_AreaLoad).BeginInit();
@@ -265,7 +266,6 @@
             GB_SAVInfo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)DGV_Results).BeginInit();
             ((System.ComponentModel.ISupportInitialize)ResultsSource).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)NUD_FlyNPCs).BeginInit();
             SuspendLayout();
             // 
             // GB_SeedControlsContainer
@@ -322,7 +322,6 @@
             // 
             // CB_DexRec4
             // 
-            CB_DexRec4.Enabled = false;
             CB_DexRec4.FormattingEnabled = true;
             CB_DexRec4.Location = new Point(6, 100);
             CB_DexRec4.Name = "CB_DexRec4";
@@ -332,7 +331,6 @@
             // 
             // CB_DexRec3
             // 
-            CB_DexRec3.Enabled = false;
             CB_DexRec3.FormattingEnabled = true;
             CB_DexRec3.Location = new Point(6, 75);
             CB_DexRec3.Name = "CB_DexRec3";
@@ -342,7 +340,6 @@
             // 
             // CB_DexRec2
             // 
-            CB_DexRec2.Enabled = false;
             CB_DexRec2.FormattingEnabled = true;
             CB_DexRec2.Location = new Point(6, 50);
             CB_DexRec2.Name = "CB_DexRec2";
@@ -352,7 +349,6 @@
             // 
             // CB_DexRec1
             // 
-            CB_DexRec1.Enabled = false;
             CB_DexRec1.FormattingEnabled = true;
             CB_DexRec1.Location = new Point(6, 25);
             CB_DexRec1.Name = "CB_DexRec1";
@@ -381,6 +377,25 @@
             GB_Advanced.TabIndex = 56;
             GB_Advanced.TabStop = false;
             GB_Advanced.Text = "Advanced Settings";
+            // 
+            // L_FlyNPCs
+            // 
+            L_FlyNPCs.AutoSize = true;
+            L_FlyNPCs.Enabled = false;
+            L_FlyNPCs.Location = new Point(42, 63);
+            L_FlyNPCs.Name = "L_FlyNPCs";
+            L_FlyNPCs.Size = new Size(39, 15);
+            L_FlyNPCs.TabIndex = 19;
+            L_FlyNPCs.Text = "NPCs:";
+            // 
+            // NUD_FlyNPCs
+            // 
+            NUD_FlyNPCs.Enabled = false;
+            NUD_FlyNPCs.Location = new Point(87, 61);
+            NUD_FlyNPCs.Maximum = new decimal(new int[] { 999, 0, 0, 0 });
+            NUD_FlyNPCs.Name = "NUD_FlyNPCs";
+            NUD_FlyNPCs.Size = new Size(39, 23);
+            NUD_FlyNPCs.TabIndex = 18;
             // 
             // button1
             // 
@@ -2359,25 +2374,6 @@
             // 
             ResultsSource.DataSource = typeof(Core.Interfaces.Frame);
             // 
-            // L_FlyNPCs
-            // 
-            L_FlyNPCs.AutoSize = true;
-            L_FlyNPCs.Enabled = false;
-            L_FlyNPCs.Location = new Point(42, 63);
-            L_FlyNPCs.Name = "L_FlyNPCs";
-            L_FlyNPCs.Size = new Size(39, 15);
-            L_FlyNPCs.TabIndex = 19;
-            L_FlyNPCs.Text = "NPCs:";
-            // 
-            // NUD_FlyNPCs
-            // 
-            NUD_FlyNPCs.Enabled = false;
-            NUD_FlyNPCs.Location = new Point(87, 61);
-            NUD_FlyNPCs.Maximum = new decimal(new int[] { 999, 0, 0, 0 });
-            NUD_FlyNPCs.Name = "NUD_FlyNPCs";
-            NUD_FlyNPCs.Size = new Size(39, 23);
-            NUD_FlyNPCs.TabIndex = 18;
-            // 
             // MainWindow
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -2395,6 +2391,7 @@
             GB_DexRec.ResumeLayout(false);
             GB_Advanced.ResumeLayout(false);
             GB_Advanced.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)NUD_FlyNPCs).EndInit();
             ((System.ComponentModel.ISupportInitialize)NUD_RainEncounter).EndInit();
             ((System.ComponentModel.ISupportInitialize)NUD_RainFly).EndInit();
             ((System.ComponentModel.ISupportInitialize)NUD_AreaLoad).EndInit();
@@ -2438,7 +2435,6 @@
             GB_SAVInfo.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)DGV_Results).EndInit();
             ((System.ComponentModel.ISupportInitialize)ResultsSource).EndInit();
-            ((System.ComponentModel.ISupportInitialize)NUD_FlyNPCs).EndInit();
             ResumeLayout(false);
         }
 

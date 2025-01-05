@@ -52,6 +52,8 @@ public partial class MainWindow : Form
 
         TB_Status.Text = "Not Connected.";
         SetAreaOptions();
+
+        SetDexRecOptions();
     }
 
     #region Connection
@@ -229,8 +231,6 @@ public partial class MainWindow : Form
         var s0 = ulong.Parse(TB_Seed0.Text, NumberStyles.AllowHexSpecifier);
         var s1 = ulong.Parse(TB_Seed1.Text, NumberStyles.AllowHexSpecifier);
 
-        var MenuClose = CB_Symbol_MenuClose.Checked;
-
         Core.RNG.GeneratorConfig config = new()
         {
             TargetSpecies = CB_Symbol_Species.Text,
@@ -251,7 +251,15 @@ public partial class MainWindow : Form
 
             AuraKOs = int.Parse(TB_Symbol_KOs.Text),
 
-            ConsiderMenuClose = MenuClose,
+            DexRecSlots =
+            [
+                GetDexRecommendation(CB_DexRec1.Text),
+                GetDexRecommendation(CB_DexRec2.Text),
+                GetDexRecommendation(CB_DexRec3.Text),
+                GetDexRecommendation(CB_DexRec4.Text)
+            ],
+
+            ConsiderMenuClose = CB_Symbol_MenuClose.Checked,
             MenuCloseIsHoldingDirection = CB_Symbol_MenuClose_Direction.Checked,
             MenuCloseNPCs = uint.Parse(TB_Symbol_NPCs.Text),
 
@@ -327,8 +335,6 @@ public partial class MainWindow : Form
         var s0 = ulong.Parse(TB_Seed0.Text, NumberStyles.AllowHexSpecifier);
         var s1 = ulong.Parse(TB_Seed1.Text, NumberStyles.AllowHexSpecifier);
 
-        var MenuClose = CB_Hidden_MenuClose.Checked;
-
         Core.RNG.GeneratorConfig config = new()
         {
             TargetSpecies = CB_Hidden_Species.Text,
@@ -346,9 +352,19 @@ public partial class MainWindow : Form
             TargetMinIVs = [(uint)NUD_HP_Min.Value, (uint)NUD_Atk_Min.Value, (uint)NUD_Def_Min.Value, (uint)NUD_SpA_Min.Value, (uint)NUD_SpD_Min.Value, (uint)NUD_Spe_Min.Value],
             TargetMaxIVs = [(uint)NUD_HP_Max.Value, (uint)NUD_Atk_Max.Value, (uint)NUD_Def_Max.Value, (uint)NUD_SpA_Max.Value, (uint)NUD_SpD_Max.Value, (uint)NUD_Spe_Max.Value],
 
-            ConsiderMenuClose = MenuClose,
+            DexRecSlots =
+            [
+                GetDexRecommendation(CB_DexRec1.Text),
+                GetDexRecommendation(CB_DexRec2.Text),
+                GetDexRecommendation(CB_DexRec3.Text),
+                GetDexRecommendation(CB_DexRec4.Text)
+            ],
+
+            ConsiderMenuClose = CB_Hidden_MenuClose.Checked,
             MenuCloseIsHoldingDirection = CB_Hidden_MenuClose_Direction.Checked,
             MenuCloseNPCs = uint.Parse(TB_Hidden_NPCs.Text),
+
+
 
             ConsiderFly = CB_ConsiderFlying.Checked,
             AreaLoadAdvances = (uint)NUD_AreaLoad.Value,
@@ -422,10 +438,6 @@ public partial class MainWindow : Form
         var s0 = ulong.Parse(TB_Seed0.Text, NumberStyles.AllowHexSpecifier);
         var s1 = ulong.Parse(TB_Seed1.Text, NumberStyles.AllowHexSpecifier);
 
-        var MenuClose = CB_Static_MenuClose.Checked;
-
-        var wea = GetWeatherType($"{CB_Static_Weather.SelectedItem}");
-
         Core.RNG.GeneratorConfig config = new()
         {
             TargetSpecies = CB_Static_Species.Text,
@@ -443,7 +455,7 @@ public partial class MainWindow : Form
             TargetMinIVs = [(uint)NUD_HP_Min.Value, (uint)NUD_Atk_Min.Value, (uint)NUD_Def_Min.Value, (uint)NUD_SpA_Min.Value, (uint)NUD_SpD_Min.Value, (uint)NUD_Spe_Min.Value],
             TargetMaxIVs = [(uint)NUD_HP_Max.Value, (uint)NUD_Atk_Max.Value, (uint)NUD_Def_Max.Value, (uint)NUD_SpA_Max.Value, (uint)NUD_SpD_Max.Value, (uint)NUD_Spe_Max.Value],
 
-            ConsiderMenuClose = MenuClose,
+            ConsiderMenuClose = CB_Static_MenuClose.Checked,
             MenuCloseIsHoldingDirection = CB_Static_MenuClose_Direction.Checked,
             MenuCloseNPCs = uint.Parse(TB_Static_NPCs.Text),
 
@@ -509,6 +521,34 @@ public partial class MainWindow : Form
     private void UpdateStatus(string status)
     {
         SetTextBoxText(status, TB_Status);
+    }
+
+    private void SetDexRecOptions()
+    {
+        if (Encounters.Personal is not null)
+        {
+            // Special handling to keep Jangmo-o, Hakamo-o, Kommo-o, and Porygon-Z. Silvally-10+ also need to be filtered out
+            List<string> range = ["(None)"];
+            range.AddRange(Encounters.Personal.Keys.Where(k => !((k[^2] == '-' || k[^3] == '-') && k[^1] != 'o' && k[^1] != 'Z')));
+
+            CB_DexRec1.Items.Clear();
+            CB_DexRec2.Items.Clear();
+            CB_DexRec3.Items.Clear();
+            CB_DexRec4.Items.Clear();
+
+            foreach (var entry in range)
+            {
+                CB_DexRec1.Items.Add(entry);
+                CB_DexRec2.Items.Add(entry);
+                CB_DexRec3.Items.Add(entry);
+                CB_DexRec4.Items.Add(entry);
+            }
+
+            CB_DexRec1.SelectedIndex = 0;
+            CB_DexRec2.SelectedIndex = 0;
+            CB_DexRec3.SelectedIndex = 0;
+            CB_DexRec4.SelectedIndex = 0;
+        }
     }
 
     private void SetAreaOptions()

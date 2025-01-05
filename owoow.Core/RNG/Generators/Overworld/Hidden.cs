@@ -122,7 +122,7 @@ public class Hidden
                     DexRec = GenerateDexRecActivation(ref rng);
                     if (DexRec > 49 && config.IsDexRecActive)
                     {
-                        DexRecSlot = (short)config.DexRecSlots[GenerateEncounterSlot(ref rng, 4)];
+                        DexRecSlot = config.DexRecSlots[GenerateEncounterSlot(ref rng, 4)];
                         var DexRecMatchingSpecies = ActiveTable.Where(enc => enc.Value.DevId == DexRecSlot);
                         if (DexRecMatchingSpecies.Any())
                         {

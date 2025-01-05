@@ -1,5 +1,6 @@
 ﻿using owoow.Core.Enums;
 using PKHeX.Core;
+using static owoow.Core.Encounters;
 
 namespace owoow.Core.RNG;
 
@@ -108,4 +109,17 @@ public static class Util
         "Heavy Fog" => WeatherType.HeavyFog,
         _ => WeatherType.AllWeather,
     };
+
+    public static short GetDexRecommendation(string species) 
+    {
+        if (Personal is not null)
+        {
+            try
+            {
+                if (Personal[species] is not null) return Personal[species].DevId;
+            }
+            catch { return 0; } // (None) selected, or user entered garbage
+        }
+        return 0;
+    }
 }

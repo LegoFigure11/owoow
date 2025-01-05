@@ -44,8 +44,8 @@ public class GeneratorConfig
     public WeatherType Weather { get; set; } = WeatherType.AllWeather;
     public bool WeatherActive => Weather != WeatherType.NormalWeather;
 
-    public bool IsDexRecActive { get; set; } = false;
-    public uint[] DexRecSlots { get; set; } = [0, 0, 0, 0];
+    public bool IsDexRecActive => DexRecSlots.Where(s => s != 0).Any();
+    public short[] DexRecSlots { get; set; } = [0, 0, 0, 0];
 
     public bool ConsiderMenuClose { get; set; } = false;
     public bool MenuCloseIsHoldingDirection { get; set; } = false;
