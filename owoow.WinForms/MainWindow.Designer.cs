@@ -2145,6 +2145,7 @@
             DGV_Results.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             DGV_Results.Size = new Size(1302, 302);
             DGV_Results.TabIndex = 12;
+            DGV_Results.CellFormatting += DGV_Results_CellFormatting;
             // 
             // advancesDataGridViewTextBoxColumn
             // 

@@ -7,6 +7,7 @@ using owoow.WinForms.Subforms;
 using PKHeX.Core;
 using PKHeX.Drawing.PokeSprite;
 using SysBot.Base;
+using System;
 using System.Globalization;
 using static owoow.Core.Encounters;
 using static owoow.Core.RNG.FilterUtil;
@@ -29,6 +30,8 @@ public partial class MainWindow : Form
     bool reset;
     bool pause = false;
     long total;
+
+    List<Frame> Frames = [];
 
     public MainWindow()
     {
@@ -328,6 +331,7 @@ public partial class MainWindow : Form
                 AllResults.AddRange(result);
             }
 
+            Frames = AllResults;
             SetBindingSourceDataSource(AllResults, ResultsSource);
             DGV_Results.SanitizeColumns(this);
 
@@ -431,6 +435,7 @@ public partial class MainWindow : Form
                 AllResults.AddRange(result);
             }
 
+            Frames = AllResults;
             SetBindingSourceDataSource(AllResults, ResultsSource);
             DGV_Results.SanitizeColumns(this);
 
@@ -524,6 +529,7 @@ public partial class MainWindow : Form
                 AllResults.AddRange(result);
             }
 
+            Frames = AllResults;
             SetBindingSourceDataSource(AllResults, ResultsSource);
             DGV_Results.SanitizeColumns(this);
 
@@ -685,7 +691,7 @@ public partial class MainWindow : Form
     private void B_RefreshDexRec_Click(object sender, EventArgs e)
     {
         Task.Run(
-            async () => 
+            async () =>
             {
                 try
                 {
@@ -956,6 +962,48 @@ public partial class MainWindow : Form
     {
         SetControlEnabledState(((CheckBox)sender).Checked, L_RainEncounter, NUD_RainEncounter);
         SetControlEnabledState(((CheckBox)sender).Checked && CB_ConsiderFlying.Checked, L_RainFly, NUD_RainFly);
+    }
+
+    private readonly static Font BoldFont = new Font("Microsoft Sans Serif", 8, FontStyle.Bold);
+    private void DGV_Results_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+    {
+        var index = e.RowIndex;
+        if (Frames.Count <= index) return;
+        var row = DGV_Results.Rows[index];
+        var result = Frames[index];
+
+        if (result.Shiny is "Square") row.DefaultCellStyle.BackColor = Color.LightCyan;
+        else if (result.Shiny is "Star") row.DefaultCellStyle.BackColor = Color.Aqua;
+        else if (result.Step == 1) row.DefaultCellStyle.BackColor = Color.Honeydew;
+        else if (result.Brilliant == 'Y') row.DefaultCellStyle.BackColor = Color.PapayaWhip;
+        else row.DefaultCellStyle = row.DefaultCellStyle;
+
+        var iv = 11;
+        byte[] ivs = [result.H, result.A, result.B, result.C, result.D, result.S];
+        for (var i = 0; i < ivs.Length; i++)
+        {
+            if (ivs[i] == 0)
+            {
+                row.Cells[iv + i].Style.Font = BoldFont;
+                row.Cells[iv + i].Style.ForeColor = Color.OrangeRed;
+            }
+            else if (ivs[i] == 31)
+            {
+                row.Cells[iv + i].Style.Font = BoldFont;
+                row.Cells[iv + i].Style.ForeColor = Color.SeaGreen;
+            }
+            else
+            {
+                row.Cells[iv + i].Style.ForeColor = row.DefaultCellStyle.ForeColor;
+                row.Cells[iv + i].Style.Font = row.DefaultCellStyle.Font;
+            }
+        }
+
+        row.Cells[2].Style.Font = result.Step != 1 ? row.DefaultCellStyle.Font : BoldFont;
+        row.Cells[6].Style.Font = result.Brilliant != 'Y' ? row.DefaultCellStyle.Font : BoldFont;
+        row.Cells[17].Style.Font = result.Mark == "None" ? row.DefaultCellStyle.Font : BoldFont;
+        row.Cells[20].Style.Font = result.Height is not "XXXL (255)" or "XXXS (0)" ? row.DefaultCellStyle.Font : BoldFont;
+
     }
     #endregion
 
