@@ -7,7 +7,6 @@ using owoow.WinForms.Subforms;
 using PKHeX.Core;
 using PKHeX.Drawing.PokeSprite;
 using SysBot.Base;
-using System;
 using System.Globalization;
 using static owoow.Core.Encounters;
 using static owoow.Core.RNG.FilterUtil;
@@ -536,6 +535,95 @@ public partial class MainWindow : Form
             SetControlEnabledState(true, sender);
         });
     }
+
+    private void B_CalculateRain_Click(object sender, EventArgs e)
+    {
+        var tab = TC_EncounterType.SelectedTab;
+        if (tab != null)
+        {
+            var type = tab.Text;
+
+            var table = new EncounterTable(
+                CB_Game.Text,
+                type,
+                ((ComboBox)Controls.Find($"CB_{type}_Area", true).FirstOrDefault()!).Text,
+                ((ComboBox)Controls.Find($"CB_{type}_Weather", true).FirstOrDefault()!).Text,
+                ((ComboBox)Controls.Find($"CB_{type}_LeadAbility", true).FirstOrDefault()!).Text
+                );
+
+            var initial = ulong.Parse(((TextBox)Controls.Find($"TB_{type}_Initial", true).FirstOrDefault()!).Text);
+            var advances = 1;
+
+            var s0 = ulong.Parse(TB_Seed0.Text, NumberStyles.AllowHexSpecifier);
+            var s1 = ulong.Parse(TB_Seed1.Text, NumberStyles.AllowHexSpecifier);
+
+            Core.RNG.GeneratorConfig config = new()
+            {
+                TargetSpecies = ((ComboBox)Controls.Find($"CB_{type}_Species", true).FirstOrDefault()!).Text,
+                LeadAbility = ((ComboBox)Controls.Find($"CB_{type}_LeadAbility", true).FirstOrDefault()!).Text,
+
+                Weather = GetWeatherType(((ComboBox)Controls.Find($"CB_{type}_Weather", true).FirstOrDefault()!).Text),
+
+                ShinyRolls = CB_ShinyCharm.Checked ? 3 : 1,
+                MarkRolls = CB_MarkCharm.Checked ? 3 : 1,
+
+                TargetShiny = GetFilterShinyType(CB_Filter_Shiny.SelectedIndex),
+                TargetMark = GetFilterMarkype(CB_Filter_Mark.SelectedIndex),
+                TargetScale = GetFilterScaleType(CB_Filter_Height.SelectedIndex),
+
+                TargetMinIVs = [(uint)NUD_HP_Min.Value, (uint)NUD_Atk_Min.Value, (uint)NUD_Def_Min.Value, (uint)NUD_SpA_Min.Value, (uint)NUD_SpD_Min.Value, (uint)NUD_Spe_Min.Value],
+                TargetMaxIVs = [(uint)NUD_HP_Max.Value, (uint)NUD_Atk_Max.Value, (uint)NUD_Def_Max.Value, (uint)NUD_SpA_Max.Value, (uint)NUD_SpD_Max.Value, (uint)NUD_Spe_Max.Value],
+
+                ConsiderMenuClose = ((CheckBox)Controls.Find($"CB_{type}_MenuClose", true).FirstOrDefault()!).Checked,
+                MenuCloseIsHoldingDirection = ((CheckBox)Controls.Find($"CB_{type}_MenuClose_Direction", true).FirstOrDefault()!).Checked,
+                MenuCloseNPCs = uint.Parse(((TextBox)Controls.Find($"TB_{type}_NPCs", true).FirstOrDefault()!).Text),
+
+                ConsiderFly = CB_ConsiderFlying.Checked,
+                AreaLoadAdvances = (uint)NUD_AreaLoad.Value,
+                AreaLoadNPCs = (uint)NUD_FlyNPCs.Value,
+                ConsiderRain = CB_ConsiderRain.Checked,
+                RainTicksAreaLoad = (uint)NUD_RainFly.Value,
+
+                FiltersEnabled = true,
+
+                TID = uint.Parse(TB_TID.Text),
+                SID = uint.Parse(TB_SID.Text),
+            };
+
+            var rng = new Xoroshiro128Plus(s0, s1);
+
+            for (ulong i = 0; i < initial; i++) rng.Next();
+
+            var (_s0, _s1) = rng.GetState();
+
+            List<uint> ticks = [];
+
+            List<Frame> results = [];
+
+            for (uint i = 0; i < 300; i++) // search next 300 ticks
+            {
+                config.RainTicksEncounter = i;
+                results = type switch
+                {
+                    "Static" => Task.Run(() => Static.Generate(_s0, _s1, table, initial, initial + (ulong)advances, config)).Result,
+                    "Symbol" => Task.Run(() => Symbol.Generate(_s0, _s1, table, initial, initial + (ulong)advances, config)).Result,
+                    _ => Task.Run(() => Hidden.Generate(_s0, _s1, table, initial, initial + (ulong)advances, config)).Result,
+                };
+                if (results.Count != 0)
+                    ticks.Add(i);
+            }
+
+            if (ticks.Count != 0)
+            {
+                SetNUDValue(ticks[0], NUD_RainEncounter);
+                MessageBox.Show($"Found {ticks.Count} result{(ticks.Count != 1 ? "s" : string.Empty)}: {string.Join(", ", ticks)}");
+            }
+            else
+            {
+                MessageBox.Show("No results found.");
+            }
+        }
+    }
     #endregion
 
     #region UI Methods
@@ -866,6 +954,20 @@ public partial class MainWindow : Form
         }
     }
 
+    public void SetNUDValue(decimal value, params object[] obj)
+    {
+        foreach (object o in obj)
+        {
+            if (o is not NumericUpDown c)
+                continue;
+
+            if (InvokeRequired)
+                Invoke(() => c.Value = value);
+            else
+                c.Value = value;
+        }
+    }
+
     public void SetTextBoxText(string text, params object[] obj)
     {
         foreach (object o in obj)
@@ -960,7 +1062,7 @@ public partial class MainWindow : Form
 
     private void CB_ConsiderRain_CheckedChanged(object sender, EventArgs e)
     {
-        SetControlEnabledState(((CheckBox)sender).Checked, L_RainEncounter, NUD_RainEncounter);
+        SetControlEnabledState(((CheckBox)sender).Checked, L_RainEncounter, NUD_RainEncounter, B_CalculateRain);
         SetControlEnabledState(((CheckBox)sender).Checked && CB_ConsiderFlying.Checked, L_RainFly, NUD_RainFly);
     }
 
@@ -976,7 +1078,7 @@ public partial class MainWindow : Form
         else if (result.Shiny is "Star") row.DefaultCellStyle.BackColor = Color.Aqua;
         else if (result.Step == 1) row.DefaultCellStyle.BackColor = Color.Honeydew;
         else if (result.Brilliant == 'Y') row.DefaultCellStyle.BackColor = Color.PapayaWhip;
-        else row.DefaultCellStyle = row.DefaultCellStyle;
+        else row.DefaultCellStyle.BackColor = Color.White;
 
         var iv = 11;
         byte[] ivs = [result.H, result.A, result.B, result.C, result.D, result.S];
@@ -1002,7 +1104,7 @@ public partial class MainWindow : Form
         row.Cells[2].Style.Font = result.Step != 1 ? row.DefaultCellStyle.Font : BoldFont;
         row.Cells[6].Style.Font = result.Brilliant != 'Y' ? row.DefaultCellStyle.Font : BoldFont;
         row.Cells[17].Style.Font = result.Mark == "None" ? row.DefaultCellStyle.Font : BoldFont;
-        row.Cells[20].Style.Font = result.Height is not "XXXL (255)" or "XXXS (0)" ? row.DefaultCellStyle.Font : BoldFont;
+        row.Cells[20].Style.Font = result.Height is not "XXXL (255)" and not "XXXS (0)" ? row.DefaultCellStyle.Font : BoldFont;
 
     }
     #endregion

@@ -42,13 +42,11 @@
             GB_Advanced = new GroupBox();
             L_FlyNPCs = new Label();
             NUD_FlyNPCs = new NumericUpDown();
-            button1 = new Button();
             B_CalculateRain = new Button();
             L_RainEncounter = new Label();
             NUD_RainEncounter = new NumericUpDown();
             L_RainFly = new Label();
             NUD_RainFly = new NumericUpDown();
-            B_CalculateAreaLoad = new Button();
             L_AreaLoad = new Label();
             NUD_AreaLoad = new NumericUpDown();
             CB_ConsiderFlying = new CheckBox();
@@ -361,13 +359,11 @@
             // 
             GB_Advanced.Controls.Add(L_FlyNPCs);
             GB_Advanced.Controls.Add(NUD_FlyNPCs);
-            GB_Advanced.Controls.Add(button1);
             GB_Advanced.Controls.Add(B_CalculateRain);
             GB_Advanced.Controls.Add(L_RainEncounter);
             GB_Advanced.Controls.Add(NUD_RainEncounter);
             GB_Advanced.Controls.Add(L_RainFly);
             GB_Advanced.Controls.Add(NUD_RainFly);
-            GB_Advanced.Controls.Add(B_CalculateAreaLoad);
             GB_Advanced.Controls.Add(L_AreaLoad);
             GB_Advanced.Controls.Add(NUD_AreaLoad);
             GB_Advanced.Controls.Add(CB_ConsiderFlying);
@@ -398,16 +394,6 @@
             NUD_FlyNPCs.Size = new Size(39, 23);
             NUD_FlyNPCs.TabIndex = 18;
             // 
-            // button1
-            // 
-            button1.Enabled = false;
-            button1.Location = new Point(132, 107);
-            button1.Name = "button1";
-            button1.Size = new Size(74, 23);
-            button1.TabIndex = 17;
-            button1.Text = "Calculate";
-            button1.UseVisualStyleBackColor = true;
-            // 
             // B_CalculateRain
             // 
             B_CalculateRain.Enabled = false;
@@ -417,6 +403,7 @@
             B_CalculateRain.TabIndex = 16;
             B_CalculateRain.Text = "Calculate";
             B_CalculateRain.UseVisualStyleBackColor = true;
+            B_CalculateRain.Click += B_CalculateRain_Click;
             // 
             // L_RainEncounter
             // 
@@ -455,16 +442,6 @@
             NUD_RainFly.Name = "NUD_RainFly";
             NUD_RainFly.Size = new Size(39, 23);
             NUD_RainFly.TabIndex = 11;
-            // 
-            // B_CalculateAreaLoad
-            // 
-            B_CalculateAreaLoad.Enabled = false;
-            B_CalculateAreaLoad.Location = new Point(132, 36);
-            B_CalculateAreaLoad.Name = "B_CalculateAreaLoad";
-            B_CalculateAreaLoad.Size = new Size(74, 23);
-            B_CalculateAreaLoad.TabIndex = 7;
-            B_CalculateAreaLoad.Text = "Calculate";
-            B_CalculateAreaLoad.UseVisualStyleBackColor = true;
             // 
             // L_AreaLoad
             // 
@@ -2633,10 +2610,8 @@
         private NumericUpDown NUD_RainEncounter;
         private Label L_RainFly;
         private NumericUpDown NUD_RainFly;
-        private Button B_CalculateAreaLoad;
         private Label L_AreaLoad;
         private Button B_RefreshDexRec;
-        private Button button1;
         private Label L_FlyNPCs;
         private NumericUpDown NUD_FlyNPCs;
     }
