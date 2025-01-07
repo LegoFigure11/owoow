@@ -37,6 +37,8 @@
             TB_Seed1 = new TextBox();
             TB_Seed0 = new TextBox();
             GB_SearchSettings = new GroupBox();
+            L_Timeline_Weather = new Label();
+            CB_Timeline_Weather = new ComboBox();
             CB_Timeline_MenuClose_Direction = new CheckBox();
             L_Symbol_NPCs = new Label();
             TB_Timeline_NPCs = new TextBox();
@@ -51,8 +53,6 @@
             seed0DataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             seed1DataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             MenuCloseResultsSource = new BindingSource(components);
-            L_Timeline_Weather = new Label();
-            CB_Timeline_Weather = new ComboBox();
             GB_Seed.SuspendLayout();
             GB_SearchSettings.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)DGV_Results).BeginInit();
@@ -129,6 +129,25 @@
             GB_SearchSettings.Size = new Size(212, 149);
             GB_SearchSettings.TabIndex = 3;
             GB_SearchSettings.TabStop = false;
+            // 
+            // L_Timeline_Weather
+            // 
+            L_Timeline_Weather.AutoSize = true;
+            L_Timeline_Weather.Location = new Point(28, 63);
+            L_Timeline_Weather.Name = "L_Timeline_Weather";
+            L_Timeline_Weather.Size = new Size(54, 15);
+            L_Timeline_Weather.TabIndex = 55;
+            L_Timeline_Weather.Text = "Weather:";
+            // 
+            // CB_Timeline_Weather
+            // 
+            CB_Timeline_Weather.FormattingEnabled = true;
+            CB_Timeline_Weather.Items.AddRange(new object[] { "All Weather", "Normal Weather", "Overcast", "Raining", "Thunderstorm", "Intense Sun", "Snowing", "Snowstorm", "Sandstorm", "Heavy Fog" });
+            CB_Timeline_Weather.Location = new Point(88, 60);
+            CB_Timeline_Weather.Name = "CB_Timeline_Weather";
+            CB_Timeline_Weather.Size = new Size(118, 23);
+            CB_Timeline_Weather.TabIndex = 54;
+            CB_Timeline_Weather.Text = "None";
             // 
             // CB_Timeline_MenuClose_Direction
             // 
@@ -274,25 +293,6 @@
             // MenuCloseResultsSource
             // 
             MenuCloseResultsSource.DataSource = typeof(Core.Interfaces.MenuCloseFrame);
-            // 
-            // L_Timeline_Weather
-            // 
-            L_Timeline_Weather.AutoSize = true;
-            L_Timeline_Weather.Location = new Point(28, 63);
-            L_Timeline_Weather.Name = "L_Timeline_Weather";
-            L_Timeline_Weather.Size = new Size(54, 15);
-            L_Timeline_Weather.TabIndex = 55;
-            L_Timeline_Weather.Text = "Weather:";
-            // 
-            // CB_Timeline_Weather
-            // 
-            CB_Timeline_Weather.FormattingEnabled = true;
-            CB_Timeline_Weather.Items.AddRange(new object[] { "All Weather", "Normal Weather", "Overcast", "Raining", "Thunderstorm", "Intense Sun", "Snowing", "Snowstorm", "Heavy Fog" });
-            CB_Timeline_Weather.Location = new Point(88, 60);
-            CB_Timeline_Weather.Name = "CB_Timeline_Weather";
-            CB_Timeline_Weather.Size = new Size(118, 23);
-            CB_Timeline_Weather.TabIndex = 54;
-            CB_Timeline_Weather.Text = "None";
             // 
             // MenuCloseTimeline
             // 
