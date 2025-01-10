@@ -5,6 +5,7 @@ using owoow.Core.Interfaces;
 using owoow.Core.RNG.Generators.Overworld;
 using owoow.WinForms.Subforms;
 using PKHeX.Core;
+using PKHeX.Drawing.Misc;
 using PKHeX.Drawing.PokeSprite;
 using SysBot.Base;
 using System.Globalization;
@@ -1009,12 +1010,14 @@ public partial class MainWindow : Form
 
                         readPause = false;
                         SetPictureBoxImage(pk.Sprite(), PB_PokemonSprite);
+                        if (HasRibbon) SetPictureBoxImage(RibbonSpriteUtil.GetRibbonSprite(mark)!, PB_MarkSprite);
                         SetTextBoxText(output, TB_Wild);
                     }
                     else
                     {
                         readPause = false;
                         PB_PokemonSprite.Image = null;
+                        PB_MarkSprite.Image = null;
                         SetTextBoxText("No encounter present.", TB_Wild);
                     }
                 }
@@ -1022,6 +1025,7 @@ public partial class MainWindow : Form
                 {
                     readPause = false;
                     PB_PokemonSprite.Image = null;
+                    PB_MarkSprite.Image = null;
                     SetTextBoxText(string.Empty, TB_Wild);
                     this.DisplayMessageBox(ex.Message);
                 }

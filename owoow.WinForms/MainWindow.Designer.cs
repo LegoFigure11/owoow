@@ -236,6 +236,7 @@
             seed0DataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             seed1DataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             ResultsSource = new BindingSource(components);
+            PB_MarkSprite = new PictureBox();
             GB_SeedControlsContainer.SuspendLayout();
             P_EncounterSettings.SuspendLayout();
             GB_DexRec.SuspendLayout();
@@ -274,6 +275,7 @@
             GB_SAVInfo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)DGV_Results).BeginInit();
             ((System.ComponentModel.ISupportInitialize)ResultsSource).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)PB_MarkSprite).BeginInit();
             SuspendLayout();
             // 
             // GB_SeedControlsContainer
@@ -655,6 +657,7 @@
             // 
             // GB_WildView
             // 
+            GB_WildView.Controls.Add(PB_MarkSprite);
             GB_WildView.Controls.Add(PB_PokemonSprite);
             GB_WildView.Controls.Add(B_ReadEncounter);
             GB_WildView.Controls.Add(TB_Wild);
@@ -2465,6 +2468,15 @@
             // 
             ResultsSource.DataSource = typeof(Core.Interfaces.Frame);
             // 
+            // PB_MarkSprite
+            // 
+            PB_MarkSprite.Location = new Point(138, 225);
+            PB_MarkSprite.Name = "PB_MarkSprite";
+            PB_MarkSprite.Size = new Size(48, 48);
+            PB_MarkSprite.SizeMode = PictureBoxSizeMode.CenterImage;
+            PB_MarkSprite.TabIndex = 22;
+            PB_MarkSprite.TabStop = false;
+            // 
             // MainWindow
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -2528,6 +2540,7 @@
             GB_SAVInfo.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)DGV_Results).EndInit();
             ((System.ComponentModel.ISupportInitialize)ResultsSource).EndInit();
+            ((System.ComponentModel.ISupportInitialize)PB_MarkSprite).EndInit();
             ResumeLayout(false);
         }
 
@@ -2737,5 +2750,6 @@
         private Button B_ResetStick;
         private Button B_HoldUp;
         private Button B_CancelSkip;
+        private PictureBox PB_MarkSprite;
     }
 }
