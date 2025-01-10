@@ -52,6 +52,15 @@
             CB_ConsiderFlying = new CheckBox();
             CB_ConsiderRain = new CheckBox();
             GB_SwitchControls = new GroupBox();
+            B_CancelSkip = new Button();
+            B_ResetStick = new Button();
+            B_HoldUp = new Button();
+            TB_Skips = new TextBox();
+            B_NTP = new Button();
+            B_SkipAdvance = new Button();
+            B_SkipBack = new Button();
+            B_SkipForward = new Button();
+            L_Skip = new Label();
             GB_SeedSearch = new GroupBox();
             B_SeedSearch_Settings = new Button();
             B_SeedSearch = new Button();
@@ -235,6 +244,7 @@
             ((System.ComponentModel.ISupportInitialize)NUD_RainEncounter).BeginInit();
             ((System.ComponentModel.ISupportInitialize)NUD_RainFly).BeginInit();
             ((System.ComponentModel.ISupportInitialize)NUD_AreaLoad).BeginInit();
+            GB_SwitchControls.SuspendLayout();
             GB_SeedSearch.SuspendLayout();
             GB_Subwindows.SuspendLayout();
             GB_WildView.SuspendLayout();
@@ -486,11 +496,113 @@
             // 
             // GB_SwitchControls
             // 
+            GB_SwitchControls.Controls.Add(B_CancelSkip);
+            GB_SwitchControls.Controls.Add(B_ResetStick);
+            GB_SwitchControls.Controls.Add(B_HoldUp);
+            GB_SwitchControls.Controls.Add(TB_Skips);
+            GB_SwitchControls.Controls.Add(B_NTP);
+            GB_SwitchControls.Controls.Add(B_SkipAdvance);
+            GB_SwitchControls.Controls.Add(B_SkipBack);
+            GB_SwitchControls.Controls.Add(B_SkipForward);
+            GB_SwitchControls.Controls.Add(L_Skip);
+            GB_SwitchControls.Enabled = false;
             GB_SwitchControls.Location = new Point(1103, 0);
             GB_SwitchControls.Name = "GB_SwitchControls";
             GB_SwitchControls.Size = new Size(212, 195);
             GB_SwitchControls.TabIndex = 25;
             GB_SwitchControls.TabStop = false;
+            // 
+            // B_CancelSkip
+            // 
+            B_CancelSkip.Enabled = false;
+            B_CancelSkip.Location = new Point(107, 16);
+            B_CancelSkip.Name = "B_CancelSkip";
+            B_CancelSkip.Size = new Size(98, 23);
+            B_CancelSkip.TabIndex = 12;
+            B_CancelSkip.Text = "Cancel";
+            B_CancelSkip.UseVisualStyleBackColor = true;
+            B_CancelSkip.Click += B_CancelSkip_Click;
+            // 
+            // B_ResetStick
+            // 
+            B_ResetStick.Location = new Point(107, 66);
+            B_ResetStick.Name = "B_ResetStick";
+            B_ResetStick.Size = new Size(98, 23);
+            B_ResetStick.TabIndex = 11;
+            B_ResetStick.Text = "Reset Stick";
+            B_ResetStick.UseVisualStyleBackColor = true;
+            B_ResetStick.Click += B_ResetStick_Click;
+            // 
+            // B_HoldUp
+            // 
+            B_HoldUp.Location = new Point(7, 66);
+            B_HoldUp.Name = "B_HoldUp";
+            B_HoldUp.Size = new Size(98, 23);
+            B_HoldUp.TabIndex = 10;
+            B_HoldUp.Text = "Hold Up";
+            B_HoldUp.UseVisualStyleBackColor = true;
+            B_HoldUp.Click += B_HoldUp_Click;
+            // 
+            // TB_Skips
+            // 
+            TB_Skips.CharacterCasing = CharacterCasing.Upper;
+            TB_Skips.Font = new Font("Consolas", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            TB_Skips.Location = new Point(57, 17);
+            TB_Skips.MaxLength = 5;
+            TB_Skips.Name = "TB_Skips";
+            TB_Skips.Size = new Size(48, 22);
+            TB_Skips.TabIndex = 9;
+            TB_Skips.Text = "100";
+            TB_Skips.TextAlign = HorizontalAlignment.Right;
+            // 
+            // B_NTP
+            // 
+            B_NTP.Location = new Point(157, 41);
+            B_NTP.Name = "B_NTP";
+            B_NTP.Size = new Size(48, 23);
+            B_NTP.TabIndex = 6;
+            B_NTP.Text = "NTP";
+            B_NTP.UseVisualStyleBackColor = true;
+            B_NTP.Click += B_NTP_Click;
+            // 
+            // B_SkipAdvance
+            // 
+            B_SkipAdvance.Location = new Point(107, 41);
+            B_SkipAdvance.Name = "B_SkipAdvance";
+            B_SkipAdvance.Size = new Size(48, 23);
+            B_SkipAdvance.TabIndex = 5;
+            B_SkipAdvance.Text = "Adv.";
+            B_SkipAdvance.UseVisualStyleBackColor = true;
+            B_SkipAdvance.Click += B_SkipAdvance_Click;
+            // 
+            // B_SkipBack
+            // 
+            B_SkipBack.Location = new Point(57, 41);
+            B_SkipBack.Name = "B_SkipBack";
+            B_SkipBack.Size = new Size(48, 23);
+            B_SkipBack.TabIndex = 2;
+            B_SkipBack.Text = "Days-";
+            B_SkipBack.UseVisualStyleBackColor = true;
+            B_SkipBack.Click += B_SkipBack_Click;
+            // 
+            // B_SkipForward
+            // 
+            B_SkipForward.Location = new Point(7, 41);
+            B_SkipForward.Name = "B_SkipForward";
+            B_SkipForward.Size = new Size(48, 23);
+            B_SkipForward.TabIndex = 1;
+            B_SkipForward.Text = "Days+";
+            B_SkipForward.UseVisualStyleBackColor = true;
+            B_SkipForward.Click += B_SkipForward_Click;
+            // 
+            // L_Skip
+            // 
+            L_Skip.AutoSize = true;
+            L_Skip.Location = new Point(19, 19);
+            L_Skip.Name = "L_Skip";
+            L_Skip.Size = new Size(32, 15);
+            L_Skip.TabIndex = 0;
+            L_Skip.Text = "Skip:";
             // 
             // GB_SeedSearch
             // 
@@ -2374,6 +2486,8 @@
             ((System.ComponentModel.ISupportInitialize)NUD_RainEncounter).EndInit();
             ((System.ComponentModel.ISupportInitialize)NUD_RainFly).EndInit();
             ((System.ComponentModel.ISupportInitialize)NUD_AreaLoad).EndInit();
+            GB_SwitchControls.ResumeLayout(false);
+            GB_SwitchControls.PerformLayout();
             GB_SeedSearch.ResumeLayout(false);
             GB_Subwindows.ResumeLayout(false);
             GB_WildView.ResumeLayout(false);
@@ -2614,5 +2728,14 @@
         private Button B_RefreshDexRec;
         private Label L_FlyNPCs;
         private NumericUpDown NUD_FlyNPCs;
+        private Button B_SkipForward;
+        private Label L_Skip;
+        private TextBox TB_Skips;
+        private Button B_NTP;
+        private Button B_SkipAdvance;
+        private Button B_SkipBack;
+        private Button B_ResetStick;
+        private Button B_HoldUp;
+        private Button B_CancelSkip;
     }
 }

@@ -1,6 +1,8 @@
 ﻿using PKHeX.Core;
 using SysBot.Base;
 using System.Net.Sockets;
+using static SysBot.Base.SwitchButton;
+using static SysBot.Base.SwitchCommand;
 
 namespace owoow.Core.Connection;
 
@@ -45,7 +47,7 @@ public class ConnectionWrapperAsync(SwitchConnectionConfig Config, Action<string
         try
         {
             StatusUpdate("Disconnecting controller");
-            await Connection.SendAsync(SwitchCommand.DetachController(CRLF), token).ConfigureAwait(false);
+            await Connection.SendAsync(DetachController(CRLF), token).ConfigureAwait(false);
 
             StatusUpdate("Disconnecting...");
             Connection.Disconnect();
@@ -101,6 +103,36 @@ public class ConnectionWrapperAsync(SwitchConnectionConfig Config, Action<string
     {
         var data = await Connection.ReadBytesAsync(MyItems, MyItems_Size, token).ConfigureAwait(false);
         data.AsSpan().CopyTo(sav.Blocks.Items.Data);
+    }
+
+    public async Task DaySkip(CancellationToken token)
+    {
+        await Connection.DaySkip(token).ConfigureAwait(false);
+    }
+
+    public async Task DaySkipBack(CancellationToken token)
+    {
+        await Connection.DaySkipBack(token).ConfigureAwait(false);
+    }
+
+    public async Task ResetTimeNTP(CancellationToken token)
+    {
+        await Connection.ResetTimeNTP(token).ConfigureAwait(false);
+    }
+
+    public async Task PressL3(CancellationToken token)
+    {
+        await Connection.SendAsync(Click(LSTICK, CRLF), token).ConfigureAwait(false);
+    }
+
+    public async Task HoldUp(CancellationToken token)
+    {
+        await Connection.SendAsync(SetStick(SwitchStick.LEFT, 0, 30000, CRLF), token);
+    }
+
+    public async Task ResetStick(CancellationToken token)
+    {
+        await Connection.SendAsync(SwitchCommand.ResetStick(SwitchStick.LEFT, CRLF), token).ConfigureAwait(false);
     }
 
     public (string, string) GetIDs()

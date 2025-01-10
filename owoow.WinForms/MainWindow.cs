@@ -17,6 +17,7 @@ namespace owoow.WinForms;
 public partial class MainWindow : Form
 {
     private static CancellationTokenSource Source = new();
+    private static CancellationTokenSource AdvanceSource = new();
     private static readonly Lock _connectLock = new();
 
     //private readonly ClientConfig Config;
@@ -27,7 +28,8 @@ public partial class MainWindow : Form
 
     bool stop;
     bool reset;
-    bool pause = false;
+    bool readPause = false;
+    bool skipPause = false;
     long total;
 
     List<Frame> Frames = [];
@@ -161,7 +163,7 @@ public partial class MainWindow : Form
                     return;
                 }
 
-                SetControlEnabledState(true, B_Disconnect, B_CopyToInitial, B_ReadEncounter, B_RefreshDexRec);
+                SetControlEnabledState(true, B_Disconnect, B_CopyToInitial, B_ReadEncounter, B_RefreshDexRec, GB_SwitchControls);
 
                 UpdateStatus("Monitoring RNG State...");
                 try
@@ -170,7 +172,7 @@ public partial class MainWindow : Form
                     stop = false;
                     while (!stop)
                     {
-                        if (ConnectionWrapper.Connected && !pause)
+                        if (ConnectionWrapper.Connected && !readPause)
                         {
                             var (s0, s1) = await ConnectionWrapper.ReadRNGState(token).ConfigureAwait(false);
                             var adv = GetAdvancesPassed(_s0, _s1, s0, s1);
@@ -227,6 +229,158 @@ public partial class MainWindow : Form
                 SetControlEnabledState(true, B_Connect);
             },
             token
+        );
+    }
+
+    private void B_NTP_Click(object sender, EventArgs e)
+    {
+        Task.Run(
+            async () =>
+            {
+                try
+                {
+                    await ConnectionWrapper.ResetTimeNTP(Source.Token);
+                }
+                catch (Exception ex)
+                {
+                    this.DisplayMessageBox(ex.Message);
+                }
+            }
+        );
+    }
+
+    private void B_ResetStick_Click(object sender, EventArgs e)
+    {
+        Task.Run(
+            async () =>
+            {
+                try
+                {
+                    await ConnectionWrapper.ResetStick(Source.Token);
+                }
+                catch (Exception ex)
+                {
+                    this.DisplayMessageBox(ex.Message);
+                }
+            }
+        );
+    }
+
+    private void B_HoldUp_Click(object sender, EventArgs e)
+    {
+        Task.Run(
+            async () =>
+            {
+                try
+                {
+                    await ConnectionWrapper.HoldUp(Source.Token);
+                }
+                catch (Exception ex)
+                {
+                    this.DisplayMessageBox(ex.Message);
+                }
+            }
+        );
+    }
+
+    private void B_SkipAdvance_Click(object sender, EventArgs e)
+    {
+        Task.Run(
+            async () =>
+            {
+                try
+                {
+                    SetControlEnabledState(false, B_SkipAdvance, B_SkipForward, B_SkipBack, B_HoldUp, B_ResetStick);
+                    SetControlEnabledState(true, B_CancelSkip);
+                    skipPause = false;
+                    var skips = uint.Parse(TB_Skips.Text);
+                    for (var i = 0; i < skips && !skipPause; i++)
+                    {
+
+                        SetButtonText($"{i + 1}", B_SkipAdvance);
+                        await ConnectionWrapper.PressL3(AdvanceSource.Token).ConfigureAwait(false);
+                        await Task.Delay(150, AdvanceSource.Token);
+                    }
+                    SetButtonText("Adv.", B_SkipAdvance);
+                    SetControlEnabledState(true, B_SkipAdvance, B_SkipForward, B_SkipBack, B_HoldUp, B_ResetStick);
+                    SetControlEnabledState(false, B_CancelSkip);
+                }
+                catch (Exception ex)
+                {
+                    SetControlEnabledState(true, B_SkipAdvance, B_SkipForward, B_SkipBack, B_HoldUp, B_ResetStick);
+                    SetControlEnabledState(false, B_CancelSkip);
+                    this.DisplayMessageBox(ex.Message);
+                }
+            }
+        );
+    }
+
+    private void B_CancelSkip_Click(object sender, EventArgs e)
+    {
+        skipPause = true;
+    }
+
+    private void B_SkipForward_Click(object sender, EventArgs e)
+    {
+        Task.Run(
+            async () =>
+            {
+                try
+                {
+                    SetControlEnabledState(false, B_SkipAdvance, B_SkipForward, B_SkipBack, B_HoldUp, B_ResetStick);
+                    SetControlEnabledState(true, B_CancelSkip);
+                    skipPause = false;
+                    var skips = uint.Parse(TB_Skips.Text);
+                    for (var i = 0; i < skips && !skipPause; i++)
+                    {
+
+                        SetButtonText($"{i + 1}", B_SkipForward);
+                        await ConnectionWrapper.DaySkip(AdvanceSource.Token).ConfigureAwait(false);
+                        await Task.Delay(360, AdvanceSource.Token);
+                    }
+                    SetButtonText("Days+", B_SkipForward);
+                    SetControlEnabledState(true, B_SkipAdvance, B_SkipForward, B_SkipBack, B_HoldUp, B_ResetStick);
+                    SetControlEnabledState(false, B_CancelSkip);
+                }
+                catch (Exception ex)
+                {
+                    SetControlEnabledState(true, B_SkipAdvance, B_SkipForward, B_SkipBack, B_HoldUp, B_ResetStick);
+                    SetControlEnabledState(false, B_CancelSkip);
+                    this.DisplayMessageBox(ex.Message);
+                }
+            }
+        );
+    }
+
+    private void B_SkipBack_Click(object sender, EventArgs e)
+    {
+        Task.Run(
+            async () =>
+            {
+                try
+                {
+                    SetControlEnabledState(false, B_SkipAdvance, B_SkipForward, B_SkipBack, B_HoldUp, B_ResetStick);
+                    SetControlEnabledState(true, B_CancelSkip);
+                    skipPause = false;
+                    var skips = uint.Parse(TB_Skips.Text);
+                    for (var i = 0; i < skips && !skipPause; i++)
+                    {
+
+                        SetButtonText($"{i + 1}", B_SkipBack);
+                        await ConnectionWrapper.DaySkipBack(AdvanceSource.Token).ConfigureAwait(false);
+                        await Task.Delay(360, AdvanceSource.Token);
+                    }
+                    SetButtonText("Days-", B_SkipBack);
+                    SetControlEnabledState(true, B_SkipAdvance, B_SkipForward, B_SkipBack, B_HoldUp, B_ResetStick);
+                    SetControlEnabledState(false, B_CancelSkip);
+                }
+                catch (Exception ex)
+                {
+                    SetControlEnabledState(true, B_SkipAdvance, B_SkipForward, B_SkipBack, B_HoldUp, B_ResetStick);
+                    SetControlEnabledState(false, B_CancelSkip);
+                    this.DisplayMessageBox(ex.Message);
+                }
+            }
         );
     }
     #endregion
@@ -783,7 +937,7 @@ public partial class MainWindow : Form
             {
                 try
                 {
-                    pause = true;
+                    readPause = true;
                     await Task.Delay(100, Source.Token);
 
                     var DexRec = await ConnectionWrapper.ReadDexRecommendation(Source.Token).ConfigureAwait(false);
@@ -793,11 +947,11 @@ public partial class MainWindow : Form
                     SetComboBoxSelectedIndex(CB_DexRec3.Items.IndexOf(GetDexRecommendation(DexRec[2])), CB_DexRec3);
                     SetComboBoxSelectedIndex(CB_DexRec4.Items.IndexOf(GetDexRecommendation(DexRec[3])), CB_DexRec4);
 
-                    pause = false;
+                    readPause = false;
                 }
                 catch (Exception ex)
                 {
-                    pause = false;
+                    readPause = false;
                     this.DisplayMessageBox($"Error occurred while reading Pokédex Recommendations: {ex.Message}");
                     return;
                 }
@@ -812,11 +966,11 @@ public partial class MainWindow : Form
             {
                 try
                 {
-                    pause = true;
+                    readPause = true;
                     await Task.Delay(100, Source.Token);
                     SetTextBoxText("Reading encounter...", TB_Wild);
                     var pk = await ConnectionWrapper.ReadWildPokemon(Source.Token);
-                    if (pk.Valid)
+                    if (pk.Valid && pk.Species > 0)
                     {
                         bool HasRibbon = Utils.HasMark(pk, out RibbonIndex mark);
 
@@ -853,20 +1007,20 @@ public partial class MainWindow : Form
 
                         string output = $"{shiny}{(Species)pk.Species}{form}{gender}{item}{n}EC: {pk.EncryptionConstant:X8}{n}PID: {pk.PID:X8}{n}{Strings.Natures[(int)pk.Nature]} Nature{n}Ability: {Strings.Ability[pk.Ability]}{n}IVs: {pk.IV_HP}/{pk.IV_ATK}/{pk.IV_DEF}/{pk.IV_SPA}/{pk.IV_SPD}/{pk.IV_SPE}{n}{scale}{markString}{moves}";
 
-                        pause = false;
+                        readPause = false;
                         SetPictureBoxImage(pk.Sprite(), PB_PokemonSprite);
                         SetTextBoxText(output, TB_Wild);
                     }
                     else
                     {
-                        pause = false;
+                        readPause = false;
                         PB_PokemonSprite.Image = null;
                         SetTextBoxText("No encounter present.", TB_Wild);
                     }
                 }
                 catch (Exception ex)
                 {
-                    pause = false;
+                    readPause = false;
                     PB_PokemonSprite.Image = null;
                     SetTextBoxText(string.Empty, TB_Wild);
                     this.DisplayMessageBox(ex.Message);
@@ -979,6 +1133,20 @@ public partial class MainWindow : Form
                 Invoke(() => tb.Text = text);
             }
             else tb.Text = text;
+        }
+    }
+
+    public void SetButtonText(string text, params object[] obj)
+    {
+        foreach (object o in obj)
+        {
+            if (o is not Button b)
+                continue;
+            if (InvokeRequired)
+            {
+                Invoke(() => b.Text = text);
+            }
+            else b.Text = text;
         }
     }
 
