@@ -40,4 +40,7 @@
       <HintPath>Connection\deps\SysBot.Base.dll</HintPath>
     </Reference>
   </ItemGroup>
+  <ItemGroup>
+    <Folder Include="RNG\Generators\Item\" />
+  </ItemGroup>
 </Project>
