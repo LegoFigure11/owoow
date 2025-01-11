@@ -1238,7 +1238,7 @@ public partial class MainWindow : Form
         SetControlEnabledState(((CheckBox)sender).Checked && CB_ConsiderFlying.Checked, L_RainFly, NUD_RainFly);
     }
 
-    private readonly static Font BoldFont = new Font("Microsoft Sans Serif", 8, FontStyle.Bold);
+    private readonly static Font BoldFont = new("Microsoft Sans Serif", 8, FontStyle.Bold);
     private void DGV_Results_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
     {
         var index = e.RowIndex;
@@ -1250,7 +1250,7 @@ public partial class MainWindow : Form
         else if (result.Shiny is "Star") row.DefaultCellStyle.BackColor = Color.Aqua;
         else if (result.Step == 1) row.DefaultCellStyle.BackColor = Color.Honeydew;
         else if (result.Brilliant == 'Y') row.DefaultCellStyle.BackColor = Color.PapayaWhip;
-        else row.DefaultCellStyle.BackColor = Color.White;
+        else row.DefaultCellStyle.BackColor = row.Index % 2 == 0 ? Color.White : Color.WhiteSmoke;
 
         var iv = 11;
         byte[] ivs = [result.H, result.A, result.B, result.C, result.D, result.S];
