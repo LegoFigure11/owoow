@@ -27,13 +27,15 @@ public partial class MainWindow : Form
 
     private readonly GameStrings Strings = GameInfo.GetStrings(1);
 
-    bool stop;
-    bool reset;
-    bool readPause = false;
-    bool skipPause = false;
-    long total;
+    private bool stop;
+    private bool reset;
+    private bool readPause = false;
+    private bool skipPause = false;
+    private long total;
 
-    List<Frame> Frames = [];
+    private List<Frame> Frames = [];
+
+    private PK8? CachedEncounter;
 
     public MainWindow()
     {
@@ -973,6 +975,7 @@ public partial class MainWindow : Form
                     var pk = await ConnectionWrapper.ReadWildPokemon(Source.Token);
                     if (pk.Valid && pk.Species > 0)
                     {
+                        CachedEncounter = pk;
                         bool HasRibbon = Utils.HasMark(pk, out RibbonIndex mark);
 
                         var n = Environment.NewLine;
@@ -1012,25 +1015,43 @@ public partial class MainWindow : Form
                         SetPictureBoxImage(pk.Sprite(), PB_PokemonSprite);
                         if (HasRibbon) SetPictureBoxImage(RibbonSpriteUtil.GetRibbonSprite(mark)!, PB_MarkSprite);
                         SetTextBoxText(output, TB_Wild);
+                        SetControlEnabledState(true, B_CopyToFilter);
                     }
                     else
                     {
                         readPause = false;
+                        CachedEncounter = null;
                         PB_PokemonSprite.Image = null;
                         PB_MarkSprite.Image = null;
                         SetTextBoxText("No encounter present.", TB_Wild);
+                        SetControlEnabledState(false, B_CopyToFilter);
                     }
                 }
                 catch (Exception ex)
                 {
                     readPause = false;
+                    CachedEncounter = null;
                     PB_PokemonSprite.Image = null;
                     PB_MarkSprite.Image = null;
                     SetTextBoxText(string.Empty, TB_Wild);
+                    SetControlEnabledState(false, B_CopyToFilter);
                     this.DisplayMessageBox(ex.Message);
                 }
             }
         );
+    }
+
+    private void B_CopyToFilter_Click(object sender, EventArgs e)
+    {
+        if (CachedEncounter is not null)
+        {
+            SetNUDValue(CachedEncounter.IV_HP, NUD_HP_Min, NUD_HP_Max);
+            SetNUDValue(CachedEncounter.IV_ATK, NUD_Atk_Min, NUD_Atk_Max);
+            SetNUDValue(CachedEncounter.IV_DEF, NUD_Def_Min, NUD_Def_Max);
+            SetNUDValue(CachedEncounter.IV_SPA, NUD_SpA_Min, NUD_SpA_Max);
+            SetNUDValue(CachedEncounter.IV_SPD, NUD_SpD_Min, NUD_SpD_Max);
+            SetNUDValue(CachedEncounter.IV_SPE, NUD_Spe_Min, NUD_Spe_Max);
+        }
     }
 
     private void TC_EncounterType_SelectedIndexChanged(object sender, EventArgs e)

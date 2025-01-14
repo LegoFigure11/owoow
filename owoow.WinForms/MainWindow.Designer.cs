@@ -32,53 +32,6 @@
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainWindow));
             GB_SeedControlsContainer = new GroupBox();
-            GB_SwitchControls = new GroupBox();
-            B_CancelSkip = new Button();
-            B_ResetStick = new Button();
-            B_HoldUp = new Button();
-            TB_Skips = new TextBox();
-            B_NTP = new Button();
-            B_SkipAdvance = new Button();
-            B_SkipBack = new Button();
-            B_SkipForward = new Button();
-            L_Skip = new Label();
-            GB_SeedSearch = new GroupBox();
-            B_SeedSearch_Settings = new Button();
-            B_SeedSearch = new Button();
-            GB_Retail = new GroupBox();
-            L_RetailAdvances = new Label();
-            TB_RetailAdvances = new TextBox();
-            B_RetailUpdateSeeds = new Button();
-            L_Animations = new Label();
-            TB_Animations = new TextBox();
-            B_GenerateRetailPattern = new Button();
-            TB_RetailRange = new TextBox();
-            L_RetailRange = new Label();
-            B_RetailSeedFinder = new Button();
-            P_EncounterSettings = new Panel();
-            GB_DexRec = new GroupBox();
-            B_RefreshDexRec = new Button();
-            CB_DexRec4 = new ComboBox();
-            CB_DexRec3 = new ComboBox();
-            CB_DexRec2 = new ComboBox();
-            CB_DexRec1 = new ComboBox();
-            GB_Advanced = new GroupBox();
-            L_FlyNPCs = new Label();
-            NUD_FlyNPCs = new NumericUpDown();
-            B_CalculateRain = new Button();
-            L_RainEncounter = new Label();
-            NUD_RainEncounter = new NumericUpDown();
-            L_RainFly = new Label();
-            NUD_RainFly = new NumericUpDown();
-            L_AreaLoad = new Label();
-            NUD_AreaLoad = new NumericUpDown();
-            CB_ConsiderFlying = new CheckBox();
-            CB_ConsiderRain = new CheckBox();
-            GB_WildView = new GroupBox();
-            PB_MarkSprite = new PictureBox();
-            PB_PokemonSprite = new PictureBox();
-            B_ReadEncounter = new Button();
-            TB_Wild = new TextBox();
             GB_Filters = new GroupBox();
             CB_EnableFilters = new CheckBox();
             L_Filter_Height = new Label();
@@ -125,6 +78,54 @@
             L_HPSpacer = new Label();
             NUD_HP_Max = new NumericUpDown();
             NUD_HP_Min = new NumericUpDown();
+            GB_SwitchControls = new GroupBox();
+            B_CancelSkip = new Button();
+            B_ResetStick = new Button();
+            B_HoldUp = new Button();
+            TB_Skips = new TextBox();
+            B_NTP = new Button();
+            B_SkipAdvance = new Button();
+            B_SkipBack = new Button();
+            B_SkipForward = new Button();
+            L_Skip = new Label();
+            GB_SeedSearch = new GroupBox();
+            B_SeedSearch_Settings = new Button();
+            B_SeedSearch = new Button();
+            GB_Retail = new GroupBox();
+            L_RetailAdvances = new Label();
+            TB_RetailAdvances = new TextBox();
+            B_RetailUpdateSeeds = new Button();
+            L_Animations = new Label();
+            TB_Animations = new TextBox();
+            B_GenerateRetailPattern = new Button();
+            TB_RetailRange = new TextBox();
+            L_RetailRange = new Label();
+            B_RetailSeedFinder = new Button();
+            P_EncounterSettings = new Panel();
+            GB_DexRec = new GroupBox();
+            B_RefreshDexRec = new Button();
+            CB_DexRec4 = new ComboBox();
+            CB_DexRec3 = new ComboBox();
+            CB_DexRec2 = new ComboBox();
+            CB_DexRec1 = new ComboBox();
+            GB_Advanced = new GroupBox();
+            L_FlyNPCs = new Label();
+            NUD_FlyNPCs = new NumericUpDown();
+            B_CalculateRain = new Button();
+            L_RainEncounter = new Label();
+            NUD_RainEncounter = new NumericUpDown();
+            L_RainFly = new Label();
+            NUD_RainFly = new NumericUpDown();
+            L_AreaLoad = new Label();
+            NUD_AreaLoad = new NumericUpDown();
+            CB_ConsiderFlying = new CheckBox();
+            CB_ConsiderRain = new CheckBox();
+            GB_WildView = new GroupBox();
+            B_ReadEncounter = new Button();
+            PB_MarkSprite = new PictureBox();
+            PB_PokemonSprite = new PictureBox();
+            B_CopyToFilter = new Button();
+            TB_Wild = new TextBox();
             TC_EncounterType = new TabControl();
             TP_Static = new TabPage();
             B_Static_MenuClose = new Button();
@@ -253,19 +254,6 @@
             TSMI_DiggingPa = new ToolStripMenuItem();
             TSMI_WailordRespawn = new ToolStripMenuItem();
             GB_SeedControlsContainer.SuspendLayout();
-            GB_SwitchControls.SuspendLayout();
-            GB_SeedSearch.SuspendLayout();
-            GB_Retail.SuspendLayout();
-            P_EncounterSettings.SuspendLayout();
-            GB_DexRec.SuspendLayout();
-            GB_Advanced.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)NUD_FlyNPCs).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)NUD_RainEncounter).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)NUD_RainFly).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)NUD_AreaLoad).BeginInit();
-            GB_WildView.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)PB_MarkSprite).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)PB_PokemonSprite).BeginInit();
             GB_Filters.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)NUD_Spe_Max).BeginInit();
             ((System.ComponentModel.ISupportInitialize)NUD_Spe_Min).BeginInit();
@@ -279,6 +267,19 @@
             ((System.ComponentModel.ISupportInitialize)NUD_Atk_Min).BeginInit();
             ((System.ComponentModel.ISupportInitialize)NUD_HP_Max).BeginInit();
             ((System.ComponentModel.ISupportInitialize)NUD_HP_Min).BeginInit();
+            GB_SwitchControls.SuspendLayout();
+            GB_SeedSearch.SuspendLayout();
+            GB_Retail.SuspendLayout();
+            P_EncounterSettings.SuspendLayout();
+            GB_DexRec.SuspendLayout();
+            GB_Advanced.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)NUD_FlyNPCs).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)NUD_RainEncounter).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)NUD_RainFly).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)NUD_AreaLoad).BeginInit();
+            GB_WildView.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)PB_MarkSprite).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)PB_PokemonSprite).BeginInit();
             TC_EncounterType.SuspendLayout();
             TP_Static.SuspendLayout();
             GB_Static_EncounterSettings.SuspendLayout();
@@ -296,12 +297,12 @@
             // 
             // GB_SeedControlsContainer
             // 
+            GB_SeedControlsContainer.Controls.Add(GB_Filters);
             GB_SeedControlsContainer.Controls.Add(GB_SwitchControls);
             GB_SeedControlsContainer.Controls.Add(GB_SeedSearch);
             GB_SeedControlsContainer.Controls.Add(GB_Retail);
             GB_SeedControlsContainer.Controls.Add(P_EncounterSettings);
             GB_SeedControlsContainer.Controls.Add(GB_WildView);
-            GB_SeedControlsContainer.Controls.Add(GB_Filters);
             GB_SeedControlsContainer.Controls.Add(TC_EncounterType);
             GB_SeedControlsContainer.Controls.Add(GB_Seed);
             GB_SeedControlsContainer.Controls.Add(GB_Connection);
@@ -309,507 +310,9 @@
             GB_SeedControlsContainer.Location = new Point(0, 24);
             GB_SeedControlsContainer.Name = "GB_SeedControlsContainer";
             GB_SeedControlsContainer.RightToLeft = RightToLeft.No;
-            GB_SeedControlsContainer.Size = new Size(1315, 321);
+            GB_SeedControlsContainer.Size = new Size(1290, 321);
             GB_SeedControlsContainer.TabIndex = 11;
             GB_SeedControlsContainer.TabStop = false;
-            // 
-            // GB_SwitchControls
-            // 
-            GB_SwitchControls.Controls.Add(B_CancelSkip);
-            GB_SwitchControls.Controls.Add(B_ResetStick);
-            GB_SwitchControls.Controls.Add(B_HoldUp);
-            GB_SwitchControls.Controls.Add(TB_Skips);
-            GB_SwitchControls.Controls.Add(B_NTP);
-            GB_SwitchControls.Controls.Add(B_SkipAdvance);
-            GB_SwitchControls.Controls.Add(B_SkipBack);
-            GB_SwitchControls.Controls.Add(B_SkipForward);
-            GB_SwitchControls.Controls.Add(L_Skip);
-            GB_SwitchControls.Enabled = false;
-            GB_SwitchControls.Location = new Point(1103, 9);
-            GB_SwitchControls.Name = "GB_SwitchControls";
-            GB_SwitchControls.Size = new Size(212, 105);
-            GB_SwitchControls.TabIndex = 25;
-            GB_SwitchControls.TabStop = false;
-            GB_SwitchControls.Text = "CFW Tools";
-            // 
-            // B_CancelSkip
-            // 
-            B_CancelSkip.Enabled = false;
-            B_CancelSkip.Location = new Point(107, 19);
-            B_CancelSkip.Name = "B_CancelSkip";
-            B_CancelSkip.Size = new Size(98, 25);
-            B_CancelSkip.TabIndex = 12;
-            B_CancelSkip.Text = "Cancel";
-            B_CancelSkip.UseVisualStyleBackColor = true;
-            B_CancelSkip.Click += B_CancelSkip_Click;
-            // 
-            // B_ResetStick
-            // 
-            B_ResetStick.Location = new Point(107, 73);
-            B_ResetStick.Name = "B_ResetStick";
-            B_ResetStick.Size = new Size(98, 25);
-            B_ResetStick.TabIndex = 11;
-            B_ResetStick.Text = "Reset Stick";
-            B_ResetStick.UseVisualStyleBackColor = true;
-            B_ResetStick.Click += B_ResetStick_Click;
-            // 
-            // B_HoldUp
-            // 
-            B_HoldUp.Location = new Point(7, 73);
-            B_HoldUp.Name = "B_HoldUp";
-            B_HoldUp.Size = new Size(98, 25);
-            B_HoldUp.TabIndex = 10;
-            B_HoldUp.Text = "Hold Up";
-            B_HoldUp.UseVisualStyleBackColor = true;
-            B_HoldUp.Click += B_HoldUp_Click;
-            // 
-            // TB_Skips
-            // 
-            TB_Skips.CharacterCasing = CharacterCasing.Upper;
-            TB_Skips.Font = new Font("Consolas", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            TB_Skips.Location = new Point(57, 20);
-            TB_Skips.MaxLength = 5;
-            TB_Skips.Name = "TB_Skips";
-            TB_Skips.Size = new Size(48, 22);
-            TB_Skips.TabIndex = 9;
-            TB_Skips.Text = "100";
-            TB_Skips.TextAlign = HorizontalAlignment.Right;
-            // 
-            // B_NTP
-            // 
-            B_NTP.Location = new Point(157, 46);
-            B_NTP.Name = "B_NTP";
-            B_NTP.Size = new Size(48, 25);
-            B_NTP.TabIndex = 6;
-            B_NTP.Text = "NTP";
-            B_NTP.UseVisualStyleBackColor = true;
-            B_NTP.Click += B_NTP_Click;
-            // 
-            // B_SkipAdvance
-            // 
-            B_SkipAdvance.Location = new Point(107, 46);
-            B_SkipAdvance.Name = "B_SkipAdvance";
-            B_SkipAdvance.Size = new Size(48, 25);
-            B_SkipAdvance.TabIndex = 5;
-            B_SkipAdvance.Text = "Adv.";
-            B_SkipAdvance.UseVisualStyleBackColor = true;
-            B_SkipAdvance.Click += B_SkipAdvance_Click;
-            // 
-            // B_SkipBack
-            // 
-            B_SkipBack.Location = new Point(57, 46);
-            B_SkipBack.Name = "B_SkipBack";
-            B_SkipBack.Size = new Size(48, 25);
-            B_SkipBack.TabIndex = 2;
-            B_SkipBack.Text = "Days-";
-            B_SkipBack.UseVisualStyleBackColor = true;
-            B_SkipBack.Click += B_SkipBack_Click;
-            // 
-            // B_SkipForward
-            // 
-            B_SkipForward.Location = new Point(7, 46);
-            B_SkipForward.Name = "B_SkipForward";
-            B_SkipForward.Size = new Size(48, 25);
-            B_SkipForward.TabIndex = 1;
-            B_SkipForward.Text = "Days+";
-            B_SkipForward.UseVisualStyleBackColor = true;
-            B_SkipForward.Click += B_SkipForward_Click;
-            // 
-            // L_Skip
-            // 
-            L_Skip.AutoSize = true;
-            L_Skip.Location = new Point(19, 22);
-            L_Skip.Name = "L_Skip";
-            L_Skip.Size = new Size(32, 15);
-            L_Skip.TabIndex = 0;
-            L_Skip.Text = "Skip:";
-            // 
-            // GB_SeedSearch
-            // 
-            GB_SeedSearch.Controls.Add(B_SeedSearch_Settings);
-            GB_SeedSearch.Controls.Add(B_SeedSearch);
-            GB_SeedSearch.Location = new Point(1103, 98);
-            GB_SeedSearch.Name = "GB_SeedSearch";
-            GB_SeedSearch.Size = new Size(212, 81);
-            GB_SeedSearch.TabIndex = 27;
-            GB_SeedSearch.TabStop = false;
-            // 
-            // B_SeedSearch_Settings
-            // 
-            B_SeedSearch_Settings.Enabled = false;
-            B_SeedSearch_Settings.Location = new Point(7, 48);
-            B_SeedSearch_Settings.Name = "B_SeedSearch_Settings";
-            B_SeedSearch_Settings.Size = new Size(198, 25);
-            B_SeedSearch_Settings.TabIndex = 22;
-            B_SeedSearch_Settings.Text = "Seed Reset Settings";
-            B_SeedSearch_Settings.UseVisualStyleBackColor = true;
-            // 
-            // B_SeedSearch
-            // 
-            B_SeedSearch.Enabled = false;
-            B_SeedSearch.Location = new Point(7, 21);
-            B_SeedSearch.Name = "B_SeedSearch";
-            B_SeedSearch.Size = new Size(198, 25);
-            B_SeedSearch.TabIndex = 21;
-            B_SeedSearch.Text = "Reset for Seed";
-            B_SeedSearch.UseVisualStyleBackColor = true;
-            // 
-            // GB_Retail
-            // 
-            GB_Retail.Controls.Add(L_RetailAdvances);
-            GB_Retail.Controls.Add(TB_RetailAdvances);
-            GB_Retail.Controls.Add(B_RetailUpdateSeeds);
-            GB_Retail.Controls.Add(L_Animations);
-            GB_Retail.Controls.Add(TB_Animations);
-            GB_Retail.Controls.Add(B_GenerateRetailPattern);
-            GB_Retail.Controls.Add(TB_RetailRange);
-            GB_Retail.Controls.Add(L_RetailRange);
-            GB_Retail.Controls.Add(B_RetailSeedFinder);
-            GB_Retail.Location = new Point(1103, 177);
-            GB_Retail.Name = "GB_Retail";
-            GB_Retail.Size = new Size(212, 144);
-            GB_Retail.TabIndex = 29;
-            GB_Retail.TabStop = false;
-            GB_Retail.Text = "Retail Tools";
-            // 
-            // L_RetailAdvances
-            // 
-            L_RetailAdvances.AutoSize = true;
-            L_RetailAdvances.Location = new Point(16, 94);
-            L_RetailAdvances.Name = "L_RetailAdvances";
-            L_RetailAdvances.Size = new Size(34, 15);
-            L_RetailAdvances.TabIndex = 38;
-            L_RetailAdvances.Text = "Adv.:";
-            // 
-            // TB_RetailAdvances
-            // 
-            TB_RetailAdvances.CharacterCasing = CharacterCasing.Upper;
-            TB_RetailAdvances.Font = new Font("Consolas", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            TB_RetailAdvances.Location = new Point(57, 92);
-            TB_RetailAdvances.MaxLength = 5;
-            TB_RetailAdvances.Name = "TB_RetailAdvances";
-            TB_RetailAdvances.ReadOnly = true;
-            TB_RetailAdvances.Size = new Size(148, 22);
-            TB_RetailAdvances.TabIndex = 37;
-            // 
-            // B_RetailUpdateSeeds
-            // 
-            B_RetailUpdateSeeds.Enabled = false;
-            B_RetailUpdateSeeds.Location = new Point(9, 116);
-            B_RetailUpdateSeeds.Name = "B_RetailUpdateSeeds";
-            B_RetailUpdateSeeds.Size = new Size(196, 25);
-            B_RetailUpdateSeeds.TabIndex = 36;
-            B_RetailUpdateSeeds.Text = "Update Seeds";
-            B_RetailUpdateSeeds.UseVisualStyleBackColor = true;
-            B_RetailUpdateSeeds.Click += B_CopyToInitial_Click;
-            // 
-            // L_Animations
-            // 
-            L_Animations.AutoSize = true;
-            L_Animations.Location = new Point(8, 70);
-            L_Animations.Name = "L_Animations";
-            L_Animations.Size = new Size(42, 15);
-            L_Animations.TabIndex = 33;
-            L_Animations.Text = "Anim.:";
-            // 
-            // TB_Animations
-            // 
-            TB_Animations.CharacterCasing = CharacterCasing.Upper;
-            TB_Animations.Font = new Font("Consolas", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            TB_Animations.Location = new Point(57, 68);
-            TB_Animations.MaxLength = 5;
-            TB_Animations.Name = "TB_Animations";
-            TB_Animations.Size = new Size(148, 22);
-            TB_Animations.TabIndex = 32;
-            // 
-            // B_GenerateRetailPattern
-            // 
-            B_GenerateRetailPattern.Location = new Point(107, 42);
-            B_GenerateRetailPattern.Name = "B_GenerateRetailPattern";
-            B_GenerateRetailPattern.Size = new Size(98, 25);
-            B_GenerateRetailPattern.TabIndex = 30;
-            B_GenerateRetailPattern.Text = "Generate";
-            B_GenerateRetailPattern.UseVisualStyleBackColor = true;
-            // 
-            // TB_RetailRange
-            // 
-            TB_RetailRange.CharacterCasing = CharacterCasing.Upper;
-            TB_RetailRange.Font = new Font("Consolas", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            TB_RetailRange.Location = new Point(57, 42);
-            TB_RetailRange.MaxLength = 5;
-            TB_RetailRange.Name = "TB_RetailRange";
-            TB_RetailRange.Size = new Size(48, 22);
-            TB_RetailRange.TabIndex = 29;
-            TB_RetailRange.Text = "10000";
-            TB_RetailRange.TextAlign = HorizontalAlignment.Right;
-            // 
-            // L_RetailRange
-            // 
-            L_RetailRange.AutoSize = true;
-            L_RetailRange.Location = new Point(8, 44);
-            L_RetailRange.Name = "L_RetailRange";
-            L_RetailRange.Size = new Size(43, 15);
-            L_RetailRange.TabIndex = 28;
-            L_RetailRange.Text = "Range:";
-            // 
-            // B_RetailSeedFinder
-            // 
-            B_RetailSeedFinder.Location = new Point(7, 14);
-            B_RetailSeedFinder.Name = "B_RetailSeedFinder";
-            B_RetailSeedFinder.Size = new Size(198, 25);
-            B_RetailSeedFinder.TabIndex = 27;
-            B_RetailSeedFinder.Text = "Retail Seed Finder";
-            B_RetailSeedFinder.UseVisualStyleBackColor = true;
-            // 
-            // P_EncounterSettings
-            // 
-            P_EncounterSettings.Controls.Add(GB_DexRec);
-            P_EncounterSettings.Controls.Add(GB_Advanced);
-            P_EncounterSettings.Location = new Point(482, 9);
-            P_EncounterSettings.Name = "P_EncounterSettings";
-            P_EncounterSettings.Size = new Size(212, 308);
-            P_EncounterSettings.TabIndex = 28;
-            // 
-            // GB_DexRec
-            // 
-            GB_DexRec.Controls.Add(B_RefreshDexRec);
-            GB_DexRec.Controls.Add(CB_DexRec4);
-            GB_DexRec.Controls.Add(CB_DexRec3);
-            GB_DexRec.Controls.Add(CB_DexRec2);
-            GB_DexRec.Controls.Add(CB_DexRec1);
-            GB_DexRec.Location = new Point(1, -2);
-            GB_DexRec.Name = "GB_DexRec";
-            GB_DexRec.Size = new Size(212, 150);
-            GB_DexRec.TabIndex = 55;
-            GB_DexRec.TabStop = false;
-            GB_DexRec.Text = "Pokédex Recommendation";
-            // 
-            // B_RefreshDexRec
-            // 
-            B_RefreshDexRec.Enabled = false;
-            B_RefreshDexRec.Location = new Point(6, 121);
-            B_RefreshDexRec.Name = "B_RefreshDexRec";
-            B_RefreshDexRec.Size = new Size(199, 25);
-            B_RefreshDexRec.TabIndex = 28;
-            B_RefreshDexRec.Text = "Refresh";
-            B_RefreshDexRec.UseVisualStyleBackColor = true;
-            B_RefreshDexRec.Click += B_RefreshDexRec_Click;
-            // 
-            // CB_DexRec4
-            // 
-            CB_DexRec4.FormattingEnabled = true;
-            CB_DexRec4.Location = new Point(6, 96);
-            CB_DexRec4.Name = "CB_DexRec4";
-            CB_DexRec4.Size = new Size(199, 23);
-            CB_DexRec4.TabIndex = 27;
-            CB_DexRec4.Text = "WWWWWWWWWWWW";
-            // 
-            // CB_DexRec3
-            // 
-            CB_DexRec3.FormattingEnabled = true;
-            CB_DexRec3.Location = new Point(6, 71);
-            CB_DexRec3.Name = "CB_DexRec3";
-            CB_DexRec3.Size = new Size(199, 23);
-            CB_DexRec3.TabIndex = 25;
-            CB_DexRec3.Text = "WWWWWWWWWWWW";
-            // 
-            // CB_DexRec2
-            // 
-            CB_DexRec2.FormattingEnabled = true;
-            CB_DexRec2.Location = new Point(6, 46);
-            CB_DexRec2.Name = "CB_DexRec2";
-            CB_DexRec2.Size = new Size(199, 23);
-            CB_DexRec2.TabIndex = 23;
-            CB_DexRec2.Text = "WWWWWWWWWWWW";
-            // 
-            // CB_DexRec1
-            // 
-            CB_DexRec1.FormattingEnabled = true;
-            CB_DexRec1.Location = new Point(6, 21);
-            CB_DexRec1.Name = "CB_DexRec1";
-            CB_DexRec1.Size = new Size(199, 23);
-            CB_DexRec1.TabIndex = 21;
-            CB_DexRec1.Text = "WWWWWWWWWWWW";
-            // 
-            // GB_Advanced
-            // 
-            GB_Advanced.Controls.Add(L_FlyNPCs);
-            GB_Advanced.Controls.Add(NUD_FlyNPCs);
-            GB_Advanced.Controls.Add(B_CalculateRain);
-            GB_Advanced.Controls.Add(L_RainEncounter);
-            GB_Advanced.Controls.Add(NUD_RainEncounter);
-            GB_Advanced.Controls.Add(L_RainFly);
-            GB_Advanced.Controls.Add(NUD_RainFly);
-            GB_Advanced.Controls.Add(L_AreaLoad);
-            GB_Advanced.Controls.Add(NUD_AreaLoad);
-            GB_Advanced.Controls.Add(CB_ConsiderFlying);
-            GB_Advanced.Controls.Add(CB_ConsiderRain);
-            GB_Advanced.Location = new Point(1, 148);
-            GB_Advanced.Name = "GB_Advanced";
-            GB_Advanced.Size = new Size(212, 162);
-            GB_Advanced.TabIndex = 56;
-            GB_Advanced.TabStop = false;
-            GB_Advanced.Text = "Advanced Settings";
-            // 
-            // L_FlyNPCs
-            // 
-            L_FlyNPCs.AutoSize = true;
-            L_FlyNPCs.Enabled = false;
-            L_FlyNPCs.Location = new Point(24, 65);
-            L_FlyNPCs.Name = "L_FlyNPCs";
-            L_FlyNPCs.Size = new Size(57, 15);
-            L_FlyNPCs.TabIndex = 19;
-            L_FlyNPCs.Text = "Fly NPCs:";
-            // 
-            // NUD_FlyNPCs
-            // 
-            NUD_FlyNPCs.Enabled = false;
-            NUD_FlyNPCs.Location = new Point(87, 63);
-            NUD_FlyNPCs.Maximum = new decimal(new int[] { 999, 0, 0, 0 });
-            NUD_FlyNPCs.Name = "NUD_FlyNPCs";
-            NUD_FlyNPCs.Size = new Size(39, 23);
-            NUD_FlyNPCs.TabIndex = 18;
-            // 
-            // B_CalculateRain
-            // 
-            B_CalculateRain.Enabled = false;
-            B_CalculateRain.Location = new Point(131, 136);
-            B_CalculateRain.Name = "B_CalculateRain";
-            B_CalculateRain.Size = new Size(74, 25);
-            B_CalculateRain.TabIndex = 16;
-            B_CalculateRain.Text = "Calculate";
-            B_CalculateRain.UseVisualStyleBackColor = true;
-            B_CalculateRain.Click += B_CalculateRain_Click;
-            // 
-            // L_RainEncounter
-            // 
-            L_RainEncounter.AutoSize = true;
-            L_RainEncounter.Enabled = false;
-            L_RainEncounter.Location = new Point(16, 140);
-            L_RainEncounter.Name = "L_RainEncounter";
-            L_RainEncounter.Size = new Size(64, 15);
-            L_RainEncounter.TabIndex = 15;
-            L_RainEncounter.Text = "Encounter:";
-            // 
-            // NUD_RainEncounter
-            // 
-            NUD_RainEncounter.Enabled = false;
-            NUD_RainEncounter.Location = new Point(86, 136);
-            NUD_RainEncounter.Maximum = new decimal(new int[] { 999, 0, 0, 0 });
-            NUD_RainEncounter.Name = "NUD_RainEncounter";
-            NUD_RainEncounter.Size = new Size(39, 23);
-            NUD_RainEncounter.TabIndex = 14;
-            // 
-            // L_RainFly
-            // 
-            L_RainFly.AutoSize = true;
-            L_RainFly.Enabled = false;
-            L_RainFly.Location = new Point(5, 113);
-            L_RainFly.Name = "L_RainFly";
-            L_RainFly.Size = new Size(75, 15);
-            L_RainFly.TabIndex = 12;
-            L_RainFly.Text = "During Load:";
-            // 
-            // NUD_RainFly
-            // 
-            NUD_RainFly.Enabled = false;
-            NUD_RainFly.Location = new Point(86, 111);
-            NUD_RainFly.Maximum = new decimal(new int[] { 999, 0, 0, 0 });
-            NUD_RainFly.Name = "NUD_RainFly";
-            NUD_RainFly.Size = new Size(39, 23);
-            NUD_RainFly.TabIndex = 11;
-            // 
-            // L_AreaLoad
-            // 
-            L_AreaLoad.AutoSize = true;
-            L_AreaLoad.Enabled = false;
-            L_AreaLoad.Location = new Point(18, 40);
-            L_AreaLoad.Name = "L_AreaLoad";
-            L_AreaLoad.Size = new Size(63, 15);
-            L_AreaLoad.TabIndex = 6;
-            L_AreaLoad.Text = "Area Load:";
-            // 
-            // NUD_AreaLoad
-            // 
-            NUD_AreaLoad.Enabled = false;
-            NUD_AreaLoad.Location = new Point(87, 38);
-            NUD_AreaLoad.Maximum = new decimal(new int[] { 999, 0, 0, 0 });
-            NUD_AreaLoad.Name = "NUD_AreaLoad";
-            NUD_AreaLoad.Size = new Size(39, 23);
-            NUD_AreaLoad.TabIndex = 5;
-            // 
-            // CB_ConsiderFlying
-            // 
-            CB_ConsiderFlying.AutoSize = true;
-            CB_ConsiderFlying.Location = new Point(6, 16);
-            CB_ConsiderFlying.Name = "CB_ConsiderFlying";
-            CB_ConsiderFlying.Size = new Size(46, 19);
-            CB_ConsiderFlying.TabIndex = 1;
-            CB_ConsiderFlying.Text = "Fly?";
-            CB_ConsiderFlying.UseVisualStyleBackColor = true;
-            CB_ConsiderFlying.CheckedChanged += CB_ConsiderFlying_CheckedChanged;
-            // 
-            // CB_ConsiderRain
-            // 
-            CB_ConsiderRain.AutoSize = true;
-            CB_ConsiderRain.Location = new Point(5, 89);
-            CB_ConsiderRain.Name = "CB_ConsiderRain";
-            CB_ConsiderRain.Size = new Size(168, 19);
-            CB_ConsiderRain.TabIndex = 0;
-            CB_ConsiderRain.Text = "Raining/Thunderstorming?";
-            CB_ConsiderRain.UseVisualStyleBackColor = true;
-            CB_ConsiderRain.CheckedChanged += CB_ConsiderRain_CheckedChanged;
-            // 
-            // GB_WildView
-            // 
-            GB_WildView.Controls.Add(PB_MarkSprite);
-            GB_WildView.Controls.Add(PB_PokemonSprite);
-            GB_WildView.Controls.Add(B_ReadEncounter);
-            GB_WildView.Controls.Add(TB_Wild);
-            GB_WildView.Location = new Point(892, 0);
-            GB_WildView.Name = "GB_WildView";
-            GB_WildView.Size = new Size(212, 321);
-            GB_WildView.TabIndex = 6;
-            GB_WildView.TabStop = false;
-            // 
-            // PB_MarkSprite
-            // 
-            PB_MarkSprite.Location = new Point(138, 225);
-            PB_MarkSprite.Name = "PB_MarkSprite";
-            PB_MarkSprite.Size = new Size(48, 48);
-            PB_MarkSprite.SizeMode = PictureBoxSizeMode.CenterImage;
-            PB_MarkSprite.TabIndex = 22;
-            PB_MarkSprite.TabStop = false;
-            // 
-            // PB_PokemonSprite
-            // 
-            PB_PokemonSprite.Location = new Point(75, 209);
-            PB_PokemonSprite.Name = "PB_PokemonSprite";
-            PB_PokemonSprite.Size = new Size(64, 64);
-            PB_PokemonSprite.SizeMode = PictureBoxSizeMode.CenterImage;
-            PB_PokemonSprite.TabIndex = 21;
-            PB_PokemonSprite.TabStop = false;
-            // 
-            // B_ReadEncounter
-            // 
-            B_ReadEncounter.Enabled = false;
-            B_ReadEncounter.Location = new Point(4, 293);
-            B_ReadEncounter.Name = "B_ReadEncounter";
-            B_ReadEncounter.Size = new Size(204, 25);
-            B_ReadEncounter.TabIndex = 20;
-            B_ReadEncounter.Text = "Read Encounter";
-            B_ReadEncounter.UseVisualStyleBackColor = true;
-            B_ReadEncounter.Click += B_ReadEncounter_Click;
-            // 
-            // TB_Wild
-            // 
-            TB_Wild.Location = new Point(6, 17);
-            TB_Wild.Multiline = true;
-            TB_Wild.Name = "TB_Wild";
-            TB_Wild.ReadOnly = true;
-            TB_Wild.Size = new Size(200, 186);
-            TB_Wild.TabIndex = 0;
-            TB_Wild.Text = "Shiny - Species (Gender) @ Item\r\nEC: WWWWWWWW\r\nPID: WWWWWWWW\r\nWWWWWWW Nature\r\nAbility: WWWWWWWWWW\r\nIVs: 22/22/22/22/22/22\r\nHeight: 255 (XXXL)\r\nMark: WWWWWWWWWW\r\n- Move 1\r\n- Move 2\r\n- Move 3\r\n- Move 4";
             // 
             // GB_Filters
             // 
@@ -858,7 +361,7 @@
             GB_Filters.Controls.Add(L_HPSpacer);
             GB_Filters.Controls.Add(NUD_HP_Max);
             GB_Filters.Controls.Add(NUD_HP_Min);
-            GB_Filters.Location = new Point(694, 0);
+            GB_Filters.Location = new Point(687, 0);
             GB_Filters.Name = "GB_Filters";
             GB_Filters.Size = new Size(199, 321);
             GB_Filters.TabIndex = 5;
@@ -1285,6 +788,517 @@
             NUD_HP_Min.Name = "NUD_HP_Min";
             NUD_HP_Min.Size = new Size(32, 23);
             NUD_HP_Min.TabIndex = 4;
+            // 
+            // GB_SwitchControls
+            // 
+            GB_SwitchControls.Controls.Add(B_CancelSkip);
+            GB_SwitchControls.Controls.Add(B_ResetStick);
+            GB_SwitchControls.Controls.Add(B_HoldUp);
+            GB_SwitchControls.Controls.Add(TB_Skips);
+            GB_SwitchControls.Controls.Add(B_NTP);
+            GB_SwitchControls.Controls.Add(B_SkipAdvance);
+            GB_SwitchControls.Controls.Add(B_SkipBack);
+            GB_SwitchControls.Controls.Add(B_SkipForward);
+            GB_SwitchControls.Controls.Add(L_Skip);
+            GB_SwitchControls.Enabled = false;
+            GB_SwitchControls.Location = new Point(1078, 9);
+            GB_SwitchControls.Name = "GB_SwitchControls";
+            GB_SwitchControls.Size = new Size(212, 105);
+            GB_SwitchControls.TabIndex = 25;
+            GB_SwitchControls.TabStop = false;
+            GB_SwitchControls.Text = "CFW Tools";
+            // 
+            // B_CancelSkip
+            // 
+            B_CancelSkip.Enabled = false;
+            B_CancelSkip.Location = new Point(107, 19);
+            B_CancelSkip.Name = "B_CancelSkip";
+            B_CancelSkip.Size = new Size(98, 25);
+            B_CancelSkip.TabIndex = 12;
+            B_CancelSkip.Text = "Cancel";
+            B_CancelSkip.UseVisualStyleBackColor = true;
+            B_CancelSkip.Click += B_CancelSkip_Click;
+            // 
+            // B_ResetStick
+            // 
+            B_ResetStick.Location = new Point(107, 73);
+            B_ResetStick.Name = "B_ResetStick";
+            B_ResetStick.Size = new Size(98, 25);
+            B_ResetStick.TabIndex = 11;
+            B_ResetStick.Text = "Reset Stick";
+            B_ResetStick.UseVisualStyleBackColor = true;
+            B_ResetStick.Click += B_ResetStick_Click;
+            // 
+            // B_HoldUp
+            // 
+            B_HoldUp.Location = new Point(7, 73);
+            B_HoldUp.Name = "B_HoldUp";
+            B_HoldUp.Size = new Size(98, 25);
+            B_HoldUp.TabIndex = 10;
+            B_HoldUp.Text = "Hold Up";
+            B_HoldUp.UseVisualStyleBackColor = true;
+            B_HoldUp.Click += B_HoldUp_Click;
+            // 
+            // TB_Skips
+            // 
+            TB_Skips.CharacterCasing = CharacterCasing.Upper;
+            TB_Skips.Font = new Font("Consolas", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            TB_Skips.Location = new Point(57, 20);
+            TB_Skips.MaxLength = 5;
+            TB_Skips.Name = "TB_Skips";
+            TB_Skips.Size = new Size(48, 22);
+            TB_Skips.TabIndex = 9;
+            TB_Skips.Text = "100";
+            TB_Skips.TextAlign = HorizontalAlignment.Right;
+            // 
+            // B_NTP
+            // 
+            B_NTP.Location = new Point(157, 46);
+            B_NTP.Name = "B_NTP";
+            B_NTP.Size = new Size(48, 25);
+            B_NTP.TabIndex = 6;
+            B_NTP.Text = "NTP";
+            B_NTP.UseVisualStyleBackColor = true;
+            B_NTP.Click += B_NTP_Click;
+            // 
+            // B_SkipAdvance
+            // 
+            B_SkipAdvance.Location = new Point(107, 46);
+            B_SkipAdvance.Name = "B_SkipAdvance";
+            B_SkipAdvance.Size = new Size(48, 25);
+            B_SkipAdvance.TabIndex = 5;
+            B_SkipAdvance.Text = "Adv.";
+            B_SkipAdvance.UseVisualStyleBackColor = true;
+            B_SkipAdvance.Click += B_SkipAdvance_Click;
+            // 
+            // B_SkipBack
+            // 
+            B_SkipBack.Location = new Point(57, 46);
+            B_SkipBack.Name = "B_SkipBack";
+            B_SkipBack.Size = new Size(48, 25);
+            B_SkipBack.TabIndex = 2;
+            B_SkipBack.Text = "Days-";
+            B_SkipBack.UseVisualStyleBackColor = true;
+            B_SkipBack.Click += B_SkipBack_Click;
+            // 
+            // B_SkipForward
+            // 
+            B_SkipForward.Location = new Point(7, 46);
+            B_SkipForward.Name = "B_SkipForward";
+            B_SkipForward.Size = new Size(48, 25);
+            B_SkipForward.TabIndex = 1;
+            B_SkipForward.Text = "Days+";
+            B_SkipForward.UseVisualStyleBackColor = true;
+            B_SkipForward.Click += B_SkipForward_Click;
+            // 
+            // L_Skip
+            // 
+            L_Skip.AutoSize = true;
+            L_Skip.Location = new Point(19, 22);
+            L_Skip.Name = "L_Skip";
+            L_Skip.Size = new Size(32, 15);
+            L_Skip.TabIndex = 0;
+            L_Skip.Text = "Skip:";
+            // 
+            // GB_SeedSearch
+            // 
+            GB_SeedSearch.Controls.Add(B_SeedSearch_Settings);
+            GB_SeedSearch.Controls.Add(B_SeedSearch);
+            GB_SeedSearch.Location = new Point(1078, 98);
+            GB_SeedSearch.Name = "GB_SeedSearch";
+            GB_SeedSearch.Size = new Size(212, 81);
+            GB_SeedSearch.TabIndex = 27;
+            GB_SeedSearch.TabStop = false;
+            // 
+            // B_SeedSearch_Settings
+            // 
+            B_SeedSearch_Settings.Enabled = false;
+            B_SeedSearch_Settings.Location = new Point(7, 48);
+            B_SeedSearch_Settings.Name = "B_SeedSearch_Settings";
+            B_SeedSearch_Settings.Size = new Size(198, 25);
+            B_SeedSearch_Settings.TabIndex = 22;
+            B_SeedSearch_Settings.Text = "Seed Reset Settings";
+            B_SeedSearch_Settings.UseVisualStyleBackColor = true;
+            // 
+            // B_SeedSearch
+            // 
+            B_SeedSearch.Enabled = false;
+            B_SeedSearch.Location = new Point(7, 21);
+            B_SeedSearch.Name = "B_SeedSearch";
+            B_SeedSearch.Size = new Size(198, 25);
+            B_SeedSearch.TabIndex = 21;
+            B_SeedSearch.Text = "Reset for Seed";
+            B_SeedSearch.UseVisualStyleBackColor = true;
+            // 
+            // GB_Retail
+            // 
+            GB_Retail.Controls.Add(L_RetailAdvances);
+            GB_Retail.Controls.Add(TB_RetailAdvances);
+            GB_Retail.Controls.Add(B_RetailUpdateSeeds);
+            GB_Retail.Controls.Add(L_Animations);
+            GB_Retail.Controls.Add(TB_Animations);
+            GB_Retail.Controls.Add(B_GenerateRetailPattern);
+            GB_Retail.Controls.Add(TB_RetailRange);
+            GB_Retail.Controls.Add(L_RetailRange);
+            GB_Retail.Controls.Add(B_RetailSeedFinder);
+            GB_Retail.Enabled = false;
+            GB_Retail.Location = new Point(1078, 177);
+            GB_Retail.Name = "GB_Retail";
+            GB_Retail.Size = new Size(212, 144);
+            GB_Retail.TabIndex = 29;
+            GB_Retail.TabStop = false;
+            GB_Retail.Text = "Retail Tools";
+            // 
+            // L_RetailAdvances
+            // 
+            L_RetailAdvances.AutoSize = true;
+            L_RetailAdvances.Location = new Point(16, 94);
+            L_RetailAdvances.Name = "L_RetailAdvances";
+            L_RetailAdvances.Size = new Size(34, 15);
+            L_RetailAdvances.TabIndex = 38;
+            L_RetailAdvances.Text = "Adv.:";
+            // 
+            // TB_RetailAdvances
+            // 
+            TB_RetailAdvances.CharacterCasing = CharacterCasing.Upper;
+            TB_RetailAdvances.Font = new Font("Consolas", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            TB_RetailAdvances.Location = new Point(57, 92);
+            TB_RetailAdvances.MaxLength = 5;
+            TB_RetailAdvances.Name = "TB_RetailAdvances";
+            TB_RetailAdvances.ReadOnly = true;
+            TB_RetailAdvances.Size = new Size(148, 22);
+            TB_RetailAdvances.TabIndex = 37;
+            // 
+            // B_RetailUpdateSeeds
+            // 
+            B_RetailUpdateSeeds.Enabled = false;
+            B_RetailUpdateSeeds.Location = new Point(9, 117);
+            B_RetailUpdateSeeds.Name = "B_RetailUpdateSeeds";
+            B_RetailUpdateSeeds.Size = new Size(196, 25);
+            B_RetailUpdateSeeds.TabIndex = 36;
+            B_RetailUpdateSeeds.Text = "Update Seeds";
+            B_RetailUpdateSeeds.UseVisualStyleBackColor = true;
+            B_RetailUpdateSeeds.Click += B_CopyToInitial_Click;
+            // 
+            // L_Animations
+            // 
+            L_Animations.AutoSize = true;
+            L_Animations.Location = new Point(8, 70);
+            L_Animations.Name = "L_Animations";
+            L_Animations.Size = new Size(42, 15);
+            L_Animations.TabIndex = 33;
+            L_Animations.Text = "Anim.:";
+            // 
+            // TB_Animations
+            // 
+            TB_Animations.CharacterCasing = CharacterCasing.Upper;
+            TB_Animations.Font = new Font("Consolas", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            TB_Animations.Location = new Point(57, 68);
+            TB_Animations.MaxLength = 5;
+            TB_Animations.Name = "TB_Animations";
+            TB_Animations.Size = new Size(148, 22);
+            TB_Animations.TabIndex = 32;
+            // 
+            // B_GenerateRetailPattern
+            // 
+            B_GenerateRetailPattern.Location = new Point(107, 42);
+            B_GenerateRetailPattern.Name = "B_GenerateRetailPattern";
+            B_GenerateRetailPattern.Size = new Size(98, 25);
+            B_GenerateRetailPattern.TabIndex = 30;
+            B_GenerateRetailPattern.Text = "Generate";
+            B_GenerateRetailPattern.UseVisualStyleBackColor = true;
+            // 
+            // TB_RetailRange
+            // 
+            TB_RetailRange.CharacterCasing = CharacterCasing.Upper;
+            TB_RetailRange.Font = new Font("Consolas", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            TB_RetailRange.Location = new Point(57, 42);
+            TB_RetailRange.MaxLength = 5;
+            TB_RetailRange.Name = "TB_RetailRange";
+            TB_RetailRange.Size = new Size(48, 22);
+            TB_RetailRange.TabIndex = 29;
+            TB_RetailRange.Text = "10000";
+            TB_RetailRange.TextAlign = HorizontalAlignment.Right;
+            // 
+            // L_RetailRange
+            // 
+            L_RetailRange.AutoSize = true;
+            L_RetailRange.Location = new Point(8, 44);
+            L_RetailRange.Name = "L_RetailRange";
+            L_RetailRange.Size = new Size(43, 15);
+            L_RetailRange.TabIndex = 28;
+            L_RetailRange.Text = "Range:";
+            // 
+            // B_RetailSeedFinder
+            // 
+            B_RetailSeedFinder.Location = new Point(7, 14);
+            B_RetailSeedFinder.Name = "B_RetailSeedFinder";
+            B_RetailSeedFinder.Size = new Size(198, 25);
+            B_RetailSeedFinder.TabIndex = 27;
+            B_RetailSeedFinder.Text = "Retail Seed Finder";
+            B_RetailSeedFinder.UseVisualStyleBackColor = true;
+            // 
+            // P_EncounterSettings
+            // 
+            P_EncounterSettings.Controls.Add(GB_DexRec);
+            P_EncounterSettings.Controls.Add(GB_Advanced);
+            P_EncounterSettings.Location = new Point(482, 9);
+            P_EncounterSettings.Name = "P_EncounterSettings";
+            P_EncounterSettings.Size = new Size(212, 308);
+            P_EncounterSettings.TabIndex = 28;
+            // 
+            // GB_DexRec
+            // 
+            GB_DexRec.Controls.Add(B_RefreshDexRec);
+            GB_DexRec.Controls.Add(CB_DexRec4);
+            GB_DexRec.Controls.Add(CB_DexRec3);
+            GB_DexRec.Controls.Add(CB_DexRec2);
+            GB_DexRec.Controls.Add(CB_DexRec1);
+            GB_DexRec.Location = new Point(1, -2);
+            GB_DexRec.Name = "GB_DexRec";
+            GB_DexRec.Size = new Size(205, 150);
+            GB_DexRec.TabIndex = 55;
+            GB_DexRec.TabStop = false;
+            GB_DexRec.Text = "Pokédex Recommendation";
+            // 
+            // B_RefreshDexRec
+            // 
+            B_RefreshDexRec.Enabled = false;
+            B_RefreshDexRec.Location = new Point(6, 121);
+            B_RefreshDexRec.Name = "B_RefreshDexRec";
+            B_RefreshDexRec.Size = new Size(190, 25);
+            B_RefreshDexRec.TabIndex = 28;
+            B_RefreshDexRec.Text = "Refresh";
+            B_RefreshDexRec.UseVisualStyleBackColor = true;
+            B_RefreshDexRec.Click += B_RefreshDexRec_Click;
+            // 
+            // CB_DexRec4
+            // 
+            CB_DexRec4.FormattingEnabled = true;
+            CB_DexRec4.Location = new Point(6, 96);
+            CB_DexRec4.Name = "CB_DexRec4";
+            CB_DexRec4.Size = new Size(190, 23);
+            CB_DexRec4.TabIndex = 27;
+            CB_DexRec4.Text = "WWWWWWWWWWWW";
+            // 
+            // CB_DexRec3
+            // 
+            CB_DexRec3.FormattingEnabled = true;
+            CB_DexRec3.Location = new Point(6, 71);
+            CB_DexRec3.Name = "CB_DexRec3";
+            CB_DexRec3.Size = new Size(190, 23);
+            CB_DexRec3.TabIndex = 25;
+            CB_DexRec3.Text = "WWWWWWWWWWWW";
+            // 
+            // CB_DexRec2
+            // 
+            CB_DexRec2.FormattingEnabled = true;
+            CB_DexRec2.Location = new Point(6, 46);
+            CB_DexRec2.Name = "CB_DexRec2";
+            CB_DexRec2.Size = new Size(190, 23);
+            CB_DexRec2.TabIndex = 23;
+            CB_DexRec2.Text = "WWWWWWWWWWWW";
+            // 
+            // CB_DexRec1
+            // 
+            CB_DexRec1.FormattingEnabled = true;
+            CB_DexRec1.Location = new Point(6, 21);
+            CB_DexRec1.Name = "CB_DexRec1";
+            CB_DexRec1.Size = new Size(190, 23);
+            CB_DexRec1.TabIndex = 21;
+            CB_DexRec1.Text = "WWWWWWWWWWWW";
+            // 
+            // GB_Advanced
+            // 
+            GB_Advanced.Controls.Add(L_FlyNPCs);
+            GB_Advanced.Controls.Add(NUD_FlyNPCs);
+            GB_Advanced.Controls.Add(B_CalculateRain);
+            GB_Advanced.Controls.Add(L_RainEncounter);
+            GB_Advanced.Controls.Add(NUD_RainEncounter);
+            GB_Advanced.Controls.Add(L_RainFly);
+            GB_Advanced.Controls.Add(NUD_RainFly);
+            GB_Advanced.Controls.Add(L_AreaLoad);
+            GB_Advanced.Controls.Add(NUD_AreaLoad);
+            GB_Advanced.Controls.Add(CB_ConsiderFlying);
+            GB_Advanced.Controls.Add(CB_ConsiderRain);
+            GB_Advanced.Location = new Point(1, 148);
+            GB_Advanced.Name = "GB_Advanced";
+            GB_Advanced.Size = new Size(205, 162);
+            GB_Advanced.TabIndex = 56;
+            GB_Advanced.TabStop = false;
+            GB_Advanced.Text = "Advanced Settings";
+            // 
+            // L_FlyNPCs
+            // 
+            L_FlyNPCs.AutoSize = true;
+            L_FlyNPCs.Enabled = false;
+            L_FlyNPCs.Location = new Point(24, 65);
+            L_FlyNPCs.Name = "L_FlyNPCs";
+            L_FlyNPCs.Size = new Size(57, 15);
+            L_FlyNPCs.TabIndex = 19;
+            L_FlyNPCs.Text = "Fly NPCs:";
+            // 
+            // NUD_FlyNPCs
+            // 
+            NUD_FlyNPCs.Enabled = false;
+            NUD_FlyNPCs.Location = new Point(87, 63);
+            NUD_FlyNPCs.Maximum = new decimal(new int[] { 999, 0, 0, 0 });
+            NUD_FlyNPCs.Name = "NUD_FlyNPCs";
+            NUD_FlyNPCs.Size = new Size(39, 23);
+            NUD_FlyNPCs.TabIndex = 18;
+            // 
+            // B_CalculateRain
+            // 
+            B_CalculateRain.Enabled = false;
+            B_CalculateRain.Location = new Point(131, 136);
+            B_CalculateRain.Name = "B_CalculateRain";
+            B_CalculateRain.Size = new Size(65, 25);
+            B_CalculateRain.TabIndex = 16;
+            B_CalculateRain.Text = "Calculate";
+            B_CalculateRain.UseVisualStyleBackColor = true;
+            B_CalculateRain.Click += B_CalculateRain_Click;
+            // 
+            // L_RainEncounter
+            // 
+            L_RainEncounter.AutoSize = true;
+            L_RainEncounter.Enabled = false;
+            L_RainEncounter.Location = new Point(16, 140);
+            L_RainEncounter.Name = "L_RainEncounter";
+            L_RainEncounter.Size = new Size(64, 15);
+            L_RainEncounter.TabIndex = 15;
+            L_RainEncounter.Text = "Encounter:";
+            // 
+            // NUD_RainEncounter
+            // 
+            NUD_RainEncounter.Enabled = false;
+            NUD_RainEncounter.Location = new Point(86, 136);
+            NUD_RainEncounter.Maximum = new decimal(new int[] { 999, 0, 0, 0 });
+            NUD_RainEncounter.Name = "NUD_RainEncounter";
+            NUD_RainEncounter.Size = new Size(39, 23);
+            NUD_RainEncounter.TabIndex = 14;
+            // 
+            // L_RainFly
+            // 
+            L_RainFly.AutoSize = true;
+            L_RainFly.Enabled = false;
+            L_RainFly.Location = new Point(5, 113);
+            L_RainFly.Name = "L_RainFly";
+            L_RainFly.Size = new Size(75, 15);
+            L_RainFly.TabIndex = 12;
+            L_RainFly.Text = "During Load:";
+            // 
+            // NUD_RainFly
+            // 
+            NUD_RainFly.Enabled = false;
+            NUD_RainFly.Location = new Point(86, 111);
+            NUD_RainFly.Maximum = new decimal(new int[] { 999, 0, 0, 0 });
+            NUD_RainFly.Name = "NUD_RainFly";
+            NUD_RainFly.Size = new Size(39, 23);
+            NUD_RainFly.TabIndex = 11;
+            // 
+            // L_AreaLoad
+            // 
+            L_AreaLoad.AutoSize = true;
+            L_AreaLoad.Enabled = false;
+            L_AreaLoad.Location = new Point(18, 40);
+            L_AreaLoad.Name = "L_AreaLoad";
+            L_AreaLoad.Size = new Size(63, 15);
+            L_AreaLoad.TabIndex = 6;
+            L_AreaLoad.Text = "Area Load:";
+            // 
+            // NUD_AreaLoad
+            // 
+            NUD_AreaLoad.Enabled = false;
+            NUD_AreaLoad.Location = new Point(87, 38);
+            NUD_AreaLoad.Maximum = new decimal(new int[] { 999, 0, 0, 0 });
+            NUD_AreaLoad.Name = "NUD_AreaLoad";
+            NUD_AreaLoad.Size = new Size(39, 23);
+            NUD_AreaLoad.TabIndex = 5;
+            // 
+            // CB_ConsiderFlying
+            // 
+            CB_ConsiderFlying.AutoSize = true;
+            CB_ConsiderFlying.Location = new Point(6, 16);
+            CB_ConsiderFlying.Name = "CB_ConsiderFlying";
+            CB_ConsiderFlying.Size = new Size(46, 19);
+            CB_ConsiderFlying.TabIndex = 1;
+            CB_ConsiderFlying.Text = "Fly?";
+            CB_ConsiderFlying.UseVisualStyleBackColor = true;
+            CB_ConsiderFlying.CheckedChanged += CB_ConsiderFlying_CheckedChanged;
+            // 
+            // CB_ConsiderRain
+            // 
+            CB_ConsiderRain.AutoSize = true;
+            CB_ConsiderRain.Location = new Point(5, 89);
+            CB_ConsiderRain.Name = "CB_ConsiderRain";
+            CB_ConsiderRain.Size = new Size(168, 19);
+            CB_ConsiderRain.TabIndex = 0;
+            CB_ConsiderRain.Text = "Raining/Thunderstorming?";
+            CB_ConsiderRain.UseVisualStyleBackColor = true;
+            CB_ConsiderRain.CheckedChanged += CB_ConsiderRain_CheckedChanged;
+            // 
+            // GB_WildView
+            // 
+            GB_WildView.Controls.Add(B_ReadEncounter);
+            GB_WildView.Controls.Add(PB_MarkSprite);
+            GB_WildView.Controls.Add(PB_PokemonSprite);
+            GB_WildView.Controls.Add(B_CopyToFilter);
+            GB_WildView.Controls.Add(TB_Wild);
+            GB_WildView.Location = new Point(885, 0);
+            GB_WildView.Name = "GB_WildView";
+            GB_WildView.Size = new Size(194, 321);
+            GB_WildView.TabIndex = 6;
+            GB_WildView.TabStop = false;
+            // 
+            // B_ReadEncounter
+            // 
+            B_ReadEncounter.Enabled = false;
+            B_ReadEncounter.Location = new Point(4, 267);
+            B_ReadEncounter.Name = "B_ReadEncounter";
+            B_ReadEncounter.Size = new Size(183, 25);
+            B_ReadEncounter.TabIndex = 23;
+            B_ReadEncounter.Text = "Read Encounter";
+            B_ReadEncounter.UseVisualStyleBackColor = true;
+            B_ReadEncounter.Click += B_ReadEncounter_Click;
+            // 
+            // PB_MarkSprite
+            // 
+            PB_MarkSprite.Location = new Point(127, 219);
+            PB_MarkSprite.Name = "PB_MarkSprite";
+            PB_MarkSprite.Size = new Size(48, 48);
+            PB_MarkSprite.SizeMode = PictureBoxSizeMode.CenterImage;
+            PB_MarkSprite.TabIndex = 22;
+            PB_MarkSprite.TabStop = false;
+            // 
+            // PB_PokemonSprite
+            // 
+            PB_PokemonSprite.Location = new Point(64, 203);
+            PB_PokemonSprite.Name = "PB_PokemonSprite";
+            PB_PokemonSprite.Size = new Size(64, 64);
+            PB_PokemonSprite.SizeMode = PictureBoxSizeMode.CenterImage;
+            PB_PokemonSprite.TabIndex = 21;
+            PB_PokemonSprite.TabStop = false;
+            // 
+            // B_CopyToFilter
+            // 
+            B_CopyToFilter.Enabled = false;
+            B_CopyToFilter.Location = new Point(4, 294);
+            B_CopyToFilter.Name = "B_CopyToFilter";
+            B_CopyToFilter.Size = new Size(183, 25);
+            B_CopyToFilter.TabIndex = 20;
+            B_CopyToFilter.Text = "Copy IVs to Filters";
+            B_CopyToFilter.UseVisualStyleBackColor = true;
+            B_CopyToFilter.Click += B_CopyToFilter_Click;
+            // 
+            // TB_Wild
+            // 
+            TB_Wild.Location = new Point(6, 17);
+            TB_Wild.Multiline = true;
+            TB_Wild.Name = "TB_Wild";
+            TB_Wild.ReadOnly = true;
+            TB_Wild.Size = new Size(181, 186);
+            TB_Wild.TabIndex = 0;
+            TB_Wild.Text = "Shiny - Species (Gender) @ Item\r\nEC: WWWWWWWW\r\nPID: WWWWWWWW\r\nWWWWWWW Nature\r\nAbility: WWWWWWWWWW\r\nIVs: 22/22/22/22/22/22\r\nHeight: 255 (XXXL)\r\nMark: WWWWWWWWWW\r\n- Move 1\r\n- Move 2\r\n- Move 3\r\n- Move 4";
             // 
             // TC_EncounterType
             // 
@@ -2349,7 +2363,7 @@
             DGV_Results.ReadOnly = true;
             DGV_Results.RowHeadersVisible = false;
             DGV_Results.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            DGV_Results.Size = new Size(1302, 312);
+            DGV_Results.Size = new Size(1277, 312);
             DGV_Results.TabIndex = 12;
             DGV_Results.CellFormatting += DGV_Results_CellFormatting;
             // 
@@ -2585,10 +2599,11 @@
             // MS_SubWindows
             // 
             MS_SubWindows.BackColor = SystemColors.ButtonFace;
+            MS_SubWindows.Enabled = false;
             MS_SubWindows.Items.AddRange(new ToolStripItem[] { TSMI_EncounterLookup, TSMI_LotoID, TSMI_Cramomatic, TSMI_WattTrader, TSMI_DiggingPa, TSMI_WailordRespawn });
             MS_SubWindows.Location = new Point(0, 0);
             MS_SubWindows.Name = "MS_SubWindows";
-            MS_SubWindows.Size = new Size(1324, 24);
+            MS_SubWindows.Size = new Size(1299, 24);
             MS_SubWindows.TabIndex = 32;
             // 
             // TSMI_EncounterLookup
@@ -2631,7 +2646,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1324, 676);
+            ClientSize = new Size(1299, 676);
             Controls.Add(DGV_Results);
             Controls.Add(GB_SeedControlsContainer);
             Controls.Add(MS_SubWindows);
@@ -2642,6 +2657,20 @@
             Text = "owoow (´・ω・`)";
             Load += MainWindow_Load;
             GB_SeedControlsContainer.ResumeLayout(false);
+            GB_Filters.ResumeLayout(false);
+            GB_Filters.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)NUD_Spe_Max).EndInit();
+            ((System.ComponentModel.ISupportInitialize)NUD_Spe_Min).EndInit();
+            ((System.ComponentModel.ISupportInitialize)NUD_SpD_Max).EndInit();
+            ((System.ComponentModel.ISupportInitialize)NUD_SpD_Min).EndInit();
+            ((System.ComponentModel.ISupportInitialize)NUD_SpA_Max).EndInit();
+            ((System.ComponentModel.ISupportInitialize)NUD_SpA_Min).EndInit();
+            ((System.ComponentModel.ISupportInitialize)NUD_Def_Max).EndInit();
+            ((System.ComponentModel.ISupportInitialize)NUD_Def_Min).EndInit();
+            ((System.ComponentModel.ISupportInitialize)NUD_Atk_Max).EndInit();
+            ((System.ComponentModel.ISupportInitialize)NUD_Atk_Min).EndInit();
+            ((System.ComponentModel.ISupportInitialize)NUD_HP_Max).EndInit();
+            ((System.ComponentModel.ISupportInitialize)NUD_HP_Min).EndInit();
             GB_SwitchControls.ResumeLayout(false);
             GB_SwitchControls.PerformLayout();
             GB_SeedSearch.ResumeLayout(false);
@@ -2659,20 +2688,6 @@
             GB_WildView.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)PB_MarkSprite).EndInit();
             ((System.ComponentModel.ISupportInitialize)PB_PokemonSprite).EndInit();
-            GB_Filters.ResumeLayout(false);
-            GB_Filters.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)NUD_Spe_Max).EndInit();
-            ((System.ComponentModel.ISupportInitialize)NUD_Spe_Min).EndInit();
-            ((System.ComponentModel.ISupportInitialize)NUD_SpD_Max).EndInit();
-            ((System.ComponentModel.ISupportInitialize)NUD_SpD_Min).EndInit();
-            ((System.ComponentModel.ISupportInitialize)NUD_SpA_Max).EndInit();
-            ((System.ComponentModel.ISupportInitialize)NUD_SpA_Min).EndInit();
-            ((System.ComponentModel.ISupportInitialize)NUD_Def_Max).EndInit();
-            ((System.ComponentModel.ISupportInitialize)NUD_Def_Min).EndInit();
-            ((System.ComponentModel.ISupportInitialize)NUD_Atk_Max).EndInit();
-            ((System.ComponentModel.ISupportInitialize)NUD_Atk_Min).EndInit();
-            ((System.ComponentModel.ISupportInitialize)NUD_HP_Max).EndInit();
-            ((System.ComponentModel.ISupportInitialize)NUD_HP_Min).EndInit();
             TC_EncounterType.ResumeLayout(false);
             TP_Static.ResumeLayout(false);
             TP_Static.PerformLayout();
@@ -2790,7 +2805,7 @@
         private TextBox TB_AdvancesIncrease;
         private GroupBox GB_WildView;
         private TextBox TB_Wild;
-        private Button B_ReadEncounter;
+        private Button B_CopyToFilter;
         private PictureBox PB_PokemonSprite;
         private Label L_Filter_Height;
         private ComboBox CB_Filter_Height;
@@ -2922,5 +2937,6 @@
         private Label L_RetailAdvances;
         private TextBox TB_RetailAdvances;
         private ToolStripMenuItem TSMI_WailordRespawn;
+        private Button B_ReadEncounter;
     }
 }
