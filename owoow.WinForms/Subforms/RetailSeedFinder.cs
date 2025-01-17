@@ -56,15 +56,15 @@ namespace owoow.WinForms.Subforms
             }
         }
 
-        private void KeyPress_AllowBinaryOnly(object sender, KeyPressEventArgs e)
+        private void KeyPress_AllowOnlyBinary(object sender, KeyPressEventArgs e)
         {
             string s = string.Empty;
 
-            if (e.KeyChar == ',')
+            if (e.KeyChar is ',' or 'p' or 'P')
             {
                 e.KeyChar = '0';
             }
-            else if (e.KeyChar == '.')
+            else if (e.KeyChar is '.' or 's' or 'S')
             {
                 e.KeyChar = '1';
             }

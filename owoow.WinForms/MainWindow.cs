@@ -2,6 +2,7 @@
 using owoow.Core.Connection;
 using owoow.Core.EncounterTable;
 using owoow.Core.Interfaces;
+using owoow.Core.RNG.Generators.Misc;
 using owoow.Core.RNG.Generators.Overworld;
 using owoow.WinForms.Subforms;
 using PKHeX.Core;
@@ -9,6 +10,7 @@ using PKHeX.Drawing.Misc;
 using PKHeX.Drawing.PokeSprite;
 using SysBot.Base;
 using System.Globalization;
+using System.Text;
 using static owoow.Core.Encounters;
 using static owoow.Core.RNG.FilterUtil;
 using static owoow.Core.RNG.Util;
@@ -978,7 +980,7 @@ public partial class MainWindow : Form
                         CachedEncounter = pk;
                         bool HasRibbon = Utils.HasMark(pk, out RibbonIndex mark);
 
-                        var n = Environment.NewLine;
+                        var n = System.Environment.NewLine;
 
                         string form = pk.Form == 0 ? string.Empty : $"-{pk.Form}";
                         string gender = pk.Gender switch
@@ -1302,6 +1304,32 @@ public partial class MainWindow : Form
             }
         }
     }
+
+    private void KeyPress_AllowOnlyBinary(object sender, KeyPressEventArgs e)
+    {
+        string s = string.Empty;
+
+        if (e.KeyChar is ',' or 'p' or 'P')
+        {
+            e.KeyChar = '0';
+        }
+        else if (e.KeyChar is '.' or 's' or 'S')
+        {
+            e.KeyChar = '1';
+        }
+
+        s += e.KeyChar;
+
+        byte[] b = Encoding.ASCII.GetBytes(s);
+
+        if (e.KeyChar != (char)Keys.Back && !char.IsControl(e.KeyChar))
+        {
+            if (!(('0' <= b[0]) && (b[0] <= '1')))
+            {
+                e.Handled = true;
+            }
+        }
+    }
     #endregion
 
     #region SubForms
@@ -1328,6 +1356,53 @@ public partial class MainWindow : Form
         else
         {
             MenuCloseTimelineForm!.Focus();
+        }
+    }
+    #endregion
+
+    #region Retail
+    private byte[] RetailSequence = [];
+    private ulong RetailSeed0 = 0;
+    private ulong RetailSeed1 = 0;
+    private void B_GenerateRetailPattern_Click(object sender, EventArgs e)
+    {
+        var s0 = ulong.Parse(TB_Seed0.Text, NumberStyles.AllowHexSpecifier);
+        var s1 = ulong.Parse(TB_Seed1.Text, NumberStyles.AllowHexSpecifier);
+        var adv = ulong.Parse(TB_RetailRange.Text);
+        (RetailSequence, RetailSeed0, RetailSeed1) = SeedFinder.GenerateAnimationSequence(s0, s1, adv);
+    }
+
+    private void TB_Animations_TextChanged(object sender, EventArgs e)
+    {
+        if (RetailSequence.Length > 5) {
+            var pattern = TB_Animations.Text;
+            if (pattern.Length > 5)
+            {
+                var (hits, advances, s0, s1) = SeedFinder.ReidentifySeed(RetailSequence, RetailSeed0, RetailSeed1, pattern);
+                if (hits == 1)
+                {
+                    TB_RetailAdvances.Text = $"{advances:N0}";
+                    TB_CurrentAdvances.Text = $"{advances:N0}";
+                    TB_CurrentS0.Text = $"{s0:X16}";
+                    TB_CurrentS1.Text = $"{s1:X16}";
+                }
+                else if (hits == 0)
+                {
+                    TB_RetailAdvances.Text = "No results found.";
+                }
+                else
+                {
+                    TB_RetailAdvances.Text = $"{hits} possibilities.";
+                }
+            }
+            else
+            {
+                TB_RetailAdvances.Text = "Need more inputs.";
+            }
+        }
+        else
+        {
+            TB_RetailAdvances.Text = "No sequence.";
         }
     }
     #endregion

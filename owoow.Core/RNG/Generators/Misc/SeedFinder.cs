@@ -87,4 +87,52 @@ public static class SeedFinder
         }
         return rng.GetState();
     }
+
+    public static (byte[] sequence, ulong s0, ulong s1) GenerateAnimationSequence(ulong s0, ulong s1, ulong adv)
+    {
+        byte[] res = new byte[adv];
+        var rng = new Xoroshiro128Plus(s0, s1);
+        for (ulong i = 0; i < adv; i++)
+        {
+            res[i] = (byte)(rng.Next() & 1);
+        }
+        return (res, s0, s1);
+    }
+
+    public static (int hits, int advances, ulong s0, ulong s1) ReidentifySeed(byte[] sequence, ulong s0, ulong s1, string pattern)
+    {
+        int hits = 0;
+        int pos = 0;
+        ulong _s0 = 0;
+        ulong _s1 = 0;
+
+        if (pattern.Length > 5)
+        {
+            for (var i = 0; i < sequence.Length - pattern.Length; i++)
+            {
+                if (sequence[i] == pattern[0] - '0')
+                {
+                    for (var j = 1; j < pattern.Length; j++)
+                    {
+                        if (sequence[i + j] != pattern[j] - '0') break;
+                        if (j == pattern.Length - 1)
+                        {
+                            hits++;
+                            pos = i + j;
+                            i += j;
+                        }
+                    }
+                }
+            }
+        }
+
+        if (hits == 1)
+        {
+            var rng = new Xoroshiro128Plus(s0, s1);
+            for (var i = 0; i <= pos; i++) rng.Next();
+            (_s0, _s1) = rng.GetState();
+        }
+
+        return (hits, pos, _s0, _s1);
+    }
 }

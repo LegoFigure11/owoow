@@ -951,7 +951,6 @@
             // L_RetailAdvances
             // 
             L_RetailAdvances.AutoSize = true;
-            L_RetailAdvances.Enabled = false;
             L_RetailAdvances.Location = new Point(16, 94);
             L_RetailAdvances.Name = "L_RetailAdvances";
             L_RetailAdvances.Size = new Size(34, 15);
@@ -960,8 +959,6 @@
             // 
             // TB_RetailAdvances
             // 
-            TB_RetailAdvances.CharacterCasing = CharacterCasing.Upper;
-            TB_RetailAdvances.Enabled = false;
             TB_RetailAdvances.Font = new Font("Consolas", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             TB_RetailAdvances.Location = new Point(57, 92);
             TB_RetailAdvances.MaxLength = 5;
@@ -983,7 +980,6 @@
             // L_Animations
             // 
             L_Animations.AutoSize = true;
-            L_Animations.Enabled = false;
             L_Animations.Location = new Point(8, 70);
             L_Animations.Name = "L_Animations";
             L_Animations.Size = new Size(42, 15);
@@ -993,41 +989,40 @@
             // TB_Animations
             // 
             TB_Animations.CharacterCasing = CharacterCasing.Upper;
-            TB_Animations.Enabled = false;
             TB_Animations.Font = new Font("Consolas", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             TB_Animations.Location = new Point(57, 68);
-            TB_Animations.MaxLength = 5;
+            TB_Animations.MaxLength = 99;
             TB_Animations.Name = "TB_Animations";
             TB_Animations.Size = new Size(148, 22);
             TB_Animations.TabIndex = 32;
+            TB_Animations.TextChanged += TB_Animations_TextChanged;
+            TB_Animations.KeyPress += KeyPress_AllowOnlyBinary;
             // 
             // B_GenerateRetailPattern
             // 
-            B_GenerateRetailPattern.Enabled = false;
             B_GenerateRetailPattern.Location = new Point(107, 42);
             B_GenerateRetailPattern.Name = "B_GenerateRetailPattern";
             B_GenerateRetailPattern.Size = new Size(98, 25);
             B_GenerateRetailPattern.TabIndex = 30;
             B_GenerateRetailPattern.Text = "Generate";
             B_GenerateRetailPattern.UseVisualStyleBackColor = true;
+            B_GenerateRetailPattern.Click += B_GenerateRetailPattern_Click;
             // 
             // TB_RetailRange
             // 
             TB_RetailRange.CharacterCasing = CharacterCasing.Upper;
-            TB_RetailRange.Enabled = false;
             TB_RetailRange.Font = new Font("Consolas", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             TB_RetailRange.Location = new Point(57, 42);
-            TB_RetailRange.MaxLength = 5;
+            TB_RetailRange.MaxLength = 6;
             TB_RetailRange.Name = "TB_RetailRange";
             TB_RetailRange.Size = new Size(48, 22);
             TB_RetailRange.TabIndex = 29;
-            TB_RetailRange.Text = "10000";
+            TB_RetailRange.Text = "100000";
             TB_RetailRange.TextAlign = HorizontalAlignment.Right;
             // 
             // L_RetailRange
             // 
             L_RetailRange.AutoSize = true;
-            L_RetailRange.Enabled = false;
             L_RetailRange.Location = new Point(8, 44);
             L_RetailRange.Name = "L_RetailRange";
             L_RetailRange.Size = new Size(43, 15);
