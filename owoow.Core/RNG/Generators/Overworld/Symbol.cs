@@ -236,7 +236,7 @@ public class Symbol
 
                     Jump = $"+{Jump}",
 
-                    Animation = (os.s0 & 1 ^ os.s1 & 1) == 1 ? 'P' : 'S',
+                    Animation = (os.s0 & 1 ^ os.s1 & 1) == 0 ? 'P' : 'S',
 
                     Brilliant = IsAura ? 'Y' : 'N',
 

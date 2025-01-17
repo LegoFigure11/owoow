@@ -152,7 +152,7 @@ public class Static
 
                     Jump = $"+{Jump}",
 
-                    Animation = (os.s0 & 1 ^ os.s1 & 1) == 1 ? 'P' : 'S',
+                    Animation = (os.s0 & 1 ^ os.s1 & 1) == 0 ? 'P' : 'S',
 
                     Species = Encounter.Species!,
                     Shiny = Util.GetShinyType(ShinyXOR),
