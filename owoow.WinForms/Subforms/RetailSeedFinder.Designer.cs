@@ -108,7 +108,7 @@
             TB_InputAnimations.TabIndex = 1;
             TB_InputAnimations.Text = "00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000";
             TB_InputAnimations.TextChanged += TB_AnimationsInput_TextChanged;
-            TB_InputAnimations.KeyPress += KeyPress_AllowBinaryOnly;
+            TB_InputAnimations.KeyPress += KeyPress_AllowOnlyBinary;
             // 
             // L_InputAnimations
             // 
