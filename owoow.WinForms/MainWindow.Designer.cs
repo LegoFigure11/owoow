@@ -941,7 +941,6 @@
             GB_Retail.Controls.Add(TB_RetailRange);
             GB_Retail.Controls.Add(L_RetailRange);
             GB_Retail.Controls.Add(B_RetailSeedFinder);
-            GB_Retail.Enabled = false;
             GB_Retail.Location = new Point(1078, 177);
             GB_Retail.Name = "GB_Retail";
             GB_Retail.Size = new Size(212, 144);
@@ -952,6 +951,7 @@
             // L_RetailAdvances
             // 
             L_RetailAdvances.AutoSize = true;
+            L_RetailAdvances.Enabled = false;
             L_RetailAdvances.Location = new Point(16, 94);
             L_RetailAdvances.Name = "L_RetailAdvances";
             L_RetailAdvances.Size = new Size(34, 15);
@@ -961,6 +961,7 @@
             // TB_RetailAdvances
             // 
             TB_RetailAdvances.CharacterCasing = CharacterCasing.Upper;
+            TB_RetailAdvances.Enabled = false;
             TB_RetailAdvances.Font = new Font("Consolas", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             TB_RetailAdvances.Location = new Point(57, 92);
             TB_RetailAdvances.MaxLength = 5;
@@ -971,7 +972,6 @@
             // 
             // B_RetailUpdateSeeds
             // 
-            B_RetailUpdateSeeds.Enabled = false;
             B_RetailUpdateSeeds.Location = new Point(9, 117);
             B_RetailUpdateSeeds.Name = "B_RetailUpdateSeeds";
             B_RetailUpdateSeeds.Size = new Size(196, 25);
@@ -983,6 +983,7 @@
             // L_Animations
             // 
             L_Animations.AutoSize = true;
+            L_Animations.Enabled = false;
             L_Animations.Location = new Point(8, 70);
             L_Animations.Name = "L_Animations";
             L_Animations.Size = new Size(42, 15);
@@ -992,6 +993,7 @@
             // TB_Animations
             // 
             TB_Animations.CharacterCasing = CharacterCasing.Upper;
+            TB_Animations.Enabled = false;
             TB_Animations.Font = new Font("Consolas", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             TB_Animations.Location = new Point(57, 68);
             TB_Animations.MaxLength = 5;
@@ -1001,6 +1003,7 @@
             // 
             // B_GenerateRetailPattern
             // 
+            B_GenerateRetailPattern.Enabled = false;
             B_GenerateRetailPattern.Location = new Point(107, 42);
             B_GenerateRetailPattern.Name = "B_GenerateRetailPattern";
             B_GenerateRetailPattern.Size = new Size(98, 25);
@@ -1011,6 +1014,7 @@
             // TB_RetailRange
             // 
             TB_RetailRange.CharacterCasing = CharacterCasing.Upper;
+            TB_RetailRange.Enabled = false;
             TB_RetailRange.Font = new Font("Consolas", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             TB_RetailRange.Location = new Point(57, 42);
             TB_RetailRange.MaxLength = 5;
@@ -1023,6 +1027,7 @@
             // L_RetailRange
             // 
             L_RetailRange.AutoSize = true;
+            L_RetailRange.Enabled = false;
             L_RetailRange.Location = new Point(8, 44);
             L_RetailRange.Name = "L_RetailRange";
             L_RetailRange.Size = new Size(43, 15);
@@ -1037,6 +1042,7 @@
             B_RetailSeedFinder.TabIndex = 27;
             B_RetailSeedFinder.Text = "Retail Seed Finder";
             B_RetailSeedFinder.UseVisualStyleBackColor = true;
+            B_RetailSeedFinder.Click += B_RetailSeedFinder_Click;
             // 
             // P_EncounterSettings
             // 

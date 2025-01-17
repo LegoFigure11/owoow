@@ -18,7 +18,7 @@ namespace owoow.WinForms;
 public partial class MainWindow : Form
 {
     private static CancellationTokenSource Source = new();
-    private static CancellationTokenSource AdvanceSource = new();
+    private static readonly CancellationTokenSource AdvanceSource = new();
     private static readonly Lock _connectLock = new();
 
     //private readonly ClientConfig Config;
@@ -1231,22 +1231,6 @@ public partial class MainWindow : Form
         }
     }
 
-    public bool MenuCloseTimelineFormOpen = false;
-    MenuCloseTimeline? MenuCloseTimelineForm;
-    private void B_MenuClose_Click(object sender, EventArgs e)
-    {
-        if (!MenuCloseTimelineFormOpen)
-        {
-            MenuCloseTimelineFormOpen = true;
-            MenuCloseTimelineForm = new MenuCloseTimeline(this, ((Button)sender).Name.Replace("B_", string.Empty).Replace("_MenuClose", string.Empty));
-            MenuCloseTimelineForm.Show();
-        }
-        else
-        {
-            MenuCloseTimelineForm!.Focus();
-        }
-    }
-
     private void CB_ConsiderFlying_CheckedChanged(object sender, EventArgs e)
     {
         SetControlEnabledState(((CheckBox)sender).Checked, L_AreaLoad, NUD_AreaLoad, L_FlyNPCs, NUD_FlyNPCs);
@@ -1316,6 +1300,34 @@ public partial class MainWindow : Form
             {
                 e.Handled = true;
             }
+        }
+    }
+    #endregion
+
+    #region SubForms
+    private void B_RetailSeedFinder_Click(object sender, EventArgs e)
+    {
+        using RetailSeedFinder rsf = new();
+        if (rsf.ShowDialog() == DialogResult.OK)
+        {
+            TB_Seed0.Text = rsf.Seed0;
+            TB_Seed1.Text = rsf.Seed1;
+        }
+    }
+
+    public bool MenuCloseTimelineFormOpen = false;
+    MenuCloseTimeline? MenuCloseTimelineForm;
+    private void B_MenuClose_Click(object sender, EventArgs e)
+    {
+        if (!MenuCloseTimelineFormOpen)
+        {
+            MenuCloseTimelineFormOpen = true;
+            MenuCloseTimelineForm = new MenuCloseTimeline(this, ((Button)sender).Name.Replace("B_", string.Empty).Replace("_MenuClose", string.Empty));
+            MenuCloseTimelineForm.Show();
+        }
+        else
+        {
+            MenuCloseTimelineForm!.Focus();
         }
     }
     #endregion
