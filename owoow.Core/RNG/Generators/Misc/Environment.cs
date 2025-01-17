@@ -1,6 +1,6 @@
 ﻿using PKHeX.Core;
 
-namespace owoow.Core.RNG.Generators;
+namespace owoow.Core.RNG.Generators.Misc;
 
 public static class Environment
 {

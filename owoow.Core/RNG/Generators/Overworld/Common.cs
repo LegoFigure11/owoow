@@ -2,7 +2,7 @@
 using owoow.Core.Interfaces;
 using PKHeX.Core;
 
-namespace owoow.Core.RNG.Generators;
+namespace owoow.Core.RNG.Generators.Overworld;
 
 public static class Common
 {

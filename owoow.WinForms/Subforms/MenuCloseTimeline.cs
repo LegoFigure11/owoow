@@ -1,5 +1,5 @@
 ﻿using owoow.Core.Interfaces;
-using owoow.Core.RNG.Generators;
+using owoow.Core.RNG.Generators.Misc;
 using PKHeX.Core;
 using System.Globalization;
 

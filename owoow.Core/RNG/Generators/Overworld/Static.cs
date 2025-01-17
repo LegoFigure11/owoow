@@ -1,9 +1,11 @@
 ﻿using owoow.Core.Enums;
 using owoow.Core.Interfaces;
+using owoow.Core.RNG.Generators.Misc;
 using PKHeX.Core;
-using static owoow.Core.RNG.Generators.Common;
+using static owoow.Core.RNG.Generators.Overworld.Common;
 using static owoow.Core.RNG.Generators.Fixed;
 using static owoow.Core.RNG.Validators.Validator;
+using Environment = owoow.Core.RNG.Generators.Misc.Environment;
 
 namespace owoow.Core.RNG.Generators.Overworld;
 
