@@ -37,4 +37,9 @@
   <ItemGroup>
     <Folder Include="deps\" />
   </ItemGroup>
+  <ItemGroup>
+    <Compile Update="Subforms\WailordRespawn.cs">
+      <SubType>Form</SubType>
+    </Compile>
+  </ItemGroup>
 </Project>

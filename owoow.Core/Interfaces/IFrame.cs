@@ -1,11 +1,22 @@
 ﻿namespace owoow.Core.Interfaces
 {
-    internal interface IFrame
+
+    internal interface IBasicFrame
     {
         string Advances { get; }
         string Jump { get; }
-        byte Step { get; }
+        string Seed0 { get; }
+        string Seed1 { get; }
+    }
+
+    internal interface IRetailFrame
+    {
         char Animation { get; }
+    }
+
+    internal interface IOverworldFrame
+    {
+        byte Step { get; }
         string Species { get; }
         string Shiny { get; }
         char Brilliant { get; }
@@ -29,20 +40,9 @@
 
         string Item { get; }
         string EggMove { get; }
-
-        string Seed0 { get; }
-        string Seed1 { get; }
     }
 
-    internal interface IMenuCloseFrame
-    {
-        string Advances { get; }
-        string Jump { get; }
-        string Seed0 { get; }
-        string Seed1 { get; }
-    }
-
-    public class Frame : IFrame
+    public class OverworldFrame : IOverworldFrame, IBasicFrame, IRetailFrame
     {
         public string Advances { get; set; } = string.Empty;
         public string Jump { get; set; } = string.Empty;
@@ -76,10 +76,20 @@
         public string Seed1 { get; set; } = string.Empty;
     }
 
-    public class MenuCloseFrame : IMenuCloseFrame
+    public class MenuCloseFrame : IBasicFrame
     {
         public string Advances { get; set; } = string.Empty;
         public string Jump { get; set; } = string.Empty;
+        public string Seed0 { get; set; } = string.Empty;
+        public string Seed1 { get; set; } = string.Empty;
+    }
+
+    public class WailordFrame : IBasicFrame, IRetailFrame
+    {
+        public string Advances { get; set; } = string.Empty;
+        public string Jump { get; set; } = string.Empty;
+        public char Animation { get; set; } = ' ';
+        public char Respawn { get; set; } = 'N';
         public string Seed0 { get; set; } = string.Empty;
         public string Seed1 { get; set; } = string.Empty;
     }

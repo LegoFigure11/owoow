@@ -49,5 +49,12 @@ namespace owoow.Core.RNG.Validators
             RibbonIndex.MAX_COUNT => mark == RibbonIndex.MAX_COUNT, // None
             _ => mark == target,
         };
+
+        public static bool CheckSuccessType(bool success, SuccessType target) => target switch
+        {
+            SuccessType.Yes => success,
+            SuccessType.No => !success,
+            _ => true,
+        };
     }
 }

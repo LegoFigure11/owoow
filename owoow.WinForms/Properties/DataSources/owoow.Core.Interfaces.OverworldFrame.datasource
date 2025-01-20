@@ -6,5 +6,5 @@
     cause the file to be unrecognizable by the program.
 -->
 <GenericObjectDataSource DisplayName="Frame" Version="1.0" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
-  <TypeInfo>owoow.Core.Interfaces.Frame, owoow.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</TypeInfo>
+  <TypeInfo>owoow.Core.Interfaces.OverworldFrame, owoow.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</TypeInfo>
 </GenericObjectDataSource>

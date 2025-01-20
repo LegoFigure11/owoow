@@ -11,12 +11,12 @@ namespace owoow.Core.RNG.Generators.Overworld;
 
 public class Symbol
 {
-    public static Task<List<Frame>> Generate(ulong s0, ulong s1, EncounterTable.EncounterTable table, ulong start, ulong end, GeneratorConfig config)
+    public static Task<List<OverworldFrame>> Generate(ulong s0, ulong s1, EncounterTable.EncounterTable table, ulong start, ulong end, GeneratorConfig config)
     {
         return Task.Run(() =>
         {
 
-            List<Frame> frames = [];
+            List<OverworldFrame> frames = [];
             var outer = new Xoroshiro128Plus(s0, s1);
 
             bool FiltersEnabled = config.FiltersEnabled;
@@ -230,7 +230,7 @@ public class Symbol
                 }
 
                 // Matches, keep!
-                frames.Add(new Frame()
+                frames.Add(new OverworldFrame()
                 {
                     Advances = $"{i:N0}",
 

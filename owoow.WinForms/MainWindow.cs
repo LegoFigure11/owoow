@@ -35,7 +35,7 @@ public partial class MainWindow : Form
     private bool skipPause = false;
     private long total;
 
-    private List<Frame> Frames = [];
+    private List<OverworldFrame> Frames = [];
 
     private PK8? CachedEncounter;
 
@@ -456,9 +456,9 @@ public partial class MainWindow : Form
 
         for (ulong i = 0; i < initial; i++) rng.Next();
 
-        List<Frame>[] results = [];
+        List<OverworldFrame>[] results = [];
 
-        List<Task<List<Frame>>> tasks = [];
+        List<Task<List<OverworldFrame>>> tasks = [];
         for (byte i = 0; i < numTasks; i++)
         {
             var last = i == numTasks - 1;
@@ -483,7 +483,7 @@ public partial class MainWindow : Form
         Task.Run(async () =>
         {
             results = await Task.WhenAll(tasks);
-            List<Frame> AllResults = [];
+            List<OverworldFrame> AllResults = [];
             foreach (var result in results)
             {
                 AllResults.AddRange(result);
@@ -560,9 +560,9 @@ public partial class MainWindow : Form
 
         for (ulong i = 0; i < initial; i++) rng.Next();
 
-        List<Frame>[] results = [];
+        List<OverworldFrame>[] results = [];
 
-        List<Task<List<Frame>>> tasks = [];
+        List<Task<List<OverworldFrame>>> tasks = [];
         for (byte i = 0; i < numTasks; i++)
         {
             var last = i == numTasks - 1;
@@ -587,7 +587,7 @@ public partial class MainWindow : Form
         Task.Run(async () =>
         {
             results = await Task.WhenAll(tasks);
-            List<Frame> AllResults = [];
+            List<OverworldFrame> AllResults = [];
             foreach (var result in results)
             {
                 AllResults.AddRange(result);
@@ -654,9 +654,9 @@ public partial class MainWindow : Form
 
         for (ulong i = 0; i < initial; i++) rng.Next();
 
-        List<Frame>[] results = [];
+        List<OverworldFrame>[] results = [];
 
-        List<Task<List<Frame>>> tasks = [];
+        List<Task<List<OverworldFrame>>> tasks = [];
         for (byte i = 0; i < numTasks; i++)
         {
             var last = i == numTasks - 1;
@@ -681,7 +681,7 @@ public partial class MainWindow : Form
         Task.Run(async () =>
         {
             results = await Task.WhenAll(tasks);
-            List<Frame> AllResults = [];
+            List<OverworldFrame> AllResults = [];
             foreach (var result in results)
             {
                 AllResults.AddRange(result);
@@ -757,7 +757,7 @@ public partial class MainWindow : Form
 
             List<uint> ticks = [];
 
-            List<Frame> results = [];
+            List<OverworldFrame> results = [];
 
             for (uint i = 0; i < 300; i++) // search next 300 ticks
             {
@@ -1355,7 +1355,23 @@ public partial class MainWindow : Form
         }
         else
         {
-            MenuCloseTimelineForm!.Focus();
+            MenuCloseTimelineForm?.Focus();
+        }
+    }
+
+    public bool WailordRespawnFormOpen = false;
+    WailordRespawn? WailordRespawnForm;
+    private void TSMI_WailordRespawn_Click(object sender, EventArgs e)
+    {
+        if (!WailordRespawnFormOpen)
+        {
+            WailordRespawnFormOpen = true;
+            WailordRespawnForm = new WailordRespawn(this, TC_EncounterType.SelectedTab!.Text);
+            WailordRespawnForm.Show();
+        }
+        else
+        {
+            WailordRespawnForm?.Focus();
         }
     }
     #endregion
@@ -1374,7 +1390,8 @@ public partial class MainWindow : Form
 
     private void TB_Animations_TextChanged(object sender, EventArgs e)
     {
-        if (RetailSequence.Length > 5) {
+        if (RetailSequence.Length > 5)
+        {
             var pattern = TB_Animations.Text;
             if (pattern.Length > 5)
             {

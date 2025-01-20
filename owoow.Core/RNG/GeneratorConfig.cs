@@ -70,5 +70,7 @@ public class GeneratorConfig
     public uint RainTicksAreaLoad {  get; set; } = 0;
     public uint RainTicksEncounter { get; set; } = 0;
 
+    public SuccessType SuccessType { get; set; } = SuccessType.Any;
+
     public bool FiltersEnabled { get; set; } = false;
 };

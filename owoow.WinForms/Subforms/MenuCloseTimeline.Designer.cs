@@ -199,7 +199,7 @@
             B_Timeline_Search.TabIndex = 25;
             B_Timeline_Search.Text = "Search!";
             B_Timeline_Search.UseVisualStyleBackColor = true;
-            B_Timeline_Search.Click += B_Symbol_Search_Click;
+            B_Timeline_Search.Click += B_Timeline_Search_Click;
             // 
             // L_Timeline_Initial
             // 

@@ -2595,12 +2595,11 @@
             // 
             // ResultsSource
             // 
-            ResultsSource.DataSource = typeof(Core.Interfaces.Frame);
+            ResultsSource.DataSource = typeof(Core.Interfaces.OverworldFrame);
             // 
             // MS_SubWindows
             // 
             MS_SubWindows.BackColor = SystemColors.ButtonFace;
-            MS_SubWindows.Enabled = false;
             MS_SubWindows.Items.AddRange(new ToolStripItem[] { TSMI_EncounterLookup, TSMI_LotoID, TSMI_Cramomatic, TSMI_WattTrader, TSMI_DiggingPa, TSMI_WailordRespawn });
             MS_SubWindows.Location = new Point(0, 0);
             MS_SubWindows.Name = "MS_SubWindows";
@@ -2609,30 +2608,35 @@
             // 
             // TSMI_EncounterLookup
             // 
+            TSMI_EncounterLookup.Enabled = false;
             TSMI_EncounterLookup.Name = "TSMI_EncounterLookup";
             TSMI_EncounterLookup.Size = new Size(116, 20);
             TSMI_EncounterLookup.Text = "Encounter Lookup";
             // 
             // TSMI_LotoID
             // 
+            TSMI_LotoID.Enabled = false;
             TSMI_LotoID.Name = "TSMI_LotoID";
             TSMI_LotoID.Size = new Size(59, 20);
             TSMI_LotoID.Text = "Loto-ID";
             // 
             // TSMI_Cramomatic
             // 
+            TSMI_Cramomatic.Enabled = false;
             TSMI_Cramomatic.Name = "TSMI_Cramomatic";
             TSMI_Cramomatic.Size = new Size(95, 20);
             TSMI_Cramomatic.Text = "Cram-o-matic";
             // 
             // TSMI_WattTrader
             // 
+            TSMI_WattTrader.Enabled = false;
             TSMI_WattTrader.Name = "TSMI_WattTrader";
             TSMI_WattTrader.Size = new Size(79, 20);
             TSMI_WattTrader.Text = "Watt Trader";
             // 
             // TSMI_DiggingPa
             // 
+            TSMI_DiggingPa.Enabled = false;
             TSMI_DiggingPa.Name = "TSMI_DiggingPa";
             TSMI_DiggingPa.Size = new Size(77, 20);
             TSMI_DiggingPa.Text = "Digging Pa";
@@ -2642,6 +2646,7 @@
             TSMI_WailordRespawn.Name = "TSMI_WailordRespawn";
             TSMI_WailordRespawn.Size = new Size(110, 20);
             TSMI_WailordRespawn.Text = "Wailord Respawn";
+            TSMI_WailordRespawn.Click += TSMI_WailordRespawn_Click;
             // 
             // MainWindow
             // 

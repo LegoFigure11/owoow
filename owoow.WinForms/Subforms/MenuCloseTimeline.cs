@@ -24,7 +24,7 @@ public partial class MenuCloseTimeline : Form
         f.SetComboBoxSelectedIndex(CB_Timeline_Weather.Items.IndexOf($"{((ComboBox)f.Controls.Find($"CB_{Tab}_Weather", true).FirstOrDefault()!).SelectedItem}"), CB_Timeline_Weather);
     }
 
-    private void B_Symbol_Search_Click(object sender, EventArgs e)
+    private void B_Timeline_Search_Click(object sender, EventArgs e)
     {
         MainWindow.SetControlEnabledState(false, sender);
 

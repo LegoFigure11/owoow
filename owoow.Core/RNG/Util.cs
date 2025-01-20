@@ -110,6 +110,8 @@ public static class Util
         _ => WeatherType.AllWeather,
     };
 
+    public static SuccessType GetSuccessType(int selected) => (SuccessType)selected;
+
     public static short GetDexRecommendation(string species) 
     {
         if (Personal is not null)
