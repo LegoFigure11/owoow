@@ -84,6 +84,17 @@
         public string Seed1 { get; set; } = string.Empty;
     }
 
+    public class LotoIDFrame : IBasicFrame, IRetailFrame
+    {
+        public string Advances { get; set; } = string.Empty;
+        public string Jump { get; set; } = string.Empty;
+        public char Animation { get; set; } = ' ';
+        public string ID { get; set; } = string.Empty;
+        public string Prize { get; set; } = string.Empty;
+        public string Seed0 { get; set; } = string.Empty;
+        public string Seed1 { get; set; } = string.Empty;
+    }
+
     public class WailordFrame : IBasicFrame, IRetailFrame
     {
         public string Advances { get; set; } = string.Empty;

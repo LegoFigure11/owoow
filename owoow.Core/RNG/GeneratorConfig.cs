@@ -33,6 +33,7 @@ public class GeneratorConfig
     public uint TID { get; set; } = 0;
     public uint SID { get; set; } = 0;
     public uint TSV => Util.GetShinyValue(TID, SID);
+    public List<string> IDs { get; set; } = [];
 
     public int ShinyRolls { get; set; } = 1;
     public int MarkRolls { get; set; } = 1;
@@ -70,6 +71,7 @@ public class GeneratorConfig
     public uint RainTicksAreaLoad {  get; set; } = 0;
     public uint RainTicksEncounter { get; set; } = 0;
 
+    public LotoIDTargetType LotoIDTargetType { get; set; } = LotoIDTargetType.Any;
     public SuccessType SuccessType { get; set; } = SuccessType.Any;
 
     public bool FiltersEnabled { get; set; } = false;

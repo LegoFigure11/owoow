@@ -1359,6 +1359,22 @@ public partial class MainWindow : Form
         }
     }
 
+    public bool LotoIDFormOpen = false;
+    LotoID? LotoIDForm;
+    private void TSMI_LotoID_Click(object sender, EventArgs e)
+    {
+        if (!LotoIDFormOpen)
+        {
+            LotoIDFormOpen = true;
+            LotoIDForm = new LotoID(this, TC_EncounterType.SelectedTab!.Text);
+            LotoIDForm.Show();
+        }
+        else
+        {
+            LotoIDForm?.Focus();
+        }
+    }
+
     public bool WailordRespawnFormOpen = false;
     WailordRespawn? WailordRespawnForm;
     private void TSMI_WailordRespawn_Click(object sender, EventArgs e)

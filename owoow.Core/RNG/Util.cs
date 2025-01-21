@@ -110,6 +110,17 @@ public static class Util
         _ => WeatherType.AllWeather,
     };
 
+    public static string GetLotoIDPrizeName(LotoIDTargetType item) => item switch
+    {
+        LotoIDTargetType.MasterBall => "Master Ball",
+        LotoIDTargetType.RareCandy => "Rare Candy",
+        LotoIDTargetType.PPMax => "PP Max",
+        LotoIDTargetType.PPUp => "PP Up",
+        LotoIDTargetType.MoomooMilk => "Moomoo Milk",
+        _ => "None",
+    };
+
+    public static LotoIDTargetType GetLotoIDTargetType(int selected) => (LotoIDTargetType)selected;
     public static SuccessType GetSuccessType(int selected) => (SuccessType)selected;
 
     public static short GetDexRecommendation(string species) 

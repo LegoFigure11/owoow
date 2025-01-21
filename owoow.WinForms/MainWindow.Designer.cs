@@ -2615,10 +2615,10 @@
             // 
             // TSMI_LotoID
             // 
-            TSMI_LotoID.Enabled = false;
             TSMI_LotoID.Name = "TSMI_LotoID";
             TSMI_LotoID.Size = new Size(59, 20);
             TSMI_LotoID.Text = "Loto-ID";
+            TSMI_LotoID.Click += TSMI_LotoID_Click;
             // 
             // TSMI_Cramomatic
             // 

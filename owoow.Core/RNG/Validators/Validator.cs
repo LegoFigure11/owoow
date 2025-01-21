@@ -50,6 +50,8 @@ namespace owoow.Core.RNG.Validators
             _ => mark == target,
         };
 
+        public static bool CheckLotoIDResult(LotoIDTargetType result, LotoIDTargetType target) => target == result || target == LotoIDTargetType.Any;
+
         public static bool CheckSuccessType(bool success, SuccessType target) => target switch
         {
             SuccessType.Yes => success,
