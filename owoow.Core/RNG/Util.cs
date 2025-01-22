@@ -121,6 +121,8 @@ public static class Util
     };
 
     public static LotoIDTargetType GetLotoIDTargetType(int selected) => (LotoIDTargetType)selected;
+    public static CramomaticTargetType GetCramomaticTargetType(int selected) => (CramomaticTargetType)selected;
+    public static CramomaticInputItemType GetCramomaticInputItemType(int selected) => (CramomaticInputItemType)selected;
     public static SuccessType GetSuccessType(int selected) => (SuccessType)selected;
 
     public static short GetDexRecommendation(string species) 

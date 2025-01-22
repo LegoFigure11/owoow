@@ -52,6 +52,19 @@ namespace owoow.Core.RNG.Validators
 
         public static bool CheckLotoIDResult(LotoIDTargetType result, LotoIDTargetType target) => target == result || target == LotoIDTargetType.Any;
 
+        public static bool CheckCramomaticResult(CramomaticGenerateType item, CramomaticTargetType target, bool isSafari = false) => target switch
+        {
+            CramomaticTargetType.SportBall => item is CramomaticGenerateType.SportSafari && !isSafari,
+            CramomaticTargetType.SafariBall => item is CramomaticGenerateType.SportSafari && isSafari,
+            CramomaticTargetType.ApricornBall => item is CramomaticGenerateType.Apricorn,
+            CramomaticTargetType.ShopBall => 
+                item is CramomaticGenerateType.Shop1 or CramomaticGenerateType.Shop2 or CramomaticGenerateType.GreatBall or CramomaticGenerateType.PokeBall,
+            CramomaticTargetType.StarSweet => item is CramomaticGenerateType.StarSweet,
+            CramomaticTargetType.RibbonSweet => item is CramomaticGenerateType.RibbonSweet,
+            CramomaticTargetType.StrawberrySweet => item is CramomaticGenerateType.StrawberrySweet,
+            _ => true,
+        };
+
         public static bool CheckSuccessType(bool success, SuccessType target) => target switch
         {
             SuccessType.Yes => success,

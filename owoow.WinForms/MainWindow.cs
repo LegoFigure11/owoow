@@ -1375,6 +1375,22 @@ public partial class MainWindow : Form
         }
     }
 
+    public bool CramomaticFormOpen = false;
+    Cramomatic? CramomaticForm;
+    private void TSMI_Cramomatic_Click(object sender, EventArgs e)
+    {
+        if (!CramomaticFormOpen)
+        {
+            CramomaticFormOpen = true;
+            CramomaticForm = new Cramomatic(this, TC_EncounterType.SelectedTab!.Text);
+            CramomaticForm.Show();
+        }
+        else
+        {
+            CramomaticForm?.Focus();
+        }
+    }
+
     public bool WailordRespawnFormOpen = false;
     WailordRespawn? WailordRespawnForm;
     private void TSMI_WailordRespawn_Click(object sender, EventArgs e)

@@ -74,5 +74,9 @@ public class GeneratorConfig
     public LotoIDTargetType LotoIDTargetType { get; set; } = LotoIDTargetType.Any;
     public SuccessType SuccessType { get; set; } = SuccessType.Any;
 
+    public CramomaticTargetType CramomaticTargetType { get; set; } = CramomaticTargetType.Any;
+    public CramomaticInputItemType[] CramomaticInputs { get; set; } = [0, 0, 0, 0];
+    public bool BonusOnly { get; set; } = false;
+
     public bool FiltersEnabled { get; set; } = false;
 };

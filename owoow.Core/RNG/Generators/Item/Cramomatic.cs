@@ -1,0 +1,125 @@
+﻿using owoow.Core.Enums;
+using owoow.Core.Interfaces;
+using owoow.Core.RNG.Generators.Misc;
+using PKHeX.Core;
+using static owoow.Core.RNG.Validators.Validator;
+
+namespace owoow.Core.RNG.Generators.Item;
+
+public static class Cramomatic
+{
+    public static Task<List<CramomaticFrame>> Generate(ulong s0, ulong s1, ulong start, ulong end, GeneratorConfig config)
+    {
+        return Task.Run(() =>
+        {
+            List<CramomaticFrame> frames = [];
+
+            bool isSweet = config.CramomaticInputs.Any(i => i is CramomaticInputItemType.SweetIngredient);
+            bool allSame = config.CramomaticInputs.All(i => i == config.CramomaticInputs[0]);
+
+            Xoroshiro128Plus outer = new(s0, s1);
+
+            ulong advances = 0;
+            uint Jump = 0;
+
+            for (; advances < start; advances++)
+            {
+                outer.Next();
+            }
+
+            for (ulong i = start; i <= end; i++)
+            {
+                var os = outer.GetState();
+                var rng = new Xoroshiro128Plus(os.s0, os.s1);
+
+                Jump = 0;
+
+                if (config.ConsiderMenuClose)
+                {
+                    Jump += MenuClose.GetAdvances(ref rng, config.MenuCloseNPCs, config.MenuCloseIsHoldingDirection, config.Weather);
+                }
+
+                uint slot = 4 - (uint)rng.NextInt(4); // reverse order
+                uint itemRoll = (uint)rng.NextInt(100);
+                bool isSportSafari = rng.NextInt(1000) == 0;
+                CramomaticGenerateType item = GetItemType(itemRoll, isSportSafari, !isSweet);
+
+                if (!CheckCramomaticResult(item, config.CramomaticTargetType, allSame))
+                {
+                    outer.Next();   
+                    continue;
+                }
+
+                bool isBonus = rng.NextInt((uint)(item is CramomaticGenerateType.SportSafari or CramomaticGenerateType.Apricorn ? 1000 : 100)) == 0;
+                
+                if (config.BonusOnly && !isBonus)
+                {
+                    outer.Next();
+                    continue;
+                }
+
+                frames.Add(new CramomaticFrame
+                {
+                    Advances = $"{i:N0}",
+                    Jump = $"+{Jump}",
+                    Animation = (os.s0 & 1 ^ os.s1 & 1) == 0 ? 'P' : 'S',
+                    Prize = GetItemName(item, config.CramomaticInputs[slot - 1], allSame),
+                    Bonus = isBonus,
+                    Seed0 = $"{os.s0:X16}",
+                    Seed1 = $"{os.s1:X16}",
+                });
+
+
+                outer.Next();
+            }
+            return frames;
+        });
+    }
+
+    private static CramomaticGenerateType GetItemType(uint roll, bool isSportSafari = false, bool isBall = false)
+    {
+        if (isBall)
+        {
+            if (isSportSafari) return CramomaticGenerateType.SportSafari;
+            return GetBallType(roll);
+        }
+        return GetSweetType(roll);
+    }
+
+    private static CramomaticGenerateType GetBallType(uint roll) => roll switch
+    {
+        >= 99 => CramomaticGenerateType.Apricorn,
+        >= 75 => CramomaticGenerateType.Shop2,
+        >= 50 => CramomaticGenerateType.Shop1,
+        >= 25 => CramomaticGenerateType.GreatBall,
+        _ => CramomaticGenerateType.PokeBall,
+    };
+
+    private static CramomaticGenerateType GetSweetType(uint roll) => roll switch
+    {
+        >= 90 => CramomaticGenerateType.StarSweet,
+        >= 79 => CramomaticGenerateType.RibbonSweet,
+        _ => CramomaticGenerateType.StrawberrySweet,
+    };
+
+    private static string GetItemName(CramomaticGenerateType item, CramomaticInputItemType color, bool isSafari) => item switch
+    {
+        CramomaticGenerateType.StarSweet       => "Star Sweet",
+        CramomaticGenerateType.RibbonSweet     => "Ribbon Sweet",
+        CramomaticGenerateType.StrawberrySweet => "Strawberry Sweet",
+        CramomaticGenerateType.PokeBall        => "Poké Ball",
+        CramomaticGenerateType.GreatBall       => "Great Ball",
+        CramomaticGenerateType.SportSafari     => isSafari ? "Safari Ball" : "Sport Ball",
+        _                                      => BallList[color][(int)item - 1],
+    };
+
+    private static readonly OrderedDictionary<CramomaticInputItemType, string[]> BallList = new() {
+        { CramomaticInputItemType.BlackApricorn,  ["Heavy Ball", "Luxury Ball", "Dusk Ball"] },
+        { CramomaticInputItemType.BlueApricorn,   ["Lure Ball", "Dive Ball", "Net Ball"] },
+        { CramomaticInputItemType.GreenApricorn,  ["Friend Ball", "Nest Ball", "Ultra Ball"] },
+        { CramomaticInputItemType.PinkApricorn,   ["Love Ball", "Heal Ball", "Ultra Ball"] },
+        { CramomaticInputItemType.RedApricorn,    ["Level Ball", "Repeat Ball", "Ultra Ball"] },
+        { CramomaticInputItemType.WhiteApricorn,  ["Fast Ball", "Timer Ball", "Premier Ball"] },
+        { CramomaticInputItemType.YellowApricorn, ["Moon Ball", "Quick Ball", "Ultra Ball"] },
+    };
+}

@@ -2622,10 +2622,10 @@
             // 
             // TSMI_Cramomatic
             // 
-            TSMI_Cramomatic.Enabled = false;
             TSMI_Cramomatic.Name = "TSMI_Cramomatic";
             TSMI_Cramomatic.Size = new Size(95, 20);
             TSMI_Cramomatic.Text = "Cram-o-matic";
+            TSMI_Cramomatic.Click += TSMI_Cramomatic_Click;
             // 
             // TSMI_WattTrader
             // 

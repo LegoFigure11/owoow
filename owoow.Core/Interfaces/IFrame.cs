@@ -95,6 +95,17 @@
         public string Seed1 { get; set; } = string.Empty;
     }
 
+    public class CramomaticFrame : IBasicFrame, IRetailFrame
+    {
+        public string Advances { get; set; } = string.Empty;
+        public string Jump { get; set; } = string.Empty;
+        public char Animation { get; set; } = ' ';
+        public string Prize { get; set; } = string.Empty;
+        public bool Bonus {  get; set; } = false;
+        public string Seed0 { get; set; } = string.Empty;
+        public string Seed1 { get; set; } = string.Empty;
+    }
+
     public class WailordFrame : IBasicFrame, IRetailFrame
     {
         public string Advances { get; set; } = string.Empty;
