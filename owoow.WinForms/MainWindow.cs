@@ -1412,46 +1412,50 @@ public partial class MainWindow : Form
     private byte[] RetailSequence = [];
     private ulong RetailSeed0 = 0;
     private ulong RetailSeed1 = 0;
+    private ulong RetailInitial = 0;
     private void B_GenerateRetailPattern_Click(object sender, EventArgs e)
     {
         var s0 = ulong.Parse(TB_Seed0.Text, NumberStyles.AllowHexSpecifier);
         var s1 = ulong.Parse(TB_Seed1.Text, NumberStyles.AllowHexSpecifier);
+        var ini = ulong.Parse(TB_RetailInitial.Text);
         var adv = ulong.Parse(TB_RetailRange.Text);
-        (RetailSequence, RetailSeed0, RetailSeed1) = SeedFinder.GenerateAnimationSequence(s0, s1, adv);
+        RetailInitial = ini;
+        (RetailSequence, RetailSeed0, RetailSeed1) = SeedFinder.GenerateAnimationSequence(s0, s1, ini, adv);
     }
 
     private void TB_Animations_TextChanged(object sender, EventArgs e)
     {
+        var pattern = TB_Animations.Text;
+        TB_AnimationLength.Text = $"{pattern.Length}";
         if (RetailSequence.Length > 5)
         {
-            var pattern = TB_Animations.Text;
             if (pattern.Length > 5)
             {
                 var (hits, advances, s0, s1) = SeedFinder.ReidentifySeed(RetailSequence, RetailSeed0, RetailSeed1, pattern);
                 if (hits == 1)
                 {
-                    TB_RetailAdvances.Text = $"{advances:N0}";
-                    TB_CurrentAdvances.Text = $"{advances:N0}";
+                    TB_RetailAdvances.Text = $"{(uint)advances + RetailInitial:N0}";
+                    TB_CurrentAdvances.Text = $"{(uint)advances + RetailInitial:N0}";
                     TB_CurrentS0.Text = $"{s0:X16}";
                     TB_CurrentS1.Text = $"{s1:X16}";
                 }
                 else if (hits == 0)
                 {
-                    TB_RetailAdvances.Text = "No results found.";
+                    TB_RetailAdvances.Text = "No results";
                 }
                 else
                 {
-                    TB_RetailAdvances.Text = $"{hits} possibilities.";
+                    TB_RetailAdvances.Text = $"{hits} results";
                 }
             }
             else
             {
-                TB_RetailAdvances.Text = "Need more inputs.";
+                TB_RetailAdvances.Text = "Need more inputs";
             }
         }
         else
         {
-            TB_RetailAdvances.Text = "No sequence.";
+            TB_RetailAdvances.Text = "Generate First ↑";
         }
     }
     #endregion

@@ -29,10 +29,12 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
-            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainWindow));
             GB_SeedControlsContainer = new GroupBox();
             GB_Filters = new GroupBox();
+            CB_PlayTone = new CheckBox();
+            CB_FocusWindow = new CheckBox();
             CB_EnableFilters = new CheckBox();
             L_Filter_Height = new Label();
             CB_Filter_Height = new ComboBox();
@@ -92,14 +94,17 @@
             B_SeedSearch_Settings = new Button();
             B_SeedSearch = new Button();
             GB_Retail = new GroupBox();
+            TB_AnimationLength = new TextBox();
+            TB_RetailRange = new TextBox();
+            L_RetailRange = new Label();
+            B_GenerateRetailPattern = new Button();
             L_RetailAdvances = new Label();
             TB_RetailAdvances = new TextBox();
             B_RetailUpdateSeeds = new Button();
             L_Animations = new Label();
             TB_Animations = new TextBox();
-            B_GenerateRetailPattern = new Button();
-            TB_RetailRange = new TextBox();
-            L_RetailRange = new Label();
+            TB_RetailInitial = new TextBox();
+            L_RetailInitial = new Label();
             B_RetailSeedFinder = new Button();
             P_EncounterSettings = new Panel();
             GB_DexRec = new GroupBox();
@@ -313,6 +318,8 @@
             // 
             // GB_Filters
             // 
+            GB_Filters.Controls.Add(CB_PlayTone);
+            GB_Filters.Controls.Add(CB_FocusWindow);
             GB_Filters.Controls.Add(CB_EnableFilters);
             GB_Filters.Controls.Add(L_Filter_Height);
             GB_Filters.Controls.Add(CB_Filter_Height);
@@ -364,13 +371,37 @@
             GB_Filters.TabIndex = 5;
             GB_Filters.TabStop = false;
             // 
+            // CB_PlayTone
+            // 
+            CB_PlayTone.AutoSize = true;
+            CB_PlayTone.CheckAlign = ContentAlignment.MiddleRight;
+            CB_PlayTone.Location = new Point(2, 296);
+            CB_PlayTone.Name = "CB_PlayTone";
+            CB_PlayTone.Size = new Size(81, 19);
+            CB_PlayTone.TabIndex = 50;
+            CB_PlayTone.Tag = "";
+            CB_PlayTone.Text = "Play Tone?";
+            CB_PlayTone.UseVisualStyleBackColor = true;
+            // 
+            // CB_FocusWindow
+            // 
+            CB_FocusWindow.AutoSize = true;
+            CB_FocusWindow.CheckAlign = ContentAlignment.MiddleRight;
+            CB_FocusWindow.Location = new Point(85, 296);
+            CB_FocusWindow.Name = "CB_FocusWindow";
+            CB_FocusWindow.Size = new Size(109, 19);
+            CB_FocusWindow.TabIndex = 49;
+            CB_FocusWindow.Tag = "";
+            CB_FocusWindow.Text = "Focus Window?";
+            CB_FocusWindow.UseVisualStyleBackColor = true;
+            // 
             // CB_EnableFilters
             // 
             CB_EnableFilters.AutoSize = true;
             CB_EnableFilters.CheckAlign = ContentAlignment.MiddleRight;
             CB_EnableFilters.Checked = true;
             CB_EnableFilters.CheckState = CheckState.Checked;
-            CB_EnableFilters.Location = new Point(48, 292);
+            CB_EnableFilters.Location = new Point(87, 275);
             CB_EnableFilters.Name = "CB_EnableFilters";
             CB_EnableFilters.Size = new Size(107, 19);
             CB_EnableFilters.TabIndex = 48;
@@ -903,18 +934,18 @@
             GB_SeedSearch.Controls.Add(B_SeedSearch);
             GB_SeedSearch.Location = new Point(1078, 98);
             GB_SeedSearch.Name = "GB_SeedSearch";
-            GB_SeedSearch.Size = new Size(212, 81);
+            GB_SeedSearch.Size = new Size(212, 53);
             GB_SeedSearch.TabIndex = 27;
             GB_SeedSearch.TabStop = false;
             // 
             // B_SeedSearch_Settings
             // 
             B_SeedSearch_Settings.Enabled = false;
-            B_SeedSearch_Settings.Location = new Point(7, 48);
+            B_SeedSearch_Settings.Location = new Point(107, 21);
             B_SeedSearch_Settings.Name = "B_SeedSearch_Settings";
-            B_SeedSearch_Settings.Size = new Size(198, 25);
+            B_SeedSearch_Settings.Size = new Size(98, 25);
             B_SeedSearch_Settings.TabIndex = 22;
-            B_SeedSearch_Settings.Text = "Seed Reset Settings";
+            B_SeedSearch_Settings.Text = "Settings";
             B_SeedSearch_Settings.UseVisualStyleBackColor = true;
             // 
             // B_SeedSearch
@@ -922,54 +953,101 @@
             B_SeedSearch.Enabled = false;
             B_SeedSearch.Location = new Point(7, 21);
             B_SeedSearch.Name = "B_SeedSearch";
-            B_SeedSearch.Size = new Size(198, 25);
+            B_SeedSearch.Size = new Size(98, 25);
             B_SeedSearch.TabIndex = 21;
             B_SeedSearch.Text = "Reset for Seed";
             B_SeedSearch.UseVisualStyleBackColor = true;
             // 
             // GB_Retail
             // 
+            GB_Retail.Controls.Add(TB_AnimationLength);
+            GB_Retail.Controls.Add(TB_RetailRange);
+            GB_Retail.Controls.Add(L_RetailRange);
+            GB_Retail.Controls.Add(B_GenerateRetailPattern);
             GB_Retail.Controls.Add(L_RetailAdvances);
             GB_Retail.Controls.Add(TB_RetailAdvances);
             GB_Retail.Controls.Add(B_RetailUpdateSeeds);
             GB_Retail.Controls.Add(L_Animations);
             GB_Retail.Controls.Add(TB_Animations);
-            GB_Retail.Controls.Add(B_GenerateRetailPattern);
-            GB_Retail.Controls.Add(TB_RetailRange);
-            GB_Retail.Controls.Add(L_RetailRange);
+            GB_Retail.Controls.Add(TB_RetailInitial);
+            GB_Retail.Controls.Add(L_RetailInitial);
             GB_Retail.Controls.Add(B_RetailSeedFinder);
-            GB_Retail.Location = new Point(1078, 177);
+            GB_Retail.Location = new Point(1078, 150);
             GB_Retail.Name = "GB_Retail";
-            GB_Retail.Size = new Size(212, 144);
+            GB_Retail.Size = new Size(212, 171);
             GB_Retail.TabIndex = 29;
             GB_Retail.TabStop = false;
             GB_Retail.Text = "Retail Tools";
             // 
+            // TB_AnimationLength
+            // 
+            TB_AnimationLength.CharacterCasing = CharacterCasing.Lower;
+            TB_AnimationLength.Font = new Font("Consolas", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            TB_AnimationLength.Location = new Point(178, 114);
+            TB_AnimationLength.MaxLength = 3;
+            TB_AnimationLength.Name = "TB_AnimationLength";
+            TB_AnimationLength.ReadOnly = true;
+            TB_AnimationLength.Size = new Size(27, 22);
+            TB_AnimationLength.TabIndex = 64;
+            TB_AnimationLength.TabStop = false;
+            TB_AnimationLength.TextAlign = HorizontalAlignment.Right;
+            // 
+            // TB_RetailRange
+            // 
+            TB_RetailRange.CharacterCasing = CharacterCasing.Upper;
+            TB_RetailRange.Font = new Font("Consolas", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            TB_RetailRange.Location = new Point(57, 66);
+            TB_RetailRange.MaxLength = 7;
+            TB_RetailRange.Name = "TB_RetailRange";
+            TB_RetailRange.Size = new Size(55, 22);
+            TB_RetailRange.TabIndex = 63;
+            TB_RetailRange.Text = "99999";
+            TB_RetailRange.TextAlign = HorizontalAlignment.Right;
+            // 
+            // L_RetailRange
+            // 
+            L_RetailRange.AutoSize = true;
+            L_RetailRange.Location = new Point(35, 68);
+            L_RetailRange.Name = "L_RetailRange";
+            L_RetailRange.Size = new Size(15, 15);
+            L_RetailRange.TabIndex = 62;
+            L_RetailRange.Text = "+";
+            // 
+            // B_GenerateRetailPattern
+            // 
+            B_GenerateRetailPattern.Location = new Point(118, 65);
+            B_GenerateRetailPattern.Name = "B_GenerateRetailPattern";
+            B_GenerateRetailPattern.Size = new Size(87, 25);
+            B_GenerateRetailPattern.TabIndex = 61;
+            B_GenerateRetailPattern.Text = "Generate";
+            B_GenerateRetailPattern.UseVisualStyleBackColor = true;
+            B_GenerateRetailPattern.Click += B_GenerateRetailPattern_Click;
+            // 
             // L_RetailAdvances
             // 
             L_RetailAdvances.AutoSize = true;
-            L_RetailAdvances.Location = new Point(16, 94);
+            L_RetailAdvances.Location = new Point(16, 116);
             L_RetailAdvances.Name = "L_RetailAdvances";
             L_RetailAdvances.Size = new Size(34, 15);
-            L_RetailAdvances.TabIndex = 38;
+            L_RetailAdvances.TabIndex = 60;
             L_RetailAdvances.Text = "Adv.:";
             // 
             // TB_RetailAdvances
             // 
             TB_RetailAdvances.Font = new Font("Consolas", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            TB_RetailAdvances.Location = new Point(57, 92);
+            TB_RetailAdvances.Location = new Point(57, 114);
             TB_RetailAdvances.MaxLength = 5;
             TB_RetailAdvances.Name = "TB_RetailAdvances";
             TB_RetailAdvances.ReadOnly = true;
-            TB_RetailAdvances.Size = new Size(148, 22);
-            TB_RetailAdvances.TabIndex = 37;
+            TB_RetailAdvances.Size = new Size(119, 22);
+            TB_RetailAdvances.TabIndex = 59;
             // 
             // B_RetailUpdateSeeds
             // 
-            B_RetailUpdateSeeds.Location = new Point(9, 117);
+            B_RetailUpdateSeeds.Location = new Point(9, 139);
             B_RetailUpdateSeeds.Name = "B_RetailUpdateSeeds";
             B_RetailUpdateSeeds.Size = new Size(196, 25);
-            B_RetailUpdateSeeds.TabIndex = 36;
+            B_RetailUpdateSeeds.TabIndex = 58;
             B_RetailUpdateSeeds.Text = "Update Seeds";
             B_RetailUpdateSeeds.UseVisualStyleBackColor = true;
             B_RetailUpdateSeeds.Click += B_CopyToInitial_Click;
@@ -977,61 +1055,51 @@
             // L_Animations
             // 
             L_Animations.AutoSize = true;
-            L_Animations.Location = new Point(8, 70);
+            L_Animations.Location = new Point(8, 92);
             L_Animations.Name = "L_Animations";
             L_Animations.Size = new Size(42, 15);
-            L_Animations.TabIndex = 33;
+            L_Animations.TabIndex = 57;
             L_Animations.Text = "Anim.:";
             // 
             // TB_Animations
             // 
             TB_Animations.CharacterCasing = CharacterCasing.Upper;
             TB_Animations.Font = new Font("Consolas", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            TB_Animations.Location = new Point(57, 68);
+            TB_Animations.Location = new Point(57, 90);
             TB_Animations.MaxLength = 99;
             TB_Animations.Name = "TB_Animations";
             TB_Animations.Size = new Size(148, 22);
-            TB_Animations.TabIndex = 32;
+            TB_Animations.TabIndex = 56;
             TB_Animations.TextChanged += TB_Animations_TextChanged;
             TB_Animations.KeyPress += KeyPress_AllowOnlyBinary;
             // 
-            // B_GenerateRetailPattern
+            // TB_RetailInitial
             // 
-            B_GenerateRetailPattern.Location = new Point(107, 42);
-            B_GenerateRetailPattern.Name = "B_GenerateRetailPattern";
-            B_GenerateRetailPattern.Size = new Size(98, 25);
-            B_GenerateRetailPattern.TabIndex = 30;
-            B_GenerateRetailPattern.Text = "Generate";
-            B_GenerateRetailPattern.UseVisualStyleBackColor = true;
-            B_GenerateRetailPattern.Click += B_GenerateRetailPattern_Click;
+            TB_RetailInitial.CharacterCasing = CharacterCasing.Upper;
+            TB_RetailInitial.Font = new Font("Consolas", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            TB_RetailInitial.Location = new Point(57, 42);
+            TB_RetailInitial.MaxLength = 16;
+            TB_RetailInitial.Name = "TB_RetailInitial";
+            TB_RetailInitial.Size = new Size(148, 22);
+            TB_RetailInitial.TabIndex = 55;
+            TB_RetailInitial.Text = "0";
+            TB_RetailInitial.TextAlign = HorizontalAlignment.Right;
             // 
-            // TB_RetailRange
+            // L_RetailInitial
             // 
-            TB_RetailRange.CharacterCasing = CharacterCasing.Upper;
-            TB_RetailRange.Font = new Font("Consolas", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            TB_RetailRange.Location = new Point(57, 42);
-            TB_RetailRange.MaxLength = 6;
-            TB_RetailRange.Name = "TB_RetailRange";
-            TB_RetailRange.Size = new Size(48, 22);
-            TB_RetailRange.TabIndex = 29;
-            TB_RetailRange.Text = "100000";
-            TB_RetailRange.TextAlign = HorizontalAlignment.Right;
-            // 
-            // L_RetailRange
-            // 
-            L_RetailRange.AutoSize = true;
-            L_RetailRange.Location = new Point(8, 44);
-            L_RetailRange.Name = "L_RetailRange";
-            L_RetailRange.Size = new Size(43, 15);
-            L_RetailRange.TabIndex = 28;
-            L_RetailRange.Text = "Range:";
+            L_RetailInitial.AutoSize = true;
+            L_RetailInitial.Location = new Point(11, 44);
+            L_RetailInitial.Name = "L_RetailInitial";
+            L_RetailInitial.Size = new Size(39, 15);
+            L_RetailInitial.TabIndex = 54;
+            L_RetailInitial.Text = "Initial:";
             // 
             // B_RetailSeedFinder
             // 
-            B_RetailSeedFinder.Location = new Point(7, 14);
+            B_RetailSeedFinder.Location = new Point(7, 15);
             B_RetailSeedFinder.Name = "B_RetailSeedFinder";
             B_RetailSeedFinder.Size = new Size(198, 25);
-            B_RetailSeedFinder.TabIndex = 27;
+            B_RetailSeedFinder.TabIndex = 53;
             B_RetailSeedFinder.Text = "Retail Seed Finder";
             B_RetailSeedFinder.UseVisualStyleBackColor = true;
             B_RetailSeedFinder.Click += B_RetailSeedFinder_Click;
@@ -1206,7 +1274,7 @@
             // CB_ConsiderRain
             // 
             CB_ConsiderRain.AutoSize = true;
-            CB_ConsiderRain.Location = new Point(5, 89);
+            CB_ConsiderRain.Location = new Point(6, 89);
             CB_ConsiderRain.Name = "CB_ConsiderRain";
             CB_ConsiderRain.Size = new Size(168, 19);
             CB_ConsiderRain.TabIndex = 0;
@@ -2327,9 +2395,9 @@
             // 
             DGV_Results.AllowUserToAddRows = false;
             DGV_Results.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle2.BackColor = Color.WhiteSmoke;
-            dataGridViewCellStyle2.ForeColor = Color.Black;
-            DGV_Results.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle1.BackColor = Color.WhiteSmoke;
+            dataGridViewCellStyle1.ForeColor = Color.Black;
+            DGV_Results.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             DGV_Results.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             DGV_Results.AutoGenerateColumns = false;
             DGV_Results.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -2900,22 +2968,27 @@
         private Button B_CancelSkip;
         private PictureBox PB_MarkSprite;
         private GroupBox GB_Retail;
-        private Button B_RetailSeedFinder;
-        private Button B_GenerateRetailPattern;
-        private TextBox TB_RetailRange;
-        private Label L_RetailRange;
         private MenuStrip MS_SubWindows;
         private ToolStripMenuItem TSMI_EncounterLookup;
         private ToolStripMenuItem TSMI_LotoID;
         private ToolStripMenuItem TSMI_Cramomatic;
         private ToolStripMenuItem TSMI_WattTrader;
         private ToolStripMenuItem TSMI_DiggingPa;
-        private TextBox TB_Animations;
-        private Label L_Animations;
-        private Button B_RetailUpdateSeeds;
-        private Label L_RetailAdvances;
-        private TextBox TB_RetailAdvances;
         private ToolStripMenuItem TSMI_WailordRespawn;
         private Button B_ReadEncounter;
+        private TextBox TB_RetailRange;
+        private Label L_RetailRange;
+        private Button B_GenerateRetailPattern;
+        private Label L_RetailAdvances;
+        private TextBox TB_RetailAdvances;
+        private Button B_RetailUpdateSeeds;
+        private Label L_Animations;
+        private TextBox TB_Animations;
+        private TextBox TB_RetailInitial;
+        private Label L_RetailInitial;
+        private Button B_RetailSeedFinder;
+        private CheckBox CB_PlayTone;
+        private CheckBox CB_FocusWindow;
+        private TextBox TB_AnimationLength;
     }
 }

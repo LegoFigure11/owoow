@@ -88,10 +88,11 @@ public static class SeedFinder
         return rng.GetState();
     }
 
-    public static (byte[] sequence, ulong s0, ulong s1) GenerateAnimationSequence(ulong s0, ulong s1, ulong adv)
+    public static (byte[] sequence, ulong s0, ulong s1) GenerateAnimationSequence(ulong s0, ulong s1, ulong ini, ulong adv)
     {
         byte[] res = new byte[adv];
         var rng = new Xoroshiro128Plus(s0, s1);
+        for (ulong i = 0; i < ini; i++) rng.Next();
         for (ulong i = 0; i < adv; i++)
         {
             res[i] = (byte)(rng.Next() & 1);
