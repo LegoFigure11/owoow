@@ -39,9 +39,20 @@ public static class Cramomatic
                     Jump += MenuClose.GetAdvances(ref rng, config.MenuCloseNPCs, config.MenuCloseIsHoldingDirection, config.Weather);
                 }
 
-                uint slot = 4 - (uint)rng.NextInt(4); // reverse order
-                uint itemRoll = (uint)rng.NextInt(100);
-                bool isSportSafari = rng.NextInt(1000) == 0;
+                uint slot = 4;
+                uint itemRoll = 0;
+                bool isSportSafari = false;
+                if (isSweet)
+                {
+                    itemRoll = (uint)rng.NextInt(100);
+                } 
+                else
+                {
+                    slot -= (uint)rng.NextInt(4); // reverse order
+                    itemRoll = (uint)rng.NextInt(100);
+                    isSportSafari = rng.NextInt(1000) == 0;
+                }
+
                 CramomaticGenerateType item = GetItemType(itemRoll, isSportSafari, !isSweet);
 
                 if (!CheckCramomaticResult(item, config.CramomaticTargetType, allSame))
@@ -52,7 +63,7 @@ public static class Cramomatic
 
                 bool isBonus = rng.NextInt((uint)(item is CramomaticGenerateType.SportSafari or CramomaticGenerateType.Apricorn ? 1000 : 100)) == 0;
                 
-                if (config.BonusOnly && !isBonus)
+                if (!isSweet && config.BonusOnly && !isBonus)
                 {
                     outer.Next();
                     continue;
@@ -64,7 +75,7 @@ public static class Cramomatic
                     Jump = $"+{Jump}",
                     Animation = (os.s0 & 1 ^ os.s1 & 1) == 0 ? 'P' : 'S',
                     Prize = GetItemName(item, config.CramomaticInputs[slot - 1], allSame),
-                    Bonus = isBonus,
+                    Bonus = isBonus && !isSweet,
                     Seed0 = $"{os.s0:X16}",
                     Seed1 = $"{os.s1:X16}",
                 });
@@ -97,8 +108,8 @@ public static class Cramomatic
 
     private static CramomaticGenerateType GetSweetType(uint roll) => roll switch
     {
-        >= 90 => CramomaticGenerateType.StarSweet,
-        >= 79 => CramomaticGenerateType.RibbonSweet,
+        >= 89 => CramomaticGenerateType.RibbonSweet,
+        >= 79 => CramomaticGenerateType.StarSweet,
         _ => CramomaticGenerateType.StrawberrySweet,
     };
 
