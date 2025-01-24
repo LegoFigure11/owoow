@@ -443,8 +443,8 @@ public partial class MainWindow : Form
             AreaLoadAdvances = (uint)NUD_AreaLoad.Value,
             AreaLoadNPCs = (uint)NUD_FlyNPCs.Value,
             ConsiderRain = CB_ConsiderRain.Checked,
-            RainTicksAreaLoad = (uint)NUD_RainFly.Value,
-            RainTicksEncounter = (uint)NUD_RainEncounter.Value,
+            RainTicksAreaLoad = CB_ConsiderFlying.Checked && CB_ConsiderRain.Checked ? (uint)NUD_RainTick.Value : 0,
+            RainTicksEncounter = CB_ConsiderFlying.Checked && CB_ConsiderRain.Checked ? 0 : (uint)NUD_RainTick.Value,
 
             FiltersEnabled = CB_EnableFilters.Checked,
 
@@ -547,8 +547,8 @@ public partial class MainWindow : Form
             AreaLoadAdvances = (uint)NUD_AreaLoad.Value,
             AreaLoadNPCs = (uint)NUD_FlyNPCs.Value,
             ConsiderRain = CB_ConsiderRain.Checked,
-            RainTicksAreaLoad = (uint)NUD_RainFly.Value,
-            RainTicksEncounter = (uint)NUD_RainEncounter.Value,
+            RainTicksAreaLoad = CB_ConsiderFlying.Checked && CB_ConsiderRain.Checked ? (uint)NUD_RainTick.Value : 0,
+            RainTicksEncounter = CB_ConsiderFlying.Checked && CB_ConsiderRain.Checked ? 0 : (uint)NUD_RainTick.Value,
 
             FiltersEnabled = CB_EnableFilters.Checked,
 
@@ -641,8 +641,8 @@ public partial class MainWindow : Form
             AreaLoadAdvances = (uint)NUD_AreaLoad.Value,
             AreaLoadNPCs = (uint)NUD_FlyNPCs.Value,
             ConsiderRain = CB_ConsiderRain.Checked,
-            RainTicksAreaLoad = (uint)NUD_RainFly.Value,
-            RainTicksEncounter = (uint)NUD_RainEncounter.Value,
+            RainTicksAreaLoad = CB_ConsiderFlying.Checked && CB_ConsiderRain.Checked ? (uint)NUD_RainTick.Value : 0,
+            RainTicksEncounter = CB_ConsiderFlying.Checked && CB_ConsiderRain.Checked ? 0 : (uint)NUD_RainTick.Value,
 
             FiltersEnabled = CB_EnableFilters.Checked,
 
@@ -740,8 +740,8 @@ public partial class MainWindow : Form
                 ConsiderFly = CB_ConsiderFlying.Checked,
                 AreaLoadAdvances = (uint)NUD_AreaLoad.Value,
                 AreaLoadNPCs = (uint)NUD_FlyNPCs.Value,
-                ConsiderRain = CB_ConsiderRain.Checked,
-                RainTicksAreaLoad = (uint)NUD_RainFly.Value,
+                RainTicksAreaLoad = CB_ConsiderFlying.Checked && CB_ConsiderRain.Checked ? (uint)NUD_RainTick.Value : 0,
+                RainTicksEncounter = CB_ConsiderFlying.Checked && CB_ConsiderRain.Checked ? 0 : (uint)NUD_RainTick.Value,
 
                 FiltersEnabled = true,
 
@@ -774,7 +774,7 @@ public partial class MainWindow : Form
 
             if (ticks.Count != 0)
             {
-                SetNUDValue(ticks[0], NUD_RainEncounter);
+                SetNUDValue(ticks[0], NUD_RainTick);
                 MessageBox.Show($"Found {ticks.Count} result{(ticks.Count != 1 ? "s" : string.Empty)}: {string.Join(", ", ticks)}");
             }
             else
@@ -1236,13 +1236,13 @@ public partial class MainWindow : Form
     private void CB_ConsiderFlying_CheckedChanged(object sender, EventArgs e)
     {
         SetControlEnabledState(((CheckBox)sender).Checked, L_AreaLoad, NUD_AreaLoad, L_FlyNPCs, NUD_FlyNPCs);
-        SetControlEnabledState(((CheckBox)sender).Checked && CB_ConsiderRain.Checked, L_RainFly, NUD_RainFly);
+        SetControlEnabledState(!((CheckBox)sender).Checked && CB_ConsiderRain.Checked, B_CalculateRain);
     }
 
     private void CB_ConsiderRain_CheckedChanged(object sender, EventArgs e)
     {
-        SetControlEnabledState(((CheckBox)sender).Checked, L_RainEncounter, NUD_RainEncounter, B_CalculateRain);
-        SetControlEnabledState(((CheckBox)sender).Checked && CB_ConsiderFlying.Checked, L_RainFly, NUD_RainFly);
+        SetControlEnabledState(((CheckBox)sender).Checked, L_RainTick, NUD_RainTick);
+        SetControlEnabledState(((CheckBox)sender).Checked && !CB_ConsiderFlying.Checked, B_CalculateRain);
     }
 
     private readonly static Font BoldFont = new("Microsoft Sans Serif", 8, FontStyle.Bold);

@@ -68,7 +68,7 @@ public class GeneratorConfig
         WeatherType.Thunderstorm => 6, 
         _ => 0
     };
-    public uint RainTicksAreaLoad {  get; set; } = 0;
+    public uint RainTicksAreaLoad { get; set; } = 0;
     public uint RainTicksEncounter { get; set; } = 0;
 
     public LotoIDTargetType LotoIDTargetType { get; set; } = LotoIDTargetType.Any;

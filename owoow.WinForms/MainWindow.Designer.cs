@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
-            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainWindow));
             GB_SeedControlsContainer = new GroupBox();
             GB_Filters = new GroupBox();
@@ -112,10 +112,8 @@
             L_FlyNPCs = new Label();
             NUD_FlyNPCs = new NumericUpDown();
             B_CalculateRain = new Button();
-            L_RainEncounter = new Label();
-            NUD_RainEncounter = new NumericUpDown();
-            L_RainFly = new Label();
-            NUD_RainFly = new NumericUpDown();
+            L_RainTick = new Label();
+            NUD_RainTick = new NumericUpDown();
             L_AreaLoad = new Label();
             NUD_AreaLoad = new NumericUpDown();
             CB_ConsiderFlying = new CheckBox();
@@ -274,8 +272,7 @@
             GB_DexRec.SuspendLayout();
             GB_Advanced.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)NUD_FlyNPCs).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)NUD_RainEncounter).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)NUD_RainFly).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)NUD_RainTick).BeginInit();
             ((System.ComponentModel.ISupportInitialize)NUD_AreaLoad).BeginInit();
             GB_WildView.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)PB_MarkSprite).BeginInit();
@@ -1114,10 +1111,8 @@
             GB_Advanced.Controls.Add(L_FlyNPCs);
             GB_Advanced.Controls.Add(NUD_FlyNPCs);
             GB_Advanced.Controls.Add(B_CalculateRain);
-            GB_Advanced.Controls.Add(L_RainEncounter);
-            GB_Advanced.Controls.Add(NUD_RainEncounter);
-            GB_Advanced.Controls.Add(L_RainFly);
-            GB_Advanced.Controls.Add(NUD_RainFly);
+            GB_Advanced.Controls.Add(L_RainTick);
+            GB_Advanced.Controls.Add(NUD_RainTick);
             GB_Advanced.Controls.Add(L_AreaLoad);
             GB_Advanced.Controls.Add(NUD_AreaLoad);
             GB_Advanced.Controls.Add(CB_ConsiderFlying);
@@ -1133,7 +1128,7 @@
             // 
             L_FlyNPCs.AutoSize = true;
             L_FlyNPCs.Enabled = false;
-            L_FlyNPCs.Location = new Point(24, 65);
+            L_FlyNPCs.Location = new Point(23, 63);
             L_FlyNPCs.Name = "L_FlyNPCs";
             L_FlyNPCs.Size = new Size(57, 15);
             L_FlyNPCs.TabIndex = 19;
@@ -1142,7 +1137,7 @@
             // NUD_FlyNPCs
             // 
             NUD_FlyNPCs.Enabled = false;
-            NUD_FlyNPCs.Location = new Point(87, 63);
+            NUD_FlyNPCs.Location = new Point(86, 61);
             NUD_FlyNPCs.Maximum = new decimal(new int[] { 999, 0, 0, 0 });
             NUD_FlyNPCs.Name = "NUD_FlyNPCs";
             NUD_FlyNPCs.Size = new Size(39, 23);
@@ -1151,7 +1146,7 @@
             // B_CalculateRain
             // 
             B_CalculateRain.Enabled = false;
-            B_CalculateRain.Location = new Point(131, 136);
+            B_CalculateRain.Location = new Point(131, 108);
             B_CalculateRain.Name = "B_CalculateRain";
             B_CalculateRain.Size = new Size(65, 25);
             B_CalculateRain.TabIndex = 16;
@@ -1159,49 +1154,30 @@
             B_CalculateRain.UseVisualStyleBackColor = true;
             B_CalculateRain.Click += B_CalculateRain_Click;
             // 
-            // L_RainEncounter
+            // L_RainTick
             // 
-            L_RainEncounter.AutoSize = true;
-            L_RainEncounter.Enabled = false;
-            L_RainEncounter.Location = new Point(16, 140);
-            L_RainEncounter.Name = "L_RainEncounter";
-            L_RainEncounter.Size = new Size(64, 15);
-            L_RainEncounter.TabIndex = 15;
-            L_RainEncounter.Text = "Encounter:";
+            L_RainTick.AutoSize = true;
+            L_RainTick.Enabled = false;
+            L_RainTick.Location = new Point(18, 111);
+            L_RainTick.Name = "L_RainTick";
+            L_RainTick.Size = new Size(62, 15);
+            L_RainTick.TabIndex = 15;
+            L_RainTick.Text = "Rain Ticks:";
             // 
-            // NUD_RainEncounter
+            // NUD_RainTick
             // 
-            NUD_RainEncounter.Enabled = false;
-            NUD_RainEncounter.Location = new Point(86, 136);
-            NUD_RainEncounter.Maximum = new decimal(new int[] { 999, 0, 0, 0 });
-            NUD_RainEncounter.Name = "NUD_RainEncounter";
-            NUD_RainEncounter.Size = new Size(39, 23);
-            NUD_RainEncounter.TabIndex = 14;
-            // 
-            // L_RainFly
-            // 
-            L_RainFly.AutoSize = true;
-            L_RainFly.Enabled = false;
-            L_RainFly.Location = new Point(5, 113);
-            L_RainFly.Name = "L_RainFly";
-            L_RainFly.Size = new Size(75, 15);
-            L_RainFly.TabIndex = 12;
-            L_RainFly.Text = "During Load:";
-            // 
-            // NUD_RainFly
-            // 
-            NUD_RainFly.Enabled = false;
-            NUD_RainFly.Location = new Point(86, 111);
-            NUD_RainFly.Maximum = new decimal(new int[] { 999, 0, 0, 0 });
-            NUD_RainFly.Name = "NUD_RainFly";
-            NUD_RainFly.Size = new Size(39, 23);
-            NUD_RainFly.TabIndex = 11;
+            NUD_RainTick.Enabled = false;
+            NUD_RainTick.Location = new Point(86, 109);
+            NUD_RainTick.Maximum = new decimal(new int[] { 999, 0, 0, 0 });
+            NUD_RainTick.Name = "NUD_RainTick";
+            NUD_RainTick.Size = new Size(39, 23);
+            NUD_RainTick.TabIndex = 14;
             // 
             // L_AreaLoad
             // 
             L_AreaLoad.AutoSize = true;
             L_AreaLoad.Enabled = false;
-            L_AreaLoad.Location = new Point(18, 40);
+            L_AreaLoad.Location = new Point(17, 38);
             L_AreaLoad.Name = "L_AreaLoad";
             L_AreaLoad.Size = new Size(63, 15);
             L_AreaLoad.TabIndex = 6;
@@ -1210,7 +1186,7 @@
             // NUD_AreaLoad
             // 
             NUD_AreaLoad.Enabled = false;
-            NUD_AreaLoad.Location = new Point(87, 38);
+            NUD_AreaLoad.Location = new Point(86, 36);
             NUD_AreaLoad.Maximum = new decimal(new int[] { 999, 0, 0, 0 });
             NUD_AreaLoad.Name = "NUD_AreaLoad";
             NUD_AreaLoad.Size = new Size(39, 23);
@@ -2351,9 +2327,9 @@
             // 
             DGV_Results.AllowUserToAddRows = false;
             DGV_Results.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle1.BackColor = Color.WhiteSmoke;
-            dataGridViewCellStyle1.ForeColor = Color.Black;
-            DGV_Results.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.BackColor = Color.WhiteSmoke;
+            dataGridViewCellStyle2.ForeColor = Color.Black;
+            DGV_Results.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle2;
             DGV_Results.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             DGV_Results.AutoGenerateColumns = false;
             DGV_Results.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -2687,8 +2663,7 @@
             GB_Advanced.ResumeLayout(false);
             GB_Advanced.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)NUD_FlyNPCs).EndInit();
-            ((System.ComponentModel.ISupportInitialize)NUD_RainEncounter).EndInit();
-            ((System.ComponentModel.ISupportInitialize)NUD_RainFly).EndInit();
+            ((System.ComponentModel.ISupportInitialize)NUD_RainTick).EndInit();
             ((System.ComponentModel.ISupportInitialize)NUD_AreaLoad).EndInit();
             GB_WildView.ResumeLayout(false);
             GB_WildView.PerformLayout();
@@ -2908,10 +2883,8 @@
         private CheckBox CB_ConsiderFlying;
         private CheckBox CB_ConsiderRain;
         private Button B_CalculateRain;
-        private Label L_RainEncounter;
-        private NumericUpDown NUD_RainEncounter;
-        private Label L_RainFly;
-        private NumericUpDown NUD_RainFly;
+        private Label L_RainTick;
+        private NumericUpDown NUD_RainTick;
         private Label L_AreaLoad;
         private Button B_RefreshDexRec;
         private Label L_FlyNPCs;
