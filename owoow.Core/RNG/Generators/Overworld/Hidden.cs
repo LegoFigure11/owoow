@@ -99,7 +99,14 @@ public class Hidden
 
                     EncounterRate = GenerateEncounterRate(ref rng);
 
-                    if (!(BaseEncounterRate <= EncounterRate)) CanGenerate = true;
+                    if (!(BaseEncounterRate <= EncounterRate))
+                    {
+                        CanGenerate = true;
+                    }
+                    else if (config.ConsiderRain)
+                    {
+                        Environment.GetRainAdvances(ref rng, config.RainTicksAfterCloseMenu); // should probably make this its own field but fine to reuse (3, 6) for now
+                    }
                     step++;
                 }
 
