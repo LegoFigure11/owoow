@@ -1044,9 +1044,9 @@
             // 
             // B_RetailUpdateSeeds
             // 
-            B_RetailUpdateSeeds.Location = new Point(8, 139);
+            B_RetailUpdateSeeds.Location = new Point(7, 139);
             B_RetailUpdateSeeds.Name = "B_RetailUpdateSeeds";
-            B_RetailUpdateSeeds.Size = new Size(198, 25);
+            B_RetailUpdateSeeds.Size = new Size(200, 25);
             B_RetailUpdateSeeds.TabIndex = 58;
             B_RetailUpdateSeeds.Text = "Update Seeds";
             B_RetailUpdateSeeds.UseVisualStyleBackColor = true;
@@ -1096,9 +1096,9 @@
             // 
             // B_RetailSeedFinder
             // 
-            B_RetailSeedFinder.Location = new Point(7, 15);
+            B_RetailSeedFinder.Location = new Point(6, 15);
             B_RetailSeedFinder.Name = "B_RetailSeedFinder";
-            B_RetailSeedFinder.Size = new Size(198, 25);
+            B_RetailSeedFinder.Size = new Size(200, 25);
             B_RetailSeedFinder.TabIndex = 53;
             B_RetailSeedFinder.Text = "Retail Seed Finder";
             B_RetailSeedFinder.UseVisualStyleBackColor = true;
@@ -1130,9 +1130,9 @@
             // B_RefreshDexRec
             // 
             B_RefreshDexRec.Enabled = false;
-            B_RefreshDexRec.Location = new Point(5, 121);
+            B_RefreshDexRec.Location = new Point(4, 121);
             B_RefreshDexRec.Name = "B_RefreshDexRec";
-            B_RefreshDexRec.Size = new Size(170, 25);
+            B_RefreshDexRec.Size = new Size(172, 25);
             B_RefreshDexRec.TabIndex = 28;
             B_RefreshDexRec.Text = "Refresh";
             B_RefreshDexRec.UseVisualStyleBackColor = true;
@@ -1196,7 +1196,7 @@
             // 
             L_FlyNPCs.AutoSize = true;
             L_FlyNPCs.Enabled = false;
-            L_FlyNPCs.Location = new Point(23, 63);
+            L_FlyNPCs.Location = new Point(6, 61);
             L_FlyNPCs.Name = "L_FlyNPCs";
             L_FlyNPCs.Size = new Size(57, 15);
             L_FlyNPCs.TabIndex = 19;
@@ -1205,7 +1205,7 @@
             // NUD_FlyNPCs
             // 
             NUD_FlyNPCs.Enabled = false;
-            NUD_FlyNPCs.Location = new Point(86, 61);
+            NUD_FlyNPCs.Location = new Point(135, 60);
             NUD_FlyNPCs.Maximum = new decimal(new int[] { 999, 0, 0, 0 });
             NUD_FlyNPCs.Name = "NUD_FlyNPCs";
             NUD_FlyNPCs.Size = new Size(39, 23);
@@ -1214,9 +1214,9 @@
             // B_CalculateRain
             // 
             B_CalculateRain.Enabled = false;
-            B_CalculateRain.Location = new Point(6, 133);
+            B_CalculateRain.Location = new Point(4, 133);
             B_CalculateRain.Name = "B_CalculateRain";
-            B_CalculateRain.Size = new Size(168, 25);
+            B_CalculateRain.Size = new Size(172, 25);
             B_CalculateRain.TabIndex = 16;
             B_CalculateRain.Text = "Calculate Rain Ticks";
             B_CalculateRain.UseVisualStyleBackColor = true;
@@ -1226,7 +1226,7 @@
             // 
             L_RainTick.AutoSize = true;
             L_RainTick.Enabled = false;
-            L_RainTick.Location = new Point(18, 111);
+            L_RainTick.Location = new Point(6, 111);
             L_RainTick.Name = "L_RainTick";
             L_RainTick.Size = new Size(62, 15);
             L_RainTick.TabIndex = 15;
@@ -1235,7 +1235,7 @@
             // NUD_RainTick
             // 
             NUD_RainTick.Enabled = false;
-            NUD_RainTick.Location = new Point(86, 109);
+            NUD_RainTick.Location = new Point(135, 109);
             NUD_RainTick.Maximum = new decimal(new int[] { 999, 0, 0, 0 });
             NUD_RainTick.Name = "NUD_RainTick";
             NUD_RainTick.Size = new Size(39, 23);
@@ -1245,7 +1245,7 @@
             // 
             L_AreaLoad.AutoSize = true;
             L_AreaLoad.Enabled = false;
-            L_AreaLoad.Location = new Point(17, 38);
+            L_AreaLoad.Location = new Point(6, 38);
             L_AreaLoad.Name = "L_AreaLoad";
             L_AreaLoad.Size = new Size(63, 15);
             L_AreaLoad.TabIndex = 6;
@@ -1254,7 +1254,7 @@
             // NUD_AreaLoad
             // 
             NUD_AreaLoad.Enabled = false;
-            NUD_AreaLoad.Location = new Point(86, 36);
+            NUD_AreaLoad.Location = new Point(135, 36);
             NUD_AreaLoad.Maximum = new decimal(new int[] { 999, 0, 0, 0 });
             NUD_AreaLoad.Name = "NUD_AreaLoad";
             NUD_AreaLoad.Size = new Size(39, 23);
