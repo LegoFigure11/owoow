@@ -134,6 +134,6 @@ public static class SeedFinder
             (_s0, _s1) = rng.GetState();
         }
 
-        return (hits, pos, _s0, _s1);
+        return (hits, pos + 1, _s0, _s1);
     }
 }
