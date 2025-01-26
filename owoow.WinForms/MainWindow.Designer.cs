@@ -1050,7 +1050,7 @@
             B_RetailUpdateSeeds.TabIndex = 58;
             B_RetailUpdateSeeds.Text = "Update Seeds";
             B_RetailUpdateSeeds.UseVisualStyleBackColor = true;
-            B_RetailUpdateSeeds.Click += B_CopyToInitial_Click;
+            B_RetailUpdateSeeds.Click += B_RetailUpdateSeeds_Click;
             // 
             // L_Animations
             // 

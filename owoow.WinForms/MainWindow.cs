@@ -935,6 +935,12 @@ public partial class MainWindow : Form
         }
     }
 
+    private void B_RetailUpdateSeeds_Click(object sender, EventArgs e)
+    {
+        SetTextBoxText("0", TB_CurrentAdvances);
+        B_CopyToInitial_Click(sender, e);
+    }
+
     private void B_RefreshDexRec_Click(object sender, EventArgs e)
     {
         Task.Run(
