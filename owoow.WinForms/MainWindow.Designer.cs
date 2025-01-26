@@ -299,12 +299,12 @@
             // 
             // GB_SeedControlsContainer
             // 
+            GB_SeedControlsContainer.Controls.Add(GB_WildView);
             GB_SeedControlsContainer.Controls.Add(GB_Filters);
             GB_SeedControlsContainer.Controls.Add(GB_SwitchControls);
             GB_SeedControlsContainer.Controls.Add(GB_SeedSearch);
             GB_SeedControlsContainer.Controls.Add(GB_Retail);
             GB_SeedControlsContainer.Controls.Add(P_EncounterSettings);
-            GB_SeedControlsContainer.Controls.Add(GB_WildView);
             GB_SeedControlsContainer.Controls.Add(TC_EncounterType);
             GB_SeedControlsContainer.Controls.Add(GB_Seed);
             GB_SeedControlsContainer.Controls.Add(GB_Connection);
@@ -312,7 +312,7 @@
             GB_SeedControlsContainer.Location = new Point(0, 24);
             GB_SeedControlsContainer.Name = "GB_SeedControlsContainer";
             GB_SeedControlsContainer.RightToLeft = RightToLeft.No;
-            GB_SeedControlsContainer.Size = new Size(1290, 321);
+            GB_SeedControlsContainer.Size = new Size(1266, 321);
             GB_SeedControlsContainer.TabIndex = 11;
             GB_SeedControlsContainer.TabStop = false;
             // 
@@ -365,7 +365,7 @@
             GB_Filters.Controls.Add(L_HPSpacer);
             GB_Filters.Controls.Add(NUD_HP_Max);
             GB_Filters.Controls.Add(NUD_HP_Min);
-            GB_Filters.Location = new Point(687, 0);
+            GB_Filters.Location = new Point(663, 0);
             GB_Filters.Name = "GB_Filters";
             GB_Filters.Size = new Size(199, 321);
             GB_Filters.TabIndex = 5;
@@ -829,7 +829,7 @@
             GB_SwitchControls.Controls.Add(B_SkipForward);
             GB_SwitchControls.Controls.Add(L_Skip);
             GB_SwitchControls.Enabled = false;
-            GB_SwitchControls.Location = new Point(1078, 9);
+            GB_SwitchControls.Location = new Point(1054, 9);
             GB_SwitchControls.Name = "GB_SwitchControls";
             GB_SwitchControls.Size = new Size(212, 105);
             GB_SwitchControls.TabIndex = 25;
@@ -932,7 +932,7 @@
             // 
             GB_SeedSearch.Controls.Add(B_SeedSearch_Settings);
             GB_SeedSearch.Controls.Add(B_SeedSearch);
-            GB_SeedSearch.Location = new Point(1078, 98);
+            GB_SeedSearch.Location = new Point(1054, 98);
             GB_SeedSearch.Name = "GB_SeedSearch";
             GB_SeedSearch.Size = new Size(212, 53);
             GB_SeedSearch.TabIndex = 27;
@@ -972,7 +972,7 @@
             GB_Retail.Controls.Add(TB_RetailInitial);
             GB_Retail.Controls.Add(L_RetailInitial);
             GB_Retail.Controls.Add(B_RetailSeedFinder);
-            GB_Retail.Location = new Point(1078, 150);
+            GB_Retail.Location = new Point(1054, 150);
             GB_Retail.Name = "GB_Retail";
             GB_Retail.Size = new Size(212, 171);
             GB_Retail.TabIndex = 29;
@@ -1044,9 +1044,9 @@
             // 
             // B_RetailUpdateSeeds
             // 
-            B_RetailUpdateSeeds.Location = new Point(9, 139);
+            B_RetailUpdateSeeds.Location = new Point(8, 139);
             B_RetailUpdateSeeds.Name = "B_RetailUpdateSeeds";
-            B_RetailUpdateSeeds.Size = new Size(196, 25);
+            B_RetailUpdateSeeds.Size = new Size(198, 25);
             B_RetailUpdateSeeds.TabIndex = 58;
             B_RetailUpdateSeeds.Text = "Update Seeds";
             B_RetailUpdateSeeds.UseVisualStyleBackColor = true;
@@ -1122,7 +1122,7 @@
             GB_DexRec.Controls.Add(CB_DexRec1);
             GB_DexRec.Location = new Point(1, -2);
             GB_DexRec.Name = "GB_DexRec";
-            GB_DexRec.Size = new Size(205, 150);
+            GB_DexRec.Size = new Size(181, 150);
             GB_DexRec.TabIndex = 55;
             GB_DexRec.TabStop = false;
             GB_DexRec.Text = "Pokédex Recommendation";
@@ -1130,9 +1130,9 @@
             // B_RefreshDexRec
             // 
             B_RefreshDexRec.Enabled = false;
-            B_RefreshDexRec.Location = new Point(6, 121);
+            B_RefreshDexRec.Location = new Point(5, 121);
             B_RefreshDexRec.Name = "B_RefreshDexRec";
-            B_RefreshDexRec.Size = new Size(190, 25);
+            B_RefreshDexRec.Size = new Size(170, 25);
             B_RefreshDexRec.TabIndex = 28;
             B_RefreshDexRec.Text = "Refresh";
             B_RefreshDexRec.UseVisualStyleBackColor = true;
@@ -1143,7 +1143,7 @@
             CB_DexRec4.FormattingEnabled = true;
             CB_DexRec4.Location = new Point(6, 96);
             CB_DexRec4.Name = "CB_DexRec4";
-            CB_DexRec4.Size = new Size(190, 23);
+            CB_DexRec4.Size = new Size(168, 23);
             CB_DexRec4.TabIndex = 27;
             CB_DexRec4.Text = "WWWWWWWWWWWW";
             // 
@@ -1152,7 +1152,7 @@
             CB_DexRec3.FormattingEnabled = true;
             CB_DexRec3.Location = new Point(6, 71);
             CB_DexRec3.Name = "CB_DexRec3";
-            CB_DexRec3.Size = new Size(190, 23);
+            CB_DexRec3.Size = new Size(168, 23);
             CB_DexRec3.TabIndex = 25;
             CB_DexRec3.Text = "WWWWWWWWWWWW";
             // 
@@ -1161,7 +1161,7 @@
             CB_DexRec2.FormattingEnabled = true;
             CB_DexRec2.Location = new Point(6, 46);
             CB_DexRec2.Name = "CB_DexRec2";
-            CB_DexRec2.Size = new Size(190, 23);
+            CB_DexRec2.Size = new Size(168, 23);
             CB_DexRec2.TabIndex = 23;
             CB_DexRec2.Text = "WWWWWWWWWWWW";
             // 
@@ -1170,7 +1170,7 @@
             CB_DexRec1.FormattingEnabled = true;
             CB_DexRec1.Location = new Point(6, 21);
             CB_DexRec1.Name = "CB_DexRec1";
-            CB_DexRec1.Size = new Size(190, 23);
+            CB_DexRec1.Size = new Size(168, 23);
             CB_DexRec1.TabIndex = 21;
             CB_DexRec1.Text = "WWWWWWWWWWWW";
             // 
@@ -1187,7 +1187,7 @@
             GB_Advanced.Controls.Add(CB_ConsiderRain);
             GB_Advanced.Location = new Point(1, 148);
             GB_Advanced.Name = "GB_Advanced";
-            GB_Advanced.Size = new Size(205, 162);
+            GB_Advanced.Size = new Size(181, 162);
             GB_Advanced.TabIndex = 56;
             GB_Advanced.TabStop = false;
             GB_Advanced.Text = "Advanced Settings";
@@ -1214,11 +1214,11 @@
             // B_CalculateRain
             // 
             B_CalculateRain.Enabled = false;
-            B_CalculateRain.Location = new Point(131, 108);
+            B_CalculateRain.Location = new Point(6, 133);
             B_CalculateRain.Name = "B_CalculateRain";
-            B_CalculateRain.Size = new Size(65, 25);
+            B_CalculateRain.Size = new Size(168, 25);
             B_CalculateRain.TabIndex = 16;
-            B_CalculateRain.Text = "Calculate";
+            B_CalculateRain.Text = "Calculate Rain Ticks";
             B_CalculateRain.UseVisualStyleBackColor = true;
             B_CalculateRain.Click += B_CalculateRain_Click;
             // 
@@ -1289,7 +1289,7 @@
             GB_WildView.Controls.Add(PB_PokemonSprite);
             GB_WildView.Controls.Add(B_CopyToFilter);
             GB_WildView.Controls.Add(TB_Wild);
-            GB_WildView.Location = new Point(885, 0);
+            GB_WildView.Location = new Point(861, 0);
             GB_WildView.Name = "GB_WildView";
             GB_WildView.Size = new Size(194, 321);
             GB_WildView.TabIndex = 6;
@@ -2408,7 +2408,7 @@
             DGV_Results.ReadOnly = true;
             DGV_Results.RowHeadersVisible = false;
             DGV_Results.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            DGV_Results.Size = new Size(1277, 312);
+            DGV_Results.Size = new Size(1256, 312);
             DGV_Results.TabIndex = 12;
             DGV_Results.CellFormatting += DGV_Results_CellFormatting;
             // 
@@ -2647,7 +2647,7 @@
             MS_SubWindows.Items.AddRange(new ToolStripItem[] { TSMI_EncounterLookup, TSMI_LotoID, TSMI_Cramomatic, TSMI_WattTrader, TSMI_DiggingPa, TSMI_WailordRespawn });
             MS_SubWindows.Location = new Point(0, 0);
             MS_SubWindows.Name = "MS_SubWindows";
-            MS_SubWindows.Size = new Size(1299, 24);
+            MS_SubWindows.Size = new Size(1278, 24);
             MS_SubWindows.TabIndex = 32;
             // 
             // TSMI_EncounterLookup
@@ -2696,7 +2696,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1299, 676);
+            ClientSize = new Size(1278, 676);
             Controls.Add(DGV_Results);
             Controls.Add(GB_SeedControlsContainer);
             Controls.Add(MS_SubWindows);
