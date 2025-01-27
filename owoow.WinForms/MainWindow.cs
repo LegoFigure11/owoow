@@ -1349,6 +1349,22 @@ public partial class MainWindow : Form
         }
     }
 
+    public bool EncounterLookupFormOpen = false;
+    EncounterLookup? EncounterLookupForm;
+    private void TSMI_EncounterLookup_Click(object sender, EventArgs e)
+    {
+        if (!EncounterLookupFormOpen)
+        {
+            EncounterLookupFormOpen = true;
+            EncounterLookupForm = new EncounterLookup(this, CB_Game.SelectedIndex);
+            EncounterLookupForm.Show();
+        }
+        else
+        {
+            EncounterLookupForm?.Focus();
+        }
+    }
+
     public bool MenuCloseTimelineFormOpen = false;
     MenuCloseTimeline? MenuCloseTimelineForm;
     private void B_MenuClose_Click(object sender, EventArgs e)

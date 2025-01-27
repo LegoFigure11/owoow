@@ -1,4 +1,5 @@
 ﻿using owoow.Core.Interfaces;
+using System.Collections.Immutable;
 using System.Text.Json;
 
 namespace owoow.Core;
@@ -30,6 +31,171 @@ public static class Encounters
         ShieldHidden = JsonSerializer.Deserialize<Dictionary<string, Dictionary<string, Encounter>>>(Utils.GetStringResource("sh_hidden.json") ?? "{}");
         ShieldSymbol = JsonSerializer.Deserialize<Dictionary<string, Dictionary<string, Encounter>>>(Utils.GetStringResource("sh_symbol.json") ?? "{}");
         ShieldStatic = JsonSerializer.Deserialize<Dictionary<string, Dictionary<string, EncounterStatic>>>(Utils.GetStringResource("sh_static.json") ?? "{}");
+    }
+
+    public static ImmutableSortedDictionary<string, List<EncounterLookupEntry>> GetEncounterLookupForGame(string game)
+    {
+        var list = new Dictionary<string, List<EncounterLookupEntry>>();
+        var fishing = game == "Sword" ? SwordFishing : ShieldFishing;
+        var hidden = game == "Sword" ? SwordHidden : ShieldHidden;
+        var symbol = game == "Sword" ? SwordSymbol : ShieldSymbol;
+        var strong = game == "Sword" ? SwordStatic : ShieldStatic;
+
+        foreach (var area in symbol!)
+        {
+            foreach (var weather in area.Value)
+            {
+                foreach (var enc in weather.Value.Encounters!)
+                {
+                    var species = enc.Value.Species!;
+                    if (!list.TryGetValue(species, out List<EncounterLookupEntry>? value))
+                    {
+                        list[species] = [];
+                    }
+                    else
+                    {
+                        bool found = false;
+                        foreach (var entry in value)
+                        {
+                            if (entry.Area == area.Key && entry.Weather == weather.Key && entry.EncounterType == "Symbol")
+                            {
+                                entry.EncounterRate += enc.Value.SlotMax - enc.Value.SlotMin;
+                                found = true;
+                                break;
+                            }
+                        }
+                        if (!found)
+                        {
+                            value.Add(new EncounterLookupEntry
+                            {
+                                Species = species,
+                                MinLevel = weather.Value.MinLevel,
+                                MaxLevel = weather.Value.MaxLevel,
+                                EncounterType = "Symbol",
+                                Weather = weather.Key,
+                                Area = area.Key,
+                                EncounterRate = enc.Value.SlotMax - enc.Value.SlotMin,
+                            });
+                        }
+                    }
+                }
+            }
+        }
+
+        foreach (var area in strong!)
+        {
+            foreach (var weather in area.Value)
+            {
+                foreach (var enc in weather.Value.Encounters!)
+                {
+                    var species = enc.Value.Species!;
+                    if (!list.TryGetValue(species, out List<EncounterLookupEntry>? value))
+                    {
+                        list[species] = [];
+                    }
+                    else
+                    {
+                        value.Add(new EncounterLookupEntry
+                        {
+                            Species = species,
+                            MinLevel = enc.Value.Level,
+                            MaxLevel = enc.Value.Level,
+                            EncounterType = "Static",
+                            Weather = weather.Key,
+                            Area = area.Key,
+                            EncounterRate = 100,
+                            IsAbilityLocked = enc.Value.IsAbilityLocked,
+                            Ability = enc.Value.Ability,
+                            IsShinyLocked = enc.Value.IsShinyLocked,
+                            GuaranteedIVs = enc.Value.GuaranteedIVs,
+                        });
+                    }
+                }
+            }
+        }
+
+        foreach (var area in hidden!)
+        {
+            foreach (var weather in area.Value)
+            {
+                foreach (var enc in weather.Value.Encounters!)
+                {
+                    var species = enc.Value.Species!;
+                    if (!list.TryGetValue(species, out List<EncounterLookupEntry>? value))
+                    {
+                        list[species] = [];
+                    }
+                    else
+                    {
+                        bool found = false;
+                        foreach (var entry in value)
+                        {
+                            if (entry.Area == area.Key && entry.Weather == weather.Key && entry.EncounterType == "Hidden")
+                            {
+                                entry.EncounterRate += enc.Value.SlotMax - enc.Value.SlotMin;
+                                found = true;
+                                break;
+                            }
+                        }
+                        if (!found)
+                        {
+                            value.Add(new EncounterLookupEntry
+                            {
+                                Species = species,
+                                MinLevel = weather.Value.MinLevel,
+                                MaxLevel = weather.Value.MaxLevel,
+                                EncounterType = "Hidden",
+                                Weather = weather.Key,
+                                Area = area.Key,
+                                EncounterRate = enc.Value.SlotMax - enc.Value.SlotMin,
+                            });
+                        }
+                    }
+                }
+            }
+        }
+
+        foreach (var area in fishing!)
+        {
+            foreach (var weather in area.Value)
+            {
+                foreach (var enc in weather.Value.Encounters!)
+                {
+                    var species = enc.Value.Species!;
+                    if (!list.TryGetValue(species, out List<EncounterLookupEntry>? value))
+                    {
+                        list[species] = [];
+                    }
+                    else { 
+                        bool found = false;
+                        foreach (var entry in value)
+                        {
+                            if (entry.Area == area.Key &&  entry.Weather == "All available" &&  entry.EncounterType == "Fishing")
+                            {
+                                entry.EncounterRate += enc.Value.SlotMax - enc.Value.SlotMin;
+                                found = true;
+                                break;
+                            }
+                        }
+                        if (!found)
+                        {
+                            value.Add(new EncounterLookupEntry
+                            {
+                                Species = species,
+                                MinLevel = weather.Value.MinLevel,
+                                MaxLevel = weather.Value.MaxLevel,
+                                EncounterType = "Fishing",
+                                Weather = "All available",
+                                Area = area.Key,
+                                EncounterRate = enc.Value.SlotMax - enc.Value.SlotMin,
+                            });
+                        }
+                    }
+                }
+            }
+        }
+
+        return list.ToImmutableSortedDictionary();
     }
 
     public static Encounter GetEncounters(string game, string tabName, string area, string weather) => game switch

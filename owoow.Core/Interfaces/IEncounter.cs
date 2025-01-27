@@ -1,6 +1,6 @@
 ﻿namespace owoow.Core.Interfaces;
 
-public partial interface IEncounter
+public interface IEncounter
 {
     int MinLevel { get; }
     int MaxLevel { get; }
@@ -51,4 +51,22 @@ public class EncounterStaticEntry : IEncounterStaticEntry
     public bool IsShinyLocked { get; set; } = false;
     public ulong Ability { get; set; } = 0;
     public int GuaranteedIVs { get; set; } = 0;
+}
+
+public class EncounterLookupEntry : IEncounter, IEncounterEntry, IEncounterStaticEntry
+{
+    public string Species { get; set; } = string.Empty;
+    public int SlotMin { get; set; } = 0;
+    public int SlotMax { get; set; } = 0;
+    public int Level { get; set; } = 0;
+    public int MinLevel { get; set; } = 0;
+    public int MaxLevel { get; set; } = 0;
+    public int EncounterRate { get; set; } = 0;
+    public bool IsAbilityLocked { get; set; } = false;
+    public bool IsShinyLocked { get; set; } = false;
+    public ulong Ability { get; set; } = 0;
+    public int GuaranteedIVs { get; set; } = 0;
+    public string Weather { get; set; } = string.Empty;
+    public string Area { get; set; } = string.Empty;
+    public string EncounterType { get; set; } = string.Empty;
 }

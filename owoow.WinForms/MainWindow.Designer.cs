@@ -32,6 +32,12 @@
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainWindow));
             GB_SeedControlsContainer = new GroupBox();
+            GB_WildView = new GroupBox();
+            B_ReadEncounter = new Button();
+            PB_MarkSprite = new PictureBox();
+            PB_PokemonSprite = new PictureBox();
+            B_CopyToFilter = new Button();
+            TB_Wild = new TextBox();
             GB_Filters = new GroupBox();
             CB_PlayTone = new CheckBox();
             CB_FocusWindow = new CheckBox();
@@ -123,12 +129,6 @@
             NUD_AreaLoad = new NumericUpDown();
             CB_ConsiderFlying = new CheckBox();
             CB_ConsiderRain = new CheckBox();
-            GB_WildView = new GroupBox();
-            B_ReadEncounter = new Button();
-            PB_MarkSprite = new PictureBox();
-            PB_PokemonSprite = new PictureBox();
-            B_CopyToFilter = new Button();
-            TB_Wild = new TextBox();
             TC_EncounterType = new TabControl();
             TP_Static = new TabPage();
             B_Static_MenuClose = new Button();
@@ -257,6 +257,9 @@
             TSMI_DiggingPa = new ToolStripMenuItem();
             TSMI_WailordRespawn = new ToolStripMenuItem();
             GB_SeedControlsContainer.SuspendLayout();
+            GB_WildView.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)PB_MarkSprite).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)PB_PokemonSprite).BeginInit();
             GB_Filters.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)NUD_Spe_Max).BeginInit();
             ((System.ComponentModel.ISupportInitialize)NUD_Spe_Min).BeginInit();
@@ -279,9 +282,6 @@
             ((System.ComponentModel.ISupportInitialize)NUD_FlyNPCs).BeginInit();
             ((System.ComponentModel.ISupportInitialize)NUD_RainTick).BeginInit();
             ((System.ComponentModel.ISupportInitialize)NUD_AreaLoad).BeginInit();
-            GB_WildView.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)PB_MarkSprite).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)PB_PokemonSprite).BeginInit();
             TC_EncounterType.SuspendLayout();
             TP_Static.SuspendLayout();
             GB_Static_EncounterSettings.SuspendLayout();
@@ -315,6 +315,69 @@
             GB_SeedControlsContainer.Size = new Size(1266, 321);
             GB_SeedControlsContainer.TabIndex = 11;
             GB_SeedControlsContainer.TabStop = false;
+            // 
+            // GB_WildView
+            // 
+            GB_WildView.Controls.Add(B_ReadEncounter);
+            GB_WildView.Controls.Add(PB_MarkSprite);
+            GB_WildView.Controls.Add(PB_PokemonSprite);
+            GB_WildView.Controls.Add(B_CopyToFilter);
+            GB_WildView.Controls.Add(TB_Wild);
+            GB_WildView.Location = new Point(861, 0);
+            GB_WildView.Name = "GB_WildView";
+            GB_WildView.Size = new Size(194, 321);
+            GB_WildView.TabIndex = 6;
+            GB_WildView.TabStop = false;
+            // 
+            // B_ReadEncounter
+            // 
+            B_ReadEncounter.Enabled = false;
+            B_ReadEncounter.Location = new Point(4, 267);
+            B_ReadEncounter.Name = "B_ReadEncounter";
+            B_ReadEncounter.Size = new Size(183, 25);
+            B_ReadEncounter.TabIndex = 23;
+            B_ReadEncounter.Text = "Read Encounter";
+            B_ReadEncounter.UseVisualStyleBackColor = true;
+            B_ReadEncounter.Click += B_ReadEncounter_Click;
+            // 
+            // PB_MarkSprite
+            // 
+            PB_MarkSprite.Location = new Point(127, 219);
+            PB_MarkSprite.Name = "PB_MarkSprite";
+            PB_MarkSprite.Size = new Size(48, 48);
+            PB_MarkSprite.SizeMode = PictureBoxSizeMode.CenterImage;
+            PB_MarkSprite.TabIndex = 22;
+            PB_MarkSprite.TabStop = false;
+            // 
+            // PB_PokemonSprite
+            // 
+            PB_PokemonSprite.Location = new Point(64, 203);
+            PB_PokemonSprite.Name = "PB_PokemonSprite";
+            PB_PokemonSprite.Size = new Size(64, 64);
+            PB_PokemonSprite.SizeMode = PictureBoxSizeMode.CenterImage;
+            PB_PokemonSprite.TabIndex = 21;
+            PB_PokemonSprite.TabStop = false;
+            // 
+            // B_CopyToFilter
+            // 
+            B_CopyToFilter.Enabled = false;
+            B_CopyToFilter.Location = new Point(4, 294);
+            B_CopyToFilter.Name = "B_CopyToFilter";
+            B_CopyToFilter.Size = new Size(183, 25);
+            B_CopyToFilter.TabIndex = 20;
+            B_CopyToFilter.Text = "Copy IVs to Filters";
+            B_CopyToFilter.UseVisualStyleBackColor = true;
+            B_CopyToFilter.Click += B_CopyToFilter_Click;
+            // 
+            // TB_Wild
+            // 
+            TB_Wild.Location = new Point(6, 17);
+            TB_Wild.Multiline = true;
+            TB_Wild.Name = "TB_Wild";
+            TB_Wild.ReadOnly = true;
+            TB_Wild.Size = new Size(181, 186);
+            TB_Wild.TabIndex = 0;
+            TB_Wild.Text = "Shiny - Species (Gender) @ Item\r\nEC: WWWWWWWW\r\nPID: WWWWWWWW\r\nWWWWWWW Nature\r\nAbility: WWWWWWWWWW\r\nIVs: 22/22/22/22/22/22\r\nHeight: 255 (XXXL)\r\nMark: WWWWWWWWWW\r\n- Move 1\r\n- Move 2\r\n- Move 3\r\n- Move 4";
             // 
             // GB_Filters
             // 
@@ -1281,69 +1344,6 @@
             CB_ConsiderRain.Text = "Raining/Thunderstorming?";
             CB_ConsiderRain.UseVisualStyleBackColor = true;
             CB_ConsiderRain.CheckedChanged += CB_ConsiderRain_CheckedChanged;
-            // 
-            // GB_WildView
-            // 
-            GB_WildView.Controls.Add(B_ReadEncounter);
-            GB_WildView.Controls.Add(PB_MarkSprite);
-            GB_WildView.Controls.Add(PB_PokemonSprite);
-            GB_WildView.Controls.Add(B_CopyToFilter);
-            GB_WildView.Controls.Add(TB_Wild);
-            GB_WildView.Location = new Point(861, 0);
-            GB_WildView.Name = "GB_WildView";
-            GB_WildView.Size = new Size(194, 321);
-            GB_WildView.TabIndex = 6;
-            GB_WildView.TabStop = false;
-            // 
-            // B_ReadEncounter
-            // 
-            B_ReadEncounter.Enabled = false;
-            B_ReadEncounter.Location = new Point(4, 267);
-            B_ReadEncounter.Name = "B_ReadEncounter";
-            B_ReadEncounter.Size = new Size(183, 25);
-            B_ReadEncounter.TabIndex = 23;
-            B_ReadEncounter.Text = "Read Encounter";
-            B_ReadEncounter.UseVisualStyleBackColor = true;
-            B_ReadEncounter.Click += B_ReadEncounter_Click;
-            // 
-            // PB_MarkSprite
-            // 
-            PB_MarkSprite.Location = new Point(127, 219);
-            PB_MarkSprite.Name = "PB_MarkSprite";
-            PB_MarkSprite.Size = new Size(48, 48);
-            PB_MarkSprite.SizeMode = PictureBoxSizeMode.CenterImage;
-            PB_MarkSprite.TabIndex = 22;
-            PB_MarkSprite.TabStop = false;
-            // 
-            // PB_PokemonSprite
-            // 
-            PB_PokemonSprite.Location = new Point(64, 203);
-            PB_PokemonSprite.Name = "PB_PokemonSprite";
-            PB_PokemonSprite.Size = new Size(64, 64);
-            PB_PokemonSprite.SizeMode = PictureBoxSizeMode.CenterImage;
-            PB_PokemonSprite.TabIndex = 21;
-            PB_PokemonSprite.TabStop = false;
-            // 
-            // B_CopyToFilter
-            // 
-            B_CopyToFilter.Enabled = false;
-            B_CopyToFilter.Location = new Point(4, 294);
-            B_CopyToFilter.Name = "B_CopyToFilter";
-            B_CopyToFilter.Size = new Size(183, 25);
-            B_CopyToFilter.TabIndex = 20;
-            B_CopyToFilter.Text = "Copy IVs to Filters";
-            B_CopyToFilter.UseVisualStyleBackColor = true;
-            B_CopyToFilter.Click += B_CopyToFilter_Click;
-            // 
-            // TB_Wild
-            // 
-            TB_Wild.Location = new Point(6, 17);
-            TB_Wild.Multiline = true;
-            TB_Wild.Name = "TB_Wild";
-            TB_Wild.ReadOnly = true;
-            TB_Wild.Size = new Size(181, 186);
-            TB_Wild.TabIndex = 0;
-            TB_Wild.Text = "Shiny - Species (Gender) @ Item\r\nEC: WWWWWWWW\r\nPID: WWWWWWWW\r\nWWWWWWW Nature\r\nAbility: WWWWWWWWWW\r\nIVs: 22/22/22/22/22/22\r\nHeight: 255 (XXXL)\r\nMark: WWWWWWWWWW\r\n- Move 1\r\n- Move 2\r\n- Move 3\r\n- Move 4";
             // 
             // TC_EncounterType
             // 
@@ -2652,10 +2652,10 @@
             // 
             // TSMI_EncounterLookup
             // 
-            TSMI_EncounterLookup.Enabled = false;
             TSMI_EncounterLookup.Name = "TSMI_EncounterLookup";
             TSMI_EncounterLookup.Size = new Size(116, 20);
             TSMI_EncounterLookup.Text = "Encounter Lookup";
+            TSMI_EncounterLookup.Click += TSMI_EncounterLookup_Click;
             // 
             // TSMI_LotoID
             // 
@@ -2707,6 +2707,10 @@
             Text = "owoow (´・ω・`)";
             Load += MainWindow_Load;
             GB_SeedControlsContainer.ResumeLayout(false);
+            GB_WildView.ResumeLayout(false);
+            GB_WildView.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)PB_MarkSprite).EndInit();
+            ((System.ComponentModel.ISupportInitialize)PB_PokemonSprite).EndInit();
             GB_Filters.ResumeLayout(false);
             GB_Filters.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)NUD_Spe_Max).EndInit();
@@ -2733,10 +2737,6 @@
             ((System.ComponentModel.ISupportInitialize)NUD_FlyNPCs).EndInit();
             ((System.ComponentModel.ISupportInitialize)NUD_RainTick).EndInit();
             ((System.ComponentModel.ISupportInitialize)NUD_AreaLoad).EndInit();
-            GB_WildView.ResumeLayout(false);
-            GB_WildView.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)PB_MarkSprite).EndInit();
-            ((System.ComponentModel.ISupportInitialize)PB_PokemonSprite).EndInit();
             TC_EncounterType.ResumeLayout(false);
             TP_Static.ResumeLayout(false);
             TP_Static.PerformLayout();
