@@ -1,4 +1,4 @@
-﻿using owoow.Core.Enums;
+using owoow.Core.Enums;
 using owoow.Core.Interfaces;
 using owoow.Core.RNG.Generators.Misc;
 using PKHeX.Core;
@@ -90,10 +90,6 @@ public class Fishing
 
                 if (config.ConsiderRain) Jump += Environment.GetRainAdvances(ref rng, config.RainTicksEncounter);
                 #endregion
-
-                // PLACEMENT (ASSUME SUCCESS)
-
-                DoPlacementRolls(ref rng);
 
                 // LEAD ABILITY ACTIVATION & ENCOUNTER SLOT
                 Lead = GenerateLeadAbilityActivation(ref rng);
