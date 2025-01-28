@@ -711,7 +711,7 @@ public partial class MainWindow : Form
                 );
 
             var initial = ulong.Parse(((TextBox)Controls.Find($"TB_{type}_Initial", true).FirstOrDefault()!).Text);
-            var advances = 1;
+            var advances = 0;
 
             var s0 = ulong.Parse(TB_Seed0.Text, NumberStyles.AllowHexSpecifier);
             var s1 = ulong.Parse(TB_Seed1.Text, NumberStyles.AllowHexSpecifier);
