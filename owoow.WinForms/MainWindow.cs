@@ -541,8 +541,6 @@ public partial class MainWindow : Form
             MenuCloseIsHoldingDirection = CB_Hidden_MenuClose_Direction.Checked,
             MenuCloseNPCs = uint.Parse(TB_Hidden_NPCs.Text),
 
-
-
             ConsiderFly = CB_ConsiderFlying.Checked,
             AreaLoadAdvances = (uint)NUD_AreaLoad.Value,
             AreaLoadNPCs = (uint)NUD_FlyNPCs.Value,
@@ -760,7 +758,9 @@ public partial class MainWindow : Form
 
             List<OverworldFrame> results = [];
 
-            for (uint i = 0; i < 300; i++) // search next 300 ticks
+            int max = 300;
+
+            for (uint i = 0; i < max; i++) // search next 300 ticks
             {
                 config.RainTicksEncounter = i;
                 results = type switch
@@ -773,7 +773,11 @@ public partial class MainWindow : Form
                     ticks.Add(i);
             }
 
-            if (ticks.Count != 0)
+            if (ticks.Count == max)
+            {
+                MessageBox.Show("Whoops! Max number of results found, please set the IV filters to be stricter and try again.");
+            }
+            else if (ticks.Count != 0)
             {
                 SetNUDValue(ticks[0], NUD_RainTick);
                 MessageBox.Show($"Found {ticks.Count} result{(ticks.Count != 1 ? "s" : string.Empty)}: {string.Join(", ", ticks)}");
