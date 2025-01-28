@@ -693,6 +693,111 @@ public partial class MainWindow : Form
         });
     }
 
+    private void B_Fishing_Search_Click(object sender, EventArgs e)
+    {
+        SetControlEnabledState(false, sender);
+
+        var table = new EncounterTable(CB_Game.Text, "Fishing", CB_Fishing_Area.Text, CB_Fishing_Weather.Text, CB_Fishing_LeadAbility.Text);
+
+        var initial = ulong.Parse(TB_Fishing_Initial.Text);
+        var advances = ulong.Parse(TB_Fishing_Advances.Text);
+
+        var numTasks = (byte)(advances < 1_000 ? 1 : advances < 50_000 ? 2 : 4);
+        var interval = advances / numTasks;
+
+        var s0 = ulong.Parse(TB_Seed0.Text, NumberStyles.AllowHexSpecifier);
+        var s1 = ulong.Parse(TB_Seed1.Text, NumberStyles.AllowHexSpecifier);
+
+        Core.RNG.GeneratorConfig config = new()
+        {
+            TargetSpecies = CB_Fishing_Species.Text,
+            LeadAbility = CB_Fishing_LeadAbility.Text,
+
+            Weather = GetWeatherType($"{CB_Fishing_Weather.SelectedItem}"),
+
+            ShinyRolls = CB_ShinyCharm.Checked ? 3 : 1,
+            MarkRolls = CB_MarkCharm.Checked ? 3 : 1,
+
+            TargetShiny = GetFilterShinyType(CB_Filter_Shiny.SelectedIndex),
+            TargetAura = GetFilterAuraType(CB_Filter_Aura.SelectedIndex),
+            TargetMark = GetFilterMarkype(CB_Filter_Mark.SelectedIndex),
+            TargetScale = GetFilterScaleType(CB_Filter_Height.SelectedIndex),
+
+            TargetMinIVs = [(uint)NUD_HP_Min.Value, (uint)NUD_Atk_Min.Value, (uint)NUD_Def_Min.Value, (uint)NUD_SpA_Min.Value, (uint)NUD_SpD_Min.Value, (uint)NUD_Spe_Min.Value],
+            TargetMaxIVs = [(uint)NUD_HP_Max.Value, (uint)NUD_Atk_Max.Value, (uint)NUD_Def_Max.Value, (uint)NUD_SpA_Max.Value, (uint)NUD_SpD_Max.Value, (uint)NUD_Spe_Max.Value],
+
+            AuraKOs = int.Parse(TB_Fishing_KOs.Text),
+
+            DexRecSlots =
+            [
+                GetDexRecommendation(CB_DexRec1.Text),
+                GetDexRecommendation(CB_DexRec2.Text),
+                GetDexRecommendation(CB_DexRec3.Text),
+                GetDexRecommendation(CB_DexRec4.Text)
+            ],
+
+            ConsiderMenuClose = CB_Fishing_MenuClose.Checked,
+            MenuCloseIsHoldingDirection = CB_Fishing_MenuClose_Direction.Checked,
+            MenuCloseNPCs = uint.Parse(TB_Fishing_NPCs.Text),
+
+            ConsiderFly = CB_ConsiderFlying.Checked,
+            AreaLoadAdvances = (uint)NUD_AreaLoad.Value,
+            AreaLoadNPCs = (uint)NUD_FlyNPCs.Value,
+            ConsiderRain = CB_ConsiderRain.Checked,
+            RainTicksAreaLoad = CB_ConsiderFlying.Checked && CB_ConsiderRain.Checked ? (uint)NUD_RainTick.Value : 0,
+            RainTicksEncounter = CB_ConsiderFlying.Checked && CB_ConsiderRain.Checked ? 0 : (uint)NUD_RainTick.Value,
+
+            FiltersEnabled = CB_EnableFilters.Checked,
+
+            TID = uint.Parse(TB_TID.Text),
+            SID = uint.Parse(TB_SID.Text),
+        };
+
+        var rng = new Xoroshiro128Plus(s0, s1);
+
+        for (ulong i = 0; i < initial; i++) rng.Next();
+
+        List<OverworldFrame>[] results = [];
+
+        List<Task<List<OverworldFrame>>> tasks = [];
+        for (byte i = 0; i < numTasks; i++)
+        {
+            var last = i == numTasks - 1;
+
+            var (_s0, _s1) = rng.GetState();
+            var start = initial + (i * interval);
+            var end = initial + (interval * (i + (uint)1)) - 1;
+
+            if (last) end += advances % interval;
+
+            tasks.Add(Fishing.Generate(_s0, _s1, table, start, end, config));
+
+            if (!last)
+            {
+                for (ulong j = 0; j < interval; j++)
+                {
+                    rng.Next();
+                }
+            }
+        }
+
+        Task.Run(async () =>
+        {
+            results = await Task.WhenAll(tasks);
+            List<OverworldFrame> AllResults = [];
+            foreach (var result in results)
+            {
+                AllResults.AddRange(result);
+            }
+
+            Frames = AllResults;
+            SetBindingSourceDataSource(AllResults, ResultsSource);
+            DGV_Results.SanitizeColumns(this);
+
+            SetControlEnabledState(true, sender);
+        });
+    }
+
     private void B_CalculateRain_Click(object sender, EventArgs e)
     {
         var tab = TC_EncounterType.SelectedTab;
@@ -767,6 +872,7 @@ public partial class MainWindow : Form
                 {
                     "Static" => Task.Run(() => Static.Generate(_s0, _s1, table, initial, initial + (ulong)advances, config)).Result,
                     "Symbol" => Task.Run(() => Symbol.Generate(_s0, _s1, table, initial, initial + (ulong)advances, config)).Result,
+                    "Fishing" => Task.Run(() => Fishing.Generate(_s0, _s1, table, initial, initial + (ulong)advances, config)).Result,
                     _ => Task.Run(() => Hidden.Generate(_s0, _s1, table, initial, initial + (ulong)advances, config)).Result,
                 };
                 if (results.Count != 0)

@@ -193,6 +193,27 @@
             L_Hidden_LeadAbility = new Label();
             CB_Hidden_LeadAbility = new ComboBox();
             TP_Fishing = new TabPage();
+            B_Fishing_MenuClose = new Button();
+            CB_Fishing_MenuClose_Direction = new CheckBox();
+            CB_Fishing_MenuClose = new CheckBox();
+            L_Fishing_NPCs = new Label();
+            TB_Fishing_NPCs = new TextBox();
+            L_Fishing_KOs = new Label();
+            TB_Fishing_KOs = new TextBox();
+            L_Fishing_Advances = new Label();
+            B_Fishing_Search = new Button();
+            CB_Fishing_LeadAbility = new ComboBox();
+            L_Fishing_Initial = new Label();
+            GB_Fishing_EncounterSettings = new GroupBox();
+            L_Fishing_Species = new Label();
+            L_Fishing_Weather = new Label();
+            L_Fishing_Area = new Label();
+            CB_Fishing_Species = new ComboBox();
+            CB_Fishing_Weather = new ComboBox();
+            CB_Fishing_Area = new ComboBox();
+            TB_Fishing_Advances = new TextBox();
+            TB_Fishing_Initial = new TextBox();
+            L_Fishing_LeadAbility = new Label();
             GB_Seed = new GroupBox();
             L_Seed1 = new Label();
             L_Seed0 = new Label();
@@ -289,6 +310,8 @@
             GB_Symbol_EncounterSettings.SuspendLayout();
             TP_Hidden.SuspendLayout();
             GB_Hidden_EncounterSettings.SuspendLayout();
+            TP_Fishing.SuspendLayout();
+            GB_Fishing_EncounterSettings.SuspendLayout();
             GB_Seed.SuspendLayout();
             GB_Connection.SuspendLayout();
             GB_SAVInfo.SuspendLayout();
@@ -2054,12 +2077,249 @@
             // 
             // TP_Fishing
             // 
+            TP_Fishing.Controls.Add(B_Fishing_MenuClose);
+            TP_Fishing.Controls.Add(CB_Fishing_MenuClose_Direction);
+            TP_Fishing.Controls.Add(CB_Fishing_MenuClose);
+            TP_Fishing.Controls.Add(L_Fishing_NPCs);
+            TP_Fishing.Controls.Add(TB_Fishing_NPCs);
+            TP_Fishing.Controls.Add(L_Fishing_KOs);
+            TP_Fishing.Controls.Add(TB_Fishing_KOs);
+            TP_Fishing.Controls.Add(L_Fishing_Advances);
+            TP_Fishing.Controls.Add(B_Fishing_Search);
+            TP_Fishing.Controls.Add(CB_Fishing_LeadAbility);
+            TP_Fishing.Controls.Add(L_Fishing_Initial);
+            TP_Fishing.Controls.Add(GB_Fishing_EncounterSettings);
+            TP_Fishing.Controls.Add(TB_Fishing_Advances);
+            TP_Fishing.Controls.Add(TB_Fishing_Initial);
+            TP_Fishing.Controls.Add(L_Fishing_LeadAbility);
             TP_Fishing.Location = new Point(4, 24);
             TP_Fishing.Name = "TP_Fishing";
             TP_Fishing.Size = new Size(261, 282);
             TP_Fishing.TabIndex = 3;
             TP_Fishing.Text = "Fishing";
             TP_Fishing.UseVisualStyleBackColor = true;
+            // 
+            // B_Fishing_MenuClose
+            // 
+            B_Fishing_MenuClose.Enabled = false;
+            B_Fishing_MenuClose.Location = new Point(155, 156);
+            B_Fishing_MenuClose.Name = "B_Fishing_MenuClose";
+            B_Fishing_MenuClose.Size = new Size(100, 25);
+            B_Fishing_MenuClose.TabIndex = 60;
+            B_Fishing_MenuClose.Text = "Calibrate NPCs";
+            B_Fishing_MenuClose.UseVisualStyleBackColor = true;
+            B_Fishing_MenuClose.Click += B_MenuClose_Click;
+            // 
+            // CB_Fishing_MenuClose_Direction
+            // 
+            CB_Fishing_MenuClose_Direction.AutoSize = true;
+            CB_Fishing_MenuClose_Direction.CheckAlign = ContentAlignment.MiddleRight;
+            CB_Fishing_MenuClose_Direction.Enabled = false;
+            CB_Fishing_MenuClose_Direction.Location = new Point(25, 182);
+            CB_Fishing_MenuClose_Direction.Name = "CB_Fishing_MenuClose_Direction";
+            CB_Fishing_MenuClose_Direction.Size = new Size(125, 19);
+            CB_Fishing_MenuClose_Direction.TabIndex = 65;
+            CB_Fishing_MenuClose_Direction.Tag = "";
+            CB_Fishing_MenuClose_Direction.Text = "Holding Direction?";
+            CB_Fishing_MenuClose_Direction.UseVisualStyleBackColor = true;
+            // 
+            // CB_Fishing_MenuClose
+            // 
+            CB_Fishing_MenuClose.AutoSize = true;
+            CB_Fishing_MenuClose.CheckAlign = ContentAlignment.MiddleRight;
+            CB_Fishing_MenuClose.Location = new Point(6, 158);
+            CB_Fishing_MenuClose.Name = "CB_Fishing_MenuClose";
+            CB_Fishing_MenuClose.Size = new Size(144, 19);
+            CB_Fishing_MenuClose.TabIndex = 64;
+            CB_Fishing_MenuClose.Tag = "";
+            CB_Fishing_MenuClose.Text = "Consider Menu Close?";
+            CB_Fishing_MenuClose.UseVisualStyleBackColor = true;
+            CB_Fishing_MenuClose.CheckedChanged += CB_MenuClose_CheckedChanged;
+            // 
+            // L_Fishing_NPCs
+            // 
+            L_Fishing_NPCs.AutoSize = true;
+            L_Fishing_NPCs.Location = new Point(175, 184);
+            L_Fishing_NPCs.Name = "L_Fishing_NPCs";
+            L_Fishing_NPCs.Size = new Size(39, 15);
+            L_Fishing_NPCs.TabIndex = 63;
+            L_Fishing_NPCs.Text = "NPCs:";
+            // 
+            // TB_Fishing_NPCs
+            // 
+            TB_Fishing_NPCs.CharacterCasing = CharacterCasing.Upper;
+            TB_Fishing_NPCs.Enabled = false;
+            TB_Fishing_NPCs.Font = new Font("Consolas", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            TB_Fishing_NPCs.Location = new Point(220, 182);
+            TB_Fishing_NPCs.MaxLength = 16;
+            TB_Fishing_NPCs.Name = "TB_Fishing_NPCs";
+            TB_Fishing_NPCs.Size = new Size(35, 22);
+            TB_Fishing_NPCs.TabIndex = 62;
+            TB_Fishing_NPCs.Text = "3";
+            TB_Fishing_NPCs.TextAlign = HorizontalAlignment.Right;
+            // 
+            // L_Fishing_KOs
+            // 
+            L_Fishing_KOs.AutoSize = true;
+            L_Fishing_KOs.Location = new Point(46, 133);
+            L_Fishing_KOs.Name = "L_Fishing_KOs";
+            L_Fishing_KOs.Size = new Size(30, 15);
+            L_Fishing_KOs.TabIndex = 61;
+            L_Fishing_KOs.Text = "KOs:";
+            // 
+            // TB_Fishing_KOs
+            // 
+            TB_Fishing_KOs.CharacterCasing = CharacterCasing.Upper;
+            TB_Fishing_KOs.Font = new Font("Consolas", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            TB_Fishing_KOs.Location = new Point(82, 131);
+            TB_Fishing_KOs.MaxLength = 16;
+            TB_Fishing_KOs.Name = "TB_Fishing_KOs";
+            TB_Fishing_KOs.Size = new Size(173, 22);
+            TB_Fishing_KOs.TabIndex = 59;
+            TB_Fishing_KOs.Text = "500";
+            TB_Fishing_KOs.TextAlign = HorizontalAlignment.Right;
+            // 
+            // L_Fishing_Advances
+            // 
+            L_Fishing_Advances.AutoSize = true;
+            L_Fishing_Advances.Location = new Point(61, 231);
+            L_Fishing_Advances.Name = "L_Fishing_Advances";
+            L_Fishing_Advances.Size = new Size(15, 15);
+            L_Fishing_Advances.TabIndex = 57;
+            L_Fishing_Advances.Text = "+";
+            // 
+            // B_Fishing_Search
+            // 
+            B_Fishing_Search.Location = new Point(3, 255);
+            B_Fishing_Search.Name = "B_Fishing_Search";
+            B_Fishing_Search.Size = new Size(255, 25);
+            B_Fishing_Search.TabIndex = 58;
+            B_Fishing_Search.Text = "Search!";
+            B_Fishing_Search.UseVisualStyleBackColor = true;
+            B_Fishing_Search.Click += B_Fishing_Search_Click;
+            // 
+            // CB_Fishing_LeadAbility
+            // 
+            CB_Fishing_LeadAbility.FormattingEnabled = true;
+            CB_Fishing_LeadAbility.Items.AddRange(new object[] { "None", "Compound Eyes", "Super Luck", "Synchronize", "Cute Charm", "Magnet Pull", "Lightning Rod", "Static", "Flash Fire", "Storm Drain", "Harvest" });
+            CB_Fishing_LeadAbility.Location = new Point(82, 106);
+            CB_Fishing_LeadAbility.Name = "CB_Fishing_LeadAbility";
+            CB_Fishing_LeadAbility.Size = new Size(173, 23);
+            CB_Fishing_LeadAbility.TabIndex = 51;
+            CB_Fishing_LeadAbility.Text = "None";
+            // 
+            // L_Fishing_Initial
+            // 
+            L_Fishing_Initial.AutoSize = true;
+            L_Fishing_Initial.Location = new Point(13, 208);
+            L_Fishing_Initial.Name = "L_Fishing_Initial";
+            L_Fishing_Initial.Size = new Size(63, 15);
+            L_Fishing_Initial.TabIndex = 56;
+            L_Fishing_Initial.Text = "Initial Adv.";
+            // 
+            // GB_Fishing_EncounterSettings
+            // 
+            GB_Fishing_EncounterSettings.Controls.Add(L_Fishing_Species);
+            GB_Fishing_EncounterSettings.Controls.Add(L_Fishing_Weather);
+            GB_Fishing_EncounterSettings.Controls.Add(L_Fishing_Area);
+            GB_Fishing_EncounterSettings.Controls.Add(CB_Fishing_Species);
+            GB_Fishing_EncounterSettings.Controls.Add(CB_Fishing_Weather);
+            GB_Fishing_EncounterSettings.Controls.Add(CB_Fishing_Area);
+            GB_Fishing_EncounterSettings.Location = new Point(6, 2);
+            GB_Fishing_EncounterSettings.Name = "GB_Fishing_EncounterSettings";
+            GB_Fishing_EncounterSettings.Size = new Size(249, 102);
+            GB_Fishing_EncounterSettings.TabIndex = 54;
+            GB_Fishing_EncounterSettings.TabStop = false;
+            GB_Fishing_EncounterSettings.Text = "Encounter Settings - Fishing";
+            // 
+            // L_Fishing_Species
+            // 
+            L_Fishing_Species.AutoSize = true;
+            L_Fishing_Species.Location = new Point(22, 75);
+            L_Fishing_Species.Name = "L_Fishing_Species";
+            L_Fishing_Species.Size = new Size(42, 15);
+            L_Fishing_Species.TabIndex = 14;
+            L_Fishing_Species.Text = "Target:";
+            // 
+            // L_Fishing_Weather
+            // 
+            L_Fishing_Weather.AutoSize = true;
+            L_Fishing_Weather.Location = new Point(10, 50);
+            L_Fishing_Weather.Name = "L_Fishing_Weather";
+            L_Fishing_Weather.Size = new Size(54, 15);
+            L_Fishing_Weather.TabIndex = 13;
+            L_Fishing_Weather.Text = "Weather:";
+            // 
+            // L_Fishing_Area
+            // 
+            L_Fishing_Area.AutoSize = true;
+            L_Fishing_Area.Location = new Point(30, 25);
+            L_Fishing_Area.Name = "L_Fishing_Area";
+            L_Fishing_Area.Size = new Size(34, 15);
+            L_Fishing_Area.TabIndex = 8;
+            L_Fishing_Area.Text = "Area:";
+            // 
+            // CB_Fishing_Species
+            // 
+            CB_Fishing_Species.FormattingEnabled = true;
+            CB_Fishing_Species.Location = new Point(70, 72);
+            CB_Fishing_Species.Name = "CB_Fishing_Species";
+            CB_Fishing_Species.Size = new Size(173, 23);
+            CB_Fishing_Species.TabIndex = 12;
+            CB_Fishing_Species.Text = "None";
+            // 
+            // CB_Fishing_Weather
+            // 
+            CB_Fishing_Weather.FormattingEnabled = true;
+            CB_Fishing_Weather.Location = new Point(70, 47);
+            CB_Fishing_Weather.Name = "CB_Fishing_Weather";
+            CB_Fishing_Weather.Size = new Size(173, 23);
+            CB_Fishing_Weather.TabIndex = 11;
+            CB_Fishing_Weather.Text = "None";
+            CB_Fishing_Weather.SelectedIndexChanged += CB_Weather_SelectedIndexChanged;
+            // 
+            // CB_Fishing_Area
+            // 
+            CB_Fishing_Area.FormattingEnabled = true;
+            CB_Fishing_Area.Location = new Point(70, 22);
+            CB_Fishing_Area.Name = "CB_Fishing_Area";
+            CB_Fishing_Area.Size = new Size(173, 23);
+            CB_Fishing_Area.TabIndex = 10;
+            CB_Fishing_Area.Text = "None";
+            CB_Fishing_Area.SelectedIndexChanged += CB_Area_SelectedIndexChanged;
+            // 
+            // TB_Fishing_Advances
+            // 
+            TB_Fishing_Advances.CharacterCasing = CharacterCasing.Upper;
+            TB_Fishing_Advances.Font = new Font("Consolas", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            TB_Fishing_Advances.Location = new Point(82, 229);
+            TB_Fishing_Advances.MaxLength = 16;
+            TB_Fishing_Advances.Name = "TB_Fishing_Advances";
+            TB_Fishing_Advances.Size = new Size(173, 22);
+            TB_Fishing_Advances.TabIndex = 55;
+            TB_Fishing_Advances.Text = "5000";
+            TB_Fishing_Advances.TextAlign = HorizontalAlignment.Right;
+            // 
+            // TB_Fishing_Initial
+            // 
+            TB_Fishing_Initial.CharacterCasing = CharacterCasing.Upper;
+            TB_Fishing_Initial.Font = new Font("Consolas", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            TB_Fishing_Initial.Location = new Point(82, 205);
+            TB_Fishing_Initial.MaxLength = 16;
+            TB_Fishing_Initial.Name = "TB_Fishing_Initial";
+            TB_Fishing_Initial.Size = new Size(173, 22);
+            TB_Fishing_Initial.TabIndex = 53;
+            TB_Fishing_Initial.Text = "0";
+            TB_Fishing_Initial.TextAlign = HorizontalAlignment.Right;
+            // 
+            // L_Fishing_LeadAbility
+            // 
+            L_Fishing_LeadAbility.AutoSize = true;
+            L_Fishing_LeadAbility.Location = new Point(4, 109);
+            L_Fishing_LeadAbility.Name = "L_Fishing_LeadAbility";
+            L_Fishing_LeadAbility.Size = new Size(72, 15);
+            L_Fishing_LeadAbility.TabIndex = 52;
+            L_Fishing_LeadAbility.Text = "Lead Ability:";
             // 
             // GB_Seed
             // 
@@ -2750,6 +3010,10 @@
             TP_Hidden.PerformLayout();
             GB_Hidden_EncounterSettings.ResumeLayout(false);
             GB_Hidden_EncounterSettings.PerformLayout();
+            TP_Fishing.ResumeLayout(false);
+            TP_Fishing.PerformLayout();
+            GB_Fishing_EncounterSettings.ResumeLayout(false);
+            GB_Fishing_EncounterSettings.PerformLayout();
             GB_Seed.ResumeLayout(false);
             GB_Seed.PerformLayout();
             GB_Connection.ResumeLayout(false);
@@ -2990,5 +3254,26 @@
         private CheckBox CB_PlayTone;
         private CheckBox CB_FocusWindow;
         private TextBox TB_AnimationLength;
+        private Button B_Fishing_MenuClose;
+        private CheckBox CB_Fishing_MenuClose_Direction;
+        private CheckBox CB_Fishing_MenuClose;
+        private Label L_Fishing_NPCs;
+        private TextBox TB_Fishing_NPCs;
+        private Label L_Fishing_KOs;
+        private TextBox TB_Fishing_KOs;
+        private Label L_Fishing_Advances;
+        private Button B_Fishing_Search;
+        private ComboBox CB_Fishing_LeadAbility;
+        private Label L_Fishing_Initial;
+        private GroupBox GB_Fishing_EncounterSettings;
+        private Label L_Fishing_Species;
+        private Label L_Fishing_Weather;
+        private Label L_Fishing_Area;
+        private ComboBox CB_Fishing_Species;
+        private ComboBox CB_Fishing_Weather;
+        private ComboBox CB_Fishing_Area;
+        private TextBox TB_Fishing_Advances;
+        private TextBox TB_Fishing_Initial;
+        private Label L_Fishing_LeadAbility;
     }
 }

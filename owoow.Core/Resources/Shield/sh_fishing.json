@@ -1,6 +1,6 @@
 {
   "Route 2": {
-    "Fishing": {
+    "All Weather": {
       "MinLevel": 4,
       "MaxLevel": 6,
       "Encounters": {
@@ -23,7 +23,215 @@
     }
   },
   "East Lake Axewell": {
-    "Fishing": {
+    "Normal Weather": {
+      "MinLevel": 8,
+      "MaxLevel": 12,
+      "Encounters": {
+        "0": {
+          "Species": "Magikarp",
+          "SlotMin": 0,
+          "SlotMax": 49
+        },
+        "1": {
+          "Species": "Goldeen",
+          "SlotMin": 50,
+          "SlotMax": 74
+        },
+        "2": {
+          "Species": "Shellder",
+          "SlotMin": 75,
+          "SlotMax": 94
+        },
+        "3": {
+          "Species": "Wishiwashi",
+          "SlotMin": 95,
+          "SlotMax": 99
+        }
+      }
+    },
+    "Overcast": {
+      "MinLevel": 8,
+      "MaxLevel": 12,
+      "Encounters": {
+        "0": {
+          "Species": "Magikarp",
+          "SlotMin": 0,
+          "SlotMax": 49
+        },
+        "1": {
+          "Species": "Goldeen",
+          "SlotMin": 50,
+          "SlotMax": 74
+        },
+        "2": {
+          "Species": "Shellder",
+          "SlotMin": 75,
+          "SlotMax": 94
+        },
+        "3": {
+          "Species": "Wishiwashi",
+          "SlotMin": 95,
+          "SlotMax": 99
+        }
+      }
+    },
+    "Raining": {
+      "MinLevel": 8,
+      "MaxLevel": 12,
+      "Encounters": {
+        "0": {
+          "Species": "Magikarp",
+          "SlotMin": 0,
+          "SlotMax": 49
+        },
+        "1": {
+          "Species": "Goldeen",
+          "SlotMin": 50,
+          "SlotMax": 74
+        },
+        "2": {
+          "Species": "Shellder",
+          "SlotMin": 75,
+          "SlotMax": 94
+        },
+        "3": {
+          "Species": "Wishiwashi",
+          "SlotMin": 95,
+          "SlotMax": 99
+        }
+      }
+    },
+    "Thunderstorm": {
+      "MinLevel": 8,
+      "MaxLevel": 12,
+      "Encounters": {
+        "0": {
+          "Species": "Magikarp",
+          "SlotMin": 0,
+          "SlotMax": 49
+        },
+        "1": {
+          "Species": "Goldeen",
+          "SlotMin": 50,
+          "SlotMax": 74
+        },
+        "2": {
+          "Species": "Shellder",
+          "SlotMin": 75,
+          "SlotMax": 94
+        },
+        "3": {
+          "Species": "Wishiwashi",
+          "SlotMin": 95,
+          "SlotMax": 99
+        }
+      }
+    },
+    "Intense Sun": {
+      "MinLevel": 8,
+      "MaxLevel": 12,
+      "Encounters": {
+        "0": {
+          "Species": "Magikarp",
+          "SlotMin": 0,
+          "SlotMax": 49
+        },
+        "1": {
+          "Species": "Goldeen",
+          "SlotMin": 50,
+          "SlotMax": 74
+        },
+        "2": {
+          "Species": "Shellder",
+          "SlotMin": 75,
+          "SlotMax": 94
+        },
+        "3": {
+          "Species": "Wishiwashi",
+          "SlotMin": 95,
+          "SlotMax": 99
+        }
+      }
+    },
+    "Snowing": {
+      "MinLevel": 8,
+      "MaxLevel": 12,
+      "Encounters": {
+        "0": {
+          "Species": "Magikarp",
+          "SlotMin": 0,
+          "SlotMax": 49
+        },
+        "1": {
+          "Species": "Goldeen",
+          "SlotMin": 50,
+          "SlotMax": 74
+        },
+        "2": {
+          "Species": "Shellder",
+          "SlotMin": 75,
+          "SlotMax": 94
+        },
+        "3": {
+          "Species": "Wishiwashi",
+          "SlotMin": 95,
+          "SlotMax": 99
+        }
+      }
+    },
+    "Snowstorm": {
+      "MinLevel": 8,
+      "MaxLevel": 12,
+      "Encounters": {
+        "0": {
+          "Species": "Magikarp",
+          "SlotMin": 0,
+          "SlotMax": 49
+        },
+        "1": {
+          "Species": "Goldeen",
+          "SlotMin": 50,
+          "SlotMax": 74
+        },
+        "2": {
+          "Species": "Shellder",
+          "SlotMin": 75,
+          "SlotMax": 94
+        },
+        "3": {
+          "Species": "Wishiwashi",
+          "SlotMin": 95,
+          "SlotMax": 99
+        }
+      }
+    },
+    "Sandstorm": {
+      "MinLevel": 8,
+      "MaxLevel": 12,
+      "Encounters": {
+        "0": {
+          "Species": "Magikarp",
+          "SlotMin": 0,
+          "SlotMax": 49
+        },
+        "1": {
+          "Species": "Goldeen",
+          "SlotMin": 50,
+          "SlotMax": 74
+        },
+        "2": {
+          "Species": "Shellder",
+          "SlotMin": 75,
+          "SlotMax": 94
+        },
+        "3": {
+          "Species": "Wishiwashi",
+          "SlotMin": 95,
+          "SlotMax": 99
+        }
+      }
+    },
+    "Heavy Fog": {
       "MinLevel": 8,
       "MaxLevel": 12,
       "Encounters": {
@@ -51,7 +259,215 @@
     }
   },
   "West Lake Axewell": {
-    "Fishing": {
+    "Normal Weather": {
+      "MinLevel": 7,
+      "MaxLevel": 11,
+      "Encounters": {
+        "0": {
+          "Species": "Magikarp",
+          "SlotMin": 0,
+          "SlotMax": 49
+        },
+        "1": {
+          "Species": "Goldeen",
+          "SlotMin": 50,
+          "SlotMax": 84
+        },
+        "2": {
+          "Species": "Remoraid",
+          "SlotMin": 85,
+          "SlotMax": 94
+        },
+        "3": {
+          "Species": "Wishiwashi",
+          "SlotMin": 95,
+          "SlotMax": 99
+        }
+      }
+    },
+    "Overcast": {
+      "MinLevel": 7,
+      "MaxLevel": 11,
+      "Encounters": {
+        "0": {
+          "Species": "Magikarp",
+          "SlotMin": 0,
+          "SlotMax": 49
+        },
+        "1": {
+          "Species": "Goldeen",
+          "SlotMin": 50,
+          "SlotMax": 84
+        },
+        "2": {
+          "Species": "Remoraid",
+          "SlotMin": 85,
+          "SlotMax": 94
+        },
+        "3": {
+          "Species": "Wishiwashi",
+          "SlotMin": 95,
+          "SlotMax": 99
+        }
+      }
+    },
+    "Raining": {
+      "MinLevel": 7,
+      "MaxLevel": 11,
+      "Encounters": {
+        "0": {
+          "Species": "Magikarp",
+          "SlotMin": 0,
+          "SlotMax": 49
+        },
+        "1": {
+          "Species": "Goldeen",
+          "SlotMin": 50,
+          "SlotMax": 84
+        },
+        "2": {
+          "Species": "Remoraid",
+          "SlotMin": 85,
+          "SlotMax": 94
+        },
+        "3": {
+          "Species": "Wishiwashi",
+          "SlotMin": 95,
+          "SlotMax": 99
+        }
+      }
+    },
+    "Thunderstorm": {
+      "MinLevel": 7,
+      "MaxLevel": 11,
+      "Encounters": {
+        "0": {
+          "Species": "Magikarp",
+          "SlotMin": 0,
+          "SlotMax": 49
+        },
+        "1": {
+          "Species": "Goldeen",
+          "SlotMin": 50,
+          "SlotMax": 84
+        },
+        "2": {
+          "Species": "Remoraid",
+          "SlotMin": 85,
+          "SlotMax": 94
+        },
+        "3": {
+          "Species": "Wishiwashi",
+          "SlotMin": 95,
+          "SlotMax": 99
+        }
+      }
+    },
+    "Intense Sun": {
+      "MinLevel": 7,
+      "MaxLevel": 11,
+      "Encounters": {
+        "0": {
+          "Species": "Magikarp",
+          "SlotMin": 0,
+          "SlotMax": 49
+        },
+        "1": {
+          "Species": "Goldeen",
+          "SlotMin": 50,
+          "SlotMax": 84
+        },
+        "2": {
+          "Species": "Remoraid",
+          "SlotMin": 85,
+          "SlotMax": 94
+        },
+        "3": {
+          "Species": "Wishiwashi",
+          "SlotMin": 95,
+          "SlotMax": 99
+        }
+      }
+    },
+    "Snowing": {
+      "MinLevel": 7,
+      "MaxLevel": 11,
+      "Encounters": {
+        "0": {
+          "Species": "Magikarp",
+          "SlotMin": 0,
+          "SlotMax": 49
+        },
+        "1": {
+          "Species": "Goldeen",
+          "SlotMin": 50,
+          "SlotMax": 84
+        },
+        "2": {
+          "Species": "Remoraid",
+          "SlotMin": 85,
+          "SlotMax": 94
+        },
+        "3": {
+          "Species": "Wishiwashi",
+          "SlotMin": 95,
+          "SlotMax": 99
+        }
+      }
+    },
+    "Snowstorm": {
+      "MinLevel": 7,
+      "MaxLevel": 11,
+      "Encounters": {
+        "0": {
+          "Species": "Magikarp",
+          "SlotMin": 0,
+          "SlotMax": 49
+        },
+        "1": {
+          "Species": "Goldeen",
+          "SlotMin": 50,
+          "SlotMax": 84
+        },
+        "2": {
+          "Species": "Remoraid",
+          "SlotMin": 85,
+          "SlotMax": 94
+        },
+        "3": {
+          "Species": "Wishiwashi",
+          "SlotMin": 95,
+          "SlotMax": 99
+        }
+      }
+    },
+    "Sandstorm": {
+      "MinLevel": 7,
+      "MaxLevel": 11,
+      "Encounters": {
+        "0": {
+          "Species": "Magikarp",
+          "SlotMin": 0,
+          "SlotMax": 49
+        },
+        "1": {
+          "Species": "Goldeen",
+          "SlotMin": 50,
+          "SlotMax": 84
+        },
+        "2": {
+          "Species": "Remoraid",
+          "SlotMin": 85,
+          "SlotMax": 94
+        },
+        "3": {
+          "Species": "Wishiwashi",
+          "SlotMin": 95,
+          "SlotMax": 99
+        }
+      }
+    },
+    "Heavy Fog": {
       "MinLevel": 7,
       "MaxLevel": 11,
       "Encounters": {
@@ -79,7 +495,215 @@
     }
   },
   "Axew's Eye": {
-    "Fishing": {
+    "Normal Weather": {
+      "MinLevel": 35,
+      "MaxLevel": 40,
+      "Encounters": {
+        "0": {
+          "Species": "Magikarp",
+          "SlotMin": 0,
+          "SlotMax": 49
+        },
+        "1": {
+          "Species": "Octillery",
+          "SlotMin": 50,
+          "SlotMax": 74
+        },
+        "2": {
+          "Species": "Wishiwashi",
+          "SlotMin": 75,
+          "SlotMax": 94
+        },
+        "3": {
+          "Species": "Gyarados",
+          "SlotMin": 95,
+          "SlotMax": 99
+        }
+      }
+    },
+    "Overcast": {
+      "MinLevel": 35,
+      "MaxLevel": 40,
+      "Encounters": {
+        "0": {
+          "Species": "Magikarp",
+          "SlotMin": 0,
+          "SlotMax": 49
+        },
+        "1": {
+          "Species": "Octillery",
+          "SlotMin": 50,
+          "SlotMax": 74
+        },
+        "2": {
+          "Species": "Wishiwashi",
+          "SlotMin": 75,
+          "SlotMax": 94
+        },
+        "3": {
+          "Species": "Gyarados",
+          "SlotMin": 95,
+          "SlotMax": 99
+        }
+      }
+    },
+    "Raining": {
+      "MinLevel": 35,
+      "MaxLevel": 40,
+      "Encounters": {
+        "0": {
+          "Species": "Magikarp",
+          "SlotMin": 0,
+          "SlotMax": 49
+        },
+        "1": {
+          "Species": "Octillery",
+          "SlotMin": 50,
+          "SlotMax": 74
+        },
+        "2": {
+          "Species": "Wishiwashi",
+          "SlotMin": 75,
+          "SlotMax": 94
+        },
+        "3": {
+          "Species": "Gyarados",
+          "SlotMin": 95,
+          "SlotMax": 99
+        }
+      }
+    },
+    "Thunderstorm": {
+      "MinLevel": 35,
+      "MaxLevel": 40,
+      "Encounters": {
+        "0": {
+          "Species": "Magikarp",
+          "SlotMin": 0,
+          "SlotMax": 49
+        },
+        "1": {
+          "Species": "Octillery",
+          "SlotMin": 50,
+          "SlotMax": 74
+        },
+        "2": {
+          "Species": "Wishiwashi",
+          "SlotMin": 75,
+          "SlotMax": 94
+        },
+        "3": {
+          "Species": "Gyarados",
+          "SlotMin": 95,
+          "SlotMax": 99
+        }
+      }
+    },
+    "Intense Sun": {
+      "MinLevel": 35,
+      "MaxLevel": 40,
+      "Encounters": {
+        "0": {
+          "Species": "Magikarp",
+          "SlotMin": 0,
+          "SlotMax": 49
+        },
+        "1": {
+          "Species": "Octillery",
+          "SlotMin": 50,
+          "SlotMax": 74
+        },
+        "2": {
+          "Species": "Wishiwashi",
+          "SlotMin": 75,
+          "SlotMax": 94
+        },
+        "3": {
+          "Species": "Gyarados",
+          "SlotMin": 95,
+          "SlotMax": 99
+        }
+      }
+    },
+    "Snowing": {
+      "MinLevel": 35,
+      "MaxLevel": 40,
+      "Encounters": {
+        "0": {
+          "Species": "Magikarp",
+          "SlotMin": 0,
+          "SlotMax": 49
+        },
+        "1": {
+          "Species": "Octillery",
+          "SlotMin": 50,
+          "SlotMax": 74
+        },
+        "2": {
+          "Species": "Wishiwashi",
+          "SlotMin": 75,
+          "SlotMax": 94
+        },
+        "3": {
+          "Species": "Gyarados",
+          "SlotMin": 95,
+          "SlotMax": 99
+        }
+      }
+    },
+    "Snowstorm": {
+      "MinLevel": 35,
+      "MaxLevel": 40,
+      "Encounters": {
+        "0": {
+          "Species": "Magikarp",
+          "SlotMin": 0,
+          "SlotMax": 49
+        },
+        "1": {
+          "Species": "Octillery",
+          "SlotMin": 50,
+          "SlotMax": 74
+        },
+        "2": {
+          "Species": "Wishiwashi",
+          "SlotMin": 75,
+          "SlotMax": 94
+        },
+        "3": {
+          "Species": "Gyarados",
+          "SlotMin": 95,
+          "SlotMax": 99
+        }
+      }
+    },
+    "Sandstorm": {
+      "MinLevel": 35,
+      "MaxLevel": 40,
+      "Encounters": {
+        "0": {
+          "Species": "Magikarp",
+          "SlotMin": 0,
+          "SlotMax": 49
+        },
+        "1": {
+          "Species": "Octillery",
+          "SlotMin": 50,
+          "SlotMax": 74
+        },
+        "2": {
+          "Species": "Wishiwashi",
+          "SlotMin": 75,
+          "SlotMax": 94
+        },
+        "3": {
+          "Species": "Gyarados",
+          "SlotMin": 95,
+          "SlotMax": 99
+        }
+      }
+    },
+    "Heavy Fog": {
       "MinLevel": 35,
       "MaxLevel": 40,
       "Encounters": {
@@ -107,7 +731,215 @@
     }
   },
   "South Lake Miloch": {
-    "Fishing": {
+    "Normal Weather": {
+      "MinLevel": 11,
+      "MaxLevel": 13,
+      "Encounters": {
+        "0": {
+          "Species": "Magikarp",
+          "SlotMin": 0,
+          "SlotMax": 49
+        },
+        "1": {
+          "Species": "Remoraid",
+          "SlotMin": 50,
+          "SlotMax": 89
+        },
+        "2": {
+          "Species": "Barboach",
+          "SlotMin": 90,
+          "SlotMax": 98
+        },
+        "3": {
+          "Species": "Pyukumuku",
+          "SlotMin": 99,
+          "SlotMax": 99
+        }
+      }
+    },
+    "Overcast": {
+      "MinLevel": 11,
+      "MaxLevel": 13,
+      "Encounters": {
+        "0": {
+          "Species": "Magikarp",
+          "SlotMin": 0,
+          "SlotMax": 49
+        },
+        "1": {
+          "Species": "Remoraid",
+          "SlotMin": 50,
+          "SlotMax": 89
+        },
+        "2": {
+          "Species": "Barboach",
+          "SlotMin": 90,
+          "SlotMax": 98
+        },
+        "3": {
+          "Species": "Pyukumuku",
+          "SlotMin": 99,
+          "SlotMax": 99
+        }
+      }
+    },
+    "Raining": {
+      "MinLevel": 11,
+      "MaxLevel": 13,
+      "Encounters": {
+        "0": {
+          "Species": "Magikarp",
+          "SlotMin": 0,
+          "SlotMax": 49
+        },
+        "1": {
+          "Species": "Remoraid",
+          "SlotMin": 50,
+          "SlotMax": 89
+        },
+        "2": {
+          "Species": "Barboach",
+          "SlotMin": 90,
+          "SlotMax": 98
+        },
+        "3": {
+          "Species": "Pyukumuku",
+          "SlotMin": 99,
+          "SlotMax": 99
+        }
+      }
+    },
+    "Thunderstorm": {
+      "MinLevel": 11,
+      "MaxLevel": 13,
+      "Encounters": {
+        "0": {
+          "Species": "Magikarp",
+          "SlotMin": 0,
+          "SlotMax": 49
+        },
+        "1": {
+          "Species": "Remoraid",
+          "SlotMin": 50,
+          "SlotMax": 89
+        },
+        "2": {
+          "Species": "Barboach",
+          "SlotMin": 90,
+          "SlotMax": 98
+        },
+        "3": {
+          "Species": "Pyukumuku",
+          "SlotMin": 99,
+          "SlotMax": 99
+        }
+      }
+    },
+    "Intense Sun": {
+      "MinLevel": 11,
+      "MaxLevel": 13,
+      "Encounters": {
+        "0": {
+          "Species": "Magikarp",
+          "SlotMin": 0,
+          "SlotMax": 49
+        },
+        "1": {
+          "Species": "Remoraid",
+          "SlotMin": 50,
+          "SlotMax": 89
+        },
+        "2": {
+          "Species": "Barboach",
+          "SlotMin": 90,
+          "SlotMax": 98
+        },
+        "3": {
+          "Species": "Pyukumuku",
+          "SlotMin": 99,
+          "SlotMax": 99
+        }
+      }
+    },
+    "Snowing": {
+      "MinLevel": 11,
+      "MaxLevel": 13,
+      "Encounters": {
+        "0": {
+          "Species": "Magikarp",
+          "SlotMin": 0,
+          "SlotMax": 49
+        },
+        "1": {
+          "Species": "Remoraid",
+          "SlotMin": 50,
+          "SlotMax": 89
+        },
+        "2": {
+          "Species": "Barboach",
+          "SlotMin": 90,
+          "SlotMax": 98
+        },
+        "3": {
+          "Species": "Pyukumuku",
+          "SlotMin": 99,
+          "SlotMax": 99
+        }
+      }
+    },
+    "Snowstorm": {
+      "MinLevel": 11,
+      "MaxLevel": 13,
+      "Encounters": {
+        "0": {
+          "Species": "Magikarp",
+          "SlotMin": 0,
+          "SlotMax": 49
+        },
+        "1": {
+          "Species": "Remoraid",
+          "SlotMin": 50,
+          "SlotMax": 89
+        },
+        "2": {
+          "Species": "Barboach",
+          "SlotMin": 90,
+          "SlotMax": 98
+        },
+        "3": {
+          "Species": "Pyukumuku",
+          "SlotMin": 99,
+          "SlotMax": 99
+        }
+      }
+    },
+    "Sandstorm": {
+      "MinLevel": 11,
+      "MaxLevel": 13,
+      "Encounters": {
+        "0": {
+          "Species": "Magikarp",
+          "SlotMin": 0,
+          "SlotMax": 49
+        },
+        "1": {
+          "Species": "Remoraid",
+          "SlotMin": 50,
+          "SlotMax": 89
+        },
+        "2": {
+          "Species": "Barboach",
+          "SlotMin": 90,
+          "SlotMax": 98
+        },
+        "3": {
+          "Species": "Pyukumuku",
+          "SlotMin": 99,
+          "SlotMax": 99
+        }
+      }
+    },
+    "Heavy Fog": {
       "MinLevel": 11,
       "MaxLevel": 13,
       "Encounters": {
@@ -135,7 +967,215 @@
     }
   },
   "Giant's Seat": {
-    "Fishing": {
+    "Normal Weather": {
+      "MinLevel": 30,
+      "MaxLevel": 35,
+      "Encounters": {
+        "0": {
+          "Species": "Shellder",
+          "SlotMin": 0,
+          "SlotMax": 59
+        },
+        "1": {
+          "Species": "Pyukumuku",
+          "SlotMin": 60,
+          "SlotMax": 84
+        },
+        "2": {
+          "Species": "Gyarados",
+          "SlotMin": 85,
+          "SlotMax": 94
+        },
+        "3": {
+          "Species": "Cloyster",
+          "SlotMin": 95,
+          "SlotMax": 99
+        }
+      }
+    },
+    "Overcast": {
+      "MinLevel": 30,
+      "MaxLevel": 35,
+      "Encounters": {
+        "0": {
+          "Species": "Shellder",
+          "SlotMin": 0,
+          "SlotMax": 59
+        },
+        "1": {
+          "Species": "Pyukumuku",
+          "SlotMin": 60,
+          "SlotMax": 84
+        },
+        "2": {
+          "Species": "Gyarados",
+          "SlotMin": 85,
+          "SlotMax": 94
+        },
+        "3": {
+          "Species": "Cloyster",
+          "SlotMin": 95,
+          "SlotMax": 99
+        }
+      }
+    },
+    "Raining": {
+      "MinLevel": 30,
+      "MaxLevel": 35,
+      "Encounters": {
+        "0": {
+          "Species": "Shellder",
+          "SlotMin": 0,
+          "SlotMax": 59
+        },
+        "1": {
+          "Species": "Pyukumuku",
+          "SlotMin": 60,
+          "SlotMax": 84
+        },
+        "2": {
+          "Species": "Gyarados",
+          "SlotMin": 85,
+          "SlotMax": 94
+        },
+        "3": {
+          "Species": "Cloyster",
+          "SlotMin": 95,
+          "SlotMax": 99
+        }
+      }
+    },
+    "Thunderstorm": {
+      "MinLevel": 30,
+      "MaxLevel": 35,
+      "Encounters": {
+        "0": {
+          "Species": "Shellder",
+          "SlotMin": 0,
+          "SlotMax": 59
+        },
+        "1": {
+          "Species": "Pyukumuku",
+          "SlotMin": 60,
+          "SlotMax": 84
+        },
+        "2": {
+          "Species": "Gyarados",
+          "SlotMin": 85,
+          "SlotMax": 94
+        },
+        "3": {
+          "Species": "Cloyster",
+          "SlotMin": 95,
+          "SlotMax": 99
+        }
+      }
+    },
+    "Intense Sun": {
+      "MinLevel": 30,
+      "MaxLevel": 35,
+      "Encounters": {
+        "0": {
+          "Species": "Shellder",
+          "SlotMin": 0,
+          "SlotMax": 59
+        },
+        "1": {
+          "Species": "Pyukumuku",
+          "SlotMin": 60,
+          "SlotMax": 84
+        },
+        "2": {
+          "Species": "Gyarados",
+          "SlotMin": 85,
+          "SlotMax": 94
+        },
+        "3": {
+          "Species": "Cloyster",
+          "SlotMin": 95,
+          "SlotMax": 99
+        }
+      }
+    },
+    "Snowing": {
+      "MinLevel": 30,
+      "MaxLevel": 35,
+      "Encounters": {
+        "0": {
+          "Species": "Shellder",
+          "SlotMin": 0,
+          "SlotMax": 59
+        },
+        "1": {
+          "Species": "Pyukumuku",
+          "SlotMin": 60,
+          "SlotMax": 84
+        },
+        "2": {
+          "Species": "Gyarados",
+          "SlotMin": 85,
+          "SlotMax": 94
+        },
+        "3": {
+          "Species": "Cloyster",
+          "SlotMin": 95,
+          "SlotMax": 99
+        }
+      }
+    },
+    "Snowstorm": {
+      "MinLevel": 30,
+      "MaxLevel": 35,
+      "Encounters": {
+        "0": {
+          "Species": "Shellder",
+          "SlotMin": 0,
+          "SlotMax": 59
+        },
+        "1": {
+          "Species": "Pyukumuku",
+          "SlotMin": 60,
+          "SlotMax": 84
+        },
+        "2": {
+          "Species": "Gyarados",
+          "SlotMin": 85,
+          "SlotMax": 94
+        },
+        "3": {
+          "Species": "Cloyster",
+          "SlotMin": 95,
+          "SlotMax": 99
+        }
+      }
+    },
+    "Sandstorm": {
+      "MinLevel": 30,
+      "MaxLevel": 35,
+      "Encounters": {
+        "0": {
+          "Species": "Shellder",
+          "SlotMin": 0,
+          "SlotMax": 59
+        },
+        "1": {
+          "Species": "Pyukumuku",
+          "SlotMin": 60,
+          "SlotMax": 84
+        },
+        "2": {
+          "Species": "Gyarados",
+          "SlotMin": 85,
+          "SlotMax": 94
+        },
+        "3": {
+          "Species": "Cloyster",
+          "SlotMin": 95,
+          "SlotMax": 99
+        }
+      }
+    },
+    "Heavy Fog": {
       "MinLevel": 30,
       "MaxLevel": 35,
       "Encounters": {
@@ -163,7 +1203,175 @@
     }
   },
   "North Lake Miloch": {
-    "Fishing": {
+    "Normal Weather": {
+      "MinLevel": 14,
+      "MaxLevel": 16,
+      "Encounters": {
+        "0": {
+          "Species": "Magikarp",
+          "SlotMin": 0,
+          "SlotMax": 57
+        },
+        "1": {
+          "Species": "Barboach",
+          "SlotMin": 58,
+          "SlotMax": 97
+        },
+        "2": {
+          "Species": "Basculin-1",
+          "SlotMin": 98,
+          "SlotMax": 99
+        }
+      }
+    },
+    "Overcast": {
+      "MinLevel": 14,
+      "MaxLevel": 16,
+      "Encounters": {
+        "0": {
+          "Species": "Magikarp",
+          "SlotMin": 0,
+          "SlotMax": 57
+        },
+        "1": {
+          "Species": "Barboach",
+          "SlotMin": 58,
+          "SlotMax": 97
+        },
+        "2": {
+          "Species": "Basculin-1",
+          "SlotMin": 98,
+          "SlotMax": 99
+        }
+      }
+    },
+    "Raining": {
+      "MinLevel": 14,
+      "MaxLevel": 16,
+      "Encounters": {
+        "0": {
+          "Species": "Magikarp",
+          "SlotMin": 0,
+          "SlotMax": 57
+        },
+        "1": {
+          "Species": "Barboach",
+          "SlotMin": 58,
+          "SlotMax": 97
+        },
+        "2": {
+          "Species": "Basculin-1",
+          "SlotMin": 98,
+          "SlotMax": 99
+        }
+      }
+    },
+    "Thunderstorm": {
+      "MinLevel": 14,
+      "MaxLevel": 16,
+      "Encounters": {
+        "0": {
+          "Species": "Magikarp",
+          "SlotMin": 0,
+          "SlotMax": 57
+        },
+        "1": {
+          "Species": "Barboach",
+          "SlotMin": 58,
+          "SlotMax": 97
+        },
+        "2": {
+          "Species": "Basculin-1",
+          "SlotMin": 98,
+          "SlotMax": 99
+        }
+      }
+    },
+    "Intense Sun": {
+      "MinLevel": 14,
+      "MaxLevel": 16,
+      "Encounters": {
+        "0": {
+          "Species": "Magikarp",
+          "SlotMin": 0,
+          "SlotMax": 57
+        },
+        "1": {
+          "Species": "Barboach",
+          "SlotMin": 58,
+          "SlotMax": 97
+        },
+        "2": {
+          "Species": "Basculin-1",
+          "SlotMin": 98,
+          "SlotMax": 99
+        }
+      }
+    },
+    "Snowing": {
+      "MinLevel": 14,
+      "MaxLevel": 16,
+      "Encounters": {
+        "0": {
+          "Species": "Magikarp",
+          "SlotMin": 0,
+          "SlotMax": 57
+        },
+        "1": {
+          "Species": "Barboach",
+          "SlotMin": 58,
+          "SlotMax": 97
+        },
+        "2": {
+          "Species": "Basculin-1",
+          "SlotMin": 98,
+          "SlotMax": 99
+        }
+      }
+    },
+    "Snowstorm": {
+      "MinLevel": 14,
+      "MaxLevel": 16,
+      "Encounters": {
+        "0": {
+          "Species": "Magikarp",
+          "SlotMin": 0,
+          "SlotMax": 57
+        },
+        "1": {
+          "Species": "Barboach",
+          "SlotMin": 58,
+          "SlotMax": 97
+        },
+        "2": {
+          "Species": "Basculin-1",
+          "SlotMin": 98,
+          "SlotMax": 99
+        }
+      }
+    },
+    "Sandstorm": {
+      "MinLevel": 14,
+      "MaxLevel": 16,
+      "Encounters": {
+        "0": {
+          "Species": "Magikarp",
+          "SlotMin": 0,
+          "SlotMax": 57
+        },
+        "1": {
+          "Species": "Barboach",
+          "SlotMin": 58,
+          "SlotMax": 97
+        },
+        "2": {
+          "Species": "Basculin-1",
+          "SlotMin": 98,
+          "SlotMax": 99
+        }
+      }
+    },
+    "Heavy Fog": {
       "MinLevel": 14,
       "MaxLevel": 16,
       "Encounters": {
@@ -186,7 +1394,215 @@
     }
   },
   "Motostoke Riverbank": {
-    "Fishing": {
+    "Normal Weather": {
+      "MinLevel": 26,
+      "MaxLevel": 28,
+      "Encounters": {
+        "0": {
+          "Species": "Arrokuda",
+          "SlotMin": 0,
+          "SlotMax": 49
+        },
+        "1": {
+          "Species": "Basculin-1",
+          "SlotMin": 50,
+          "SlotMax": 84
+        },
+        "2": {
+          "Species": "Barraskewda",
+          "SlotMin": 85,
+          "SlotMax": 94
+        },
+        "3": {
+          "Species": "Mareanie",
+          "SlotMin": 95,
+          "SlotMax": 99
+        }
+      }
+    },
+    "Overcast": {
+      "MinLevel": 26,
+      "MaxLevel": 28,
+      "Encounters": {
+        "0": {
+          "Species": "Arrokuda",
+          "SlotMin": 0,
+          "SlotMax": 49
+        },
+        "1": {
+          "Species": "Basculin-1",
+          "SlotMin": 50,
+          "SlotMax": 84
+        },
+        "2": {
+          "Species": "Barraskewda",
+          "SlotMin": 85,
+          "SlotMax": 94
+        },
+        "3": {
+          "Species": "Mareanie",
+          "SlotMin": 95,
+          "SlotMax": 99
+        }
+      }
+    },
+    "Raining": {
+      "MinLevel": 26,
+      "MaxLevel": 28,
+      "Encounters": {
+        "0": {
+          "Species": "Arrokuda",
+          "SlotMin": 0,
+          "SlotMax": 49
+        },
+        "1": {
+          "Species": "Basculin-1",
+          "SlotMin": 50,
+          "SlotMax": 84
+        },
+        "2": {
+          "Species": "Barraskewda",
+          "SlotMin": 85,
+          "SlotMax": 94
+        },
+        "3": {
+          "Species": "Mareanie",
+          "SlotMin": 95,
+          "SlotMax": 99
+        }
+      }
+    },
+    "Thunderstorm": {
+      "MinLevel": 26,
+      "MaxLevel": 28,
+      "Encounters": {
+        "0": {
+          "Species": "Arrokuda",
+          "SlotMin": 0,
+          "SlotMax": 49
+        },
+        "1": {
+          "Species": "Basculin-1",
+          "SlotMin": 50,
+          "SlotMax": 84
+        },
+        "2": {
+          "Species": "Barraskewda",
+          "SlotMin": 85,
+          "SlotMax": 94
+        },
+        "3": {
+          "Species": "Mareanie",
+          "SlotMin": 95,
+          "SlotMax": 99
+        }
+      }
+    },
+    "Intense Sun": {
+      "MinLevel": 26,
+      "MaxLevel": 28,
+      "Encounters": {
+        "0": {
+          "Species": "Arrokuda",
+          "SlotMin": 0,
+          "SlotMax": 49
+        },
+        "1": {
+          "Species": "Basculin-1",
+          "SlotMin": 50,
+          "SlotMax": 84
+        },
+        "2": {
+          "Species": "Barraskewda",
+          "SlotMin": 85,
+          "SlotMax": 94
+        },
+        "3": {
+          "Species": "Mareanie",
+          "SlotMin": 95,
+          "SlotMax": 99
+        }
+      }
+    },
+    "Snowing": {
+      "MinLevel": 26,
+      "MaxLevel": 28,
+      "Encounters": {
+        "0": {
+          "Species": "Arrokuda",
+          "SlotMin": 0,
+          "SlotMax": 49
+        },
+        "1": {
+          "Species": "Basculin-1",
+          "SlotMin": 50,
+          "SlotMax": 84
+        },
+        "2": {
+          "Species": "Barraskewda",
+          "SlotMin": 85,
+          "SlotMax": 94
+        },
+        "3": {
+          "Species": "Mareanie",
+          "SlotMin": 95,
+          "SlotMax": 99
+        }
+      }
+    },
+    "Snowstorm": {
+      "MinLevel": 26,
+      "MaxLevel": 28,
+      "Encounters": {
+        "0": {
+          "Species": "Arrokuda",
+          "SlotMin": 0,
+          "SlotMax": 49
+        },
+        "1": {
+          "Species": "Basculin-1",
+          "SlotMin": 50,
+          "SlotMax": 84
+        },
+        "2": {
+          "Species": "Barraskewda",
+          "SlotMin": 85,
+          "SlotMax": 94
+        },
+        "3": {
+          "Species": "Mareanie",
+          "SlotMin": 95,
+          "SlotMax": 99
+        }
+      }
+    },
+    "Sandstorm": {
+      "MinLevel": 26,
+      "MaxLevel": 28,
+      "Encounters": {
+        "0": {
+          "Species": "Arrokuda",
+          "SlotMin": 0,
+          "SlotMax": 49
+        },
+        "1": {
+          "Species": "Basculin-1",
+          "SlotMin": 50,
+          "SlotMax": 84
+        },
+        "2": {
+          "Species": "Barraskewda",
+          "SlotMin": 85,
+          "SlotMax": 94
+        },
+        "3": {
+          "Species": "Mareanie",
+          "SlotMin": 95,
+          "SlotMax": 99
+        }
+      }
+    },
+    "Heavy Fog": {
       "MinLevel": 26,
       "MaxLevel": 28,
       "Encounters": {
@@ -214,7 +1630,255 @@
     }
   },
   "Bridge Field": {
-    "Fishing": {
+    "Normal Weather": {
+      "MinLevel": 26,
+      "MaxLevel": 28,
+      "Encounters": {
+        "0": {
+          "Species": "Drednaw",
+          "SlotMin": 0,
+          "SlotMax": 29
+        },
+        "1": {
+          "Species": "Lanturn",
+          "SlotMin": 30,
+          "SlotMax": 54
+        },
+        "2": {
+          "Species": "Qwilfish",
+          "SlotMin": 55,
+          "SlotMax": 64
+        },
+        "3": {
+          "Species": "Gyarados",
+          "SlotMin": 65,
+          "SlotMax": 69
+        },
+        "4": {
+          "Species": "Magikarp",
+          "SlotMin": 70,
+          "SlotMax": 99
+        }
+      }
+    },
+    "Overcast": {
+      "MinLevel": 26,
+      "MaxLevel": 28,
+      "Encounters": {
+        "0": {
+          "Species": "Drednaw",
+          "SlotMin": 0,
+          "SlotMax": 29
+        },
+        "1": {
+          "Species": "Lanturn",
+          "SlotMin": 30,
+          "SlotMax": 54
+        },
+        "2": {
+          "Species": "Qwilfish",
+          "SlotMin": 55,
+          "SlotMax": 64
+        },
+        "3": {
+          "Species": "Gyarados",
+          "SlotMin": 65,
+          "SlotMax": 69
+        },
+        "4": {
+          "Species": "Magikarp",
+          "SlotMin": 70,
+          "SlotMax": 99
+        }
+      }
+    },
+    "Raining": {
+      "MinLevel": 26,
+      "MaxLevel": 28,
+      "Encounters": {
+        "0": {
+          "Species": "Drednaw",
+          "SlotMin": 0,
+          "SlotMax": 29
+        },
+        "1": {
+          "Species": "Lanturn",
+          "SlotMin": 30,
+          "SlotMax": 54
+        },
+        "2": {
+          "Species": "Qwilfish",
+          "SlotMin": 55,
+          "SlotMax": 64
+        },
+        "3": {
+          "Species": "Gyarados",
+          "SlotMin": 65,
+          "SlotMax": 69
+        },
+        "4": {
+          "Species": "Magikarp",
+          "SlotMin": 70,
+          "SlotMax": 99
+        }
+      }
+    },
+    "Thunderstorm": {
+      "MinLevel": 26,
+      "MaxLevel": 28,
+      "Encounters": {
+        "0": {
+          "Species": "Drednaw",
+          "SlotMin": 0,
+          "SlotMax": 29
+        },
+        "1": {
+          "Species": "Lanturn",
+          "SlotMin": 30,
+          "SlotMax": 54
+        },
+        "2": {
+          "Species": "Qwilfish",
+          "SlotMin": 55,
+          "SlotMax": 64
+        },
+        "3": {
+          "Species": "Gyarados",
+          "SlotMin": 65,
+          "SlotMax": 69
+        },
+        "4": {
+          "Species": "Magikarp",
+          "SlotMin": 70,
+          "SlotMax": 99
+        }
+      }
+    },
+    "Intense Sun": {
+      "MinLevel": 26,
+      "MaxLevel": 28,
+      "Encounters": {
+        "0": {
+          "Species": "Drednaw",
+          "SlotMin": 0,
+          "SlotMax": 29
+        },
+        "1": {
+          "Species": "Lanturn",
+          "SlotMin": 30,
+          "SlotMax": 54
+        },
+        "2": {
+          "Species": "Qwilfish",
+          "SlotMin": 55,
+          "SlotMax": 64
+        },
+        "3": {
+          "Species": "Gyarados",
+          "SlotMin": 65,
+          "SlotMax": 69
+        },
+        "4": {
+          "Species": "Magikarp",
+          "SlotMin": 70,
+          "SlotMax": 99
+        }
+      }
+    },
+    "Snowing": {
+      "MinLevel": 26,
+      "MaxLevel": 28,
+      "Encounters": {
+        "0": {
+          "Species": "Drednaw",
+          "SlotMin": 0,
+          "SlotMax": 29
+        },
+        "1": {
+          "Species": "Lanturn",
+          "SlotMin": 30,
+          "SlotMax": 54
+        },
+        "2": {
+          "Species": "Qwilfish",
+          "SlotMin": 55,
+          "SlotMax": 64
+        },
+        "3": {
+          "Species": "Gyarados",
+          "SlotMin": 65,
+          "SlotMax": 69
+        },
+        "4": {
+          "Species": "Magikarp",
+          "SlotMin": 70,
+          "SlotMax": 99
+        }
+      }
+    },
+    "Snowstorm": {
+      "MinLevel": 26,
+      "MaxLevel": 28,
+      "Encounters": {
+        "0": {
+          "Species": "Drednaw",
+          "SlotMin": 0,
+          "SlotMax": 29
+        },
+        "1": {
+          "Species": "Lanturn",
+          "SlotMin": 30,
+          "SlotMax": 54
+        },
+        "2": {
+          "Species": "Qwilfish",
+          "SlotMin": 55,
+          "SlotMax": 64
+        },
+        "3": {
+          "Species": "Gyarados",
+          "SlotMin": 65,
+          "SlotMax": 69
+        },
+        "4": {
+          "Species": "Magikarp",
+          "SlotMin": 70,
+          "SlotMax": 99
+        }
+      }
+    },
+    "Sandstorm": {
+      "MinLevel": 26,
+      "MaxLevel": 28,
+      "Encounters": {
+        "0": {
+          "Species": "Drednaw",
+          "SlotMin": 0,
+          "SlotMax": 29
+        },
+        "1": {
+          "Species": "Lanturn",
+          "SlotMin": 30,
+          "SlotMax": 54
+        },
+        "2": {
+          "Species": "Qwilfish",
+          "SlotMin": 55,
+          "SlotMax": 64
+        },
+        "3": {
+          "Species": "Gyarados",
+          "SlotMin": 65,
+          "SlotMax": 69
+        },
+        "4": {
+          "Species": "Magikarp",
+          "SlotMin": 70,
+          "SlotMax": 99
+        }
+      }
+    },
+    "Heavy Fog": {
       "MinLevel": 26,
       "MaxLevel": 28,
       "Encounters": {
@@ -247,7 +1911,7 @@
     }
   },
   "Route 4": {
-    "Fishing": {
+    "All Weather": {
       "MinLevel": 13,
       "MaxLevel": 15,
       "Encounters": {
@@ -270,7 +1934,7 @@
     }
   },
   "City of Motostoke": {
-    "Fishing": {
+    "All Weather": {
       "MinLevel": 7,
       "MaxLevel": 11,
       "Encounters": {
@@ -293,7 +1957,7 @@
     }
   },
   "Route 5": {
-    "Fishing": {
+    "All Weather": {
       "MinLevel": 16,
       "MaxLevel": 18,
       "Encounters": {
@@ -316,7 +1980,7 @@
     }
   },
   "Town of Hulbury": {
-    "Fishing": {
+    "All Weather": {
       "MinLevel": 20,
       "MaxLevel": 24,
       "Encounters": {
@@ -349,7 +2013,7 @@
     }
   },
   "Galar Mine No. 2": {
-    "Fishing": {
+    "All Weather": {
       "MinLevel": 20,
       "MaxLevel": 24,
       "Encounters": {
@@ -372,7 +2036,7 @@
     }
   },
   "Route 6": {
-    "Fishing": {
+    "All Weather": {
       "MinLevel": 28,
       "MaxLevel": 30,
       "Encounters": {
@@ -395,7 +2059,7 @@
     }
   },
   "Route 9": {
-    "Fishing": {
+    "Snowing": {
       "MinLevel": 38,
       "MaxLevel": 42,
       "Encounters": {
@@ -418,7 +2082,7 @@
     }
   },
   "Route 9 (in Circhester Bay)": {
-    "Fishing": {
+    "All Weather": {
       "MinLevel": 39,
       "MaxLevel": 43,
       "Encounters": {
@@ -451,7 +2115,215 @@
     }
   },
   "Dusty Bowl": {
-    "Fishing": {
+    "Normal Weather": {
+      "MinLevel": 40,
+      "MaxLevel": 45,
+      "Encounters": {
+        "0": {
+          "Species": "Barraskewda",
+          "SlotMin": 0,
+          "SlotMax": 49
+        },
+        "1": {
+          "Species": "Lanturn",
+          "SlotMin": 50,
+          "SlotMax": 84
+        },
+        "2": {
+          "Species": "Qwilfish",
+          "SlotMin": 85,
+          "SlotMax": 94
+        },
+        "3": {
+          "Species": "Gyarados",
+          "SlotMin": 95,
+          "SlotMax": 99
+        }
+      }
+    },
+    "Overcast": {
+      "MinLevel": 40,
+      "MaxLevel": 45,
+      "Encounters": {
+        "0": {
+          "Species": "Barraskewda",
+          "SlotMin": 0,
+          "SlotMax": 49
+        },
+        "1": {
+          "Species": "Lanturn",
+          "SlotMin": 50,
+          "SlotMax": 84
+        },
+        "2": {
+          "Species": "Qwilfish",
+          "SlotMin": 85,
+          "SlotMax": 94
+        },
+        "3": {
+          "Species": "Gyarados",
+          "SlotMin": 95,
+          "SlotMax": 99
+        }
+      }
+    },
+    "Raining": {
+      "MinLevel": 40,
+      "MaxLevel": 45,
+      "Encounters": {
+        "0": {
+          "Species": "Barraskewda",
+          "SlotMin": 0,
+          "SlotMax": 49
+        },
+        "1": {
+          "Species": "Lanturn",
+          "SlotMin": 50,
+          "SlotMax": 84
+        },
+        "2": {
+          "Species": "Qwilfish",
+          "SlotMin": 85,
+          "SlotMax": 94
+        },
+        "3": {
+          "Species": "Gyarados",
+          "SlotMin": 95,
+          "SlotMax": 99
+        }
+      }
+    },
+    "Thunderstorm": {
+      "MinLevel": 40,
+      "MaxLevel": 45,
+      "Encounters": {
+        "0": {
+          "Species": "Barraskewda",
+          "SlotMin": 0,
+          "SlotMax": 49
+        },
+        "1": {
+          "Species": "Lanturn",
+          "SlotMin": 50,
+          "SlotMax": 84
+        },
+        "2": {
+          "Species": "Qwilfish",
+          "SlotMin": 85,
+          "SlotMax": 94
+        },
+        "3": {
+          "Species": "Gyarados",
+          "SlotMin": 95,
+          "SlotMax": 99
+        }
+      }
+    },
+    "Intense Sun": {
+      "MinLevel": 40,
+      "MaxLevel": 45,
+      "Encounters": {
+        "0": {
+          "Species": "Barraskewda",
+          "SlotMin": 0,
+          "SlotMax": 49
+        },
+        "1": {
+          "Species": "Lanturn",
+          "SlotMin": 50,
+          "SlotMax": 84
+        },
+        "2": {
+          "Species": "Qwilfish",
+          "SlotMin": 85,
+          "SlotMax": 94
+        },
+        "3": {
+          "Species": "Gyarados",
+          "SlotMin": 95,
+          "SlotMax": 99
+        }
+      }
+    },
+    "Snowing": {
+      "MinLevel": 40,
+      "MaxLevel": 45,
+      "Encounters": {
+        "0": {
+          "Species": "Barraskewda",
+          "SlotMin": 0,
+          "SlotMax": 49
+        },
+        "1": {
+          "Species": "Lanturn",
+          "SlotMin": 50,
+          "SlotMax": 84
+        },
+        "2": {
+          "Species": "Qwilfish",
+          "SlotMin": 85,
+          "SlotMax": 94
+        },
+        "3": {
+          "Species": "Gyarados",
+          "SlotMin": 95,
+          "SlotMax": 99
+        }
+      }
+    },
+    "Snowstorm": {
+      "MinLevel": 40,
+      "MaxLevel": 45,
+      "Encounters": {
+        "0": {
+          "Species": "Barraskewda",
+          "SlotMin": 0,
+          "SlotMax": 49
+        },
+        "1": {
+          "Species": "Lanturn",
+          "SlotMin": 50,
+          "SlotMax": 84
+        },
+        "2": {
+          "Species": "Qwilfish",
+          "SlotMin": 85,
+          "SlotMax": 94
+        },
+        "3": {
+          "Species": "Gyarados",
+          "SlotMin": 95,
+          "SlotMax": 99
+        }
+      }
+    },
+    "Sandstorm": {
+      "MinLevel": 40,
+      "MaxLevel": 45,
+      "Encounters": {
+        "0": {
+          "Species": "Barraskewda",
+          "SlotMin": 0,
+          "SlotMax": 49
+        },
+        "1": {
+          "Species": "Lanturn",
+          "SlotMin": 50,
+          "SlotMax": 84
+        },
+        "2": {
+          "Species": "Qwilfish",
+          "SlotMin": 85,
+          "SlotMax": 94
+        },
+        "3": {
+          "Species": "Gyarados",
+          "SlotMin": 95,
+          "SlotMax": 99
+        }
+      }
+    },
+    "Heavy Fog": {
       "MinLevel": 40,
       "MaxLevel": 45,
       "Encounters": {
@@ -479,7 +2351,215 @@
     }
   },
   "Giant's Mirror": {
-    "Fishing": {
+    "Normal Weather": {
+      "MinLevel": 26,
+      "MaxLevel": 28,
+      "Encounters": {
+        "0": {
+          "Species": "Drednaw",
+          "SlotMin": 0,
+          "SlotMax": 49
+        },
+        "1": {
+          "Species": "Mareanie",
+          "SlotMin": 50,
+          "SlotMax": 84
+        },
+        "2": {
+          "Species": "Chinchou",
+          "SlotMin": 85,
+          "SlotMax": 94
+        },
+        "3": {
+          "Species": "Gyarados",
+          "SlotMin": 95,
+          "SlotMax": 99
+        }
+      }
+    },
+    "Overcast": {
+      "MinLevel": 26,
+      "MaxLevel": 28,
+      "Encounters": {
+        "0": {
+          "Species": "Drednaw",
+          "SlotMin": 0,
+          "SlotMax": 49
+        },
+        "1": {
+          "Species": "Mareanie",
+          "SlotMin": 50,
+          "SlotMax": 84
+        },
+        "2": {
+          "Species": "Chinchou",
+          "SlotMin": 85,
+          "SlotMax": 94
+        },
+        "3": {
+          "Species": "Gyarados",
+          "SlotMin": 95,
+          "SlotMax": 99
+        }
+      }
+    },
+    "Raining": {
+      "MinLevel": 26,
+      "MaxLevel": 28,
+      "Encounters": {
+        "0": {
+          "Species": "Drednaw",
+          "SlotMin": 0,
+          "SlotMax": 49
+        },
+        "1": {
+          "Species": "Mareanie",
+          "SlotMin": 50,
+          "SlotMax": 84
+        },
+        "2": {
+          "Species": "Chinchou",
+          "SlotMin": 85,
+          "SlotMax": 94
+        },
+        "3": {
+          "Species": "Gyarados",
+          "SlotMin": 95,
+          "SlotMax": 99
+        }
+      }
+    },
+    "Thunderstorm": {
+      "MinLevel": 26,
+      "MaxLevel": 28,
+      "Encounters": {
+        "0": {
+          "Species": "Drednaw",
+          "SlotMin": 0,
+          "SlotMax": 49
+        },
+        "1": {
+          "Species": "Mareanie",
+          "SlotMin": 50,
+          "SlotMax": 84
+        },
+        "2": {
+          "Species": "Chinchou",
+          "SlotMin": 85,
+          "SlotMax": 94
+        },
+        "3": {
+          "Species": "Gyarados",
+          "SlotMin": 95,
+          "SlotMax": 99
+        }
+      }
+    },
+    "Intense Sun": {
+      "MinLevel": 26,
+      "MaxLevel": 28,
+      "Encounters": {
+        "0": {
+          "Species": "Drednaw",
+          "SlotMin": 0,
+          "SlotMax": 49
+        },
+        "1": {
+          "Species": "Mareanie",
+          "SlotMin": 50,
+          "SlotMax": 84
+        },
+        "2": {
+          "Species": "Chinchou",
+          "SlotMin": 85,
+          "SlotMax": 94
+        },
+        "3": {
+          "Species": "Gyarados",
+          "SlotMin": 95,
+          "SlotMax": 99
+        }
+      }
+    },
+    "Snowing": {
+      "MinLevel": 26,
+      "MaxLevel": 28,
+      "Encounters": {
+        "0": {
+          "Species": "Drednaw",
+          "SlotMin": 0,
+          "SlotMax": 49
+        },
+        "1": {
+          "Species": "Mareanie",
+          "SlotMin": 50,
+          "SlotMax": 84
+        },
+        "2": {
+          "Species": "Chinchou",
+          "SlotMin": 85,
+          "SlotMax": 94
+        },
+        "3": {
+          "Species": "Gyarados",
+          "SlotMin": 95,
+          "SlotMax": 99
+        }
+      }
+    },
+    "Snowstorm": {
+      "MinLevel": 26,
+      "MaxLevel": 28,
+      "Encounters": {
+        "0": {
+          "Species": "Drednaw",
+          "SlotMin": 0,
+          "SlotMax": 49
+        },
+        "1": {
+          "Species": "Mareanie",
+          "SlotMin": 50,
+          "SlotMax": 84
+        },
+        "2": {
+          "Species": "Chinchou",
+          "SlotMin": 85,
+          "SlotMax": 94
+        },
+        "3": {
+          "Species": "Gyarados",
+          "SlotMin": 95,
+          "SlotMax": 99
+        }
+      }
+    },
+    "Sandstorm": {
+      "MinLevel": 26,
+      "MaxLevel": 28,
+      "Encounters": {
+        "0": {
+          "Species": "Drednaw",
+          "SlotMin": 0,
+          "SlotMax": 49
+        },
+        "1": {
+          "Species": "Mareanie",
+          "SlotMin": 50,
+          "SlotMax": 84
+        },
+        "2": {
+          "Species": "Chinchou",
+          "SlotMin": 85,
+          "SlotMax": 94
+        },
+        "3": {
+          "Species": "Gyarados",
+          "SlotMin": 95,
+          "SlotMax": 99
+        }
+      }
+    },
+    "Heavy Fog": {
       "MinLevel": 26,
       "MaxLevel": 28,
       "Encounters": {
@@ -507,7 +2587,215 @@
     }
   },
   "Giant's Cap": {
-    "Fishing": {
+    "Normal Weather": {
+      "MinLevel": 26,
+      "MaxLevel": 28,
+      "Encounters": {
+        "0": {
+          "Species": "Goldeen",
+          "SlotMin": 0,
+          "SlotMax": 49
+        },
+        "1": {
+          "Species": "Krabby",
+          "SlotMin": 50,
+          "SlotMax": 84
+        },
+        "2": {
+          "Species": "Corphish",
+          "SlotMin": 85,
+          "SlotMax": 94
+        },
+        "3": {
+          "Species": "Gyarados",
+          "SlotMin": 95,
+          "SlotMax": 99
+        }
+      }
+    },
+    "Overcast": {
+      "MinLevel": 26,
+      "MaxLevel": 28,
+      "Encounters": {
+        "0": {
+          "Species": "Goldeen",
+          "SlotMin": 0,
+          "SlotMax": 49
+        },
+        "1": {
+          "Species": "Krabby",
+          "SlotMin": 50,
+          "SlotMax": 84
+        },
+        "2": {
+          "Species": "Corphish",
+          "SlotMin": 85,
+          "SlotMax": 94
+        },
+        "3": {
+          "Species": "Gyarados",
+          "SlotMin": 95,
+          "SlotMax": 99
+        }
+      }
+    },
+    "Raining": {
+      "MinLevel": 26,
+      "MaxLevel": 28,
+      "Encounters": {
+        "0": {
+          "Species": "Goldeen",
+          "SlotMin": 0,
+          "SlotMax": 49
+        },
+        "1": {
+          "Species": "Krabby",
+          "SlotMin": 50,
+          "SlotMax": 84
+        },
+        "2": {
+          "Species": "Corphish",
+          "SlotMin": 85,
+          "SlotMax": 94
+        },
+        "3": {
+          "Species": "Gyarados",
+          "SlotMin": 95,
+          "SlotMax": 99
+        }
+      }
+    },
+    "Thunderstorm": {
+      "MinLevel": 26,
+      "MaxLevel": 28,
+      "Encounters": {
+        "0": {
+          "Species": "Goldeen",
+          "SlotMin": 0,
+          "SlotMax": 49
+        },
+        "1": {
+          "Species": "Krabby",
+          "SlotMin": 50,
+          "SlotMax": 84
+        },
+        "2": {
+          "Species": "Corphish",
+          "SlotMin": 85,
+          "SlotMax": 94
+        },
+        "3": {
+          "Species": "Gyarados",
+          "SlotMin": 95,
+          "SlotMax": 99
+        }
+      }
+    },
+    "Intense Sun": {
+      "MinLevel": 26,
+      "MaxLevel": 28,
+      "Encounters": {
+        "0": {
+          "Species": "Goldeen",
+          "SlotMin": 0,
+          "SlotMax": 49
+        },
+        "1": {
+          "Species": "Krabby",
+          "SlotMin": 50,
+          "SlotMax": 84
+        },
+        "2": {
+          "Species": "Corphish",
+          "SlotMin": 85,
+          "SlotMax": 94
+        },
+        "3": {
+          "Species": "Gyarados",
+          "SlotMin": 95,
+          "SlotMax": 99
+        }
+      }
+    },
+    "Snowing": {
+      "MinLevel": 26,
+      "MaxLevel": 28,
+      "Encounters": {
+        "0": {
+          "Species": "Goldeen",
+          "SlotMin": 0,
+          "SlotMax": 49
+        },
+        "1": {
+          "Species": "Krabby",
+          "SlotMin": 50,
+          "SlotMax": 84
+        },
+        "2": {
+          "Species": "Corphish",
+          "SlotMin": 85,
+          "SlotMax": 94
+        },
+        "3": {
+          "Species": "Gyarados",
+          "SlotMin": 95,
+          "SlotMax": 99
+        }
+      }
+    },
+    "Snowstorm": {
+      "MinLevel": 26,
+      "MaxLevel": 28,
+      "Encounters": {
+        "0": {
+          "Species": "Goldeen",
+          "SlotMin": 0,
+          "SlotMax": 49
+        },
+        "1": {
+          "Species": "Krabby",
+          "SlotMin": 50,
+          "SlotMax": 84
+        },
+        "2": {
+          "Species": "Corphish",
+          "SlotMin": 85,
+          "SlotMax": 94
+        },
+        "3": {
+          "Species": "Gyarados",
+          "SlotMin": 95,
+          "SlotMax": 99
+        }
+      }
+    },
+    "Sandstorm": {
+      "MinLevel": 26,
+      "MaxLevel": 28,
+      "Encounters": {
+        "0": {
+          "Species": "Goldeen",
+          "SlotMin": 0,
+          "SlotMax": 49
+        },
+        "1": {
+          "Species": "Krabby",
+          "SlotMin": 50,
+          "SlotMax": 84
+        },
+        "2": {
+          "Species": "Corphish",
+          "SlotMin": 85,
+          "SlotMax": 94
+        },
+        "3": {
+          "Species": "Gyarados",
+          "SlotMin": 95,
+          "SlotMax": 99
+        }
+      }
+    },
+    "Heavy Fog": {
       "MinLevel": 26,
       "MaxLevel": 28,
       "Encounters": {
@@ -535,7 +2823,215 @@
     }
   },
   "Lake of Outrage": {
-    "Fishing": {
+    "Normal Weather": {
+      "MinLevel": 50,
+      "MaxLevel": 52,
+      "Encounters": {
+        "0": {
+          "Species": "Barraskewda",
+          "SlotMin": 0,
+          "SlotMax": 49
+        },
+        "1": {
+          "Species": "Lanturn",
+          "SlotMin": 50,
+          "SlotMax": 84
+        },
+        "2": {
+          "Species": "Qwilfish",
+          "SlotMin": 85,
+          "SlotMax": 94
+        },
+        "3": {
+          "Species": "Gyarados",
+          "SlotMin": 95,
+          "SlotMax": 99
+        }
+      }
+    },
+    "Overcast": {
+      "MinLevel": 50,
+      "MaxLevel": 52,
+      "Encounters": {
+        "0": {
+          "Species": "Barraskewda",
+          "SlotMin": 0,
+          "SlotMax": 49
+        },
+        "1": {
+          "Species": "Lanturn",
+          "SlotMin": 50,
+          "SlotMax": 84
+        },
+        "2": {
+          "Species": "Qwilfish",
+          "SlotMin": 85,
+          "SlotMax": 94
+        },
+        "3": {
+          "Species": "Gyarados",
+          "SlotMin": 95,
+          "SlotMax": 99
+        }
+      }
+    },
+    "Raining": {
+      "MinLevel": 50,
+      "MaxLevel": 52,
+      "Encounters": {
+        "0": {
+          "Species": "Barraskewda",
+          "SlotMin": 0,
+          "SlotMax": 49
+        },
+        "1": {
+          "Species": "Lanturn",
+          "SlotMin": 50,
+          "SlotMax": 84
+        },
+        "2": {
+          "Species": "Qwilfish",
+          "SlotMin": 85,
+          "SlotMax": 94
+        },
+        "3": {
+          "Species": "Gyarados",
+          "SlotMin": 95,
+          "SlotMax": 99
+        }
+      }
+    },
+    "Thunderstorm": {
+      "MinLevel": 50,
+      "MaxLevel": 52,
+      "Encounters": {
+        "0": {
+          "Species": "Barraskewda",
+          "SlotMin": 0,
+          "SlotMax": 49
+        },
+        "1": {
+          "Species": "Lanturn",
+          "SlotMin": 50,
+          "SlotMax": 84
+        },
+        "2": {
+          "Species": "Qwilfish",
+          "SlotMin": 85,
+          "SlotMax": 94
+        },
+        "3": {
+          "Species": "Gyarados",
+          "SlotMin": 95,
+          "SlotMax": 99
+        }
+      }
+    },
+    "Intense Sun": {
+      "MinLevel": 50,
+      "MaxLevel": 52,
+      "Encounters": {
+        "0": {
+          "Species": "Barraskewda",
+          "SlotMin": 0,
+          "SlotMax": 49
+        },
+        "1": {
+          "Species": "Lanturn",
+          "SlotMin": 50,
+          "SlotMax": 84
+        },
+        "2": {
+          "Species": "Qwilfish",
+          "SlotMin": 85,
+          "SlotMax": 94
+        },
+        "3": {
+          "Species": "Gyarados",
+          "SlotMin": 95,
+          "SlotMax": 99
+        }
+      }
+    },
+    "Snowing": {
+      "MinLevel": 50,
+      "MaxLevel": 52,
+      "Encounters": {
+        "0": {
+          "Species": "Barraskewda",
+          "SlotMin": 0,
+          "SlotMax": 49
+        },
+        "1": {
+          "Species": "Lanturn",
+          "SlotMin": 50,
+          "SlotMax": 84
+        },
+        "2": {
+          "Species": "Qwilfish",
+          "SlotMin": 85,
+          "SlotMax": 94
+        },
+        "3": {
+          "Species": "Gyarados",
+          "SlotMin": 95,
+          "SlotMax": 99
+        }
+      }
+    },
+    "Snowstorm": {
+      "MinLevel": 50,
+      "MaxLevel": 52,
+      "Encounters": {
+        "0": {
+          "Species": "Barraskewda",
+          "SlotMin": 0,
+          "SlotMax": 49
+        },
+        "1": {
+          "Species": "Lanturn",
+          "SlotMin": 50,
+          "SlotMax": 84
+        },
+        "2": {
+          "Species": "Qwilfish",
+          "SlotMin": 85,
+          "SlotMax": 94
+        },
+        "3": {
+          "Species": "Gyarados",
+          "SlotMin": 95,
+          "SlotMax": 99
+        }
+      }
+    },
+    "Sandstorm": {
+      "MinLevel": 50,
+      "MaxLevel": 52,
+      "Encounters": {
+        "0": {
+          "Species": "Barraskewda",
+          "SlotMin": 0,
+          "SlotMax": 49
+        },
+        "1": {
+          "Species": "Lanturn",
+          "SlotMin": 50,
+          "SlotMax": 84
+        },
+        "2": {
+          "Species": "Qwilfish",
+          "SlotMin": 85,
+          "SlotMax": 94
+        },
+        "3": {
+          "Species": "Gyarados",
+          "SlotMin": 95,
+          "SlotMax": 99
+        }
+      }
+    },
+    "Heavy Fog": {
       "MinLevel": 50,
       "MaxLevel": 52,
       "Encounters": {
@@ -563,7 +3059,7 @@
     }
   },
   "Route 2 (High Level)": {
-    "Fishing": {
+    "All Weather": {
       "MinLevel": 37,
       "MaxLevel": 40,
       "Encounters": {
@@ -591,7 +3087,7 @@
     }
   },
   "Slumbering Weald (High Level)": {
-    "Fishing": {
+    "All Weather": {
       "MinLevel": 45,
       "MaxLevel": 47,
       "Encounters": {
@@ -614,7 +3110,175 @@
     }
   },
   "Fields of Honor": {
-    "Fishing": {
+    "Normal Weather": {
+      "MinLevel": 13,
+      "MaxLevel": 18,
+      "Encounters": {
+        "0": {
+          "Species": "Magikarp",
+          "SlotMin": 0,
+          "SlotMax": 49
+        },
+        "1": {
+          "Species": "Remoraid",
+          "SlotMin": 50,
+          "SlotMax": 89
+        },
+        "2": {
+          "Species": "Octillery",
+          "SlotMin": 90,
+          "SlotMax": 99
+        }
+      }
+    },
+    "Overcast": {
+      "MinLevel": 13,
+      "MaxLevel": 18,
+      "Encounters": {
+        "0": {
+          "Species": "Magikarp",
+          "SlotMin": 0,
+          "SlotMax": 49
+        },
+        "1": {
+          "Species": "Remoraid",
+          "SlotMin": 50,
+          "SlotMax": 89
+        },
+        "2": {
+          "Species": "Octillery",
+          "SlotMin": 90,
+          "SlotMax": 99
+        }
+      }
+    },
+    "Raining": {
+      "MinLevel": 13,
+      "MaxLevel": 18,
+      "Encounters": {
+        "0": {
+          "Species": "Magikarp",
+          "SlotMin": 0,
+          "SlotMax": 49
+        },
+        "1": {
+          "Species": "Remoraid",
+          "SlotMin": 50,
+          "SlotMax": 89
+        },
+        "2": {
+          "Species": "Octillery",
+          "SlotMin": 90,
+          "SlotMax": 99
+        }
+      }
+    },
+    "Thunderstorm": {
+      "MinLevel": 13,
+      "MaxLevel": 18,
+      "Encounters": {
+        "0": {
+          "Species": "Magikarp",
+          "SlotMin": 0,
+          "SlotMax": 49
+        },
+        "1": {
+          "Species": "Remoraid",
+          "SlotMin": 50,
+          "SlotMax": 89
+        },
+        "2": {
+          "Species": "Octillery",
+          "SlotMin": 90,
+          "SlotMax": 99
+        }
+      }
+    },
+    "Intense Sun": {
+      "MinLevel": 13,
+      "MaxLevel": 18,
+      "Encounters": {
+        "0": {
+          "Species": "Magikarp",
+          "SlotMin": 0,
+          "SlotMax": 49
+        },
+        "1": {
+          "Species": "Remoraid",
+          "SlotMin": 50,
+          "SlotMax": 89
+        },
+        "2": {
+          "Species": "Octillery",
+          "SlotMin": 90,
+          "SlotMax": 99
+        }
+      }
+    },
+    "Snowing": {
+      "MinLevel": 13,
+      "MaxLevel": 18,
+      "Encounters": {
+        "0": {
+          "Species": "Magikarp",
+          "SlotMin": 0,
+          "SlotMax": 49
+        },
+        "1": {
+          "Species": "Remoraid",
+          "SlotMin": 50,
+          "SlotMax": 89
+        },
+        "2": {
+          "Species": "Octillery",
+          "SlotMin": 90,
+          "SlotMax": 99
+        }
+      }
+    },
+    "Snowstorm": {
+      "MinLevel": 13,
+      "MaxLevel": 18,
+      "Encounters": {
+        "0": {
+          "Species": "Magikarp",
+          "SlotMin": 0,
+          "SlotMax": 49
+        },
+        "1": {
+          "Species": "Remoraid",
+          "SlotMin": 50,
+          "SlotMax": 89
+        },
+        "2": {
+          "Species": "Octillery",
+          "SlotMin": 90,
+          "SlotMax": 99
+        }
+      }
+    },
+    "Sandstorm": {
+      "MinLevel": 13,
+      "MaxLevel": 18,
+      "Encounters": {
+        "0": {
+          "Species": "Magikarp",
+          "SlotMin": 0,
+          "SlotMax": 49
+        },
+        "1": {
+          "Species": "Remoraid",
+          "SlotMin": 50,
+          "SlotMax": 89
+        },
+        "2": {
+          "Species": "Octillery",
+          "SlotMin": 90,
+          "SlotMax": 99
+        }
+      }
+    },
+    "Heavy Fog": {
       "MinLevel": 13,
       "MaxLevel": 18,
       "Encounters": {
@@ -637,7 +3301,175 @@
     }
   },
   "Soothing Wetlands": {
-    "Fishing": {
+    "Normal Weather": {
+      "MinLevel": 13,
+      "MaxLevel": 18,
+      "Encounters": {
+        "0": {
+          "Species": "Magikarp",
+          "SlotMin": 0,
+          "SlotMax": 49
+        },
+        "1": {
+          "Species": "Barboach",
+          "SlotMin": 50,
+          "SlotMax": 89
+        },
+        "2": {
+          "Species": "Whiscash",
+          "SlotMin": 90,
+          "SlotMax": 99
+        }
+      }
+    },
+    "Overcast": {
+      "MinLevel": 13,
+      "MaxLevel": 18,
+      "Encounters": {
+        "0": {
+          "Species": "Magikarp",
+          "SlotMin": 0,
+          "SlotMax": 49
+        },
+        "1": {
+          "Species": "Barboach",
+          "SlotMin": 50,
+          "SlotMax": 89
+        },
+        "2": {
+          "Species": "Whiscash",
+          "SlotMin": 90,
+          "SlotMax": 99
+        }
+      }
+    },
+    "Raining": {
+      "MinLevel": 13,
+      "MaxLevel": 18,
+      "Encounters": {
+        "0": {
+          "Species": "Magikarp",
+          "SlotMin": 0,
+          "SlotMax": 49
+        },
+        "1": {
+          "Species": "Barboach",
+          "SlotMin": 50,
+          "SlotMax": 89
+        },
+        "2": {
+          "Species": "Whiscash",
+          "SlotMin": 90,
+          "SlotMax": 99
+        }
+      }
+    },
+    "Thunderstorm": {
+      "MinLevel": 13,
+      "MaxLevel": 18,
+      "Encounters": {
+        "0": {
+          "Species": "Magikarp",
+          "SlotMin": 0,
+          "SlotMax": 49
+        },
+        "1": {
+          "Species": "Barboach",
+          "SlotMin": 50,
+          "SlotMax": 89
+        },
+        "2": {
+          "Species": "Whiscash",
+          "SlotMin": 90,
+          "SlotMax": 99
+        }
+      }
+    },
+    "Intense Sun": {
+      "MinLevel": 13,
+      "MaxLevel": 18,
+      "Encounters": {
+        "0": {
+          "Species": "Magikarp",
+          "SlotMin": 0,
+          "SlotMax": 49
+        },
+        "1": {
+          "Species": "Barboach",
+          "SlotMin": 50,
+          "SlotMax": 89
+        },
+        "2": {
+          "Species": "Whiscash",
+          "SlotMin": 90,
+          "SlotMax": 99
+        }
+      }
+    },
+    "Snowing": {
+      "MinLevel": 13,
+      "MaxLevel": 18,
+      "Encounters": {
+        "0": {
+          "Species": "Magikarp",
+          "SlotMin": 0,
+          "SlotMax": 49
+        },
+        "1": {
+          "Species": "Barboach",
+          "SlotMin": 50,
+          "SlotMax": 89
+        },
+        "2": {
+          "Species": "Whiscash",
+          "SlotMin": 90,
+          "SlotMax": 99
+        }
+      }
+    },
+    "Snowstorm": {
+      "MinLevel": 13,
+      "MaxLevel": 18,
+      "Encounters": {
+        "0": {
+          "Species": "Magikarp",
+          "SlotMin": 0,
+          "SlotMax": 49
+        },
+        "1": {
+          "Species": "Barboach",
+          "SlotMin": 50,
+          "SlotMax": 89
+        },
+        "2": {
+          "Species": "Whiscash",
+          "SlotMin": 90,
+          "SlotMax": 99
+        }
+      }
+    },
+    "Sandstorm": {
+      "MinLevel": 13,
+      "MaxLevel": 18,
+      "Encounters": {
+        "0": {
+          "Species": "Magikarp",
+          "SlotMin": 0,
+          "SlotMax": 49
+        },
+        "1": {
+          "Species": "Barboach",
+          "SlotMin": 50,
+          "SlotMax": 89
+        },
+        "2": {
+          "Species": "Whiscash",
+          "SlotMin": 90,
+          "SlotMax": 99
+        }
+      }
+    },
+    "Heavy Fog": {
       "MinLevel": 13,
       "MaxLevel": 18,
       "Encounters": {
@@ -660,7 +3492,175 @@
     }
   },
   "Forest of Focus": {
-    "Fishing": {
+    "Normal Weather": {
+      "MinLevel": 13,
+      "MaxLevel": 18,
+      "Encounters": {
+        "0": {
+          "Species": "Magikarp",
+          "SlotMin": 0,
+          "SlotMax": 39
+        },
+        "1": {
+          "Species": "Goldeen",
+          "SlotMin": 40,
+          "SlotMax": 79
+        },
+        "2": {
+          "Species": "Arrokuda",
+          "SlotMin": 80,
+          "SlotMax": 99
+        }
+      }
+    },
+    "Overcast": {
+      "MinLevel": 13,
+      "MaxLevel": 18,
+      "Encounters": {
+        "0": {
+          "Species": "Magikarp",
+          "SlotMin": 0,
+          "SlotMax": 39
+        },
+        "1": {
+          "Species": "Goldeen",
+          "SlotMin": 40,
+          "SlotMax": 79
+        },
+        "2": {
+          "Species": "Arrokuda",
+          "SlotMin": 80,
+          "SlotMax": 99
+        }
+      }
+    },
+    "Raining": {
+      "MinLevel": 13,
+      "MaxLevel": 18,
+      "Encounters": {
+        "0": {
+          "Species": "Magikarp",
+          "SlotMin": 0,
+          "SlotMax": 39
+        },
+        "1": {
+          "Species": "Goldeen",
+          "SlotMin": 40,
+          "SlotMax": 79
+        },
+        "2": {
+          "Species": "Arrokuda",
+          "SlotMin": 80,
+          "SlotMax": 99
+        }
+      }
+    },
+    "Thunderstorm": {
+      "MinLevel": 13,
+      "MaxLevel": 18,
+      "Encounters": {
+        "0": {
+          "Species": "Magikarp",
+          "SlotMin": 0,
+          "SlotMax": 39
+        },
+        "1": {
+          "Species": "Goldeen",
+          "SlotMin": 40,
+          "SlotMax": 79
+        },
+        "2": {
+          "Species": "Arrokuda",
+          "SlotMin": 80,
+          "SlotMax": 99
+        }
+      }
+    },
+    "Intense Sun": {
+      "MinLevel": 13,
+      "MaxLevel": 18,
+      "Encounters": {
+        "0": {
+          "Species": "Magikarp",
+          "SlotMin": 0,
+          "SlotMax": 39
+        },
+        "1": {
+          "Species": "Goldeen",
+          "SlotMin": 40,
+          "SlotMax": 79
+        },
+        "2": {
+          "Species": "Arrokuda",
+          "SlotMin": 80,
+          "SlotMax": 99
+        }
+      }
+    },
+    "Snowing": {
+      "MinLevel": 13,
+      "MaxLevel": 18,
+      "Encounters": {
+        "0": {
+          "Species": "Magikarp",
+          "SlotMin": 0,
+          "SlotMax": 39
+        },
+        "1": {
+          "Species": "Goldeen",
+          "SlotMin": 40,
+          "SlotMax": 79
+        },
+        "2": {
+          "Species": "Arrokuda",
+          "SlotMin": 80,
+          "SlotMax": 99
+        }
+      }
+    },
+    "Snowstorm": {
+      "MinLevel": 13,
+      "MaxLevel": 18,
+      "Encounters": {
+        "0": {
+          "Species": "Magikarp",
+          "SlotMin": 0,
+          "SlotMax": 39
+        },
+        "1": {
+          "Species": "Goldeen",
+          "SlotMin": 40,
+          "SlotMax": 79
+        },
+        "2": {
+          "Species": "Arrokuda",
+          "SlotMin": 80,
+          "SlotMax": 99
+        }
+      }
+    },
+    "Sandstorm": {
+      "MinLevel": 13,
+      "MaxLevel": 18,
+      "Encounters": {
+        "0": {
+          "Species": "Magikarp",
+          "SlotMin": 0,
+          "SlotMax": 39
+        },
+        "1": {
+          "Species": "Goldeen",
+          "SlotMin": 40,
+          "SlotMax": 79
+        },
+        "2": {
+          "Species": "Arrokuda",
+          "SlotMin": 80,
+          "SlotMax": 99
+        }
+      }
+    },
+    "Heavy Fog": {
       "MinLevel": 13,
       "MaxLevel": 18,
       "Encounters": {
@@ -683,7 +3683,175 @@
     }
   },
   "Challenge Beach": {
-    "Fishing": {
+    "Normal Weather": {
+      "MinLevel": 13,
+      "MaxLevel": 18,
+      "Encounters": {
+        "0": {
+          "Species": "Magikarp",
+          "SlotMin": 0,
+          "SlotMax": 49
+        },
+        "1": {
+          "Species": "Wishiwashi",
+          "SlotMin": 50,
+          "SlotMax": 89
+        },
+        "2": {
+          "Species": "Dhelmise",
+          "SlotMin": 90,
+          "SlotMax": 99
+        }
+      }
+    },
+    "Overcast": {
+      "MinLevel": 13,
+      "MaxLevel": 18,
+      "Encounters": {
+        "0": {
+          "Species": "Magikarp",
+          "SlotMin": 0,
+          "SlotMax": 49
+        },
+        "1": {
+          "Species": "Wishiwashi",
+          "SlotMin": 50,
+          "SlotMax": 89
+        },
+        "2": {
+          "Species": "Dhelmise",
+          "SlotMin": 90,
+          "SlotMax": 99
+        }
+      }
+    },
+    "Raining": {
+      "MinLevel": 13,
+      "MaxLevel": 18,
+      "Encounters": {
+        "0": {
+          "Species": "Magikarp",
+          "SlotMin": 0,
+          "SlotMax": 49
+        },
+        "1": {
+          "Species": "Wishiwashi",
+          "SlotMin": 50,
+          "SlotMax": 89
+        },
+        "2": {
+          "Species": "Dhelmise",
+          "SlotMin": 90,
+          "SlotMax": 99
+        }
+      }
+    },
+    "Thunderstorm": {
+      "MinLevel": 13,
+      "MaxLevel": 18,
+      "Encounters": {
+        "0": {
+          "Species": "Magikarp",
+          "SlotMin": 0,
+          "SlotMax": 49
+        },
+        "1": {
+          "Species": "Wishiwashi",
+          "SlotMin": 50,
+          "SlotMax": 89
+        },
+        "2": {
+          "Species": "Dhelmise",
+          "SlotMin": 90,
+          "SlotMax": 99
+        }
+      }
+    },
+    "Intense Sun": {
+      "MinLevel": 13,
+      "MaxLevel": 18,
+      "Encounters": {
+        "0": {
+          "Species": "Magikarp",
+          "SlotMin": 0,
+          "SlotMax": 49
+        },
+        "1": {
+          "Species": "Wishiwashi",
+          "SlotMin": 50,
+          "SlotMax": 89
+        },
+        "2": {
+          "Species": "Dhelmise",
+          "SlotMin": 90,
+          "SlotMax": 99
+        }
+      }
+    },
+    "Snowing": {
+      "MinLevel": 13,
+      "MaxLevel": 18,
+      "Encounters": {
+        "0": {
+          "Species": "Magikarp",
+          "SlotMin": 0,
+          "SlotMax": 49
+        },
+        "1": {
+          "Species": "Wishiwashi",
+          "SlotMin": 50,
+          "SlotMax": 89
+        },
+        "2": {
+          "Species": "Dhelmise",
+          "SlotMin": 90,
+          "SlotMax": 99
+        }
+      }
+    },
+    "Snowstorm": {
+      "MinLevel": 13,
+      "MaxLevel": 18,
+      "Encounters": {
+        "0": {
+          "Species": "Magikarp",
+          "SlotMin": 0,
+          "SlotMax": 49
+        },
+        "1": {
+          "Species": "Wishiwashi",
+          "SlotMin": 50,
+          "SlotMax": 89
+        },
+        "2": {
+          "Species": "Dhelmise",
+          "SlotMin": 90,
+          "SlotMax": 99
+        }
+      }
+    },
+    "Sandstorm": {
+      "MinLevel": 13,
+      "MaxLevel": 18,
+      "Encounters": {
+        "0": {
+          "Species": "Magikarp",
+          "SlotMin": 0,
+          "SlotMax": 49
+        },
+        "1": {
+          "Species": "Wishiwashi",
+          "SlotMin": 50,
+          "SlotMax": 89
+        },
+        "2": {
+          "Species": "Dhelmise",
+          "SlotMin": 90,
+          "SlotMax": 99
+        }
+      }
+    },
+    "Heavy Fog": {
       "MinLevel": 13,
       "MaxLevel": 18,
       "Encounters": {
@@ -706,7 +3874,175 @@
     }
   },
   "Courageous Cavern": {
-    "Fishing": {
+    "Normal Weather": {
+      "MinLevel": 16,
+      "MaxLevel": 21,
+      "Encounters": {
+        "0": {
+          "Species": "Magikarp",
+          "SlotMin": 0,
+          "SlotMax": 49
+        },
+        "1": {
+          "Species": "Shellder",
+          "SlotMin": 50,
+          "SlotMax": 89
+        },
+        "2": {
+          "Species": "Cloyster",
+          "SlotMin": 90,
+          "SlotMax": 99
+        }
+      }
+    },
+    "Overcast": {
+      "MinLevel": 16,
+      "MaxLevel": 21,
+      "Encounters": {
+        "0": {
+          "Species": "Magikarp",
+          "SlotMin": 0,
+          "SlotMax": 49
+        },
+        "1": {
+          "Species": "Shellder",
+          "SlotMin": 50,
+          "SlotMax": 89
+        },
+        "2": {
+          "Species": "Cloyster",
+          "SlotMin": 90,
+          "SlotMax": 99
+        }
+      }
+    },
+    "Raining": {
+      "MinLevel": 16,
+      "MaxLevel": 21,
+      "Encounters": {
+        "0": {
+          "Species": "Magikarp",
+          "SlotMin": 0,
+          "SlotMax": 49
+        },
+        "1": {
+          "Species": "Shellder",
+          "SlotMin": 50,
+          "SlotMax": 89
+        },
+        "2": {
+          "Species": "Cloyster",
+          "SlotMin": 90,
+          "SlotMax": 99
+        }
+      }
+    },
+    "Thunderstorm": {
+      "MinLevel": 16,
+      "MaxLevel": 21,
+      "Encounters": {
+        "0": {
+          "Species": "Magikarp",
+          "SlotMin": 0,
+          "SlotMax": 49
+        },
+        "1": {
+          "Species": "Shellder",
+          "SlotMin": 50,
+          "SlotMax": 89
+        },
+        "2": {
+          "Species": "Cloyster",
+          "SlotMin": 90,
+          "SlotMax": 99
+        }
+      }
+    },
+    "Intense Sun": {
+      "MinLevel": 16,
+      "MaxLevel": 21,
+      "Encounters": {
+        "0": {
+          "Species": "Magikarp",
+          "SlotMin": 0,
+          "SlotMax": 49
+        },
+        "1": {
+          "Species": "Shellder",
+          "SlotMin": 50,
+          "SlotMax": 89
+        },
+        "2": {
+          "Species": "Cloyster",
+          "SlotMin": 90,
+          "SlotMax": 99
+        }
+      }
+    },
+    "Snowing": {
+      "MinLevel": 16,
+      "MaxLevel": 21,
+      "Encounters": {
+        "0": {
+          "Species": "Magikarp",
+          "SlotMin": 0,
+          "SlotMax": 49
+        },
+        "1": {
+          "Species": "Shellder",
+          "SlotMin": 50,
+          "SlotMax": 89
+        },
+        "2": {
+          "Species": "Cloyster",
+          "SlotMin": 90,
+          "SlotMax": 99
+        }
+      }
+    },
+    "Snowstorm": {
+      "MinLevel": 16,
+      "MaxLevel": 21,
+      "Encounters": {
+        "0": {
+          "Species": "Magikarp",
+          "SlotMin": 0,
+          "SlotMax": 49
+        },
+        "1": {
+          "Species": "Shellder",
+          "SlotMin": 50,
+          "SlotMax": 89
+        },
+        "2": {
+          "Species": "Cloyster",
+          "SlotMin": 90,
+          "SlotMax": 99
+        }
+      }
+    },
+    "Sandstorm": {
+      "MinLevel": 16,
+      "MaxLevel": 21,
+      "Encounters": {
+        "0": {
+          "Species": "Magikarp",
+          "SlotMin": 0,
+          "SlotMax": 49
+        },
+        "1": {
+          "Species": "Shellder",
+          "SlotMin": 50,
+          "SlotMax": 89
+        },
+        "2": {
+          "Species": "Cloyster",
+          "SlotMin": 90,
+          "SlotMax": 99
+        }
+      }
+    },
+    "Heavy Fog": {
       "MinLevel": 16,
       "MaxLevel": 21,
       "Encounters": {
@@ -729,7 +4065,175 @@
     }
   },
   "Loop Lagoon": {
-    "Fishing": {
+    "Normal Weather": {
+      "MinLevel": 19,
+      "MaxLevel": 24,
+      "Encounters": {
+        "0": {
+          "Species": "Magikarp",
+          "SlotMin": 0,
+          "SlotMax": 49
+        },
+        "1": {
+          "Species": "Shellder",
+          "SlotMin": 50,
+          "SlotMax": 89
+        },
+        "2": {
+          "Species": "Cloyster",
+          "SlotMin": 90,
+          "SlotMax": 99
+        }
+      }
+    },
+    "Overcast": {
+      "MinLevel": 19,
+      "MaxLevel": 24,
+      "Encounters": {
+        "0": {
+          "Species": "Magikarp",
+          "SlotMin": 0,
+          "SlotMax": 49
+        },
+        "1": {
+          "Species": "Shellder",
+          "SlotMin": 50,
+          "SlotMax": 89
+        },
+        "2": {
+          "Species": "Cloyster",
+          "SlotMin": 90,
+          "SlotMax": 99
+        }
+      }
+    },
+    "Raining": {
+      "MinLevel": 19,
+      "MaxLevel": 24,
+      "Encounters": {
+        "0": {
+          "Species": "Magikarp",
+          "SlotMin": 0,
+          "SlotMax": 49
+        },
+        "1": {
+          "Species": "Shellder",
+          "SlotMin": 50,
+          "SlotMax": 89
+        },
+        "2": {
+          "Species": "Cloyster",
+          "SlotMin": 90,
+          "SlotMax": 99
+        }
+      }
+    },
+    "Thunderstorm": {
+      "MinLevel": 19,
+      "MaxLevel": 24,
+      "Encounters": {
+        "0": {
+          "Species": "Magikarp",
+          "SlotMin": 0,
+          "SlotMax": 49
+        },
+        "1": {
+          "Species": "Shellder",
+          "SlotMin": 50,
+          "SlotMax": 89
+        },
+        "2": {
+          "Species": "Cloyster",
+          "SlotMin": 90,
+          "SlotMax": 99
+        }
+      }
+    },
+    "Intense Sun": {
+      "MinLevel": 19,
+      "MaxLevel": 24,
+      "Encounters": {
+        "0": {
+          "Species": "Magikarp",
+          "SlotMin": 0,
+          "SlotMax": 49
+        },
+        "1": {
+          "Species": "Shellder",
+          "SlotMin": 50,
+          "SlotMax": 89
+        },
+        "2": {
+          "Species": "Cloyster",
+          "SlotMin": 90,
+          "SlotMax": 99
+        }
+      }
+    },
+    "Snowing": {
+      "MinLevel": 19,
+      "MaxLevel": 24,
+      "Encounters": {
+        "0": {
+          "Species": "Magikarp",
+          "SlotMin": 0,
+          "SlotMax": 49
+        },
+        "1": {
+          "Species": "Shellder",
+          "SlotMin": 50,
+          "SlotMax": 89
+        },
+        "2": {
+          "Species": "Cloyster",
+          "SlotMin": 90,
+          "SlotMax": 99
+        }
+      }
+    },
+    "Snowstorm": {
+      "MinLevel": 19,
+      "MaxLevel": 24,
+      "Encounters": {
+        "0": {
+          "Species": "Magikarp",
+          "SlotMin": 0,
+          "SlotMax": 49
+        },
+        "1": {
+          "Species": "Shellder",
+          "SlotMin": 50,
+          "SlotMax": 89
+        },
+        "2": {
+          "Species": "Cloyster",
+          "SlotMin": 90,
+          "SlotMax": 99
+        }
+      }
+    },
+    "Sandstorm": {
+      "MinLevel": 19,
+      "MaxLevel": 24,
+      "Encounters": {
+        "0": {
+          "Species": "Magikarp",
+          "SlotMin": 0,
+          "SlotMax": 49
+        },
+        "1": {
+          "Species": "Shellder",
+          "SlotMin": 50,
+          "SlotMax": 89
+        },
+        "2": {
+          "Species": "Cloyster",
+          "SlotMin": 90,
+          "SlotMax": 99
+        }
+      }
+    },
+    "Heavy Fog": {
       "MinLevel": 19,
       "MaxLevel": 24,
       "Encounters": {
@@ -752,7 +4256,175 @@
     }
   },
   "Training Lowlands": {
-    "Fishing": {
+    "Normal Weather": {
+      "MinLevel": 16,
+      "MaxLevel": 21,
+      "Encounters": {
+        "0": {
+          "Species": "Magikarp",
+          "SlotMin": 0,
+          "SlotMax": 49
+        },
+        "1": {
+          "Species": "Carvanha",
+          "SlotMin": 50,
+          "SlotMax": 89
+        },
+        "2": {
+          "Species": "Sharpedo",
+          "SlotMin": 90,
+          "SlotMax": 99
+        }
+      }
+    },
+    "Overcast": {
+      "MinLevel": 16,
+      "MaxLevel": 21,
+      "Encounters": {
+        "0": {
+          "Species": "Magikarp",
+          "SlotMin": 0,
+          "SlotMax": 49
+        },
+        "1": {
+          "Species": "Carvanha",
+          "SlotMin": 50,
+          "SlotMax": 89
+        },
+        "2": {
+          "Species": "Sharpedo",
+          "SlotMin": 90,
+          "SlotMax": 99
+        }
+      }
+    },
+    "Raining": {
+      "MinLevel": 16,
+      "MaxLevel": 21,
+      "Encounters": {
+        "0": {
+          "Species": "Magikarp",
+          "SlotMin": 0,
+          "SlotMax": 49
+        },
+        "1": {
+          "Species": "Carvanha",
+          "SlotMin": 50,
+          "SlotMax": 89
+        },
+        "2": {
+          "Species": "Sharpedo",
+          "SlotMin": 90,
+          "SlotMax": 99
+        }
+      }
+    },
+    "Thunderstorm": {
+      "MinLevel": 16,
+      "MaxLevel": 21,
+      "Encounters": {
+        "0": {
+          "Species": "Magikarp",
+          "SlotMin": 0,
+          "SlotMax": 49
+        },
+        "1": {
+          "Species": "Carvanha",
+          "SlotMin": 50,
+          "SlotMax": 89
+        },
+        "2": {
+          "Species": "Sharpedo",
+          "SlotMin": 90,
+          "SlotMax": 99
+        }
+      }
+    },
+    "Intense Sun": {
+      "MinLevel": 16,
+      "MaxLevel": 21,
+      "Encounters": {
+        "0": {
+          "Species": "Magikarp",
+          "SlotMin": 0,
+          "SlotMax": 49
+        },
+        "1": {
+          "Species": "Carvanha",
+          "SlotMin": 50,
+          "SlotMax": 89
+        },
+        "2": {
+          "Species": "Sharpedo",
+          "SlotMin": 90,
+          "SlotMax": 99
+        }
+      }
+    },
+    "Snowing": {
+      "MinLevel": 16,
+      "MaxLevel": 21,
+      "Encounters": {
+        "0": {
+          "Species": "Magikarp",
+          "SlotMin": 0,
+          "SlotMax": 49
+        },
+        "1": {
+          "Species": "Carvanha",
+          "SlotMin": 50,
+          "SlotMax": 89
+        },
+        "2": {
+          "Species": "Sharpedo",
+          "SlotMin": 90,
+          "SlotMax": 99
+        }
+      }
+    },
+    "Snowstorm": {
+      "MinLevel": 16,
+      "MaxLevel": 21,
+      "Encounters": {
+        "0": {
+          "Species": "Magikarp",
+          "SlotMin": 0,
+          "SlotMax": 49
+        },
+        "1": {
+          "Species": "Carvanha",
+          "SlotMin": 50,
+          "SlotMax": 89
+        },
+        "2": {
+          "Species": "Sharpedo",
+          "SlotMin": 90,
+          "SlotMax": 99
+        }
+      }
+    },
+    "Sandstorm": {
+      "MinLevel": 16,
+      "MaxLevel": 21,
+      "Encounters": {
+        "0": {
+          "Species": "Magikarp",
+          "SlotMin": 0,
+          "SlotMax": 49
+        },
+        "1": {
+          "Species": "Carvanha",
+          "SlotMin": 50,
+          "SlotMax": 89
+        },
+        "2": {
+          "Species": "Sharpedo",
+          "SlotMin": 90,
+          "SlotMax": 99
+        }
+      }
+    },
+    "Heavy Fog": {
       "MinLevel": 16,
       "MaxLevel": 21,
       "Encounters": {
@@ -775,7 +4447,175 @@
     }
   },
   "Workout Sea": {
-    "Fishing": {
+    "Normal Weather": {
+      "MinLevel": 43,
+      "MaxLevel": 48,
+      "Encounters": {
+        "0": {
+          "Species": "Magikarp",
+          "SlotMin": 0,
+          "SlotMax": 49
+        },
+        "1": {
+          "Species": "Remoraid",
+          "SlotMin": 50,
+          "SlotMax": 89
+        },
+        "2": {
+          "Species": "Octillery",
+          "SlotMin": 90,
+          "SlotMax": 99
+        }
+      }
+    },
+    "Overcast": {
+      "MinLevel": 43,
+      "MaxLevel": 48,
+      "Encounters": {
+        "0": {
+          "Species": "Magikarp",
+          "SlotMin": 0,
+          "SlotMax": 49
+        },
+        "1": {
+          "Species": "Remoraid",
+          "SlotMin": 50,
+          "SlotMax": 89
+        },
+        "2": {
+          "Species": "Octillery",
+          "SlotMin": 90,
+          "SlotMax": 99
+        }
+      }
+    },
+    "Raining": {
+      "MinLevel": 43,
+      "MaxLevel": 48,
+      "Encounters": {
+        "0": {
+          "Species": "Magikarp",
+          "SlotMin": 0,
+          "SlotMax": 49
+        },
+        "1": {
+          "Species": "Remoraid",
+          "SlotMin": 50,
+          "SlotMax": 89
+        },
+        "2": {
+          "Species": "Octillery",
+          "SlotMin": 90,
+          "SlotMax": 99
+        }
+      }
+    },
+    "Thunderstorm": {
+      "MinLevel": 43,
+      "MaxLevel": 48,
+      "Encounters": {
+        "0": {
+          "Species": "Magikarp",
+          "SlotMin": 0,
+          "SlotMax": 49
+        },
+        "1": {
+          "Species": "Remoraid",
+          "SlotMin": 50,
+          "SlotMax": 89
+        },
+        "2": {
+          "Species": "Octillery",
+          "SlotMin": 90,
+          "SlotMax": 99
+        }
+      }
+    },
+    "Intense Sun": {
+      "MinLevel": 43,
+      "MaxLevel": 48,
+      "Encounters": {
+        "0": {
+          "Species": "Magikarp",
+          "SlotMin": 0,
+          "SlotMax": 49
+        },
+        "1": {
+          "Species": "Remoraid",
+          "SlotMin": 50,
+          "SlotMax": 89
+        },
+        "2": {
+          "Species": "Octillery",
+          "SlotMin": 90,
+          "SlotMax": 99
+        }
+      }
+    },
+    "Snowing": {
+      "MinLevel": 43,
+      "MaxLevel": 48,
+      "Encounters": {
+        "0": {
+          "Species": "Magikarp",
+          "SlotMin": 0,
+          "SlotMax": 49
+        },
+        "1": {
+          "Species": "Remoraid",
+          "SlotMin": 50,
+          "SlotMax": 89
+        },
+        "2": {
+          "Species": "Octillery",
+          "SlotMin": 90,
+          "SlotMax": 99
+        }
+      }
+    },
+    "Snowstorm": {
+      "MinLevel": 43,
+      "MaxLevel": 48,
+      "Encounters": {
+        "0": {
+          "Species": "Magikarp",
+          "SlotMin": 0,
+          "SlotMax": 49
+        },
+        "1": {
+          "Species": "Remoraid",
+          "SlotMin": 50,
+          "SlotMax": 89
+        },
+        "2": {
+          "Species": "Octillery",
+          "SlotMin": 90,
+          "SlotMax": 99
+        }
+      }
+    },
+    "Sandstorm": {
+      "MinLevel": 43,
+      "MaxLevel": 48,
+      "Encounters": {
+        "0": {
+          "Species": "Magikarp",
+          "SlotMin": 0,
+          "SlotMax": 49
+        },
+        "1": {
+          "Species": "Remoraid",
+          "SlotMin": 50,
+          "SlotMax": 89
+        },
+        "2": {
+          "Species": "Octillery",
+          "SlotMin": 90,
+          "SlotMax": 99
+        }
+      }
+    },
+    "Heavy Fog": {
       "MinLevel": 43,
       "MaxLevel": 48,
       "Encounters": {
@@ -798,7 +4638,135 @@
     }
   },
   "Stepping-Stone Sea": {
-    "Fishing": {
+    "Normal Weather": {
+      "MinLevel": 43,
+      "MaxLevel": 48,
+      "Encounters": {
+        "0": {
+          "Species": "Magikarp",
+          "SlotMin": 0,
+          "SlotMax": 59
+        },
+        "1": {
+          "Species": "Wishiwashi",
+          "SlotMin": 60,
+          "SlotMax": 99
+        }
+      }
+    },
+    "Overcast": {
+      "MinLevel": 43,
+      "MaxLevel": 48,
+      "Encounters": {
+        "0": {
+          "Species": "Magikarp",
+          "SlotMin": 0,
+          "SlotMax": 59
+        },
+        "1": {
+          "Species": "Wishiwashi",
+          "SlotMin": 60,
+          "SlotMax": 99
+        }
+      }
+    },
+    "Raining": {
+      "MinLevel": 43,
+      "MaxLevel": 48,
+      "Encounters": {
+        "0": {
+          "Species": "Magikarp",
+          "SlotMin": 0,
+          "SlotMax": 59
+        },
+        "1": {
+          "Species": "Wishiwashi",
+          "SlotMin": 60,
+          "SlotMax": 99
+        }
+      }
+    },
+    "Thunderstorm": {
+      "MinLevel": 43,
+      "MaxLevel": 48,
+      "Encounters": {
+        "0": {
+          "Species": "Magikarp",
+          "SlotMin": 0,
+          "SlotMax": 59
+        },
+        "1": {
+          "Species": "Wishiwashi",
+          "SlotMin": 60,
+          "SlotMax": 99
+        }
+      }
+    },
+    "Intense Sun": {
+      "MinLevel": 43,
+      "MaxLevel": 48,
+      "Encounters": {
+        "0": {
+          "Species": "Magikarp",
+          "SlotMin": 0,
+          "SlotMax": 59
+        },
+        "1": {
+          "Species": "Wishiwashi",
+          "SlotMin": 60,
+          "SlotMax": 99
+        }
+      }
+    },
+    "Snowing": {
+      "MinLevel": 43,
+      "MaxLevel": 48,
+      "Encounters": {
+        "0": {
+          "Species": "Magikarp",
+          "SlotMin": 0,
+          "SlotMax": 59
+        },
+        "1": {
+          "Species": "Wishiwashi",
+          "SlotMin": 60,
+          "SlotMax": 99
+        }
+      }
+    },
+    "Snowstorm": {
+      "MinLevel": 43,
+      "MaxLevel": 48,
+      "Encounters": {
+        "0": {
+          "Species": "Magikarp",
+          "SlotMin": 0,
+          "SlotMax": 59
+        },
+        "1": {
+          "Species": "Wishiwashi",
+          "SlotMin": 60,
+          "SlotMax": 99
+        }
+      }
+    },
+    "Sandstorm": {
+      "MinLevel": 43,
+      "MaxLevel": 48,
+      "Encounters": {
+        "0": {
+          "Species": "Magikarp",
+          "SlotMin": 0,
+          "SlotMax": 59
+        },
+        "1": {
+          "Species": "Wishiwashi",
+          "SlotMin": 60,
+          "SlotMax": 99
+        }
+      }
+    },
+    "Heavy Fog": {
       "MinLevel": 43,
       "MaxLevel": 48,
       "Encounters": {
@@ -816,7 +4784,135 @@
     }
   },
   "Insular Sea": {
-    "Fishing": {
+    "Normal Weather": {
+      "MinLevel": 43,
+      "MaxLevel": 48,
+      "Encounters": {
+        "0": {
+          "Species": "Magikarp",
+          "SlotMin": 0,
+          "SlotMax": 59
+        },
+        "1": {
+          "Species": "Wishiwashi",
+          "SlotMin": 60,
+          "SlotMax": 99
+        }
+      }
+    },
+    "Overcast": {
+      "MinLevel": 43,
+      "MaxLevel": 48,
+      "Encounters": {
+        "0": {
+          "Species": "Magikarp",
+          "SlotMin": 0,
+          "SlotMax": 59
+        },
+        "1": {
+          "Species": "Wishiwashi",
+          "SlotMin": 60,
+          "SlotMax": 99
+        }
+      }
+    },
+    "Raining": {
+      "MinLevel": 43,
+      "MaxLevel": 48,
+      "Encounters": {
+        "0": {
+          "Species": "Magikarp",
+          "SlotMin": 0,
+          "SlotMax": 59
+        },
+        "1": {
+          "Species": "Wishiwashi",
+          "SlotMin": 60,
+          "SlotMax": 99
+        }
+      }
+    },
+    "Thunderstorm": {
+      "MinLevel": 43,
+      "MaxLevel": 48,
+      "Encounters": {
+        "0": {
+          "Species": "Magikarp",
+          "SlotMin": 0,
+          "SlotMax": 59
+        },
+        "1": {
+          "Species": "Wishiwashi",
+          "SlotMin": 60,
+          "SlotMax": 99
+        }
+      }
+    },
+    "Intense Sun": {
+      "MinLevel": 43,
+      "MaxLevel": 48,
+      "Encounters": {
+        "0": {
+          "Species": "Magikarp",
+          "SlotMin": 0,
+          "SlotMax": 59
+        },
+        "1": {
+          "Species": "Wishiwashi",
+          "SlotMin": 60,
+          "SlotMax": 99
+        }
+      }
+    },
+    "Snowing": {
+      "MinLevel": 43,
+      "MaxLevel": 48,
+      "Encounters": {
+        "0": {
+          "Species": "Magikarp",
+          "SlotMin": 0,
+          "SlotMax": 59
+        },
+        "1": {
+          "Species": "Wishiwashi",
+          "SlotMin": 60,
+          "SlotMax": 99
+        }
+      }
+    },
+    "Snowstorm": {
+      "MinLevel": 43,
+      "MaxLevel": 48,
+      "Encounters": {
+        "0": {
+          "Species": "Magikarp",
+          "SlotMin": 0,
+          "SlotMax": 59
+        },
+        "1": {
+          "Species": "Wishiwashi",
+          "SlotMin": 60,
+          "SlotMax": 99
+        }
+      }
+    },
+    "Sandstorm": {
+      "MinLevel": 43,
+      "MaxLevel": 48,
+      "Encounters": {
+        "0": {
+          "Species": "Magikarp",
+          "SlotMin": 0,
+          "SlotMax": 59
+        },
+        "1": {
+          "Species": "Wishiwashi",
+          "SlotMin": 60,
+          "SlotMax": 99
+        }
+      }
+    },
+    "Heavy Fog": {
       "MinLevel": 43,
       "MaxLevel": 48,
       "Encounters": {
@@ -834,7 +4930,7 @@
     }
   },
   "Honeycalm Sea": {
-    "Fishing": {
+    "All Weather": {
       "MinLevel": 43,
       "MaxLevel": 48,
       "Encounters": {
@@ -852,7 +4948,135 @@
     }
   },
   "Honeycalm Island": {
-    "Fishing": {
+    "Normal Weather": {
+      "MinLevel": 43,
+      "MaxLevel": 48,
+      "Encounters": {
+        "0": {
+          "Species": "Magikarp",
+          "SlotMin": 0,
+          "SlotMax": 59
+        },
+        "1": {
+          "Species": "Wishiwashi",
+          "SlotMin": 60,
+          "SlotMax": 99
+        }
+      }
+    },
+    "Overcast": {
+      "MinLevel": 43,
+      "MaxLevel": 48,
+      "Encounters": {
+        "0": {
+          "Species": "Magikarp",
+          "SlotMin": 0,
+          "SlotMax": 59
+        },
+        "1": {
+          "Species": "Wishiwashi",
+          "SlotMin": 60,
+          "SlotMax": 99
+        }
+      }
+    },
+    "Raining": {
+      "MinLevel": 43,
+      "MaxLevel": 48,
+      "Encounters": {
+        "0": {
+          "Species": "Magikarp",
+          "SlotMin": 0,
+          "SlotMax": 59
+        },
+        "1": {
+          "Species": "Wishiwashi",
+          "SlotMin": 60,
+          "SlotMax": 99
+        }
+      }
+    },
+    "Thunderstorm": {
+      "MinLevel": 43,
+      "MaxLevel": 48,
+      "Encounters": {
+        "0": {
+          "Species": "Magikarp",
+          "SlotMin": 0,
+          "SlotMax": 59
+        },
+        "1": {
+          "Species": "Wishiwashi",
+          "SlotMin": 60,
+          "SlotMax": 99
+        }
+      }
+    },
+    "Intense Sun": {
+      "MinLevel": 43,
+      "MaxLevel": 48,
+      "Encounters": {
+        "0": {
+          "Species": "Magikarp",
+          "SlotMin": 0,
+          "SlotMax": 59
+        },
+        "1": {
+          "Species": "Wishiwashi",
+          "SlotMin": 60,
+          "SlotMax": 99
+        }
+      }
+    },
+    "Snowing": {
+      "MinLevel": 43,
+      "MaxLevel": 48,
+      "Encounters": {
+        "0": {
+          "Species": "Magikarp",
+          "SlotMin": 0,
+          "SlotMax": 59
+        },
+        "1": {
+          "Species": "Wishiwashi",
+          "SlotMin": 60,
+          "SlotMax": 99
+        }
+      }
+    },
+    "Snowstorm": {
+      "MinLevel": 43,
+      "MaxLevel": 48,
+      "Encounters": {
+        "0": {
+          "Species": "Magikarp",
+          "SlotMin": 0,
+          "SlotMax": 59
+        },
+        "1": {
+          "Species": "Wishiwashi",
+          "SlotMin": 60,
+          "SlotMax": 99
+        }
+      }
+    },
+    "Sandstorm": {
+      "MinLevel": 43,
+      "MaxLevel": 48,
+      "Encounters": {
+        "0": {
+          "Species": "Magikarp",
+          "SlotMin": 0,
+          "SlotMax": 59
+        },
+        "1": {
+          "Species": "Wishiwashi",
+          "SlotMin": 60,
+          "SlotMax": 99
+        }
+      }
+    },
+    "Heavy Fog": {
       "MinLevel": 43,
       "MaxLevel": 48,
       "Encounters": {
@@ -870,7 +5094,295 @@
     }
   },
   "Giant's Bed": {
-    "Fishing": {
+    "Normal Weather": {
+      "MinLevel": 60,
+      "MaxLevel": 65,
+      "Encounters": {
+        "0": {
+          "Species": "Magikarp",
+          "SlotMin": 0,
+          "SlotMax": 19
+        },
+        "1": {
+          "Species": "Barboach",
+          "SlotMin": 20,
+          "SlotMax": 39
+        },
+        "2": {
+          "Species": "Gyarados",
+          "SlotMin": 40,
+          "SlotMax": 54
+        },
+        "3": {
+          "Species": "Whiscash",
+          "SlotMin": 55,
+          "SlotMax": 69
+        },
+        "4": {
+          "Species": "Lileep",
+          "SlotMin": 70,
+          "SlotMax": 79
+        },
+        "5": {
+          "Species": "Basculin-1",
+          "SlotMin": 80,
+          "SlotMax": 99
+        }
+      }
+    },
+    "Overcast": {
+      "MinLevel": 60,
+      "MaxLevel": 65,
+      "Encounters": {
+        "0": {
+          "Species": "Magikarp",
+          "SlotMin": 0,
+          "SlotMax": 19
+        },
+        "1": {
+          "Species": "Barboach",
+          "SlotMin": 20,
+          "SlotMax": 39
+        },
+        "2": {
+          "Species": "Gyarados",
+          "SlotMin": 40,
+          "SlotMax": 54
+        },
+        "3": {
+          "Species": "Whiscash",
+          "SlotMin": 55,
+          "SlotMax": 69
+        },
+        "4": {
+          "Species": "Lileep",
+          "SlotMin": 70,
+          "SlotMax": 79
+        },
+        "5": {
+          "Species": "Basculin-1",
+          "SlotMin": 80,
+          "SlotMax": 99
+        }
+      }
+    },
+    "Raining": {
+      "MinLevel": 60,
+      "MaxLevel": 65,
+      "Encounters": {
+        "0": {
+          "Species": "Magikarp",
+          "SlotMin": 0,
+          "SlotMax": 19
+        },
+        "1": {
+          "Species": "Barboach",
+          "SlotMin": 20,
+          "SlotMax": 39
+        },
+        "2": {
+          "Species": "Gyarados",
+          "SlotMin": 40,
+          "SlotMax": 54
+        },
+        "3": {
+          "Species": "Whiscash",
+          "SlotMin": 55,
+          "SlotMax": 69
+        },
+        "4": {
+          "Species": "Lileep",
+          "SlotMin": 70,
+          "SlotMax": 79
+        },
+        "5": {
+          "Species": "Basculin-1",
+          "SlotMin": 80,
+          "SlotMax": 99
+        }
+      }
+    },
+    "Thunderstorm": {
+      "MinLevel": 60,
+      "MaxLevel": 65,
+      "Encounters": {
+        "0": {
+          "Species": "Magikarp",
+          "SlotMin": 0,
+          "SlotMax": 19
+        },
+        "1": {
+          "Species": "Barboach",
+          "SlotMin": 20,
+          "SlotMax": 39
+        },
+        "2": {
+          "Species": "Gyarados",
+          "SlotMin": 40,
+          "SlotMax": 54
+        },
+        "3": {
+          "Species": "Whiscash",
+          "SlotMin": 55,
+          "SlotMax": 69
+        },
+        "4": {
+          "Species": "Lileep",
+          "SlotMin": 70,
+          "SlotMax": 79
+        },
+        "5": {
+          "Species": "Basculin-1",
+          "SlotMin": 80,
+          "SlotMax": 99
+        }
+      }
+    },
+    "Intense Sun": {
+      "MinLevel": 60,
+      "MaxLevel": 65,
+      "Encounters": {
+        "0": {
+          "Species": "Magikarp",
+          "SlotMin": 0,
+          "SlotMax": 19
+        },
+        "1": {
+          "Species": "Barboach",
+          "SlotMin": 20,
+          "SlotMax": 39
+        },
+        "2": {
+          "Species": "Gyarados",
+          "SlotMin": 40,
+          "SlotMax": 54
+        },
+        "3": {
+          "Species": "Whiscash",
+          "SlotMin": 55,
+          "SlotMax": 69
+        },
+        "4": {
+          "Species": "Lileep",
+          "SlotMin": 70,
+          "SlotMax": 79
+        },
+        "5": {
+          "Species": "Basculin-1",
+          "SlotMin": 80,
+          "SlotMax": 99
+        }
+      }
+    },
+    "Snowing": {
+      "MinLevel": 60,
+      "MaxLevel": 65,
+      "Encounters": {
+        "0": {
+          "Species": "Magikarp",
+          "SlotMin": 0,
+          "SlotMax": 19
+        },
+        "1": {
+          "Species": "Barboach",
+          "SlotMin": 20,
+          "SlotMax": 39
+        },
+        "2": {
+          "Species": "Gyarados",
+          "SlotMin": 40,
+          "SlotMax": 54
+        },
+        "3": {
+          "Species": "Whiscash",
+          "SlotMin": 55,
+          "SlotMax": 69
+        },
+        "4": {
+          "Species": "Lileep",
+          "SlotMin": 70,
+          "SlotMax": 79
+        },
+        "5": {
+          "Species": "Basculin-1",
+          "SlotMin": 80,
+          "SlotMax": 99
+        }
+      }
+    },
+    "Snowstorm": {
+      "MinLevel": 60,
+      "MaxLevel": 65,
+      "Encounters": {
+        "0": {
+          "Species": "Magikarp",
+          "SlotMin": 0,
+          "SlotMax": 19
+        },
+        "1": {
+          "Species": "Barboach",
+          "SlotMin": 20,
+          "SlotMax": 39
+        },
+        "2": {
+          "Species": "Gyarados",
+          "SlotMin": 40,
+          "SlotMax": 54
+        },
+        "3": {
+          "Species": "Whiscash",
+          "SlotMin": 55,
+          "SlotMax": 69
+        },
+        "4": {
+          "Species": "Lileep",
+          "SlotMin": 70,
+          "SlotMax": 79
+        },
+        "5": {
+          "Species": "Basculin-1",
+          "SlotMin": 80,
+          "SlotMax": 99
+        }
+      }
+    },
+    "Sandstorm": {
+      "MinLevel": 60,
+      "MaxLevel": 65,
+      "Encounters": {
+        "0": {
+          "Species": "Magikarp",
+          "SlotMin": 0,
+          "SlotMax": 19
+        },
+        "1": {
+          "Species": "Barboach",
+          "SlotMin": 20,
+          "SlotMax": 39
+        },
+        "2": {
+          "Species": "Gyarados",
+          "SlotMin": 40,
+          "SlotMax": 54
+        },
+        "3": {
+          "Species": "Whiscash",
+          "SlotMin": 55,
+          "SlotMax": 69
+        },
+        "4": {
+          "Species": "Lileep",
+          "SlotMin": 70,
+          "SlotMax": 79
+        },
+        "5": {
+          "Species": "Basculin-1",
+          "SlotMin": 80,
+          "SlotMax": 99
+        }
+      }
+    },
+    "Heavy Fog": {
       "MinLevel": 60,
       "MaxLevel": 65,
       "Encounters": {
@@ -908,7 +5420,175 @@
     }
   },
   "Snowslide Slope": {
-    "Fishing": {
+    "Normal Weather": {
+      "MinLevel": 60,
+      "MaxLevel": 65,
+      "Encounters": {
+        "0": {
+          "Species": "Magikarp",
+          "SlotMin": 0,
+          "SlotMax": 44
+        },
+        "1": {
+          "Species": "Basculin-1",
+          "SlotMin": 45,
+          "SlotMax": 84
+        },
+        "2": {
+          "Species": "Gyarados",
+          "SlotMin": 85,
+          "SlotMax": 99
+        }
+      }
+    },
+    "Overcast": {
+      "MinLevel": 60,
+      "MaxLevel": 65,
+      "Encounters": {
+        "0": {
+          "Species": "Magikarp",
+          "SlotMin": 0,
+          "SlotMax": 44
+        },
+        "1": {
+          "Species": "Basculin-1",
+          "SlotMin": 45,
+          "SlotMax": 84
+        },
+        "2": {
+          "Species": "Gyarados",
+          "SlotMin": 85,
+          "SlotMax": 99
+        }
+      }
+    },
+    "Raining": {
+      "MinLevel": 60,
+      "MaxLevel": 65,
+      "Encounters": {
+        "0": {
+          "Species": "Magikarp",
+          "SlotMin": 0,
+          "SlotMax": 44
+        },
+        "1": {
+          "Species": "Basculin-1",
+          "SlotMin": 45,
+          "SlotMax": 84
+        },
+        "2": {
+          "Species": "Gyarados",
+          "SlotMin": 85,
+          "SlotMax": 99
+        }
+      }
+    },
+    "Thunderstorm": {
+      "MinLevel": 60,
+      "MaxLevel": 65,
+      "Encounters": {
+        "0": {
+          "Species": "Magikarp",
+          "SlotMin": 0,
+          "SlotMax": 44
+        },
+        "1": {
+          "Species": "Basculin-1",
+          "SlotMin": 45,
+          "SlotMax": 84
+        },
+        "2": {
+          "Species": "Gyarados",
+          "SlotMin": 85,
+          "SlotMax": 99
+        }
+      }
+    },
+    "Intense Sun": {
+      "MinLevel": 60,
+      "MaxLevel": 65,
+      "Encounters": {
+        "0": {
+          "Species": "Magikarp",
+          "SlotMin": 0,
+          "SlotMax": 44
+        },
+        "1": {
+          "Species": "Basculin-1",
+          "SlotMin": 45,
+          "SlotMax": 84
+        },
+        "2": {
+          "Species": "Gyarados",
+          "SlotMin": 85,
+          "SlotMax": 99
+        }
+      }
+    },
+    "Snowing": {
+      "MinLevel": 60,
+      "MaxLevel": 65,
+      "Encounters": {
+        "0": {
+          "Species": "Magikarp",
+          "SlotMin": 0,
+          "SlotMax": 44
+        },
+        "1": {
+          "Species": "Basculin-1",
+          "SlotMin": 45,
+          "SlotMax": 84
+        },
+        "2": {
+          "Species": "Gyarados",
+          "SlotMin": 85,
+          "SlotMax": 99
+        }
+      }
+    },
+    "Snowstorm": {
+      "MinLevel": 60,
+      "MaxLevel": 65,
+      "Encounters": {
+        "0": {
+          "Species": "Magikarp",
+          "SlotMin": 0,
+          "SlotMax": 44
+        },
+        "1": {
+          "Species": "Basculin-1",
+          "SlotMin": 45,
+          "SlotMax": 84
+        },
+        "2": {
+          "Species": "Gyarados",
+          "SlotMin": 85,
+          "SlotMax": 99
+        }
+      }
+    },
+    "Sandstorm": {
+      "MinLevel": 60,
+      "MaxLevel": 65,
+      "Encounters": {
+        "0": {
+          "Species": "Magikarp",
+          "SlotMin": 0,
+          "SlotMax": 44
+        },
+        "1": {
+          "Species": "Basculin-1",
+          "SlotMin": 45,
+          "SlotMax": 84
+        },
+        "2": {
+          "Species": "Gyarados",
+          "SlotMin": 85,
+          "SlotMax": 99
+        }
+      }
+    },
+    "Heavy Fog": {
       "MinLevel": 60,
       "MaxLevel": 65,
       "Encounters": {
@@ -931,7 +5611,295 @@
     }
   },
   "Giant's Foot": {
-    "Fishing": {
+    "Normal Weather": {
+      "MinLevel": 60,
+      "MaxLevel": 65,
+      "Encounters": {
+        "0": {
+          "Species": "Magikarp",
+          "SlotMin": 0,
+          "SlotMax": 19
+        },
+        "1": {
+          "Species": "Barboach",
+          "SlotMin": 20,
+          "SlotMax": 39
+        },
+        "2": {
+          "Species": "Whiscash",
+          "SlotMin": 40,
+          "SlotMax": 54
+        },
+        "3": {
+          "Species": "Gyarados",
+          "SlotMin": 55,
+          "SlotMax": 69
+        },
+        "4": {
+          "Species": "Lileep",
+          "SlotMin": 70,
+          "SlotMax": 79
+        },
+        "5": {
+          "Species": "Basculin-1",
+          "SlotMin": 80,
+          "SlotMax": 99
+        }
+      }
+    },
+    "Overcast": {
+      "MinLevel": 60,
+      "MaxLevel": 65,
+      "Encounters": {
+        "0": {
+          "Species": "Magikarp",
+          "SlotMin": 0,
+          "SlotMax": 19
+        },
+        "1": {
+          "Species": "Barboach",
+          "SlotMin": 20,
+          "SlotMax": 39
+        },
+        "2": {
+          "Species": "Whiscash",
+          "SlotMin": 40,
+          "SlotMax": 54
+        },
+        "3": {
+          "Species": "Gyarados",
+          "SlotMin": 55,
+          "SlotMax": 69
+        },
+        "4": {
+          "Species": "Lileep",
+          "SlotMin": 70,
+          "SlotMax": 79
+        },
+        "5": {
+          "Species": "Basculin-1",
+          "SlotMin": 80,
+          "SlotMax": 99
+        }
+      }
+    },
+    "Raining": {
+      "MinLevel": 60,
+      "MaxLevel": 65,
+      "Encounters": {
+        "0": {
+          "Species": "Magikarp",
+          "SlotMin": 0,
+          "SlotMax": 19
+        },
+        "1": {
+          "Species": "Barboach",
+          "SlotMin": 20,
+          "SlotMax": 39
+        },
+        "2": {
+          "Species": "Whiscash",
+          "SlotMin": 40,
+          "SlotMax": 54
+        },
+        "3": {
+          "Species": "Gyarados",
+          "SlotMin": 55,
+          "SlotMax": 69
+        },
+        "4": {
+          "Species": "Lileep",
+          "SlotMin": 70,
+          "SlotMax": 79
+        },
+        "5": {
+          "Species": "Basculin-1",
+          "SlotMin": 80,
+          "SlotMax": 99
+        }
+      }
+    },
+    "Thunderstorm": {
+      "MinLevel": 60,
+      "MaxLevel": 65,
+      "Encounters": {
+        "0": {
+          "Species": "Magikarp",
+          "SlotMin": 0,
+          "SlotMax": 19
+        },
+        "1": {
+          "Species": "Barboach",
+          "SlotMin": 20,
+          "SlotMax": 39
+        },
+        "2": {
+          "Species": "Whiscash",
+          "SlotMin": 40,
+          "SlotMax": 54
+        },
+        "3": {
+          "Species": "Gyarados",
+          "SlotMin": 55,
+          "SlotMax": 69
+        },
+        "4": {
+          "Species": "Lileep",
+          "SlotMin": 70,
+          "SlotMax": 79
+        },
+        "5": {
+          "Species": "Basculin-1",
+          "SlotMin": 80,
+          "SlotMax": 99
+        }
+      }
+    },
+    "Intense Sun": {
+      "MinLevel": 60,
+      "MaxLevel": 65,
+      "Encounters": {
+        "0": {
+          "Species": "Magikarp",
+          "SlotMin": 0,
+          "SlotMax": 19
+        },
+        "1": {
+          "Species": "Barboach",
+          "SlotMin": 20,
+          "SlotMax": 39
+        },
+        "2": {
+          "Species": "Whiscash",
+          "SlotMin": 40,
+          "SlotMax": 54
+        },
+        "3": {
+          "Species": "Gyarados",
+          "SlotMin": 55,
+          "SlotMax": 69
+        },
+        "4": {
+          "Species": "Lileep",
+          "SlotMin": 70,
+          "SlotMax": 79
+        },
+        "5": {
+          "Species": "Basculin-1",
+          "SlotMin": 80,
+          "SlotMax": 99
+        }
+      }
+    },
+    "Snowing": {
+      "MinLevel": 60,
+      "MaxLevel": 65,
+      "Encounters": {
+        "0": {
+          "Species": "Magikarp",
+          "SlotMin": 0,
+          "SlotMax": 19
+        },
+        "1": {
+          "Species": "Barboach",
+          "SlotMin": 20,
+          "SlotMax": 39
+        },
+        "2": {
+          "Species": "Whiscash",
+          "SlotMin": 40,
+          "SlotMax": 54
+        },
+        "3": {
+          "Species": "Gyarados",
+          "SlotMin": 55,
+          "SlotMax": 69
+        },
+        "4": {
+          "Species": "Lileep",
+          "SlotMin": 70,
+          "SlotMax": 79
+        },
+        "5": {
+          "Species": "Basculin-1",
+          "SlotMin": 80,
+          "SlotMax": 99
+        }
+      }
+    },
+    "Snowstorm": {
+      "MinLevel": 60,
+      "MaxLevel": 65,
+      "Encounters": {
+        "0": {
+          "Species": "Magikarp",
+          "SlotMin": 0,
+          "SlotMax": 19
+        },
+        "1": {
+          "Species": "Barboach",
+          "SlotMin": 20,
+          "SlotMax": 39
+        },
+        "2": {
+          "Species": "Whiscash",
+          "SlotMin": 40,
+          "SlotMax": 54
+        },
+        "3": {
+          "Species": "Gyarados",
+          "SlotMin": 55,
+          "SlotMax": 69
+        },
+        "4": {
+          "Species": "Lileep",
+          "SlotMin": 70,
+          "SlotMax": 79
+        },
+        "5": {
+          "Species": "Basculin-1",
+          "SlotMin": 80,
+          "SlotMax": 99
+        }
+      }
+    },
+    "Sandstorm": {
+      "MinLevel": 60,
+      "MaxLevel": 65,
+      "Encounters": {
+        "0": {
+          "Species": "Magikarp",
+          "SlotMin": 0,
+          "SlotMax": 19
+        },
+        "1": {
+          "Species": "Barboach",
+          "SlotMin": 20,
+          "SlotMax": 39
+        },
+        "2": {
+          "Species": "Whiscash",
+          "SlotMin": 40,
+          "SlotMax": 54
+        },
+        "3": {
+          "Species": "Gyarados",
+          "SlotMin": 55,
+          "SlotMax": 69
+        },
+        "4": {
+          "Species": "Lileep",
+          "SlotMin": 70,
+          "SlotMax": 79
+        },
+        "5": {
+          "Species": "Basculin-1",
+          "SlotMin": 80,
+          "SlotMax": 99
+        }
+      }
+    },
+    "Heavy Fog": {
       "MinLevel": 60,
       "MaxLevel": 65,
       "Encounters": {
@@ -969,7 +5937,255 @@
     }
   },
   "Frigid Sea": {
-    "Fishing": {
+    "Normal Weather": {
+      "MinLevel": 60,
+      "MaxLevel": 65,
+      "Encounters": {
+        "0": {
+          "Species": "Magikarp",
+          "SlotMin": 0,
+          "SlotMax": 29
+        },
+        "1": {
+          "Species": "Basculin-1",
+          "SlotMin": 30,
+          "SlotMax": 59
+        },
+        "2": {
+          "Species": "Gyarados",
+          "SlotMin": 60,
+          "SlotMax": 74
+        },
+        "3": {
+          "Species": "Wailmer",
+          "SlotMin": 75,
+          "SlotMax": 94
+        },
+        "4": {
+          "Species": "Dhelmise",
+          "SlotMin": 95,
+          "SlotMax": 99
+        }
+      }
+    },
+    "Overcast": {
+      "MinLevel": 60,
+      "MaxLevel": 65,
+      "Encounters": {
+        "0": {
+          "Species": "Magikarp",
+          "SlotMin": 0,
+          "SlotMax": 29
+        },
+        "1": {
+          "Species": "Basculin-1",
+          "SlotMin": 30,
+          "SlotMax": 59
+        },
+        "2": {
+          "Species": "Gyarados",
+          "SlotMin": 60,
+          "SlotMax": 74
+        },
+        "3": {
+          "Species": "Wailmer",
+          "SlotMin": 75,
+          "SlotMax": 94
+        },
+        "4": {
+          "Species": "Dhelmise",
+          "SlotMin": 95,
+          "SlotMax": 99
+        }
+      }
+    },
+    "Raining": {
+      "MinLevel": 60,
+      "MaxLevel": 65,
+      "Encounters": {
+        "0": {
+          "Species": "Magikarp",
+          "SlotMin": 0,
+          "SlotMax": 29
+        },
+        "1": {
+          "Species": "Basculin-1",
+          "SlotMin": 30,
+          "SlotMax": 59
+        },
+        "2": {
+          "Species": "Gyarados",
+          "SlotMin": 60,
+          "SlotMax": 74
+        },
+        "3": {
+          "Species": "Wailmer",
+          "SlotMin": 75,
+          "SlotMax": 94
+        },
+        "4": {
+          "Species": "Dhelmise",
+          "SlotMin": 95,
+          "SlotMax": 99
+        }
+      }
+    },
+    "Thunderstorm": {
+      "MinLevel": 60,
+      "MaxLevel": 65,
+      "Encounters": {
+        "0": {
+          "Species": "Magikarp",
+          "SlotMin": 0,
+          "SlotMax": 29
+        },
+        "1": {
+          "Species": "Basculin-1",
+          "SlotMin": 30,
+          "SlotMax": 59
+        },
+        "2": {
+          "Species": "Gyarados",
+          "SlotMin": 60,
+          "SlotMax": 74
+        },
+        "3": {
+          "Species": "Wailmer",
+          "SlotMin": 75,
+          "SlotMax": 94
+        },
+        "4": {
+          "Species": "Dhelmise",
+          "SlotMin": 95,
+          "SlotMax": 99
+        }
+      }
+    },
+    "Intense Sun": {
+      "MinLevel": 60,
+      "MaxLevel": 65,
+      "Encounters": {
+        "0": {
+          "Species": "Magikarp",
+          "SlotMin": 0,
+          "SlotMax": 29
+        },
+        "1": {
+          "Species": "Basculin-1",
+          "SlotMin": 30,
+          "SlotMax": 59
+        },
+        "2": {
+          "Species": "Gyarados",
+          "SlotMin": 60,
+          "SlotMax": 74
+        },
+        "3": {
+          "Species": "Wailmer",
+          "SlotMin": 75,
+          "SlotMax": 94
+        },
+        "4": {
+          "Species": "Dhelmise",
+          "SlotMin": 95,
+          "SlotMax": 99
+        }
+      }
+    },
+    "Snowing": {
+      "MinLevel": 60,
+      "MaxLevel": 65,
+      "Encounters": {
+        "0": {
+          "Species": "Magikarp",
+          "SlotMin": 0,
+          "SlotMax": 29
+        },
+        "1": {
+          "Species": "Basculin-1",
+          "SlotMin": 30,
+          "SlotMax": 59
+        },
+        "2": {
+          "Species": "Gyarados",
+          "SlotMin": 60,
+          "SlotMax": 74
+        },
+        "3": {
+          "Species": "Wailmer",
+          "SlotMin": 75,
+          "SlotMax": 94
+        },
+        "4": {
+          "Species": "Dhelmise",
+          "SlotMin": 95,
+          "SlotMax": 99
+        }
+      }
+    },
+    "Snowstorm": {
+      "MinLevel": 60,
+      "MaxLevel": 65,
+      "Encounters": {
+        "0": {
+          "Species": "Magikarp",
+          "SlotMin": 0,
+          "SlotMax": 29
+        },
+        "1": {
+          "Species": "Basculin-1",
+          "SlotMin": 30,
+          "SlotMax": 59
+        },
+        "2": {
+          "Species": "Gyarados",
+          "SlotMin": 60,
+          "SlotMax": 74
+        },
+        "3": {
+          "Species": "Wailmer",
+          "SlotMin": 75,
+          "SlotMax": 94
+        },
+        "4": {
+          "Species": "Dhelmise",
+          "SlotMin": 95,
+          "SlotMax": 99
+        }
+      }
+    },
+    "Sandstorm": {
+      "MinLevel": 60,
+      "MaxLevel": 65,
+      "Encounters": {
+        "0": {
+          "Species": "Magikarp",
+          "SlotMin": 0,
+          "SlotMax": 29
+        },
+        "1": {
+          "Species": "Basculin-1",
+          "SlotMin": 30,
+          "SlotMax": 59
+        },
+        "2": {
+          "Species": "Gyarados",
+          "SlotMin": 60,
+          "SlotMax": 74
+        },
+        "3": {
+          "Species": "Wailmer",
+          "SlotMin": 75,
+          "SlotMax": 94
+        },
+        "4": {
+          "Species": "Dhelmise",
+          "SlotMin": 95,
+          "SlotMax": 99
+        }
+      }
+    },
+    "Heavy Fog": {
       "MinLevel": 60,
       "MaxLevel": 65,
       "Encounters": {
@@ -1002,7 +6218,335 @@
     }
   },
   "Ballimere Lake": {
-    "Fishing": {
+    "Normal Weather": {
+      "MinLevel": 60,
+      "MaxLevel": 65,
+      "Encounters": {
+        "0": {
+          "Species": "Magikarp",
+          "SlotMin": 0,
+          "SlotMax": 19
+        },
+        "1": {
+          "Species": "Feebas",
+          "SlotMin": 20,
+          "SlotMax": 24
+        },
+        "2": {
+          "Species": "Dratini",
+          "SlotMin": 25,
+          "SlotMax": 29
+        },
+        "3": {
+          "Species": "Gyarados",
+          "SlotMin": 30,
+          "SlotMax": 44
+        },
+        "4": {
+          "Species": "Basculin-1",
+          "SlotMin": 45,
+          "SlotMax": 64
+        },
+        "5": {
+          "Species": "Barboach",
+          "SlotMin": 65,
+          "SlotMax": 84
+        },
+        "6": {
+          "Species": "Whiscash",
+          "SlotMin": 85,
+          "SlotMax": 99
+        }
+      }
+    },
+    "Overcast": {
+      "MinLevel": 60,
+      "MaxLevel": 65,
+      "Encounters": {
+        "0": {
+          "Species": "Magikarp",
+          "SlotMin": 0,
+          "SlotMax": 19
+        },
+        "1": {
+          "Species": "Feebas",
+          "SlotMin": 20,
+          "SlotMax": 24
+        },
+        "2": {
+          "Species": "Dratini",
+          "SlotMin": 25,
+          "SlotMax": 29
+        },
+        "3": {
+          "Species": "Gyarados",
+          "SlotMin": 30,
+          "SlotMax": 44
+        },
+        "4": {
+          "Species": "Basculin-1",
+          "SlotMin": 45,
+          "SlotMax": 64
+        },
+        "5": {
+          "Species": "Barboach",
+          "SlotMin": 65,
+          "SlotMax": 84
+        },
+        "6": {
+          "Species": "Whiscash",
+          "SlotMin": 85,
+          "SlotMax": 99
+        }
+      }
+    },
+    "Raining": {
+      "MinLevel": 60,
+      "MaxLevel": 65,
+      "Encounters": {
+        "0": {
+          "Species": "Magikarp",
+          "SlotMin": 0,
+          "SlotMax": 19
+        },
+        "1": {
+          "Species": "Feebas",
+          "SlotMin": 20,
+          "SlotMax": 24
+        },
+        "2": {
+          "Species": "Dratini",
+          "SlotMin": 25,
+          "SlotMax": 29
+        },
+        "3": {
+          "Species": "Gyarados",
+          "SlotMin": 30,
+          "SlotMax": 44
+        },
+        "4": {
+          "Species": "Basculin-1",
+          "SlotMin": 45,
+          "SlotMax": 64
+        },
+        "5": {
+          "Species": "Barboach",
+          "SlotMin": 65,
+          "SlotMax": 84
+        },
+        "6": {
+          "Species": "Whiscash",
+          "SlotMin": 85,
+          "SlotMax": 99
+        }
+      }
+    },
+    "Thunderstorm": {
+      "MinLevel": 60,
+      "MaxLevel": 65,
+      "Encounters": {
+        "0": {
+          "Species": "Magikarp",
+          "SlotMin": 0,
+          "SlotMax": 19
+        },
+        "1": {
+          "Species": "Feebas",
+          "SlotMin": 20,
+          "SlotMax": 24
+        },
+        "2": {
+          "Species": "Dratini",
+          "SlotMin": 25,
+          "SlotMax": 29
+        },
+        "3": {
+          "Species": "Gyarados",
+          "SlotMin": 30,
+          "SlotMax": 44
+        },
+        "4": {
+          "Species": "Basculin-1",
+          "SlotMin": 45,
+          "SlotMax": 64
+        },
+        "5": {
+          "Species": "Barboach",
+          "SlotMin": 65,
+          "SlotMax": 84
+        },
+        "6": {
+          "Species": "Whiscash",
+          "SlotMin": 85,
+          "SlotMax": 99
+        }
+      }
+    },
+    "Intense Sun": {
+      "MinLevel": 60,
+      "MaxLevel": 65,
+      "Encounters": {
+        "0": {
+          "Species": "Magikarp",
+          "SlotMin": 0,
+          "SlotMax": 19
+        },
+        "1": {
+          "Species": "Feebas",
+          "SlotMin": 20,
+          "SlotMax": 24
+        },
+        "2": {
+          "Species": "Dratini",
+          "SlotMin": 25,
+          "SlotMax": 29
+        },
+        "3": {
+          "Species": "Gyarados",
+          "SlotMin": 30,
+          "SlotMax": 44
+        },
+        "4": {
+          "Species": "Basculin-1",
+          "SlotMin": 45,
+          "SlotMax": 64
+        },
+        "5": {
+          "Species": "Barboach",
+          "SlotMin": 65,
+          "SlotMax": 84
+        },
+        "6": {
+          "Species": "Whiscash",
+          "SlotMin": 85,
+          "SlotMax": 99
+        }
+      }
+    },
+    "Snowing": {
+      "MinLevel": 60,
+      "MaxLevel": 65,
+      "Encounters": {
+        "0": {
+          "Species": "Magikarp",
+          "SlotMin": 0,
+          "SlotMax": 19
+        },
+        "1": {
+          "Species": "Feebas",
+          "SlotMin": 20,
+          "SlotMax": 24
+        },
+        "2": {
+          "Species": "Dratini",
+          "SlotMin": 25,
+          "SlotMax": 29
+        },
+        "3": {
+          "Species": "Gyarados",
+          "SlotMin": 30,
+          "SlotMax": 44
+        },
+        "4": {
+          "Species": "Basculin-1",
+          "SlotMin": 45,
+          "SlotMax": 64
+        },
+        "5": {
+          "Species": "Barboach",
+          "SlotMin": 65,
+          "SlotMax": 84
+        },
+        "6": {
+          "Species": "Whiscash",
+          "SlotMin": 85,
+          "SlotMax": 99
+        }
+      }
+    },
+    "Snowstorm": {
+      "MinLevel": 60,
+      "MaxLevel": 65,
+      "Encounters": {
+        "0": {
+          "Species": "Magikarp",
+          "SlotMin": 0,
+          "SlotMax": 19
+        },
+        "1": {
+          "Species": "Feebas",
+          "SlotMin": 20,
+          "SlotMax": 24
+        },
+        "2": {
+          "Species": "Dratini",
+          "SlotMin": 25,
+          "SlotMax": 29
+        },
+        "3": {
+          "Species": "Gyarados",
+          "SlotMin": 30,
+          "SlotMax": 44
+        },
+        "4": {
+          "Species": "Basculin-1",
+          "SlotMin": 45,
+          "SlotMax": 64
+        },
+        "5": {
+          "Species": "Barboach",
+          "SlotMin": 65,
+          "SlotMax": 84
+        },
+        "6": {
+          "Species": "Whiscash",
+          "SlotMin": 85,
+          "SlotMax": 99
+        }
+      }
+    },
+    "Sandstorm": {
+      "MinLevel": 60,
+      "MaxLevel": 65,
+      "Encounters": {
+        "0": {
+          "Species": "Magikarp",
+          "SlotMin": 0,
+          "SlotMax": 19
+        },
+        "1": {
+          "Species": "Feebas",
+          "SlotMin": 20,
+          "SlotMax": 24
+        },
+        "2": {
+          "Species": "Dratini",
+          "SlotMin": 25,
+          "SlotMax": 29
+        },
+        "3": {
+          "Species": "Gyarados",
+          "SlotMin": 30,
+          "SlotMax": 44
+        },
+        "4": {
+          "Species": "Basculin-1",
+          "SlotMin": 45,
+          "SlotMax": 64
+        },
+        "5": {
+          "Species": "Barboach",
+          "SlotMin": 65,
+          "SlotMax": 84
+        },
+        "6": {
+          "Species": "Whiscash",
+          "SlotMin": 85,
+          "SlotMax": 99
+        }
+      }
+    },
+    "Heavy Fog": {
       "MinLevel": 60,
       "MaxLevel": 65,
       "Encounters": {
