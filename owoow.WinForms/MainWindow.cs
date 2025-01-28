@@ -738,6 +738,7 @@ public partial class MainWindow : Form
                 MenuCloseNPCs = uint.Parse(((TextBox)Controls.Find($"TB_{type}_NPCs", true).FirstOrDefault()!).Text),
 
                 ConsiderFly = CB_ConsiderFlying.Checked,
+                ConsiderRain = CB_ConsiderRain.Checked,
                 AreaLoadAdvances = (uint)NUD_AreaLoad.Value,
                 AreaLoadNPCs = (uint)NUD_FlyNPCs.Value,
                 RainTicksAreaLoad = CB_ConsiderFlying.Checked && CB_ConsiderRain.Checked ? (uint)NUD_RainTick.Value : 0,

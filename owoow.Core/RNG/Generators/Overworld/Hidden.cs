@@ -105,7 +105,7 @@ public class Hidden
                     }
                     else if (config.ConsiderRain)
                     {
-                        Environment.GetRainAdvances(ref rng, config.RainTicksAfterCloseMenu); // should probably make this its own field but fine to reuse (3, 6) for now
+                        Environment.GetRainAdvances(ref rng, config.RainTicksOnHiddenStepFail);
                     }
                     step++;
                 }

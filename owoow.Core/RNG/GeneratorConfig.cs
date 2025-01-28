@@ -56,19 +56,39 @@ public class GeneratorConfig
     public uint AreaLoadAdvances { get; set; } = 0;
     public uint AreaLoadNPCs { get; set; } = 0;
     public bool ConsiderRain { get; set; } = false;
+    
+    // Party List -> Main Menu
+    // When Flying, this value also includes the ticks consumed opening the map
     public uint RainTicksSummary => Weather switch
     {
-        WeatherType.Raining => ConsiderFly ? (uint)6 : 2,
-        WeatherType.Thunderstorm => ConsiderFly ? (uint)12 : 4,
+        WeatherType.Raining => ConsiderFly ? (uint)6 : 3,
+        WeatherType.Thunderstorm => ConsiderFly ? (uint)12 : 6,
         _ => 0,
     };
+
+    // Main Menu -> Overworld
+    // When Flying, takes place after the Memory Set rand100 and before the Fly rand100s
     public uint RainTicksAfterCloseMenu => Weather switch
     {
-        WeatherType.Raining => 3,
-        WeatherType.Thunderstorm => 6, 
+        WeatherType.Raining => ConsiderFly ? (uint)3 : 2,
+        WeatherType.Thunderstorm => ConsiderFly ? (uint)6 : 4, 
         _ => 0
     };
+
+    // At end of Hidden step loop if no encounter can be generated
+    public uint RainTicksOnHiddenStepFail => Weather switch
+    {
+        WeatherType.Raining => 3,
+        WeatherType.Thunderstorm => 6,
+        _ => 0
+    };
+
+    // Between Fly NPCs and "Menu Close" NPCs
+    // Always 0 if not Flying
     public uint RainTicksAreaLoad { get; set; } = 0;
+
+    // Between "Menu Close" NPCs and Encounter Generation
+    // Always 0 if Flying
     public uint RainTicksEncounter { get; set; } = 0;
 
     public LotoIDTargetType LotoIDTargetType { get; set; } = LotoIDTargetType.Any;
