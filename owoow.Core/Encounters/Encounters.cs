@@ -51,32 +51,31 @@ public static class Encounters
                     if (!list.TryGetValue(species, out List<EncounterLookupEntry>? value))
                     {
                         list[species] = [];
+                        value = list[species];
                     }
-                    else
+
+                    bool found = false;
+                    foreach (var entry in value)
                     {
-                        bool found = false;
-                        foreach (var entry in value)
+                        if (entry.Area == area.Key && entry.Weather == weather.Key && entry.EncounterType == "Symbol")
                         {
-                            if (entry.Area == area.Key && entry.Weather == weather.Key && entry.EncounterType == "Symbol")
-                            {
-                                entry.EncounterRate += enc.Value.SlotMax - enc.Value.SlotMin;
-                                found = true;
-                                break;
-                            }
+                            entry.EncounterRate += enc.Value.SlotMax - enc.Value.SlotMin + 1;
+                            found = true;
+                            break;
                         }
-                        if (!found)
+                    }
+                    if (!found)
+                    {
+                        value.Add(new EncounterLookupEntry
                         {
-                            value.Add(new EncounterLookupEntry
-                            {
-                                Species = species,
-                                MinLevel = weather.Value.MinLevel,
-                                MaxLevel = weather.Value.MaxLevel,
-                                EncounterType = "Symbol",
-                                Weather = weather.Key,
-                                Area = area.Key,
-                                EncounterRate = enc.Value.SlotMax - enc.Value.SlotMin,
-                            });
-                        }
+                            Species = species,
+                            MinLevel = weather.Value.MinLevel,
+                            MaxLevel = weather.Value.MaxLevel,
+                            EncounterType = "Symbol",
+                            Weather = weather.Key,
+                            Area = area.Key,
+                            EncounterRate = enc.Value.SlotMax - enc.Value.SlotMin + 1,
+                        });
                     }
                 }
             }
@@ -92,24 +91,22 @@ public static class Encounters
                     if (!list.TryGetValue(species, out List<EncounterLookupEntry>? value))
                     {
                         list[species] = [];
+                        value = list[species];
                     }
-                    else
+                    value.Add(new EncounterLookupEntry
                     {
-                        value.Add(new EncounterLookupEntry
-                        {
-                            Species = species,
-                            MinLevel = enc.Value.Level,
-                            MaxLevel = enc.Value.Level,
-                            EncounterType = "Static",
-                            Weather = weather.Key,
-                            Area = area.Key,
-                            EncounterRate = 100,
-                            IsAbilityLocked = enc.Value.IsAbilityLocked,
-                            Ability = enc.Value.Ability,
-                            IsShinyLocked = enc.Value.IsShinyLocked,
-                            GuaranteedIVs = enc.Value.GuaranteedIVs,
-                        });
-                    }
+                        Species = species,
+                        MinLevel = enc.Value.Level,
+                        MaxLevel = enc.Value.Level,
+                        EncounterType = "Static",
+                        Weather = weather.Key,
+                        Area = area.Key,
+                        EncounterRate = 100,
+                        IsAbilityLocked = enc.Value.IsAbilityLocked,
+                        Ability = enc.Value.Ability,
+                        IsShinyLocked = enc.Value.IsShinyLocked,
+                        GuaranteedIVs = enc.Value.GuaranteedIVs,
+                    });
                 }
             }
         }
@@ -124,32 +121,30 @@ public static class Encounters
                     if (!list.TryGetValue(species, out List<EncounterLookupEntry>? value))
                     {
                         list[species] = [];
+                        value = list[species];
                     }
-                    else
+                    bool found = false;
+                    foreach (var entry in value)
                     {
-                        bool found = false;
-                        foreach (var entry in value)
+                        if (entry.Area == area.Key && entry.Weather == weather.Key && entry.EncounterType == "Hidden")
                         {
-                            if (entry.Area == area.Key && entry.Weather == weather.Key && entry.EncounterType == "Hidden")
-                            {
-                                entry.EncounterRate += enc.Value.SlotMax - enc.Value.SlotMin;
-                                found = true;
-                                break;
-                            }
+                            entry.EncounterRate += enc.Value.SlotMax - enc.Value.SlotMin + 1;
+                            found = true;
+                            break;
                         }
-                        if (!found)
+                    }
+                    if (!found)
+                    {
+                        value.Add(new EncounterLookupEntry
                         {
-                            value.Add(new EncounterLookupEntry
-                            {
-                                Species = species,
-                                MinLevel = weather.Value.MinLevel,
-                                MaxLevel = weather.Value.MaxLevel,
-                                EncounterType = "Hidden",
-                                Weather = weather.Key,
-                                Area = area.Key,
-                                EncounterRate = enc.Value.SlotMax - enc.Value.SlotMin,
-                            });
-                        }
+                            Species = species,
+                            MinLevel = weather.Value.MinLevel,
+                            MaxLevel = weather.Value.MaxLevel,
+                            EncounterType = "Hidden",
+                            Weather = weather.Key,
+                            Area = area.Key,
+                            EncounterRate = enc.Value.SlotMax - enc.Value.SlotMin + 1,
+                        });
                     }
                 }
             }
@@ -165,31 +160,30 @@ public static class Encounters
                     if (!list.TryGetValue(species, out List<EncounterLookupEntry>? value))
                     {
                         list[species] = [];
+                        value = list[species];
                     }
-                    else { 
-                        bool found = false;
-                        foreach (var entry in value)
+                    bool found = false;
+                    foreach (var entry in value)
+                    {
+                        if (entry.Area == area.Key && entry.Weather == "All available" && entry.EncounterType == "Fishing")
                         {
-                            if (entry.Area == area.Key &&  entry.Weather == "All available" &&  entry.EncounterType == "Fishing")
-                            {
-                                entry.EncounterRate += enc.Value.SlotMax - enc.Value.SlotMin;
-                                found = true;
-                                break;
-                            }
+                            entry.EncounterRate += enc.Value.SlotMax - enc.Value.SlotMin + 1;
+                            found = true;
+                            break;
                         }
-                        if (!found)
+                    }
+                    if (!found)
+                    {
+                        value.Add(new EncounterLookupEntry
                         {
-                            value.Add(new EncounterLookupEntry
-                            {
-                                Species = species,
-                                MinLevel = weather.Value.MinLevel,
-                                MaxLevel = weather.Value.MaxLevel,
-                                EncounterType = "Fishing",
-                                Weather = "All available",
-                                Area = area.Key,
-                                EncounterRate = enc.Value.SlotMax - enc.Value.SlotMin,
-                            });
-                        }
+                            Species = species,
+                            MinLevel = weather.Value.MinLevel,
+                            MaxLevel = weather.Value.MaxLevel,
+                            EncounterType = "Fishing",
+                            Weather = "All available",
+                            Area = area.Key,
+                            EncounterRate = enc.Value.SlotMax - enc.Value.SlotMin + 1,
+                        });
                     }
                 }
             }
