@@ -2933,10 +2933,10 @@
             // 
             // TSMI_WattTrader
             // 
-            TSMI_WattTrader.Enabled = false;
             TSMI_WattTrader.Name = "TSMI_WattTrader";
             TSMI_WattTrader.Size = new Size(79, 20);
             TSMI_WattTrader.Text = "Watt Trader";
+            TSMI_WattTrader.Click += TSMI_WattTrader_Click;
             // 
             // TSMI_DiggingPa
             // 

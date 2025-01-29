@@ -106,6 +106,17 @@
         public string Seed1 { get; set; } = string.Empty;
     }
 
+    public class WattTraderFrame : IBasicFrame, IRetailFrame
+    {
+        public string Advances { get; set; } = string.Empty;
+        public string Jump { get; set; } = string.Empty;
+        public char Animation { get; set; } = ' ';
+        public string Highlight { get; set; } = string.Empty;
+        public string Regular { get; set; } = string.Empty;
+        public string Seed0 { get; set; } = string.Empty;
+        public string Seed1 { get; set; } = string.Empty;
+    }
+
     public class WailordFrame : IBasicFrame, IRetailFrame
     {
         public string Advances { get; set; } = string.Empty;

@@ -98,5 +98,8 @@ public class GeneratorConfig
     public CramomaticInputItemType[] CramomaticInputs { get; set; } = [0, 0, 0, 0];
     public bool BonusOnly { get; set; } = false;
 
+    public uint WattTraderSlotMin { get; set; } = 0;
+    public uint WattTraderSlotMax { get; set; } = 999;
+
     public bool FiltersEnabled { get; set; } = false;
 };

@@ -1524,6 +1524,22 @@ public partial class MainWindow : Form
         }
     }
 
+    public bool WattTraderFormOpen = false;
+    WattTrader? WattTraderForm;
+    private void TSMI_WattTrader_Click(object sender, EventArgs e)
+    {
+        if (!WattTraderFormOpen)
+        {
+            WattTraderFormOpen = true;
+            WattTraderForm = new WattTrader(this, TC_EncounterType.SelectedTab!.Text);
+            WattTraderForm.Show();
+        }
+        else
+        {
+            WattTraderForm?.Focus();
+        }
+    }
+
     public bool WailordRespawnFormOpen = false;
     WailordRespawn? WailordRespawnForm;
     private void TSMI_WailordRespawn_Click(object sender, EventArgs e)
