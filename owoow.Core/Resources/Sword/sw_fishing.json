@@ -1,6 +1,6 @@
 {
   "Route 2": {
-    "All Weather": {
+    "Normal Weather": {
       "MinLevel": 4,
       "MaxLevel": 6,
       "Encounters": {
@@ -1911,7 +1911,7 @@
     }
   },
   "Route 4": {
-    "All Weather": {
+    "Normal Weather": {
       "MinLevel": 13,
       "MaxLevel": 15,
       "Encounters": {
@@ -1934,7 +1934,7 @@
     }
   },
   "City of Motostoke": {
-    "All Weather": {
+    "Normal Weather": {
       "MinLevel": 7,
       "MaxLevel": 11,
       "Encounters": {
@@ -1957,7 +1957,7 @@
     }
   },
   "Route 5": {
-    "All Weather": {
+    "Normal Weather": {
       "MinLevel": 16,
       "MaxLevel": 18,
       "Encounters": {
@@ -1980,7 +1980,7 @@
     }
   },
   "Town of Hulbury": {
-    "All Weather": {
+    "Normal Weather": {
       "MinLevel": 20,
       "MaxLevel": 24,
       "Encounters": {
@@ -2013,7 +2013,7 @@
     }
   },
   "Galar Mine No. 2": {
-    "All Weather": {
+    "Normal Weather": {
       "MinLevel": 20,
       "MaxLevel": 24,
       "Encounters": {
@@ -2036,7 +2036,7 @@
     }
   },
   "Route 6": {
-    "All Weather": {
+    "Intense Sun": {
       "MinLevel": 28,
       "MaxLevel": 30,
       "Encounters": {
@@ -2082,7 +2082,7 @@
     }
   },
   "Route 9 (in Circhester Bay)": {
-    "All Weather": {
+    "Snowing": {
       "MinLevel": 39,
       "MaxLevel": 43,
       "Encounters": {
@@ -3059,7 +3059,7 @@
     }
   },
   "Route 2 (High Level)": {
-    "All Weather": {
+    "Normal Weather": {
       "MinLevel": 37,
       "MaxLevel": 40,
       "Encounters": {
@@ -3087,7 +3087,7 @@
     }
   },
   "Slumbering Weald (High Level)": {
-    "All Weather": {
+    "Normal Weather": {
       "MinLevel": 45,
       "MaxLevel": 47,
       "Encounters": {
@@ -4930,7 +4930,135 @@
     }
   },
   "Honeycalm Sea": {
-    "All Weather": {
+    "Normal Weather": {
+      "MinLevel": 43,
+      "MaxLevel": 48,
+      "Encounters": {
+        "0": {
+          "Species": "Magikarp",
+          "SlotMin": 0,
+          "SlotMax": 59
+        },
+        "1": {
+          "Species": "Wishiwashi",
+          "SlotMin": 60,
+          "SlotMax": 99
+        }
+      }
+    },
+    "Overcast": {
+      "MinLevel": 43,
+      "MaxLevel": 48,
+      "Encounters": {
+        "0": {
+          "Species": "Magikarp",
+          "SlotMin": 0,
+          "SlotMax": 59
+        },
+        "1": {
+          "Species": "Wishiwashi",
+          "SlotMin": 60,
+          "SlotMax": 99
+        }
+      }
+    },
+    "Raining": {
+      "MinLevel": 43,
+      "MaxLevel": 48,
+      "Encounters": {
+        "0": {
+          "Species": "Magikarp",
+          "SlotMin": 0,
+          "SlotMax": 59
+        },
+        "1": {
+          "Species": "Wishiwashi",
+          "SlotMin": 60,
+          "SlotMax": 99
+        }
+      }
+    },
+    "Thunderstorm": {
+      "MinLevel": 43,
+      "MaxLevel": 48,
+      "Encounters": {
+        "0": {
+          "Species": "Magikarp",
+          "SlotMin": 0,
+          "SlotMax": 59
+        },
+        "1": {
+          "Species": "Wishiwashi",
+          "SlotMin": 60,
+          "SlotMax": 99
+        }
+      }
+    },
+    "Intense Sun": {
+      "MinLevel": 43,
+      "MaxLevel": 48,
+      "Encounters": {
+        "0": {
+          "Species": "Magikarp",
+          "SlotMin": 0,
+          "SlotMax": 59
+        },
+        "1": {
+          "Species": "Wishiwashi",
+          "SlotMin": 60,
+          "SlotMax": 99
+        }
+      }
+    },
+    "Snowing": {
+      "MinLevel": 43,
+      "MaxLevel": 48,
+      "Encounters": {
+        "0": {
+          "Species": "Magikarp",
+          "SlotMin": 0,
+          "SlotMax": 59
+        },
+        "1": {
+          "Species": "Wishiwashi",
+          "SlotMin": 60,
+          "SlotMax": 99
+        }
+      }
+    },
+    "Snowstorm": {
+      "MinLevel": 43,
+      "MaxLevel": 48,
+      "Encounters": {
+        "0": {
+          "Species": "Magikarp",
+          "SlotMin": 0,
+          "SlotMax": 59
+        },
+        "1": {
+          "Species": "Wishiwashi",
+          "SlotMin": 60,
+          "SlotMax": 99
+        }
+      }
+    },
+    "Sandstorm": {
+      "MinLevel": 43,
+      "MaxLevel": 48,
+      "Encounters": {
+        "0": {
+          "Species": "Magikarp",
+          "SlotMin": 0,
+          "SlotMax": 59
+        },
+        "1": {
+          "Species": "Wishiwashi",
+          "SlotMin": 60,
+          "SlotMax": 99
+        }
+      }
+    },
+    "Heavy Fog": {
       "MinLevel": 43,
       "MaxLevel": 48,
       "Encounters": {

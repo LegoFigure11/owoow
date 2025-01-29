@@ -2,7 +2,7 @@
 
 public enum WeatherType
 {
-    AllWeather = -1, // Refactor this out, eventually
+    AllWeather = -1, // Failsafe/Fallback, should never be used
     NormalWeather,
     Overcast,
     Raining,

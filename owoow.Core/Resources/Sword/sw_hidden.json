@@ -1,6 +1,6 @@
 {
   "Route 1": {
-    "All Weather": {
+    "Normal Weather": {
       "MinLevel": 2,
       "MaxLevel": 5,
       "Encounters": {
@@ -33,7 +33,7 @@
     }
   },
   "Route 2": {
-    "All Weather": {
+    "Normal Weather": {
       "MinLevel": 4,
       "MaxLevel": 6,
       "Encounters": {
@@ -2220,7 +2220,7 @@
     }
   },
   "Route 3": {
-    "All Weather": {
+    "Normal Weather": {
       "MinLevel": 8,
       "MaxLevel": 13,
       "Encounters": {
@@ -2880,7 +2880,7 @@
     }
   },
   "Route 4": {
-    "All Weather": {
+    "Normal Weather": {
       "MinLevel": 13,
       "MaxLevel": 15,
       "Encounters": {
@@ -2923,7 +2923,7 @@
     }
   },
   "Slumbering Weald (Low Level)": {
-    "All Weather": {
+    "Normal Weather": {
       "MinLevel": 2,
       "MaxLevel": 3,
       "Encounters": {
@@ -2956,7 +2956,7 @@
     }
   },
   "Route 5": {
-    "All Weather": {
+    "Normal Weather": {
       "MinLevel": 16,
       "MaxLevel": 18,
       "Encounters": {
@@ -2999,7 +2999,7 @@
     }
   },
   "Galar Mine No. 2": {
-    "All Weather": {
+    "Normal Weather": {
       "MinLevel": 20,
       "MaxLevel": 24,
       "Encounters": {
@@ -3047,7 +3047,7 @@
     }
   },
   "Galar Mine": {
-    "All Weather": {
+    "Normal Weather": {
       "MinLevel": 11,
       "MaxLevel": 15,
       "Encounters": {
@@ -3085,7 +3085,7 @@
     }
   },
   "Motostoke Outskirts": {
-    "All Weather": {
+    "Normal Weather": {
       "MinLevel": 21,
       "MaxLevel": 24,
       "Encounters": {
@@ -3118,7 +3118,7 @@
     }
   },
   "Glimwood Tangle": {
-    "All Weather": {
+    "Normal Weather": {
       "MinLevel": 34,
       "MaxLevel": 36,
       "Encounters": {
@@ -3171,7 +3171,7 @@
     }
   },
   "Route 6": {
-    "All Weather": {
+    "Intense Sun": {
       "MinLevel": 28,
       "MaxLevel": 30,
       "Encounters": {
@@ -3590,7 +3590,7 @@
     }
   },
   "Route 8": {
-    "All Weather": {
+    "Normal Weather": {
       "MinLevel": 38,
       "MaxLevel": 40,
       "Encounters": {
@@ -3638,7 +3638,7 @@
     }
   },
   "Route 8 (on Steamdrift Way)": {
-    "All Weather": {
+    "Snowing": {
       "MinLevel": 38,
       "MaxLevel": 41,
       "Encounters": {
@@ -3699,7 +3699,7 @@
     }
   },
   "Route 9 (in Circhester Bay)": {
-    "All Weather": {
+    "Snowing": {
       "MinLevel": 39,
       "MaxLevel": 43,
       "Encounters": {
@@ -3727,7 +3727,7 @@
     }
   },
   "Route 9 (in Outer Spikemuth)": {
-    "All Weather": {
+    "Overcast": {
       "MinLevel": 40,
       "MaxLevel": 44,
       "Encounters": {
@@ -3755,7 +3755,7 @@
     }
   },
   "Route 10 (Near Station)": {
-    "All Weather": {
+    "Snowing": {
       "MinLevel": 43,
       "MaxLevel": 46,
       "Encounters": {
@@ -5384,7 +5384,7 @@
     }
   },
   "Route 2 (High Level)": {
-    "All Weather": {
+    "Normal Weather": {
       "MinLevel": 37,
       "MaxLevel": 40,
       "Encounters": {
@@ -5417,7 +5417,7 @@
     }
   },
   "Route 10": {
-    "All Weather": {
+    "Snowstorm": {
       "MinLevel": 44,
       "MaxLevel": 46,
       "Encounters": {
@@ -5455,7 +5455,7 @@
     }
   },
   "Slumbering Weald (High Level)": {
-    "All Weather": {
+    "Normal Weather": {
       "MinLevel": 45,
       "MaxLevel": 47,
       "Encounters": {
@@ -7123,7 +7123,95 @@
     }
   },
   "Courageous Cavern": {
-    "All Weather": {
+    "Normal Weather": {
+      "MinLevel": 16,
+      "MaxLevel": 21,
+      "Encounters": {
+        "0": {
+          "Species": "Chewtle",
+          "SlotMin": 0,
+          "SlotMax": 99
+        }
+      }
+    },
+    "Overcast": {
+      "MinLevel": 16,
+      "MaxLevel": 21,
+      "Encounters": {
+        "0": {
+          "Species": "Chewtle",
+          "SlotMin": 0,
+          "SlotMax": 99
+        }
+      }
+    },
+    "Raining": {
+      "MinLevel": 16,
+      "MaxLevel": 21,
+      "Encounters": {
+        "0": {
+          "Species": "Chewtle",
+          "SlotMin": 0,
+          "SlotMax": 99
+        }
+      }
+    },
+    "Thunderstorm": {
+      "MinLevel": 16,
+      "MaxLevel": 21,
+      "Encounters": {
+        "0": {
+          "Species": "Chewtle",
+          "SlotMin": 0,
+          "SlotMax": 99
+        }
+      }
+    },
+    "Intense Sun": {
+      "MinLevel": 16,
+      "MaxLevel": 21,
+      "Encounters": {
+        "0": {
+          "Species": "Chewtle",
+          "SlotMin": 0,
+          "SlotMax": 99
+        }
+      }
+    },
+    "Snowing": {
+      "MinLevel": 16,
+      "MaxLevel": 21,
+      "Encounters": {
+        "0": {
+          "Species": "Chewtle",
+          "SlotMin": 0,
+          "SlotMax": 99
+        }
+      }
+    },
+    "Snowstorm": {
+      "MinLevel": 16,
+      "MaxLevel": 21,
+      "Encounters": {
+        "0": {
+          "Species": "Chewtle",
+          "SlotMin": 0,
+          "SlotMax": 99
+        }
+      }
+    },
+    "Sandstorm": {
+      "MinLevel": 16,
+      "MaxLevel": 21,
+      "Encounters": {
+        "0": {
+          "Species": "Chewtle",
+          "SlotMin": 0,
+          "SlotMax": 99
+        }
+      }
+    },
+    "Heavy Fog": {
       "MinLevel": 16,
       "MaxLevel": 21,
       "Encounters": {
@@ -7788,7 +7876,295 @@
     }
   },
   "Workout Sea": {
-    "All Weather": {
+    "Normal Weather": {
+      "MinLevel": 43,
+      "MaxLevel": 48,
+      "Encounters": {
+        "0": {
+          "Species": "Blipbug",
+          "SlotMin": 0,
+          "SlotMax": 29
+        },
+        "1": {
+          "Species": "Ditto",
+          "SlotMin": 30,
+          "SlotMax": 44
+        },
+        "2": {
+          "Species": "Ditto",
+          "SlotMin": 45,
+          "SlotMax": 59
+        },
+        "3": {
+          "Species": "Exeggcute",
+          "SlotMin": 60,
+          "SlotMax": 74
+        },
+        "4": {
+          "Species": "Exeggcute",
+          "SlotMin": 75,
+          "SlotMax": 89
+        },
+        "5": {
+          "Species": "Happiny",
+          "SlotMin": 90,
+          "SlotMax": 99
+        }
+      }
+    },
+    "Overcast": {
+      "MinLevel": 43,
+      "MaxLevel": 48,
+      "Encounters": {
+        "0": {
+          "Species": "Blipbug",
+          "SlotMin": 0,
+          "SlotMax": 29
+        },
+        "1": {
+          "Species": "Ditto",
+          "SlotMin": 30,
+          "SlotMax": 44
+        },
+        "2": {
+          "Species": "Ditto",
+          "SlotMin": 45,
+          "SlotMax": 59
+        },
+        "3": {
+          "Species": "Exeggcute",
+          "SlotMin": 60,
+          "SlotMax": 74
+        },
+        "4": {
+          "Species": "Exeggcute",
+          "SlotMin": 75,
+          "SlotMax": 89
+        },
+        "5": {
+          "Species": "Happiny",
+          "SlotMin": 90,
+          "SlotMax": 99
+        }
+      }
+    },
+    "Raining": {
+      "MinLevel": 43,
+      "MaxLevel": 48,
+      "Encounters": {
+        "0": {
+          "Species": "Blipbug",
+          "SlotMin": 0,
+          "SlotMax": 29
+        },
+        "1": {
+          "Species": "Ditto",
+          "SlotMin": 30,
+          "SlotMax": 44
+        },
+        "2": {
+          "Species": "Ditto",
+          "SlotMin": 45,
+          "SlotMax": 59
+        },
+        "3": {
+          "Species": "Exeggcute",
+          "SlotMin": 60,
+          "SlotMax": 74
+        },
+        "4": {
+          "Species": "Exeggcute",
+          "SlotMin": 75,
+          "SlotMax": 89
+        },
+        "5": {
+          "Species": "Happiny",
+          "SlotMin": 90,
+          "SlotMax": 99
+        }
+      }
+    },
+    "Thunderstorm": {
+      "MinLevel": 43,
+      "MaxLevel": 48,
+      "Encounters": {
+        "0": {
+          "Species": "Blipbug",
+          "SlotMin": 0,
+          "SlotMax": 29
+        },
+        "1": {
+          "Species": "Ditto",
+          "SlotMin": 30,
+          "SlotMax": 44
+        },
+        "2": {
+          "Species": "Ditto",
+          "SlotMin": 45,
+          "SlotMax": 59
+        },
+        "3": {
+          "Species": "Exeggcute",
+          "SlotMin": 60,
+          "SlotMax": 74
+        },
+        "4": {
+          "Species": "Exeggcute",
+          "SlotMin": 75,
+          "SlotMax": 89
+        },
+        "5": {
+          "Species": "Happiny",
+          "SlotMin": 90,
+          "SlotMax": 99
+        }
+      }
+    },
+    "Intense Sun": {
+      "MinLevel": 43,
+      "MaxLevel": 48,
+      "Encounters": {
+        "0": {
+          "Species": "Blipbug",
+          "SlotMin": 0,
+          "SlotMax": 29
+        },
+        "1": {
+          "Species": "Ditto",
+          "SlotMin": 30,
+          "SlotMax": 44
+        },
+        "2": {
+          "Species": "Ditto",
+          "SlotMin": 45,
+          "SlotMax": 59
+        },
+        "3": {
+          "Species": "Exeggcute",
+          "SlotMin": 60,
+          "SlotMax": 74
+        },
+        "4": {
+          "Species": "Exeggcute",
+          "SlotMin": 75,
+          "SlotMax": 89
+        },
+        "5": {
+          "Species": "Happiny",
+          "SlotMin": 90,
+          "SlotMax": 99
+        }
+      }
+    },
+    "Snowing": {
+      "MinLevel": 43,
+      "MaxLevel": 48,
+      "Encounters": {
+        "0": {
+          "Species": "Blipbug",
+          "SlotMin": 0,
+          "SlotMax": 29
+        },
+        "1": {
+          "Species": "Ditto",
+          "SlotMin": 30,
+          "SlotMax": 44
+        },
+        "2": {
+          "Species": "Ditto",
+          "SlotMin": 45,
+          "SlotMax": 59
+        },
+        "3": {
+          "Species": "Exeggcute",
+          "SlotMin": 60,
+          "SlotMax": 74
+        },
+        "4": {
+          "Species": "Exeggcute",
+          "SlotMin": 75,
+          "SlotMax": 89
+        },
+        "5": {
+          "Species": "Happiny",
+          "SlotMin": 90,
+          "SlotMax": 99
+        }
+      }
+    },
+    "Snowstorm": {
+      "MinLevel": 43,
+      "MaxLevel": 48,
+      "Encounters": {
+        "0": {
+          "Species": "Blipbug",
+          "SlotMin": 0,
+          "SlotMax": 29
+        },
+        "1": {
+          "Species": "Ditto",
+          "SlotMin": 30,
+          "SlotMax": 44
+        },
+        "2": {
+          "Species": "Ditto",
+          "SlotMin": 45,
+          "SlotMax": 59
+        },
+        "3": {
+          "Species": "Exeggcute",
+          "SlotMin": 60,
+          "SlotMax": 74
+        },
+        "4": {
+          "Species": "Exeggcute",
+          "SlotMin": 75,
+          "SlotMax": 89
+        },
+        "5": {
+          "Species": "Happiny",
+          "SlotMin": 90,
+          "SlotMax": 99
+        }
+      }
+    },
+    "Sandstorm": {
+      "MinLevel": 43,
+      "MaxLevel": 48,
+      "Encounters": {
+        "0": {
+          "Species": "Blipbug",
+          "SlotMin": 0,
+          "SlotMax": 29
+        },
+        "1": {
+          "Species": "Ditto",
+          "SlotMin": 30,
+          "SlotMax": 44
+        },
+        "2": {
+          "Species": "Ditto",
+          "SlotMin": 45,
+          "SlotMax": 59
+        },
+        "3": {
+          "Species": "Exeggcute",
+          "SlotMin": 60,
+          "SlotMax": 74
+        },
+        "4": {
+          "Species": "Exeggcute",
+          "SlotMin": 75,
+          "SlotMax": 89
+        },
+        "5": {
+          "Species": "Happiny",
+          "SlotMin": 90,
+          "SlotMax": 99
+        }
+      }
+    },
+    "Heavy Fog": {
       "MinLevel": 43,
       "MaxLevel": 48,
       "Encounters": {
@@ -7826,7 +8202,295 @@
     }
   },
   "Stepping-Stone Sea": {
-    "All Weather": {
+    "Normal Weather": {
+      "MinLevel": 43,
+      "MaxLevel": 48,
+      "Encounters": {
+        "0": {
+          "Species": "Blipbug",
+          "SlotMin": 0,
+          "SlotMax": 29
+        },
+        "1": {
+          "Species": "Skwovet",
+          "SlotMin": 30,
+          "SlotMax": 44
+        },
+        "2": {
+          "Species": "Skwovet",
+          "SlotMin": 45,
+          "SlotMax": 59
+        },
+        "3": {
+          "Species": "Exeggcute",
+          "SlotMin": 60,
+          "SlotMax": 74
+        },
+        "4": {
+          "Species": "Exeggcute",
+          "SlotMin": 75,
+          "SlotMax": 89
+        },
+        "5": {
+          "Species": "Happiny",
+          "SlotMin": 90,
+          "SlotMax": 99
+        }
+      }
+    },
+    "Overcast": {
+      "MinLevel": 43,
+      "MaxLevel": 48,
+      "Encounters": {
+        "0": {
+          "Species": "Blipbug",
+          "SlotMin": 0,
+          "SlotMax": 29
+        },
+        "1": {
+          "Species": "Skwovet",
+          "SlotMin": 30,
+          "SlotMax": 44
+        },
+        "2": {
+          "Species": "Skwovet",
+          "SlotMin": 45,
+          "SlotMax": 59
+        },
+        "3": {
+          "Species": "Exeggcute",
+          "SlotMin": 60,
+          "SlotMax": 74
+        },
+        "4": {
+          "Species": "Exeggcute",
+          "SlotMin": 75,
+          "SlotMax": 89
+        },
+        "5": {
+          "Species": "Happiny",
+          "SlotMin": 90,
+          "SlotMax": 99
+        }
+      }
+    },
+    "Raining": {
+      "MinLevel": 43,
+      "MaxLevel": 48,
+      "Encounters": {
+        "0": {
+          "Species": "Blipbug",
+          "SlotMin": 0,
+          "SlotMax": 29
+        },
+        "1": {
+          "Species": "Skwovet",
+          "SlotMin": 30,
+          "SlotMax": 44
+        },
+        "2": {
+          "Species": "Skwovet",
+          "SlotMin": 45,
+          "SlotMax": 59
+        },
+        "3": {
+          "Species": "Exeggcute",
+          "SlotMin": 60,
+          "SlotMax": 74
+        },
+        "4": {
+          "Species": "Exeggcute",
+          "SlotMin": 75,
+          "SlotMax": 89
+        },
+        "5": {
+          "Species": "Happiny",
+          "SlotMin": 90,
+          "SlotMax": 99
+        }
+      }
+    },
+    "Thunderstorm": {
+      "MinLevel": 43,
+      "MaxLevel": 48,
+      "Encounters": {
+        "0": {
+          "Species": "Blipbug",
+          "SlotMin": 0,
+          "SlotMax": 29
+        },
+        "1": {
+          "Species": "Skwovet",
+          "SlotMin": 30,
+          "SlotMax": 44
+        },
+        "2": {
+          "Species": "Skwovet",
+          "SlotMin": 45,
+          "SlotMax": 59
+        },
+        "3": {
+          "Species": "Exeggcute",
+          "SlotMin": 60,
+          "SlotMax": 74
+        },
+        "4": {
+          "Species": "Exeggcute",
+          "SlotMin": 75,
+          "SlotMax": 89
+        },
+        "5": {
+          "Species": "Happiny",
+          "SlotMin": 90,
+          "SlotMax": 99
+        }
+      }
+    },
+    "Intense Sun": {
+      "MinLevel": 43,
+      "MaxLevel": 48,
+      "Encounters": {
+        "0": {
+          "Species": "Blipbug",
+          "SlotMin": 0,
+          "SlotMax": 29
+        },
+        "1": {
+          "Species": "Skwovet",
+          "SlotMin": 30,
+          "SlotMax": 44
+        },
+        "2": {
+          "Species": "Skwovet",
+          "SlotMin": 45,
+          "SlotMax": 59
+        },
+        "3": {
+          "Species": "Exeggcute",
+          "SlotMin": 60,
+          "SlotMax": 74
+        },
+        "4": {
+          "Species": "Exeggcute",
+          "SlotMin": 75,
+          "SlotMax": 89
+        },
+        "5": {
+          "Species": "Happiny",
+          "SlotMin": 90,
+          "SlotMax": 99
+        }
+      }
+    },
+    "Snowing": {
+      "MinLevel": 43,
+      "MaxLevel": 48,
+      "Encounters": {
+        "0": {
+          "Species": "Blipbug",
+          "SlotMin": 0,
+          "SlotMax": 29
+        },
+        "1": {
+          "Species": "Skwovet",
+          "SlotMin": 30,
+          "SlotMax": 44
+        },
+        "2": {
+          "Species": "Skwovet",
+          "SlotMin": 45,
+          "SlotMax": 59
+        },
+        "3": {
+          "Species": "Exeggcute",
+          "SlotMin": 60,
+          "SlotMax": 74
+        },
+        "4": {
+          "Species": "Exeggcute",
+          "SlotMin": 75,
+          "SlotMax": 89
+        },
+        "5": {
+          "Species": "Happiny",
+          "SlotMin": 90,
+          "SlotMax": 99
+        }
+      }
+    },
+    "Snowstorm": {
+      "MinLevel": 43,
+      "MaxLevel": 48,
+      "Encounters": {
+        "0": {
+          "Species": "Blipbug",
+          "SlotMin": 0,
+          "SlotMax": 29
+        },
+        "1": {
+          "Species": "Skwovet",
+          "SlotMin": 30,
+          "SlotMax": 44
+        },
+        "2": {
+          "Species": "Skwovet",
+          "SlotMin": 45,
+          "SlotMax": 59
+        },
+        "3": {
+          "Species": "Exeggcute",
+          "SlotMin": 60,
+          "SlotMax": 74
+        },
+        "4": {
+          "Species": "Exeggcute",
+          "SlotMin": 75,
+          "SlotMax": 89
+        },
+        "5": {
+          "Species": "Happiny",
+          "SlotMin": 90,
+          "SlotMax": 99
+        }
+      }
+    },
+    "Sandstorm": {
+      "MinLevel": 43,
+      "MaxLevel": 48,
+      "Encounters": {
+        "0": {
+          "Species": "Blipbug",
+          "SlotMin": 0,
+          "SlotMax": 29
+        },
+        "1": {
+          "Species": "Skwovet",
+          "SlotMin": 30,
+          "SlotMax": 44
+        },
+        "2": {
+          "Species": "Skwovet",
+          "SlotMin": 45,
+          "SlotMax": 59
+        },
+        "3": {
+          "Species": "Exeggcute",
+          "SlotMin": 60,
+          "SlotMax": 74
+        },
+        "4": {
+          "Species": "Exeggcute",
+          "SlotMin": 75,
+          "SlotMax": 89
+        },
+        "5": {
+          "Species": "Happiny",
+          "SlotMin": 90,
+          "SlotMax": 99
+        }
+      }
+    },
+    "Heavy Fog": {
       "MinLevel": 43,
       "MaxLevel": 48,
       "Encounters": {
@@ -7864,7 +8528,295 @@
     }
   },
   "Insular Sea": {
-    "All Weather": {
+    "Normal Weather": {
+      "MinLevel": 43,
+      "MaxLevel": 48,
+      "Encounters": {
+        "0": {
+          "Species": "Blipbug",
+          "SlotMin": 0,
+          "SlotMax": 29
+        },
+        "1": {
+          "Species": "Wingull",
+          "SlotMin": 30,
+          "SlotMax": 44
+        },
+        "2": {
+          "Species": "Wingull",
+          "SlotMin": 45,
+          "SlotMax": 59
+        },
+        "3": {
+          "Species": "Exeggcute",
+          "SlotMin": 60,
+          "SlotMax": 74
+        },
+        "4": {
+          "Species": "Exeggcute",
+          "SlotMin": 75,
+          "SlotMax": 89
+        },
+        "5": {
+          "Species": "Happiny",
+          "SlotMin": 90,
+          "SlotMax": 99
+        }
+      }
+    },
+    "Overcast": {
+      "MinLevel": 43,
+      "MaxLevel": 48,
+      "Encounters": {
+        "0": {
+          "Species": "Blipbug",
+          "SlotMin": 0,
+          "SlotMax": 29
+        },
+        "1": {
+          "Species": "Wingull",
+          "SlotMin": 30,
+          "SlotMax": 44
+        },
+        "2": {
+          "Species": "Wingull",
+          "SlotMin": 45,
+          "SlotMax": 59
+        },
+        "3": {
+          "Species": "Exeggcute",
+          "SlotMin": 60,
+          "SlotMax": 74
+        },
+        "4": {
+          "Species": "Exeggcute",
+          "SlotMin": 75,
+          "SlotMax": 89
+        },
+        "5": {
+          "Species": "Happiny",
+          "SlotMin": 90,
+          "SlotMax": 99
+        }
+      }
+    },
+    "Raining": {
+      "MinLevel": 43,
+      "MaxLevel": 48,
+      "Encounters": {
+        "0": {
+          "Species": "Blipbug",
+          "SlotMin": 0,
+          "SlotMax": 29
+        },
+        "1": {
+          "Species": "Wingull",
+          "SlotMin": 30,
+          "SlotMax": 44
+        },
+        "2": {
+          "Species": "Wingull",
+          "SlotMin": 45,
+          "SlotMax": 59
+        },
+        "3": {
+          "Species": "Exeggcute",
+          "SlotMin": 60,
+          "SlotMax": 74
+        },
+        "4": {
+          "Species": "Exeggcute",
+          "SlotMin": 75,
+          "SlotMax": 89
+        },
+        "5": {
+          "Species": "Happiny",
+          "SlotMin": 90,
+          "SlotMax": 99
+        }
+      }
+    },
+    "Thunderstorm": {
+      "MinLevel": 43,
+      "MaxLevel": 48,
+      "Encounters": {
+        "0": {
+          "Species": "Blipbug",
+          "SlotMin": 0,
+          "SlotMax": 29
+        },
+        "1": {
+          "Species": "Wingull",
+          "SlotMin": 30,
+          "SlotMax": 44
+        },
+        "2": {
+          "Species": "Wingull",
+          "SlotMin": 45,
+          "SlotMax": 59
+        },
+        "3": {
+          "Species": "Exeggcute",
+          "SlotMin": 60,
+          "SlotMax": 74
+        },
+        "4": {
+          "Species": "Exeggcute",
+          "SlotMin": 75,
+          "SlotMax": 89
+        },
+        "5": {
+          "Species": "Happiny",
+          "SlotMin": 90,
+          "SlotMax": 99
+        }
+      }
+    },
+    "Intense Sun": {
+      "MinLevel": 43,
+      "MaxLevel": 48,
+      "Encounters": {
+        "0": {
+          "Species": "Blipbug",
+          "SlotMin": 0,
+          "SlotMax": 29
+        },
+        "1": {
+          "Species": "Wingull",
+          "SlotMin": 30,
+          "SlotMax": 44
+        },
+        "2": {
+          "Species": "Wingull",
+          "SlotMin": 45,
+          "SlotMax": 59
+        },
+        "3": {
+          "Species": "Exeggcute",
+          "SlotMin": 60,
+          "SlotMax": 74
+        },
+        "4": {
+          "Species": "Exeggcute",
+          "SlotMin": 75,
+          "SlotMax": 89
+        },
+        "5": {
+          "Species": "Happiny",
+          "SlotMin": 90,
+          "SlotMax": 99
+        }
+      }
+    },
+    "Snowing": {
+      "MinLevel": 43,
+      "MaxLevel": 48,
+      "Encounters": {
+        "0": {
+          "Species": "Blipbug",
+          "SlotMin": 0,
+          "SlotMax": 29
+        },
+        "1": {
+          "Species": "Wingull",
+          "SlotMin": 30,
+          "SlotMax": 44
+        },
+        "2": {
+          "Species": "Wingull",
+          "SlotMin": 45,
+          "SlotMax": 59
+        },
+        "3": {
+          "Species": "Exeggcute",
+          "SlotMin": 60,
+          "SlotMax": 74
+        },
+        "4": {
+          "Species": "Exeggcute",
+          "SlotMin": 75,
+          "SlotMax": 89
+        },
+        "5": {
+          "Species": "Happiny",
+          "SlotMin": 90,
+          "SlotMax": 99
+        }
+      }
+    },
+    "Snowstorm": {
+      "MinLevel": 43,
+      "MaxLevel": 48,
+      "Encounters": {
+        "0": {
+          "Species": "Blipbug",
+          "SlotMin": 0,
+          "SlotMax": 29
+        },
+        "1": {
+          "Species": "Wingull",
+          "SlotMin": 30,
+          "SlotMax": 44
+        },
+        "2": {
+          "Species": "Wingull",
+          "SlotMin": 45,
+          "SlotMax": 59
+        },
+        "3": {
+          "Species": "Exeggcute",
+          "SlotMin": 60,
+          "SlotMax": 74
+        },
+        "4": {
+          "Species": "Exeggcute",
+          "SlotMin": 75,
+          "SlotMax": 89
+        },
+        "5": {
+          "Species": "Happiny",
+          "SlotMin": 90,
+          "SlotMax": 99
+        }
+      }
+    },
+    "Sandstorm": {
+      "MinLevel": 43,
+      "MaxLevel": 48,
+      "Encounters": {
+        "0": {
+          "Species": "Blipbug",
+          "SlotMin": 0,
+          "SlotMax": 29
+        },
+        "1": {
+          "Species": "Wingull",
+          "SlotMin": 30,
+          "SlotMax": 44
+        },
+        "2": {
+          "Species": "Wingull",
+          "SlotMin": 45,
+          "SlotMax": 59
+        },
+        "3": {
+          "Species": "Exeggcute",
+          "SlotMin": 60,
+          "SlotMax": 74
+        },
+        "4": {
+          "Species": "Exeggcute",
+          "SlotMin": 75,
+          "SlotMax": 89
+        },
+        "5": {
+          "Species": "Happiny",
+          "SlotMin": 90,
+          "SlotMax": 99
+        }
+      }
+    },
+    "Heavy Fog": {
       "MinLevel": 43,
       "MaxLevel": 48,
       "Encounters": {
@@ -7902,7 +8854,95 @@
     }
   },
   "Honeycalm Sea": {
-    "All Weather": {
+    "Normal Weather": {
+      "MinLevel": 43,
+      "MaxLevel": 48,
+      "Encounters": {
+        "0": {
+          "Species": "Tentacool",
+          "SlotMin": 0,
+          "SlotMax": 99
+        }
+      }
+    },
+    "Overcast": {
+      "MinLevel": 43,
+      "MaxLevel": 48,
+      "Encounters": {
+        "0": {
+          "Species": "Tentacool",
+          "SlotMin": 0,
+          "SlotMax": 99
+        }
+      }
+    },
+    "Raining": {
+      "MinLevel": 43,
+      "MaxLevel": 48,
+      "Encounters": {
+        "0": {
+          "Species": "Tentacool",
+          "SlotMin": 0,
+          "SlotMax": 99
+        }
+      }
+    },
+    "Thunderstorm": {
+      "MinLevel": 43,
+      "MaxLevel": 48,
+      "Encounters": {
+        "0": {
+          "Species": "Tentacool",
+          "SlotMin": 0,
+          "SlotMax": 99
+        }
+      }
+    },
+    "Intense Sun": {
+      "MinLevel": 43,
+      "MaxLevel": 48,
+      "Encounters": {
+        "0": {
+          "Species": "Tentacool",
+          "SlotMin": 0,
+          "SlotMax": 99
+        }
+      }
+    },
+    "Snowing": {
+      "MinLevel": 43,
+      "MaxLevel": 48,
+      "Encounters": {
+        "0": {
+          "Species": "Tentacool",
+          "SlotMin": 0,
+          "SlotMax": 99
+        }
+      }
+    },
+    "Snowstorm": {
+      "MinLevel": 43,
+      "MaxLevel": 48,
+      "Encounters": {
+        "0": {
+          "Species": "Tentacool",
+          "SlotMin": 0,
+          "SlotMax": 99
+        }
+      }
+    },
+    "Sandstorm": {
+      "MinLevel": 43,
+      "MaxLevel": 48,
+      "Encounters": {
+        "0": {
+          "Species": "Tentacool",
+          "SlotMin": 0,
+          "SlotMax": 99
+        }
+      }
+    },
+    "Heavy Fog": {
       "MinLevel": 43,
       "MaxLevel": 48,
       "Encounters": {
@@ -7915,7 +8955,295 @@
     }
   },
   "Honeycalm Island": {
-    "All Weather": {
+    "Normal Weather": {
+      "MinLevel": 43,
+      "MaxLevel": 48,
+      "Encounters": {
+        "0": {
+          "Species": "Blipbug",
+          "SlotMin": 0,
+          "SlotMax": 29
+        },
+        "1": {
+          "Species": "Combee",
+          "SlotMin": 30,
+          "SlotMax": 44
+        },
+        "2": {
+          "Species": "Combee",
+          "SlotMin": 45,
+          "SlotMax": 59
+        },
+        "3": {
+          "Species": "Petilil",
+          "SlotMin": 60,
+          "SlotMax": 74
+        },
+        "4": {
+          "Species": "Petilil",
+          "SlotMin": 75,
+          "SlotMax": 89
+        },
+        "5": {
+          "Species": "Happiny",
+          "SlotMin": 90,
+          "SlotMax": 99
+        }
+      }
+    },
+    "Overcast": {
+      "MinLevel": 43,
+      "MaxLevel": 48,
+      "Encounters": {
+        "0": {
+          "Species": "Blipbug",
+          "SlotMin": 0,
+          "SlotMax": 29
+        },
+        "1": {
+          "Species": "Combee",
+          "SlotMin": 30,
+          "SlotMax": 44
+        },
+        "2": {
+          "Species": "Combee",
+          "SlotMin": 45,
+          "SlotMax": 59
+        },
+        "3": {
+          "Species": "Petilil",
+          "SlotMin": 60,
+          "SlotMax": 74
+        },
+        "4": {
+          "Species": "Petilil",
+          "SlotMin": 75,
+          "SlotMax": 89
+        },
+        "5": {
+          "Species": "Happiny",
+          "SlotMin": 90,
+          "SlotMax": 99
+        }
+      }
+    },
+    "Raining": {
+      "MinLevel": 43,
+      "MaxLevel": 48,
+      "Encounters": {
+        "0": {
+          "Species": "Blipbug",
+          "SlotMin": 0,
+          "SlotMax": 29
+        },
+        "1": {
+          "Species": "Combee",
+          "SlotMin": 30,
+          "SlotMax": 44
+        },
+        "2": {
+          "Species": "Combee",
+          "SlotMin": 45,
+          "SlotMax": 59
+        },
+        "3": {
+          "Species": "Petilil",
+          "SlotMin": 60,
+          "SlotMax": 74
+        },
+        "4": {
+          "Species": "Petilil",
+          "SlotMin": 75,
+          "SlotMax": 89
+        },
+        "5": {
+          "Species": "Happiny",
+          "SlotMin": 90,
+          "SlotMax": 99
+        }
+      }
+    },
+    "Thunderstorm": {
+      "MinLevel": 43,
+      "MaxLevel": 48,
+      "Encounters": {
+        "0": {
+          "Species": "Blipbug",
+          "SlotMin": 0,
+          "SlotMax": 29
+        },
+        "1": {
+          "Species": "Combee",
+          "SlotMin": 30,
+          "SlotMax": 44
+        },
+        "2": {
+          "Species": "Combee",
+          "SlotMin": 45,
+          "SlotMax": 59
+        },
+        "3": {
+          "Species": "Petilil",
+          "SlotMin": 60,
+          "SlotMax": 74
+        },
+        "4": {
+          "Species": "Petilil",
+          "SlotMin": 75,
+          "SlotMax": 89
+        },
+        "5": {
+          "Species": "Happiny",
+          "SlotMin": 90,
+          "SlotMax": 99
+        }
+      }
+    },
+    "Intense Sun": {
+      "MinLevel": 43,
+      "MaxLevel": 48,
+      "Encounters": {
+        "0": {
+          "Species": "Blipbug",
+          "SlotMin": 0,
+          "SlotMax": 29
+        },
+        "1": {
+          "Species": "Combee",
+          "SlotMin": 30,
+          "SlotMax": 44
+        },
+        "2": {
+          "Species": "Combee",
+          "SlotMin": 45,
+          "SlotMax": 59
+        },
+        "3": {
+          "Species": "Petilil",
+          "SlotMin": 60,
+          "SlotMax": 74
+        },
+        "4": {
+          "Species": "Petilil",
+          "SlotMin": 75,
+          "SlotMax": 89
+        },
+        "5": {
+          "Species": "Happiny",
+          "SlotMin": 90,
+          "SlotMax": 99
+        }
+      }
+    },
+    "Snowing": {
+      "MinLevel": 43,
+      "MaxLevel": 48,
+      "Encounters": {
+        "0": {
+          "Species": "Blipbug",
+          "SlotMin": 0,
+          "SlotMax": 29
+        },
+        "1": {
+          "Species": "Combee",
+          "SlotMin": 30,
+          "SlotMax": 44
+        },
+        "2": {
+          "Species": "Combee",
+          "SlotMin": 45,
+          "SlotMax": 59
+        },
+        "3": {
+          "Species": "Petilil",
+          "SlotMin": 60,
+          "SlotMax": 74
+        },
+        "4": {
+          "Species": "Petilil",
+          "SlotMin": 75,
+          "SlotMax": 89
+        },
+        "5": {
+          "Species": "Happiny",
+          "SlotMin": 90,
+          "SlotMax": 99
+        }
+      }
+    },
+    "Snowstorm": {
+      "MinLevel": 43,
+      "MaxLevel": 48,
+      "Encounters": {
+        "0": {
+          "Species": "Blipbug",
+          "SlotMin": 0,
+          "SlotMax": 29
+        },
+        "1": {
+          "Species": "Combee",
+          "SlotMin": 30,
+          "SlotMax": 44
+        },
+        "2": {
+          "Species": "Combee",
+          "SlotMin": 45,
+          "SlotMax": 59
+        },
+        "3": {
+          "Species": "Petilil",
+          "SlotMin": 60,
+          "SlotMax": 74
+        },
+        "4": {
+          "Species": "Petilil",
+          "SlotMin": 75,
+          "SlotMax": 89
+        },
+        "5": {
+          "Species": "Happiny",
+          "SlotMin": 90,
+          "SlotMax": 99
+        }
+      }
+    },
+    "Sandstorm": {
+      "MinLevel": 43,
+      "MaxLevel": 48,
+      "Encounters": {
+        "0": {
+          "Species": "Blipbug",
+          "SlotMin": 0,
+          "SlotMax": 29
+        },
+        "1": {
+          "Species": "Combee",
+          "SlotMin": 30,
+          "SlotMax": 44
+        },
+        "2": {
+          "Species": "Combee",
+          "SlotMin": 45,
+          "SlotMax": 59
+        },
+        "3": {
+          "Species": "Petilil",
+          "SlotMin": 60,
+          "SlotMax": 74
+        },
+        "4": {
+          "Species": "Petilil",
+          "SlotMin": 75,
+          "SlotMax": 89
+        },
+        "5": {
+          "Species": "Happiny",
+          "SlotMin": 90,
+          "SlotMax": 99
+        }
+      }
+    },
+    "Heavy Fog": {
       "MinLevel": 43,
       "MaxLevel": 48,
       "Encounters": {
