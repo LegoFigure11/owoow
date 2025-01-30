@@ -2570,6 +2570,7 @@
             TB_SwitchIP.Size = new Size(111, 22);
             TB_SwitchIP.TabIndex = 11;
             TB_SwitchIP.Text = "123.123.123.123";
+            TB_SwitchIP.KeyPress += KeyPress_AllowOnlyIP;
             // 
             // GB_SAVInfo
             // 
