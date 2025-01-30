@@ -964,6 +964,7 @@
             TB_Skips.TabIndex = 9;
             TB_Skips.Text = "100";
             TB_Skips.TextAlign = HorizontalAlignment.Right;
+            TB_Skips.KeyPress += KeyPress_AllowOnlyNumerical;
             // 
             // B_NTP
             // 
@@ -1089,6 +1090,7 @@
             TB_RetailRange.TabIndex = 63;
             TB_RetailRange.Text = "99999";
             TB_RetailRange.TextAlign = HorizontalAlignment.Right;
+            TB_RetailRange.KeyPress += KeyPress_AllowOnlyNumerical;
             // 
             // L_RetailRange
             // 
@@ -1170,6 +1172,7 @@
             TB_RetailInitial.TabIndex = 55;
             TB_RetailInitial.Text = "0";
             TB_RetailInitial.TextAlign = HorizontalAlignment.Right;
+            TB_RetailInitial.KeyPress += KeyPress_AllowOnlyNumerical;
             // 
             // L_RetailInitial
             // 
@@ -1462,6 +1465,7 @@
             TB_Static_NPCs.TabIndex = 62;
             TB_Static_NPCs.Text = "3";
             TB_Static_NPCs.TextAlign = HorizontalAlignment.Right;
+            TB_Static_NPCs.KeyPress += KeyPress_AllowOnlyNumerical;
             // 
             // L_Static_Advances
             // 
@@ -1573,6 +1577,7 @@
             TB_Static_Advances.TabIndex = 55;
             TB_Static_Advances.Text = "5000";
             TB_Static_Advances.TextAlign = HorizontalAlignment.Right;
+            TB_Static_Advances.KeyPress += KeyPress_AllowOnlyNumerical;
             // 
             // TB_Static_Initial
             // 
@@ -1585,6 +1590,7 @@
             TB_Static_Initial.TabIndex = 53;
             TB_Static_Initial.Text = "0";
             TB_Static_Initial.TextAlign = HorizontalAlignment.Right;
+            TB_Static_Initial.KeyPress += KeyPress_AllowOnlyNumerical;
             // 
             // L_Static_LeadAbility
             // 
@@ -1688,6 +1694,7 @@
             TB_Symbol_NPCs.TabIndex = 23;
             TB_Symbol_NPCs.Text = "3";
             TB_Symbol_NPCs.TextAlign = HorizontalAlignment.Right;
+            TB_Symbol_NPCs.KeyPress += KeyPress_AllowOnlyNumerical;
             // 
             // L_Symbol_KOs
             // 
@@ -1709,6 +1716,7 @@
             TB_Symbol_KOs.TabIndex = 21;
             TB_Symbol_KOs.Text = "500";
             TB_Symbol_KOs.TextAlign = HorizontalAlignment.Right;
+            TB_Symbol_KOs.KeyPress += KeyPress_AllowOnlyNumerical;
             // 
             // L_Symbol_Advances
             // 
@@ -1820,6 +1828,7 @@
             TB_Symbol_Advances.TabIndex = 9;
             TB_Symbol_Advances.Text = "5000";
             TB_Symbol_Advances.TextAlign = HorizontalAlignment.Right;
+            TB_Symbol_Advances.KeyPress += KeyPress_AllowOnlyNumerical;
             // 
             // TB_Symbol_Initial
             // 
@@ -1832,6 +1841,7 @@
             TB_Symbol_Initial.TabIndex = 8;
             TB_Symbol_Initial.Text = "0";
             TB_Symbol_Initial.TextAlign = HorizontalAlignment.Right;
+            TB_Symbol_Initial.KeyPress += KeyPress_AllowOnlyNumerical;
             // 
             // L_Symbol_LeadAbility
             // 
@@ -1932,6 +1942,7 @@
             TB_Hidden_NPCs.TabIndex = 62;
             TB_Hidden_NPCs.Text = "3";
             TB_Hidden_NPCs.TextAlign = HorizontalAlignment.Right;
+            TB_Hidden_NPCs.KeyPress += KeyPress_AllowOnlyNumerical;
             // 
             // L_Hidden_Advances
             // 
@@ -2043,6 +2054,7 @@
             TB_Hidden_Advances.TabIndex = 55;
             TB_Hidden_Advances.Text = "5000";
             TB_Hidden_Advances.TextAlign = HorizontalAlignment.Right;
+            TB_Hidden_Advances.KeyPress += KeyPress_AllowOnlyNumerical;
             // 
             // TB_Hidden_Initial
             // 
@@ -2055,6 +2067,7 @@
             TB_Hidden_Initial.TabIndex = 53;
             TB_Hidden_Initial.Text = "0";
             TB_Hidden_Initial.TextAlign = HorizontalAlignment.Right;
+            TB_Hidden_Initial.KeyPress += KeyPress_AllowOnlyNumerical;
             // 
             // L_Hidden_LeadAbility
             // 
@@ -2157,6 +2170,7 @@
             TB_Fishing_NPCs.TabIndex = 62;
             TB_Fishing_NPCs.Text = "3";
             TB_Fishing_NPCs.TextAlign = HorizontalAlignment.Right;
+            TB_Fishing_NPCs.KeyPress += KeyPress_AllowOnlyNumerical;
             // 
             // L_Fishing_KOs
             // 
@@ -2178,6 +2192,7 @@
             TB_Fishing_KOs.TabIndex = 59;
             TB_Fishing_KOs.Text = "500";
             TB_Fishing_KOs.TextAlign = HorizontalAlignment.Right;
+            TB_Fishing_KOs.KeyPress += KeyPress_AllowOnlyNumerical;
             // 
             // L_Fishing_Advances
             // 
@@ -2299,6 +2314,7 @@
             TB_Fishing_Advances.TabIndex = 55;
             TB_Fishing_Advances.Text = "5000";
             TB_Fishing_Advances.TextAlign = HorizontalAlignment.Right;
+            TB_Fishing_Advances.KeyPress += KeyPress_AllowOnlyNumerical;
             // 
             // TB_Fishing_Initial
             // 
@@ -2311,6 +2327,7 @@
             TB_Fishing_Initial.TabIndex = 53;
             TB_Fishing_Initial.Text = "0";
             TB_Fishing_Initial.TextAlign = HorizontalAlignment.Right;
+            TB_Fishing_Initial.KeyPress += KeyPress_AllowOnlyNumerical;
             // 
             // L_Fishing_LeadAbility
             // 
@@ -2627,6 +2644,7 @@
             TB_SID.Size = new Size(41, 22);
             TB_SID.TabIndex = 9;
             TB_SID.Text = "54321";
+            TB_SID.KeyPress += KeyPress_AllowOnlyNumerical;
             // 
             // CB_ShinyCharm
             // 
@@ -2650,6 +2668,7 @@
             TB_TID.Size = new Size(41, 22);
             TB_TID.TabIndex = 8;
             TB_TID.Text = "12345";
+            TB_TID.KeyPress += KeyPress_AllowOnlyNumerical;
             // 
             // DGV_Results
             // 

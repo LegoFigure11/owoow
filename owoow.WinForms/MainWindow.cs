@@ -1422,6 +1422,18 @@ public partial class MainWindow : Form
         }
     }
 
+    public void KeyPress_AllowOnlyNumerical(object sender, KeyPressEventArgs e)
+    {
+        var c = e.KeyChar;
+        if (c != (char)Keys.Back && !char.IsControl(c))
+        {
+            if (!char.IsBetween(c, '0', '9'))
+            {
+                e.Handled = true;
+            }
+        }
+    }
+
     private void KeyPress_AllowOnlyBinary(object sender, KeyPressEventArgs e)
     {
         string s = string.Empty;
