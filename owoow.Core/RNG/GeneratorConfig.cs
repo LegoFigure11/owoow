@@ -101,5 +101,7 @@ public class GeneratorConfig
     public uint WattTraderSlotMin { get; set; } = 0;
     public uint WattTraderSlotMax { get; set; } = 999;
 
+    public ulong DiggingPaMinWatts { get; set; } = 0;
+
     public bool FiltersEnabled { get; set; } = false;
 };

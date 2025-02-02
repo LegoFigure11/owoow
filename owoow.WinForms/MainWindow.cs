@@ -1564,6 +1564,22 @@ public partial class MainWindow : Form
         }
     }
 
+    public bool DiggingPaFormOpen = false;
+    DiggingPa? DiggingPaForm;
+    private void TSMI_DiggingPa_Click(object sender, EventArgs e)
+    {
+        if (!DiggingPaFormOpen)
+        {
+            DiggingPaFormOpen = true;
+            DiggingPaForm = new DiggingPa(this, TC_EncounterType.SelectedTab!.Text);
+            DiggingPaForm.Show();
+        }
+        else
+        {
+            DiggingPaForm?.Focus();
+        }
+    }
+
     public bool WailordRespawnFormOpen = false;
     WailordRespawn? WailordRespawnForm;
     private void TSMI_WailordRespawn_Click(object sender, EventArgs e)

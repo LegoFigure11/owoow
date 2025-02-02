@@ -117,6 +117,18 @@
         public string Seed1 { get; set; } = string.Empty;
     }
 
+    public class DiggingPaFrame : IBasicFrame, IRetailFrame
+    {
+        public string Advances { get; set; } = string.Empty;
+        public string Jump { get; set; } = string.Empty;
+        public char Animation { get; set; } = ' ';
+        public ulong Watts { get; set; } = 0;
+        public string Actual { get; set; } = string.Empty;
+        public string Reported { get; set; } = string.Empty;
+        public string Seed0 { get; set; } = string.Empty;
+        public string Seed1 { get; set; } = string.Empty;
+    }
+
     public class WailordFrame : IBasicFrame, IRetailFrame
     {
         public string Advances { get; set; } = string.Empty;

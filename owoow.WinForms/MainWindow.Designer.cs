@@ -2960,10 +2960,10 @@
             // 
             // TSMI_DiggingPa
             // 
-            TSMI_DiggingPa.Enabled = false;
             TSMI_DiggingPa.Name = "TSMI_DiggingPa";
             TSMI_DiggingPa.Size = new Size(77, 20);
             TSMI_DiggingPa.Text = "Digging Pa";
+            TSMI_DiggingPa.Click += TSMI_DiggingPa_Click;
             // 
             // TSMI_WailordRespawn
             // 
