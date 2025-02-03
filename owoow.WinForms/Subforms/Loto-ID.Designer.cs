@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
-            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LotoID));
             GB_Seed = new GroupBox();
             L_Seed1 = new Label();
@@ -51,7 +51,6 @@
             TB_LotoID_Advances = new TextBox();
             TB_LotoID_Initial = new TextBox();
             DGV_Results = new DataGridView();
-            LotoIDResultsSource = new BindingSource(components);
             advancesDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             jumpDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             animationDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
@@ -59,6 +58,7 @@
             prizeDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             seed0DataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             seed1DataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            LotoIDResultsSource = new BindingSource(components);
             GB_Seed.SuspendLayout();
             GB_SearchSettings.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)DGV_Results).BeginInit();
@@ -104,7 +104,7 @@
             TB_Seed1.MaxLength = 16;
             TB_Seed1.Name = "TB_Seed1";
             TB_Seed1.Size = new Size(118, 22);
-            TB_Seed1.TabIndex = 5;
+            TB_Seed1.TabIndex = 1;
             TB_Seed1.Text = "0123456789ABCDEF";
             // 
             // TB_Seed0
@@ -115,7 +115,7 @@
             TB_Seed0.MaxLength = 16;
             TB_Seed0.Name = "TB_Seed0";
             TB_Seed0.Size = new Size(118, 22);
-            TB_Seed0.TabIndex = 4;
+            TB_Seed0.TabIndex = 0;
             TB_Seed0.Text = "0123456789ABCDEF";
             // 
             // GB_SearchSettings
@@ -154,7 +154,7 @@
             B_IDList.Location = new Point(6, 85);
             B_IDList.Name = "B_IDList";
             B_IDList.Size = new Size(200, 25);
-            B_IDList.TabIndex = 66;
+            B_IDList.TabIndex = 3;
             B_IDList.Text = "ID List";
             B_IDList.UseVisualStyleBackColor = true;
             B_IDList.Click += B_IDList_Click;
@@ -166,7 +166,7 @@
             CB_LotoID_MenuClose.Location = new Point(62, 131);
             CB_LotoID_MenuClose.Name = "CB_LotoID_MenuClose";
             CB_LotoID_MenuClose.Size = new Size(144, 19);
-            CB_LotoID_MenuClose.TabIndex = 65;
+            CB_LotoID_MenuClose.TabIndex = 4;
             CB_LotoID_MenuClose.Tag = "";
             CB_LotoID_MenuClose.Text = "Consider Menu Close?";
             CB_LotoID_MenuClose.UseVisualStyleBackColor = true;
@@ -188,7 +188,7 @@
             CB_Target.Location = new Point(88, 60);
             CB_Target.Name = "CB_Target";
             CB_Target.Size = new Size(118, 23);
-            CB_Target.TabIndex = 56;
+            CB_Target.TabIndex = 2;
             CB_Target.Text = "None";
             // 
             // CB_LotoID_MenuClose_Direction
@@ -199,7 +199,7 @@
             CB_LotoID_MenuClose_Direction.Location = new Point(0, 153);
             CB_LotoID_MenuClose_Direction.Name = "CB_LotoID_MenuClose_Direction";
             CB_LotoID_MenuClose_Direction.Size = new Size(125, 19);
-            CB_LotoID_MenuClose_Direction.TabIndex = 53;
+            CB_LotoID_MenuClose_Direction.TabIndex = 5;
             CB_LotoID_MenuClose_Direction.Tag = "";
             CB_LotoID_MenuClose_Direction.Text = "Holding Direction?";
             CB_LotoID_MenuClose_Direction.UseVisualStyleBackColor = true;
@@ -223,7 +223,7 @@
             TB_LotoID_NPCs.MaxLength = 16;
             TB_LotoID_NPCs.Name = "TB_LotoID_NPCs";
             TB_LotoID_NPCs.Size = new Size(35, 22);
-            TB_LotoID_NPCs.TabIndex = 51;
+            TB_LotoID_NPCs.TabIndex = 6;
             TB_LotoID_NPCs.Text = "3";
             TB_LotoID_NPCs.TextAlign = HorizontalAlignment.Right;
             // 
@@ -241,7 +241,7 @@
             B_LotoID_Search.Location = new Point(6, 176);
             B_LotoID_Search.Name = "B_LotoID_Search";
             B_LotoID_Search.Size = new Size(200, 25);
-            B_LotoID_Search.TabIndex = 25;
+            B_LotoID_Search.TabIndex = 7;
             B_LotoID_Search.Text = "Search!";
             B_LotoID_Search.UseVisualStyleBackColor = true;
             B_LotoID_Search.Click += B_LotoID_Search_Click;
@@ -263,7 +263,7 @@
             TB_LotoID_Advances.MaxLength = 16;
             TB_LotoID_Advances.Name = "TB_LotoID_Advances";
             TB_LotoID_Advances.Size = new Size(118, 22);
-            TB_LotoID_Advances.TabIndex = 22;
+            TB_LotoID_Advances.TabIndex = 1;
             TB_LotoID_Advances.Text = "5000";
             TB_LotoID_Advances.TextAlign = HorizontalAlignment.Right;
             // 
@@ -275,7 +275,7 @@
             TB_LotoID_Initial.MaxLength = 16;
             TB_LotoID_Initial.Name = "TB_LotoID_Initial";
             TB_LotoID_Initial.Size = new Size(118, 22);
-            TB_LotoID_Initial.TabIndex = 21;
+            TB_LotoID_Initial.TabIndex = 0;
             TB_LotoID_Initial.Text = "0";
             TB_LotoID_Initial.TextAlign = HorizontalAlignment.Right;
             // 
@@ -283,9 +283,9 @@
             // 
             DGV_Results.AllowUserToAddRows = false;
             DGV_Results.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle2.BackColor = Color.WhiteSmoke;
-            dataGridViewCellStyle2.ForeColor = Color.Black;
-            DGV_Results.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle1.BackColor = Color.WhiteSmoke;
+            dataGridViewCellStyle1.ForeColor = Color.Black;
+            DGV_Results.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             DGV_Results.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             DGV_Results.AutoGenerateColumns = false;
             DGV_Results.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -297,12 +297,8 @@
             DGV_Results.RowHeadersVisible = false;
             DGV_Results.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             DGV_Results.Size = new Size(570, 427);
-            DGV_Results.TabIndex = 13;
+            DGV_Results.TabIndex = 0;
             DGV_Results.CellFormatting += DGV_Results_CellFormatting;
-            // 
-            // LotoIDResultsSource
-            // 
-            LotoIDResultsSource.DataSource = typeof(Core.Interfaces.LotoIDFrame);
             // 
             // advancesDataGridViewTextBoxColumn
             // 
@@ -352,6 +348,10 @@
             seed1DataGridViewTextBoxColumn.HeaderText = "Seed1";
             seed1DataGridViewTextBoxColumn.Name = "seed1DataGridViewTextBoxColumn";
             seed1DataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // LotoIDResultsSource
+            // 
+            LotoIDResultsSource.DataSource = typeof(Core.Interfaces.LotoIDFrame);
             // 
             // LotoID
             // 

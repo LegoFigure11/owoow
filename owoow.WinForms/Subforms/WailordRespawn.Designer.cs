@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
-            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(WailordRespawn));
             GB_Seed = new GroupBox();
             L_Seed1 = new Label();
@@ -101,7 +101,7 @@
             TB_Seed1.MaxLength = 16;
             TB_Seed1.Name = "TB_Seed1";
             TB_Seed1.Size = new Size(118, 22);
-            TB_Seed1.TabIndex = 5;
+            TB_Seed1.TabIndex = 1;
             TB_Seed1.Text = "0123456789ABCDEF";
             // 
             // TB_Seed0
@@ -112,7 +112,7 @@
             TB_Seed0.MaxLength = 16;
             TB_Seed0.Name = "TB_Seed0";
             TB_Seed0.Size = new Size(118, 22);
-            TB_Seed0.TabIndex = 4;
+            TB_Seed0.TabIndex = 0;
             TB_Seed0.Text = "0123456789ABCDEF";
             // 
             // GB_SearchSettings
@@ -141,7 +141,7 @@
             CB_Wailord_MenuClose.Location = new Point(62, 89);
             CB_Wailord_MenuClose.Name = "CB_Wailord_MenuClose";
             CB_Wailord_MenuClose.Size = new Size(144, 19);
-            CB_Wailord_MenuClose.TabIndex = 65;
+            CB_Wailord_MenuClose.TabIndex = 3;
             CB_Wailord_MenuClose.Tag = "";
             CB_Wailord_MenuClose.Text = "Consider Menu Close?";
             CB_Wailord_MenuClose.UseVisualStyleBackColor = true;
@@ -163,7 +163,7 @@
             CB_Target.Location = new Point(88, 60);
             CB_Target.Name = "CB_Target";
             CB_Target.Size = new Size(118, 23);
-            CB_Target.TabIndex = 56;
+            CB_Target.TabIndex = 2;
             CB_Target.Text = "None";
             // 
             // CB_Wailord_MenuClose_Direction
@@ -174,7 +174,7 @@
             CB_Wailord_MenuClose_Direction.Location = new Point(0, 111);
             CB_Wailord_MenuClose_Direction.Name = "CB_Wailord_MenuClose_Direction";
             CB_Wailord_MenuClose_Direction.Size = new Size(125, 19);
-            CB_Wailord_MenuClose_Direction.TabIndex = 53;
+            CB_Wailord_MenuClose_Direction.TabIndex = 4;
             CB_Wailord_MenuClose_Direction.Tag = "";
             CB_Wailord_MenuClose_Direction.Text = "Holding Direction?";
             CB_Wailord_MenuClose_Direction.UseVisualStyleBackColor = true;
@@ -198,7 +198,7 @@
             TB_Wailord_NPCs.MaxLength = 16;
             TB_Wailord_NPCs.Name = "TB_Wailord_NPCs";
             TB_Wailord_NPCs.Size = new Size(35, 22);
-            TB_Wailord_NPCs.TabIndex = 51;
+            TB_Wailord_NPCs.TabIndex = 5;
             TB_Wailord_NPCs.Text = "3";
             TB_Wailord_NPCs.TextAlign = HorizontalAlignment.Right;
             // 
@@ -216,7 +216,7 @@
             B_Wailord_Search.Location = new Point(6, 134);
             B_Wailord_Search.Name = "B_Wailord_Search";
             B_Wailord_Search.Size = new Size(200, 25);
-            B_Wailord_Search.TabIndex = 25;
+            B_Wailord_Search.TabIndex = 6;
             B_Wailord_Search.Text = "Search!";
             B_Wailord_Search.UseVisualStyleBackColor = true;
             B_Wailord_Search.Click += B_Wailord_Search_Click;
@@ -238,7 +238,7 @@
             TB_Wailord_Advances.MaxLength = 16;
             TB_Wailord_Advances.Name = "TB_Wailord_Advances";
             TB_Wailord_Advances.Size = new Size(118, 22);
-            TB_Wailord_Advances.TabIndex = 22;
+            TB_Wailord_Advances.TabIndex = 1;
             TB_Wailord_Advances.Text = "5000";
             TB_Wailord_Advances.TextAlign = HorizontalAlignment.Right;
             // 
@@ -250,7 +250,7 @@
             TB_Wailord_Initial.MaxLength = 16;
             TB_Wailord_Initial.Name = "TB_Wailord_Initial";
             TB_Wailord_Initial.Size = new Size(118, 22);
-            TB_Wailord_Initial.TabIndex = 21;
+            TB_Wailord_Initial.TabIndex = 0;
             TB_Wailord_Initial.Text = "0";
             TB_Wailord_Initial.TextAlign = HorizontalAlignment.Right;
             // 
@@ -258,9 +258,9 @@
             // 
             DGV_Results.AllowUserToAddRows = false;
             DGV_Results.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle2.BackColor = Color.WhiteSmoke;
-            dataGridViewCellStyle2.ForeColor = Color.Black;
-            DGV_Results.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle1.BackColor = Color.WhiteSmoke;
+            dataGridViewCellStyle1.ForeColor = Color.Black;
+            DGV_Results.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             DGV_Results.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             DGV_Results.AutoGenerateColumns = false;
             DGV_Results.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -272,7 +272,7 @@
             DGV_Results.RowHeadersVisible = false;
             DGV_Results.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             DGV_Results.Size = new Size(570, 427);
-            DGV_Results.TabIndex = 13;
+            DGV_Results.TabIndex = 0;
             DGV_Results.CellFormatting += DGV_Results_CellFormatting;
             // 
             // advancesDataGridViewTextBoxColumn

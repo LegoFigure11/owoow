@@ -98,7 +98,7 @@
             TB_Seed1.MaxLength = 16;
             TB_Seed1.Name = "TB_Seed1";
             TB_Seed1.Size = new Size(118, 22);
-            TB_Seed1.TabIndex = 5;
+            TB_Seed1.TabIndex = 1;
             TB_Seed1.Text = "0123456789ABCDEF";
             // 
             // TB_Seed0
@@ -109,7 +109,7 @@
             TB_Seed0.MaxLength = 16;
             TB_Seed0.Name = "TB_Seed0";
             TB_Seed0.Size = new Size(118, 22);
-            TB_Seed0.TabIndex = 4;
+            TB_Seed0.TabIndex = 0;
             TB_Seed0.Text = "0123456789ABCDEF";
             // 
             // GB_SearchSettings
@@ -146,7 +146,7 @@
             CB_Timeline_Weather.Location = new Point(88, 60);
             CB_Timeline_Weather.Name = "CB_Timeline_Weather";
             CB_Timeline_Weather.Size = new Size(118, 23);
-            CB_Timeline_Weather.TabIndex = 54;
+            CB_Timeline_Weather.TabIndex = 2;
             CB_Timeline_Weather.Text = "None";
             // 
             // CB_Timeline_MenuClose_Direction
@@ -156,7 +156,7 @@
             CB_Timeline_MenuClose_Direction.Location = new Point(0, 120);
             CB_Timeline_MenuClose_Direction.Name = "CB_Timeline_MenuClose_Direction";
             CB_Timeline_MenuClose_Direction.Size = new Size(125, 19);
-            CB_Timeline_MenuClose_Direction.TabIndex = 53;
+            CB_Timeline_MenuClose_Direction.TabIndex = 4;
             CB_Timeline_MenuClose_Direction.Tag = "";
             CB_Timeline_MenuClose_Direction.Text = "Holding Direction?";
             CB_Timeline_MenuClose_Direction.UseVisualStyleBackColor = true;
@@ -178,7 +178,7 @@
             TB_Timeline_NPCs.MaxLength = 16;
             TB_Timeline_NPCs.Name = "TB_Timeline_NPCs";
             TB_Timeline_NPCs.Size = new Size(35, 22);
-            TB_Timeline_NPCs.TabIndex = 51;
+            TB_Timeline_NPCs.TabIndex = 5;
             TB_Timeline_NPCs.Text = "3";
             TB_Timeline_NPCs.TextAlign = HorizontalAlignment.Right;
             // 
@@ -196,7 +196,7 @@
             B_Timeline_Search.Location = new Point(6, 92);
             B_Timeline_Search.Name = "B_Timeline_Search";
             B_Timeline_Search.Size = new Size(200, 25);
-            B_Timeline_Search.TabIndex = 25;
+            B_Timeline_Search.TabIndex = 3;
             B_Timeline_Search.Text = "Search!";
             B_Timeline_Search.UseVisualStyleBackColor = true;
             B_Timeline_Search.Click += B_Timeline_Search_Click;
@@ -218,7 +218,7 @@
             TB_Timeline_Advances.MaxLength = 16;
             TB_Timeline_Advances.Name = "TB_Timeline_Advances";
             TB_Timeline_Advances.Size = new Size(118, 22);
-            TB_Timeline_Advances.TabIndex = 22;
+            TB_Timeline_Advances.TabIndex = 1;
             TB_Timeline_Advances.Text = "5000";
             TB_Timeline_Advances.TextAlign = HorizontalAlignment.Right;
             // 
@@ -230,7 +230,7 @@
             TB_Timeline_Initial.MaxLength = 16;
             TB_Timeline_Initial.Name = "TB_Timeline_Initial";
             TB_Timeline_Initial.Size = new Size(118, 22);
-            TB_Timeline_Initial.TabIndex = 21;
+            TB_Timeline_Initial.TabIndex = 0;
             TB_Timeline_Initial.Text = "0";
             TB_Timeline_Initial.TextAlign = HorizontalAlignment.Right;
             // 
@@ -252,7 +252,7 @@
             DGV_Results.RowHeadersVisible = false;
             DGV_Results.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             DGV_Results.Size = new Size(570, 427);
-            DGV_Results.TabIndex = 13;
+            DGV_Results.TabIndex = 0;
             // 
             // advancesDataGridViewTextBoxColumn
             // 

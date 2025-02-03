@@ -108,7 +108,7 @@
             TB_Seed1.MaxLength = 16;
             TB_Seed1.Name = "TB_Seed1";
             TB_Seed1.Size = new Size(118, 22);
-            TB_Seed1.TabIndex = 5;
+            TB_Seed1.TabIndex = 1;
             TB_Seed1.Text = "0123456789ABCDEF";
             // 
             // TB_Seed0
@@ -119,7 +119,7 @@
             TB_Seed0.MaxLength = 16;
             TB_Seed0.Name = "TB_Seed0";
             TB_Seed0.Size = new Size(118, 22);
-            TB_Seed0.TabIndex = 4;
+            TB_Seed0.TabIndex = 0;
             TB_Seed0.Text = "0123456789ABCDEF";
             // 
             // GB_SearchSettings
@@ -163,7 +163,7 @@
             CB_WattTrader_Weather.Location = new Point(88, 113);
             CB_WattTrader_Weather.Name = "CB_WattTrader_Weather";
             CB_WattTrader_Weather.Size = new Size(118, 23);
-            CB_WattTrader_Weather.TabIndex = 70;
+            CB_WattTrader_Weather.TabIndex = 5;
             CB_WattTrader_Weather.Text = "None";
             // 
             // L_SlotRange
@@ -192,7 +192,7 @@
             TB_SlotMin.MaxLength = 16;
             TB_SlotMin.Name = "TB_SlotMin";
             TB_SlotMin.Size = new Size(27, 22);
-            TB_SlotMin.TabIndex = 67;
+            TB_SlotMin.TabIndex = 3;
             TB_SlotMin.Text = "0";
             TB_SlotMin.TextAlign = HorizontalAlignment.Right;
             // 
@@ -204,7 +204,7 @@
             TB_SlotMax.MaxLength = 16;
             TB_SlotMax.Name = "TB_SlotMax";
             TB_SlotMax.Size = new Size(27, 22);
-            TB_SlotMax.TabIndex = 66;
+            TB_SlotMax.TabIndex = 4;
             TB_SlotMax.Text = "999";
             TB_SlotMax.TextAlign = HorizontalAlignment.Right;
             // 
@@ -215,7 +215,7 @@
             CB_WattTrader_MenuClose.Location = new Point(62, 138);
             CB_WattTrader_MenuClose.Name = "CB_WattTrader_MenuClose";
             CB_WattTrader_MenuClose.Size = new Size(144, 19);
-            CB_WattTrader_MenuClose.TabIndex = 65;
+            CB_WattTrader_MenuClose.TabIndex = 6;
             CB_WattTrader_MenuClose.Tag = "";
             CB_WattTrader_MenuClose.Text = "Consider Menu Close?";
             CB_WattTrader_MenuClose.UseVisualStyleBackColor = true;
@@ -237,7 +237,7 @@
             CB_Target.Location = new Point(60, 60);
             CB_Target.Name = "CB_Target";
             CB_Target.Size = new Size(146, 23);
-            CB_Target.TabIndex = 56;
+            CB_Target.TabIndex = 2;
             CB_Target.Text = "None";
             CB_Target.SelectedIndexChanged += CB_Target_SelectedIndexChanged;
             // 
@@ -249,7 +249,7 @@
             CB_WattTrader_MenuClose_Direction.Location = new Point(0, 160);
             CB_WattTrader_MenuClose_Direction.Name = "CB_WattTrader_MenuClose_Direction";
             CB_WattTrader_MenuClose_Direction.Size = new Size(125, 19);
-            CB_WattTrader_MenuClose_Direction.TabIndex = 53;
+            CB_WattTrader_MenuClose_Direction.TabIndex = 7;
             CB_WattTrader_MenuClose_Direction.Tag = "";
             CB_WattTrader_MenuClose_Direction.Text = "Holding Direction?";
             CB_WattTrader_MenuClose_Direction.UseVisualStyleBackColor = true;
@@ -273,7 +273,7 @@
             TB_WattTrader_NPCs.MaxLength = 2;
             TB_WattTrader_NPCs.Name = "TB_WattTrader_NPCs";
             TB_WattTrader_NPCs.Size = new Size(35, 22);
-            TB_WattTrader_NPCs.TabIndex = 51;
+            TB_WattTrader_NPCs.TabIndex = 8;
             TB_WattTrader_NPCs.Text = "4";
             TB_WattTrader_NPCs.TextAlign = HorizontalAlignment.Right;
             // 
@@ -291,7 +291,7 @@
             B_WattTrader_Search.Location = new Point(6, 183);
             B_WattTrader_Search.Name = "B_WattTrader_Search";
             B_WattTrader_Search.Size = new Size(200, 25);
-            B_WattTrader_Search.TabIndex = 25;
+            B_WattTrader_Search.TabIndex = 9;
             B_WattTrader_Search.Text = "Search!";
             B_WattTrader_Search.UseVisualStyleBackColor = true;
             B_WattTrader_Search.Click += B_WattTrader_Search_Click;
@@ -313,7 +313,7 @@
             TB_WattTrader_Advances.MaxLength = 16;
             TB_WattTrader_Advances.Name = "TB_WattTrader_Advances";
             TB_WattTrader_Advances.Size = new Size(118, 22);
-            TB_WattTrader_Advances.TabIndex = 22;
+            TB_WattTrader_Advances.TabIndex = 1;
             TB_WattTrader_Advances.Text = "5000";
             TB_WattTrader_Advances.TextAlign = HorizontalAlignment.Right;
             // 
@@ -325,7 +325,7 @@
             TB_WattTrader_Initial.MaxLength = 16;
             TB_WattTrader_Initial.Name = "TB_WattTrader_Initial";
             TB_WattTrader_Initial.Size = new Size(118, 22);
-            TB_WattTrader_Initial.TabIndex = 21;
+            TB_WattTrader_Initial.TabIndex = 0;
             TB_WattTrader_Initial.Text = "0";
             TB_WattTrader_Initial.TextAlign = HorizontalAlignment.Right;
             // 
@@ -347,7 +347,7 @@
             DGV_Results.RowHeadersVisible = false;
             DGV_Results.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             DGV_Results.Size = new Size(570, 427);
-            DGV_Results.TabIndex = 13;
+            DGV_Results.TabIndex = 0;
             DGV_Results.CellFormatting += DGV_Results_CellFormatting;
             // 
             // advancesDataGridViewTextBoxColumn

@@ -70,7 +70,7 @@
             CB_Species.Location = new Point(63, 4);
             CB_Species.Name = "CB_Species";
             CB_Species.Size = new Size(190, 23);
-            CB_Species.TabIndex = 1;
+            CB_Species.TabIndex = 0;
             CB_Species.SelectedIndexChanged += CB_Species_SelectedIndexChanged;
             // 
             // DGV_Results
@@ -219,7 +219,7 @@
             CB_Game.Location = new Point(657, 4);
             CB_Game.Name = "CB_Game";
             CB_Game.Size = new Size(135, 23);
-            CB_Game.TabIndex = 12;
+            CB_Game.TabIndex = 1;
             CB_Game.SelectedIndexChanged += CB_Game_SelectedIndexChanged;
             // 
             // EncounterLookup

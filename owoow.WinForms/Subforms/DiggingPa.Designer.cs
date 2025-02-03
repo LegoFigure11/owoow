@@ -51,7 +51,6 @@
             TB_DiggingPa_Advances = new TextBox();
             TB_DiggingPa_Initial = new TextBox();
             DGV_Results = new DataGridView();
-            DiggingPaResultsSource = new BindingSource(components);
             advancesDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             jumpDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             animationDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
@@ -59,6 +58,7 @@
             reportedDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             seed0DataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             seed1DataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            DiggingPaResultsSource = new BindingSource(components);
             GB_Seed.SuspendLayout();
             GB_SearchSettings.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)DGV_Results).BeginInit();
@@ -104,7 +104,7 @@
             TB_Seed1.MaxLength = 16;
             TB_Seed1.Name = "TB_Seed1";
             TB_Seed1.Size = new Size(118, 22);
-            TB_Seed1.TabIndex = 5;
+            TB_Seed1.TabIndex = 1;
             TB_Seed1.Text = "0123456789ABCDEF";
             // 
             // TB_Seed0
@@ -115,7 +115,7 @@
             TB_Seed0.MaxLength = 16;
             TB_Seed0.Name = "TB_Seed0";
             TB_Seed0.Size = new Size(118, 22);
-            TB_Seed0.TabIndex = 4;
+            TB_Seed0.TabIndex = 0;
             TB_Seed0.Text = "0123456789ABCDEF";
             // 
             // GB_SearchSettings
@@ -147,7 +147,7 @@
             TB_Target.MaxLength = 16;
             TB_Target.Name = "TB_Target";
             TB_Target.Size = new Size(118, 22);
-            TB_Target.TabIndex = 72;
+            TB_Target.TabIndex = 2;
             TB_Target.Text = "500000";
             TB_Target.TextAlign = HorizontalAlignment.Right;
             // 
@@ -167,7 +167,7 @@
             CB_DiggingPa_Weather.Location = new Point(88, 92);
             CB_DiggingPa_Weather.Name = "CB_DiggingPa_Weather";
             CB_DiggingPa_Weather.Size = new Size(118, 23);
-            CB_DiggingPa_Weather.TabIndex = 70;
+            CB_DiggingPa_Weather.TabIndex = 3;
             CB_DiggingPa_Weather.Text = "None";
             // 
             // CB_DiggingPa_MenuClose
@@ -177,7 +177,7 @@
             CB_DiggingPa_MenuClose.Location = new Point(62, 117);
             CB_DiggingPa_MenuClose.Name = "CB_DiggingPa_MenuClose";
             CB_DiggingPa_MenuClose.Size = new Size(144, 19);
-            CB_DiggingPa_MenuClose.TabIndex = 65;
+            CB_DiggingPa_MenuClose.TabIndex = 4;
             CB_DiggingPa_MenuClose.Tag = "";
             CB_DiggingPa_MenuClose.Text = "Consider Menu Close?";
             CB_DiggingPa_MenuClose.UseVisualStyleBackColor = true;
@@ -200,7 +200,7 @@
             CB_DiggingPa_MenuClose_Direction.Location = new Point(0, 139);
             CB_DiggingPa_MenuClose_Direction.Name = "CB_DiggingPa_MenuClose_Direction";
             CB_DiggingPa_MenuClose_Direction.Size = new Size(125, 19);
-            CB_DiggingPa_MenuClose_Direction.TabIndex = 53;
+            CB_DiggingPa_MenuClose_Direction.TabIndex = 5;
             CB_DiggingPa_MenuClose_Direction.Tag = "";
             CB_DiggingPa_MenuClose_Direction.Text = "Holding Direction?";
             CB_DiggingPa_MenuClose_Direction.UseVisualStyleBackColor = true;
@@ -224,7 +224,7 @@
             TB_DiggingPa_NPCs.MaxLength = 2;
             TB_DiggingPa_NPCs.Name = "TB_DiggingPa_NPCs";
             TB_DiggingPa_NPCs.Size = new Size(35, 22);
-            TB_DiggingPa_NPCs.TabIndex = 51;
+            TB_DiggingPa_NPCs.TabIndex = 6;
             TB_DiggingPa_NPCs.Text = "4";
             TB_DiggingPa_NPCs.TextAlign = HorizontalAlignment.Right;
             // 
@@ -242,7 +242,7 @@
             B_DiggingPa_Search.Location = new Point(6, 162);
             B_DiggingPa_Search.Name = "B_DiggingPa_Search";
             B_DiggingPa_Search.Size = new Size(200, 25);
-            B_DiggingPa_Search.TabIndex = 25;
+            B_DiggingPa_Search.TabIndex = 7;
             B_DiggingPa_Search.Text = "Search!";
             B_DiggingPa_Search.UseVisualStyleBackColor = true;
             B_DiggingPa_Search.Click += B_DiggingPa_Search_Click;
@@ -264,7 +264,7 @@
             TB_DiggingPa_Advances.MaxLength = 16;
             TB_DiggingPa_Advances.Name = "TB_DiggingPa_Advances";
             TB_DiggingPa_Advances.Size = new Size(118, 22);
-            TB_DiggingPa_Advances.TabIndex = 22;
+            TB_DiggingPa_Advances.TabIndex = 1;
             TB_DiggingPa_Advances.Text = "5000";
             TB_DiggingPa_Advances.TextAlign = HorizontalAlignment.Right;
             // 
@@ -276,7 +276,7 @@
             TB_DiggingPa_Initial.MaxLength = 16;
             TB_DiggingPa_Initial.Name = "TB_DiggingPa_Initial";
             TB_DiggingPa_Initial.Size = new Size(118, 22);
-            TB_DiggingPa_Initial.TabIndex = 21;
+            TB_DiggingPa_Initial.TabIndex = 0;
             TB_DiggingPa_Initial.Text = "0";
             TB_DiggingPa_Initial.TextAlign = HorizontalAlignment.Right;
             // 
@@ -298,12 +298,8 @@
             DGV_Results.RowHeadersVisible = false;
             DGV_Results.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             DGV_Results.Size = new Size(570, 427);
-            DGV_Results.TabIndex = 13;
+            DGV_Results.TabIndex = 0;
             DGV_Results.CellFormatting += DGV_Results_CellFormatting;
-            // 
-            // DiggingPaResultsSource
-            // 
-            DiggingPaResultsSource.DataSource = typeof(Core.Interfaces.DiggingPaFrame);
             // 
             // advancesDataGridViewTextBoxColumn
             // 
@@ -354,6 +350,10 @@
             seed1DataGridViewTextBoxColumn.HeaderText = "Seed1";
             seed1DataGridViewTextBoxColumn.Name = "seed1DataGridViewTextBoxColumn";
             seed1DataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // DiggingPaResultsSource
+            // 
+            DiggingPaResultsSource.DataSource = typeof(Core.Interfaces.DiggingPaFrame);
             // 
             // DiggingPa
             // 

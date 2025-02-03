@@ -49,7 +49,7 @@
             OKButton.Margin = new Padding(4, 3, 4, 3);
             OKButton.Name = "OKButton";
             OKButton.Size = new Size(175, 25);
-            OKButton.TabIndex = 4;
+            OKButton.TabIndex = 3;
             OKButton.Text = "Update Main Form";
             OKButton.UseVisualStyleBackColor = true;
             // 
@@ -105,7 +105,7 @@
             TB_InputAnimations.MaxLength = 128;
             TB_InputAnimations.Name = "TB_InputAnimations";
             TB_InputAnimations.Size = new Size(903, 22);
-            TB_InputAnimations.TabIndex = 1;
+            TB_InputAnimations.TabIndex = 0;
             TB_InputAnimations.Text = "00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000";
             TB_InputAnimations.TextChanged += TB_AnimationsInput_TextChanged;
             TB_InputAnimations.KeyPress += KeyPress_AllowOnlyBinary;
@@ -126,7 +126,7 @@
             B_Physical.Margin = new Padding(4, 3, 4, 3);
             B_Physical.Name = "B_Physical";
             B_Physical.Size = new Size(88, 25);
-            B_Physical.TabIndex = 2;
+            B_Physical.TabIndex = 1;
             B_Physical.Text = "(0) Physical";
             B_Physical.UseVisualStyleBackColor = true;
             B_Physical.Click += B_Physical_Click;
@@ -137,7 +137,7 @@
             B_Special.Margin = new Padding(4, 3, 4, 3);
             B_Special.Name = "B_Special";
             B_Special.Size = new Size(88, 25);
-            B_Special.TabIndex = 3;
+            B_Special.TabIndex = 2;
             B_Special.Text = "(1) Special";
             B_Special.UseVisualStyleBackColor = true;
             B_Special.Click += B_Special_Click;
@@ -149,7 +149,7 @@
             CancelButton.Margin = new Padding(4, 3, 4, 3);
             CancelButton.Name = "CancelButton";
             CancelButton.Size = new Size(175, 25);
-            CancelButton.TabIndex = 5;
+            CancelButton.TabIndex = 4;
             CancelButton.Text = "Cancel";
             CancelButton.UseVisualStyleBackColor = true;
             // 

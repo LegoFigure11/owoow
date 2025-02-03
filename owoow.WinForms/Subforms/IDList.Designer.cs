@@ -42,7 +42,7 @@
             LB_IDs.Location = new Point(8, 8);
             LB_IDs.Name = "LB_IDs";
             LB_IDs.Size = new Size(120, 139);
-            LB_IDs.TabIndex = 0;
+            LB_IDs.TabIndex = 3;
             LB_IDs.SelectedIndexChanged += LB_IDs_SelectedIndexChanged;
             // 
             // B_Add
@@ -71,7 +71,7 @@
             TB_ID.MaxLength = 6;
             TB_ID.Name = "TB_ID";
             TB_ID.Size = new Size(48, 22);
-            TB_ID.TabIndex = 3;
+            TB_ID.TabIndex = 0;
             TB_ID.Text = "123456";
             TB_ID.KeyPress += TB_ID_KeyPress;
             // 
@@ -80,7 +80,7 @@
             B_Remove.Location = new Point(134, 59);
             B_Remove.Name = "B_Remove";
             B_Remove.Size = new Size(75, 25);
-            B_Remove.TabIndex = 4;
+            B_Remove.TabIndex = 2;
             B_Remove.Text = "Remove";
             B_Remove.UseVisualStyleBackColor = true;
             B_Remove.Click += B_Remove_Click;
