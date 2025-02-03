@@ -349,7 +349,7 @@
             GB_WildView.Location = new Point(861, 0);
             GB_WildView.Name = "GB_WildView";
             GB_WildView.Size = new Size(194, 321);
-            GB_WildView.TabIndex = 6;
+            GB_WildView.TabIndex = 7;
             GB_WildView.TabStop = false;
             // 
             // B_ReadEncounter
@@ -358,7 +358,7 @@
             B_ReadEncounter.Location = new Point(4, 267);
             B_ReadEncounter.Name = "B_ReadEncounter";
             B_ReadEncounter.Size = new Size(183, 25);
-            B_ReadEncounter.TabIndex = 23;
+            B_ReadEncounter.TabIndex = 0;
             B_ReadEncounter.Text = "Read Encounter";
             B_ReadEncounter.UseVisualStyleBackColor = true;
             B_ReadEncounter.Click += B_ReadEncounter_Click;
@@ -387,7 +387,7 @@
             B_CopyToFilter.Location = new Point(4, 294);
             B_CopyToFilter.Name = "B_CopyToFilter";
             B_CopyToFilter.Size = new Size(183, 25);
-            B_CopyToFilter.TabIndex = 20;
+            B_CopyToFilter.TabIndex = 1;
             B_CopyToFilter.Text = "Copy IVs to Filters";
             B_CopyToFilter.UseVisualStyleBackColor = true;
             B_CopyToFilter.Click += B_CopyToFilter_Click;
@@ -400,6 +400,7 @@
             TB_Wild.ReadOnly = true;
             TB_Wild.Size = new Size(181, 186);
             TB_Wild.TabIndex = 0;
+            TB_Wild.TabStop = false;
             TB_Wild.Text = "Shiny - Species (Gender) @ Item\r\nEC: WWWWWWWW\r\nPID: WWWWWWWW\r\nWWWWWWW Nature\r\nAbility: WWWWWWWWWW\r\nIVs: 22/22/22/22/22/22\r\nHeight: 255 (XXXL)\r\nMark: WWWWWWWWWW\r\n- Move 1\r\n- Move 2\r\n- Move 3\r\n- Move 4";
             // 
             // GB_Filters
@@ -454,7 +455,7 @@
             GB_Filters.Location = new Point(663, 0);
             GB_Filters.Name = "GB_Filters";
             GB_Filters.Size = new Size(199, 321);
-            GB_Filters.TabIndex = 5;
+            GB_Filters.TabIndex = 6;
             GB_Filters.TabStop = false;
             // 
             // CB_PlayTone
@@ -464,7 +465,7 @@
             CB_PlayTone.Location = new Point(2, 296);
             CB_PlayTone.Name = "CB_PlayTone";
             CB_PlayTone.Size = new Size(81, 19);
-            CB_PlayTone.TabIndex = 50;
+            CB_PlayTone.TabIndex = 29;
             CB_PlayTone.Tag = "";
             CB_PlayTone.Text = "Play Tone?";
             CB_PlayTone.UseVisualStyleBackColor = true;
@@ -476,7 +477,7 @@
             CB_FocusWindow.Location = new Point(85, 296);
             CB_FocusWindow.Name = "CB_FocusWindow";
             CB_FocusWindow.Size = new Size(109, 19);
-            CB_FocusWindow.TabIndex = 49;
+            CB_FocusWindow.TabIndex = 30;
             CB_FocusWindow.Tag = "";
             CB_FocusWindow.Text = "Focus Window?";
             CB_FocusWindow.UseVisualStyleBackColor = true;
@@ -490,7 +491,7 @@
             CB_EnableFilters.Location = new Point(87, 275);
             CB_EnableFilters.Name = "CB_EnableFilters";
             CB_EnableFilters.Size = new Size(107, 19);
-            CB_EnableFilters.TabIndex = 48;
+            CB_EnableFilters.TabIndex = 28;
             CB_EnableFilters.Tag = "";
             CB_EnableFilters.Text = "Filters Enabled?";
             CB_EnableFilters.UseVisualStyleBackColor = true;
@@ -511,7 +512,7 @@
             CB_Filter_Height.Location = new Point(58, 249);
             CB_Filter_Height.Name = "CB_Filter_Height";
             CB_Filter_Height.Size = new Size(138, 23);
-            CB_Filter_Height.TabIndex = 46;
+            CB_Filter_Height.TabIndex = 27;
             // 
             // L_Filter_Aura
             // 
@@ -529,7 +530,7 @@
             CB_Filter_Aura.Location = new Point(58, 223);
             CB_Filter_Aura.Name = "CB_Filter_Aura";
             CB_Filter_Aura.Size = new Size(138, 23);
-            CB_Filter_Aura.TabIndex = 44;
+            CB_Filter_Aura.TabIndex = 26;
             // 
             // L_Filter_Mark
             // 
@@ -547,7 +548,7 @@
             CB_Filter_Mark.Location = new Point(58, 197);
             CB_Filter_Mark.Name = "CB_Filter_Mark";
             CB_Filter_Mark.Size = new Size(138, 23);
-            CB_Filter_Mark.TabIndex = 42;
+            CB_Filter_Mark.TabIndex = 25;
             // 
             // L_Filter_Shiny
             // 
@@ -565,14 +566,14 @@
             CB_Filter_Shiny.Location = new Point(58, 171);
             CB_Filter_Shiny.Name = "CB_Filter_Shiny";
             CB_Filter_Shiny.Size = new Size(138, 23);
-            CB_Filter_Shiny.TabIndex = 40;
+            CB_Filter_Shiny.TabIndex = 24;
             // 
             // B_Spe_Max
             // 
             B_Spe_Max.Location = new Point(169, 141);
             B_Spe_Max.Name = "B_Spe_Max";
             B_Spe_Max.Size = new Size(27, 25);
-            B_Spe_Max.TabIndex = 39;
+            B_Spe_Max.TabIndex = 23;
             B_Spe_Max.Text = "31";
             B_Spe_Max.UseVisualStyleBackColor = true;
             B_Spe_Max.Click += B_IV_Max_Click;
@@ -582,7 +583,7 @@
             B_Spe_Min.Location = new Point(140, 141);
             B_Spe_Min.Name = "B_Spe_Min";
             B_Spe_Min.Size = new Size(27, 25);
-            B_Spe_Min.TabIndex = 38;
+            B_Spe_Min.TabIndex = 22;
             B_Spe_Min.Text = "0";
             B_Spe_Min.UseVisualStyleBackColor = true;
             B_Spe_Min.Click += B_IV_Min_Click;
@@ -603,7 +604,7 @@
             L_SpeSpacer.Location = new Point(91, 144);
             L_SpeSpacer.Name = "L_SpeSpacer";
             L_SpeSpacer.Size = new Size(12, 15);
-            L_SpeSpacer.TabIndex = 36;
+            L_SpeSpacer.TabIndex = 11;
             L_SpeSpacer.Text = "-";
             // 
             // NUD_Spe_Max
@@ -612,7 +613,7 @@
             NUD_Spe_Max.Maximum = new decimal(new int[] { 31, 0, 0, 0 });
             NUD_Spe_Max.Name = "NUD_Spe_Max";
             NUD_Spe_Max.Size = new Size(32, 23);
-            NUD_Spe_Max.TabIndex = 35;
+            NUD_Spe_Max.TabIndex = 11;
             NUD_Spe_Max.Value = new decimal(new int[] { 31, 0, 0, 0 });
             // 
             // NUD_Spe_Min
@@ -621,14 +622,14 @@
             NUD_Spe_Min.Maximum = new decimal(new int[] { 31, 0, 0, 0 });
             NUD_Spe_Min.Name = "NUD_Spe_Min";
             NUD_Spe_Min.Size = new Size(32, 23);
-            NUD_Spe_Min.TabIndex = 34;
+            NUD_Spe_Min.TabIndex = 10;
             // 
             // B_SpD_Max
             // 
             B_SpD_Max.Location = new Point(169, 116);
             B_SpD_Max.Name = "B_SpD_Max";
             B_SpD_Max.Size = new Size(27, 25);
-            B_SpD_Max.TabIndex = 33;
+            B_SpD_Max.TabIndex = 21;
             B_SpD_Max.Text = "31";
             B_SpD_Max.UseVisualStyleBackColor = true;
             B_SpD_Max.Click += B_IV_Max_Click;
@@ -638,7 +639,7 @@
             B_SpD_Min.Location = new Point(140, 116);
             B_SpD_Min.Name = "B_SpD_Min";
             B_SpD_Min.Size = new Size(27, 25);
-            B_SpD_Min.TabIndex = 32;
+            B_SpD_Min.TabIndex = 20;
             B_SpD_Min.Text = "0";
             B_SpD_Min.UseVisualStyleBackColor = true;
             B_SpD_Min.Click += B_IV_Min_Click;
@@ -659,7 +660,7 @@
             L_SpDSpacer.Location = new Point(91, 119);
             L_SpDSpacer.Name = "L_SpDSpacer";
             L_SpDSpacer.Size = new Size(12, 15);
-            L_SpDSpacer.TabIndex = 30;
+            L_SpDSpacer.TabIndex = 9;
             L_SpDSpacer.Text = "-";
             // 
             // NUD_SpD_Max
@@ -668,7 +669,7 @@
             NUD_SpD_Max.Maximum = new decimal(new int[] { 31, 0, 0, 0 });
             NUD_SpD_Max.Name = "NUD_SpD_Max";
             NUD_SpD_Max.Size = new Size(32, 23);
-            NUD_SpD_Max.TabIndex = 29;
+            NUD_SpD_Max.TabIndex = 9;
             NUD_SpD_Max.Value = new decimal(new int[] { 31, 0, 0, 0 });
             // 
             // NUD_SpD_Min
@@ -677,14 +678,14 @@
             NUD_SpD_Min.Maximum = new decimal(new int[] { 31, 0, 0, 0 });
             NUD_SpD_Min.Name = "NUD_SpD_Min";
             NUD_SpD_Min.Size = new Size(32, 23);
-            NUD_SpD_Min.TabIndex = 28;
+            NUD_SpD_Min.TabIndex = 8;
             // 
             // B_SpA_Max
             // 
             B_SpA_Max.Location = new Point(169, 91);
             B_SpA_Max.Name = "B_SpA_Max";
             B_SpA_Max.Size = new Size(27, 25);
-            B_SpA_Max.TabIndex = 27;
+            B_SpA_Max.TabIndex = 19;
             B_SpA_Max.Text = "31";
             B_SpA_Max.UseVisualStyleBackColor = true;
             B_SpA_Max.Click += B_IV_Max_Click;
@@ -694,7 +695,7 @@
             B_SpA_Min.Location = new Point(140, 91);
             B_SpA_Min.Name = "B_SpA_Min";
             B_SpA_Min.Size = new Size(27, 25);
-            B_SpA_Min.TabIndex = 26;
+            B_SpA_Min.TabIndex = 18;
             B_SpA_Min.Text = "0";
             B_SpA_Min.UseVisualStyleBackColor = true;
             B_SpA_Min.Click += B_IV_Min_Click;
@@ -715,7 +716,7 @@
             L_SpASpacer.Location = new Point(91, 94);
             L_SpASpacer.Name = "L_SpASpacer";
             L_SpASpacer.Size = new Size(12, 15);
-            L_SpASpacer.TabIndex = 24;
+            L_SpASpacer.TabIndex = 7;
             L_SpASpacer.Text = "-";
             // 
             // NUD_SpA_Max
@@ -724,7 +725,7 @@
             NUD_SpA_Max.Maximum = new decimal(new int[] { 31, 0, 0, 0 });
             NUD_SpA_Max.Name = "NUD_SpA_Max";
             NUD_SpA_Max.Size = new Size(32, 23);
-            NUD_SpA_Max.TabIndex = 23;
+            NUD_SpA_Max.TabIndex = 7;
             NUD_SpA_Max.Value = new decimal(new int[] { 31, 0, 0, 0 });
             // 
             // NUD_SpA_Min
@@ -733,14 +734,14 @@
             NUD_SpA_Min.Maximum = new decimal(new int[] { 31, 0, 0, 0 });
             NUD_SpA_Min.Name = "NUD_SpA_Min";
             NUD_SpA_Min.Size = new Size(32, 23);
-            NUD_SpA_Min.TabIndex = 22;
+            NUD_SpA_Min.TabIndex = 6;
             // 
             // B_Def_Max
             // 
             B_Def_Max.Location = new Point(169, 66);
             B_Def_Max.Name = "B_Def_Max";
             B_Def_Max.Size = new Size(27, 25);
-            B_Def_Max.TabIndex = 21;
+            B_Def_Max.TabIndex = 17;
             B_Def_Max.Text = "31";
             B_Def_Max.UseVisualStyleBackColor = true;
             B_Def_Max.Click += B_IV_Max_Click;
@@ -750,7 +751,7 @@
             B_Def_Min.Location = new Point(140, 66);
             B_Def_Min.Name = "B_Def_Min";
             B_Def_Min.Size = new Size(27, 25);
-            B_Def_Min.TabIndex = 20;
+            B_Def_Min.TabIndex = 16;
             B_Def_Min.Text = "0";
             B_Def_Min.UseVisualStyleBackColor = true;
             B_Def_Min.Click += B_IV_Min_Click;
@@ -771,7 +772,7 @@
             L_DefSpacer.Location = new Point(91, 69);
             L_DefSpacer.Name = "L_DefSpacer";
             L_DefSpacer.Size = new Size(12, 15);
-            L_DefSpacer.TabIndex = 18;
+            L_DefSpacer.TabIndex = 5;
             L_DefSpacer.Text = "-";
             // 
             // NUD_Def_Max
@@ -780,7 +781,7 @@
             NUD_Def_Max.Maximum = new decimal(new int[] { 31, 0, 0, 0 });
             NUD_Def_Max.Name = "NUD_Def_Max";
             NUD_Def_Max.Size = new Size(32, 23);
-            NUD_Def_Max.TabIndex = 17;
+            NUD_Def_Max.TabIndex = 5;
             NUD_Def_Max.Value = new decimal(new int[] { 31, 0, 0, 0 });
             // 
             // NUD_Def_Min
@@ -789,7 +790,7 @@
             NUD_Def_Min.Maximum = new decimal(new int[] { 31, 0, 0, 0 });
             NUD_Def_Min.Name = "NUD_Def_Min";
             NUD_Def_Min.Size = new Size(32, 23);
-            NUD_Def_Min.TabIndex = 16;
+            NUD_Def_Min.TabIndex = 4;
             // 
             // B_Atk_Max
             // 
@@ -827,7 +828,7 @@
             L_AtkSpacer.Location = new Point(91, 44);
             L_AtkSpacer.Name = "L_AtkSpacer";
             L_AtkSpacer.Size = new Size(12, 15);
-            L_AtkSpacer.TabIndex = 12;
+            L_AtkSpacer.TabIndex = 3;
             L_AtkSpacer.Text = "-";
             // 
             // NUD_Atk_Max
@@ -836,7 +837,7 @@
             NUD_Atk_Max.Maximum = new decimal(new int[] { 31, 0, 0, 0 });
             NUD_Atk_Max.Name = "NUD_Atk_Max";
             NUD_Atk_Max.Size = new Size(32, 23);
-            NUD_Atk_Max.TabIndex = 11;
+            NUD_Atk_Max.TabIndex = 3;
             NUD_Atk_Max.Value = new decimal(new int[] { 31, 0, 0, 0 });
             // 
             // NUD_Atk_Min
@@ -845,14 +846,14 @@
             NUD_Atk_Min.Maximum = new decimal(new int[] { 31, 0, 0, 0 });
             NUD_Atk_Min.Name = "NUD_Atk_Min";
             NUD_Atk_Min.Size = new Size(32, 23);
-            NUD_Atk_Min.TabIndex = 10;
+            NUD_Atk_Min.TabIndex = 2;
             // 
             // B_HP_Max
             // 
             B_HP_Max.Location = new Point(169, 16);
             B_HP_Max.Name = "B_HP_Max";
             B_HP_Max.Size = new Size(27, 25);
-            B_HP_Max.TabIndex = 9;
+            B_HP_Max.TabIndex = 13;
             B_HP_Max.Text = "31";
             B_HP_Max.UseVisualStyleBackColor = true;
             B_HP_Max.Click += B_IV_Max_Click;
@@ -862,7 +863,7 @@
             B_HP_Min.Location = new Point(140, 16);
             B_HP_Min.Name = "B_HP_Min";
             B_HP_Min.Size = new Size(27, 25);
-            B_HP_Min.TabIndex = 8;
+            B_HP_Min.TabIndex = 12;
             B_HP_Min.Text = "0";
             B_HP_Min.UseVisualStyleBackColor = true;
             B_HP_Min.Click += B_IV_Min_Click;
@@ -892,7 +893,7 @@
             NUD_HP_Max.Maximum = new decimal(new int[] { 31, 0, 0, 0 });
             NUD_HP_Max.Name = "NUD_HP_Max";
             NUD_HP_Max.Size = new Size(32, 23);
-            NUD_HP_Max.TabIndex = 5;
+            NUD_HP_Max.TabIndex = 1;
             NUD_HP_Max.Value = new decimal(new int[] { 31, 0, 0, 0 });
             // 
             // NUD_HP_Min
@@ -901,7 +902,7 @@
             NUD_HP_Min.Maximum = new decimal(new int[] { 31, 0, 0, 0 });
             NUD_HP_Min.Name = "NUD_HP_Min";
             NUD_HP_Min.Size = new Size(32, 23);
-            NUD_HP_Min.TabIndex = 4;
+            NUD_HP_Min.TabIndex = 0;
             // 
             // GB_SwitchControls
             // 
@@ -918,7 +919,7 @@
             GB_SwitchControls.Location = new Point(1054, 9);
             GB_SwitchControls.Name = "GB_SwitchControls";
             GB_SwitchControls.Size = new Size(212, 105);
-            GB_SwitchControls.TabIndex = 25;
+            GB_SwitchControls.TabIndex = 8;
             GB_SwitchControls.TabStop = false;
             GB_SwitchControls.Text = "CFW Tools";
             // 
@@ -928,7 +929,7 @@
             B_CancelSkip.Location = new Point(107, 19);
             B_CancelSkip.Name = "B_CancelSkip";
             B_CancelSkip.Size = new Size(98, 25);
-            B_CancelSkip.TabIndex = 12;
+            B_CancelSkip.TabIndex = 1;
             B_CancelSkip.Text = "Cancel";
             B_CancelSkip.UseVisualStyleBackColor = true;
             B_CancelSkip.Click += B_CancelSkip_Click;
@@ -938,7 +939,7 @@
             B_ResetStick.Location = new Point(107, 73);
             B_ResetStick.Name = "B_ResetStick";
             B_ResetStick.Size = new Size(98, 25);
-            B_ResetStick.TabIndex = 11;
+            B_ResetStick.TabIndex = 7;
             B_ResetStick.Text = "Reset Stick";
             B_ResetStick.UseVisualStyleBackColor = true;
             B_ResetStick.Click += B_ResetStick_Click;
@@ -948,7 +949,7 @@
             B_HoldUp.Location = new Point(7, 73);
             B_HoldUp.Name = "B_HoldUp";
             B_HoldUp.Size = new Size(98, 25);
-            B_HoldUp.TabIndex = 10;
+            B_HoldUp.TabIndex = 6;
             B_HoldUp.Text = "Hold Up";
             B_HoldUp.UseVisualStyleBackColor = true;
             B_HoldUp.Click += B_HoldUp_Click;
@@ -961,7 +962,7 @@
             TB_Skips.MaxLength = 5;
             TB_Skips.Name = "TB_Skips";
             TB_Skips.Size = new Size(48, 22);
-            TB_Skips.TabIndex = 9;
+            TB_Skips.TabIndex = 0;
             TB_Skips.Text = "100";
             TB_Skips.TextAlign = HorizontalAlignment.Right;
             TB_Skips.KeyPress += KeyPress_AllowOnlyNumerical;
@@ -971,7 +972,7 @@
             B_NTP.Location = new Point(157, 46);
             B_NTP.Name = "B_NTP";
             B_NTP.Size = new Size(48, 25);
-            B_NTP.TabIndex = 6;
+            B_NTP.TabIndex = 5;
             B_NTP.Text = "NTP";
             B_NTP.UseVisualStyleBackColor = true;
             B_NTP.Click += B_NTP_Click;
@@ -981,7 +982,7 @@
             B_SkipAdvance.Location = new Point(107, 46);
             B_SkipAdvance.Name = "B_SkipAdvance";
             B_SkipAdvance.Size = new Size(48, 25);
-            B_SkipAdvance.TabIndex = 5;
+            B_SkipAdvance.TabIndex = 4;
             B_SkipAdvance.Text = "Adv.";
             B_SkipAdvance.UseVisualStyleBackColor = true;
             B_SkipAdvance.Click += B_SkipAdvance_Click;
@@ -991,7 +992,7 @@
             B_SkipBack.Location = new Point(57, 46);
             B_SkipBack.Name = "B_SkipBack";
             B_SkipBack.Size = new Size(48, 25);
-            B_SkipBack.TabIndex = 2;
+            B_SkipBack.TabIndex = 3;
             B_SkipBack.Text = "Days-";
             B_SkipBack.UseVisualStyleBackColor = true;
             B_SkipBack.Click += B_SkipBack_Click;
@@ -1001,7 +1002,7 @@
             B_SkipForward.Location = new Point(7, 46);
             B_SkipForward.Name = "B_SkipForward";
             B_SkipForward.Size = new Size(48, 25);
-            B_SkipForward.TabIndex = 1;
+            B_SkipForward.TabIndex = 2;
             B_SkipForward.Text = "Days+";
             B_SkipForward.UseVisualStyleBackColor = true;
             B_SkipForward.Click += B_SkipForward_Click;
@@ -1022,7 +1023,7 @@
             GB_SeedSearch.Location = new Point(1054, 98);
             GB_SeedSearch.Name = "GB_SeedSearch";
             GB_SeedSearch.Size = new Size(212, 53);
-            GB_SeedSearch.TabIndex = 27;
+            GB_SeedSearch.TabIndex = 9;
             GB_SeedSearch.TabStop = false;
             // 
             // B_SeedSearch_Settings
@@ -1031,7 +1032,7 @@
             B_SeedSearch_Settings.Location = new Point(107, 21);
             B_SeedSearch_Settings.Name = "B_SeedSearch_Settings";
             B_SeedSearch_Settings.Size = new Size(98, 25);
-            B_SeedSearch_Settings.TabIndex = 22;
+            B_SeedSearch_Settings.TabIndex = 1;
             B_SeedSearch_Settings.Text = "Settings";
             B_SeedSearch_Settings.UseVisualStyleBackColor = true;
             // 
@@ -1041,7 +1042,7 @@
             B_SeedSearch.Location = new Point(7, 21);
             B_SeedSearch.Name = "B_SeedSearch";
             B_SeedSearch.Size = new Size(98, 25);
-            B_SeedSearch.TabIndex = 21;
+            B_SeedSearch.TabIndex = 0;
             B_SeedSearch.Text = "Reset for Seed";
             B_SeedSearch.UseVisualStyleBackColor = true;
             // 
@@ -1062,7 +1063,7 @@
             GB_Retail.Location = new Point(1054, 150);
             GB_Retail.Name = "GB_Retail";
             GB_Retail.Size = new Size(212, 171);
-            GB_Retail.TabIndex = 29;
+            GB_Retail.TabIndex = 10;
             GB_Retail.TabStop = false;
             GB_Retail.Text = "Retail Tools";
             // 
@@ -1087,7 +1088,7 @@
             TB_RetailRange.MaxLength = 7;
             TB_RetailRange.Name = "TB_RetailRange";
             TB_RetailRange.Size = new Size(55, 22);
-            TB_RetailRange.TabIndex = 63;
+            TB_RetailRange.TabIndex = 2;
             TB_RetailRange.Text = "99999";
             TB_RetailRange.TextAlign = HorizontalAlignment.Right;
             TB_RetailRange.KeyPress += KeyPress_AllowOnlyNumerical;
@@ -1106,7 +1107,7 @@
             B_GenerateRetailPattern.Location = new Point(118, 65);
             B_GenerateRetailPattern.Name = "B_GenerateRetailPattern";
             B_GenerateRetailPattern.Size = new Size(87, 25);
-            B_GenerateRetailPattern.TabIndex = 61;
+            B_GenerateRetailPattern.TabIndex = 3;
             B_GenerateRetailPattern.Text = "Generate";
             B_GenerateRetailPattern.UseVisualStyleBackColor = true;
             B_GenerateRetailPattern.Click += B_GenerateRetailPattern_Click;
@@ -1129,13 +1130,14 @@
             TB_RetailAdvances.ReadOnly = true;
             TB_RetailAdvances.Size = new Size(119, 22);
             TB_RetailAdvances.TabIndex = 59;
+            TB_RetailAdvances.TabStop = false;
             // 
             // B_RetailUpdateSeeds
             // 
             B_RetailUpdateSeeds.Location = new Point(7, 139);
             B_RetailUpdateSeeds.Name = "B_RetailUpdateSeeds";
             B_RetailUpdateSeeds.Size = new Size(200, 25);
-            B_RetailUpdateSeeds.TabIndex = 58;
+            B_RetailUpdateSeeds.TabIndex = 5;
             B_RetailUpdateSeeds.Text = "Update Seeds";
             B_RetailUpdateSeeds.UseVisualStyleBackColor = true;
             B_RetailUpdateSeeds.Click += B_RetailUpdateSeeds_Click;
@@ -1157,7 +1159,7 @@
             TB_Animations.MaxLength = 99;
             TB_Animations.Name = "TB_Animations";
             TB_Animations.Size = new Size(148, 22);
-            TB_Animations.TabIndex = 56;
+            TB_Animations.TabIndex = 4;
             TB_Animations.TextChanged += TB_Animations_TextChanged;
             TB_Animations.KeyPress += KeyPress_AllowOnlyBinary;
             // 
@@ -1169,7 +1171,7 @@
             TB_RetailInitial.MaxLength = 16;
             TB_RetailInitial.Name = "TB_RetailInitial";
             TB_RetailInitial.Size = new Size(148, 22);
-            TB_RetailInitial.TabIndex = 55;
+            TB_RetailInitial.TabIndex = 1;
             TB_RetailInitial.Text = "0";
             TB_RetailInitial.TextAlign = HorizontalAlignment.Right;
             TB_RetailInitial.KeyPress += KeyPress_AllowOnlyNumerical;
@@ -1188,7 +1190,7 @@
             B_RetailSeedFinder.Location = new Point(6, 15);
             B_RetailSeedFinder.Name = "B_RetailSeedFinder";
             B_RetailSeedFinder.Size = new Size(200, 25);
-            B_RetailSeedFinder.TabIndex = 53;
+            B_RetailSeedFinder.TabIndex = 0;
             B_RetailSeedFinder.Text = "Retail Seed Finder";
             B_RetailSeedFinder.UseVisualStyleBackColor = true;
             B_RetailSeedFinder.Click += B_RetailSeedFinder_Click;
@@ -1212,7 +1214,7 @@
             GB_DexRec.Location = new Point(1, -2);
             GB_DexRec.Name = "GB_DexRec";
             GB_DexRec.Size = new Size(181, 150);
-            GB_DexRec.TabIndex = 55;
+            GB_DexRec.TabIndex = 4;
             GB_DexRec.TabStop = false;
             GB_DexRec.Text = "Pokédex Recommendation";
             // 
@@ -1222,7 +1224,7 @@
             B_RefreshDexRec.Location = new Point(4, 121);
             B_RefreshDexRec.Name = "B_RefreshDexRec";
             B_RefreshDexRec.Size = new Size(172, 25);
-            B_RefreshDexRec.TabIndex = 28;
+            B_RefreshDexRec.TabIndex = 4;
             B_RefreshDexRec.Text = "Refresh";
             B_RefreshDexRec.UseVisualStyleBackColor = true;
             B_RefreshDexRec.Click += B_RefreshDexRec_Click;
@@ -1233,7 +1235,7 @@
             CB_DexRec4.Location = new Point(6, 96);
             CB_DexRec4.Name = "CB_DexRec4";
             CB_DexRec4.Size = new Size(168, 23);
-            CB_DexRec4.TabIndex = 27;
+            CB_DexRec4.TabIndex = 3;
             CB_DexRec4.Text = "WWWWWWWWWWWW";
             // 
             // CB_DexRec3
@@ -1242,7 +1244,7 @@
             CB_DexRec3.Location = new Point(6, 71);
             CB_DexRec3.Name = "CB_DexRec3";
             CB_DexRec3.Size = new Size(168, 23);
-            CB_DexRec3.TabIndex = 25;
+            CB_DexRec3.TabIndex = 2;
             CB_DexRec3.Text = "WWWWWWWWWWWW";
             // 
             // CB_DexRec2
@@ -1251,7 +1253,7 @@
             CB_DexRec2.Location = new Point(6, 46);
             CB_DexRec2.Name = "CB_DexRec2";
             CB_DexRec2.Size = new Size(168, 23);
-            CB_DexRec2.TabIndex = 23;
+            CB_DexRec2.TabIndex = 1;
             CB_DexRec2.Text = "WWWWWWWWWWWW";
             // 
             // CB_DexRec1
@@ -1260,7 +1262,7 @@
             CB_DexRec1.Location = new Point(6, 21);
             CB_DexRec1.Name = "CB_DexRec1";
             CB_DexRec1.Size = new Size(168, 23);
-            CB_DexRec1.TabIndex = 21;
+            CB_DexRec1.TabIndex = 0;
             CB_DexRec1.Text = "WWWWWWWWWWWW";
             // 
             // GB_Advanced
@@ -1277,7 +1279,7 @@
             GB_Advanced.Location = new Point(1, 148);
             GB_Advanced.Name = "GB_Advanced";
             GB_Advanced.Size = new Size(181, 162);
-            GB_Advanced.TabIndex = 56;
+            GB_Advanced.TabIndex = 5;
             GB_Advanced.TabStop = false;
             GB_Advanced.Text = "Advanced Settings";
             // 
@@ -1298,7 +1300,7 @@
             NUD_FlyNPCs.Maximum = new decimal(new int[] { 999, 0, 0, 0 });
             NUD_FlyNPCs.Name = "NUD_FlyNPCs";
             NUD_FlyNPCs.Size = new Size(39, 23);
-            NUD_FlyNPCs.TabIndex = 18;
+            NUD_FlyNPCs.TabIndex = 2;
             // 
             // B_CalculateRain
             // 
@@ -1306,7 +1308,7 @@
             B_CalculateRain.Location = new Point(4, 133);
             B_CalculateRain.Name = "B_CalculateRain";
             B_CalculateRain.Size = new Size(172, 25);
-            B_CalculateRain.TabIndex = 16;
+            B_CalculateRain.TabIndex = 5;
             B_CalculateRain.Text = "Calculate Rain Ticks";
             B_CalculateRain.UseVisualStyleBackColor = true;
             B_CalculateRain.Click += B_CalculateRain_Click;
@@ -1328,7 +1330,7 @@
             NUD_RainTick.Maximum = new decimal(new int[] { 999, 0, 0, 0 });
             NUD_RainTick.Name = "NUD_RainTick";
             NUD_RainTick.Size = new Size(39, 23);
-            NUD_RainTick.TabIndex = 14;
+            NUD_RainTick.TabIndex = 4;
             // 
             // L_AreaLoad
             // 
@@ -1347,7 +1349,7 @@
             NUD_AreaLoad.Maximum = new decimal(new int[] { 999, 0, 0, 0 });
             NUD_AreaLoad.Name = "NUD_AreaLoad";
             NUD_AreaLoad.Size = new Size(39, 23);
-            NUD_AreaLoad.TabIndex = 5;
+            NUD_AreaLoad.TabIndex = 1;
             // 
             // CB_ConsiderFlying
             // 
@@ -1355,7 +1357,7 @@
             CB_ConsiderFlying.Location = new Point(6, 16);
             CB_ConsiderFlying.Name = "CB_ConsiderFlying";
             CB_ConsiderFlying.Size = new Size(46, 19);
-            CB_ConsiderFlying.TabIndex = 1;
+            CB_ConsiderFlying.TabIndex = 0;
             CB_ConsiderFlying.Text = "Fly?";
             CB_ConsiderFlying.UseVisualStyleBackColor = true;
             CB_ConsiderFlying.CheckedChanged += CB_ConsiderFlying_CheckedChanged;
@@ -1366,7 +1368,7 @@
             CB_ConsiderRain.Location = new Point(6, 89);
             CB_ConsiderRain.Name = "CB_ConsiderRain";
             CB_ConsiderRain.Size = new Size(168, 19);
-            CB_ConsiderRain.TabIndex = 0;
+            CB_ConsiderRain.TabIndex = 3;
             CB_ConsiderRain.Text = "Raining/Thunderstorming?";
             CB_ConsiderRain.UseVisualStyleBackColor = true;
             CB_ConsiderRain.CheckedChanged += CB_ConsiderRain_CheckedChanged;
@@ -1413,7 +1415,7 @@
             B_Static_MenuClose.Location = new Point(155, 156);
             B_Static_MenuClose.Name = "B_Static_MenuClose";
             B_Static_MenuClose.Size = new Size(100, 25);
-            B_Static_MenuClose.TabIndex = 60;
+            B_Static_MenuClose.TabIndex = 2;
             B_Static_MenuClose.Text = "Calibrate NPCs";
             B_Static_MenuClose.UseVisualStyleBackColor = true;
             B_Static_MenuClose.Click += B_MenuClose_Click;
@@ -1426,7 +1428,7 @@
             CB_Static_MenuClose_Direction.Location = new Point(25, 182);
             CB_Static_MenuClose_Direction.Name = "CB_Static_MenuClose_Direction";
             CB_Static_MenuClose_Direction.Size = new Size(125, 19);
-            CB_Static_MenuClose_Direction.TabIndex = 65;
+            CB_Static_MenuClose_Direction.TabIndex = 3;
             CB_Static_MenuClose_Direction.Tag = "";
             CB_Static_MenuClose_Direction.Text = "Holding Direction?";
             CB_Static_MenuClose_Direction.UseVisualStyleBackColor = true;
@@ -1438,7 +1440,7 @@
             CB_Static_MenuClose.Location = new Point(6, 158);
             CB_Static_MenuClose.Name = "CB_Static_MenuClose";
             CB_Static_MenuClose.Size = new Size(144, 19);
-            CB_Static_MenuClose.TabIndex = 64;
+            CB_Static_MenuClose.TabIndex = 1;
             CB_Static_MenuClose.Tag = "";
             CB_Static_MenuClose.Text = "Consider Menu Close?";
             CB_Static_MenuClose.UseVisualStyleBackColor = true;
@@ -1462,7 +1464,7 @@
             TB_Static_NPCs.MaxLength = 16;
             TB_Static_NPCs.Name = "TB_Static_NPCs";
             TB_Static_NPCs.Size = new Size(35, 22);
-            TB_Static_NPCs.TabIndex = 62;
+            TB_Static_NPCs.TabIndex = 4;
             TB_Static_NPCs.Text = "3";
             TB_Static_NPCs.TextAlign = HorizontalAlignment.Right;
             TB_Static_NPCs.KeyPress += KeyPress_AllowOnlyNumerical;
@@ -1481,7 +1483,7 @@
             B_Static_Search.Location = new Point(3, 255);
             B_Static_Search.Name = "B_Static_Search";
             B_Static_Search.Size = new Size(255, 25);
-            B_Static_Search.TabIndex = 58;
+            B_Static_Search.TabIndex = 7;
             B_Static_Search.Text = "Search!";
             B_Static_Search.UseVisualStyleBackColor = true;
             B_Static_Search.Click += B_Static_Search_Click;
@@ -1506,7 +1508,7 @@
             GB_Static_EncounterSettings.Location = new Point(6, 2);
             GB_Static_EncounterSettings.Name = "GB_Static_EncounterSettings";
             GB_Static_EncounterSettings.Size = new Size(249, 102);
-            GB_Static_EncounterSettings.TabIndex = 54;
+            GB_Static_EncounterSettings.TabIndex = 0;
             GB_Static_EncounterSettings.TabStop = false;
             GB_Static_EncounterSettings.Text = "Encounter Settings - Static";
             // 
@@ -1543,7 +1545,7 @@
             CB_Static_Species.Location = new Point(70, 72);
             CB_Static_Species.Name = "CB_Static_Species";
             CB_Static_Species.Size = new Size(173, 23);
-            CB_Static_Species.TabIndex = 12;
+            CB_Static_Species.TabIndex = 2;
             CB_Static_Species.Text = "None";
             // 
             // CB_Static_Weather
@@ -1552,7 +1554,7 @@
             CB_Static_Weather.Location = new Point(70, 47);
             CB_Static_Weather.Name = "CB_Static_Weather";
             CB_Static_Weather.Size = new Size(173, 23);
-            CB_Static_Weather.TabIndex = 11;
+            CB_Static_Weather.TabIndex = 1;
             CB_Static_Weather.Text = "None";
             CB_Static_Weather.SelectedIndexChanged += CB_Weather_SelectedIndexChanged;
             // 
@@ -1562,7 +1564,7 @@
             CB_Static_Area.Location = new Point(70, 22);
             CB_Static_Area.Name = "CB_Static_Area";
             CB_Static_Area.Size = new Size(173, 23);
-            CB_Static_Area.TabIndex = 10;
+            CB_Static_Area.TabIndex = 0;
             CB_Static_Area.Text = "None";
             CB_Static_Area.SelectedIndexChanged += CB_Area_SelectedIndexChanged;
             // 
@@ -1574,7 +1576,7 @@
             TB_Static_Advances.MaxLength = 16;
             TB_Static_Advances.Name = "TB_Static_Advances";
             TB_Static_Advances.Size = new Size(173, 22);
-            TB_Static_Advances.TabIndex = 55;
+            TB_Static_Advances.TabIndex = 6;
             TB_Static_Advances.Text = "5000";
             TB_Static_Advances.TextAlign = HorizontalAlignment.Right;
             TB_Static_Advances.KeyPress += KeyPress_AllowOnlyNumerical;
@@ -1587,7 +1589,7 @@
             TB_Static_Initial.MaxLength = 16;
             TB_Static_Initial.Name = "TB_Static_Initial";
             TB_Static_Initial.Size = new Size(173, 22);
-            TB_Static_Initial.TabIndex = 53;
+            TB_Static_Initial.TabIndex = 5;
             TB_Static_Initial.Text = "0";
             TB_Static_Initial.TextAlign = HorizontalAlignment.Right;
             TB_Static_Initial.KeyPress += KeyPress_AllowOnlyNumerical;
@@ -1608,7 +1610,7 @@
             CB_Static_LeadAbility.Location = new Point(82, 106);
             CB_Static_LeadAbility.Name = "CB_Static_LeadAbility";
             CB_Static_LeadAbility.Size = new Size(173, 23);
-            CB_Static_LeadAbility.TabIndex = 51;
+            CB_Static_LeadAbility.TabIndex = 0;
             CB_Static_LeadAbility.Text = "None";
             // 
             // TP_Symbol
@@ -1642,7 +1644,7 @@
             B_Symbol_MenuClose.Location = new Point(155, 156);
             B_Symbol_MenuClose.Name = "B_Symbol_MenuClose";
             B_Symbol_MenuClose.Size = new Size(100, 25);
-            B_Symbol_MenuClose.TabIndex = 22;
+            B_Symbol_MenuClose.TabIndex = 4;
             B_Symbol_MenuClose.Text = "Calibrate NPCs";
             B_Symbol_MenuClose.UseVisualStyleBackColor = true;
             B_Symbol_MenuClose.Click += B_MenuClose_Click;
@@ -1655,7 +1657,7 @@
             CB_Symbol_MenuClose_Direction.Location = new Point(25, 182);
             CB_Symbol_MenuClose_Direction.Name = "CB_Symbol_MenuClose_Direction";
             CB_Symbol_MenuClose_Direction.Size = new Size(125, 19);
-            CB_Symbol_MenuClose_Direction.TabIndex = 50;
+            CB_Symbol_MenuClose_Direction.TabIndex = 5;
             CB_Symbol_MenuClose_Direction.Tag = "";
             CB_Symbol_MenuClose_Direction.Text = "Holding Direction?";
             CB_Symbol_MenuClose_Direction.UseVisualStyleBackColor = true;
@@ -1667,7 +1669,7 @@
             CB_Symbol_MenuClose.Location = new Point(6, 158);
             CB_Symbol_MenuClose.Name = "CB_Symbol_MenuClose";
             CB_Symbol_MenuClose.Size = new Size(144, 19);
-            CB_Symbol_MenuClose.TabIndex = 49;
+            CB_Symbol_MenuClose.TabIndex = 3;
             CB_Symbol_MenuClose.Tag = "";
             CB_Symbol_MenuClose.Text = "Consider Menu Close?";
             CB_Symbol_MenuClose.UseVisualStyleBackColor = true;
@@ -1691,7 +1693,7 @@
             TB_Symbol_NPCs.MaxLength = 16;
             TB_Symbol_NPCs.Name = "TB_Symbol_NPCs";
             TB_Symbol_NPCs.Size = new Size(35, 22);
-            TB_Symbol_NPCs.TabIndex = 23;
+            TB_Symbol_NPCs.TabIndex = 6;
             TB_Symbol_NPCs.Text = "3";
             TB_Symbol_NPCs.TextAlign = HorizontalAlignment.Right;
             TB_Symbol_NPCs.KeyPress += KeyPress_AllowOnlyNumerical;
@@ -1713,7 +1715,7 @@
             TB_Symbol_KOs.MaxLength = 16;
             TB_Symbol_KOs.Name = "TB_Symbol_KOs";
             TB_Symbol_KOs.Size = new Size(173, 22);
-            TB_Symbol_KOs.TabIndex = 21;
+            TB_Symbol_KOs.TabIndex = 2;
             TB_Symbol_KOs.Text = "500";
             TB_Symbol_KOs.TextAlign = HorizontalAlignment.Right;
             TB_Symbol_KOs.KeyPress += KeyPress_AllowOnlyNumerical;
@@ -1732,7 +1734,7 @@
             B_Symbol_Search.Location = new Point(3, 255);
             B_Symbol_Search.Name = "B_Symbol_Search";
             B_Symbol_Search.Size = new Size(255, 25);
-            B_Symbol_Search.TabIndex = 20;
+            B_Symbol_Search.TabIndex = 9;
             B_Symbol_Search.Text = "Search!";
             B_Symbol_Search.UseVisualStyleBackColor = true;
             B_Symbol_Search.Click += B_Symbol_Search_Click;
@@ -1757,7 +1759,7 @@
             GB_Symbol_EncounterSettings.Location = new Point(6, 2);
             GB_Symbol_EncounterSettings.Name = "GB_Symbol_EncounterSettings";
             GB_Symbol_EncounterSettings.Size = new Size(249, 102);
-            GB_Symbol_EncounterSettings.TabIndex = 9;
+            GB_Symbol_EncounterSettings.TabIndex = 0;
             GB_Symbol_EncounterSettings.TabStop = false;
             GB_Symbol_EncounterSettings.Text = "Encounter Settings - Symbol";
             // 
@@ -1794,7 +1796,7 @@
             CB_Symbol_Species.Location = new Point(70, 72);
             CB_Symbol_Species.Name = "CB_Symbol_Species";
             CB_Symbol_Species.Size = new Size(173, 23);
-            CB_Symbol_Species.TabIndex = 12;
+            CB_Symbol_Species.TabIndex = 2;
             CB_Symbol_Species.Text = "None";
             // 
             // CB_Symbol_Weather
@@ -1803,7 +1805,7 @@
             CB_Symbol_Weather.Location = new Point(70, 47);
             CB_Symbol_Weather.Name = "CB_Symbol_Weather";
             CB_Symbol_Weather.Size = new Size(173, 23);
-            CB_Symbol_Weather.TabIndex = 11;
+            CB_Symbol_Weather.TabIndex = 1;
             CB_Symbol_Weather.Text = "None";
             CB_Symbol_Weather.SelectedIndexChanged += CB_Weather_SelectedIndexChanged;
             // 
@@ -1813,7 +1815,7 @@
             CB_Symbol_Area.Location = new Point(70, 22);
             CB_Symbol_Area.Name = "CB_Symbol_Area";
             CB_Symbol_Area.Size = new Size(173, 23);
-            CB_Symbol_Area.TabIndex = 10;
+            CB_Symbol_Area.TabIndex = 0;
             CB_Symbol_Area.Text = "None";
             CB_Symbol_Area.SelectedIndexChanged += CB_Area_SelectedIndexChanged;
             // 
@@ -1825,7 +1827,7 @@
             TB_Symbol_Advances.MaxLength = 16;
             TB_Symbol_Advances.Name = "TB_Symbol_Advances";
             TB_Symbol_Advances.Size = new Size(173, 22);
-            TB_Symbol_Advances.TabIndex = 9;
+            TB_Symbol_Advances.TabIndex = 8;
             TB_Symbol_Advances.Text = "5000";
             TB_Symbol_Advances.TextAlign = HorizontalAlignment.Right;
             TB_Symbol_Advances.KeyPress += KeyPress_AllowOnlyNumerical;
@@ -1838,7 +1840,7 @@
             TB_Symbol_Initial.MaxLength = 16;
             TB_Symbol_Initial.Name = "TB_Symbol_Initial";
             TB_Symbol_Initial.Size = new Size(173, 22);
-            TB_Symbol_Initial.TabIndex = 8;
+            TB_Symbol_Initial.TabIndex = 7;
             TB_Symbol_Initial.Text = "0";
             TB_Symbol_Initial.TextAlign = HorizontalAlignment.Right;
             TB_Symbol_Initial.KeyPress += KeyPress_AllowOnlyNumerical;
@@ -1859,7 +1861,7 @@
             CB_Symbol_LeadAbility.Location = new Point(82, 106);
             CB_Symbol_LeadAbility.Name = "CB_Symbol_LeadAbility";
             CB_Symbol_LeadAbility.Size = new Size(173, 23);
-            CB_Symbol_LeadAbility.TabIndex = 0;
+            CB_Symbol_LeadAbility.TabIndex = 1;
             CB_Symbol_LeadAbility.Text = "None";
             // 
             // TP_Hidden
@@ -1890,7 +1892,7 @@
             B_Hidden_MenuClose.Location = new Point(155, 156);
             B_Hidden_MenuClose.Name = "B_Hidden_MenuClose";
             B_Hidden_MenuClose.Size = new Size(100, 25);
-            B_Hidden_MenuClose.TabIndex = 60;
+            B_Hidden_MenuClose.TabIndex = 2;
             B_Hidden_MenuClose.Text = "Calibrate NPCs";
             B_Hidden_MenuClose.UseVisualStyleBackColor = true;
             B_Hidden_MenuClose.Click += B_MenuClose_Click;
@@ -1903,7 +1905,7 @@
             CB_Hidden_MenuClose_Direction.Location = new Point(25, 182);
             CB_Hidden_MenuClose_Direction.Name = "CB_Hidden_MenuClose_Direction";
             CB_Hidden_MenuClose_Direction.Size = new Size(125, 19);
-            CB_Hidden_MenuClose_Direction.TabIndex = 65;
+            CB_Hidden_MenuClose_Direction.TabIndex = 3;
             CB_Hidden_MenuClose_Direction.Tag = "";
             CB_Hidden_MenuClose_Direction.Text = "Holding Direction?";
             CB_Hidden_MenuClose_Direction.UseVisualStyleBackColor = true;
@@ -1915,7 +1917,7 @@
             CB_Hidden_MenuClose.Location = new Point(6, 158);
             CB_Hidden_MenuClose.Name = "CB_Hidden_MenuClose";
             CB_Hidden_MenuClose.Size = new Size(144, 19);
-            CB_Hidden_MenuClose.TabIndex = 64;
+            CB_Hidden_MenuClose.TabIndex = 1;
             CB_Hidden_MenuClose.Tag = "";
             CB_Hidden_MenuClose.Text = "Consider Menu Close?";
             CB_Hidden_MenuClose.UseVisualStyleBackColor = true;
@@ -1939,7 +1941,7 @@
             TB_Hidden_NPCs.MaxLength = 16;
             TB_Hidden_NPCs.Name = "TB_Hidden_NPCs";
             TB_Hidden_NPCs.Size = new Size(35, 22);
-            TB_Hidden_NPCs.TabIndex = 62;
+            TB_Hidden_NPCs.TabIndex = 4;
             TB_Hidden_NPCs.Text = "3";
             TB_Hidden_NPCs.TextAlign = HorizontalAlignment.Right;
             TB_Hidden_NPCs.KeyPress += KeyPress_AllowOnlyNumerical;
@@ -1958,7 +1960,7 @@
             B_Hidden_Search.Location = new Point(3, 255);
             B_Hidden_Search.Name = "B_Hidden_Search";
             B_Hidden_Search.Size = new Size(255, 25);
-            B_Hidden_Search.TabIndex = 58;
+            B_Hidden_Search.TabIndex = 7;
             B_Hidden_Search.Text = "Search!";
             B_Hidden_Search.UseVisualStyleBackColor = true;
             B_Hidden_Search.Click += B_Hidden_Search_Click;
@@ -1983,7 +1985,7 @@
             GB_Hidden_EncounterSettings.Location = new Point(6, 2);
             GB_Hidden_EncounterSettings.Name = "GB_Hidden_EncounterSettings";
             GB_Hidden_EncounterSettings.Size = new Size(249, 102);
-            GB_Hidden_EncounterSettings.TabIndex = 54;
+            GB_Hidden_EncounterSettings.TabIndex = 0;
             GB_Hidden_EncounterSettings.TabStop = false;
             GB_Hidden_EncounterSettings.Text = "Encounter Settings - Hidden";
             // 
@@ -2020,7 +2022,7 @@
             CB_Hidden_Species.Location = new Point(70, 72);
             CB_Hidden_Species.Name = "CB_Hidden_Species";
             CB_Hidden_Species.Size = new Size(173, 23);
-            CB_Hidden_Species.TabIndex = 12;
+            CB_Hidden_Species.TabIndex = 2;
             CB_Hidden_Species.Text = "None";
             // 
             // CB_Hidden_Weather
@@ -2029,7 +2031,7 @@
             CB_Hidden_Weather.Location = new Point(70, 47);
             CB_Hidden_Weather.Name = "CB_Hidden_Weather";
             CB_Hidden_Weather.Size = new Size(173, 23);
-            CB_Hidden_Weather.TabIndex = 11;
+            CB_Hidden_Weather.TabIndex = 1;
             CB_Hidden_Weather.Text = "None";
             CB_Hidden_Weather.SelectedIndexChanged += CB_Weather_SelectedIndexChanged;
             // 
@@ -2039,7 +2041,7 @@
             CB_Hidden_Area.Location = new Point(70, 22);
             CB_Hidden_Area.Name = "CB_Hidden_Area";
             CB_Hidden_Area.Size = new Size(173, 23);
-            CB_Hidden_Area.TabIndex = 10;
+            CB_Hidden_Area.TabIndex = 0;
             CB_Hidden_Area.Text = "None";
             CB_Hidden_Area.SelectedIndexChanged += CB_Area_SelectedIndexChanged;
             // 
@@ -2051,7 +2053,7 @@
             TB_Hidden_Advances.MaxLength = 16;
             TB_Hidden_Advances.Name = "TB_Hidden_Advances";
             TB_Hidden_Advances.Size = new Size(173, 22);
-            TB_Hidden_Advances.TabIndex = 55;
+            TB_Hidden_Advances.TabIndex = 6;
             TB_Hidden_Advances.Text = "5000";
             TB_Hidden_Advances.TextAlign = HorizontalAlignment.Right;
             TB_Hidden_Advances.KeyPress += KeyPress_AllowOnlyNumerical;
@@ -2064,7 +2066,7 @@
             TB_Hidden_Initial.MaxLength = 16;
             TB_Hidden_Initial.Name = "TB_Hidden_Initial";
             TB_Hidden_Initial.Size = new Size(173, 22);
-            TB_Hidden_Initial.TabIndex = 53;
+            TB_Hidden_Initial.TabIndex = 5;
             TB_Hidden_Initial.Text = "0";
             TB_Hidden_Initial.TextAlign = HorizontalAlignment.Right;
             TB_Hidden_Initial.KeyPress += KeyPress_AllowOnlyNumerical;
@@ -2085,7 +2087,7 @@
             CB_Hidden_LeadAbility.Location = new Point(82, 106);
             CB_Hidden_LeadAbility.Name = "CB_Hidden_LeadAbility";
             CB_Hidden_LeadAbility.Size = new Size(173, 23);
-            CB_Hidden_LeadAbility.TabIndex = 51;
+            CB_Hidden_LeadAbility.TabIndex = 0;
             CB_Hidden_LeadAbility.Text = "None";
             // 
             // TP_Fishing
@@ -2118,7 +2120,7 @@
             B_Fishing_MenuClose.Location = new Point(155, 156);
             B_Fishing_MenuClose.Name = "B_Fishing_MenuClose";
             B_Fishing_MenuClose.Size = new Size(100, 25);
-            B_Fishing_MenuClose.TabIndex = 60;
+            B_Fishing_MenuClose.TabIndex = 3;
             B_Fishing_MenuClose.Text = "Calibrate NPCs";
             B_Fishing_MenuClose.UseVisualStyleBackColor = true;
             B_Fishing_MenuClose.Click += B_MenuClose_Click;
@@ -2131,7 +2133,7 @@
             CB_Fishing_MenuClose_Direction.Location = new Point(25, 182);
             CB_Fishing_MenuClose_Direction.Name = "CB_Fishing_MenuClose_Direction";
             CB_Fishing_MenuClose_Direction.Size = new Size(125, 19);
-            CB_Fishing_MenuClose_Direction.TabIndex = 65;
+            CB_Fishing_MenuClose_Direction.TabIndex = 4;
             CB_Fishing_MenuClose_Direction.Tag = "";
             CB_Fishing_MenuClose_Direction.Text = "Holding Direction?";
             CB_Fishing_MenuClose_Direction.UseVisualStyleBackColor = true;
@@ -2143,7 +2145,7 @@
             CB_Fishing_MenuClose.Location = new Point(6, 158);
             CB_Fishing_MenuClose.Name = "CB_Fishing_MenuClose";
             CB_Fishing_MenuClose.Size = new Size(144, 19);
-            CB_Fishing_MenuClose.TabIndex = 64;
+            CB_Fishing_MenuClose.TabIndex = 2;
             CB_Fishing_MenuClose.Tag = "";
             CB_Fishing_MenuClose.Text = "Consider Menu Close?";
             CB_Fishing_MenuClose.UseVisualStyleBackColor = true;
@@ -2167,7 +2169,7 @@
             TB_Fishing_NPCs.MaxLength = 16;
             TB_Fishing_NPCs.Name = "TB_Fishing_NPCs";
             TB_Fishing_NPCs.Size = new Size(35, 22);
-            TB_Fishing_NPCs.TabIndex = 62;
+            TB_Fishing_NPCs.TabIndex = 5;
             TB_Fishing_NPCs.Text = "3";
             TB_Fishing_NPCs.TextAlign = HorizontalAlignment.Right;
             TB_Fishing_NPCs.KeyPress += KeyPress_AllowOnlyNumerical;
@@ -2189,7 +2191,7 @@
             TB_Fishing_KOs.MaxLength = 16;
             TB_Fishing_KOs.Name = "TB_Fishing_KOs";
             TB_Fishing_KOs.Size = new Size(173, 22);
-            TB_Fishing_KOs.TabIndex = 59;
+            TB_Fishing_KOs.TabIndex = 1;
             TB_Fishing_KOs.Text = "500";
             TB_Fishing_KOs.TextAlign = HorizontalAlignment.Right;
             TB_Fishing_KOs.KeyPress += KeyPress_AllowOnlyNumerical;
@@ -2208,7 +2210,7 @@
             B_Fishing_Search.Location = new Point(3, 255);
             B_Fishing_Search.Name = "B_Fishing_Search";
             B_Fishing_Search.Size = new Size(255, 25);
-            B_Fishing_Search.TabIndex = 58;
+            B_Fishing_Search.TabIndex = 8;
             B_Fishing_Search.Text = "Search!";
             B_Fishing_Search.UseVisualStyleBackColor = true;
             B_Fishing_Search.Click += B_Fishing_Search_Click;
@@ -2220,7 +2222,7 @@
             CB_Fishing_LeadAbility.Location = new Point(82, 106);
             CB_Fishing_LeadAbility.Name = "CB_Fishing_LeadAbility";
             CB_Fishing_LeadAbility.Size = new Size(173, 23);
-            CB_Fishing_LeadAbility.TabIndex = 51;
+            CB_Fishing_LeadAbility.TabIndex = 0;
             CB_Fishing_LeadAbility.Text = "None";
             // 
             // L_Fishing_Initial
@@ -2243,7 +2245,7 @@
             GB_Fishing_EncounterSettings.Location = new Point(6, 2);
             GB_Fishing_EncounterSettings.Name = "GB_Fishing_EncounterSettings";
             GB_Fishing_EncounterSettings.Size = new Size(249, 102);
-            GB_Fishing_EncounterSettings.TabIndex = 54;
+            GB_Fishing_EncounterSettings.TabIndex = 0;
             GB_Fishing_EncounterSettings.TabStop = false;
             GB_Fishing_EncounterSettings.Text = "Encounter Settings - Fishing";
             // 
@@ -2280,7 +2282,7 @@
             CB_Fishing_Species.Location = new Point(70, 72);
             CB_Fishing_Species.Name = "CB_Fishing_Species";
             CB_Fishing_Species.Size = new Size(173, 23);
-            CB_Fishing_Species.TabIndex = 12;
+            CB_Fishing_Species.TabIndex = 2;
             CB_Fishing_Species.Text = "None";
             // 
             // CB_Fishing_Weather
@@ -2289,7 +2291,7 @@
             CB_Fishing_Weather.Location = new Point(70, 47);
             CB_Fishing_Weather.Name = "CB_Fishing_Weather";
             CB_Fishing_Weather.Size = new Size(173, 23);
-            CB_Fishing_Weather.TabIndex = 11;
+            CB_Fishing_Weather.TabIndex = 1;
             CB_Fishing_Weather.Text = "None";
             CB_Fishing_Weather.SelectedIndexChanged += CB_Weather_SelectedIndexChanged;
             // 
@@ -2299,7 +2301,7 @@
             CB_Fishing_Area.Location = new Point(70, 22);
             CB_Fishing_Area.Name = "CB_Fishing_Area";
             CB_Fishing_Area.Size = new Size(173, 23);
-            CB_Fishing_Area.TabIndex = 10;
+            CB_Fishing_Area.TabIndex = 0;
             CB_Fishing_Area.Text = "None";
             CB_Fishing_Area.SelectedIndexChanged += CB_Area_SelectedIndexChanged;
             // 
@@ -2311,7 +2313,7 @@
             TB_Fishing_Advances.MaxLength = 16;
             TB_Fishing_Advances.Name = "TB_Fishing_Advances";
             TB_Fishing_Advances.Size = new Size(173, 22);
-            TB_Fishing_Advances.TabIndex = 55;
+            TB_Fishing_Advances.TabIndex = 7;
             TB_Fishing_Advances.Text = "5000";
             TB_Fishing_Advances.TextAlign = HorizontalAlignment.Right;
             TB_Fishing_Advances.KeyPress += KeyPress_AllowOnlyNumerical;
@@ -2324,7 +2326,7 @@
             TB_Fishing_Initial.MaxLength = 16;
             TB_Fishing_Initial.Name = "TB_Fishing_Initial";
             TB_Fishing_Initial.Size = new Size(173, 22);
-            TB_Fishing_Initial.TabIndex = 53;
+            TB_Fishing_Initial.TabIndex = 6;
             TB_Fishing_Initial.Text = "0";
             TB_Fishing_Initial.TextAlign = HorizontalAlignment.Right;
             TB_Fishing_Initial.KeyPress += KeyPress_AllowOnlyNumerical;
@@ -2377,7 +2379,7 @@
             TB_Seed1.MaxLength = 16;
             TB_Seed1.Name = "TB_Seed1";
             TB_Seed1.Size = new Size(118, 22);
-            TB_Seed1.TabIndex = 5;
+            TB_Seed1.TabIndex = 1;
             TB_Seed1.Text = "0123456789ABCDEF";
             TB_Seed1.KeyPress += KeyPress_AllowOnlyHex;
             // 
@@ -2389,7 +2391,7 @@
             TB_Seed0.MaxLength = 16;
             TB_Seed0.Name = "TB_Seed0";
             TB_Seed0.Size = new Size(118, 22);
-            TB_Seed0.TabIndex = 4;
+            TB_Seed0.TabIndex = 0;
             TB_Seed0.Text = "0123456789ABCDEF";
             TB_Seed0.KeyPress += KeyPress_AllowOnlyHex;
             // 
@@ -2437,7 +2439,7 @@
             B_CopyToInitial.Location = new Point(11, 154);
             B_CopyToInitial.Name = "B_CopyToInitial";
             B_CopyToInitial.Size = new Size(196, 25);
-            B_CopyToInitial.TabIndex = 19;
+            B_CopyToInitial.TabIndex = 3;
             B_CopyToInitial.Text = "Update Seeds";
             B_CopyToInitial.UseVisualStyleBackColor = true;
             B_CopyToInitial.Click += B_CopyToInitial_Click;
@@ -2484,6 +2486,7 @@
             TB_CurrentS1.ReadOnly = true;
             TB_CurrentS1.Size = new Size(118, 22);
             TB_CurrentS1.TabIndex = 9;
+            TB_CurrentS1.TabStop = false;
             TB_CurrentS1.Text = "0123456789ABCDEF";
             // 
             // L_Status
@@ -2505,6 +2508,7 @@
             TB_CurrentS0.ReadOnly = true;
             TB_CurrentS0.Size = new Size(118, 22);
             TB_CurrentS0.TabIndex = 8;
+            TB_CurrentS0.TabStop = false;
             TB_CurrentS0.Text = "0123456789ABCDEF";
             // 
             // TB_CurrentAdvances
@@ -2536,7 +2540,7 @@
             B_Disconnect.Location = new Point(109, 36);
             B_Disconnect.Name = "B_Disconnect";
             B_Disconnect.Size = new Size(97, 25);
-            B_Disconnect.TabIndex = 14;
+            B_Disconnect.TabIndex = 2;
             B_Disconnect.Text = "Disconnect";
             B_Disconnect.UseVisualStyleBackColor = true;
             B_Disconnect.Click += B_Disconnect_Click;
@@ -2546,7 +2550,7 @@
             B_Connect.Location = new Point(11, 36);
             B_Connect.Name = "B_Connect";
             B_Connect.Size = new Size(97, 25);
-            B_Connect.TabIndex = 13;
+            B_Connect.TabIndex = 1;
             B_Connect.Text = "Connect";
             B_Connect.UseVisualStyleBackColor = true;
             B_Connect.Click += B_Connect_Click;
@@ -2568,7 +2572,7 @@
             TB_SwitchIP.MaxLength = 15;
             TB_SwitchIP.Name = "TB_SwitchIP";
             TB_SwitchIP.Size = new Size(111, 22);
-            TB_SwitchIP.TabIndex = 11;
+            TB_SwitchIP.TabIndex = 0;
             TB_SwitchIP.Text = "123.123.123.123";
             TB_SwitchIP.KeyPress += KeyPress_AllowOnlyIP;
             // 
@@ -2604,7 +2608,7 @@
             CB_MarkCharm.Location = new Point(12, 41);
             CB_MarkCharm.Name = "CB_MarkCharm";
             CB_MarkCharm.Size = new Size(97, 19);
-            CB_MarkCharm.TabIndex = 10;
+            CB_MarkCharm.TabIndex = 1;
             CB_MarkCharm.Text = "Mark Charm?";
             CB_MarkCharm.UseVisualStyleBackColor = true;
             // 
@@ -2615,7 +2619,7 @@
             CB_Game.Location = new Point(71, 66);
             CB_Game.Name = "CB_Game";
             CB_Game.Size = new Size(135, 23);
-            CB_Game.TabIndex = 10;
+            CB_Game.TabIndex = 4;
             // 
             // L_SID
             // 
@@ -2643,7 +2647,7 @@
             TB_SID.MaxLength = 5;
             TB_SID.Name = "TB_SID";
             TB_SID.Size = new Size(41, 22);
-            TB_SID.TabIndex = 9;
+            TB_SID.TabIndex = 3;
             TB_SID.Text = "54321";
             TB_SID.KeyPress += KeyPress_AllowOnlyNumerical;
             // 
@@ -2654,7 +2658,7 @@
             CB_ShinyCharm.Location = new Point(10, 16);
             CB_ShinyCharm.Name = "CB_ShinyCharm";
             CB_ShinyCharm.Size = new Size(99, 19);
-            CB_ShinyCharm.TabIndex = 2;
+            CB_ShinyCharm.TabIndex = 0;
             CB_ShinyCharm.Tag = "";
             CB_ShinyCharm.Text = "Shiny Charm?";
             CB_ShinyCharm.UseVisualStyleBackColor = true;
@@ -2667,7 +2671,7 @@
             TB_TID.MaxLength = 5;
             TB_TID.Name = "TB_TID";
             TB_TID.Size = new Size(41, 22);
-            TB_TID.TabIndex = 8;
+            TB_TID.TabIndex = 2;
             TB_TID.Text = "12345";
             TB_TID.KeyPress += KeyPress_AllowOnlyNumerical;
             // 
@@ -2928,7 +2932,7 @@
             MS_SubWindows.Location = new Point(0, 0);
             MS_SubWindows.Name = "MS_SubWindows";
             MS_SubWindows.Size = new Size(1278, 24);
-            MS_SubWindows.TabIndex = 32;
+            MS_SubWindows.TabIndex = 0;
             // 
             // TSMI_EncounterLookup
             // 
