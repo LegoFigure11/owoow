@@ -73,6 +73,7 @@
             TB_ID.Size = new Size(48, 22);
             TB_ID.TabIndex = 3;
             TB_ID.Text = "123456";
+            TB_ID.KeyPress += TB_ID_KeyPress;
             // 
             // B_Remove
             // 

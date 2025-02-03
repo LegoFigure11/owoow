@@ -14,6 +14,7 @@ public partial class IDList : Form
 
         this.IDs = IDs;
         this.parent = parent;
+
         ReloadList();
     }
 
@@ -79,5 +80,18 @@ public partial class IDList : Form
         parent.IDs = IDs;
         parent.SubformOpen = false;
         parent.L_LoadedIDs.Text = $"Loaded IDs: {IDs.Count}";
+    }
+
+    private void TB_ID_KeyPress(object sender, KeyPressEventArgs e)
+    {
+     
+        var c = e.KeyChar;
+        if (c != (char)Keys.Back && !char.IsControl(c))
+        {
+            if (!char.IsBetween(c, '0', '9'))
+            {
+                e.Handled = true;
+            }
+        }
     }
 }
