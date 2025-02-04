@@ -423,6 +423,20 @@ public partial class MainWindow : Form
 
         var table = new EncounterTable(CB_Game.Text, "Symbol", CB_Symbol_Area.Text, CB_Symbol_Weather.Text, CB_Symbol_LeadAbility.Text);
 
+        if (string.IsNullOrEmpty(TB_Symbol_Initial.Text)) TB_Symbol_Initial.Text = "0";
+        if (string.IsNullOrEmpty(TB_Symbol_Advances.Text) || TB_Symbol_Advances.Text is "0") TB_Symbol_Advances.Text = "1";
+
+        if (string.IsNullOrEmpty(TB_Seed0.Text)) TB_Seed0.Text = "0";
+        if (string.IsNullOrEmpty(TB_Seed1.Text)) TB_Seed1.Text = "0";
+        if (TB_Seed0.Text is "0" && TB_Seed1.Text is "0")
+        {
+            TB_Seed0.Text = "1337";
+            TB_Seed1.Text = "1390";
+        }
+
+        TB_Seed0.Text = TB_Seed0.Text.PadLeft(16, '0');
+        TB_Seed1.Text = TB_Seed1.Text.PadLeft(16, '0');
+
         var initial = ulong.Parse(TB_Symbol_Initial.Text);
         var advances = ulong.Parse(TB_Symbol_Advances.Text);
 
@@ -534,6 +548,20 @@ public partial class MainWindow : Form
 
         var table = new EncounterTable(CB_Game.Text, "Hidden", CB_Hidden_Area.Text, CB_Hidden_Weather.Text, CB_Hidden_LeadAbility.Text);
 
+        if (string.IsNullOrEmpty(TB_Hidden_Initial.Text)) TB_Hidden_Initial.Text = "0";
+        if (string.IsNullOrEmpty(TB_Hidden_Advances.Text) || TB_Hidden_Advances.Text is "0") TB_Hidden_Advances.Text = "1";
+
+        if (string.IsNullOrEmpty(TB_Seed0.Text)) TB_Seed0.Text = "0";
+        if (string.IsNullOrEmpty(TB_Seed1.Text)) TB_Seed1.Text = "0";
+        if (TB_Seed0.Text is "0" && TB_Seed1.Text is "0")
+        {
+            TB_Seed0.Text = "1337";
+            TB_Seed1.Text = "1390";
+        }
+
+        TB_Seed0.Text = TB_Seed0.Text.PadLeft(16, '0');
+        TB_Seed1.Text = TB_Seed1.Text.PadLeft(16, '0');
+
         var initial = ulong.Parse(TB_Hidden_Initial.Text);
         var advances = ulong.Parse(TB_Hidden_Advances.Text);
 
@@ -642,6 +670,20 @@ public partial class MainWindow : Form
 
         var table = new EncounterTable(CB_Game.Text, "Static", CB_Static_Area.Text, CB_Static_Weather.Text, CB_Static_LeadAbility.Text);
 
+        if (string.IsNullOrEmpty(TB_Static_Initial.Text)) TB_Static_Initial.Text = "0";
+        if (string.IsNullOrEmpty(TB_Static_Advances.Text) || TB_Static_Advances.Text is "0") TB_Static_Advances.Text = "1";
+
+        if (string.IsNullOrEmpty(TB_Seed0.Text)) TB_Seed0.Text = "0";
+        if (string.IsNullOrEmpty(TB_Seed1.Text)) TB_Seed1.Text = "0";
+        if (TB_Seed0.Text is "0" && TB_Seed1.Text is "0")
+        {
+            TB_Seed0.Text = "1337";
+            TB_Seed1.Text = "1390";
+        }
+
+        TB_Seed0.Text = TB_Seed0.Text.PadLeft(16, '0');
+        TB_Seed1.Text = TB_Seed1.Text.PadLeft(16, '0');
+
         var initial = ulong.Parse(TB_Static_Initial.Text);
         var advances = ulong.Parse(TB_Static_Advances.Text);
 
@@ -741,6 +783,20 @@ public partial class MainWindow : Form
         SetControlEnabledState(false, sender);
 
         var table = new EncounterTable(CB_Game.Text, "Fishing", CB_Fishing_Area.Text, CB_Fishing_Weather.Text, CB_Fishing_LeadAbility.Text);
+
+        if (string.IsNullOrEmpty(TB_Fishing_Initial.Text)) TB_Fishing_Initial.Text = "0";
+        if (string.IsNullOrEmpty(TB_Fishing_Advances.Text) || TB_Fishing_Advances.Text is "0") TB_Fishing_Advances.Text = "1";
+
+        if (string.IsNullOrEmpty(TB_Seed0.Text)) TB_Seed0.Text = "0";
+        if (string.IsNullOrEmpty(TB_Seed1.Text)) TB_Seed1.Text = "0";
+        if (TB_Seed0.Text is "0" && TB_Seed1.Text is "0")
+        {
+            TB_Seed0.Text = "1337";
+            TB_Seed1.Text = "1390";
+        }
+
+        TB_Seed0.Text = TB_Seed0.Text.PadLeft(16, '0');
+        TB_Seed1.Text = TB_Seed1.Text.PadLeft(16, '0');
 
         var initial = ulong.Parse(TB_Fishing_Initial.Text);
         var advances = ulong.Parse(TB_Fishing_Advances.Text);

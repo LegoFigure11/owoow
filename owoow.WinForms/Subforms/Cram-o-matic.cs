@@ -36,6 +36,20 @@ public partial class Cramomatic : Form
     {
         MainWindow.SetControlEnabledState(false, sender);
 
+        if (string.IsNullOrEmpty(TB_Cramomatic_Initial.Text)) TB_Cramomatic_Initial.Text = "0";
+        if (string.IsNullOrEmpty(TB_Cramomatic_Advances.Text) || TB_Cramomatic_Advances.Text is "0") TB_Cramomatic_Advances.Text = "1";
+
+        if (string.IsNullOrEmpty(TB_Seed0.Text)) TB_Seed0.Text = "0";
+        if (string.IsNullOrEmpty(TB_Seed1.Text)) TB_Seed1.Text = "0";
+        if (TB_Seed0.Text is "0" && TB_Seed1.Text is "0")
+        {
+            TB_Seed0.Text = "1337";
+            TB_Seed1.Text = "1390";
+        }
+
+        TB_Seed0.Text = TB_Seed0.Text.PadLeft(16, '0');
+        TB_Seed1.Text = TB_Seed1.Text.PadLeft(16, '0');
+
         var initial = ulong.Parse(TB_Cramomatic_Initial.Text);
         var advances = ulong.Parse(TB_Cramomatic_Advances.Text);
 

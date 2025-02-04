@@ -35,6 +35,20 @@ public partial class MenuCloseTimeline : Form
     {
         MainWindow.SetControlEnabledState(false, sender);
 
+        if (string.IsNullOrEmpty(TB_Timeline_Initial.Text)) TB_Timeline_Initial.Text = "0";
+        if (string.IsNullOrEmpty(TB_Timeline_Advances.Text) || TB_Timeline_Advances.Text is "0") TB_Timeline_Advances.Text = "1";
+
+        if (string.IsNullOrEmpty(TB_Seed0.Text)) TB_Seed0.Text = "0";
+        if (string.IsNullOrEmpty(TB_Seed1.Text)) TB_Seed1.Text = "0";
+        if (TB_Seed0.Text is "0" && TB_Seed1.Text is "0")
+        {
+            TB_Seed0.Text = "1337";
+            TB_Seed1.Text = "1390";
+        }
+
+        TB_Seed0.Text = TB_Seed0.Text.PadLeft(16, '0');
+        TB_Seed1.Text = TB_Seed1.Text.PadLeft(16, '0');
+
         var initial = ulong.Parse(TB_Timeline_Initial.Text);
         var advances = ulong.Parse(TB_Timeline_Advances.Text);
 
