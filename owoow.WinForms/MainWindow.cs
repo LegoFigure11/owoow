@@ -494,6 +494,10 @@ public partial class MainWindow : Form
             DGV_Results.SanitizeColumns(this);
 
             SetControlEnabledState(true, sender);
+        }).ContinueWith(_ =>
+        {
+            if (CB_PlayTone.Checked) System.Media.SystemSounds.Asterisk.Play();
+            if (CB_FocusWindow.Checked) ActivateWindow();
         });
     }
 
@@ -596,6 +600,10 @@ public partial class MainWindow : Form
             DGV_Results.SanitizeColumns(this);
 
             SetControlEnabledState(true, sender);
+        }).ContinueWith(_ =>
+        {
+            if (CB_PlayTone.Checked) System.Media.SystemSounds.Asterisk.Play();
+            if (CB_FocusWindow.Checked) ActivateWindow();
         });
     }
 
@@ -690,6 +698,10 @@ public partial class MainWindow : Form
             DGV_Results.SanitizeColumns(this);
 
             SetControlEnabledState(true, sender);
+        }).ContinueWith(_ =>
+        {
+            if (CB_PlayTone.Checked) System.Media.SystemSounds.Asterisk.Play();
+            if (CB_FocusWindow.Checked) ActivateWindow();
         });
     }
 
@@ -795,6 +807,10 @@ public partial class MainWindow : Form
             DGV_Results.SanitizeColumns(this);
 
             SetControlEnabledState(true, sender);
+        }).ContinueWith(_ =>
+        {
+            if (CB_PlayTone.Checked) System.Media.SystemSounds.Asterisk.Play();
+            if (CB_FocusWindow.Checked) ActivateWindow();
         });
     }
 
@@ -1224,6 +1240,14 @@ public partial class MainWindow : Form
         SetControlEnabledState(cb.Checked, Controls.Find($"TB_{tab}_NPCs", true).FirstOrDefault()!, Controls.Find($"B_{tab}_MenuClose", true).FirstOrDefault()!, Controls.Find($"CB_{tab}_MenuClose_Direction", true).FirstOrDefault()!);
     }
 
+    private void ActivateWindow()
+    {
+        if (InvokeRequired)
+            Invoke(() => Activate());
+        else
+            Activate();
+    }
+
     public void SetCheckBoxCheckedState(bool state, params object[] obj)
     {
         foreach (object o in obj)
@@ -1417,6 +1441,7 @@ public partial class MainWindow : Form
                 !char.IsBetween(c, 'A', 'F')
             )
             {
+                System.Media.SystemSounds.Asterisk.Play();
                 e.Handled = true;
             }
         }
@@ -1429,6 +1454,7 @@ public partial class MainWindow : Form
         {
             if (!char.IsBetween(c, '0', '9'))
             {
+                System.Media.SystemSounds.Asterisk.Play();
                 e.Handled = true;
             }
         }
@@ -1441,6 +1467,7 @@ public partial class MainWindow : Form
         {
             if (!char.IsBetween(c, '0', '9') && c != '.')
             {
+                System.Media.SystemSounds.Asterisk.Play();
                 e.Handled = true;
             }
         }
@@ -1467,6 +1494,7 @@ public partial class MainWindow : Form
         {
             if (!(('0' <= b[0]) && (b[0] <= '1')))
             {
+                System.Media.SystemSounds.Asterisk.Play();
                 e.Handled = true;
             }
         }
