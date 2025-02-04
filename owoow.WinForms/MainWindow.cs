@@ -490,14 +490,16 @@ public partial class MainWindow : Form
             }
 
             Frames = AllResults;
+            if (AllResults.Count > 1000) AllResults = AllResults[0..1000];
             SetBindingSourceDataSource(AllResults, ResultsSource);
             DGV_Results.SanitizeColumns(this);
 
             SetControlEnabledState(true, sender);
         }).ContinueWith(_ =>
         {
-            if (CB_PlayTone.Checked) System.Media.SystemSounds.Asterisk.Play();
             if (CB_FocusWindow.Checked) ActivateWindow();
+            if (CB_PlayTone.Checked) System.Media.SystemSounds.Asterisk.Play();
+            if (Frames.Count >= 1_000) MessageBox.Show($"Too many results found, displayed results capped at 1000. Please re-run the search with more restrictive filters or a smaller range of advances.");
         });
     }
 
@@ -596,14 +598,16 @@ public partial class MainWindow : Form
             }
 
             Frames = AllResults;
+            if (AllResults.Count > 1000) AllResults = AllResults[0..1000];
             SetBindingSourceDataSource(AllResults, ResultsSource);
             DGV_Results.SanitizeColumns(this);
 
             SetControlEnabledState(true, sender);
         }).ContinueWith(_ =>
         {
-            if (CB_PlayTone.Checked) System.Media.SystemSounds.Asterisk.Play();
             if (CB_FocusWindow.Checked) ActivateWindow();
+            if (CB_PlayTone.Checked) System.Media.SystemSounds.Asterisk.Play();
+            if (Frames.Count >= 1_000) MessageBox.Show($"Too many results found, displayed results capped at 1000. Please re-run the search with more restrictive filters or a smaller range of advances.");
         });
     }
 
@@ -694,14 +698,16 @@ public partial class MainWindow : Form
             }
 
             Frames = AllResults;
+            if (AllResults.Count > 1000) AllResults = AllResults[0..1000];
             SetBindingSourceDataSource(AllResults, ResultsSource);
             DGV_Results.SanitizeColumns(this);
 
             SetControlEnabledState(true, sender);
         }).ContinueWith(_ =>
         {
-            if (CB_PlayTone.Checked) System.Media.SystemSounds.Asterisk.Play();
             if (CB_FocusWindow.Checked) ActivateWindow();
+            if (CB_PlayTone.Checked) System.Media.SystemSounds.Asterisk.Play();
+            if (Frames.Count >= 1_000) MessageBox.Show($"Too many results found, displayed results capped at 1000. Please re-run the search with more restrictive filters or a smaller range of advances.");
         });
     }
 
@@ -803,14 +809,16 @@ public partial class MainWindow : Form
             }
 
             Frames = AllResults;
+            if (AllResults.Count > 1000) AllResults = AllResults[0..1000];
             SetBindingSourceDataSource(AllResults, ResultsSource);
             DGV_Results.SanitizeColumns(this);
 
             SetControlEnabledState(true, sender);
         }).ContinueWith(_ =>
         {
-            if (CB_PlayTone.Checked) System.Media.SystemSounds.Asterisk.Play();
             if (CB_FocusWindow.Checked) ActivateWindow();
+            if (CB_PlayTone.Checked) System.Media.SystemSounds.Asterisk.Play();
+            if (Frames.Count >= 1_000) MessageBox.Show($"Too many results found, displayed results capped at 1000. Please re-run the search with more restrictive filters or a smaller range of advances.");
         });
     }
 

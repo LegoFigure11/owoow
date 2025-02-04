@@ -58,7 +58,7 @@ public class Symbol
 
             (uint AuraThreshold, int AuraRolls) = Util.GetBrilliantInfo(config.AuraKOs);
 
-            for (ulong i = start; i <= end; i++)
+            for (ulong i = start; i <= end && frames.Count < 1_000; i++)
             {
                 var os = outer.GetState();
                 var rng = new Xoroshiro128Plus(os.s0, os.s1);
