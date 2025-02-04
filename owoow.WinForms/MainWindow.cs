@@ -69,8 +69,8 @@ public partial class MainWindow : Form
         CenterToScreen();
 
         TB_SwitchIP.Text = Config.IP;
-        TB_TID.Text = $"{Config.TID}";
-        TB_SID.Text = $"{Config.SID}";
+        TB_TID.Text = $"{Config.TID:D5}";
+        TB_SID.Text = $"{Config.SID:D5}";
 
         CB_Game.SelectedIndex = Config.Game;
 
@@ -82,7 +82,7 @@ public partial class MainWindow : Form
 
         SetTextBoxText("0", TB_Seed0, TB_Seed1);
         SetTextBoxText(string.Empty, TB_CurrentAdvances, TB_AdvancesIncrease, TB_CurrentS0, TB_CurrentS1, TB_Wild);
-        SetComboBoxSelectedIndex(0, CB_Filter_Shiny, CB_Filter_Mark, CB_Filter_Aura, CB_Filter_Height, CB_Game);
+        SetComboBoxSelectedIndex(0, CB_Filter_Shiny, CB_Filter_Mark, CB_Filter_Aura, CB_Filter_Height);
 
         TB_Status.Text = "Not Connected.";
         SetAreaOptions();
@@ -1163,11 +1163,15 @@ public partial class MainWindow : Form
         ConnectionConfig.IP = TB_SwitchIP.Text;
     }
 
-    private void ID_TextChanged(object sender, EventArgs e)
+    private void TID_TextChanged(object sender, EventArgs e)
     {
         var tid = int.Parse(TB_TID.Text);
-        var sid = int.Parse(TB_SID.Text);
         Config.TID = tid;
+    }
+
+    private void SID_TextChanged(object sender, EventArgs e)
+    {
+        var sid = int.Parse(TB_SID.Text);
         Config.SID = sid;
     }
 
@@ -1176,11 +1180,23 @@ public partial class MainWindow : Form
         Config.Game = CB_Game.SelectedIndex;
     }
 
-    private void Settings_CheckedChanged(object sender, EventArgs e)
+    private void CB_ShinyCharm_CheckedChanged(object sender, EventArgs e)
     {
         Config.HasShinyCharm = CB_ShinyCharm.Checked;
+    }
+
+    private void CB_MarkCharm_CheckedChanged(object sender, EventArgs e)
+    {
         Config.HasMarkCharm = CB_MarkCharm.Checked;
+    }
+
+    private void CB_PlayTone_CheckedChanged(object sender, EventArgs e)
+    {
         Config.PlayTone = CB_PlayTone.Checked;
+    }
+
+    private void CB_FocusWindow_CheckedChanged(object sender, EventArgs e)
+    {
         Config.FocusWindow = CB_FocusWindow.Checked;
     }
 

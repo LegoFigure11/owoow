@@ -469,7 +469,7 @@
             CB_PlayTone.Tag = "";
             CB_PlayTone.Text = "Play Tone?";
             CB_PlayTone.UseVisualStyleBackColor = true;
-            CB_PlayTone.CheckedChanged += Settings_CheckedChanged;
+            CB_PlayTone.CheckedChanged += CB_PlayTone_CheckedChanged;
             // 
             // CB_FocusWindow
             // 
@@ -482,7 +482,7 @@
             CB_FocusWindow.Tag = "";
             CB_FocusWindow.Text = "Focus Window?";
             CB_FocusWindow.UseVisualStyleBackColor = true;
-            CB_FocusWindow.CheckedChanged += Settings_CheckedChanged;
+            CB_FocusWindow.CheckedChanged += CB_FocusWindow_CheckedChanged;
             // 
             // CB_EnableFilters
             // 
@@ -2614,7 +2614,7 @@
             CB_MarkCharm.TabIndex = 1;
             CB_MarkCharm.Text = "Mark Charm?";
             CB_MarkCharm.UseVisualStyleBackColor = true;
-            CB_MarkCharm.CheckedChanged += Settings_CheckedChanged;
+            CB_MarkCharm.CheckedChanged += CB_MarkCharm_CheckedChanged;
             // 
             // CB_Game
             // 
@@ -2654,7 +2654,7 @@
             TB_SID.Size = new Size(41, 22);
             TB_SID.TabIndex = 3;
             TB_SID.Text = "54321";
-            TB_SID.TextChanged += ID_TextChanged;
+            TB_SID.TextChanged += SID_TextChanged;
             TB_SID.KeyPress += KeyPress_AllowOnlyNumerical;
             // 
             // CB_ShinyCharm
@@ -2668,7 +2668,7 @@
             CB_ShinyCharm.Tag = "";
             CB_ShinyCharm.Text = "Shiny Charm?";
             CB_ShinyCharm.UseVisualStyleBackColor = true;
-            CB_ShinyCharm.CheckedChanged += Settings_CheckedChanged;
+            CB_ShinyCharm.CheckedChanged += CB_ShinyCharm_CheckedChanged;
             // 
             // TB_TID
             // 
@@ -2680,7 +2680,7 @@
             TB_TID.Size = new Size(41, 22);
             TB_TID.TabIndex = 2;
             TB_TID.Text = "12345";
-            TB_TID.TextChanged += ID_TextChanged;
+            TB_TID.TextChanged += TID_TextChanged;
             TB_TID.KeyPress += KeyPress_AllowOnlyNumerical;
             // 
             // DGV_Results

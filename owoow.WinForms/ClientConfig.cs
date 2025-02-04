@@ -11,8 +11,8 @@ public class ClientConfig
     public int Game { get; set; } = 0;
 
     // Fields
-    public int TID { get; set; } = 12345;
-    public int SID { get; set; } = 54321;
+    public int TID { get; set; } = 1337;
+    public int SID { get; set; } = 1390;
     public bool HasShinyCharm { get; set; } = false;
     public bool HasMarkCharm { get; set; } = false;
     public bool FocusWindow { get; set; } = false;
