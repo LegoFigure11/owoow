@@ -1235,7 +1235,7 @@ public partial class MainWindow : Form
         {
             try
             {
-                _ = ConnectionWrapper.DisconnectAsync(Source.Token).Result;
+                _ = ConnectionWrapper.DisconnectAsync(Source.Token).ConfigureAwait(false);
             }
             catch
             {
