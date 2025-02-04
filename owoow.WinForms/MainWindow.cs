@@ -68,7 +68,16 @@ public partial class MainWindow : Form
     {
         CenterToScreen();
 
-        TB_SwitchIP.Text = Config.IP;
+        if (Config.Protocol is SwitchProtocol.WiFi)
+        {
+            TB_SwitchIP.Text = Config.IP;
+        }
+        else
+        {
+            L_SwitchIP.Text = "USB Port:";
+            TB_SwitchIP.Text = $"{Config.UsbPort}";
+        }
+
         TB_TID.Text = $"{Config.TID:D5}";
         TB_SID.Text = $"{Config.SID:D5}";
 
@@ -1159,8 +1168,22 @@ public partial class MainWindow : Form
 
     private void TB_SwitchIP_TextChanged(object sender, EventArgs e)
     {
-        Config.IP = TB_SwitchIP.Text;
-        ConnectionConfig.IP = TB_SwitchIP.Text;
+        if (Config.Protocol is SwitchProtocol.WiFi)
+        {
+            Config.IP = TB_SwitchIP.Text;
+            ConnectionConfig.IP = TB_SwitchIP.Text;
+        }
+        else
+        {
+            if (int.TryParse(TB_SwitchIP.Text, out int port) && port >= 0)
+            {
+                Config.UsbPort = port;
+                ConnectionConfig.Port = port;
+                return;
+            }
+
+            MessageBox.Show("Please enter a valid numerical USB port.");
+        }
     }
 
     private void TID_TextChanged(object sender, EventArgs e)

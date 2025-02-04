@@ -8,11 +8,15 @@ namespace owoow.Core.Connection;
 
 public class ConnectionWrapperAsync(SwitchConnectionConfig Config, Action<string> StatusUpdate) : Offsets
 {
-    public readonly ISwitchConnectionAsync Connection = new SwitchSocketAsync(Config); // No USB Support for now, but can easily add here
+    public readonly ISwitchConnectionAsync Connection = Config.Protocol switch
+    {
+        SwitchProtocol.USB => new SwitchUSBAsync(Config.Port),
+        _ => new SwitchSocketAsync(Config),
+    };
 
     public bool Connected => IsConnected;
     private bool IsConnected { get; set; }
-    private readonly bool CRLF = true; // false if USB, not implemented
+    private readonly bool CRLF = Config.Protocol is SwitchProtocol.WiFi;
 
     private readonly SAV8SWSH sav = new();
 
