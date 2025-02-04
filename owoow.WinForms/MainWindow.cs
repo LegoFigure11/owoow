@@ -11,6 +11,7 @@ using PKHeX.Drawing.PokeSprite;
 using SysBot.Base;
 using System.Globalization;
 using System.Text;
+using System.Text.Json;
 using static owoow.Core.Encounters;
 using static owoow.Core.RNG.FilterUtil;
 using static owoow.Core.RNG.Util;
@@ -20,10 +21,10 @@ namespace owoow.WinForms;
 public partial class MainWindow : Form
 {
     private static CancellationTokenSource Source = new();
-    private static readonly CancellationTokenSource AdvanceSource = new();
+    private static CancellationTokenSource AdvanceSource = new();
     private static readonly Lock _connectLock = new();
 
-    //private readonly ClientConfig Config;
+    private readonly ClientConfig Config;
     private ConnectionWrapperAsync ConnectionWrapper = default!;
     private readonly SwitchConnectionConfig ConnectionConfig;
 
@@ -41,11 +42,23 @@ public partial class MainWindow : Form
 
     public MainWindow()
     {
+        Config = new ClientConfig();
+        var configPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "config.json");
+        if (File.Exists(configPath))
+        {
+            var text = File.ReadAllText(configPath);
+            Config = JsonSerializer.Deserialize<ClientConfig>(text)!;
+        }
+        else
+        {
+            Config = new();
+        }
+
         ConnectionConfig = new()
         {
-            IP = "192.168.0.0", // Config.IP,
-            Port = 6000, // protocol is SwitchProtocol.WiFi ? 6000 : Config.UsbPort,
-            Protocol = SwitchProtocol.WiFi // Config.Protocol,
+            IP = Config.IP,
+            Port = Config.Protocol is SwitchProtocol.WiFi ? 6000 : Config.UsbPort,
+            Protocol = Config.Protocol,
         };
 
         InitializeComponent();
@@ -53,7 +66,19 @@ public partial class MainWindow : Form
 
     private void MainWindow_Load(object sender, EventArgs e)
     {
-        TB_SwitchIP.Text = "192.168.0.0";
+        CenterToScreen();
+
+        TB_SwitchIP.Text = Config.IP;
+        TB_TID.Text = $"{Config.TID}";
+        TB_SID.Text = $"{Config.SID}";
+
+        CB_Game.SelectedIndex = Config.Game;
+
+        CB_ShinyCharm.Checked = Config.HasShinyCharm;
+        CB_MarkCharm.Checked = Config.HasMarkCharm;
+
+        CB_PlayTone.Checked = Config.PlayTone;
+        CB_FocusWindow.Checked = Config.FocusWindow;
 
         SetTextBoxText("0", TB_Seed0, TB_Seed1);
         SetTextBoxText(string.Empty, TB_CurrentAdvances, TB_AdvancesIncrease, TB_CurrentS0, TB_CurrentS1, TB_Wild);
@@ -1074,6 +1099,59 @@ public partial class MainWindow : Form
     {
         SetTextBoxText("0", TB_CurrentAdvances);
         B_CopyToInitial_Click(sender, e);
+    }
+
+    private void TB_SwitchIP_TextChanged(object sender, EventArgs e)
+    {
+        Config.IP = TB_SwitchIP.Text;
+        ConnectionConfig.IP = TB_SwitchIP.Text;
+    }
+
+    private void ID_TextChanged(object sender, EventArgs e)
+    {
+        var tid = int.Parse(TB_TID.Text);
+        var sid = int.Parse(TB_SID.Text);
+        Config.TID = tid;
+        Config.SID = sid;
+    }
+
+    private void CB_Game_SelectedIndexChanged(object sender, EventArgs e)
+    {
+        Config.Game = CB_Game.SelectedIndex;
+    }
+
+    private void Settings_CheckedChanged(object sender, EventArgs e)
+    {
+        Config.HasShinyCharm = CB_ShinyCharm.Checked;
+        Config.HasMarkCharm = CB_MarkCharm.Checked;
+        Config.PlayTone = CB_PlayTone.Checked;
+        Config.FocusWindow = CB_FocusWindow.Checked;
+    }
+
+    private readonly JsonSerializerOptions options = new() { WriteIndented = true };
+    private void MainWindow_FormClosing(object sender, FormClosingEventArgs e)
+    {
+        var configpath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "config.json");
+        string output = JsonSerializer.Serialize(Config, options);
+        using StreamWriter sw = new(configpath);
+        sw.Write(output);
+
+        if (ConnectionWrapper is { Connected: true })
+        {
+            try
+            {
+                _ = ConnectionWrapper.DisconnectAsync(Source.Token).Result;
+            }
+            catch
+            {
+                // ignored
+            }
+        }
+
+        Source.Cancel();
+        AdvanceSource.Cancel();
+        Source = new();
+        AdvanceSource = new();
     }
 
     private void B_RefreshDexRec_Click(object sender, EventArgs e)

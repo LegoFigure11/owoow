@@ -469,6 +469,7 @@
             CB_PlayTone.Tag = "";
             CB_PlayTone.Text = "Play Tone?";
             CB_PlayTone.UseVisualStyleBackColor = true;
+            CB_PlayTone.CheckedChanged += Settings_CheckedChanged;
             // 
             // CB_FocusWindow
             // 
@@ -481,6 +482,7 @@
             CB_FocusWindow.Tag = "";
             CB_FocusWindow.Text = "Focus Window?";
             CB_FocusWindow.UseVisualStyleBackColor = true;
+            CB_FocusWindow.CheckedChanged += Settings_CheckedChanged;
             // 
             // CB_EnableFilters
             // 
@@ -2574,6 +2576,7 @@
             TB_SwitchIP.Size = new Size(111, 22);
             TB_SwitchIP.TabIndex = 0;
             TB_SwitchIP.Text = "123.123.123.123";
+            TB_SwitchIP.TextChanged += TB_SwitchIP_TextChanged;
             TB_SwitchIP.KeyPress += KeyPress_AllowOnlyIP;
             // 
             // GB_SAVInfo
@@ -2611,6 +2614,7 @@
             CB_MarkCharm.TabIndex = 1;
             CB_MarkCharm.Text = "Mark Charm?";
             CB_MarkCharm.UseVisualStyleBackColor = true;
+            CB_MarkCharm.CheckedChanged += Settings_CheckedChanged;
             // 
             // CB_Game
             // 
@@ -2620,6 +2624,7 @@
             CB_Game.Name = "CB_Game";
             CB_Game.Size = new Size(135, 23);
             CB_Game.TabIndex = 4;
+            CB_Game.SelectedIndexChanged += CB_Game_SelectedIndexChanged;
             // 
             // L_SID
             // 
@@ -2649,6 +2654,7 @@
             TB_SID.Size = new Size(41, 22);
             TB_SID.TabIndex = 3;
             TB_SID.Text = "54321";
+            TB_SID.TextChanged += ID_TextChanged;
             TB_SID.KeyPress += KeyPress_AllowOnlyNumerical;
             // 
             // CB_ShinyCharm
@@ -2662,6 +2668,7 @@
             CB_ShinyCharm.Tag = "";
             CB_ShinyCharm.Text = "Shiny Charm?";
             CB_ShinyCharm.UseVisualStyleBackColor = true;
+            CB_ShinyCharm.CheckedChanged += Settings_CheckedChanged;
             // 
             // TB_TID
             // 
@@ -2673,6 +2680,7 @@
             TB_TID.Size = new Size(41, 22);
             TB_TID.TabIndex = 2;
             TB_TID.Text = "12345";
+            TB_TID.TextChanged += ID_TextChanged;
             TB_TID.KeyPress += KeyPress_AllowOnlyNumerical;
             // 
             // DGV_Results
@@ -2989,6 +2997,7 @@
             Name = "MainWindow";
             RightToLeft = RightToLeft.No;
             Text = "owoow (´・ω・`)";
+            FormClosing += MainWindow_FormClosing;
             Load += MainWindow_Load;
             GB_SeedControlsContainer.ResumeLayout(false);
             GB_WildView.ResumeLayout(false);
