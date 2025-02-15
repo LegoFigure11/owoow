@@ -90,6 +90,7 @@ public partial class IDList : Form
         {
             if (!char.IsBetween(c, '0', '9'))
             {
+                System.Media.SystemSounds.Asterisk.Play();
                 e.Handled = true;
             }
         }
