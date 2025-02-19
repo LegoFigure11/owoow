@@ -1329,7 +1329,14 @@ public partial class MainWindow : Form
 
                         readPause = false;
                         SetPictureBoxImage(pk.Sprite(), PB_PokemonSprite);
-                        if (HasRibbon) SetPictureBoxImage(RibbonSpriteUtil.GetRibbonSprite(mark)!, PB_MarkSprite);
+                        if (HasRibbon)
+                        {
+                            SetPictureBoxImage(RibbonSpriteUtil.GetRibbonSprite(mark)!, PB_MarkSprite);
+                        }
+                        else
+                        {
+                            PB_MarkSprite.Image = null;
+                        }
                         SetTextBoxText(output, TB_Wild);
                         SetControlEnabledState(true, B_CopyToFilter);
                     }
