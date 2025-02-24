@@ -22,9 +22,10 @@ public partial class MainWindow : Form
 {
     private static CancellationTokenSource Source = new();
     private static CancellationTokenSource AdvanceSource = new();
+    private static CancellationTokenSource ResetSource = new();
     private static readonly Lock _connectLock = new();
 
-    private readonly ClientConfig Config;
+    public ClientConfig Config;
     private ConnectionWrapperAsync ConnectionWrapper = default!;
     private readonly SwitchConnectionConfig ConnectionConfig;
 
@@ -34,6 +35,7 @@ public partial class MainWindow : Form
     private bool reset;
     private bool readPause = false;
     private bool skipPause = false;
+    private bool resetPause = false;
     private long total;
 
     private List<OverworldFrame> Frames = [];
@@ -202,7 +204,7 @@ public partial class MainWindow : Form
                     return;
                 }
 
-                SetControlEnabledState(true, B_Disconnect, B_CopyToInitial, B_ReadEncounter, B_RefreshDexRec, GB_SwitchControls);
+                SetControlEnabledState(true, B_Disconnect, B_CopyToInitial, B_ReadEncounter, B_RefreshDexRec, GB_SwitchControls, B_SeedSearch);
 
                 UpdateStatus("Monitoring RNG State...");
                 try
@@ -1245,8 +1247,10 @@ public partial class MainWindow : Form
 
         Source.Cancel();
         AdvanceSource.Cancel();
+        ResetSource.Cancel();
         Source = new();
         AdvanceSource = new();
+        ResetSource = new();
     }
 
     private void B_RefreshDexRec_Click(object sender, EventArgs e)
@@ -1562,6 +1566,42 @@ public partial class MainWindow : Form
         }
     }
 
+    public string GetControlText(Control c)
+    {
+        if (InvokeRequired)
+        {
+            return Invoke(() => c.Text);
+        }
+        else return c.Text;
+    }
+
+    public bool GetCheckBoxIsChecked(CheckBox c)
+    {
+        if (InvokeRequired)
+        {
+            return Invoke(() => c.Checked);
+        }
+        else return c.Checked;
+    }
+
+    public uint GetNUDValue(NumericUpDown c)
+    {
+        if (InvokeRequired)
+        {
+            return Invoke(() => (uint)c.Value);
+        }
+        else return (uint)c.Value;
+    }
+
+    public int GetComboBoxSelectedIndex(ComboBox c)
+    {
+        if (InvokeRequired)
+        {
+            return Invoke(() => c.SelectedIndex);
+        }
+        else return c.SelectedIndex;
+    }
+
     private void CB_ConsiderFlying_CheckedChanged(object sender, EventArgs e)
     {
         SetControlEnabledState(((CheckBox)sender).Checked, L_AreaLoad, NUD_AreaLoad, L_FlyNPCs, NUD_FlyNPCs);
@@ -1809,6 +1849,22 @@ public partial class MainWindow : Form
         else
         {
             WailordRespawnForm?.Focus();
+        }
+    }
+
+    public bool SeedSearchFormOpen = false;
+    SeedResetSettings? SeedResetSettingsForm;
+    private void B_SeedSearch_Settings_Click(object sender, EventArgs e)
+    {
+        if (!SeedSearchFormOpen)
+        {
+            SeedSearchFormOpen = true;
+            SeedResetSettingsForm = new SeedResetSettings(ref Config, this);
+            SeedResetSettingsForm?.Show();
+        }
+        else
+        {
+            SeedResetSettingsForm?.Focus();
         }
     }
     #endregion

@@ -1,8 +1,9 @@
-﻿using SysBot.Base;
+﻿using owoow.Core.Interfaces;
+using SysBot.Base;
 
 namespace owoow.WinForms;
 
-public class ClientConfig
+public class ClientConfig : ISeedResetConfig
 {
     // Connection
     public string IP { get; set; } = "192.168.0.0";
@@ -17,4 +18,13 @@ public class ClientConfig
     public bool HasMarkCharm { get; set; } = false;
     public bool FocusWindow { get; set; } = false;
     public bool PlayTone { get; set; } = false;
+
+    // Seed Reset
+    public int ExtraTimeReturnHome { get; set; } = 0;
+    public int ExtraTimeCloseGame { get; set; } = 0;
+
+    public int ExtraTimeLoadProfile { get; set; } = 0;
+    public bool AvoidSystemUpdate { get; set; } = false;
+    public int ExtraTimeCheckDLC { get; set; } = 0;
+    public int ExtraTimeLoadGame { get; set; } = 0;
 }

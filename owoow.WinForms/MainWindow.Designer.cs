@@ -1030,13 +1030,13 @@
             // 
             // B_SeedSearch_Settings
             // 
-            B_SeedSearch_Settings.Enabled = false;
             B_SeedSearch_Settings.Location = new Point(107, 21);
             B_SeedSearch_Settings.Name = "B_SeedSearch_Settings";
             B_SeedSearch_Settings.Size = new Size(98, 25);
             B_SeedSearch_Settings.TabIndex = 1;
             B_SeedSearch_Settings.Text = "Settings";
             B_SeedSearch_Settings.UseVisualStyleBackColor = true;
+            B_SeedSearch_Settings.Click += B_SeedSearch_Settings_Click;
             // 
             // B_SeedSearch
             // 
