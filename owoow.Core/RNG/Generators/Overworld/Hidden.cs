@@ -117,7 +117,8 @@ public class Hidden
                 if (config.AbilityType == AbilityType.TypePulling && table.AbilityTable.Count > 0 && Lead >= 49)
                 {
                     ActiveTable = table.AbilityTable;
-                    EncounterSlot = GenerateEncounterSlot(ref rng, (uint)ActiveTable.Count);
+                    var TableSize = (uint)ActiveTable.Count;
+                    EncounterSlot = TableSize == 1 ? 0 : GenerateEncounterSlot(ref rng, TableSize);
                     EncounterSlotChosen = true;
                 }
                 else
