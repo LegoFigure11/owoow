@@ -1575,6 +1575,15 @@ public partial class MainWindow : Form
         else return c.Text;
     }
 
+    public TabPage? GetTabControlTab(TabControl c)
+    {
+        if (InvokeRequired)
+        {
+            return Invoke(() => c.SelectedTab);
+        }
+        else return c.SelectedTab;
+    }
+
     public bool GetCheckBoxIsChecked(CheckBox c)
     {
         if (InvokeRequired)
@@ -1928,6 +1937,7 @@ public static class Extension
     {
         try
         {
+            var tab = mw.GetTabControlTab(mw.TC_EncounterType);
             foreach (DataGridViewColumn col in dgv.Columns)
             {
                 if (col is not null)
@@ -1939,6 +1949,24 @@ public static class Extension
                         if (fv is null) continue;
                         var vis = string.IsNullOrEmpty(fv.Trim());
                         mw.SetDataGridViewColumnVisibility(!vis, col.Index, dgv);
+                    }
+
+                    if (tab is not null)
+                    {
+                        var text = mw.GetControlText(tab);
+                        if (col.HeaderText is "Step")
+                        {
+                            mw.SetDataGridViewColumnVisibility(text is "Hidden", col.Index, dgv);
+                        }
+
+                        if (col.HeaderText is "Jump")
+                        {
+                            var mc = (CheckBox?)mw.Controls.Find($"CB_{text}_MenuClose", true).FirstOrDefault();
+                            var check = false;
+                            if (mc is not null) check = mc.Checked;
+                            var vis = mw.CB_ConsiderFlying.Checked || mw.CB_ConsiderRain.Checked || check;
+                            mw.SetDataGridViewColumnVisibility(vis, col.Index, dgv);
+                        }
                     }
                 }
             }

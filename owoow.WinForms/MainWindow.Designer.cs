@@ -3088,7 +3088,6 @@
         private Label L_CurrentS0;
         private TextBox TB_CurrentS1;
         private TextBox TB_CurrentS0;
-        private TabControl TC_EncounterType;
         private TabPage TP_Static;
         private TabPage TP_Symbol;
         private TabPage TP_Hidden;
@@ -3166,13 +3165,11 @@
         private BindingSource ResultsSource;
         private Label L_Symbol_NPCs;
         private TextBox TB_Symbol_NPCs;
-        private CheckBox CB_Symbol_MenuClose;
         private CheckBox CB_Symbol_MenuClose_Direction;
         private Button B_Symbol_MenuClose;
         public TextBox TB_CurrentAdvances;
         private Button B_Hidden_MenuClose;
         private CheckBox CB_Hidden_MenuClose_Direction;
-        private CheckBox CB_Hidden_MenuClose;
         private Label L_Hidden_NPCs;
         private TextBox TB_Hidden_NPCs;
         private Label L_Hidden_Advances;
@@ -3191,7 +3188,6 @@
         private ComboBox CB_Hidden_LeadAbility;
         private Button B_Static_MenuClose;
         private CheckBox CB_Static_MenuClose_Direction;
-        private CheckBox CB_Static_MenuClose;
         private Label L_Static_NPCs;
         private TextBox TB_Static_NPCs;
         private Label L_Static_Advances;
@@ -3245,8 +3241,6 @@
         private ComboBox CB_DexRec1;
         private GroupBox GB_Advanced;
         private NumericUpDown NUD_AreaLoad;
-        private CheckBox CB_ConsiderFlying;
-        private CheckBox CB_ConsiderRain;
         private Button B_CalculateRain;
         private Label L_RainTick;
         private NumericUpDown NUD_RainTick;
@@ -3289,7 +3283,6 @@
         private TextBox TB_AnimationLength;
         private Button B_Fishing_MenuClose;
         private CheckBox CB_Fishing_MenuClose_Direction;
-        private CheckBox CB_Fishing_MenuClose;
         private Label L_Fishing_NPCs;
         private TextBox TB_Fishing_NPCs;
         private Label L_Fishing_KOs;
@@ -3308,5 +3301,12 @@
         private TextBox TB_Fishing_Advances;
         private TextBox TB_Fishing_Initial;
         private Label L_Fishing_LeadAbility;
+        public TabControl TC_EncounterType;
+        public CheckBox CB_Static_MenuClose;
+        public CheckBox CB_ConsiderFlying;
+        public CheckBox CB_ConsiderRain;
+        public CheckBox CB_Symbol_MenuClose;
+        public CheckBox CB_Hidden_MenuClose;
+        public CheckBox CB_Fishing_MenuClose;
     }
 }
