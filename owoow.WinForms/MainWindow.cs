@@ -1662,7 +1662,6 @@ public partial class MainWindow : Form
         row.Cells[6].Style.Font = result.Brilliant != 'Y' ? row.DefaultCellStyle.Font : BoldFont;
         row.Cells[17].Style.Font = result.Mark == "None" ? row.DefaultCellStyle.Font : BoldFont;
         row.Cells[20].Style.Font = result.Height is not "XXXL (255)" and not "XXXS (0)" ? row.DefaultCellStyle.Font : BoldFont;
-
     }
     #endregion
 
@@ -1963,8 +1962,8 @@ public static class Extension
                         {
                             var mc = (CheckBox?)mw.Controls.Find($"CB_{text}_MenuClose", true).FirstOrDefault();
                             var check = false;
-                            if (mc is not null) check = mc.Checked;
-                            var vis = mw.CB_ConsiderFlying.Checked || mw.CB_ConsiderRain.Checked || check;
+                            if (mc is not null) check = mw.GetCheckBoxIsChecked(mc);
+                            var vis = mw.GetCheckBoxIsChecked(mw.CB_ConsiderFlying) || mw.GetCheckBoxIsChecked(mw.CB_ConsiderRain) || check;
                             mw.SetDataGridViewColumnVisibility(vis, col.Index, dgv);
                         }
                     }
