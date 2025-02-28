@@ -267,6 +267,10 @@ public partial class MainWindow : Form
                 }
                 await Source.CancelAsync();
                 Source = new();
+                await AdvanceSource.CancelAsync();
+                AdvanceSource = new();
+                await ResetSource.CancelAsync();
+                ResetSource = new();
                 SetControlEnabledState(true, B_Connect);
             },
             token
@@ -1928,6 +1932,179 @@ public partial class MainWindow : Form
         }
     }
     #endregion
+
+    private void B_SeedSearch_Click(object sender, EventArgs e)
+    {
+        var tab = TC_EncounterType.SelectedTab;
+        Task.Run(async () =>
+        {
+            try
+            {
+                skipPause = true;
+                readPause = true;
+                bool found = false;
+                await Task.Delay(150, ResetSource.Token).ConfigureAwait(false);
+                while (ConnectionWrapper.Connected && !ResetSource.IsCancellationRequested && !resetPause && !found)
+                {
+                    ulong prevs0 = 0;
+                    ulong prevs1 = 0;
+                    var (s0, s1) = await ConnectionWrapper.ReadRNGState(ResetSource.Token).ConfigureAwait(false);
+
+                    if (!(s0 == prevs0 && s1 == prevs1))
+                    {
+                        SetTextBoxText($"{s0:X16}", TB_Seed0, TB_CurrentS0);
+                        SetTextBoxText($"{s1:X16}", TB_Seed1, TB_CurrentS1);
+                        SetTextBoxText("0", TB_CurrentAdvances, TB_AdvancesIncrease);
+
+
+                        if (tab != null)
+                        {
+                            var type = tab.Text;
+
+                            var table = new EncounterTable(
+                                GetControlText(CB_Game),
+                                type,
+                                GetControlText((ComboBox)Controls.Find($"CB_{type}_Area", true).FirstOrDefault()!),
+                                GetControlText((ComboBox)Controls.Find($"CB_{type}_Weather", true).FirstOrDefault()!),
+                                GetControlText((ComboBox)Controls.Find($"CB_{type}_LeadAbility", true).FirstOrDefault()!)
+                                );
+
+                            var initial = ulong.Parse(GetControlText((TextBox)Controls.Find($"TB_{type}_Initial", true).FirstOrDefault()!));
+                            var advances = ulong.Parse(GetControlText((TextBox)Controls.Find($"TB_{type}_Advances", true).FirstOrDefault()!));
+
+                            var numTasks = (byte)(advances < 1_000 ? 1 : advances < 50_000 ? 2 : 4);
+                            var interval = advances / numTasks;
+
+                            Core.RNG.GeneratorConfig config = new()
+                            {
+                                TargetSpecies = GetControlText((ComboBox)Controls.Find($"CB_{type}_Species", true).FirstOrDefault()!),
+                                LeadAbility = GetControlText((ComboBox)Controls.Find($"CB_{type}_LeadAbility", true).FirstOrDefault()!),
+
+                                Weather = GetWeatherType(GetControlText((ComboBox)Controls.Find($"CB_{type}_Weather", true).FirstOrDefault()!)),
+
+                                ShinyRolls = GetCheckBoxIsChecked(CB_ShinyCharm) ? 3 : 1,
+                                MarkRolls = GetCheckBoxIsChecked(CB_MarkCharm) ? 3 : 1,
+
+                                TargetShiny = GetFilterShinyType(GetComboBoxSelectedIndex(CB_Filter_Shiny)),
+                                TargetMark = GetFilterMarkype(GetComboBoxSelectedIndex(CB_Filter_Mark)),
+                                TargetScale = GetFilterScaleType(GetComboBoxSelectedIndex(CB_Filter_Height)),
+
+                                TargetMinIVs = [GetNUDValue(NUD_HP_Min), GetNUDValue(NUD_Atk_Min), GetNUDValue(NUD_Def_Min), GetNUDValue(NUD_SpA_Min), GetNUDValue(NUD_SpD_Min), GetNUDValue(NUD_Spe_Min)],
+                                TargetMaxIVs = [GetNUDValue(NUD_HP_Max), GetNUDValue(NUD_Atk_Max), GetNUDValue(NUD_Def_Max), GetNUDValue(NUD_SpA_Max), GetNUDValue(NUD_SpD_Max), GetNUDValue(NUD_Spe_Max)],
+
+                                ConsiderMenuClose = GetCheckBoxIsChecked((CheckBox)Controls.Find($"CB_{type}_MenuClose", true).FirstOrDefault()!),
+                                MenuCloseIsHoldingDirection = GetCheckBoxIsChecked((CheckBox)Controls.Find($"CB_{type}_MenuClose_Direction", true).FirstOrDefault()!),
+                                MenuCloseNPCs = uint.Parse(GetControlText((TextBox)Controls.Find($"TB_{type}_NPCs", true).FirstOrDefault()!)),
+
+                                ConsiderFly = GetCheckBoxIsChecked(CB_ConsiderFlying),
+                                ConsiderRain = GetCheckBoxIsChecked(CB_ConsiderRain),
+                                AreaLoadAdvances = GetNUDValue(NUD_AreaLoad),
+                                AreaLoadNPCs = GetNUDValue(NUD_FlyNPCs),
+                                RainTicksAreaLoad = GetCheckBoxIsChecked(CB_ConsiderFlying) && GetCheckBoxIsChecked(CB_ConsiderRain) ? GetNUDValue(NUD_RainTick) : 0,
+                                RainTicksEncounter = GetCheckBoxIsChecked(CB_ConsiderFlying) && GetCheckBoxIsChecked(CB_ConsiderRain) ? 0 : GetNUDValue(NUD_RainTick),
+
+                                FiltersEnabled = true,
+
+                                TID = uint.Parse(GetControlText(TB_TID)),
+                                SID = uint.Parse(GetControlText(TB_SID)),
+                            };
+
+                            var rng = new Xoroshiro128Plus(s0, s1);
+
+                            for (ulong i = 0; i < initial; i++) rng.Next();
+
+                            List<OverworldFrame>[] results = [];
+
+                            List<Task<List<OverworldFrame>>> tasks = [];
+                            for (byte i = 0; i < numTasks; i++)
+                            {
+                                var last = i == numTasks - 1;
+
+                                var (_s0, _s1) = rng.GetState();
+                                var start = initial + (i * interval);
+                                var end = initial + (interval * (i + (uint)1)) - 1;
+
+                                if (last) end += advances % interval;
+
+                                var t = type switch
+                                {
+                                    "Static" => Static.Generate(_s0, _s1, table, start, end, config),
+                                    "Symbol" => Symbol.Generate(_s0, _s1, table, start, end, config),
+                                    "Fishing" => Fishing.Generate(_s0, _s1, table, start, end, config),
+                                    _ => Hidden.Generate(_s0, _s1, table, start, end, config),
+                                };
+
+                                tasks.Add(t);
+
+                                if (!last)
+                                {
+                                    for (ulong j = 0; j < interval; j++)
+                                    {
+                                        rng.Next();
+                                    }
+                                }
+                            }
+
+                            await Task.Run(async () =>
+                            {
+                                results = await Task.WhenAll(tasks);
+                                List<OverworldFrame> AllResults = [];
+                                foreach (var result in results)
+                                {
+                                    AllResults.AddRange(result);
+                                }
+
+                                Frames = AllResults;
+                                if (AllResults.Count > 0) found = true;
+                                if (AllResults.Count > 1000) AllResults = AllResults[0..1000];
+                                //AllResults.Sort();
+                                SetBindingSourceDataSource(AllResults, ResultsSource);
+                                DGV_Results.SanitizeColumns(this);
+                            }).ConfigureAwait(false);
+                        }
+                    }
+                    else
+                    {
+                        await Task.Delay(5_000, ResetSource.Token).ConfigureAwait(false);
+                    }
+
+                    prevs0 = s0;
+                    prevs1 = s1;
+
+                    if (!found && Config is ISeedResetConfig cfg)
+                    {
+                        await ConnectionWrapper.CloseGame(cfg, ResetSource.Token).ConfigureAwait(false);
+                        await ConnectionWrapper.OpenGame(cfg, ResetSource.Token).ConfigureAwait(false);
+                    }
+
+                    if (found)
+                    {
+                        if (GetCheckBoxIsChecked(CB_FocusWindow)) ActivateWindow();
+                        if (GetCheckBoxIsChecked(CB_PlayTone)) System.Media.SystemSounds.Asterisk.Play();
+                        await ConnectionWrapper.PressHome(ResetSource.Token).ConfigureAwait(false); ;
+                        await Task.Delay(100, ResetSource.Token).ConfigureAwait(false);
+                        Disconnect(ResetSource.Token);
+                        if (Frames.Count >= 1_000) MessageBox.Show($"Too many results found, displayed results capped at 1000. Please re-run the search with more restrictive filters or a smaller range of advances.");
+                        MessageBox.Show("Seed result found! Disconnected Switch.");
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                readPause = false;
+                skipPause = false;
+                resetPause = false;
+                reset = true;
+                this.DisplayMessageBox($"Error occurred during Seed Reset routine: {ex.Message}");
+                return;
+            }
+
+            readPause = false;
+            skipPause = false;
+            resetPause = false;
+            reset = true;
+        });
+    }
 }
 
 public static class Extension

@@ -1047,6 +1047,7 @@
             B_SeedSearch.TabIndex = 0;
             B_SeedSearch.Text = "Reset for Seed";
             B_SeedSearch.UseVisualStyleBackColor = true;
+            B_SeedSearch.Click += B_SeedSearch_Click;
             // 
             // GB_Retail
             // 
