@@ -9,6 +9,7 @@ using PKHeX.Core;
 using PKHeX.Drawing.Misc;
 using PKHeX.Drawing.PokeSprite;
 using SysBot.Base;
+using System.Diagnostics;
 using System.Globalization;
 using System.Text;
 using System.Text.Json;
@@ -1951,10 +1952,11 @@ public partial class MainWindow : Form
                 readPause = true;
                 bool found = false;
                 await Task.Delay(150, ResetSource.Token).ConfigureAwait(false);
+                bool first = true;
+                var i = 0;
+                var sw = Stopwatch.GetTimestamp();
                 while (ConnectionWrapper.Connected && !ResetSource.IsCancellationRequested && !resetPause && !found)
                 {
-                    await ConnectionWrapper.PressL3(ResetSource.Token).ConfigureAwait(false); // First input doesn't always go through
-
                     ulong prevs0 = 0;
                     ulong prevs1 = 0;
                     var (s0, s1) = await ConnectionWrapper.ReadRNGState(ResetSource.Token).ConfigureAwait(false);
@@ -2082,6 +2084,12 @@ public partial class MainWindow : Form
 
                     if (!found && Config is ISeedResetConfig cfg)
                     {
+                        i++;
+                        if (first)
+                        {
+                            await ConnectionWrapper.PressL3(ResetSource.Token).ConfigureAwait(false); // First input doesn't always go through
+                            first = false;
+                        }
                         await ConnectionWrapper.CloseGame(cfg, ResetSource.Token).ConfigureAwait(false);
                         await ConnectionWrapper.OpenGame(cfg, ResetSource.Token).ConfigureAwait(false);
                     }
@@ -2092,11 +2100,12 @@ public partial class MainWindow : Form
                         SetControlEnabledState(false, B_CancelSkip);
                         if (GetCheckBoxIsChecked(CB_FocusWindow)) ActivateWindow();
                         if (GetCheckBoxIsChecked(CB_PlayTone)) System.Media.SystemSounds.Asterisk.Play();
-                        await ConnectionWrapper.PressHome(ResetSource.Token).ConfigureAwait(false); ;
+                        await ConnectionWrapper.PressHome(ResetSource.Token).ConfigureAwait(false);
+                        var timeSpan = Stopwatch.GetElapsedTime(sw);
                         await Task.Delay(100, ResetSource.Token).ConfigureAwait(false);
                         Disconnect(ResetSource.Token);
                         if (Frames.Count >= 1_000) MessageBox.Show($"Too many results found, displayed results capped at 1000. Please re-run the search with more restrictive filters or a smaller range of advances.");
-                        MessageBox.Show("Seed result found! Disconnected Switch.");
+                        MessageBox.Show($"Seed result found in {i:N0} reset{(i == 1 ? string.Empty : "s")}! Total search time: {timeSpan.Days:00}:{timeSpan.Hours:00}:{timeSpan.Minutes:00}:{timeSpan.Seconds:00}.{System.Environment.NewLine}Disconnecting Switch.");
                     }
                 }
             }
