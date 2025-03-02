@@ -1953,7 +1953,7 @@ public partial class MainWindow : Form
                 bool found = false;
                 await Task.Delay(150, ResetSource.Token).ConfigureAwait(false);
                 bool first = true;
-                var i = 0;
+                var ct = 0;
                 var sw = Stopwatch.GetTimestamp();
                 while (ConnectionWrapper.Connected && !ResetSource.IsCancellationRequested && !resetPause && !found)
                 {
@@ -2084,7 +2084,7 @@ public partial class MainWindow : Form
 
                     if (!found && Config is ISeedResetConfig cfg)
                     {
-                        i++;
+                        ct++;
                         if (first)
                         {
                             await ConnectionWrapper.PressL3(ResetSource.Token).ConfigureAwait(false); // First input doesn't always go through
@@ -2105,7 +2105,7 @@ public partial class MainWindow : Form
                         await Task.Delay(100, ResetSource.Token).ConfigureAwait(false);
                         Disconnect(ResetSource.Token);
                         if (Frames.Count >= 1_000) MessageBox.Show($"Too many results found, displayed results capped at 1000. Please re-run the search with more restrictive filters or a smaller range of advances.");
-                        MessageBox.Show($"Seed result found in {i:N0} reset{(i == 1 ? string.Empty : "s")}! Total search time: {timeSpan.Days:00}:{timeSpan.Hours:00}:{timeSpan.Minutes:00}:{timeSpan.Seconds:00}.{System.Environment.NewLine}Disconnecting Switch.");
+                        MessageBox.Show($"Seed result found in {ct:N0} reset{(ct == 1 ? string.Empty : "s")}! Total search time: {timeSpan.Days:00}:{timeSpan.Hours:00}:{timeSpan.Minutes:00}:{timeSpan.Seconds:00}.{System.Environment.NewLine}Disconnecting Switch.");
                     }
                 }
             }
