@@ -335,7 +335,7 @@ public partial class MainWindow : Form
             {
                 try
                 {
-                    SetControlEnabledState(false, B_SkipAdvance, B_SkipForward, B_SkipBack, B_HoldUp, B_ResetStick);
+                    SetControlEnabledState(false, B_SkipAdvance, B_SkipForward, B_SkipBack, B_HoldUp, B_ResetStick, B_SeedSearch);
                     SetControlEnabledState(true, B_CancelSkip);
                     skipPause = false;
                     var skips = uint.Parse(TB_Skips.Text);
@@ -347,12 +347,12 @@ public partial class MainWindow : Form
                         await Task.Delay(150, AdvanceSource.Token);
                     }
                     SetButtonText("Adv.", B_SkipAdvance);
-                    SetControlEnabledState(true, B_SkipAdvance, B_SkipForward, B_SkipBack, B_HoldUp, B_ResetStick);
+                    SetControlEnabledState(true, B_SkipAdvance, B_SkipForward, B_SkipBack, B_HoldUp, B_ResetStick, B_SeedSearch);
                     SetControlEnabledState(false, B_CancelSkip);
                 }
                 catch (Exception ex)
                 {
-                    SetControlEnabledState(true, B_SkipAdvance, B_SkipForward, B_SkipBack, B_HoldUp, B_ResetStick);
+                    SetControlEnabledState(true, B_SkipAdvance, B_SkipForward, B_SkipBack, B_HoldUp, B_ResetStick, B_SeedSearch);
                     SetControlEnabledState(false, B_CancelSkip);
                     this.DisplayMessageBox(ex.Message);
                 }
@@ -363,6 +363,11 @@ public partial class MainWindow : Form
     private void B_CancelSkip_Click(object sender, EventArgs e)
     {
         skipPause = true;
+        resetPause = true;
+        AdvanceSource.Cancel();
+        ResetSource.Cancel();
+        AdvanceSource = new();
+        ResetSource = new();
     }
 
     private void B_SkipForward_Click(object sender, EventArgs e)
@@ -372,7 +377,7 @@ public partial class MainWindow : Form
             {
                 try
                 {
-                    SetControlEnabledState(false, B_SkipAdvance, B_SkipForward, B_SkipBack, B_HoldUp, B_ResetStick);
+                    SetControlEnabledState(false, B_SkipAdvance, B_SkipForward, B_SkipBack, B_HoldUp, B_ResetStick, B_SeedSearch);
                     SetControlEnabledState(true, B_CancelSkip);
                     skipPause = false;
                     var skips = uint.Parse(TB_Skips.Text);
@@ -384,12 +389,12 @@ public partial class MainWindow : Form
                         await Task.Delay(360, AdvanceSource.Token);
                     }
                     SetButtonText("Days+", B_SkipForward);
-                    SetControlEnabledState(true, B_SkipAdvance, B_SkipForward, B_SkipBack, B_HoldUp, B_ResetStick);
+                    SetControlEnabledState(true, B_SkipAdvance, B_SkipForward, B_SkipBack, B_HoldUp, B_ResetStick, B_SeedSearch);
                     SetControlEnabledState(false, B_CancelSkip);
                 }
                 catch (Exception ex)
                 {
-                    SetControlEnabledState(true, B_SkipAdvance, B_SkipForward, B_SkipBack, B_HoldUp, B_ResetStick);
+                    SetControlEnabledState(true, B_SkipAdvance, B_SkipForward, B_SkipBack, B_HoldUp, B_ResetStick, B_SeedSearch);
                     SetControlEnabledState(false, B_CancelSkip);
                     this.DisplayMessageBox(ex.Message);
                 }
@@ -404,7 +409,7 @@ public partial class MainWindow : Form
             {
                 try
                 {
-                    SetControlEnabledState(false, B_SkipAdvance, B_SkipForward, B_SkipBack, B_HoldUp, B_ResetStick);
+                    SetControlEnabledState(false, B_SkipAdvance, B_SkipForward, B_SkipBack, B_HoldUp, B_ResetStick, B_SeedSearch);
                     SetControlEnabledState(true, B_CancelSkip);
                     skipPause = false;
                     var skips = uint.Parse(TB_Skips.Text);
@@ -416,12 +421,12 @@ public partial class MainWindow : Form
                         await Task.Delay(360, AdvanceSource.Token);
                     }
                     SetButtonText("Days-", B_SkipBack);
-                    SetControlEnabledState(true, B_SkipAdvance, B_SkipForward, B_SkipBack, B_HoldUp, B_ResetStick);
+                    SetControlEnabledState(true, B_SkipAdvance, B_SkipForward, B_SkipBack, B_HoldUp, B_ResetStick, B_SeedSearch);
                     SetControlEnabledState(false, B_CancelSkip);
                 }
                 catch (Exception ex)
                 {
-                    SetControlEnabledState(true, B_SkipAdvance, B_SkipForward, B_SkipBack, B_HoldUp, B_ResetStick);
+                    SetControlEnabledState(true, B_SkipAdvance, B_SkipForward, B_SkipBack, B_HoldUp, B_ResetStick, B_SeedSearch);
                     SetControlEnabledState(false, B_CancelSkip);
                     this.DisplayMessageBox(ex.Message);
                 }
@@ -1940,12 +1945,16 @@ public partial class MainWindow : Form
         {
             try
             {
+                SetControlEnabledState(false, B_SkipAdvance, B_SkipForward, B_SkipBack, B_HoldUp, B_ResetStick, B_SeedSearch);
+                SetControlEnabledState(true, B_CancelSkip);
                 skipPause = true;
                 readPause = true;
                 bool found = false;
                 await Task.Delay(150, ResetSource.Token).ConfigureAwait(false);
                 while (ConnectionWrapper.Connected && !ResetSource.IsCancellationRequested && !resetPause && !found)
                 {
+                    await ConnectionWrapper.PressL3(ResetSource.Token).ConfigureAwait(false); // First input doesn't always go through
+
                     ulong prevs0 = 0;
                     ulong prevs1 = 0;
                     var (s0, s1) = await ConnectionWrapper.ReadRNGState(ResetSource.Token).ConfigureAwait(false);
@@ -2079,6 +2088,8 @@ public partial class MainWindow : Form
 
                     if (found)
                     {
+                        SetControlEnabledState(true, B_SkipAdvance, B_SkipForward, B_SkipBack, B_HoldUp, B_ResetStick, B_SeedSearch);
+                        SetControlEnabledState(false, B_CancelSkip);
                         if (GetCheckBoxIsChecked(CB_FocusWindow)) ActivateWindow();
                         if (GetCheckBoxIsChecked(CB_PlayTone)) System.Media.SystemSounds.Asterisk.Play();
                         await ConnectionWrapper.PressHome(ResetSource.Token).ConfigureAwait(false); ;
@@ -2095,10 +2106,14 @@ public partial class MainWindow : Form
                 skipPause = false;
                 resetPause = false;
                 reset = true;
+                SetControlEnabledState(true, B_SkipAdvance, B_SkipForward, B_SkipBack, B_HoldUp, B_ResetStick, B_SeedSearch);
+                SetControlEnabledState(false, B_CancelSkip);
                 this.DisplayMessageBox($"Error occurred during Seed Reset routine: {ex.Message}");
                 return;
             }
 
+            SetControlEnabledState(true, B_SkipAdvance, B_SkipForward, B_SkipBack, B_HoldUp, B_ResetStick, B_SeedSearch);
+            SetControlEnabledState(false, B_CancelSkip);
             readPause = false;
             skipPause = false;
             resetPause = false;
