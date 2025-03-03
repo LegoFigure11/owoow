@@ -956,6 +956,8 @@ public partial class MainWindow : Form
                 TargetSpecies = ((ComboBox)Controls.Find($"CB_{type}_Species", true).FirstOrDefault()!).Text,
                 LeadAbility = ((ComboBox)Controls.Find($"CB_{type}_LeadAbility", true).FirstOrDefault()!).Text,
 
+                AuraKOs = type is "Symbol" or "Fishing" ? int.Parse(GetControlText((ComboBox)Controls.Find($"TB_{type}_KOs", true).FirstOrDefault()!)) : 0,
+
                 Weather = GetWeatherType(((ComboBox)Controls.Find($"CB_{type}_Weather", true).FirstOrDefault()!).Text),
 
                 ShinyRolls = CB_ShinyCharm.Checked ? 3 : 1,
@@ -2012,6 +2014,8 @@ public partial class MainWindow : Form
                             {
                                 TargetSpecies = GetControlText((ComboBox)Controls.Find($"CB_{type}_Species", true).FirstOrDefault()!),
                                 LeadAbility = GetControlText((ComboBox)Controls.Find($"CB_{type}_LeadAbility", true).FirstOrDefault()!),
+
+                                AuraKOs = type is "Symbol" or "Fishing" ? int.Parse(GetControlText((ComboBox)Controls.Find($"TB_{type}_KOs", true).FirstOrDefault()!)) : 0,
 
                                 Weather = GetWeatherType(GetControlText((ComboBox)Controls.Find($"CB_{type}_Weather", true).FirstOrDefault()!)),
 
