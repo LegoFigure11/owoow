@@ -2139,7 +2139,7 @@ public partial class MainWindow : Form
                 reset = true;
                 SetControlEnabledState(true, B_SkipAdvance, B_SkipForward, B_SkipBack, B_Turbo, B_SeedSearch);
                 SetControlEnabledState(false, B_CancelSkip);
-                this.DisplayMessageBox($"Error occurred during Seed Reset routine: {ex.Message}");
+                if (ex is not TaskCanceledException) this.DisplayMessageBox($"Error occurred during Seed Reset routine: {ex.Message}");
                 return;
             }
 
