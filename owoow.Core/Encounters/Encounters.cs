@@ -165,7 +165,7 @@ public static class Encounters
                     bool found = false;
                     foreach (var entry in value)
                     {
-                        if (entry.Area == area.Key && entry.Weather == "All available" && entry.EncounterType == "Fishing")
+                        if (entry.Area == area.Key && entry.Weather == weather.Key && entry.EncounterType == "Fishing")
                         {
                             entry.EncounterRate += enc.Value.SlotMax - enc.Value.SlotMin + 1;
                             found = true;
@@ -180,7 +180,7 @@ public static class Encounters
                             MinLevel = weather.Value.MinLevel,
                             MaxLevel = weather.Value.MaxLevel,
                             EncounterType = "Fishing",
-                            Weather = "All available",
+                            Weather = weather.Key,
                             Area = area.Key,
                             EncounterRate = enc.Value.SlotMax - enc.Value.SlotMin + 1,
                         });
