@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
-            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainWindow));
             GB_SeedControlsContainer = new GroupBox();
             GB_WildView = new GroupBox();
@@ -95,7 +95,7 @@
             B_SkipAdvance = new Button();
             B_SkipBack = new Button();
             B_SkipForward = new Button();
-            L_Skip = new Label();
+            L_Skips = new Label();
             GB_SeedSearch = new GroupBox();
             B_SeedSearch_Settings = new Button();
             B_SeedSearch = new Button();
@@ -916,7 +916,7 @@
             GB_SwitchControls.Controls.Add(B_SkipAdvance);
             GB_SwitchControls.Controls.Add(B_SkipBack);
             GB_SwitchControls.Controls.Add(B_SkipForward);
-            GB_SwitchControls.Controls.Add(L_Skip);
+            GB_SwitchControls.Controls.Add(L_Skips);
             GB_SwitchControls.Location = new Point(1054, 9);
             GB_SwitchControls.Name = "GB_SwitchControls";
             GB_SwitchControls.Size = new Size(212, 105);
@@ -1014,15 +1014,15 @@
             B_SkipForward.UseVisualStyleBackColor = true;
             B_SkipForward.Click += B_SkipForward_Click;
             // 
-            // L_Skip
+            // L_Skips
             // 
-            L_Skip.AutoSize = true;
-            L_Skip.Enabled = false;
-            L_Skip.Location = new Point(19, 22);
-            L_Skip.Name = "L_Skip";
-            L_Skip.Size = new Size(32, 15);
-            L_Skip.TabIndex = 0;
-            L_Skip.Text = "Skip:";
+            L_Skips.AutoSize = true;
+            L_Skips.Enabled = false;
+            L_Skips.Location = new Point(19, 22);
+            L_Skips.Name = "L_Skips";
+            L_Skips.Size = new Size(32, 15);
+            L_Skips.TabIndex = 0;
+            L_Skips.Text = "Skip:";
             // 
             // GB_SeedSearch
             // 
@@ -2694,9 +2694,9 @@
             // 
             DGV_Results.AllowUserToAddRows = false;
             DGV_Results.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle1.BackColor = Color.WhiteSmoke;
-            dataGridViewCellStyle1.ForeColor = Color.Black;
-            DGV_Results.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.BackColor = Color.WhiteSmoke;
+            dataGridViewCellStyle2.ForeColor = Color.Black;
+            DGV_Results.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle2;
             DGV_Results.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             DGV_Results.AutoGenerateColumns = false;
             DGV_Results.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -3256,7 +3256,7 @@
         private Label L_FlyNPCs;
         private NumericUpDown NUD_FlyNPCs;
         private Button B_SkipForward;
-        private Label L_Skip;
+        private Label L_Skips;
         private TextBox TB_Skips;
         private Button B_NTP;
         private Button B_SkipAdvance;

@@ -205,7 +205,7 @@ public partial class MainWindow : Form
                     return;
                 }
 
-                SetControlEnabledState(true, B_Disconnect, B_CopyToInitial, B_ReadEncounter, B_RefreshDexRec, B_SkipAdvance, B_SkipForward, B_SkipBack, B_Turbo, B_NTP, B_SeedSearch);
+                SetControlEnabledState(true, B_Disconnect, B_CopyToInitial, B_ReadEncounter, B_RefreshDexRec, B_SkipAdvance, B_SkipForward, B_SkipBack, B_Turbo, B_NTP, L_Skips, TB_Skips, B_SeedSearch);
 
                 UpdateStatus("Monitoring RNG State...");
                 try
@@ -306,6 +306,7 @@ public partial class MainWindow : Form
                     SetControlEnabledState(true, B_CancelSkip);
                     skipPause = false;
                     var i = 0;
+                    var loops = 0;
                     if (Config.TurboSequence.Count > 0)
                     {
                         do
@@ -313,7 +314,8 @@ public partial class MainWindow : Form
                             if (!AdvanceSource.IsCancellationRequested) await ConnectionWrapper.DoTurboCommand(Config.TurboSequence[i], AdvanceSource.Token).ConfigureAwait(false);
                             i = (i + 1) % Config.TurboSequence.Count;
                             if (!AdvanceSource.IsCancellationRequested) await Task.Delay(200, AdvanceSource.Token).ConfigureAwait(false);
-                        } while (!AdvanceSource.IsCancellationRequested && Config.LoopTurbo && !skipPause && Config.TurboSequence.Count > 0);
+                            if (i == 0) loops++;
+                        } while (!AdvanceSource.IsCancellationRequested && (Config.LoopTurbo || loops == 0) && !skipPause && Config.TurboSequence.Count > 0);
                     }
                     SetControlEnabledState(true, B_SkipAdvance, B_SkipForward, B_SkipBack, B_Turbo, B_SeedSearch);
                     SetControlEnabledState(false, B_CancelSkip);
