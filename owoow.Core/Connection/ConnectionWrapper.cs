@@ -130,9 +130,48 @@ public class ConnectionWrapperAsync(SwitchConnectionConfig Config, Action<string
         await Connection.SendAsync(Click(LSTICK, CRLF), token).ConfigureAwait(false);
     }
 
-    public async Task HoldUp(CancellationToken token)
+    public async Task DoTurboCommand(string command, CancellationToken token)
     {
-        await Connection.SendAsync(SetStick(SwitchStick.LEFT, 0, 30000, CRLF), token);
+        if (command is "Wait (100ms)") await Task.Delay(100, token).ConfigureAwait(false);
+        else if (command is "Wait (500ms)") await Task.Delay(500, token).ConfigureAwait(false);
+        else if (command is "Wait (1000ms)") await Task.Delay(1_000, token).ConfigureAwait(false);
+        else
+        {
+            _ = command switch
+            {
+                "A" => await Connection.SendAsync(Click(A, CRLF), token).ConfigureAwait(false),
+                "B" => await Connection.SendAsync(Click(B, CRLF), token).ConfigureAwait(false),
+                "X" => await Connection.SendAsync(Click(X, CRLF), token).ConfigureAwait(false),
+                "Y" => await Connection.SendAsync(Click(Y, CRLF), token).ConfigureAwait(false),
+
+                "Left Stick (L3)" => await Connection.SendAsync(Click(LSTICK, CRLF), token).ConfigureAwait(false),
+                "Right Stick (R3)" => await Connection.SendAsync(Click(RSTICK, CRLF), token).ConfigureAwait(false),
+
+                "L" => await Connection.SendAsync(Click(L, CRLF), token).ConfigureAwait(false),
+                "R" => await Connection.SendAsync(Click(R, CRLF), token).ConfigureAwait(false),
+                "ZL" => await Connection.SendAsync(Click(ZL, CRLF), token).ConfigureAwait(false),
+                "ZR" => await Connection.SendAsync(Click(ZR, CRLF), token).ConfigureAwait(false),
+
+                "+" => await Connection.SendAsync(Click(PLUS, CRLF), token).ConfigureAwait(false),
+                "-" => await Connection.SendAsync(Click(MINUS, CRLF), token).ConfigureAwait(false),
+
+                "Up (Hold)" => await Connection.SendAsync(SetStick(SwitchStick.LEFT, 0, 30000, CRLF), token).ConfigureAwait(false),
+                "Down (Hold)" => await Connection.SendAsync(SetStick(SwitchStick.LEFT, 0, -30000, CRLF), token).ConfigureAwait(false),
+                "Left (Hold)" => await Connection.SendAsync(SetStick(SwitchStick.LEFT, -30000, 0, CRLF), token).ConfigureAwait(false),
+                "Right (Hold)" => await Connection.SendAsync(SetStick(SwitchStick.LEFT, 30000, 0, CRLF), token).ConfigureAwait(false),
+                "Release Stick" => await Connection.SendAsync(SwitchCommand.ResetStick(SwitchStick.LEFT, CRLF), token).ConfigureAwait(false),
+
+                "D-Pad Up" => await Connection.SendAsync(Click(DUP, CRLF), token).ConfigureAwait(false),
+                "D-Pad Down" => await Connection.SendAsync(Click(DDOWN, CRLF), token).ConfigureAwait(false),
+                "D-Pad Left" => await Connection.SendAsync(Click(DLEFT, CRLF), token).ConfigureAwait(false),
+                "D-Pad Right" => await Connection.SendAsync(Click(DRIGHT, CRLF), token).ConfigureAwait(false),
+
+                "HOME" => await Connection.SendAsync(Click(HOME, CRLF), token).ConfigureAwait(false),
+                "Screenshot" => await Connection.SendAsync(Click(CAPTURE, CRLF), token).ConfigureAwait(false),
+
+                _ => throw new NotImplementedException(),
+            };
+        }
     }
 
     public async Task PressHome(CancellationToken token)

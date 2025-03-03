@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
-            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainWindow));
             GB_SeedControlsContainer = new GroupBox();
             GB_WildView = new GroupBox();
@@ -88,8 +88,8 @@
             NUD_HP_Min = new NumericUpDown();
             GB_SwitchControls = new GroupBox();
             B_CancelSkip = new Button();
-            B_ResetStick = new Button();
-            B_HoldUp = new Button();
+            B_TurboSettings = new Button();
+            B_Turbo = new Button();
             TB_Skips = new TextBox();
             B_NTP = new Button();
             B_SkipAdvance = new Button();
@@ -909,15 +909,14 @@
             // GB_SwitchControls
             // 
             GB_SwitchControls.Controls.Add(B_CancelSkip);
-            GB_SwitchControls.Controls.Add(B_ResetStick);
-            GB_SwitchControls.Controls.Add(B_HoldUp);
+            GB_SwitchControls.Controls.Add(B_TurboSettings);
+            GB_SwitchControls.Controls.Add(B_Turbo);
             GB_SwitchControls.Controls.Add(TB_Skips);
             GB_SwitchControls.Controls.Add(B_NTP);
             GB_SwitchControls.Controls.Add(B_SkipAdvance);
             GB_SwitchControls.Controls.Add(B_SkipBack);
             GB_SwitchControls.Controls.Add(B_SkipForward);
             GB_SwitchControls.Controls.Add(L_Skip);
-            GB_SwitchControls.Enabled = false;
             GB_SwitchControls.Location = new Point(1054, 9);
             GB_SwitchControls.Name = "GB_SwitchControls";
             GB_SwitchControls.Size = new Size(212, 105);
@@ -936,29 +935,31 @@
             B_CancelSkip.UseVisualStyleBackColor = true;
             B_CancelSkip.Click += B_CancelSkip_Click;
             // 
-            // B_ResetStick
+            // B_TurboSettings
             // 
-            B_ResetStick.Location = new Point(107, 73);
-            B_ResetStick.Name = "B_ResetStick";
-            B_ResetStick.Size = new Size(98, 25);
-            B_ResetStick.TabIndex = 7;
-            B_ResetStick.Text = "Reset Stick";
-            B_ResetStick.UseVisualStyleBackColor = true;
-            B_ResetStick.Click += B_ResetStick_Click;
+            B_TurboSettings.Location = new Point(107, 73);
+            B_TurboSettings.Name = "B_TurboSettings";
+            B_TurboSettings.Size = new Size(98, 25);
+            B_TurboSettings.TabIndex = 7;
+            B_TurboSettings.Text = "Turbo Controls";
+            B_TurboSettings.UseVisualStyleBackColor = true;
+            B_TurboSettings.Click += B_TurboSettings_Click;
             // 
-            // B_HoldUp
+            // B_Turbo
             // 
-            B_HoldUp.Location = new Point(7, 73);
-            B_HoldUp.Name = "B_HoldUp";
-            B_HoldUp.Size = new Size(98, 25);
-            B_HoldUp.TabIndex = 6;
-            B_HoldUp.Text = "Hold Up";
-            B_HoldUp.UseVisualStyleBackColor = true;
-            B_HoldUp.Click += B_HoldUp_Click;
+            B_Turbo.Enabled = false;
+            B_Turbo.Location = new Point(7, 73);
+            B_Turbo.Name = "B_Turbo";
+            B_Turbo.Size = new Size(98, 25);
+            B_Turbo.TabIndex = 6;
+            B_Turbo.Text = "Turbo";
+            B_Turbo.UseVisualStyleBackColor = true;
+            B_Turbo.Click += B_Turbo_Click;
             // 
             // TB_Skips
             // 
             TB_Skips.CharacterCasing = CharacterCasing.Upper;
+            TB_Skips.Enabled = false;
             TB_Skips.Font = new Font("Consolas", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             TB_Skips.Location = new Point(57, 20);
             TB_Skips.MaxLength = 5;
@@ -971,6 +972,7 @@
             // 
             // B_NTP
             // 
+            B_NTP.Enabled = false;
             B_NTP.Location = new Point(157, 46);
             B_NTP.Name = "B_NTP";
             B_NTP.Size = new Size(48, 25);
@@ -981,6 +983,7 @@
             // 
             // B_SkipAdvance
             // 
+            B_SkipAdvance.Enabled = false;
             B_SkipAdvance.Location = new Point(107, 46);
             B_SkipAdvance.Name = "B_SkipAdvance";
             B_SkipAdvance.Size = new Size(48, 25);
@@ -991,6 +994,7 @@
             // 
             // B_SkipBack
             // 
+            B_SkipBack.Enabled = false;
             B_SkipBack.Location = new Point(57, 46);
             B_SkipBack.Name = "B_SkipBack";
             B_SkipBack.Size = new Size(48, 25);
@@ -1001,6 +1005,7 @@
             // 
             // B_SkipForward
             // 
+            B_SkipForward.Enabled = false;
             B_SkipForward.Location = new Point(7, 46);
             B_SkipForward.Name = "B_SkipForward";
             B_SkipForward.Size = new Size(48, 25);
@@ -1012,6 +1017,7 @@
             // L_Skip
             // 
             L_Skip.AutoSize = true;
+            L_Skip.Enabled = false;
             L_Skip.Location = new Point(19, 22);
             L_Skip.Name = "L_Skip";
             L_Skip.Size = new Size(32, 15);
@@ -2688,9 +2694,9 @@
             // 
             DGV_Results.AllowUserToAddRows = false;
             DGV_Results.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle1.BackColor = Color.WhiteSmoke;
-            dataGridViewCellStyle1.ForeColor = Color.Black;
-            DGV_Results.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.BackColor = Color.WhiteSmoke;
+            dataGridViewCellStyle2.ForeColor = Color.Black;
+            DGV_Results.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle2;
             DGV_Results.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             DGV_Results.AutoGenerateColumns = false;
             DGV_Results.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -3255,8 +3261,8 @@
         private Button B_NTP;
         private Button B_SkipAdvance;
         private Button B_SkipBack;
-        private Button B_ResetStick;
-        private Button B_HoldUp;
+        private Button B_TurboSettings;
+        private Button B_Turbo;
         private Button B_CancelSkip;
         private PictureBox PB_MarkSprite;
         private GroupBox GB_Retail;

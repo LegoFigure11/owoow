@@ -3,7 +3,7 @@ using SysBot.Base;
 
 namespace owoow.WinForms;
 
-public class ClientConfig : ISeedResetConfig
+public class ClientConfig : ISeedResetConfig, ITurboConfig
 {
     // Connection
     public string IP { get; set; } = "192.168.0.0";
@@ -27,4 +27,8 @@ public class ClientConfig : ISeedResetConfig
     public bool AvoidSystemUpdate { get; set; } = false;
     public int ExtraTimeCheckDLC { get; set; } = 0;
     public int ExtraTimeLoadGame { get; set; } = 0;
+
+    // Turbo
+    public bool LoopTurbo { get; set; } = false;
+    public List<string> TurboSequence { get; set; } = [];
 }

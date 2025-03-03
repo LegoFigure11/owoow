@@ -205,7 +205,7 @@ public partial class MainWindow : Form
                     return;
                 }
 
-                SetControlEnabledState(true, B_Disconnect, B_CopyToInitial, B_ReadEncounter, B_RefreshDexRec, GB_SwitchControls, B_SeedSearch);
+                SetControlEnabledState(true, B_Disconnect, B_CopyToInitial, B_ReadEncounter, B_RefreshDexRec, B_SkipAdvance, B_SkipForward, B_SkipBack, B_Turbo, B_NTP, B_SeedSearch);
 
                 UpdateStatus("Monitoring RNG State...");
                 try
@@ -295,35 +295,34 @@ public partial class MainWindow : Form
         );
     }
 
-    private void B_ResetStick_Click(object sender, EventArgs e)
+    private void B_Turbo_Click(object sender, EventArgs e)
     {
         Task.Run(
             async () =>
             {
                 try
                 {
-                    await ConnectionWrapper.ResetStick(Source.Token);
+                    SetControlEnabledState(false, B_SkipAdvance, B_SkipForward, B_SkipBack, B_Turbo, B_SeedSearch);
+                    SetControlEnabledState(true, B_CancelSkip);
+                    skipPause = false;
+                    var i = 0;
+                    if (Config.TurboSequence.Count > 0)
+                    {
+                        do
+                        {
+                            if (!AdvanceSource.IsCancellationRequested) await ConnectionWrapper.DoTurboCommand(Config.TurboSequence[i], AdvanceSource.Token).ConfigureAwait(false);
+                            i = (i + 1) % Config.TurboSequence.Count;
+                            if (!AdvanceSource.IsCancellationRequested) await Task.Delay(200, AdvanceSource.Token).ConfigureAwait(false);
+                        } while (!AdvanceSource.IsCancellationRequested && Config.LoopTurbo && !skipPause && Config.TurboSequence.Count > 0);
+                    }
+                    SetControlEnabledState(true, B_SkipAdvance, B_SkipForward, B_SkipBack, B_Turbo, B_SeedSearch);
+                    SetControlEnabledState(false, B_CancelSkip);
                 }
                 catch (Exception ex)
                 {
-                    this.DisplayMessageBox(ex.Message);
-                }
-            }
-        );
-    }
-
-    private void B_HoldUp_Click(object sender, EventArgs e)
-    {
-        Task.Run(
-            async () =>
-            {
-                try
-                {
-                    await ConnectionWrapper.HoldUp(Source.Token);
-                }
-                catch (Exception ex)
-                {
-                    this.DisplayMessageBox(ex.Message);
+                    SetControlEnabledState(true, B_SkipAdvance, B_SkipForward, B_SkipBack, B_Turbo, B_SeedSearch);
+                    SetControlEnabledState(false, B_CancelSkip);
+                    if (ex is not OperationCanceledException) this.DisplayMessageBox(ex.Message);
                 }
             }
         );
@@ -336,7 +335,7 @@ public partial class MainWindow : Form
             {
                 try
                 {
-                    SetControlEnabledState(false, B_SkipAdvance, B_SkipForward, B_SkipBack, B_HoldUp, B_ResetStick, B_SeedSearch);
+                    SetControlEnabledState(false, B_SkipAdvance, B_SkipForward, B_SkipBack, B_Turbo, B_SeedSearch);
                     SetControlEnabledState(true, B_CancelSkip);
                     skipPause = false;
                     var skips = uint.Parse(TB_Skips.Text);
@@ -348,20 +347,21 @@ public partial class MainWindow : Form
                         await Task.Delay(150, AdvanceSource.Token);
                     }
                     SetButtonText("Adv.", B_SkipAdvance);
-                    SetControlEnabledState(true, B_SkipAdvance, B_SkipForward, B_SkipBack, B_HoldUp, B_ResetStick, B_SeedSearch);
+                    SetControlEnabledState(true, B_SkipAdvance, B_SkipForward, B_SkipBack, B_Turbo, B_SeedSearch);
                     SetControlEnabledState(false, B_CancelSkip);
                 }
                 catch (Exception ex)
                 {
-                    SetControlEnabledState(true, B_SkipAdvance, B_SkipForward, B_SkipBack, B_HoldUp, B_ResetStick, B_SeedSearch);
+                    SetControlEnabledState(true, B_SkipAdvance, B_SkipForward, B_SkipBack, B_Turbo, B_SeedSearch);
                     SetControlEnabledState(false, B_CancelSkip);
-                    this.DisplayMessageBox(ex.Message);
+                    SetButtonText("Adv.", B_SkipAdvance);
+                    if (ex is not OperationCanceledException) this.DisplayMessageBox(ex.Message);
                 }
             }
         );
     }
 
-    private void B_CancelSkip_Click(object sender, EventArgs e)
+    private async void B_CancelSkip_Click(object sender, EventArgs e)
     {
         skipPause = true;
         resetPause = true;
@@ -369,6 +369,10 @@ public partial class MainWindow : Form
         ResetSource.Cancel();
         AdvanceSource = new();
         ResetSource = new();
+        try
+        {
+            if (ConnectionWrapper is { Connected: true }) await ConnectionWrapper.ResetStick(AdvanceSource.Token);
+        } catch { }
     }
 
     private void B_SkipForward_Click(object sender, EventArgs e)
@@ -378,7 +382,7 @@ public partial class MainWindow : Form
             {
                 try
                 {
-                    SetControlEnabledState(false, B_SkipAdvance, B_SkipForward, B_SkipBack, B_HoldUp, B_ResetStick, B_SeedSearch);
+                    SetControlEnabledState(false, B_SkipAdvance, B_SkipForward, B_SkipBack, B_Turbo, B_SeedSearch);
                     SetControlEnabledState(true, B_CancelSkip);
                     skipPause = false;
                     var skips = uint.Parse(TB_Skips.Text);
@@ -390,14 +394,15 @@ public partial class MainWindow : Form
                         await Task.Delay(360, AdvanceSource.Token);
                     }
                     SetButtonText("Days+", B_SkipForward);
-                    SetControlEnabledState(true, B_SkipAdvance, B_SkipForward, B_SkipBack, B_HoldUp, B_ResetStick, B_SeedSearch);
+                    SetControlEnabledState(true, B_SkipAdvance, B_SkipForward, B_SkipBack, B_Turbo, B_SeedSearch);
                     SetControlEnabledState(false, B_CancelSkip);
                 }
                 catch (Exception ex)
                 {
-                    SetControlEnabledState(true, B_SkipAdvance, B_SkipForward, B_SkipBack, B_HoldUp, B_ResetStick, B_SeedSearch);
+                    SetControlEnabledState(true, B_SkipAdvance, B_SkipForward, B_SkipBack, B_Turbo, B_SeedSearch);
                     SetControlEnabledState(false, B_CancelSkip);
-                    this.DisplayMessageBox(ex.Message);
+                    SetButtonText("Days+", B_SkipForward);
+                    if (ex is not OperationCanceledException) this.DisplayMessageBox(ex.Message);
                 }
             }
         );
@@ -410,7 +415,7 @@ public partial class MainWindow : Form
             {
                 try
                 {
-                    SetControlEnabledState(false, B_SkipAdvance, B_SkipForward, B_SkipBack, B_HoldUp, B_ResetStick, B_SeedSearch);
+                    SetControlEnabledState(false, B_SkipAdvance, B_SkipForward, B_SkipBack, B_Turbo, B_SeedSearch);
                     SetControlEnabledState(true, B_CancelSkip);
                     skipPause = false;
                     var skips = uint.Parse(TB_Skips.Text);
@@ -422,14 +427,15 @@ public partial class MainWindow : Form
                         await Task.Delay(360, AdvanceSource.Token);
                     }
                     SetButtonText("Days-", B_SkipBack);
-                    SetControlEnabledState(true, B_SkipAdvance, B_SkipForward, B_SkipBack, B_HoldUp, B_ResetStick, B_SeedSearch);
+                    SetControlEnabledState(true, B_SkipAdvance, B_SkipForward, B_SkipBack, B_Turbo, B_SeedSearch);
                     SetControlEnabledState(false, B_CancelSkip);
                 }
                 catch (Exception ex)
                 {
-                    SetControlEnabledState(true, B_SkipAdvance, B_SkipForward, B_SkipBack, B_HoldUp, B_ResetStick, B_SeedSearch);
+                    SetControlEnabledState(true, B_SkipAdvance, B_SkipForward, B_SkipBack, B_Turbo, B_SeedSearch);
                     SetControlEnabledState(false, B_CancelSkip);
-                    this.DisplayMessageBox(ex.Message);
+                    SetButtonText("Days-", B_SkipBack);
+                    if (ex is not OperationCanceledException) this.DisplayMessageBox(ex.Message);
                 }
             }
         );
@@ -1885,6 +1891,22 @@ public partial class MainWindow : Form
             SeedResetSettingsForm?.Focus();
         }
     }
+
+    public bool TurboSettingsFormOpen = false;
+    TurboSettings? TurboSettingsForm;
+    private void B_TurboSettings_Click(object sender, EventArgs e)
+    {
+        if (!TurboSettingsFormOpen)
+        {
+            TurboSettingsFormOpen = true;
+            TurboSettingsForm = new TurboSettings(ref Config, this);
+            TurboSettingsForm?.Show();
+        }
+        else
+        {
+            TurboSettingsForm?.Focus();
+        }
+    }
     #endregion
 
     #region Retail
@@ -1946,7 +1968,7 @@ public partial class MainWindow : Form
         {
             try
             {
-                SetControlEnabledState(false, B_SkipAdvance, B_SkipForward, B_SkipBack, B_HoldUp, B_ResetStick, B_SeedSearch);
+                SetControlEnabledState(false, B_SkipAdvance, B_SkipForward, B_SkipBack, B_Turbo, B_SeedSearch);
                 SetControlEnabledState(true, B_CancelSkip);
                 skipPause = true;
                 readPause = true;
@@ -2096,7 +2118,7 @@ public partial class MainWindow : Form
 
                     if (found)
                     {
-                        SetControlEnabledState(true, B_SkipAdvance, B_SkipForward, B_SkipBack, B_HoldUp, B_ResetStick, B_SeedSearch);
+                        SetControlEnabledState(true, B_SkipAdvance, B_SkipForward, B_SkipBack, B_Turbo, B_SeedSearch);
                         SetControlEnabledState(false, B_CancelSkip);
                         if (GetCheckBoxIsChecked(CB_FocusWindow)) ActivateWindow();
                         if (GetCheckBoxIsChecked(CB_PlayTone)) System.Media.SystemSounds.Asterisk.Play();
@@ -2115,13 +2137,13 @@ public partial class MainWindow : Form
                 skipPause = false;
                 resetPause = false;
                 reset = true;
-                SetControlEnabledState(true, B_SkipAdvance, B_SkipForward, B_SkipBack, B_HoldUp, B_ResetStick, B_SeedSearch);
+                SetControlEnabledState(true, B_SkipAdvance, B_SkipForward, B_SkipBack, B_Turbo, B_SeedSearch);
                 SetControlEnabledState(false, B_CancelSkip);
                 this.DisplayMessageBox($"Error occurred during Seed Reset routine: {ex.Message}");
                 return;
             }
 
-            SetControlEnabledState(true, B_SkipAdvance, B_SkipForward, B_SkipBack, B_HoldUp, B_ResetStick, B_SeedSearch);
+            SetControlEnabledState(true, B_SkipAdvance, B_SkipForward, B_SkipBack, B_Turbo, B_SeedSearch);
             SetControlEnabledState(false, B_CancelSkip);
             readPause = false;
             skipPause = false;
