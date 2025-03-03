@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
-            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainWindow));
             GB_SeedControlsContainer = new GroupBox();
             GB_WildView = new GroupBox();
@@ -2694,9 +2694,9 @@
             // 
             DGV_Results.AllowUserToAddRows = false;
             DGV_Results.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle2.BackColor = Color.WhiteSmoke;
-            dataGridViewCellStyle2.ForeColor = Color.Black;
-            DGV_Results.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle1.BackColor = Color.WhiteSmoke;
+            dataGridViewCellStyle1.ForeColor = Color.Black;
+            DGV_Results.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             DGV_Results.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             DGV_Results.AutoGenerateColumns = false;
             DGV_Results.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
