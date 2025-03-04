@@ -613,6 +613,8 @@ public partial class MainWindow : Form
             ShinyRolls = CB_ShinyCharm.Checked ? 3 : 1,
             MarkRolls = CB_MarkCharm.Checked ? 3 : 1,
 
+            MaxStep = CB_Hidden_MaxStep.SelectedIndex,
+
             TargetShiny = GetFilterShinyType(CB_Filter_Shiny.SelectedIndex),
             TargetMark = GetFilterMarkype(CB_Filter_Mark.SelectedIndex),
             TargetScale = GetFilterScaleType(CB_Filter_Height.SelectedIndex),
@@ -973,6 +975,8 @@ public partial class MainWindow : Form
 
                 ShinyRolls = CB_ShinyCharm.Checked ? 3 : 1,
                 MarkRolls = CB_MarkCharm.Checked ? 3 : 1,
+
+                MaxStep = type is "Hidden" ? CB_Hidden_MaxStep.SelectedIndex : 0,
 
                 TargetShiny = GetFilterShinyType(CB_Filter_Shiny.SelectedIndex),
                 TargetMark = GetFilterMarkype(CB_Filter_Mark.SelectedIndex),
@@ -2022,6 +2026,8 @@ public partial class MainWindow : Form
 
                                 ShinyRolls = GetCheckBoxIsChecked(CB_ShinyCharm) ? 3 : 1,
                                 MarkRolls = GetCheckBoxIsChecked(CB_MarkCharm) ? 3 : 1,
+
+                                MaxStep = type is "Hidden" ? GetComboBoxSelectedIndex(CB_Hidden_MaxStep) : 0,
 
                                 TargetShiny = GetFilterShinyType(GetComboBoxSelectedIndex(CB_Filter_Shiny)),
                                 TargetMark = GetFilterMarkype(GetComboBoxSelectedIndex(CB_Filter_Mark)),

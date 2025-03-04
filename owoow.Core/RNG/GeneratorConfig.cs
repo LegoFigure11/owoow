@@ -1,4 +1,4 @@
-﻿using owoow.Core.Enums;
+using owoow.Core.Enums;
 using PKHeX.Core;
 
 namespace owoow.Core.RNG;
@@ -39,6 +39,8 @@ public class GeneratorConfig
     public int MarkRolls { get; set; } = 1;
 
     public int AuraKOs { get; set; } = 500;
+
+    public int MaxStep { get; set; } = 0;
 
     public int GuaranteedIVs { get; set; } = 0;
 

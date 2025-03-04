@@ -174,6 +174,8 @@ namespace owoow.WinForms
             L_Symbol_LeadAbility = new Label();
             CB_Symbol_LeadAbility = new ComboBox();
             TP_Hidden = new TabPage();
+            L_Hidden_MaxStep = new Label();
+            CB_Hidden_MaxStep = new ComboBox();
             B_Hidden_MenuClose = new Button();
             CB_Hidden_MenuClose_Direction = new CheckBox();
             CB_Hidden_MenuClose = new CheckBox();
@@ -1889,6 +1891,8 @@ namespace owoow.WinForms
             // 
             // TP_Hidden
             // 
+            TP_Hidden.Controls.Add(L_Hidden_MaxStep);
+            TP_Hidden.Controls.Add(CB_Hidden_MaxStep);
             TP_Hidden.Controls.Add(B_Hidden_MenuClose);
             TP_Hidden.Controls.Add(CB_Hidden_MenuClose_Direction);
             TP_Hidden.Controls.Add(CB_Hidden_MenuClose);
@@ -1909,13 +1913,32 @@ namespace owoow.WinForms
             TP_Hidden.Text = "Hidden";
             TP_Hidden.UseVisualStyleBackColor = true;
             // 
+            // L_Hidden_MaxStep
+            // 
+            L_Hidden_MaxStep.AutoSize = true;
+            L_Hidden_MaxStep.Location = new Point(17, 134);
+            L_Hidden_MaxStep.Name = "L_Hidden_MaxStep";
+            L_Hidden_MaxStep.Size = new Size(59, 15);
+            L_Hidden_MaxStep.TabIndex = 65;
+            L_Hidden_MaxStep.Text = "Max Step:";
+            // 
+            // CB_Hidden_MaxStep
+            // 
+            CB_Hidden_MaxStep.FormattingEnabled = true;
+            CB_Hidden_MaxStep.Items.AddRange(new object[] { "None", "1", "2", "3", "4", "5" });
+            CB_Hidden_MaxStep.Location = new Point(82, 131);
+            CB_Hidden_MaxStep.Name = "CB_Hidden_MaxStep";
+            CB_Hidden_MaxStep.Size = new Size(173, 23);
+            CB_Hidden_MaxStep.TabIndex = 1;
+            CB_Hidden_MaxStep.Text = "None";
+            // 
             // B_Hidden_MenuClose
             // 
             B_Hidden_MenuClose.Enabled = false;
             B_Hidden_MenuClose.Location = new Point(155, 156);
             B_Hidden_MenuClose.Name = "B_Hidden_MenuClose";
             B_Hidden_MenuClose.Size = new Size(100, 25);
-            B_Hidden_MenuClose.TabIndex = 2;
+            B_Hidden_MenuClose.TabIndex = 3;
             B_Hidden_MenuClose.Text = "Calibrate NPCs";
             B_Hidden_MenuClose.UseVisualStyleBackColor = true;
             B_Hidden_MenuClose.Click += B_MenuClose_Click;
@@ -1928,7 +1951,7 @@ namespace owoow.WinForms
             CB_Hidden_MenuClose_Direction.Location = new Point(25, 182);
             CB_Hidden_MenuClose_Direction.Name = "CB_Hidden_MenuClose_Direction";
             CB_Hidden_MenuClose_Direction.Size = new Size(125, 19);
-            CB_Hidden_MenuClose_Direction.TabIndex = 3;
+            CB_Hidden_MenuClose_Direction.TabIndex = 4;
             CB_Hidden_MenuClose_Direction.Tag = "";
             CB_Hidden_MenuClose_Direction.Text = "Holding Direction?";
             CB_Hidden_MenuClose_Direction.UseVisualStyleBackColor = true;
@@ -1940,7 +1963,7 @@ namespace owoow.WinForms
             CB_Hidden_MenuClose.Location = new Point(6, 158);
             CB_Hidden_MenuClose.Name = "CB_Hidden_MenuClose";
             CB_Hidden_MenuClose.Size = new Size(144, 19);
-            CB_Hidden_MenuClose.TabIndex = 1;
+            CB_Hidden_MenuClose.TabIndex = 2;
             CB_Hidden_MenuClose.Tag = "";
             CB_Hidden_MenuClose.Text = "Consider Menu Close?";
             CB_Hidden_MenuClose.UseVisualStyleBackColor = true;
@@ -1964,7 +1987,7 @@ namespace owoow.WinForms
             TB_Hidden_NPCs.MaxLength = 16;
             TB_Hidden_NPCs.Name = "TB_Hidden_NPCs";
             TB_Hidden_NPCs.Size = new Size(35, 22);
-            TB_Hidden_NPCs.TabIndex = 4;
+            TB_Hidden_NPCs.TabIndex = 5;
             TB_Hidden_NPCs.Text = "3";
             TB_Hidden_NPCs.TextAlign = HorizontalAlignment.Right;
             TB_Hidden_NPCs.KeyPress += KeyPress_AllowOnlyNumerical;
@@ -1983,7 +2006,7 @@ namespace owoow.WinForms
             B_Hidden_Search.Location = new Point(3, 255);
             B_Hidden_Search.Name = "B_Hidden_Search";
             B_Hidden_Search.Size = new Size(255, 25);
-            B_Hidden_Search.TabIndex = 7;
+            B_Hidden_Search.TabIndex = 8;
             B_Hidden_Search.Text = "Search!";
             B_Hidden_Search.UseVisualStyleBackColor = true;
             B_Hidden_Search.Click += B_Hidden_Search_Click;
@@ -2076,7 +2099,7 @@ namespace owoow.WinForms
             TB_Hidden_Advances.MaxLength = 16;
             TB_Hidden_Advances.Name = "TB_Hidden_Advances";
             TB_Hidden_Advances.Size = new Size(173, 22);
-            TB_Hidden_Advances.TabIndex = 6;
+            TB_Hidden_Advances.TabIndex = 7;
             TB_Hidden_Advances.Text = "5000";
             TB_Hidden_Advances.TextAlign = HorizontalAlignment.Right;
             TB_Hidden_Advances.KeyPress += KeyPress_AllowOnlyNumerical;
@@ -2089,7 +2112,7 @@ namespace owoow.WinForms
             TB_Hidden_Initial.MaxLength = 16;
             TB_Hidden_Initial.Name = "TB_Hidden_Initial";
             TB_Hidden_Initial.Size = new Size(173, 22);
-            TB_Hidden_Initial.TabIndex = 5;
+            TB_Hidden_Initial.TabIndex = 6;
             TB_Hidden_Initial.Text = "0";
             TB_Hidden_Initial.TextAlign = HorizontalAlignment.Right;
             TB_Hidden_Initial.KeyPress += KeyPress_AllowOnlyNumerical;
@@ -3330,5 +3353,7 @@ namespace owoow.WinForms
         public CheckBox CB_Hidden_MenuClose;
         public CheckBox CB_Fishing_MenuClose;
         private CheckBox CB_RareEC;
+        private Label L_Hidden_MaxStep;
+        private ComboBox CB_Hidden_MaxStep;
     }
 }

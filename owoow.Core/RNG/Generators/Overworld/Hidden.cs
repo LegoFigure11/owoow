@@ -1,4 +1,4 @@
-﻿using owoow.Core.Enums;
+using owoow.Core.Enums;
 using owoow.Core.Interfaces;
 using owoow.Core.RNG.Generators.Misc;
 using PKHeX.Core;
@@ -108,6 +108,12 @@ public class Hidden
                         Environment.GetRainAdvances(ref rng, config.RainTicksOnHiddenStepFail);
                     }
                     step++;
+                }
+
+                if (config.MaxStep is not 0 && step > config.MaxStep)
+                {
+                    outer.Next();
+                    continue;
                 }
 
                 if (config.AbilityType == AbilityType.CuteCharm && Lead + 1 <= 66)
