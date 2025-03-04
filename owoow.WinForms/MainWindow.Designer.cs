@@ -1,4 +1,4 @@
-﻿namespace owoow.WinForms
+namespace owoow.WinForms
 {
     partial class MainWindow
     {
@@ -39,6 +39,7 @@
             B_CopyToFilter = new Button();
             TB_Wild = new TextBox();
             GB_Filters = new GroupBox();
+            CB_RareEC = new CheckBox();
             CB_PlayTone = new CheckBox();
             CB_FocusWindow = new CheckBox();
             CB_EnableFilters = new CheckBox();
@@ -277,7 +278,6 @@
             TSMI_WattTrader = new ToolStripMenuItem();
             TSMI_DiggingPa = new ToolStripMenuItem();
             TSMI_WailordRespawn = new ToolStripMenuItem();
-            CB_RareEC = new CheckBox();
             GB_SeedControlsContainer.SuspendLayout();
             GB_WildView.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)PB_MarkSprite).BeginInit();
@@ -460,6 +460,18 @@
             GB_Filters.TabIndex = 6;
             GB_Filters.TabStop = false;
             // 
+            // CB_RareEC
+            // 
+            CB_RareEC.AutoSize = true;
+            CB_RareEC.CheckAlign = ContentAlignment.MiddleRight;
+            CB_RareEC.Location = new Point(12, 275);
+            CB_RareEC.Name = "CB_RareEC";
+            CB_RareEC.Size = new Size(71, 19);
+            CB_RareEC.TabIndex = 28;
+            CB_RareEC.Tag = "";
+            CB_RareEC.Text = "Rare EC?";
+            CB_RareEC.UseVisualStyleBackColor = true;
+            // 
             // CB_PlayTone
             // 
             CB_PlayTone.AutoSize = true;
@@ -467,7 +479,7 @@
             CB_PlayTone.Location = new Point(2, 296);
             CB_PlayTone.Name = "CB_PlayTone";
             CB_PlayTone.Size = new Size(81, 19);
-            CB_PlayTone.TabIndex = 29;
+            CB_PlayTone.TabIndex = 30;
             CB_PlayTone.Tag = "";
             CB_PlayTone.Text = "Play Tone?";
             CB_PlayTone.UseVisualStyleBackColor = true;
@@ -480,7 +492,7 @@
             CB_FocusWindow.Location = new Point(85, 296);
             CB_FocusWindow.Name = "CB_FocusWindow";
             CB_FocusWindow.Size = new Size(109, 19);
-            CB_FocusWindow.TabIndex = 30;
+            CB_FocusWindow.TabIndex = 31;
             CB_FocusWindow.Tag = "";
             CB_FocusWindow.Text = "Focus Window?";
             CB_FocusWindow.UseVisualStyleBackColor = true;
@@ -495,7 +507,7 @@
             CB_EnableFilters.Location = new Point(87, 275);
             CB_EnableFilters.Name = "CB_EnableFilters";
             CB_EnableFilters.Size = new Size(107, 19);
-            CB_EnableFilters.TabIndex = 28;
+            CB_EnableFilters.TabIndex = 29;
             CB_EnableFilters.Tag = "";
             CB_EnableFilters.Text = "Filters Enabled?";
             CB_EnableFilters.UseVisualStyleBackColor = true;
@@ -3317,5 +3329,6 @@
         public CheckBox CB_Symbol_MenuClose;
         public CheckBox CB_Hidden_MenuClose;
         public CheckBox CB_Fishing_MenuClose;
+        private CheckBox CB_RareEC;
     }
 }

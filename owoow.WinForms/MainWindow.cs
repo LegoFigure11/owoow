@@ -496,6 +496,8 @@ public partial class MainWindow : Form
 
             AuraKOs = int.Parse(TB_Symbol_KOs.Text),
 
+            RareEC = CB_RareEC.Checked,
+
             DexRecSlots =
             [
                 GetDexRecommendation(CB_DexRec1.Text),
@@ -617,6 +619,8 @@ public partial class MainWindow : Form
 
             TargetMinIVs = [(uint)NUD_HP_Min.Value, (uint)NUD_Atk_Min.Value, (uint)NUD_Def_Min.Value, (uint)NUD_SpA_Min.Value, (uint)NUD_SpD_Min.Value, (uint)NUD_Spe_Min.Value],
             TargetMaxIVs = [(uint)NUD_HP_Max.Value, (uint)NUD_Atk_Max.Value, (uint)NUD_Def_Max.Value, (uint)NUD_SpA_Max.Value, (uint)NUD_SpD_Max.Value, (uint)NUD_Spe_Max.Value],
+
+            RareEC = CB_RareEC.Checked,
 
             DexRecSlots =
             [
@@ -740,6 +744,8 @@ public partial class MainWindow : Form
             TargetMinIVs = [(uint)NUD_HP_Min.Value, (uint)NUD_Atk_Min.Value, (uint)NUD_Def_Min.Value, (uint)NUD_SpA_Min.Value, (uint)NUD_SpD_Min.Value, (uint)NUD_Spe_Min.Value],
             TargetMaxIVs = [(uint)NUD_HP_Max.Value, (uint)NUD_Atk_Max.Value, (uint)NUD_Def_Max.Value, (uint)NUD_SpA_Max.Value, (uint)NUD_SpD_Max.Value, (uint)NUD_Spe_Max.Value],
 
+            RareEC = CB_RareEC.Checked,
+
             ConsiderMenuClose = CB_Static_MenuClose.Checked,
             MenuCloseIsHoldingDirection = CB_Static_MenuClose_Direction.Checked,
             MenuCloseNPCs = uint.Parse(TB_Static_NPCs.Text),
@@ -857,6 +863,8 @@ public partial class MainWindow : Form
 
             AuraKOs = int.Parse(TB_Fishing_KOs.Text),
 
+            RareEC = CB_RareEC.Checked,
+
             DexRecSlots =
             [
                 GetDexRecommendation(CB_DexRec1.Text),
@@ -972,6 +980,16 @@ public partial class MainWindow : Form
 
                 TargetMinIVs = [(uint)NUD_HP_Min.Value, (uint)NUD_Atk_Min.Value, (uint)NUD_Def_Min.Value, (uint)NUD_SpA_Min.Value, (uint)NUD_SpD_Min.Value, (uint)NUD_Spe_Min.Value],
                 TargetMaxIVs = [(uint)NUD_HP_Max.Value, (uint)NUD_Atk_Max.Value, (uint)NUD_Def_Max.Value, (uint)NUD_SpA_Max.Value, (uint)NUD_SpD_Max.Value, (uint)NUD_Spe_Max.Value],
+
+                RareEC = CB_RareEC.Checked,
+
+                DexRecSlots =
+                [
+                    GetDexRecommendation(CB_DexRec1.Text),
+                    GetDexRecommendation(CB_DexRec2.Text),
+                    GetDexRecommendation(CB_DexRec3.Text),
+                    GetDexRecommendation(CB_DexRec4.Text)
+                ],
 
                 ConsiderMenuClose = ((CheckBox)Controls.Find($"CB_{type}_MenuClose", true).FirstOrDefault()!).Checked,
                 MenuCloseIsHoldingDirection = ((CheckBox)Controls.Find($"CB_{type}_MenuClose_Direction", true).FirstOrDefault()!).Checked,
@@ -2011,6 +2029,16 @@ public partial class MainWindow : Form
 
                                 TargetMinIVs = [GetNUDValue(NUD_HP_Min), GetNUDValue(NUD_Atk_Min), GetNUDValue(NUD_Def_Min), GetNUDValue(NUD_SpA_Min), GetNUDValue(NUD_SpD_Min), GetNUDValue(NUD_Spe_Min)],
                                 TargetMaxIVs = [GetNUDValue(NUD_HP_Max), GetNUDValue(NUD_Atk_Max), GetNUDValue(NUD_Def_Max), GetNUDValue(NUD_SpA_Max), GetNUDValue(NUD_SpD_Max), GetNUDValue(NUD_Spe_Max)],
+
+                                RareEC = GetCheckBoxIsChecked(CB_RareEC),
+
+                                DexRecSlots =
+                                [
+                                    GetDexRecommendation(GetControlText(CB_DexRec1)),
+                                    GetDexRecommendation(GetControlText(CB_DexRec2)),
+                                    GetDexRecommendation(GetControlText(CB_DexRec3)),
+                                    GetDexRecommendation(GetControlText(CB_DexRec4))
+                                ],
 
                                 ConsiderMenuClose = GetCheckBoxIsChecked((CheckBox)Controls.Find($"CB_{type}_MenuClose", true).FirstOrDefault()!),
                                 MenuCloseIsHoldingDirection = GetCheckBoxIsChecked((CheckBox)Controls.Find($"CB_{type}_MenuClose_Direction", true).FirstOrDefault()!),
