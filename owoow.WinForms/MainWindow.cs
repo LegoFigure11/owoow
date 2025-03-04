@@ -306,7 +306,7 @@ public partial class MainWindow : Form
                     SetControlEnabledState(true, B_CancelSkip);
                     skipPause = false;
                     var i = 0;
-                    var loops = 0;
+                    bool flag = false;
                     if (Config.TurboSequence.Count > 0)
                     {
                         do
@@ -314,8 +314,8 @@ public partial class MainWindow : Form
                             if (!AdvanceSource.IsCancellationRequested) await ConnectionWrapper.DoTurboCommand(Config.TurboSequence[i], AdvanceSource.Token).ConfigureAwait(false);
                             i = (i + 1) % Config.TurboSequence.Count;
                             if (!AdvanceSource.IsCancellationRequested) await Task.Delay(200, AdvanceSource.Token).ConfigureAwait(false);
-                            if (i == 0) loops++;
-                        } while (!AdvanceSource.IsCancellationRequested && (Config.LoopTurbo || loops == 0) && !skipPause && Config.TurboSequence.Count > 0);
+                            if (i == 0) flag = true;
+                        } while (!AdvanceSource.IsCancellationRequested && (Config.LoopTurbo || !flag) && !skipPause && Config.TurboSequence.Count > 0);
                     }
                     SetControlEnabledState(true, B_SkipAdvance, B_SkipForward, B_SkipBack, B_Turbo, B_SeedSearch);
                     SetControlEnabledState(false, B_CancelSkip);
@@ -1972,7 +1972,7 @@ public partial class MainWindow : Form
         {
             try
             {
-                SetControlEnabledState(false, B_SkipAdvance, B_SkipForward, B_SkipBack, B_Turbo, B_SeedSearch);
+                SetControlEnabledState(false, B_SkipAdvance, B_SkipForward, B_SkipBack, B_Turbo, B_SeedSearch, B_ReadEncounter);
                 SetControlEnabledState(true, B_CancelSkip);
                 skipPause = true;
                 readPause = true;
@@ -2119,12 +2119,12 @@ public partial class MainWindow : Form
                             first = false;
                         }
                         await ConnectionWrapper.CloseGame(cfg, ResetSource.Token).ConfigureAwait(false);
-                        await ConnectionWrapper.OpenGame(cfg, ResetSource.Token).ConfigureAwait(false);
+                        await ConnectionWrapper.OpenGame(cfg, ct, ResetSource.Token).ConfigureAwait(false);
                     }
 
                     if (found)
                     {
-                        SetControlEnabledState(true, B_SkipAdvance, B_SkipForward, B_SkipBack, B_Turbo, B_SeedSearch);
+                        SetControlEnabledState(true, B_SkipAdvance, B_SkipForward, B_SkipBack, B_Turbo, B_SeedSearch, B_ReadEncounter);
                         SetControlEnabledState(false, B_CancelSkip);
                         if (GetCheckBoxIsChecked(CB_FocusWindow)) ActivateWindow();
                         if (GetCheckBoxIsChecked(CB_PlayTone)) System.Media.SystemSounds.Asterisk.Play();
@@ -2143,13 +2143,13 @@ public partial class MainWindow : Form
                 skipPause = false;
                 resetPause = false;
                 reset = true;
-                SetControlEnabledState(true, B_SkipAdvance, B_SkipForward, B_SkipBack, B_Turbo, B_SeedSearch);
+                SetControlEnabledState(true, B_SkipAdvance, B_SkipForward, B_SkipBack, B_Turbo, B_SeedSearch, B_ReadEncounter);
                 SetControlEnabledState(false, B_CancelSkip);
                 if (ex is not TaskCanceledException) this.DisplayMessageBox($"Error occurred during Seed Reset routine: {ex.Message}");
                 return;
             }
 
-            SetControlEnabledState(true, B_SkipAdvance, B_SkipForward, B_SkipBack, B_Turbo, B_SeedSearch);
+            SetControlEnabledState(true, B_SkipAdvance, B_SkipForward, B_SkipBack, B_Turbo, B_SeedSearch, B_ReadEncounter);
             SetControlEnabledState(false, B_CancelSkip);
             readPause = false;
             skipPause = false;
