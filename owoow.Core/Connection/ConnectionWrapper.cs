@@ -223,7 +223,7 @@ public class ConnectionWrapperAsync(SwitchConnectionConfig Config, Action<string
     // From https://github.com/kwsch/SysBot.NET/blob/8a82453e96ed5724e175b1a44464c70eca266df0/SysBot.Pokemon/SWSH/PokeRoutineExecutor8SWSH.cs#L233
     public async Task OpenGame(ISeedResetConfig config, int count, CancellationToken token)
     {
-        StatusUpdate($"Opening the game... ({count})");
+        StatusUpdate($"Opening the game... ({count:N0})");
         await Connection.SendAsync(Click(A, CRLF), token).ConfigureAwait(false);
         await Task.Delay(1_000 + config.ExtraTimeLoadProfile, token).ConfigureAwait(false);
 

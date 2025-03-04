@@ -2228,8 +2228,11 @@ public partial class MainWindow : Form
         if (e.Button is MouseButtons.Right)
         {
             var row = DGV_Results.HitTest(e.X, e.Y).RowIndex;
-            DGV_Results.ClearSelection();
-            DGV_Results.Rows[row].Selected = true;
+            if (row is not -1)
+            {
+                DGV_Results.ClearSelection();
+                DGV_Results.Rows[row].Selected = true;
+            }
         }
     }
     #endregion
