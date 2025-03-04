@@ -272,6 +272,10 @@ namespace owoow.WinForms
             eggMoveDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             seed0DataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             seed1DataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            CMS_RightClick = new ContextMenuStrip(components);
+            TSMI_CopySeeds = new ToolStripMenuItem();
+            TSMI_SetAsInitial = new ToolStripMenuItem();
+            TSMI_SetAdvances = new ToolStripMenuItem();
             ResultsSource = new BindingSource(components);
             MS_SubWindows = new MenuStrip();
             TSMI_EncounterLookup = new ToolStripMenuItem();
@@ -319,6 +323,7 @@ namespace owoow.WinForms
             GB_Connection.SuspendLayout();
             GB_SAVInfo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)DGV_Results).BeginInit();
+            CMS_RightClick.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)ResultsSource).BeginInit();
             MS_SubWindows.SuspendLayout();
             SuspendLayout();
@@ -2738,6 +2743,7 @@ namespace owoow.WinForms
             DGV_Results.AutoGenerateColumns = false;
             DGV_Results.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             DGV_Results.Columns.AddRange(new DataGridViewColumn[] { advancesDataGridViewTextBoxColumn, jumpDataGridViewTextBoxColumn, stepDataGridViewTextBoxColumn, animationDataGridViewTextBoxColumn, speciesDataGridViewTextBoxColumn, shinyDataGridViewTextBoxColumn, brilliantDataGridViewTextBoxColumn, levelDataGridViewTextBoxColumn, abilityDataGridViewTextBoxColumn, natureDataGridViewTextBoxColumn, genderDataGridViewTextBoxColumn, hDataGridViewTextBoxColumn, aDataGridViewTextBoxColumn, bDataGridViewTextBoxColumn, cDataGridViewTextBoxColumn, dDataGridViewTextBoxColumn, sDataGridViewTextBoxColumn, markDataGridViewTextBoxColumn, eCDataGridViewTextBoxColumn, pIDDataGridViewTextBoxColumn, heightDataGridViewTextBoxColumn, itemDataGridViewTextBoxColumn, eggMoveDataGridViewTextBoxColumn, seed0DataGridViewTextBoxColumn, seed1DataGridViewTextBoxColumn });
+            DGV_Results.ContextMenuStrip = CMS_RightClick;
             DGV_Results.DataSource = ResultsSource;
             DGV_Results.Location = new Point(10, 352);
             DGV_Results.Name = "DGV_Results";
@@ -2747,6 +2753,7 @@ namespace owoow.WinForms
             DGV_Results.Size = new Size(1256, 312);
             DGV_Results.TabIndex = 12;
             DGV_Results.CellFormatting += DGV_Results_CellFormatting;
+            DGV_Results.MouseDown += DGV_Results_MouseDown;
             // 
             // advancesDataGridViewTextBoxColumn
             // 
@@ -2973,6 +2980,34 @@ namespace owoow.WinForms
             seed1DataGridViewTextBoxColumn.ReadOnly = true;
             seed1DataGridViewTextBoxColumn.Width = 63;
             // 
+            // CMS_RightClick
+            // 
+            CMS_RightClick.Items.AddRange(new ToolStripItem[] { TSMI_CopySeeds, TSMI_SetAsInitial, TSMI_SetAdvances });
+            CMS_RightClick.Name = "CMS_RightClick";
+            CMS_RightClick.Size = new Size(205, 92);
+            CMS_RightClick.Opening += CMS_RightClick_Opening;
+            // 
+            // TSMI_CopySeeds
+            // 
+            TSMI_CopySeeds.Name = "TSMI_CopySeeds";
+            TSMI_CopySeeds.Size = new Size(204, 22);
+            TSMI_CopySeeds.Text = "Copy Seeds to Clipboard";
+            TSMI_CopySeeds.Click += TSMI_CopySeeds_Click;
+            // 
+            // TSMI_SetAsInitial
+            // 
+            TSMI_SetAsInitial.Name = "TSMI_SetAsInitial";
+            TSMI_SetAsInitial.Size = new Size(204, 22);
+            TSMI_SetAsInitial.Text = "Set as Initial Seed";
+            TSMI_SetAsInitial.Click += TSMI_SetAsInitial_Click;
+            // 
+            // TSMI_SetAdvances
+            // 
+            TSMI_SetAdvances.Name = "TSMI_SetAdvances";
+            TSMI_SetAdvances.Size = new Size(204, 22);
+            TSMI_SetAdvances.Text = "Set as Initial Advances";
+            TSMI_SetAdvances.Click += TSMI_SetAdvances_Click;
+            // 
             // ResultsSource
             // 
             ResultsSource.DataSource = typeof(Core.Interfaces.OverworldFrame);
@@ -3098,6 +3133,7 @@ namespace owoow.WinForms
             GB_SAVInfo.ResumeLayout(false);
             GB_SAVInfo.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)DGV_Results).EndInit();
+            CMS_RightClick.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)ResultsSource).EndInit();
             MS_SubWindows.ResumeLayout(false);
             MS_SubWindows.PerformLayout();
@@ -3355,5 +3391,9 @@ namespace owoow.WinForms
         private CheckBox CB_RareEC;
         private Label L_Hidden_MaxStep;
         private ComboBox CB_Hidden_MaxStep;
+        private ContextMenuStrip CMS_RightClick;
+        private ToolStripMenuItem TSMI_CopySeeds;
+        private ToolStripMenuItem TSMI_SetAsInitial;
+        private ToolStripMenuItem TSMI_SetAdvances;
     }
 }

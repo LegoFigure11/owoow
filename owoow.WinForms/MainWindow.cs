@@ -1053,6 +1053,211 @@ public partial class MainWindow : Form
             }
         }
     }
+
+    private void B_SeedSearch_Click(object sender, EventArgs e)
+    {
+        var tab = TC_EncounterType.SelectedTab;
+        Task.Run(async () =>
+        {
+            try
+            {
+                SetControlEnabledState(false, B_SkipAdvance, B_SkipForward, B_SkipBack, B_Turbo, B_SeedSearch, B_ReadEncounter);
+                SetControlEnabledState(true, B_CancelSkip);
+                skipPause = true;
+                readPause = true;
+                bool found = false;
+                await Task.Delay(150, ResetSource.Token).ConfigureAwait(false);
+                bool first = true;
+                var ct = 0;
+                var sw = Stopwatch.GetTimestamp();
+                while (ConnectionWrapper.Connected && !ResetSource.IsCancellationRequested && !resetPause && !found)
+                {
+                    ulong prevs0 = 0;
+                    ulong prevs1 = 0;
+                    var (s0, s1) = await ConnectionWrapper.ReadRNGState(ResetSource.Token).ConfigureAwait(false);
+
+                    if (!(s0 == prevs0 && s1 == prevs1))
+                    {
+                        SetTextBoxText($"{s0:X16}", TB_Seed0, TB_CurrentS0);
+                        SetTextBoxText($"{s1:X16}", TB_Seed1, TB_CurrentS1);
+                        SetTextBoxText("0", TB_CurrentAdvances, TB_AdvancesIncrease);
+
+
+                        if (tab != null)
+                        {
+                            var type = tab.Text;
+
+                            var table = new EncounterTable(
+                                GetControlText(CB_Game),
+                                type,
+                                GetControlText((ComboBox)Controls.Find($"CB_{type}_Area", true).FirstOrDefault()!),
+                                GetControlText((ComboBox)Controls.Find($"CB_{type}_Weather", true).FirstOrDefault()!),
+                                GetControlText((ComboBox)Controls.Find($"CB_{type}_LeadAbility", true).FirstOrDefault()!)
+                                );
+
+                            var initial = ulong.Parse(GetControlText((TextBox)Controls.Find($"TB_{type}_Initial", true).FirstOrDefault()!));
+                            var advances = ulong.Parse(GetControlText((TextBox)Controls.Find($"TB_{type}_Advances", true).FirstOrDefault()!));
+
+                            var numTasks = (byte)(advances < 1_000 ? 1 : advances < 50_000 ? 2 : 4);
+                            var interval = advances / numTasks;
+
+                            Core.RNG.GeneratorConfig config = new()
+                            {
+                                TargetSpecies = GetControlText((ComboBox)Controls.Find($"CB_{type}_Species", true).FirstOrDefault()!),
+                                LeadAbility = GetControlText((ComboBox)Controls.Find($"CB_{type}_LeadAbility", true).FirstOrDefault()!),
+
+                                AuraKOs = type is "Symbol" or "Fishing" ? int.Parse(GetControlText((TextBox)Controls.Find($"TB_{type}_KOs", true).FirstOrDefault()!)) : 0,
+
+                                Weather = GetWeatherType(GetControlText((ComboBox)Controls.Find($"CB_{type}_Weather", true).FirstOrDefault()!)),
+
+                                ShinyRolls = GetCheckBoxIsChecked(CB_ShinyCharm) ? 3 : 1,
+                                MarkRolls = GetCheckBoxIsChecked(CB_MarkCharm) ? 3 : 1,
+
+                                MaxStep = type is "Hidden" ? GetComboBoxSelectedIndex(CB_Hidden_MaxStep) : 0,
+
+                                TargetShiny = GetFilterShinyType(GetComboBoxSelectedIndex(CB_Filter_Shiny)),
+                                TargetMark = GetFilterMarkype(GetComboBoxSelectedIndex(CB_Filter_Mark)),
+                                TargetScale = GetFilterScaleType(GetComboBoxSelectedIndex(CB_Filter_Height)),
+
+                                TargetMinIVs = [GetNUDValue(NUD_HP_Min), GetNUDValue(NUD_Atk_Min), GetNUDValue(NUD_Def_Min), GetNUDValue(NUD_SpA_Min), GetNUDValue(NUD_SpD_Min), GetNUDValue(NUD_Spe_Min)],
+                                TargetMaxIVs = [GetNUDValue(NUD_HP_Max), GetNUDValue(NUD_Atk_Max), GetNUDValue(NUD_Def_Max), GetNUDValue(NUD_SpA_Max), GetNUDValue(NUD_SpD_Max), GetNUDValue(NUD_Spe_Max)],
+
+                                RareEC = GetCheckBoxIsChecked(CB_RareEC),
+
+                                DexRecSlots =
+                                [
+                                    GetDexRecommendation(GetControlText(CB_DexRec1)),
+                                    GetDexRecommendation(GetControlText(CB_DexRec2)),
+                                    GetDexRecommendation(GetControlText(CB_DexRec3)),
+                                    GetDexRecommendation(GetControlText(CB_DexRec4))
+                                ],
+
+                                ConsiderMenuClose = GetCheckBoxIsChecked((CheckBox)Controls.Find($"CB_{type}_MenuClose", true).FirstOrDefault()!),
+                                MenuCloseIsHoldingDirection = GetCheckBoxIsChecked((CheckBox)Controls.Find($"CB_{type}_MenuClose_Direction", true).FirstOrDefault()!),
+                                MenuCloseNPCs = uint.Parse(GetControlText((TextBox)Controls.Find($"TB_{type}_NPCs", true).FirstOrDefault()!)),
+
+                                ConsiderFly = GetCheckBoxIsChecked(CB_ConsiderFlying),
+                                ConsiderRain = GetCheckBoxIsChecked(CB_ConsiderRain),
+                                AreaLoadAdvances = GetNUDValue(NUD_AreaLoad),
+                                AreaLoadNPCs = GetNUDValue(NUD_FlyNPCs),
+                                RainTicksAreaLoad = GetCheckBoxIsChecked(CB_ConsiderFlying) && GetCheckBoxIsChecked(CB_ConsiderRain) ? GetNUDValue(NUD_RainTick) : 0,
+                                RainTicksEncounter = GetCheckBoxIsChecked(CB_ConsiderFlying) && GetCheckBoxIsChecked(CB_ConsiderRain) ? 0 : GetNUDValue(NUD_RainTick),
+
+                                FiltersEnabled = true,
+
+                                TID = uint.Parse(GetControlText(TB_TID)),
+                                SID = uint.Parse(GetControlText(TB_SID)),
+                            };
+
+                            var rng = new Xoroshiro128Plus(s0, s1);
+
+                            for (ulong i = 0; i < initial; i++) rng.Next();
+
+                            List<OverworldFrame>[] results = [];
+
+                            List<Task<List<OverworldFrame>>> tasks = [];
+                            for (byte i = 0; i < numTasks; i++)
+                            {
+                                var last = i == numTasks - 1;
+
+                                var (_s0, _s1) = rng.GetState();
+                                var start = initial + (i * interval);
+                                var end = initial + (interval * (i + (uint)1)) - 1;
+
+                                if (last) end += advances % interval;
+
+                                var t = type switch
+                                {
+                                    "Static" => Static.Generate(_s0, _s1, table, start, end, config),
+                                    "Symbol" => Symbol.Generate(_s0, _s1, table, start, end, config),
+                                    "Fishing" => Fishing.Generate(_s0, _s1, table, start, end, config),
+                                    _ => Hidden.Generate(_s0, _s1, table, start, end, config),
+                                };
+
+                                tasks.Add(t);
+
+                                if (!last)
+                                {
+                                    for (ulong j = 0; j < interval; j++)
+                                    {
+                                        rng.Next();
+                                    }
+                                }
+                            }
+
+                            await Task.Run(async () =>
+                            {
+                                results = await Task.WhenAll(tasks);
+                                List<OverworldFrame> AllResults = [];
+                                foreach (var result in results)
+                                {
+                                    AllResults.AddRange(result);
+                                }
+
+                                Frames = AllResults;
+                                if (AllResults.Count > 0) found = true;
+                                if (AllResults.Count > 1000) AllResults = AllResults[0..1000];
+                                //AllResults.Sort();
+                                SetBindingSourceDataSource(AllResults, ResultsSource);
+                                DGV_Results.SanitizeColumns(this);
+                            }).ConfigureAwait(false);
+                        }
+                    }
+                    else
+                    {
+                        await Task.Delay(5_000, ResetSource.Token).ConfigureAwait(false);
+                    }
+
+                    prevs0 = s0;
+                    prevs1 = s1;
+
+                    if (!found && Config is ISeedResetConfig cfg)
+                    {
+                        ct++;
+                        if (first)
+                        {
+                            await ConnectionWrapper.PressL3(ResetSource.Token).ConfigureAwait(false); // First input doesn't always go through
+                            first = false;
+                        }
+                        await ConnectionWrapper.CloseGame(cfg, ResetSource.Token).ConfigureAwait(false);
+                        await ConnectionWrapper.OpenGame(cfg, ct, ResetSource.Token).ConfigureAwait(false);
+                    }
+
+                    if (found)
+                    {
+                        SetControlEnabledState(true, B_SkipAdvance, B_SkipForward, B_SkipBack, B_Turbo, B_SeedSearch, B_ReadEncounter);
+                        SetControlEnabledState(false, B_CancelSkip);
+                        if (GetCheckBoxIsChecked(CB_FocusWindow)) ActivateWindow();
+                        if (GetCheckBoxIsChecked(CB_PlayTone)) System.Media.SystemSounds.Asterisk.Play();
+                        await ConnectionWrapper.PressHome(ResetSource.Token).ConfigureAwait(false);
+                        var timeSpan = Stopwatch.GetElapsedTime(sw);
+                        await Task.Delay(100, ResetSource.Token).ConfigureAwait(false);
+                        Disconnect(ResetSource.Token);
+                        if (Frames.Count >= 1_000) MessageBox.Show($"Too many results found, displayed results capped at 1000. Please re-run the search with more restrictive filters or a smaller range of advances.");
+                        MessageBox.Show($"Seed result found in {ct:N0} reset{(ct == 1 ? string.Empty : "s")}! Total search time: {timeSpan.Days:00}:{timeSpan.Hours:00}:{timeSpan.Minutes:00}:{timeSpan.Seconds:00}.{System.Environment.NewLine}Disconnecting Switch.");
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                readPause = false;
+                skipPause = false;
+                resetPause = false;
+                reset = true;
+                SetControlEnabledState(true, B_SkipAdvance, B_SkipForward, B_SkipBack, B_Turbo, B_SeedSearch, B_ReadEncounter);
+                SetControlEnabledState(false, B_CancelSkip);
+                if (ex is not TaskCanceledException) this.DisplayMessageBox($"Error occurred during Seed Reset routine: {ex.Message}");
+                return;
+            }
+
+            SetControlEnabledState(true, B_SkipAdvance, B_SkipForward, B_SkipBack, B_Turbo, B_SeedSearch, B_ReadEncounter);
+            SetControlEnabledState(false, B_CancelSkip);
+            readPause = false;
+            skipPause = false;
+            resetPause = false;
+            reset = true;
+        });
+    }
     #endregion
 
     #region UI Methods
@@ -1968,210 +2173,66 @@ public partial class MainWindow : Form
     }
     #endregion
 
-    private void B_SeedSearch_Click(object sender, EventArgs e)
+    #region Context Menu
+    private void CMS_RightClick_Opening(object sender, System.ComponentModel.CancelEventArgs e)
     {
-        var tab = TC_EncounterType.SelectedTab;
-        Task.Run(async () =>
-        {
-            try
-            {
-                SetControlEnabledState(false, B_SkipAdvance, B_SkipForward, B_SkipBack, B_Turbo, B_SeedSearch, B_ReadEncounter);
-                SetControlEnabledState(true, B_CancelSkip);
-                skipPause = true;
-                readPause = true;
-                bool found = false;
-                await Task.Delay(150, ResetSource.Token).ConfigureAwait(false);
-                bool first = true;
-                var ct = 0;
-                var sw = Stopwatch.GetTimestamp();
-                while (ConnectionWrapper.Connected && !ResetSource.IsCancellationRequested && !resetPause && !found)
-                {
-                    ulong prevs0 = 0;
-                    ulong prevs1 = 0;
-                    var (s0, s1) = await ConnectionWrapper.ReadRNGState(ResetSource.Token).ConfigureAwait(false);
-
-                    if (!(s0 == prevs0 && s1 == prevs1))
-                    {
-                        SetTextBoxText($"{s0:X16}", TB_Seed0, TB_CurrentS0);
-                        SetTextBoxText($"{s1:X16}", TB_Seed1, TB_CurrentS1);
-                        SetTextBoxText("0", TB_CurrentAdvances, TB_AdvancesIncrease);
-
-
-                        if (tab != null)
-                        {
-                            var type = tab.Text;
-
-                            var table = new EncounterTable(
-                                GetControlText(CB_Game),
-                                type,
-                                GetControlText((ComboBox)Controls.Find($"CB_{type}_Area", true).FirstOrDefault()!),
-                                GetControlText((ComboBox)Controls.Find($"CB_{type}_Weather", true).FirstOrDefault()!),
-                                GetControlText((ComboBox)Controls.Find($"CB_{type}_LeadAbility", true).FirstOrDefault()!)
-                                );
-
-                            var initial = ulong.Parse(GetControlText((TextBox)Controls.Find($"TB_{type}_Initial", true).FirstOrDefault()!));
-                            var advances = ulong.Parse(GetControlText((TextBox)Controls.Find($"TB_{type}_Advances", true).FirstOrDefault()!));
-
-                            var numTasks = (byte)(advances < 1_000 ? 1 : advances < 50_000 ? 2 : 4);
-                            var interval = advances / numTasks;
-
-                            Core.RNG.GeneratorConfig config = new()
-                            {
-                                TargetSpecies = GetControlText((ComboBox)Controls.Find($"CB_{type}_Species", true).FirstOrDefault()!),
-                                LeadAbility = GetControlText((ComboBox)Controls.Find($"CB_{type}_LeadAbility", true).FirstOrDefault()!),
-
-                                AuraKOs = type is "Symbol" or "Fishing" ? int.Parse(GetControlText((TextBox)Controls.Find($"TB_{type}_KOs", true).FirstOrDefault()!)) : 0,
-
-                                Weather = GetWeatherType(GetControlText((ComboBox)Controls.Find($"CB_{type}_Weather", true).FirstOrDefault()!)),
-
-                                ShinyRolls = GetCheckBoxIsChecked(CB_ShinyCharm) ? 3 : 1,
-                                MarkRolls = GetCheckBoxIsChecked(CB_MarkCharm) ? 3 : 1,
-
-                                MaxStep = type is "Hidden" ? GetComboBoxSelectedIndex(CB_Hidden_MaxStep) : 0,
-
-                                TargetShiny = GetFilterShinyType(GetComboBoxSelectedIndex(CB_Filter_Shiny)),
-                                TargetMark = GetFilterMarkype(GetComboBoxSelectedIndex(CB_Filter_Mark)),
-                                TargetScale = GetFilterScaleType(GetComboBoxSelectedIndex(CB_Filter_Height)),
-
-                                TargetMinIVs = [GetNUDValue(NUD_HP_Min), GetNUDValue(NUD_Atk_Min), GetNUDValue(NUD_Def_Min), GetNUDValue(NUD_SpA_Min), GetNUDValue(NUD_SpD_Min), GetNUDValue(NUD_Spe_Min)],
-                                TargetMaxIVs = [GetNUDValue(NUD_HP_Max), GetNUDValue(NUD_Atk_Max), GetNUDValue(NUD_Def_Max), GetNUDValue(NUD_SpA_Max), GetNUDValue(NUD_SpD_Max), GetNUDValue(NUD_Spe_Max)],
-
-                                RareEC = GetCheckBoxIsChecked(CB_RareEC),
-
-                                DexRecSlots =
-                                [
-                                    GetDexRecommendation(GetControlText(CB_DexRec1)),
-                                    GetDexRecommendation(GetControlText(CB_DexRec2)),
-                                    GetDexRecommendation(GetControlText(CB_DexRec3)),
-                                    GetDexRecommendation(GetControlText(CB_DexRec4))
-                                ],
-
-                                ConsiderMenuClose = GetCheckBoxIsChecked((CheckBox)Controls.Find($"CB_{type}_MenuClose", true).FirstOrDefault()!),
-                                MenuCloseIsHoldingDirection = GetCheckBoxIsChecked((CheckBox)Controls.Find($"CB_{type}_MenuClose_Direction", true).FirstOrDefault()!),
-                                MenuCloseNPCs = uint.Parse(GetControlText((TextBox)Controls.Find($"TB_{type}_NPCs", true).FirstOrDefault()!)),
-
-                                ConsiderFly = GetCheckBoxIsChecked(CB_ConsiderFlying),
-                                ConsiderRain = GetCheckBoxIsChecked(CB_ConsiderRain),
-                                AreaLoadAdvances = GetNUDValue(NUD_AreaLoad),
-                                AreaLoadNPCs = GetNUDValue(NUD_FlyNPCs),
-                                RainTicksAreaLoad = GetCheckBoxIsChecked(CB_ConsiderFlying) && GetCheckBoxIsChecked(CB_ConsiderRain) ? GetNUDValue(NUD_RainTick) : 0,
-                                RainTicksEncounter = GetCheckBoxIsChecked(CB_ConsiderFlying) && GetCheckBoxIsChecked(CB_ConsiderRain) ? 0 : GetNUDValue(NUD_RainTick),
-
-                                FiltersEnabled = true,
-
-                                TID = uint.Parse(GetControlText(TB_TID)),
-                                SID = uint.Parse(GetControlText(TB_SID)),
-                            };
-
-                            var rng = new Xoroshiro128Plus(s0, s1);
-
-                            for (ulong i = 0; i < initial; i++) rng.Next();
-
-                            List<OverworldFrame>[] results = [];
-
-                            List<Task<List<OverworldFrame>>> tasks = [];
-                            for (byte i = 0; i < numTasks; i++)
-                            {
-                                var last = i == numTasks - 1;
-
-                                var (_s0, _s1) = rng.GetState();
-                                var start = initial + (i * interval);
-                                var end = initial + (interval * (i + (uint)1)) - 1;
-
-                                if (last) end += advances % interval;
-
-                                var t = type switch
-                                {
-                                    "Static" => Static.Generate(_s0, _s1, table, start, end, config),
-                                    "Symbol" => Symbol.Generate(_s0, _s1, table, start, end, config),
-                                    "Fishing" => Fishing.Generate(_s0, _s1, table, start, end, config),
-                                    _ => Hidden.Generate(_s0, _s1, table, start, end, config),
-                                };
-
-                                tasks.Add(t);
-
-                                if (!last)
-                                {
-                                    for (ulong j = 0; j < interval; j++)
-                                    {
-                                        rng.Next();
-                                    }
-                                }
-                            }
-
-                            await Task.Run(async () =>
-                            {
-                                results = await Task.WhenAll(tasks);
-                                List<OverworldFrame> AllResults = [];
-                                foreach (var result in results)
-                                {
-                                    AllResults.AddRange(result);
-                                }
-
-                                Frames = AllResults;
-                                if (AllResults.Count > 0) found = true;
-                                if (AllResults.Count > 1000) AllResults = AllResults[0..1000];
-                                //AllResults.Sort();
-                                SetBindingSourceDataSource(AllResults, ResultsSource);
-                                DGV_Results.SanitizeColumns(this);
-                            }).ConfigureAwait(false);
-                        }
-                    }
-                    else
-                    {
-                        await Task.Delay(5_000, ResetSource.Token).ConfigureAwait(false);
-                    }
-
-                    prevs0 = s0;
-                    prevs1 = s1;
-
-                    if (!found && Config is ISeedResetConfig cfg)
-                    {
-                        ct++;
-                        if (first)
-                        {
-                            await ConnectionWrapper.PressL3(ResetSource.Token).ConfigureAwait(false); // First input doesn't always go through
-                            first = false;
-                        }
-                        await ConnectionWrapper.CloseGame(cfg, ResetSource.Token).ConfigureAwait(false);
-                        await ConnectionWrapper.OpenGame(cfg, ct, ResetSource.Token).ConfigureAwait(false);
-                    }
-
-                    if (found)
-                    {
-                        SetControlEnabledState(true, B_SkipAdvance, B_SkipForward, B_SkipBack, B_Turbo, B_SeedSearch, B_ReadEncounter);
-                        SetControlEnabledState(false, B_CancelSkip);
-                        if (GetCheckBoxIsChecked(CB_FocusWindow)) ActivateWindow();
-                        if (GetCheckBoxIsChecked(CB_PlayTone)) System.Media.SystemSounds.Asterisk.Play();
-                        await ConnectionWrapper.PressHome(ResetSource.Token).ConfigureAwait(false);
-                        var timeSpan = Stopwatch.GetElapsedTime(sw);
-                        await Task.Delay(100, ResetSource.Token).ConfigureAwait(false);
-                        Disconnect(ResetSource.Token);
-                        if (Frames.Count >= 1_000) MessageBox.Show($"Too many results found, displayed results capped at 1000. Please re-run the search with more restrictive filters or a smaller range of advances.");
-                        MessageBox.Show($"Seed result found in {ct:N0} reset{(ct == 1 ? string.Empty : "s")}! Total search time: {timeSpan.Days:00}:{timeSpan.Hours:00}:{timeSpan.Minutes:00}:{timeSpan.Seconds:00}.{System.Environment.NewLine}Disconnecting Switch.");
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                readPause = false;
-                skipPause = false;
-                resetPause = false;
-                reset = true;
-                SetControlEnabledState(true, B_SkipAdvance, B_SkipForward, B_SkipBack, B_Turbo, B_SeedSearch, B_ReadEncounter);
-                SetControlEnabledState(false, B_CancelSkip);
-                if (ex is not TaskCanceledException) this.DisplayMessageBox($"Error occurred during Seed Reset routine: {ex.Message}");
-                return;
-            }
-
-            SetControlEnabledState(true, B_SkipAdvance, B_SkipForward, B_SkipBack, B_Turbo, B_SeedSearch, B_ReadEncounter);
-            SetControlEnabledState(false, B_CancelSkip);
-            readPause = false;
-            skipPause = false;
-            resetPause = false;
-            reset = true;
-        });
+        e.Cancel = !(DGV_Results.
+            CurrentRow?.Index >= 0);
     }
+
+    private void TSMI_CopySeeds_Click(object sender, EventArgs e)
+    {
+        try
+        {
+            var s0 = DGV_Results.CurrentRow!.Cells[23].Value;
+            var s1 = DGV_Results.CurrentRow!.Cells[24].Value;
+            Clipboard.SetText($"{s0}{System.Environment.NewLine}{s1}");
+        }
+        catch (NullReferenceException)
+        {
+            this.DisplayMessageBox("No row selected!");
+        }
+    }
+
+    private void TSMI_SetAsInitial_Click(object sender, EventArgs e)
+    {
+        try
+        {
+            var s0 = DGV_Results.CurrentRow!.Cells[23].Value;
+            var s1 = DGV_Results.CurrentRow!.Cells[24].Value;
+            TB_Seed0.Text = $"{s0}";
+            TB_Seed1.Text = $"{s1}";
+        }
+        catch (NullReferenceException)
+        {
+            this.DisplayMessageBox("No row selected!");
+        }
+    }
+
+    private void TSMI_SetAdvances_Click(object sender, EventArgs e)
+    {
+        try
+        {
+            var adv = DGV_Results.CurrentRow!.Cells[0].Value;
+            var tab = TC_EncounterType.SelectedTab!.Text;
+            ((TextBox)Controls.Find($"TB_{tab}_Initial", true).FirstOrDefault()!).Text = $"{adv}";
+        }
+        catch (NullReferenceException)
+        {
+            this.DisplayMessageBox("No row selected!");
+        }
+    }
+
+    private void DGV_Results_MouseDown(object sender, MouseEventArgs e)
+    {
+        if (e.Button is MouseButtons.Right)
+        {
+            var row = DGV_Results.HitTest(e.X, e.Y).RowIndex;
+            DGV_Results.ClearSelection();
+            DGV_Results.Rows[row].Selected = true;
+        }
+    }
+    #endregion
 }
 
 public static class Extension
