@@ -45,7 +45,7 @@ public static class Cramomatic
                 if (isSweet)
                 {
                     itemRoll = (uint)rng.NextInt(100);
-                } 
+                }
                 else
                 {
                     slot -= (uint)rng.NextInt(4); // reverse order
@@ -57,12 +57,12 @@ public static class Cramomatic
 
                 if (!CheckCramomaticResult(item, config.CramomaticTargetType, allSame))
                 {
-                    outer.Next();   
+                    outer.Next();
                     continue;
                 }
 
                 bool isBonus = rng.NextInt((uint)(item is CramomaticGenerateType.SportSafari or CramomaticGenerateType.Apricorn ? 1000 : 100)) == 0;
-                
+
                 if (!isSweet && config.BonusOnly && !isBonus)
                 {
                     outer.Next();

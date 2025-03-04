@@ -57,7 +57,7 @@ namespace owoow.Core.RNG.Validators
             CramomaticTargetType.SportBall => item is CramomaticGenerateType.SportSafari && !isSafari,
             CramomaticTargetType.SafariBall => item is CramomaticGenerateType.SportSafari && isSafari,
             CramomaticTargetType.ApricornBall => item is CramomaticGenerateType.Apricorn,
-            CramomaticTargetType.ShopBall => 
+            CramomaticTargetType.ShopBall =>
                 item is CramomaticGenerateType.Shop1 or CramomaticGenerateType.Shop2 or CramomaticGenerateType.GreatBall or CramomaticGenerateType.PokeBall,
             CramomaticTargetType.StarSweet => item is CramomaticGenerateType.StarSweet,
             CramomaticTargetType.RibbonSweet => item is CramomaticGenerateType.RibbonSweet,

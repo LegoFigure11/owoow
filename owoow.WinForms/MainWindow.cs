@@ -1,4 +1,4 @@
-﻿using owoow.Core;
+using owoow.Core;
 using owoow.Core.Connection;
 using owoow.Core.EncounterTable;
 using owoow.Core.Interfaces;
@@ -374,7 +374,8 @@ public partial class MainWindow : Form
         try
         {
             if (ConnectionWrapper is { Connected: true }) await ConnectionWrapper.ResetStick(AdvanceSource.Token);
-        } catch { }
+        }
+        catch { }
     }
 
     private void B_SkipForward_Click(object sender, EventArgs e)
@@ -1455,7 +1456,7 @@ public partial class MainWindow : Form
     private void ActivateWindow()
     {
         if (InvokeRequired)
-            Invoke(() => Activate());
+            Invoke(Activate);
         else
             Activate();
     }
@@ -1508,11 +1509,11 @@ public partial class MainWindow : Form
         {
             if (o is not TextBox tb)
                 continue;
+
             if (InvokeRequired)
-            {
                 Invoke(() => tb.Text = text);
-            }
-            else tb.Text = text;
+            else
+                tb.Text = text;
         }
     }
 
@@ -1522,11 +1523,11 @@ public partial class MainWindow : Form
         {
             if (o is not Button b)
                 continue;
+
             if (InvokeRequired)
-            {
                 Invoke(() => b.Text = text);
-            }
-            else b.Text = text;
+            else
+                b.Text = text;
         }
     }
 
@@ -1536,11 +1537,11 @@ public partial class MainWindow : Form
         {
             if (o is not PictureBox pb)
                 continue;
+
             if (InvokeRequired)
-            {
                 Invoke(() => pb.Image = img);
-            }
-            else pb.Image = img;
+            else
+                pb.Image = img;
         }
     }
 
@@ -1550,11 +1551,11 @@ public partial class MainWindow : Form
         {
             if (o is not ComboBox cb)
                 continue;
+
             if (InvokeRequired)
-            {
                 Invoke(() => cb.SelectedIndex = index);
-            }
-            else cb.SelectedIndex = index;
+            else
+                cb.SelectedIndex = index;
         }
     }
 
@@ -1564,11 +1565,11 @@ public partial class MainWindow : Form
         {
             if (o is not BindingSource b)
                 continue;
+
             if (InvokeRequired)
-            {
                 Invoke(() => b.DataSource = source);
-            }
-            else b.DataSource = source;
+            else
+                b.DataSource = source;
         }
     }
 
@@ -1578,57 +1579,37 @@ public partial class MainWindow : Form
         {
             if (o is not DataGridView dgv)
                 continue;
+
             if (InvokeRequired)
-            {
                 Invoke(() => dgv.Columns[index].Visible = visible);
-            }
-            else dgv.Columns[index].Visible = visible;
+            else
+                dgv.Columns[index].Visible = visible;
         }
     }
 
     public string GetControlText(Control c)
     {
-        if (InvokeRequired)
-        {
-            return Invoke(() => c.Text);
-        }
-        else return c.Text;
+        return (InvokeRequired ? Invoke(() => c.Text) : c.Text);
     }
 
     public TabPage? GetTabControlTab(TabControl c)
     {
-        if (InvokeRequired)
-        {
-            return Invoke(() => c.SelectedTab);
-        }
-        else return c.SelectedTab;
+        return (InvokeRequired ? Invoke(() => c.SelectedTab) : c.SelectedTab);
     }
 
     public bool GetCheckBoxIsChecked(CheckBox c)
     {
-        if (InvokeRequired)
-        {
-            return Invoke(() => c.Checked);
-        }
-        else return c.Checked;
+        return (InvokeRequired ? Invoke(() => c.Checked) : c.Checked);
     }
 
     public uint GetNUDValue(NumericUpDown c)
     {
-        if (InvokeRequired)
-        {
-            return Invoke(() => (uint)c.Value);
-        }
-        else return (uint)c.Value;
+        return (uint)(InvokeRequired ? Invoke(() => c.Value) : c.Value);
     }
 
     public int GetComboBoxSelectedIndex(ComboBox c)
     {
-        if (InvokeRequired)
-        {
-            return Invoke(() => c.SelectedIndex);
-        }
-        else return c.SelectedIndex;
+        return (InvokeRequired ? Invoke(() => c.SelectedIndex) : c.SelectedIndex);
     }
 
     private void CB_ConsiderFlying_CheckedChanged(object sender, EventArgs e)

@@ -125,7 +125,7 @@ public static class Util
     public static CramomaticInputItemType GetCramomaticInputItemType(int selected) => (CramomaticInputItemType)selected;
     public static SuccessType GetSuccessType(int selected) => (SuccessType)selected;
 
-    public static short GetDexRecommendation(string species) 
+    public static short GetDexRecommendation(string species)
     {
         if (Personal is not null)
         {

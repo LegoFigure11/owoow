@@ -2,8 +2,8 @@
 using owoow.Core.Interfaces;
 using owoow.Core.RNG.Generators.Misc;
 using PKHeX.Core;
-using static owoow.Core.RNG.Generators.Overworld.Common;
 using static owoow.Core.RNG.Generators.Fixed;
+using static owoow.Core.RNG.Generators.Overworld.Common;
 using static owoow.Core.RNG.Validators.Validator;
 using Environment = owoow.Core.RNG.Generators.Misc.Environment;
 
@@ -106,7 +106,7 @@ public class Symbol
                 {
                     ActiveTable = table.AbilityTable;
                     var TableSize = (uint)ActiveTable.Count;
-                    EncounterSlot =  TableSize == 1 ? 0 : GenerateEncounterSlot(ref rng, TableSize);
+                    EncounterSlot = TableSize == 1 ? 0 : GenerateEncounterSlot(ref rng, TableSize);
                     EncounterSlotChosen = true;
                 }
                 else

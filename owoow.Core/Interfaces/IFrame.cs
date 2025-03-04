@@ -101,7 +101,7 @@
         public string Jump { get; set; } = string.Empty;
         public char Animation { get; set; } = ' ';
         public string Prize { get; set; } = string.Empty;
-        public bool Bonus {  get; set; } = false;
+        public bool Bonus { get; set; } = false;
         public string Seed0 { get; set; } = string.Empty;
         public string Seed1 { get; set; } = string.Empty;
     }

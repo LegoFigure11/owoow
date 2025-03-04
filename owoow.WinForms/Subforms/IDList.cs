@@ -1,4 +1,4 @@
-﻿using System.Text.Json;
+using System.Text.Json;
 
 namespace owoow.WinForms.Subforms;
 
@@ -84,7 +84,7 @@ public partial class IDList : Form
 
     private void TB_ID_KeyPress(object sender, KeyPressEventArgs e)
     {
-     
+
         var c = e.KeyChar;
         if (c != (char)Keys.Back && !char.IsControl(c))
         {

@@ -56,7 +56,7 @@ public class GeneratorConfig
     public uint AreaLoadAdvances { get; set; } = 0;
     public uint AreaLoadNPCs { get; set; } = 0;
     public bool ConsiderRain { get; set; } = false;
-    
+
     // Party List -> Main Menu
     // When Flying, this value also includes the ticks consumed opening the map
     public uint RainTicksSummary => Weather switch
@@ -71,7 +71,7 @@ public class GeneratorConfig
     public uint RainTicksAfterCloseMenu => Weather switch
     {
         WeatherType.Raining => ConsiderFly ? (uint)3 : 2,
-        WeatherType.Thunderstorm => ConsiderFly ? (uint)6 : 4, 
+        WeatherType.Thunderstorm => ConsiderFly ? (uint)6 : 4,
         _ => 0
     };
 

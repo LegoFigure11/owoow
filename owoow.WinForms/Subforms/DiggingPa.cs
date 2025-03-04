@@ -25,7 +25,7 @@ public partial class DiggingPa : Form
 
         TB_Seed0.KeyPress += new KeyPressEventHandler(f.KeyPress_AllowOnlyHex!);
         TB_Seed1.KeyPress += new KeyPressEventHandler(f.KeyPress_AllowOnlyHex!);
-        
+
         TB_Target.KeyPress += new KeyPressEventHandler(f.KeyPress_AllowOnlyNumerical!);
         TB_DiggingPa_Initial.KeyPress += new KeyPressEventHandler(f.KeyPress_AllowOnlyNumerical!);
         TB_DiggingPa_NPCs.KeyPress += new KeyPressEventHandler(f.KeyPress_AllowOnlyNumerical!);
