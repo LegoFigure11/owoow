@@ -1,4 +1,4 @@
-﻿{
+{
   "Route 10": {
     "Snowstorm": {
       "Encounters": {
@@ -14313,7 +14313,7 @@
           "GuaranteedIVs": 0
         },
         "1": {
-          "Species": "Lycanroc-Midday",
+          "Species": "Lycanroc",
           "Level": 32,
           "IsAbilityLocked": false,
           "Ability": 0,
@@ -14365,7 +14365,7 @@
           "GuaranteedIVs": 0
         },
         "2": {
-          "Species": "Lycanroc-Midnight",
+          "Species": "Lycanroc-1",
           "Level": 32,
           "IsAbilityLocked": false,
           "Ability": 0,
