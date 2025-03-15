@@ -1,5 +1,6 @@
 using owoow.Core;
 using owoow.Core.Connection;
+using owoow.Core.Discord;
 using owoow.Core.EncounterTable;
 using owoow.Core.Interfaces;
 using owoow.Core.RNG.Generators.Misc;
@@ -43,6 +44,8 @@ public partial class MainWindow : Form
 
     private PK8? CachedEncounter;
 
+    public WebhookHandler Webhook;
+
     public MainWindow()
     {
         Config = new ClientConfig();
@@ -63,6 +66,8 @@ public partial class MainWindow : Form
             Port = Config.Protocol is SwitchProtocol.WiFi ? 6000 : Config.UsbPort,
             Protocol = Config.Protocol,
         };
+
+        Webhook = new(Config);
 
         InitializeComponent();
     }
@@ -1231,10 +1236,12 @@ public partial class MainWindow : Form
                         if (GetCheckBoxIsChecked(CB_PlayTone)) System.Media.SystemSounds.Asterisk.Play();
                         await ConnectionWrapper.PressHome(ResetSource.Token).ConfigureAwait(false);
                         var timeSpan = Stopwatch.GetElapsedTime(sw);
+                        var time = $"{timeSpan.Days:00}:{timeSpan.Hours:00}:{timeSpan.Minutes:00}:{timeSpan.Seconds:00}";
+                        await Webhook.SendNotification(Frames[0], time, ct, Frames.Count, Frames.Any(x => x.Shiny != "No"), ResetSource.Token).ConfigureAwait(false);
                         await Task.Delay(100, ResetSource.Token).ConfigureAwait(false);
                         Disconnect(ResetSource.Token);
                         if (Frames.Count >= 1_000) MessageBox.Show($"Too many results found, displayed results capped at 1000. Please re-run the search with more restrictive filters or a smaller range of advances.");
-                        MessageBox.Show($"Seed result found in {ct:N0} reset{(ct == 1 ? string.Empty : "s")}! Total search time: {timeSpan.Days:00}:{timeSpan.Hours:00}:{timeSpan.Minutes:00}:{timeSpan.Seconds:00}.{System.Environment.NewLine}Disconnecting Switch.");
+                        MessageBox.Show($"Seed result found in {ct:N0} reset{(ct == 1 ? string.Empty : "s")}! Total search time: {time}.{System.Environment.NewLine}Disconnecting Switch.");
                     }
                 }
             }
@@ -1246,7 +1253,14 @@ public partial class MainWindow : Form
                 reset = true;
                 SetControlEnabledState(true, B_SkipAdvance, B_SkipForward, B_SkipBack, B_Turbo, B_SeedSearch, B_ReadEncounter);
                 SetControlEnabledState(false, B_CancelSkip);
-                if (ex is not TaskCanceledException) this.DisplayMessageBox($"Error occurred during Seed Reset routine: {ex.Message}");
+                if (ex is not TaskCanceledException)
+                {
+                    try
+                    {
+                        await Webhook.SendErrorNotification(ex.Message, "Seed Reset Error", CancellationToken.None).ConfigureAwait(false);
+                    } catch { }
+                    this.DisplayMessageBox($"Error occurred during Seed Reset routine: {ex.Message}");
+                }
                 return;
             }
 

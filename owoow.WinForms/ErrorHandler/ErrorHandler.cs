@@ -1,4 +1,4 @@
-﻿namespace owoow.WinForms;
+namespace owoow.WinForms;
 
 public static class ErrorHandler
 {

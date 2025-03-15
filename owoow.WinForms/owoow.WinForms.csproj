@@ -38,8 +38,6 @@
     <Folder Include="deps\" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Update="Subforms\WailordRespawn.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Update="Subforms\WailordRespawn.cs" />
   </ItemGroup>
 </Project>

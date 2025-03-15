@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <TargetFramework>net9.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
@@ -36,6 +36,9 @@
     <PackageReference Include="PKHeX.Core" Version="25.2.23" />
   </ItemGroup>
   <ItemGroup>
+    <Reference Include="PKHeX.Drawing.PokeSprite">
+      <HintPath>..\owoow.WinForms\deps\PKHeX.Drawing.PokeSprite.dll</HintPath>
+    </Reference>
     <Reference Include="SysBot.Base">
       <HintPath>Connection\deps\SysBot.Base.dll</HintPath>
     </Reference>

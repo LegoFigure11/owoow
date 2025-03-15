@@ -1,4 +1,4 @@
-﻿using System.Text.Json;
+using System.Text.Json;
 
 namespace owoow.WinForms.Subforms;
 
@@ -25,6 +25,14 @@ public partial class SeedResetSettings : Form
         TB_ExtraTimeLoadProfile.Text = $"{c.ExtraTimeLoadProfile}";
         TB_ExtraTimeCheckDLC.Text = $"{c.ExtraTimeCheckDLC}";
         TB_ExtraTimeLoadGame.Text = $"{c.ExtraTimeLoadGame}";
+
+        CB_EnableWebhooks.Checked = c.WebhookEnabled;
+
+        TB_WebhookMessage.Text = $"{c.WebhookMessageContent}";
+        TB_ResultURLs.Text = $"{c.ResultNotificationURL}";
+        TB_ErrorURLs.Text = $"{c.ErrorNotificationURL}";
+
+        p.SetControlEnabledState(c.WebhookEnabled, TB_WebhookMessage, TB_ResultURLs, TB_ErrorURLs, B_TestWebhooks);
     }
 
     private void SeedResetSettings_FormClosing(object sender, FormClosingEventArgs e)
@@ -34,6 +42,7 @@ public partial class SeedResetSettings : Form
         sw.Write(output);
 
         p.Config = c;
+        p.Webhook = new(c);
         p.SeedSearchFormOpen = false;
     }
 
@@ -67,6 +76,31 @@ public partial class SeedResetSettings : Form
         c.ExtraTimeLoadGame = int.Parse(TB_ExtraTimeLoadGame.Text);
     }
 
+    private void CB_EnableWebhooks_CheckedChanged(object sender, EventArgs e)
+    {
+        c.WebhookEnabled = CB_EnableWebhooks.Checked;
+        p.SetControlEnabledState(c.WebhookEnabled, TB_WebhookMessage, TB_ResultURLs, TB_ErrorURLs, B_TestWebhooks);
+    }
+
+    private void TB_WebhookMessage_TextChanged(object sender, EventArgs e)
+    {
+        c.WebhookMessageContent = TB_WebhookMessage.Text;
+    }
+
+    private void TB_ResultURLs_TextChanged(object sender, EventArgs e)
+    {
+        c.ResultNotificationURL = TB_ResultURLs.Text;
+    }
+
+    private void TB_ErrorURLs_TextChanged(object sender, EventArgs e)
+    {
+        c.ErrorNotificationURL = TB_ErrorURLs.Text;
+    }
+
+    private void B_TestWebhooks_Click(object sender, EventArgs e)
+    {
+        _ = p.Webhook.SendTestWebhook(CancellationToken.None);
+    }
 
     private void KeyPress_AllowOnlyNumerical(object sender, KeyPressEventArgs e)
     {

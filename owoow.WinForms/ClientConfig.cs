@@ -1,9 +1,9 @@
-﻿using owoow.Core.Interfaces;
+using owoow.Core.Interfaces;
 using SysBot.Base;
 
 namespace owoow.WinForms;
 
-public class ClientConfig : ISeedResetConfig, ITurboConfig
+public class ClientConfig : ISeedResetConfig, ITurboConfig, IWebhookConfig
 {
     // Connection
     public string IP { get; set; } = "192.168.0.0";
@@ -31,4 +31,10 @@ public class ClientConfig : ISeedResetConfig, ITurboConfig
     // Turbo
     public bool LoopTurbo { get; set; } = false;
     public List<string> TurboSequence { get; set; } = [];
+
+    // Webhook
+    public bool WebhookEnabled { get; set; } = false;
+    public string ResultNotificationURL { get; set; } = string.Empty;
+    public string ErrorNotificationURL { get; set; } = string.Empty;
+    public string WebhookMessageContent { get; set; } = string.Empty;
 }

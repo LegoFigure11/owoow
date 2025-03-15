@@ -41,6 +41,15 @@
             L_ExtraTimeLoadGame = new Label();
             TB_ExtraTimeLoadGame = new TextBox();
             label1 = new Label();
+            L_EnableWebhooks = new Label();
+            CB_EnableWebhooks = new CheckBox();
+            L_WebhookMessage = new Label();
+            TB_WebhookMessage = new TextBox();
+            TB_ResultURLs = new TextBox();
+            L_ResultURLs = new Label();
+            TB_ErrorURLs = new TextBox();
+            L_ErrorURLs = new Label();
+            B_TestWebhooks = new Button();
             SuspendLayout();
             // 
             // CB_AvoidSystemUpdate
@@ -172,11 +181,100 @@
             label1.TabIndex = 18;
             label1.Text = "Avoid System Update?";
             // 
+            // L_EnableWebhooks
+            // 
+            L_EnableWebhooks.AutoSize = true;
+            L_EnableWebhooks.Location = new Point(12, 167);
+            L_EnableWebhooks.Name = "L_EnableWebhooks";
+            L_EnableWebhooks.Size = new Size(149, 15);
+            L_EnableWebhooks.TabIndex = 20;
+            L_EnableWebhooks.Text = "Enable Discord Webhooks?";
+            // 
+            // CB_EnableWebhooks
+            // 
+            CB_EnableWebhooks.AutoSize = true;
+            CB_EnableWebhooks.Location = new Point(253, 168);
+            CB_EnableWebhooks.Name = "CB_EnableWebhooks";
+            CB_EnableWebhooks.Size = new Size(15, 14);
+            CB_EnableWebhooks.TabIndex = 19;
+            CB_EnableWebhooks.UseVisualStyleBackColor = true;
+            CB_EnableWebhooks.CheckedChanged += CB_EnableWebhooks_CheckedChanged;
+            // 
+            // L_WebhookMessage
+            // 
+            L_WebhookMessage.AutoSize = true;
+            L_WebhookMessage.Location = new Point(12, 188);
+            L_WebhookMessage.Name = "L_WebhookMessage";
+            L_WebhookMessage.Size = new Size(110, 15);
+            L_WebhookMessage.TabIndex = 21;
+            L_WebhookMessage.Text = "Webhook Message:";
+            // 
+            // TB_WebhookMessage
+            // 
+            TB_WebhookMessage.Location = new Point(12, 206);
+            TB_WebhookMessage.Name = "TB_WebhookMessage";
+            TB_WebhookMessage.Size = new Size(268, 23);
+            TB_WebhookMessage.TabIndex = 22;
+            TB_WebhookMessage.TextChanged += TB_WebhookMessage_TextChanged;
+            // 
+            // TB_ResultURLs
+            // 
+            TB_ResultURLs.Location = new Point(12, 252);
+            TB_ResultURLs.Name = "TB_ResultURLs";
+            TB_ResultURLs.Size = new Size(268, 23);
+            TB_ResultURLs.TabIndex = 24;
+            TB_ResultURLs.TextChanged += TB_ResultURLs_TextChanged;
+            // 
+            // L_ResultURLs
+            // 
+            L_ResultURLs.AutoSize = true;
+            L_ResultURLs.Location = new Point(12, 234);
+            L_ResultURLs.Name = "L_ResultURLs";
+            L_ResultURLs.Size = new Size(120, 15);
+            L_ResultURLs.TabIndex = 23;
+            L_ResultURLs.Text = "Result Message URLs:";
+            // 
+            // TB_ErrorURLs
+            // 
+            TB_ErrorURLs.Location = new Point(12, 298);
+            TB_ErrorURLs.Name = "TB_ErrorURLs";
+            TB_ErrorURLs.Size = new Size(268, 23);
+            TB_ErrorURLs.TabIndex = 26;
+            TB_ErrorURLs.TextChanged += TB_ErrorURLs_TextChanged;
+            // 
+            // L_ErrorURLs
+            // 
+            L_ErrorURLs.AutoSize = true;
+            L_ErrorURLs.Location = new Point(12, 280);
+            L_ErrorURLs.Name = "L_ErrorURLs";
+            L_ErrorURLs.Size = new Size(113, 15);
+            L_ErrorURLs.TabIndex = 25;
+            L_ErrorURLs.Text = "Error Message URLs:";
+            // 
+            // B_TestWebhooks
+            // 
+            B_TestWebhooks.Location = new Point(12, 323);
+            B_TestWebhooks.Name = "B_TestWebhooks";
+            B_TestWebhooks.Size = new Size(268, 25);
+            B_TestWebhooks.TabIndex = 27;
+            B_TestWebhooks.Text = "Test Webhooks";
+            B_TestWebhooks.UseVisualStyleBackColor = true;
+            B_TestWebhooks.Click += B_TestWebhooks_Click;
+            // 
             // SeedResetSettings
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(286, 160);
+            ClientSize = new Size(286, 353);
+            Controls.Add(B_TestWebhooks);
+            Controls.Add(TB_ErrorURLs);
+            Controls.Add(L_ErrorURLs);
+            Controls.Add(TB_ResultURLs);
+            Controls.Add(L_ResultURLs);
+            Controls.Add(TB_WebhookMessage);
+            Controls.Add(L_WebhookMessage);
+            Controls.Add(L_EnableWebhooks);
+            Controls.Add(CB_EnableWebhooks);
             Controls.Add(label1);
             Controls.Add(L_ExtraTimeLoadGame);
             Controls.Add(TB_ExtraTimeLoadGame);
@@ -212,5 +310,14 @@
         private Label L_ExtraTimeLoadGame;
         public TextBox TB_ExtraTimeLoadGame;
         private Label label1;
+        private Label L_EnableWebhooks;
+        private CheckBox CB_EnableWebhooks;
+        private Label L_WebhookMessage;
+        private TextBox TB_WebhookMessage;
+        private TextBox TB_ResultURLs;
+        private Label L_ResultURLs;
+        private TextBox TB_ErrorURLs;
+        private Label L_ErrorURLs;
+        private Button B_TestWebhooks;
     }
 }
