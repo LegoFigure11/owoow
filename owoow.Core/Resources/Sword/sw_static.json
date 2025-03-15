@@ -14343,6 +14343,14 @@
           "Ability": 0,
           "IsShinyLocked": false,
           "GuaranteedIVs": 0
+        },
+        "5": {
+          "Species": "Moltres-1",
+          "Level": 70,
+          "IsAbilityLocked": true,
+          "Ability": 0,
+          "IsShinyLocked": true,
+          "GuaranteedIVs": 3
         }
       }
     },
@@ -14379,6 +14387,14 @@
           "Ability": 0,
           "IsShinyLocked": false,
           "GuaranteedIVs": 0
+        },
+        "4": {
+          "Species": "Moltres-1",
+          "Level": 70,
+          "IsAbilityLocked": true,
+          "Ability": 0,
+          "IsShinyLocked": true,
+          "GuaranteedIVs": 3
         }
       }
     },
@@ -14399,6 +14415,14 @@
           "Ability": 0,
           "IsShinyLocked": false,
           "GuaranteedIVs": 0
+        },
+        "2": {
+          "Species": "Moltres-1",
+          "Level": 70,
+          "IsAbilityLocked": true,
+          "Ability": 0,
+          "IsShinyLocked": true,
+          "GuaranteedIVs": 3
         }
       }
     },
@@ -14419,6 +14443,14 @@
           "Ability": 0,
           "IsShinyLocked": false,
           "GuaranteedIVs": 0
+        },
+        "2": {
+          "Species": "Moltres-1",
+          "Level": 70,
+          "IsAbilityLocked": true,
+          "Ability": 0,
+          "IsShinyLocked": true,
+          "GuaranteedIVs": 3
         }
       }
     },
@@ -14455,6 +14487,14 @@
           "Ability": 0,
           "IsShinyLocked": false,
           "GuaranteedIVs": 0
+        },
+        "4": {
+          "Species": "Moltres-1",
+          "Level": 70,
+          "IsAbilityLocked": true,
+          "Ability": 0,
+          "IsShinyLocked": true,
+          "GuaranteedIVs": 3
         }
       }
     },
@@ -14491,6 +14531,14 @@
           "Ability": 0,
           "IsShinyLocked": false,
           "GuaranteedIVs": 0
+        },
+        "4": {
+          "Species": "Moltres-1",
+          "Level": 70,
+          "IsAbilityLocked": true,
+          "Ability": 0,
+          "IsShinyLocked": true,
+          "GuaranteedIVs": 3
         }
       }
     },
@@ -14527,6 +14575,14 @@
           "Ability": 0,
           "IsShinyLocked": false,
           "GuaranteedIVs": 0
+        },
+        "4": {
+          "Species": "Moltres-1",
+          "Level": 70,
+          "IsAbilityLocked": true,
+          "Ability": 0,
+          "IsShinyLocked": true,
+          "GuaranteedIVs": 3
         }
       }
     }
