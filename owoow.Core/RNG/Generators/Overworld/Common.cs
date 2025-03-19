@@ -1,4 +1,4 @@
-﻿using owoow.Core.Enums;
+using owoow.Core.Enums;
 using owoow.Core.Interfaces;
 using PKHeX.Core;
 
@@ -99,7 +99,7 @@ public static class Common
     public static string GenerateAbility(ref Xoroshiro128Plus rng, string[]? abilities, bool locked = false, ulong roll = 2)
     {
         if (!locked) roll = rng.NextInt(2);
-        return abilities![roll];
+        return abilities![1 - roll];
     }
 
     public static string GenerateItem(ref Xoroshiro128Plus rng, IEncounterTableEntry enc, AbilityType ab = AbilityType.NoEffect)
