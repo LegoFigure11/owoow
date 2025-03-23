@@ -2,8 +2,8 @@ using owoow.Core.Interfaces;
 using PKHeX.Core;
 using PKHeX.Drawing.PokeSprite;
 using System.Drawing;
-using System.Text.Json;
 using System.Text;
+using System.Text.Json;
 using static PKHeX.Core.MoveType;
 
 namespace owoow.Core.Discord;
@@ -143,7 +143,7 @@ public class WebhookHandler(IWebhookConfig config)
                         color = new Random().Next(0x1000000),
                     },
                 },
-            };  
+            };
 
             var content = new StringContent(JsonSerializer.Serialize(Webhook), Encoding.UTF8, "application/json");
 
