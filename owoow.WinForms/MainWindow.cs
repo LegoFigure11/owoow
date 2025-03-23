@@ -2,6 +2,7 @@ using owoow.Core;
 using owoow.Core.Connection;
 using owoow.Core.Discord;
 using owoow.Core.EncounterTable;
+using owoow.Core.Enums;
 using owoow.Core.Interfaces;
 using owoow.Core.RNG.Generators.Misc;
 using owoow.Core.RNG.Generators.Overworld;
@@ -1112,6 +1113,7 @@ public partial class MainWindow : Form
                                 LeadAbility = GetControlText((ComboBox)Controls.Find($"CB_{type}_LeadAbility", true).FirstOrDefault()!),
 
                                 AuraKOs = type is "Symbol" or "Fishing" ? int.Parse(GetControlText((TextBox)Controls.Find($"TB_{type}_KOs", true).FirstOrDefault()!)) : 0,
+                                TargetAura = type is "Symbol" or "Fishing" ? GetFilterAuraType(GetComboBoxSelectedIndex((ComboBox)Controls.Find($"CB_{type}_TargetAura", true).FirstOrDefault()!)) : AuraType.Any,
 
                                 Weather = GetWeatherType(GetControlText((ComboBox)Controls.Find($"CB_{type}_Weather", true).FirstOrDefault()!)),
 
@@ -1258,7 +1260,8 @@ public partial class MainWindow : Form
                     try
                     {
                         await Webhook.SendErrorNotification(ex.Message, "Seed Reset Error", CancellationToken.None).ConfigureAwait(false);
-                    } catch { }
+                    }
+                    catch { }
                     this.DisplayMessageBox($"Error occurred during Seed Reset routine: {ex.Message}");
                 }
                 return;
