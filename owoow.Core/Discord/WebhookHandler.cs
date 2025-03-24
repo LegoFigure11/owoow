@@ -36,7 +36,7 @@ public class WebhookHandler(IWebhookConfig config)
             Gender = (byte)(frame.Gender == 'F' ? 1 : 0),
         };
 
-        if (frame.Species is not "Jangmo-o" and not "Hakamo-o" and not "Kommo-o") pk.Form = byte.Parse(frame.Species.Split('-')[1]);
+        if (frame.Species.Contains('-') && frame.Species is not "Jangmo-o" and not "Hakamo-o" and not "Kommo-o") pk.Form = byte.Parse(frame.Species.Split('-')[1]);
 
         var sprite = SpriteName.GetResourceStringSprite(pk.Species, pk.Form, pk.Gender, pk.FormArgument, EntityContext.Gen8, shiny);
         sprite = sprite[1..];
