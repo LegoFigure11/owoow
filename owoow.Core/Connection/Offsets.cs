@@ -1,4 +1,4 @@
-﻿namespace owoow.Core.Connection;
+namespace owoow.Core.Connection;
 
 public abstract class Offsets
 {
@@ -19,4 +19,7 @@ public abstract class Offsets
 
     public const uint DexRecommendation = 0x45072b18;
     public const int DexRecommendation_Size = 0x20;
+
+    public const uint KCoordinates = 0x4505b3c0;
+    public const int KCoordinates_Size = 0x6010;
 }

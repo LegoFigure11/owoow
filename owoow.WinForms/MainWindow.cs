@@ -32,7 +32,7 @@ public partial class MainWindow : Form
     private ConnectionWrapperAsync ConnectionWrapper = default!;
     private readonly SwitchConnectionConfig ConnectionConfig;
 
-    private readonly GameStrings Strings = GameInfo.GetStrings(1);
+    public readonly GameStrings Strings = GameInfo.GetStrings(1);
 
     private bool stop;
     private bool reset;
@@ -1547,90 +1547,139 @@ public partial class MainWindow : Form
         );
     }
 
+    public bool OverworldScannerFormOpen = false;
+    OverworldScanner? OverworldScannerForm;
     private void B_ReadEncounter_Click(object sender, EventArgs e)
     {
-        Task.Run(
-            async () =>
+        if (ModifierKeys == Keys.Shift)
+        {
+            try
             {
-                try
+                if (!OverworldScannerFormOpen)
                 {
+                    SetControlEnabledState(false, B_ReadEncounter);
                     readPause = true;
-                    await Task.Delay(100, Source.Token);
-                    SetTextBoxText("Reading encounter...", TB_Wild);
-                    var pk = await ConnectionWrapper.ReadWildPokemon(Source.Token);
-                    if (pk.Valid && pk.Species > 0)
-                    {
-                        CachedEncounter = pk;
-                        bool HasRibbon = Utils.HasMark(pk, out RibbonIndex mark);
 
-                        var n = System.Environment.NewLine;
-
-                        string form = pk.Form == 0 ? string.Empty : $"-{pk.Form}";
-                        string gender = pk.Gender switch
+                    Task.Run(
+                        async () =>
                         {
-                            0 => " (M)",
-                            1 => " (F)",
-                            _ => string.Empty,
-                        };
-                        string shiny = pk.ShinyXor switch
-                        {
-                            0 => "■ - ",
-                            < 16 => "★ -",
-                            _ => string.Empty,
-                        };
+                            await Task.Delay(100, Source.Token).ConfigureAwait(false);
+                            await ConnectionWrapper.ReadKCoordinatesAsync(Source.Token).ConfigureAwait(false);
+                            readPause = false;
+                            SetControlEnabledState(true, B_ReadEncounter);
+                            var (pk8s, x, y, z, map) = ConnectionWrapper.GetOverworldPK8FromKCoordinates();
 
-
-                        string item = pk.HeldItem > 0 ? $" @ {Strings.Item[pk.HeldItem]}" : string.Empty;
-                        string markString = HasRibbon ? $"{n}Mark: {mark.ToString().Replace("Mark", "")}" : string.Empty;
-
-                        string scale = $"Height: {PokeSizeDetailedUtil.GetSizeRating(pk.HeightScalar)} ({pk.HeightScalar})";
-
-                        string moves = string.Empty;
-
-
-                        foreach (int move in pk.Moves)
-                        {
-                            if (move == 0) break;
-                            moves += $"{n}- {Strings.Move[move]}";
+                            if (pk8s.Count > 0)
+                            {
+                                OverworldScannerFormOpen = true;
+                                OverworldScannerForm = new OverworldScanner(this, [.. pk8s], x, y, z, map);
+                                OverworldScannerForm.ShowDialog();
+                            }
+                            else
+                            {
+                                MessageBox.Show("No Pokémon found in KCoordinates block! If you think there should be any, save the game in an area with wild spawns and try again.");
+                            }
                         }
-
-                        string output = $"{shiny}{(Species)pk.Species}{form}{gender}{item}{n}EC: {pk.EncryptionConstant:X8}{n}PID: {pk.PID:X8}{n}{Strings.Natures[(int)pk.Nature]} Nature{n}Ability: {Strings.Ability[pk.Ability]}{n}IVs: {pk.IV_HP}/{pk.IV_ATK}/{pk.IV_DEF}/{pk.IV_SPA}/{pk.IV_SPD}/{pk.IV_SPE}{n}{scale}{markString}{moves}";
-
-                        readPause = false;
-                        SetPictureBoxImage(pk.Sprite(), PB_PokemonSprite);
-                        if (HasRibbon)
+                    );
+                }
+                else
+                {
+                    FocusControl(OverworldScannerForm);
+                }
+            }
+            catch (Exception ex)
+            {
+                readPause = false;
+                SetControlEnabledState(true, B_ReadEncounter);
+                this.DisplayMessageBox($"Error occurred while attempting to read KCoordinates block: {ex.Message}");
+                return;
+            }
+        }
+        else
+        {
+            Task.Run(
+                async () =>
+                {
+                    try
+                    {
+                        readPause = true;
+                        await Task.Delay(100, Source.Token);
+                        SetTextBoxText("Reading encounter...", TB_Wild);
+                        var pk = await ConnectionWrapper.ReadWildPokemon(Source.Token);
+                        if (pk.Valid && pk.Species > 0)
                         {
-                            SetPictureBoxImage(RibbonSpriteUtil.GetRibbonSprite(mark)!, PB_MarkSprite);
+                            CachedEncounter = pk;
+                            bool HasRibbon = Utils.HasMark(pk, out RibbonIndex mark);
+
+                            var n = System.Environment.NewLine;
+
+                            string form = pk.Form == 0 ? string.Empty : $"-{pk.Form}";
+                            string gender = pk.Gender switch
+                            {
+                                0 => " (M)",
+                                1 => " (F)",
+                                _ => string.Empty,
+                            };
+                            string shiny = pk.ShinyXor switch
+                            {
+                                0 => "■ - ",
+                                < 16 => "★ - ",
+                                _ => string.Empty,
+                            };
+
+
+                            string item = pk.HeldItem > 0 ? $" @ {Strings.Item[pk.HeldItem]}" : string.Empty;
+                            string markString = HasRibbon ? $"{n}Mark: {mark.ToString().Replace("Mark", "")}" : string.Empty;
+
+                            string scale = $"Height: {PokeSizeDetailedUtil.GetSizeRating(pk.HeightScalar)} ({pk.HeightScalar})";
+
+                            string moves = string.Empty;
+
+
+                            foreach (int move in pk.Moves)
+                            {
+                                if (move == 0) break;
+                                moves += $"{n}- {Strings.Move[move]}";
+                            }
+
+                            string output = $"{shiny}{(Species)pk.Species}{form}{gender}{item}{n}EC: {pk.EncryptionConstant:X8}{n}PID: {pk.PID:X8}{n}{Strings.Natures[(int)pk.Nature]} Nature{n}Ability: {Strings.Ability[pk.Ability]}{n}IVs: {pk.IV_HP}/{pk.IV_ATK}/{pk.IV_DEF}/{pk.IV_SPA}/{pk.IV_SPD}/{pk.IV_SPE}{n}{scale}{markString}{moves}";
+
+                            readPause = false;
+                            SetPictureBoxImage(pk.Sprite(), PB_PokemonSprite);
+                            if (HasRibbon)
+                            {
+                                SetPictureBoxImage(RibbonSpriteUtil.GetRibbonSprite(mark)!, PB_MarkSprite);
+                            }
+                            else
+                            {
+                                PB_MarkSprite.Image = null;
+                            }
+                            SetTextBoxText(output, TB_Wild);
+                            SetControlEnabledState(true, B_CopyToFilter);
                         }
                         else
                         {
+                            readPause = false;
+                            CachedEncounter = null;
+                            PB_PokemonSprite.Image = null;
                             PB_MarkSprite.Image = null;
+                            SetTextBoxText("No encounter present.", TB_Wild);
+                            SetControlEnabledState(false, B_CopyToFilter);
                         }
-                        SetTextBoxText(output, TB_Wild);
-                        SetControlEnabledState(true, B_CopyToFilter);
                     }
-                    else
+                    catch (Exception ex)
                     {
                         readPause = false;
                         CachedEncounter = null;
                         PB_PokemonSprite.Image = null;
                         PB_MarkSprite.Image = null;
-                        SetTextBoxText("No encounter present.", TB_Wild);
+                        SetTextBoxText(string.Empty, TB_Wild);
                         SetControlEnabledState(false, B_CopyToFilter);
+                        this.DisplayMessageBox(ex.Message);
                     }
                 }
-                catch (Exception ex)
-                {
-                    readPause = false;
-                    CachedEncounter = null;
-                    PB_PokemonSprite.Image = null;
-                    PB_MarkSprite.Image = null;
-                    SetTextBoxText(string.Empty, TB_Wild);
-                    SetControlEnabledState(false, B_CopyToFilter);
-                    this.DisplayMessageBox(ex.Message);
-                }
-            }
-        );
+                        );
+        }
     }
 
     private void B_CopyToFilter_Click(object sender, EventArgs e)
@@ -1703,6 +1752,21 @@ public partial class MainWindow : Form
             Invoke(Activate);
         else
             Activate();
+    }
+
+    private void FocusControl(params Control?[] obj)
+    {
+        foreach (Control? c in obj)
+        {
+            if (InvokeRequired)
+            {
+                Invoke(() => c?.Focus());
+            }
+            else
+            {
+                c?.Focus();
+            }
+        }
     }
 
     public void SetCheckBoxCheckedState(bool state, params object[] obj)
