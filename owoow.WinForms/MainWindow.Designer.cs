@@ -279,6 +279,7 @@ namespace owoow.WinForms
             ResultsSource = new BindingSource(components);
             MS_SubWindows = new MenuStrip();
             TSMI_EncounterLookup = new ToolStripMenuItem();
+            TSMI_SpreadFinder = new ToolStripMenuItem();
             TSMI_LotoID = new ToolStripMenuItem();
             TSMI_Cramomatic = new ToolStripMenuItem();
             TSMI_WattTrader = new ToolStripMenuItem();
@@ -2984,7 +2985,7 @@ namespace owoow.WinForms
             // 
             CMS_RightClick.Items.AddRange(new ToolStripItem[] { TSMI_CopySeeds, TSMI_SetAsInitial, TSMI_SetAdvances });
             CMS_RightClick.Name = "CMS_RightClick";
-            CMS_RightClick.Size = new Size(205, 92);
+            CMS_RightClick.Size = new Size(205, 70);
             CMS_RightClick.Opening += CMS_RightClick_Opening;
             // 
             // TSMI_CopySeeds
@@ -3015,7 +3016,7 @@ namespace owoow.WinForms
             // MS_SubWindows
             // 
             MS_SubWindows.BackColor = SystemColors.ButtonFace;
-            MS_SubWindows.Items.AddRange(new ToolStripItem[] { TSMI_EncounterLookup, TSMI_LotoID, TSMI_Cramomatic, TSMI_WattTrader, TSMI_DiggingPa, TSMI_WailordRespawn });
+            MS_SubWindows.Items.AddRange(new ToolStripItem[] { TSMI_EncounterLookup, TSMI_SpreadFinder, TSMI_LotoID, TSMI_Cramomatic, TSMI_WattTrader, TSMI_DiggingPa, TSMI_WailordRespawn });
             MS_SubWindows.Location = new Point(0, 0);
             MS_SubWindows.Name = "MS_SubWindows";
             MS_SubWindows.Size = new Size(1278, 24);
@@ -3027,6 +3028,13 @@ namespace owoow.WinForms
             TSMI_EncounterLookup.Size = new Size(116, 20);
             TSMI_EncounterLookup.Text = "Encounter Lookup";
             TSMI_EncounterLookup.Click += TSMI_EncounterLookup_Click;
+            // 
+            // TSMI_SpreadFinder
+            // 
+            TSMI_SpreadFinder.Name = "TSMI_SpreadFinder";
+            TSMI_SpreadFinder.Size = new Size(91, 20);
+            TSMI_SpreadFinder.Text = "Spread Finder";
+            TSMI_SpreadFinder.Click += TSMI_SpreadFinder_Click;
             // 
             // TSMI_LotoID
             // 
@@ -3233,7 +3241,6 @@ namespace owoow.WinForms
         private Button B_CopyToFilter;
         private PictureBox PB_PokemonSprite;
         private Label L_Filter_Height;
-        private ComboBox CB_Filter_Height;
         private Label L_Filter_Aura;
         private ComboBox CB_Filter_Aura;
         private Label L_Filter_Mark;
@@ -3388,12 +3395,14 @@ namespace owoow.WinForms
         public CheckBox CB_Symbol_MenuClose;
         public CheckBox CB_Hidden_MenuClose;
         public CheckBox CB_Fishing_MenuClose;
-        private CheckBox CB_RareEC;
         private Label L_Hidden_MaxStep;
         private ComboBox CB_Hidden_MaxStep;
         private ContextMenuStrip CMS_RightClick;
         private ToolStripMenuItem TSMI_CopySeeds;
         private ToolStripMenuItem TSMI_SetAsInitial;
         private ToolStripMenuItem TSMI_SetAdvances;
+        private ToolStripMenuItem TSMI_SpreadFinder;
+        public CheckBox CB_RareEC;
+        public ComboBox CB_Filter_Height;
     }
 }

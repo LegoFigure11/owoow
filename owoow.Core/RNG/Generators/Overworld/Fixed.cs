@@ -1,4 +1,4 @@
-﻿using PKHeX.Core;
+using PKHeX.Core;
 
 namespace owoow.Core.RNG.Generators;
 
@@ -46,9 +46,9 @@ public static class Fixed
         byte[] ivs = [32, 32, 32, 32, 32, 32];
         var g = aura + config.GuaranteedIVs;
         // Guaranteed
+        uint idx;
         for (var i = 0; i < g; i++)
         {
-            uint idx;
             do
             {
                 idx = GenerateGuaranteedIVIndex(ref rng);

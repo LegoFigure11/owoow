@@ -1,4 +1,4 @@
-﻿namespace owoow.Core.Interfaces
+namespace owoow.Core.Interfaces
 {
 
     internal interface IBasicFrame
@@ -12,6 +12,21 @@
     internal interface IRetailFrame
     {
         char Animation { get; }
+    }
+
+    internal interface ISpreadFinderFrame
+    {
+        string Seed { get; }
+        string EC { get; }
+
+        byte H { get; }
+        byte A { get; }
+        byte B { get; }
+        byte C { get; }
+        byte D { get; }
+        byte S { get; }
+
+        string Height { get; }
     }
 
     internal interface IOverworldFrame
@@ -74,6 +89,21 @@
 
         public string Seed0 { get; set; } = string.Empty;
         public string Seed1 { get; set; } = string.Empty;
+    }
+
+    public class SpreadFinderFrame : ISpreadFinderFrame
+    {
+        public string Seed { get; set; } = string.Empty;
+        public string EC { get; set; } = string.Empty;
+
+        public byte H { get; set; } = 0;
+        public byte A { get; set; } = 0;
+        public byte B { get; set; } = 0;
+        public byte C { get; set; } = 0;
+        public byte D { get; set; } = 0;
+        public byte S { get; set; } = 0;
+
+        public string Height { get; set; } = string.Empty;
     }
 
     public class MenuCloseFrame : IBasicFrame

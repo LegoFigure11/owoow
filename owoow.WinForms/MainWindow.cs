@@ -106,6 +106,10 @@ public partial class MainWindow : Form
         SetAreaOptions();
 
         SetDexRecOptions();
+
+#if !DEBUG
+        TSMI_SpreadFinder.Visible = false;
+#endif
     }
 
     #region Connection
@@ -476,7 +480,7 @@ public partial class MainWindow : Form
         var initial = ulong.Parse(TB_Symbol_Initial.Text);
         var advances = ulong.Parse(TB_Symbol_Advances.Text);
 
-        var numTasks = (byte)(advances < 1_000 ? 1 : advances < 50_000 ? 2 : 4);
+        var numTasks = (byte)(advances < 1_000 ? 1 : advances < 50_000 ? 2 : Math.Max(4, 1 << Config.MaxSearchTasksNthPowerOfTwo));
         var interval = advances / numTasks;
 
         var s0 = ulong.Parse(TB_Seed0.Text, NumberStyles.AllowHexSpecifier);
@@ -603,7 +607,7 @@ public partial class MainWindow : Form
         var initial = ulong.Parse(TB_Hidden_Initial.Text);
         var advances = ulong.Parse(TB_Hidden_Advances.Text);
 
-        var numTasks = (byte)(advances < 1_000 ? 1 : advances < 50_000 ? 2 : 4);
+        var numTasks = (byte)(advances < 1_000 ? 1 : advances < 50_000 ? 2 : Math.Max(4, 1 << Config.MaxSearchTasksNthPowerOfTwo));
         var interval = advances / numTasks;
 
         var s0 = ulong.Parse(TB_Seed0.Text, NumberStyles.AllowHexSpecifier);
@@ -729,7 +733,7 @@ public partial class MainWindow : Form
         var initial = ulong.Parse(TB_Static_Initial.Text);
         var advances = ulong.Parse(TB_Static_Advances.Text);
 
-        var numTasks = (byte)(advances < 1_000 ? 1 : advances < 50_000 ? 2 : 4);
+        var numTasks = (byte)(advances < 1_000 ? 1 : advances < 50_000 ? 2 : Math.Max(4, 1 << Config.MaxSearchTasksNthPowerOfTwo));
         var interval = advances / numTasks;
 
         var s0 = ulong.Parse(TB_Seed0.Text, NumberStyles.AllowHexSpecifier);
@@ -845,7 +849,7 @@ public partial class MainWindow : Form
         var initial = ulong.Parse(TB_Fishing_Initial.Text);
         var advances = ulong.Parse(TB_Fishing_Advances.Text);
 
-        var numTasks = (byte)(advances < 1_000 ? 1 : advances < 50_000 ? 2 : 4);
+        var numTasks = (byte)(advances < 1_000 ? 1 : advances < 50_000 ? 2 : Math.Max(4, 1 << Config.MaxSearchTasksNthPowerOfTwo));
         var interval = advances / numTasks;
 
         var s0 = ulong.Parse(TB_Seed0.Text, NumberStyles.AllowHexSpecifier);
@@ -1104,7 +1108,7 @@ public partial class MainWindow : Form
                             var initial = ulong.Parse(GetControlText((TextBox)Controls.Find($"TB_{type}_Initial", true).FirstOrDefault()!));
                             var advances = ulong.Parse(GetControlText((TextBox)Controls.Find($"TB_{type}_Advances", true).FirstOrDefault()!));
 
-                            var numTasks = (byte)(advances < 1_000 ? 1 : advances < 50_000 ? 2 : 4);
+                            var numTasks = (byte)(advances < 1_000 ? 1 : advances < 50_000 ? 2 : Math.Max(4, 1 << Config.MaxSearchTasksNthPowerOfTwo));
                             var interval = advances / numTasks;
 
                             Core.RNG.GeneratorConfig config = new()
@@ -2070,6 +2074,22 @@ public partial class MainWindow : Form
         else
         {
             EncounterLookupForm?.Focus();
+        }
+    }
+
+    public bool SpreadFinderFormOpen = false;
+    Subforms.SpreadFinder? SpreadFinderForm;
+    private void TSMI_SpreadFinder_Click(object sender, EventArgs e)
+    {
+        if (!SpreadFinderFormOpen)
+        {
+            SpreadFinderFormOpen = true;
+            SpreadFinderForm = new Subforms.SpreadFinder(this);
+            SpreadFinderForm.Show();
+        }
+        else
+        {
+            SpreadFinderForm?.Focus();
         }
     }
 

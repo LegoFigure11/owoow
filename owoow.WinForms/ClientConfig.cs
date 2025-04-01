@@ -19,6 +19,8 @@ public class ClientConfig : ISeedResetConfig, ITurboConfig, IWebhookConfig
     public bool FocusWindow { get; set; } = false;
     public bool PlayTone { get; set; } = false;
 
+    public int MaxSearchTasksNthPowerOfTwo { get; set; } = 2;
+
     // Seed Reset
     public int ExtraTimeReturnHome { get; set; } = 0;
     public int ExtraTimeCloseGame { get; set; } = 0;
