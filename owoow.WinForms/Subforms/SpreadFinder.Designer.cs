@@ -29,7 +29,7 @@ namespace owoow.WinForms.Subforms
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
-            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SpreadFinder));
             DGV_Results = new DataGridView();
             seedDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
@@ -81,8 +81,8 @@ namespace owoow.WinForms.Subforms
             L_HPSpacer = new Label();
             NUD_HP_Max = new NumericUpDown();
             NUD_HP_Min = new NumericUpDown();
-            label1 = new Label();
-            numericUpDown1 = new NumericUpDown();
+            L_GuaranteedIVs = new Label();
+            NUD_GuaranteedIVs = new NumericUpDown();
             B_Search = new Button();
             CB_Tasks = new ComboBox();
             L_Tasks = new Label();
@@ -100,16 +100,16 @@ namespace owoow.WinForms.Subforms
             ((System.ComponentModel.ISupportInitialize)NUD_Atk_Min).BeginInit();
             ((System.ComponentModel.ISupportInitialize)NUD_HP_Max).BeginInit();
             ((System.ComponentModel.ISupportInitialize)NUD_HP_Min).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)numericUpDown1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)NUD_GuaranteedIVs).BeginInit();
             SuspendLayout();
             // 
             // DGV_Results
             // 
             DGV_Results.AllowUserToAddRows = false;
             DGV_Results.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle1.BackColor = Color.WhiteSmoke;
-            dataGridViewCellStyle1.ForeColor = Color.Black;
-            DGV_Results.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.BackColor = Color.WhiteSmoke;
+            dataGridViewCellStyle2.ForeColor = Color.Black;
+            DGV_Results.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle2;
             DGV_Results.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             DGV_Results.AutoGenerateColumns = false;
             DGV_Results.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -563,22 +563,22 @@ namespace owoow.WinForms.Subforms
             NUD_HP_Min.Size = new Size(32, 23);
             NUD_HP_Min.TabIndex = 0;
             // 
-            // label1
+            // L_GuaranteedIVs
             // 
-            label1.AutoSize = true;
-            label1.Location = new Point(85, 195);
-            label1.Name = "label1";
-            label1.Size = new Size(89, 15);
-            label1.TabIndex = 97;
-            label1.Text = "Guaranteed IVs:";
+            L_GuaranteedIVs.AutoSize = true;
+            L_GuaranteedIVs.Location = new Point(85, 195);
+            L_GuaranteedIVs.Name = "L_GuaranteedIVs";
+            L_GuaranteedIVs.Size = new Size(89, 15);
+            L_GuaranteedIVs.TabIndex = 97;
+            L_GuaranteedIVs.Text = "Guaranteed IVs:";
             // 
-            // numericUpDown1
+            // NUD_GuaranteedIVs
             // 
-            numericUpDown1.Location = new Point(180, 193);
-            numericUpDown1.Maximum = new decimal(new int[] { 6, 0, 0, 0 });
-            numericUpDown1.Name = "numericUpDown1";
-            numericUpDown1.Size = new Size(32, 23);
-            numericUpDown1.TabIndex = 26;
+            NUD_GuaranteedIVs.Location = new Point(180, 193);
+            NUD_GuaranteedIVs.Maximum = new decimal(new int[] { 6, 0, 0, 0 });
+            NUD_GuaranteedIVs.Name = "NUD_GuaranteedIVs";
+            NUD_GuaranteedIVs.Size = new Size(32, 23);
+            NUD_GuaranteedIVs.TabIndex = 26;
             // 
             // B_Search
             // 
@@ -616,8 +616,8 @@ namespace owoow.WinForms.Subforms
             Controls.Add(L_Tasks);
             Controls.Add(CB_Tasks);
             Controls.Add(B_Search);
-            Controls.Add(label1);
-            Controls.Add(numericUpDown1);
+            Controls.Add(L_GuaranteedIVs);
+            Controls.Add(NUD_GuaranteedIVs);
             Controls.Add(CB_RareEC);
             Controls.Add(L_Filter_Height);
             Controls.Add(CB_Filter_Height);
@@ -677,7 +677,7 @@ namespace owoow.WinForms.Subforms
             ((System.ComponentModel.ISupportInitialize)NUD_Atk_Min).EndInit();
             ((System.ComponentModel.ISupportInitialize)NUD_HP_Max).EndInit();
             ((System.ComponentModel.ISupportInitialize)NUD_HP_Min).EndInit();
-            ((System.ComponentModel.ISupportInitialize)numericUpDown1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)NUD_GuaranteedIVs).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -723,8 +723,8 @@ namespace owoow.WinForms.Subforms
         private Label L_HPSpacer;
         private NumericUpDown NUD_HP_Max;
         private NumericUpDown NUD_HP_Min;
-        private Label label1;
-        private NumericUpDown numericUpDown1;
+        private Label L_GuaranteedIVs;
+        private NumericUpDown NUD_GuaranteedIVs;
         private Button B_Search;
         private BindingSource SpreadFinderResultsSource;
         private DataGridViewTextBoxColumn seedDataGridViewTextBoxColumn;
@@ -736,8 +736,6 @@ namespace owoow.WinForms.Subforms
         private DataGridViewTextBoxColumn dDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn sDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn heightDataGridViewTextBoxColumn;
-        private ComboBox CB_Threads;
-        private Label L_Threads;
         private ComboBox CB_Tasks;
         private Label L_Tasks;
     }

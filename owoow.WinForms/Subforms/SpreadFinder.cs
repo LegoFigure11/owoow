@@ -29,7 +29,7 @@ public partial class SpreadFinder : Form
 
             RareEC = CB_RareEC.Checked,
 
-            GuaranteedIVs = (int)numericUpDown1.Value,
+            GuaranteedIVs = (int)NUD_GuaranteedIVs.Value,
 
             FiltersEnabled = true,
         };
@@ -57,7 +57,15 @@ public partial class SpreadFinder : Form
                 AllResults.AddRange(result);
             }
 
-            AllResults = [.. AllResults.OrderBy(e => uint.Parse(e.Seed, AllowHexSpecifier))];
+            AllResults = [.. AllResults
+                .OrderBy(e => uint.Parse(e.Seed, AllowHexSpecifier))
+                .OrderBy(e => e.H)
+                .OrderBy(e => e.A)
+                .OrderBy(e => e.B)
+                .OrderBy(e => e.C)
+                .OrderBy(e => e.D)
+                .OrderBy(e => e.S)
+                ];
             Frames = AllResults;
             MainWindow.SetBindingSourceDataSource(AllResults, SpreadFinderResultsSource);
 
