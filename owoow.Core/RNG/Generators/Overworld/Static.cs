@@ -1,4 +1,4 @@
-﻿using owoow.Core.Enums;
+using owoow.Core.Enums;
 using owoow.Core.Interfaces;
 using owoow.Core.RNG.Generators.Misc;
 using PKHeX.Core;
@@ -115,7 +115,7 @@ public class Static
                 // PID
                 PID = GeneratePID(ref go, IsShiny, config.TSV);
                 ShinyXOR = Util.GetShinyXOR(PID, config.TSV);
-                if (FiltersEnabled && !CheckIsShiny(ShinyXOR, config.TargetShiny))
+                if (FiltersEnabled && !CheckIsShiny(ShinyXOR, config.TargetShiny) && !Encounter.IsShinyLocked)
                 {
                     outer.Next();
                     continue;

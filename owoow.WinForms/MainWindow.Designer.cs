@@ -1578,6 +1578,7 @@ namespace owoow.WinForms
             CB_Static_Species.Size = new Size(173, 23);
             CB_Static_Species.TabIndex = 2;
             CB_Static_Species.Text = "None";
+            CB_Static_Species.TextChanged += CB_Target_TextChanged;
             // 
             // CB_Static_Weather
             // 
@@ -1829,6 +1830,7 @@ namespace owoow.WinForms
             CB_Symbol_Species.Size = new Size(173, 23);
             CB_Symbol_Species.TabIndex = 2;
             CB_Symbol_Species.Text = "None";
+            CB_Symbol_Species.TextChanged += CB_Target_TextChanged;
             // 
             // CB_Symbol_Weather
             // 
@@ -2076,6 +2078,7 @@ namespace owoow.WinForms
             CB_Hidden_Species.Size = new Size(173, 23);
             CB_Hidden_Species.TabIndex = 2;
             CB_Hidden_Species.Text = "None";
+            CB_Hidden_Species.TextChanged += CB_Target_TextChanged;
             // 
             // CB_Hidden_Weather
             // 
@@ -2336,6 +2339,7 @@ namespace owoow.WinForms
             CB_Fishing_Species.Size = new Size(173, 23);
             CB_Fishing_Species.TabIndex = 2;
             CB_Fishing_Species.Text = "None";
+            CB_Fishing_Species.TextChanged += CB_Target_TextChanged;
             // 
             // CB_Fishing_Weather
             // 

@@ -1710,6 +1710,47 @@ public partial class MainWindow : Form
         SetSpeciesOptions();
     }
 
+    private EncounterTable GetCurrentTable()
+    {
+        var type = TC_EncounterType.SelectedTab!.Text;
+
+        return new EncounterTable(
+            GetControlText(CB_Game),
+            type,
+            GetControlText((ComboBox)Controls.Find($"CB_{type}_Area", true).FirstOrDefault()!),
+            GetControlText((ComboBox)Controls.Find($"CB_{type}_Weather", true).FirstOrDefault()!),
+            GetControlText((ComboBox)Controls.Find($"CB_{type}_LeadAbility", true).FirstOrDefault()!)
+        );
+    }
+
+    private void CB_Target_TextChanged(object sender, EventArgs e)
+    {
+        var type = TC_EncounterType.SelectedTab!.Text;
+
+        CB_Filter_Shiny.Enabled = true;
+        CB_Filter_Aura.Enabled = true;
+        CB_ConsiderFlying.Enabled = true;
+
+        if (type == "Static")
+        {
+            var species = ((ComboBox)sender).Text;
+            var enc = GetCurrentTable().StaticTable.Where(e => e.Value.Species == species).FirstOrDefault();
+            if (species != string.Empty && enc.Value is not null) CB_Filter_Shiny.Enabled = !enc.Value.IsShinyLocked;
+
+            CB_Filter_Aura.Enabled = false;
+        }
+        else if (type == "Hidden")
+        {
+            CB_Filter_Aura.Enabled = false;
+            CB_ConsiderFlying.Checked = false;
+            CB_ConsiderFlying.Enabled = false;
+        }
+        else if (type == "Fishing")
+        {
+            CB_ConsiderFlying.Enabled = false;
+            CB_ConsiderFlying.Enabled = false;
+        }
+    }
 
     private void B_IV_Max_Click(object sender, EventArgs e)
     {

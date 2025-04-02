@@ -192,21 +192,27 @@ public static class Encounters
         return list.ToImmutableSortedDictionary();
     }
 
-    public static Encounter GetEncounters(string game, string tabName, string area, string weather) => game switch
+    public static Encounter? GetEncounters(string game, string tabName, string area, string weather)
     {
-        "Sword" => tabName switch
-        {
-            "Fishing" => SwordFishing![area][weather],
-            "Hidden" => SwordHidden![area][weather],
-            _ => SwordSymbol![area][weather],
-        },
-        _ => tabName switch
-        {
-            "Fishing" => ShieldFishing![area][weather],
-            "Hidden" => ShieldHidden![area][weather],
-            _ => ShieldSymbol![area][weather],
-        },
-    };
+        try {
+            return game switch
+            {
+                "Sword" => tabName switch
+                {
+                    "Fishing" => SwordFishing![area][weather],
+                    "Hidden" => SwordHidden![area][weather],
+                    _ => SwordSymbol![area][weather],
+                },
+                _ => tabName switch
+                {
+                    "Fishing" => ShieldFishing![area][weather],
+                    "Hidden" => ShieldHidden![area][weather],
+                    _ => ShieldSymbol![area][weather],
+                }
+            };
+        }
+        catch { return null; }
+    }
 
     public static EncounterStatic? GetStaticEncounters(string game, string area, string weather)
     {
@@ -263,10 +269,13 @@ public static class Encounters
 
         var enc = GetEncounters(game, tabName, area, weather);
         IList<string> ret = [];
-        foreach (var v in enc.Encounters!.Values)
+        if (enc is not null)
         {
-            if (!ret.Contains(v.Species!))
-                ret.Add(v.Species!);
+            foreach (var v in enc.Encounters!.Values)
+            {
+                if (!ret.Contains(v.Species!))
+                    ret.Add(v.Species!);
+            }
         }
         return ret.AsReadOnly();
     }
