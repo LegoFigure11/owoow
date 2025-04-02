@@ -7551,7 +7551,7 @@
           "Level": 65,
           "IsAbilityLocked": true,
           "Ability": 0,
-          "IsShinyLocked": false,
+          "IsShinyLocked": true,
           "GuaranteedIVs": 3
         },
         "10": {
