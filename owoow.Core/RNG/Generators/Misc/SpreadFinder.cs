@@ -21,7 +21,7 @@ public static class SpreadFinder
 
             uint Height;
 
-            for (ulong FixedSeed = start; FixedSeed <= end/* && frames.Count < 1_000*/; FixedSeed++)
+            for (ulong FixedSeed = start; FixedSeed <= end; FixedSeed++)
             {
                 if (FixedSeed % 0x100000 == 0) Debug.Print($"{FixedSeed:X8}");
 

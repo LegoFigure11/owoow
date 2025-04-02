@@ -122,6 +122,7 @@ namespace owoow.WinForms.Subforms
             DGV_Results.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             DGV_Results.Size = new Size(570, 427);
             DGV_Results.TabIndex = 29;
+            DGV_Results.CellFormatting += DGV_Results_CellFormatting;
             // 
             // seedDataGridViewTextBoxColumn
             // 

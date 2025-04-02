@@ -106,10 +106,6 @@ public partial class MainWindow : Form
         SetAreaOptions();
 
         SetDexRecOptions();
-
-#if !DEBUG
-        TSMI_SpreadFinder.Visible = false;
-#endif
     }
 
     #region Connection
@@ -1936,7 +1932,7 @@ public partial class MainWindow : Form
         SetControlEnabledState(((CheckBox)sender).Checked && !CB_ConsiderFlying.Checked, B_CalculateRain);
     }
 
-    private readonly static Font BoldFont = new("Microsoft Sans Serif", 8, FontStyle.Bold);
+    public readonly static Font BoldFont = new("Microsoft Sans Serif", 8, FontStyle.Bold);
     private void DGV_Results_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
     {
         var index = e.RowIndex;

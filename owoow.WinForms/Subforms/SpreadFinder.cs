@@ -59,13 +59,11 @@ public partial class SpreadFinder : Form
 
             AllResults = [.. AllResults.OrderBy(e => uint.Parse(e.Seed, AllowHexSpecifier))];
             Frames = AllResults;
-            //if (AllResults.Count > 1000) AllResults = AllResults[0..1000];
             MainWindow.SetBindingSourceDataSource(AllResults, SpreadFinderResultsSource);
 
             MainWindow.SetControlEnabledState(true, sender);
         }).ContinueWith(_ =>
         {
-            //if (Frames.Count >= 1_000) MessageBox.Show($"Too many results found, displayed results capped at 1000. Please re-run the search with more restrictive filters.");
             if (Frames.Count == 0) MessageBox.Show("No results found!");
         });
     }
@@ -110,6 +108,37 @@ public partial class SpreadFinder : Form
         MainWindow.SetComboBoxSelectedIndex(MainWindow.CB_Filter_Height.SelectedIndex, CB_Filter_Height);
         MainWindow.SetComboBoxSelectedIndex(4, CB_Tasks);
 
-        MessageBox.Show("Searches made with this tool may take multiple hours and cause high CPU load and temperatures. Proceed at your own risk.");
+        MessageBox.Show("Searches made with this tool may take several minutes up to multiple hours depending on your device and cause high CPU load and temperatures. Proceed at your own risk.");
+    }
+
+    private void DGV_Results_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+    {
+        var index = e.RowIndex;
+        if (Frames.Count <= index) return;
+        var row = DGV_Results.Rows[index];
+        var result = Frames[index];
+
+        var iv = 2;
+        byte[] ivs = [result.H, result.A, result.B, result.C, result.D, result.S];
+        for (var i = 0; i < ivs.Length; i++)
+        {
+            if (ivs[i] == 0)
+            {
+                row.Cells[iv + i].Style.Font = MainWindow.BoldFont;
+                row.Cells[iv + i].Style.ForeColor = Color.OrangeRed;
+            }
+            else if (ivs[i] == 31)
+            {
+                row.Cells[iv + i].Style.Font = MainWindow.BoldFont;
+                row.Cells[iv + i].Style.ForeColor = Color.SeaGreen;
+            }
+            else
+            {
+                row.Cells[iv + i].Style.ForeColor = row.DefaultCellStyle.ForeColor;
+                row.Cells[iv + i].Style.Font = row.DefaultCellStyle.Font;
+            }
+        }
+
+        row.Cells[8].Style.Font = result.Height is not "XXXL (255)" and not "XXXS (0)" ? row.DefaultCellStyle.Font : MainWindow.BoldFont;
     }
 }
