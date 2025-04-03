@@ -59,12 +59,12 @@ public partial class SpreadFinder : Form
 
             AllResults = [.. AllResults
                 .OrderBy(e => uint.Parse(e.Seed, AllowHexSpecifier))
-                .OrderBy(e => e.H)
-                .OrderBy(e => e.A)
-                .OrderBy(e => e.B)
-                .OrderBy(e => e.C)
-                .OrderBy(e => e.D)
-                .OrderBy(e => e.S)
+                .OrderByDescending(e => e.H)
+                .OrderByDescending(e => e.A)
+                .OrderByDescending(e => e.B)
+                .OrderByDescending(e => e.C)
+                .OrderByDescending(e => e.D)
+                .OrderByDescending(e => e.S)
                 ];
             Frames = AllResults;
             MainWindow.SetBindingSourceDataSource(AllResults, SpreadFinderResultsSource);
