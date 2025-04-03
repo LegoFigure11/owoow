@@ -194,7 +194,8 @@ public static class Encounters
 
     public static Encounter? GetEncounters(string game, string tabName, string area, string weather)
     {
-        try {
+        try
+        {
             return game switch
             {
                 "Sword" => tabName switch

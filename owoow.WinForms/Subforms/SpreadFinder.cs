@@ -1,6 +1,6 @@
 using owoow.Core.Interfaces;
-using static System.Globalization.NumberStyles;
 using static owoow.Core.RNG.FilterUtil;
+using static System.Globalization.NumberStyles;
 
 namespace owoow.WinForms.Subforms;
 

@@ -44,7 +44,7 @@ public class EncounterTable(string game, string tabName, string area, string wea
             }
             return table;
         }
-        catch { return null; };
+        catch { return null; }
     }
 
     public static IDictionary<int, IEncounterTableEntry> GetAbilityTable(string game, string tabName, string area, string weather, string ability)
