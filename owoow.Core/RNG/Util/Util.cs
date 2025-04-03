@@ -1,4 +1,4 @@
-﻿using owoow.Core.Enums;
+using owoow.Core.Enums;
 using PKHeX.Core;
 using static owoow.Core.Encounters;
 
@@ -60,7 +60,8 @@ public static class Util
             case AbilityType.IncreaseEncounterRate:
                 rate <<= 1;
                 break;
-        };
+        }
+        ;
         return Math.Min(rate, 100);
     }
 
