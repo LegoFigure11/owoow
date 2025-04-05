@@ -1,5 +1,6 @@
 using owoow.Core.Interfaces;
 using static owoow.Core.RNG.FilterUtil;
+using static owoow.Core.RNG.FixedSeed;
 using static System.Globalization.NumberStyles;
 
 namespace owoow.WinForms.Subforms;
@@ -34,19 +35,75 @@ public partial class SpreadFinder : Form
             FiltersEnabled = true,
         };
 
-        List<SpreadFinderFrame>[] results = [];
+        List<uint> seeds = [];
 
-        uint numTasks = (uint)(1 << MainWindow.GetComboBoxSelectedIndex(CB_Tasks));
-        uint interval = (uint)(0x100000000 / numTasks);
-
-        List<Task<List<SpreadFinderFrame>>> tasks = [];
-        for (uint i = 0; i < numTasks; i++)
+        // Check if IVs match any of our pre-calculated seed lists
+        var reduced = false;
+        if (config.GuaranteedIVs == 0)
         {
-            var start = i * interval;
-            var end = start + interval - 1;
-            tasks.Add(Core.RNG.Generators.Misc.SpreadFinder.Generate(start, end, config));
+            var min = config.TargetMinIVs;
+            var max = config.TargetMaxIVs;
+
+            var ct31 = min.Where(iv => iv == 31).Count();
+            var ct0 = max.Where(iv => iv == 0).Count();
+
+            if (ct31 == 6) // flawless
+            {
+                seeds.AddRange(HexFlawless);
+                reduced = true;
+            }
+            else if (ct0 == 6) // all 0
+            {
+                seeds.AddRange(Hex0);
+                reduced = true;
+            }
+            else if (ct31 == 5) // one x
+            {
+                if (min[0] != 31) seeds.AddRange(xHP);
+                if (min[1] != 31) seeds.AddRange(xAtk);
+                if (min[2] != 31) seeds.AddRange(xDef);
+                if (min[3] != 31) seeds.AddRange(xSpA);
+                if (min[4] != 31) seeds.AddRange(xSpD);
+                if (min[5] != 31) seeds.AddRange(xSpe);
+                reduced = true;
+            }
+            else if (max[5] == 0) // 0 speed
+            {
+                if (ct31 >= 4)
+                {
+                    if (min[1] != 31) // x atk
+                    {
+                        seeds.AddRange(xAtk0Spe);
+                        reduced = true;
+                    }
+                    if (min[3] != 31) // x spa
+                    {
+                        seeds.AddRange(xSpA0Spe);
+                        reduced = true;
+                    }
+                }
+            }
         }
 
+        List<SpreadFinderFrame>[] results = [];
+        List<Task<List<SpreadFinderFrame>>> tasks = [];
+
+        if (reduced)
+        {
+            tasks.Add(Core.RNG.Generators.Misc.SpreadFinder.Generate(seeds, config));
+        }
+        else
+        {
+            uint numTasks = (uint)(1 << MainWindow.GetComboBoxSelectedIndex(CB_Tasks));
+            uint interval = (uint)(0x100000000 / numTasks);
+
+            for (uint i = 0; i < numTasks; i++)
+            {
+                var start = i * interval;
+                var end = start + interval - 1;
+                tasks.Add(Core.RNG.Generators.Misc.SpreadFinder.Generate(start, end, config));
+            }
+        }
 
         Task.Run(async () =>
         {
@@ -72,7 +129,7 @@ public partial class SpreadFinder : Form
             MainWindow.SetControlEnabledState(true, sender);
         }).ContinueWith(_ =>
         {
-            if (Frames.Count == 0) MessageBox.Show("No results found!");
+            if (Frames.Count == 0) ErrorHandler.DisplayMessageBox(this, "No reults found!", "SpreadFinder");
         });
     }
 

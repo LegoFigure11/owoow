@@ -59,4 +59,54 @@ public static class SpreadFinder
             return frames;
         });
     }
+
+    public static Task<List<SpreadFinderFrame>> Generate(List<uint> seeds, GeneratorConfig config)
+    {
+        return Task.Run(() =>
+        {
+            List<SpreadFinderFrame> frames = [];
+
+            uint EC;
+
+            bool PassIVs;
+            byte[] IVs;
+
+            uint Height;
+
+            foreach (var seed in seeds)
+            {
+                Xoroshiro128Plus rng = new(seed, 0x82A2B175229D6A5B);
+
+                EC = GenerateEC(ref rng);
+                if (!CheckEC(EC, config.RareEC)) continue;
+
+                _ = GenerateEC(ref rng); // PID, can use this method because EC makes the same calls and we don't care for the result
+
+                (PassIVs, IVs) = GenerateIVs(ref rng, 0, config);
+                if (!PassIVs) continue;
+
+                // HEIGHT
+                Height = GenerateHeightWeightScale(ref rng);
+                if (!CheckHeight(Height, config.TargetScale)) continue;
+
+                frames.Add(new()
+                {
+                    Seed = $"{seed:X8}",
+
+                    EC = $"{EC:X8}",
+
+                    H = IVs[0],
+                    A = IVs[1],
+                    B = IVs[2],
+                    C = IVs[3],
+                    D = IVs[4],
+                    S = IVs[5],
+
+                    Height = Util.GetHeightString(Height),
+                });
+            }
+
+            return frames;
+        });
+    }
 }
