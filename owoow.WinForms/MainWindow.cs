@@ -1227,7 +1227,8 @@ public partial class MainWindow : Form
                             first = false;
                         }
                         await ConnectionWrapper.CloseGame(cfg, ResetSource.Token).ConfigureAwait(false);
-                        await ConnectionWrapper.OpenGame(cfg, ct, ResetSource.Token).ConfigureAwait(false);
+                        await ConnectionWrapper.OpenGame(cfg, ResetSource.Token).ConfigureAwait(false);
+                        UpdateStatus($"Searching... ({ct})");
                     }
 
                     if (found)
