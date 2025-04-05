@@ -1,6 +1,5 @@
 using owoow.Core.Interfaces;
 using PKHeX.Core;
-using System.Diagnostics;
 using static owoow.Core.RNG.Generators.Fixed;
 using static owoow.Core.RNG.Validators.Validator;
 
@@ -23,8 +22,6 @@ public static class SpreadFinder
 
             for (ulong FixedSeed = start; FixedSeed <= end; FixedSeed++)
             {
-                if (FixedSeed % 0x100000 == 0) Debug.Print($"{FixedSeed:X8}");
-
                 Xoroshiro128Plus rng = new(FixedSeed, 0x82A2B175229D6A5B);
 
                 EC = GenerateEC(ref rng);
