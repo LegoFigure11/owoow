@@ -129,7 +129,7 @@ public partial class SpreadFinder : Form
             MainWindow.SetControlEnabledState(true, sender);
         }).ContinueWith(_ =>
         {
-            if (Frames.Count == 0) ErrorHandler.DisplayMessageBox(this, "No reults found!", "SpreadFinder");
+            if (Frames.Count == 0) this.DisplayMessageBox("No reults found!", "SpreadFinder");
         });
     }
 
