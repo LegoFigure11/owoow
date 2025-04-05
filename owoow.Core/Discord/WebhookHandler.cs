@@ -27,7 +27,7 @@ public class WebhookHandler(IWebhookConfig config)
             "Jangmo-o" => 782,
             "Hakamo-o" => 783,
             "Kommo-o" => 784,
-            _ => (ushort)Enum.Parse<Species>(frame.Species.Split('-')[0]),
+            _ => (ushort)Enum.Parse<Species>(frame.Species.Split('-')[0]), // Ho-oh and Porygon-Z aren't available, don't need to handle
         };
 
         var pk = new PK8()
@@ -46,7 +46,7 @@ public class WebhookHandler(IWebhookConfig config)
         {
             username = "owoow",
             avatar_url = $"https://github.com/kwsch/PKHeX/blob/master/PKHeX.Drawing.PokeSprite/Resources/img/Artwork%20Pokemon%20Sprites/a{sprite}.png?raw=true",
-            content = config.WebhookMessageContent,
+            content = config.ResultWebhookMessageContent,
             embeds = new List<object>
             {
                 new
@@ -94,7 +94,7 @@ public class WebhookHandler(IWebhookConfig config)
         {
             username = "owoow",
             avatar_url = "https://www.serebii.net/itemdex/sprites/sv/ultraball.png",
-            content = config.WebhookMessageContent,
+            content = config.ErrorWebhookMessageContent,
             embeds = new List<object>
             {
                 new
@@ -119,7 +119,7 @@ public class WebhookHandler(IWebhookConfig config)
             {
                 username = "owoow",
                 avatar_url = "https://www.serebii.net/itemdex/sprites/sv/ultraball.png",
-                content = config.WebhookMessageContent,
+                content = config.ResultWebhookMessageContent,
                 embeds = new List<object>
                 {
                     new
@@ -143,7 +143,7 @@ public class WebhookHandler(IWebhookConfig config)
             {
                 username = "owoow",
                 avatar_url = "https://www.serebii.net/itemdex/sprites/sv/ultraball.png",
-                content = config.WebhookMessageContent,
+                content = config.ErrorWebhookMessageContent,
                 embeds = new List<object>
                 {
                     new

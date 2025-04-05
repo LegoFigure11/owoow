@@ -28,11 +28,12 @@ public partial class SeedResetSettings : Form
 
         CB_EnableWebhooks.Checked = c.WebhookEnabled;
 
-        TB_WebhookMessage.Text = $"{c.WebhookMessageContent}";
+        TB_WebhookMessage.Text = $"{c.ResultWebhookMessageContent}";
+        TB_WebhookErrorMessage.Text = $"{c.ErrorWebhookMessageContent}";
         TB_ResultURLs.Text = $"{c.ResultNotificationURL}";
         TB_ErrorURLs.Text = $"{c.ErrorNotificationURL}";
 
-        p.SetControlEnabledState(c.WebhookEnabled, TB_WebhookMessage, TB_ResultURLs, TB_ErrorURLs, B_TestWebhooks);
+        p.SetControlEnabledState(c.WebhookEnabled, TB_WebhookMessage, TB_WebhookErrorMessage, TB_ResultURLs, TB_ErrorURLs, B_TestWebhooks);
     }
 
     private void SeedResetSettings_FormClosing(object sender, FormClosingEventArgs e)
@@ -79,12 +80,12 @@ public partial class SeedResetSettings : Form
     private void CB_EnableWebhooks_CheckedChanged(object sender, EventArgs e)
     {
         c.WebhookEnabled = CB_EnableWebhooks.Checked;
-        p.SetControlEnabledState(c.WebhookEnabled, TB_WebhookMessage, TB_ResultURLs, TB_ErrorURLs, B_TestWebhooks);
+        p.SetControlEnabledState(c.WebhookEnabled, TB_WebhookMessage, TB_WebhookErrorMessage, TB_ResultURLs, TB_ErrorURLs, B_TestWebhooks);
     }
 
     private void TB_WebhookMessage_TextChanged(object sender, EventArgs e)
     {
-        c.WebhookMessageContent = TB_WebhookMessage.Text;
+        c.ResultWebhookMessageContent = TB_WebhookMessage.Text;
     }
 
     private void TB_ResultURLs_TextChanged(object sender, EventArgs e)
@@ -95,6 +96,11 @@ public partial class SeedResetSettings : Form
     private void TB_ErrorURLs_TextChanged(object sender, EventArgs e)
     {
         c.ErrorNotificationURL = TB_ErrorURLs.Text;
+    }
+
+    private void TB_WebhookErrorMessage_TextChanged(object sender, EventArgs e)
+    {
+        c.ErrorWebhookMessageContent = TB_WebhookErrorMessage.Text;
     }
 
     private void B_TestWebhooks_Click(object sender, EventArgs e)

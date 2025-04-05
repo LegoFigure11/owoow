@@ -38,5 +38,6 @@ public class ClientConfig : ISeedResetConfig, ITurboConfig, IWebhookConfig
     public bool WebhookEnabled { get; set; } = false;
     public string ResultNotificationURL { get; set; } = string.Empty;
     public string ErrorNotificationURL { get; set; } = string.Empty;
-    public string WebhookMessageContent { get; set; } = string.Empty;
+    public string ResultWebhookMessageContent { get; set; } = string.Empty;
+    public string ErrorWebhookMessageContent { get; set; } = string.Empty;
 }
