@@ -528,6 +528,7 @@ namespace owoow.WinForms
             L_Filter_Height.Size = new Size(46, 15);
             L_Filter_Height.TabIndex = 47;
             L_Filter_Height.Text = "Height:";
+            L_Filter_Height.Click += L_ResetComboBox;
             // 
             // CB_Filter_Height
             // 
@@ -546,6 +547,7 @@ namespace owoow.WinForms
             L_Filter_Aura.Size = new Size(35, 15);
             L_Filter_Aura.TabIndex = 45;
             L_Filter_Aura.Text = "Aura:";
+            L_Filter_Aura.Click += L_ResetComboBox;
             // 
             // CB_Filter_Aura
             // 
@@ -564,6 +566,7 @@ namespace owoow.WinForms
             L_Filter_Mark.Size = new Size(37, 15);
             L_Filter_Mark.TabIndex = 43;
             L_Filter_Mark.Text = "Mark:";
+            L_Filter_Mark.Click += L_ResetComboBox;
             // 
             // CB_Filter_Mark
             // 
@@ -582,6 +585,7 @@ namespace owoow.WinForms
             L_Filter_Shiny.Size = new Size(39, 15);
             L_Filter_Shiny.TabIndex = 41;
             L_Filter_Shiny.Text = "Shiny:";
+            L_Filter_Shiny.Click += L_ResetComboBox;
             // 
             // CB_Filter_Shiny
             // 
@@ -1634,6 +1638,7 @@ namespace owoow.WinForms
             L_Static_LeadAbility.Size = new Size(72, 15);
             L_Static_LeadAbility.TabIndex = 52;
             L_Static_LeadAbility.Text = "Lead Ability:";
+            L_Static_LeadAbility.Click += L_ResetComboBox;
             // 
             // CB_Static_LeadAbility
             // 
@@ -1886,6 +1891,7 @@ namespace owoow.WinForms
             L_Symbol_LeadAbility.Size = new Size(72, 15);
             L_Symbol_LeadAbility.TabIndex = 1;
             L_Symbol_LeadAbility.Text = "Lead Ability:";
+            L_Symbol_LeadAbility.Click += L_ResetComboBox;
             // 
             // CB_Symbol_LeadAbility
             // 
@@ -1929,6 +1935,7 @@ namespace owoow.WinForms
             L_Hidden_MaxStep.Size = new Size(59, 15);
             L_Hidden_MaxStep.TabIndex = 65;
             L_Hidden_MaxStep.Text = "Max Step:";
+            L_Hidden_MaxStep.Click += L_ResetComboBox;
             // 
             // CB_Hidden_MaxStep
             // 
@@ -2134,6 +2141,7 @@ namespace owoow.WinForms
             L_Hidden_LeadAbility.Size = new Size(72, 15);
             L_Hidden_LeadAbility.TabIndex = 52;
             L_Hidden_LeadAbility.Text = "Lead Ability:";
+            L_Hidden_LeadAbility.Click += L_ResetComboBox;
             // 
             // CB_Hidden_LeadAbility
             // 
@@ -2395,6 +2403,7 @@ namespace owoow.WinForms
             L_Fishing_LeadAbility.Size = new Size(72, 15);
             L_Fishing_LeadAbility.TabIndex = 52;
             L_Fishing_LeadAbility.Text = "Lead Ability:";
+            L_Fishing_LeadAbility.Click += L_ResetComboBox;
             // 
             // GB_Seed
             // 

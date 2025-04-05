@@ -1787,6 +1787,17 @@ public partial class MainWindow : Form
         SetControlEnabledState(cb.Checked, Controls.Find($"TB_{tab}_NPCs", true).FirstOrDefault()!, Controls.Find($"B_{tab}_MenuClose", true).FirstOrDefault()!, Controls.Find($"CB_{tab}_MenuClose_Direction", true).FirstOrDefault()!);
     }
 
+    private void L_ResetComboBox(object sender, EventArgs e)
+    {
+        var name = ((Label)sender).Name;
+        var cbName = name.Replace("L_", "CB_");
+        var cb = (ComboBox?)Controls.Find(cbName, true).FirstOrDefault();
+        if (cb is not null)
+        {
+            if (cb.Enabled) SetComboBoxSelectedIndex(0, cb);
+        }
+    }
+
     private void ActivateWindow()
     {
         if (InvokeRequired)
