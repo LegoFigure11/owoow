@@ -70,6 +70,26 @@ public partial class MainWindow : Form
 
         Webhook = new(Config);
 
+
+        var v = System.Reflection.Assembly.GetExecutingAssembly().GetName().Version!;
+#if DEBUG
+        var build = "";
+
+        var asm = System.Reflection.Assembly.GetEntryAssembly();
+        var gitVersionInformationType = asm?.GetType("GitVersionInformation");
+        var sha = gitVersionInformationType?.GetField("ShortSha");
+
+        if (sha is not null) build += $"#{sha.GetValue(null)}";
+
+        var date = File.GetLastWriteTime(AppContext.BaseDirectory);
+        build += $" (dev-{date:yyyyMMdd})";
+
+#else
+        var build = "";
+#endif
+
+        Text = $"owoow (´・ω・`) v{v.Major}.{v.Minor}.{v.Build}{build}";
+
         InitializeComponent();
     }
 

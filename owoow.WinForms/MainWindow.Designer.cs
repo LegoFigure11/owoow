@@ -3096,7 +3096,6 @@ namespace owoow.WinForms
             MainMenuStrip = MS_SubWindows;
             Name = "MainWindow";
             RightToLeft = RightToLeft.No;
-            Text = "owoow (´・ω・`)";
             FormClosing += MainWindow_FormClosing;
             Load += MainWindow_Load;
             GB_SeedControlsContainer.ResumeLayout(false);
