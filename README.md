@@ -61,4 +61,4 @@ A comprehensive usage guide brought to you by [Billo-PS](https://github.com/Bill
 
 ## Disclaimer
 
-Every precaution has been taken to ensure that this program is safe to use, but by using this program you accept that as with any switch homebrew or CFW tools there is a potential risk for your switch to be banned or bricked, and that you alone are responsible for anything that happens to your own console as a result of using it or the included sys-botbase.
+Every precaution has been taken to ensure that this program is safe to use, but by using this program you accept that as with any switch homebrew or CFW tools there is a potential risk for your switch to be banned or bricked, and that you alone are responsible for anything that may happen to your own console as a result of using owoow or the included sys-botbase.
