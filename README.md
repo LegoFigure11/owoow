@@ -58,3 +58,7 @@ A comprehensive usage guide brought to you by [Billo-PS](https://github.com/Bill
 * [@Nicolic](https://github.com/NicoIic) for [this cat gif](https://tenor.com/view/cat-gif-25169380).
 * The crew from #citrus for your invaluable feedback and testing, and putting up with my rambling.
 * All existing contributors to and credits from [LegoFigure11/swsh-overworld-rng-gui](https://github.com/LegoFigure11/swsh-overworld-rng-gui) also apply.
+
+## Disclaimer
+
+Every precaution has been taken to ensure that this program is safe to use, but by using this program you accept that as with any switch homebrew or CFW tools there is a potential risk for your switch to be banned or bricked, and that you alone are responsible for anything that happens to your own console as a result of using it or the included sys-botbase.
