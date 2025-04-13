@@ -417,7 +417,11 @@ public partial class MainWindow : Form
                     var skips = uint.Parse(TB_Skips.Text);
                     for (var i = 0; i < skips && !skipPause; i++)
                     {
-
+                        if (i % 366 == 0)
+                        {
+                            await ConnectionWrapper.ResetTimeNTP(AdvanceSource.Token).ConfigureAwait(false);
+                            await Task.Delay(200, AdvanceSource.Token);
+                        }
                         SetButtonText($"{i + 1}", B_SkipForward);
                         await ConnectionWrapper.DaySkip(AdvanceSource.Token).ConfigureAwait(false);
                         await Task.Delay(360, AdvanceSource.Token);
@@ -450,7 +454,11 @@ public partial class MainWindow : Form
                     var skips = uint.Parse(TB_Skips.Text);
                     for (var i = 0; i < skips && !skipPause; i++)
                     {
-
+                        if (i % 366 == 0)
+                        {
+                            await ConnectionWrapper.ResetTimeNTP(AdvanceSource.Token).ConfigureAwait(false);
+                            await Task.Delay(200, AdvanceSource.Token);
+                        }
                         SetButtonText($"{i + 1}", B_SkipBack);
                         await ConnectionWrapper.DaySkipBack(AdvanceSource.Token).ConfigureAwait(false);
                         await Task.Delay(360, AdvanceSource.Token);
@@ -1476,14 +1484,20 @@ public partial class MainWindow : Form
 
     private void TID_TextChanged(object sender, EventArgs e)
     {
-        var tid = int.Parse(TB_TID.Text);
-        Config.TID = tid;
+        if (TB_TID.Text.Length > 0)
+        {
+            var tid = int.Parse(TB_TID.Text);
+            Config.TID = tid;
+        }
     }
 
     private void SID_TextChanged(object sender, EventArgs e)
     {
-        var sid = int.Parse(TB_SID.Text);
-        Config.SID = sid;
+        if (TB_SID.Text.Length > 0)
+        {
+            var sid = int.Parse(TB_SID.Text);
+            Config.SID = sid;
+        }
     }
 
     private void CB_Game_SelectedIndexChanged(object sender, EventArgs e)
