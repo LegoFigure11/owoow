@@ -1843,6 +1843,23 @@ public partial class MainWindow : Form
         SetControlEnabledState(cb.Checked, Controls.Find($"TB_{tab}_NPCs", true).FirstOrDefault()!, Controls.Find($"B_{tab}_MenuClose", true).FirstOrDefault()!, Controls.Find($"CB_{tab}_MenuClose_Direction", true).FirstOrDefault()!);
     }
 
+    private void CB_Leave(object sender, EventArgs e)
+    {
+        var cb = (ComboBox)sender;
+        var last = cb.SelectedIndex;
+        var text = cb.Text;
+        var items = cb.Items.Cast<string>().ToList();
+        var match = items.Find(e => e.Equals(text, StringComparison.CurrentCultureIgnoreCase));
+        if (match is not null)
+        {
+            cb.SelectedIndex = items.IndexOf(match);
+        }
+        else
+        {
+            cb.SelectedIndex = Math.Max(last, 0);
+        }
+    }
+
     private void L_ResetComboBox(object sender, EventArgs e)
     {
         var name = ((Label)sender).Name;

@@ -538,6 +538,7 @@ namespace owoow.WinForms
             CB_Filter_Height.Name = "CB_Filter_Height";
             CB_Filter_Height.Size = new Size(138, 23);
             CB_Filter_Height.TabIndex = 27;
+            CB_Filter_Height.Leave += CB_Leave;
             // 
             // L_Filter_Aura
             // 
@@ -557,6 +558,7 @@ namespace owoow.WinForms
             CB_Filter_Aura.Name = "CB_Filter_Aura";
             CB_Filter_Aura.Size = new Size(138, 23);
             CB_Filter_Aura.TabIndex = 26;
+            CB_Filter_Aura.Leave += CB_Leave;
             // 
             // L_Filter_Mark
             // 
@@ -576,6 +578,7 @@ namespace owoow.WinForms
             CB_Filter_Mark.Name = "CB_Filter_Mark";
             CB_Filter_Mark.Size = new Size(138, 23);
             CB_Filter_Mark.TabIndex = 25;
+            CB_Filter_Mark.Leave += CB_Leave;
             // 
             // L_Filter_Shiny
             // 
@@ -595,6 +598,7 @@ namespace owoow.WinForms
             CB_Filter_Shiny.Name = "CB_Filter_Shiny";
             CB_Filter_Shiny.Size = new Size(138, 23);
             CB_Filter_Shiny.TabIndex = 24;
+            CB_Filter_Shiny.Leave += CB_Leave;
             // 
             // B_Spe_Max
             // 
@@ -1272,6 +1276,7 @@ namespace owoow.WinForms
             CB_DexRec4.Size = new Size(168, 23);
             CB_DexRec4.TabIndex = 3;
             CB_DexRec4.Text = "WWWWWWWWWWWW";
+            CB_DexRec4.Leave += CB_Leave;
             // 
             // CB_DexRec3
             // 
@@ -1281,6 +1286,7 @@ namespace owoow.WinForms
             CB_DexRec3.Size = new Size(168, 23);
             CB_DexRec3.TabIndex = 2;
             CB_DexRec3.Text = "WWWWWWWWWWWW";
+            CB_DexRec3.Leave += CB_Leave;
             // 
             // CB_DexRec2
             // 
@@ -1290,6 +1296,7 @@ namespace owoow.WinForms
             CB_DexRec2.Size = new Size(168, 23);
             CB_DexRec2.TabIndex = 1;
             CB_DexRec2.Text = "WWWWWWWWWWWW";
+            CB_DexRec2.Leave += CB_Leave;
             // 
             // CB_DexRec1
             // 
@@ -1299,6 +1306,7 @@ namespace owoow.WinForms
             CB_DexRec1.Size = new Size(168, 23);
             CB_DexRec1.TabIndex = 0;
             CB_DexRec1.Text = "WWWWWWWWWWWW";
+            CB_DexRec1.Leave += CB_Leave;
             // 
             // GB_Advanced
             // 
@@ -1583,6 +1591,7 @@ namespace owoow.WinForms
             CB_Static_Species.TabIndex = 2;
             CB_Static_Species.Text = "None";
             CB_Static_Species.TextChanged += CB_Target_TextChanged;
+            CB_Static_Species.Leave += CB_Leave;
             // 
             // CB_Static_Weather
             // 
@@ -1593,6 +1602,7 @@ namespace owoow.WinForms
             CB_Static_Weather.TabIndex = 1;
             CB_Static_Weather.Text = "None";
             CB_Static_Weather.SelectedIndexChanged += CB_Weather_SelectedIndexChanged;
+            CB_Static_Weather.Leave += CB_Leave;
             // 
             // CB_Static_Area
             // 
@@ -1603,6 +1613,7 @@ namespace owoow.WinForms
             CB_Static_Area.TabIndex = 0;
             CB_Static_Area.Text = "None";
             CB_Static_Area.SelectedIndexChanged += CB_Area_SelectedIndexChanged;
+            CB_Static_Area.Leave += CB_Leave;
             // 
             // TB_Static_Advances
             // 
@@ -1649,6 +1660,7 @@ namespace owoow.WinForms
             CB_Static_LeadAbility.Size = new Size(173, 23);
             CB_Static_LeadAbility.TabIndex = 0;
             CB_Static_LeadAbility.Text = "None";
+            CB_Static_LeadAbility.Leave += CB_Leave;
             // 
             // TP_Symbol
             // 
@@ -1836,6 +1848,7 @@ namespace owoow.WinForms
             CB_Symbol_Species.TabIndex = 2;
             CB_Symbol_Species.Text = "None";
             CB_Symbol_Species.TextChanged += CB_Target_TextChanged;
+            CB_Symbol_Species.Leave += CB_Leave;
             // 
             // CB_Symbol_Weather
             // 
@@ -1846,6 +1859,7 @@ namespace owoow.WinForms
             CB_Symbol_Weather.TabIndex = 1;
             CB_Symbol_Weather.Text = "None";
             CB_Symbol_Weather.SelectedIndexChanged += CB_Weather_SelectedIndexChanged;
+            CB_Symbol_Weather.Leave += CB_Leave;
             // 
             // CB_Symbol_Area
             // 
@@ -1856,6 +1870,7 @@ namespace owoow.WinForms
             CB_Symbol_Area.TabIndex = 0;
             CB_Symbol_Area.Text = "None";
             CB_Symbol_Area.SelectedIndexChanged += CB_Area_SelectedIndexChanged;
+            CB_Symbol_Area.Leave += CB_Leave;
             // 
             // TB_Symbol_Advances
             // 
@@ -1902,6 +1917,7 @@ namespace owoow.WinForms
             CB_Symbol_LeadAbility.Size = new Size(173, 23);
             CB_Symbol_LeadAbility.TabIndex = 1;
             CB_Symbol_LeadAbility.Text = "None";
+            CB_Symbol_LeadAbility.Leave += CB_Leave;
             // 
             // TP_Hidden
             // 
@@ -1946,6 +1962,7 @@ namespace owoow.WinForms
             CB_Hidden_MaxStep.Size = new Size(173, 23);
             CB_Hidden_MaxStep.TabIndex = 1;
             CB_Hidden_MaxStep.Text = "None";
+            CB_Hidden_MaxStep.Leave += CB_Leave;
             // 
             // B_Hidden_MenuClose
             // 
@@ -2086,6 +2103,7 @@ namespace owoow.WinForms
             CB_Hidden_Species.TabIndex = 2;
             CB_Hidden_Species.Text = "None";
             CB_Hidden_Species.TextChanged += CB_Target_TextChanged;
+            CB_Hidden_Species.Leave += CB_Leave;
             // 
             // CB_Hidden_Weather
             // 
@@ -2096,6 +2114,7 @@ namespace owoow.WinForms
             CB_Hidden_Weather.TabIndex = 1;
             CB_Hidden_Weather.Text = "None";
             CB_Hidden_Weather.SelectedIndexChanged += CB_Weather_SelectedIndexChanged;
+            CB_Hidden_Weather.Leave += CB_Leave;
             // 
             // CB_Hidden_Area
             // 
@@ -2106,6 +2125,7 @@ namespace owoow.WinForms
             CB_Hidden_Area.TabIndex = 0;
             CB_Hidden_Area.Text = "None";
             CB_Hidden_Area.SelectedIndexChanged += CB_Area_SelectedIndexChanged;
+            CB_Hidden_Area.Leave += CB_Leave;
             // 
             // TB_Hidden_Advances
             // 
@@ -2152,6 +2172,7 @@ namespace owoow.WinForms
             CB_Hidden_LeadAbility.Size = new Size(173, 23);
             CB_Hidden_LeadAbility.TabIndex = 0;
             CB_Hidden_LeadAbility.Text = "None";
+            CB_Hidden_LeadAbility.Leave += CB_Leave;
             // 
             // TP_Fishing
             // 
@@ -2287,6 +2308,7 @@ namespace owoow.WinForms
             CB_Fishing_LeadAbility.Size = new Size(173, 23);
             CB_Fishing_LeadAbility.TabIndex = 0;
             CB_Fishing_LeadAbility.Text = "None";
+            CB_Fishing_LeadAbility.Leave += CB_Leave;
             // 
             // L_Fishing_Initial
             // 
@@ -2348,6 +2370,7 @@ namespace owoow.WinForms
             CB_Fishing_Species.TabIndex = 2;
             CB_Fishing_Species.Text = "None";
             CB_Fishing_Species.TextChanged += CB_Target_TextChanged;
+            CB_Fishing_Species.Leave += CB_Leave;
             // 
             // CB_Fishing_Weather
             // 
@@ -2358,6 +2381,7 @@ namespace owoow.WinForms
             CB_Fishing_Weather.TabIndex = 1;
             CB_Fishing_Weather.Text = "None";
             CB_Fishing_Weather.SelectedIndexChanged += CB_Weather_SelectedIndexChanged;
+            CB_Fishing_Weather.Leave += CB_Leave;
             // 
             // CB_Fishing_Area
             // 
@@ -2368,6 +2392,7 @@ namespace owoow.WinForms
             CB_Fishing_Area.TabIndex = 0;
             CB_Fishing_Area.Text = "None";
             CB_Fishing_Area.SelectedIndexChanged += CB_Area_SelectedIndexChanged;
+            CB_Fishing_Area.Leave += CB_Leave;
             // 
             // TB_Fishing_Advances
             // 
