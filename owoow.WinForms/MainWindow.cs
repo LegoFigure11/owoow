@@ -246,10 +246,11 @@ public partial class MainWindow : Form
                             var adv = GetAdvancesPassed(_s0, _s1, s0, s1);
                             if (adv > 0)
                             {
-                                if (reset)
+                                if (reset || adv == 50_000)
                                 {
                                     total = 0;
                                     reset = false;
+                                    adv = 0;
                                 }
                                 else
                                 {
@@ -1430,7 +1431,8 @@ public partial class MainWindow : Form
 
     private void B_CopyToInitial_Click(object sender, EventArgs e)
     {
-        if (ModifierKeys == Keys.Shift)
+#if DEBUG
+        if (((Button)sender).Name == "B_CopyToInitial" && ModifierKeys == Keys.Shift)
         {
             Task.Run(
                 async () =>
@@ -1444,16 +1446,20 @@ public partial class MainWindow : Form
                     }
                     catch (Exception ex)
                     {
-                        this.DisplayMessageBox(ex.Message);
+                        this.DisplayMessageBox($"Something went wrong when writing the RNG state: {ex.Message}");
                     }
                 }
             );
         }
         else
         {
+#endif
             SetTextBoxText(TB_CurrentS0.Text, TB_Seed0);
             SetTextBoxText(TB_CurrentS1.Text, TB_Seed1);
+            reset = true;
+#if DEBUG
         }
+#endif
     }
 
     private void B_RetailUpdateSeeds_Click(object sender, EventArgs e)
