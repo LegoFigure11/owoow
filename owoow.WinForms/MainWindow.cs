@@ -2335,12 +2335,27 @@ public partial class MainWindow : Form
     private ulong RetailInitial = 0;
     private void B_GenerateRetailPattern_Click(object sender, EventArgs e)
     {
+        if (string.IsNullOrEmpty(TB_RetailInitial.Text)) TB_RetailInitial.Text = "0";
+        if (string.IsNullOrEmpty(TB_RetailRange.Text) || TB_RetailRange.Text is "0") TB_RetailRange.Text = "99999";
+
+        if (string.IsNullOrEmpty(TB_Seed0.Text)) TB_Seed0.Text = "0";
+        if (string.IsNullOrEmpty(TB_Seed1.Text)) TB_Seed1.Text = "0";
+        if (TB_Seed0.Text is "0" && TB_Seed1.Text is "0")
+        {
+            TB_Seed0.Text = "1337";
+            TB_Seed1.Text = "1390";
+        }
+
+        TB_Seed0.Text = TB_Seed0.Text.PadLeft(16, '0');
+        TB_Seed1.Text = TB_Seed1.Text.PadLeft(16, '0');
+
         var s0 = ulong.Parse(TB_Seed0.Text, NumberStyles.AllowHexSpecifier);
         var s1 = ulong.Parse(TB_Seed1.Text, NumberStyles.AllowHexSpecifier);
         var ini = ulong.Parse(TB_RetailInitial.Text);
         var adv = ulong.Parse(TB_RetailRange.Text);
         RetailInitial = ini;
         (RetailSequence, RetailSeed0, RetailSeed1) = SeedFinder.GenerateAnimationSequence(s0, s1, ini, adv);
+        System.Media.SystemSounds.Asterisk.Play();
     }
 
     private void TB_Animations_TextChanged(object sender, EventArgs e)
