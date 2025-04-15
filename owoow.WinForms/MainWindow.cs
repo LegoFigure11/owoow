@@ -244,7 +244,7 @@ public partial class MainWindow : Form
                         {
                             var (s0, s1) = await ConnectionWrapper.ReadRNGState(token).ConfigureAwait(false);
                             var adv = GetAdvancesPassed(_s0, _s1, s0, s1);
-                            if (adv > 0)
+                            if (reset || adv > 0)
                             {
                                 if (reset || adv == 50_000)
                                 {
