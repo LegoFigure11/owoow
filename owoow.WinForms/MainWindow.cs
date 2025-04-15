@@ -1454,9 +1454,12 @@ public partial class MainWindow : Form
         else
         {
 #endif
-            SetTextBoxText(TB_CurrentS0.Text, TB_Seed0);
-            SetTextBoxText(TB_CurrentS1.Text, TB_Seed1);
-            reset = true;
+            if (TB_CurrentS0.Text != string.Empty && TB_CurrentS1.Text != string.Empty)
+            {
+                SetTextBoxText(TB_CurrentS0.Text, TB_Seed0);
+                SetTextBoxText(TB_CurrentS1.Text, TB_Seed1);
+                reset = true;
+            }
 #if DEBUG
         }
 #endif
@@ -2159,6 +2162,8 @@ public partial class MainWindow : Form
         {
             TB_Seed0.Text = rsf.Seed0;
             TB_Seed1.Text = rsf.Seed1;
+            TB_CurrentS0.Text = rsf.Seed0;
+            TB_CurrentS1.Text = rsf.Seed1;
         }
     }
 
