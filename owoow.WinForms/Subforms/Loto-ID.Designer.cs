@@ -1,4 +1,4 @@
-﻿namespace owoow.WinForms.Subforms
+namespace owoow.WinForms.Subforms
 {
     partial class LotoID
     {
@@ -190,6 +190,7 @@
             CB_Target.Size = new Size(118, 23);
             CB_Target.TabIndex = 2;
             CB_Target.Text = "None";
+            CB_Target.Leave += CB_Leave;
             // 
             // CB_LotoID_MenuClose_Direction
             // 

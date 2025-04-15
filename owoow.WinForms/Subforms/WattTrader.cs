@@ -1,4 +1,4 @@
-﻿using owoow.Core.Interfaces;
+using owoow.Core.Interfaces;
 using PKHeX.Core;
 using System.Globalization;
 
@@ -109,6 +109,23 @@ public partial class WattTrader : Form
 
         if (result.Highlight is "Beast Ball x1 (827)" or "Dream Ball x1 (828)") row.DefaultCellStyle.BackColor = Color.PapayaWhip;
         else row.DefaultCellStyle.BackColor = row.Index % 2 == 0 ? Color.White : Color.WhiteSmoke;
+    }
+
+    private void CB_Leave(object sender, EventArgs e)
+    {
+        var cb = (ComboBox)sender;
+        var last = cb.SelectedIndex;
+        var text = cb.Text;
+        var items = cb.Items.Cast<string>().ToList();
+        var match = items.Find(e => e.Equals(text, StringComparison.CurrentCultureIgnoreCase));
+        if (match is not null)
+        {
+            cb.SelectedIndex = items.IndexOf(match);
+        }
+        else
+        {
+            cb.SelectedIndex = Math.Max(last, 0);
+        }
     }
 
     private static (int, int) GetRangeFromItemName(string Item) => Item switch

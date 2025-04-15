@@ -1,4 +1,4 @@
-﻿namespace owoow.WinForms.Subforms
+namespace owoow.WinForms.Subforms
 {
     partial class DiggingPa
     {
@@ -169,6 +169,7 @@
             CB_DiggingPa_Weather.Size = new Size(118, 23);
             CB_DiggingPa_Weather.TabIndex = 3;
             CB_DiggingPa_Weather.Text = "None";
+            CB_DiggingPa_Weather.Leave += CB_Leave;
             // 
             // CB_DiggingPa_MenuClose
             // 

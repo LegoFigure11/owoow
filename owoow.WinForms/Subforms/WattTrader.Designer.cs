@@ -1,4 +1,4 @@
-﻿namespace owoow.WinForms.Subforms
+namespace owoow.WinForms.Subforms
 {
     partial class WattTrader
     {
@@ -240,6 +240,7 @@
             CB_Target.TabIndex = 2;
             CB_Target.Text = "None";
             CB_Target.SelectedIndexChanged += CB_Target_SelectedIndexChanged;
+            CB_Target.Leave += CB_Leave;
             // 
             // CB_WattTrader_MenuClose_Direction
             // 

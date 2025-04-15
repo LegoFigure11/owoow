@@ -1,4 +1,4 @@
-﻿namespace owoow.WinForms.Subforms
+namespace owoow.WinForms.Subforms
 {
     partial class Cramomatic
     {
@@ -171,6 +171,7 @@
             CB_Item4.Size = new Size(118, 23);
             CB_Item4.TabIndex = 7;
             CB_Item4.Text = "None";
+            CB_Item4.Leave += CB_Leave;
             // 
             // L_Item3
             // 
@@ -190,6 +191,7 @@
             CB_Item3.Size = new Size(118, 23);
             CB_Item3.TabIndex = 6;
             CB_Item3.Text = "None";
+            CB_Item3.Leave += CB_Leave;
             // 
             // L_Item2
             // 
@@ -209,6 +211,7 @@
             CB_Item2.Size = new Size(118, 23);
             CB_Item2.TabIndex = 5;
             CB_Item2.Text = "None";
+            CB_Item2.Leave += CB_Leave;
             // 
             // CB_BonusOnly
             // 
@@ -240,6 +243,7 @@
             CB_Item1.Size = new Size(118, 23);
             CB_Item1.TabIndex = 4;
             CB_Item1.Text = "None";
+            CB_Item1.Leave += CB_Leave;
             // 
             // CB_Cramomatic_MenuClose
             // 
@@ -272,6 +276,7 @@
             CB_Target.Size = new Size(118, 23);
             CB_Target.TabIndex = 2;
             CB_Target.Text = "None";
+            CB_Target.Leave += CB_Leave;
             // 
             // CB_Cramomatic_MenuClose_Direction
             // 

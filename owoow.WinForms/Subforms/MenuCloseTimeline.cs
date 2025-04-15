@@ -1,4 +1,4 @@
-﻿using owoow.Core.Interfaces;
+using owoow.Core.Interfaces;
 using owoow.Core.RNG.Generators.Misc;
 using PKHeX.Core;
 using System.Globalization;
@@ -79,5 +79,22 @@ public partial class MenuCloseTimeline : Form
         MainWindow.MenuCloseTimelineFormOpen = false;
         MainWindow.SetCheckBoxCheckedState(CB_Timeline_MenuClose_Direction.Checked, (CheckBox)MainWindow.Controls.Find($"CB_{Tab}_MenuClose_Direction", true).FirstOrDefault()!);
         MainWindow.SetTextBoxText(TB_Timeline_NPCs.Text, (TextBox)MainWindow.Controls.Find($"TB_{Tab}_NPCs", true).FirstOrDefault()!);
+    }
+
+    private void CB_Leave(object sender, EventArgs e)
+    {
+        var cb = (ComboBox)sender;
+        var last = cb.SelectedIndex;
+        var text = cb.Text;
+        var items = cb.Items.Cast<string>().ToList();
+        var match = items.Find(e => e.Equals(text, StringComparison.CurrentCultureIgnoreCase));
+        if (match is not null)
+        {
+            cb.SelectedIndex = items.IndexOf(match);
+        }
+        else
+        {
+            cb.SelectedIndex = Math.Max(last, 0);
+        }
     }
 }

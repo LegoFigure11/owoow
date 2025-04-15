@@ -1,4 +1,4 @@
-﻿namespace owoow.WinForms.Subforms
+namespace owoow.WinForms.Subforms
 {
     partial class MenuCloseTimeline
     {
@@ -148,6 +148,7 @@
             CB_Timeline_Weather.Size = new Size(118, 23);
             CB_Timeline_Weather.TabIndex = 2;
             CB_Timeline_Weather.Text = "None";
+            CB_Timeline_Weather.Leave += CB_Leave;
             // 
             // CB_Timeline_MenuClose_Direction
             // 
