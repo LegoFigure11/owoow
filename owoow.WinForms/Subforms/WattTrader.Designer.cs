@@ -165,6 +165,7 @@ namespace owoow.WinForms.Subforms
             CB_WattTrader_Weather.Size = new Size(118, 23);
             CB_WattTrader_Weather.TabIndex = 5;
             CB_WattTrader_Weather.Text = "None";
+            CB_WattTrader_Weather.Leave += CB_Leave;
             // 
             // L_SlotRange
             // 
