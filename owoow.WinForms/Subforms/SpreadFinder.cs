@@ -140,30 +140,42 @@ public partial class SpreadFinder : Form
 
     private void B_IV_Max_Click(object sender, EventArgs e)
     {
-        var stat = ((Button)sender).Name.Replace("B_", string.Empty).Replace("_Max", string.Empty);
-        var min = (NumericUpDown)Controls.Find($"NUD_{stat}_Min", true).FirstOrDefault()!;
-        var max = (NumericUpDown)Controls.Find($"NUD_{stat}_Max", true).FirstOrDefault()!;
-        min.Value = 31;
-        max.Value = 31;
+        var st = ((Button)sender).Name.Replace("B_", string.Empty).Replace("_Max", string.Empty);
+        List<string> stats = ModifierKeys == Keys.Shift ? ["HP", "Atk", "Def", "SpA", "SpD", "Spe"] : [st];
+        foreach (var stat in stats)
+        {
+            var min = (NumericUpDown)Controls.Find($"NUD_{stat}_Min", true).FirstOrDefault()!;
+            var max = (NumericUpDown)Controls.Find($"NUD_{stat}_Max", true).FirstOrDefault()!;
+            min.Value = 31;
+            max.Value = 31;
+        }
     }
 
     private void B_IV_Min_Click(object sender, EventArgs e)
     {
-        var stat = ((Button)sender).Name.Replace("B_", string.Empty).Replace("_Min", string.Empty);
-        var min = (NumericUpDown)Controls.Find($"NUD_{stat}_Min", true).FirstOrDefault()!;
-        var max = (NumericUpDown)Controls.Find($"NUD_{stat}_Max", true).FirstOrDefault()!;
-        min.Value = 0;
-        max.Value = 0;
+        var st = ((Button)sender).Name.Replace("B_", string.Empty).Replace("_Min", string.Empty);
+        List<string> stats = ModifierKeys == Keys.Shift ? ["HP", "Atk", "Def", "SpA", "SpD", "Spe"] : [st];
+        foreach (var stat in stats)
+        {
+            var min = (NumericUpDown)Controls.Find($"NUD_{stat}_Min", true).FirstOrDefault()!;
+            var max = (NumericUpDown)Controls.Find($"NUD_{stat}_Max", true).FirstOrDefault()!;
+            min.Value = 0;
+            max.Value = 0;
+        }
     }
 
 
     private void IV_Label_Click(object sender, EventArgs e)
     {
-        var stat = ((Label)sender).Name.Replace("L_", string.Empty);
-        var min = (NumericUpDown)Controls.Find($"NUD_{stat}_Min", true).FirstOrDefault()!;
-        var max = (NumericUpDown)Controls.Find($"NUD_{stat}_Max", true).FirstOrDefault()!;
-        min.Value = 0;
-        max.Value = 31;
+        var st = ((Label)sender).Name.Replace("L_", string.Empty);
+        List<string> stats = ModifierKeys == Keys.Shift ? ["HP", "Atk", "Def", "SpA", "SpD", "Spe"] : [st];
+        foreach (var stat in stats)
+        {
+            var min = (NumericUpDown)Controls.Find($"NUD_{stat}_Min", true).FirstOrDefault()!;
+            var max = (NumericUpDown)Controls.Find($"NUD_{stat}_Max", true).FirstOrDefault()!;
+            min.Value = 0;
+            max.Value = 31;
+        }
     }
 
     private void SpreadFinder_Load(object sender, EventArgs e)
