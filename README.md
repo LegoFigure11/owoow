@@ -48,6 +48,7 @@ A comprehensive usage guide brought to you by [Billo-PS](https://github.com/Bill
 * Automate advances through date skipping, summary screen attack animations, or your own custom input routines (CFW only).
 * Read Wild Encounters (Click) or the KCoordinates Overworld Save Block (Shift + Click) with the "Read Encounter" button (CFW only).
 * Reset any filter on the main window by clicking the associated label.
+* Shift + Click on an IV button or label to apply the effect to every stat (Shift + Max = 31 all, Shift + Min = 0 all, Shift + any stat name = reset all).
 
 ## Credits and thanks to
 
