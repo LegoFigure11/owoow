@@ -486,21 +486,9 @@ public partial class MainWindow : Form
     {
         SetControlEnabledState(false, sender);
 
+        ValidateInputs("Symbol");
+
         var table = new EncounterTable(CB_Game.Text, "Symbol", CB_Symbol_Area.Text, CB_Symbol_Weather.Text, CB_Symbol_LeadAbility.Text);
-
-        if (string.IsNullOrEmpty(TB_Symbol_Initial.Text)) TB_Symbol_Initial.Text = "0";
-        if (string.IsNullOrEmpty(TB_Symbol_Advances.Text) || TB_Symbol_Advances.Text is "0") TB_Symbol_Advances.Text = "1";
-
-        if (string.IsNullOrEmpty(TB_Seed0.Text)) TB_Seed0.Text = "0";
-        if (string.IsNullOrEmpty(TB_Seed1.Text)) TB_Seed1.Text = "0";
-        if (TB_Seed0.Text is "0" && TB_Seed1.Text is "0")
-        {
-            TB_Seed0.Text = "1337";
-            TB_Seed1.Text = "1390";
-        }
-
-        TB_Seed0.Text = TB_Seed0.Text.PadLeft(16, '0');
-        TB_Seed1.Text = TB_Seed1.Text.PadLeft(16, '0');
 
         var initial = ulong.Parse(TB_Symbol_Initial.Text);
         var advances = ulong.Parse(TB_Symbol_Advances.Text);
@@ -613,21 +601,9 @@ public partial class MainWindow : Form
     {
         SetControlEnabledState(false, sender);
 
+        ValidateInputs("Hidden");
+
         var table = new EncounterTable(CB_Game.Text, "Hidden", CB_Hidden_Area.Text, CB_Hidden_Weather.Text, CB_Hidden_LeadAbility.Text);
-
-        if (string.IsNullOrEmpty(TB_Hidden_Initial.Text)) TB_Hidden_Initial.Text = "0";
-        if (string.IsNullOrEmpty(TB_Hidden_Advances.Text) || TB_Hidden_Advances.Text is "0") TB_Hidden_Advances.Text = "1";
-
-        if (string.IsNullOrEmpty(TB_Seed0.Text)) TB_Seed0.Text = "0";
-        if (string.IsNullOrEmpty(TB_Seed1.Text)) TB_Seed1.Text = "0";
-        if (TB_Seed0.Text is "0" && TB_Seed1.Text is "0")
-        {
-            TB_Seed0.Text = "1337";
-            TB_Seed1.Text = "1390";
-        }
-
-        TB_Seed0.Text = TB_Seed0.Text.PadLeft(16, '0');
-        TB_Seed1.Text = TB_Seed1.Text.PadLeft(16, '0');
 
         var initial = ulong.Parse(TB_Hidden_Initial.Text);
         var advances = ulong.Parse(TB_Hidden_Advances.Text);
@@ -739,21 +715,9 @@ public partial class MainWindow : Form
     {
         SetControlEnabledState(false, sender);
 
+        ValidateInputs("Static");
+
         var table = new EncounterTable(CB_Game.Text, "Static", CB_Static_Area.Text, CB_Static_Weather.Text, CB_Static_LeadAbility.Text);
-
-        if (string.IsNullOrEmpty(TB_Static_Initial.Text)) TB_Static_Initial.Text = "0";
-        if (string.IsNullOrEmpty(TB_Static_Advances.Text) || TB_Static_Advances.Text is "0") TB_Static_Advances.Text = "1";
-
-        if (string.IsNullOrEmpty(TB_Seed0.Text)) TB_Seed0.Text = "0";
-        if (string.IsNullOrEmpty(TB_Seed1.Text)) TB_Seed1.Text = "0";
-        if (TB_Seed0.Text is "0" && TB_Seed1.Text is "0")
-        {
-            TB_Seed0.Text = "1337";
-            TB_Seed1.Text = "1390";
-        }
-
-        TB_Seed0.Text = TB_Seed0.Text.PadLeft(16, '0');
-        TB_Seed1.Text = TB_Seed1.Text.PadLeft(16, '0');
 
         var initial = ulong.Parse(TB_Static_Initial.Text);
         var advances = ulong.Parse(TB_Static_Advances.Text);
@@ -855,21 +819,9 @@ public partial class MainWindow : Form
     {
         SetControlEnabledState(false, sender);
 
+        ValidateInputs("Fishing");
+
         var table = new EncounterTable(CB_Game.Text, "Fishing", CB_Fishing_Area.Text, CB_Fishing_Weather.Text, CB_Fishing_LeadAbility.Text);
-
-        if (string.IsNullOrEmpty(TB_Fishing_Initial.Text)) TB_Fishing_Initial.Text = "0";
-        if (string.IsNullOrEmpty(TB_Fishing_Advances.Text) || TB_Fishing_Advances.Text is "0") TB_Fishing_Advances.Text = "1";
-
-        if (string.IsNullOrEmpty(TB_Seed0.Text)) TB_Seed0.Text = "0";
-        if (string.IsNullOrEmpty(TB_Seed1.Text)) TB_Seed1.Text = "0";
-        if (TB_Seed0.Text is "0" && TB_Seed1.Text is "0")
-        {
-            TB_Seed0.Text = "1337";
-            TB_Seed1.Text = "1390";
-        }
-
-        TB_Seed0.Text = TB_Seed0.Text.PadLeft(16, '0');
-        TB_Seed1.Text = TB_Seed1.Text.PadLeft(16, '0');
 
         var initial = ulong.Parse(TB_Fishing_Initial.Text);
         var advances = ulong.Parse(TB_Fishing_Advances.Text);
@@ -984,6 +936,8 @@ public partial class MainWindow : Form
         if (tab != null)
         {
             var type = tab.Text;
+
+            ValidateInputs(type);
 
             var table = new EncounterTable(
                 CB_Game.Text,
@@ -1121,6 +1075,8 @@ public partial class MainWindow : Form
                         if (tab != null)
                         {
                             var type = tab.Text;
+
+                            ValidateInputs(type);
 
                             var table = new EncounterTable(
                                 GetControlText(CB_Game),
@@ -1313,6 +1269,44 @@ public partial class MainWindow : Form
         SetTextBoxText(status, TB_Status);
     }
 
+    private void ValidateInputs(string tab)
+    {
+        // Initial
+        var initial = (TextBox)Controls.Find($"TB_{tab}_Initial", true).FirstOrDefault()!;
+        if (string.IsNullOrEmpty(GetControlText(initial))) SetTextBoxText("0", initial);
+
+        // Advances
+        var advances = (TextBox)Controls.Find($"TB_{tab}_Advances", true).FirstOrDefault()!;
+        var adv = GetControlText(advances);
+        if (string.IsNullOrEmpty(adv) || adv is "0") SetTextBoxText("1", advances);
+
+        // Seed
+        if (string.IsNullOrEmpty(GetControlText(TB_Seed0))) SetTextBoxText("0", TB_Seed0);
+        if (string.IsNullOrEmpty(GetControlText(TB_Seed1))) SetTextBoxText("0", TB_Seed1);
+
+        if (GetControlText(TB_Seed0) is "0" && GetControlText(TB_Seed1) is "0")
+        {
+            SetTextBoxText("1337", TB_Seed0);
+            SetTextBoxText("1390", TB_Seed1);
+        }
+        SetTextBoxText(GetControlText(TB_Seed0).PadLeft(16, '0'), TB_Seed0);
+        SetTextBoxText(GetControlText(TB_Seed1).PadLeft(16, '0'), TB_Seed1);
+
+        // IDs
+        if (string.IsNullOrEmpty(GetControlText(TB_TID))) SetTextBoxText("0", TB_TID);
+        if (string.IsNullOrEmpty(GetControlText(TB_SID))) SetTextBoxText("0", TB_SID);
+        SetTextBoxText(GetControlText(TB_TID).PadLeft(5, '0'), TB_TID);
+        SetTextBoxText(GetControlText(TB_SID).PadLeft(5, '0'), TB_SID);
+
+        // NPCs
+        var npc = (TextBox)Controls.Find($"TB_{tab}_NPCs", true).FirstOrDefault()!;
+        if (string.IsNullOrEmpty(GetControlText(npc))) SetTextBoxText("0", npc);
+
+        // KO Count
+        var ko = (TextBox?)Controls.Find($"TB_{tab}_KOs", true).FirstOrDefault();
+        if (ko is not null && string.IsNullOrEmpty(GetControlText(ko))) SetTextBoxText("0", ko);
+    }
+
     private void SetDexRecOptions()
     {
         if (Encounters.Personal is not null)
@@ -1488,6 +1482,15 @@ public partial class MainWindow : Form
             }
 
             MessageBox.Show("Please enter a valid numerical USB port.");
+        }
+    }
+
+    private void NUD_Leave(object sender, EventArgs e)
+    {
+        var nud = (NumericUpDown)sender;
+        if (string.IsNullOrEmpty(nud.Text))
+        {
+            nud.Text = "0";
         }
     }
 

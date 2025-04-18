@@ -647,6 +647,7 @@ namespace owoow.WinForms
             NUD_Spe_Max.Size = new Size(32, 23);
             NUD_Spe_Max.TabIndex = 11;
             NUD_Spe_Max.Value = new decimal(new int[] { 31, 0, 0, 0 });
+            NUD_Spe_Max.Leave += NUD_Leave;
             // 
             // NUD_Spe_Min
             // 
@@ -655,6 +656,7 @@ namespace owoow.WinForms
             NUD_Spe_Min.Name = "NUD_Spe_Min";
             NUD_Spe_Min.Size = new Size(32, 23);
             NUD_Spe_Min.TabIndex = 10;
+            NUD_Spe_Min.Leave += NUD_Leave;
             // 
             // B_SpD_Max
             // 
@@ -703,6 +705,7 @@ namespace owoow.WinForms
             NUD_SpD_Max.Size = new Size(32, 23);
             NUD_SpD_Max.TabIndex = 9;
             NUD_SpD_Max.Value = new decimal(new int[] { 31, 0, 0, 0 });
+            NUD_SpD_Max.Leave += NUD_Leave;
             // 
             // NUD_SpD_Min
             // 
@@ -711,6 +714,7 @@ namespace owoow.WinForms
             NUD_SpD_Min.Name = "NUD_SpD_Min";
             NUD_SpD_Min.Size = new Size(32, 23);
             NUD_SpD_Min.TabIndex = 8;
+            NUD_SpD_Min.Leave += NUD_Leave;
             // 
             // B_SpA_Max
             // 
@@ -759,6 +763,7 @@ namespace owoow.WinForms
             NUD_SpA_Max.Size = new Size(32, 23);
             NUD_SpA_Max.TabIndex = 7;
             NUD_SpA_Max.Value = new decimal(new int[] { 31, 0, 0, 0 });
+            NUD_SpA_Max.Leave += NUD_Leave;
             // 
             // NUD_SpA_Min
             // 
@@ -767,6 +772,7 @@ namespace owoow.WinForms
             NUD_SpA_Min.Name = "NUD_SpA_Min";
             NUD_SpA_Min.Size = new Size(32, 23);
             NUD_SpA_Min.TabIndex = 6;
+            NUD_SpA_Min.Leave += NUD_Leave;
             // 
             // B_Def_Max
             // 
@@ -815,6 +821,7 @@ namespace owoow.WinForms
             NUD_Def_Max.Size = new Size(32, 23);
             NUD_Def_Max.TabIndex = 5;
             NUD_Def_Max.Value = new decimal(new int[] { 31, 0, 0, 0 });
+            NUD_Def_Max.Leave += NUD_Leave;
             // 
             // NUD_Def_Min
             // 
@@ -823,6 +830,7 @@ namespace owoow.WinForms
             NUD_Def_Min.Name = "NUD_Def_Min";
             NUD_Def_Min.Size = new Size(32, 23);
             NUD_Def_Min.TabIndex = 4;
+            NUD_Def_Min.Leave += NUD_Leave;
             // 
             // B_Atk_Max
             // 
@@ -871,6 +879,7 @@ namespace owoow.WinForms
             NUD_Atk_Max.Size = new Size(32, 23);
             NUD_Atk_Max.TabIndex = 3;
             NUD_Atk_Max.Value = new decimal(new int[] { 31, 0, 0, 0 });
+            NUD_Atk_Max.Leave += NUD_Leave;
             // 
             // NUD_Atk_Min
             // 
@@ -879,6 +888,7 @@ namespace owoow.WinForms
             NUD_Atk_Min.Name = "NUD_Atk_Min";
             NUD_Atk_Min.Size = new Size(32, 23);
             NUD_Atk_Min.TabIndex = 2;
+            NUD_Atk_Min.Leave += NUD_Leave;
             // 
             // B_HP_Max
             // 
@@ -927,6 +937,7 @@ namespace owoow.WinForms
             NUD_HP_Max.Size = new Size(32, 23);
             NUD_HP_Max.TabIndex = 1;
             NUD_HP_Max.Value = new decimal(new int[] { 31, 0, 0, 0 });
+            NUD_HP_Max.Leave += NUD_Leave;
             // 
             // NUD_HP_Min
             // 
@@ -935,6 +946,7 @@ namespace owoow.WinForms
             NUD_HP_Min.Name = "NUD_HP_Min";
             NUD_HP_Min.Size = new Size(32, 23);
             NUD_HP_Min.TabIndex = 0;
+            NUD_HP_Min.Leave += NUD_Leave;
             // 
             // GB_SwitchControls
             // 
@@ -1344,6 +1356,7 @@ namespace owoow.WinForms
             NUD_FlyNPCs.Name = "NUD_FlyNPCs";
             NUD_FlyNPCs.Size = new Size(39, 23);
             NUD_FlyNPCs.TabIndex = 2;
+            NUD_FlyNPCs.Leave += NUD_Leave;
             // 
             // B_CalculateRain
             // 
@@ -1374,6 +1387,7 @@ namespace owoow.WinForms
             NUD_RainTick.Name = "NUD_RainTick";
             NUD_RainTick.Size = new Size(39, 23);
             NUD_RainTick.TabIndex = 4;
+            NUD_RainTick.Leave += NUD_Leave;
             // 
             // L_AreaLoad
             // 
@@ -1393,6 +1407,7 @@ namespace owoow.WinForms
             NUD_AreaLoad.Name = "NUD_AreaLoad";
             NUD_AreaLoad.Size = new Size(39, 23);
             NUD_AreaLoad.TabIndex = 1;
+            NUD_AreaLoad.Leave += NUD_Leave;
             // 
             // CB_ConsiderFlying
             // 
