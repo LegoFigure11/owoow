@@ -49,7 +49,7 @@ public partial class SeedResetSettings : Form
 
     private void TB_ExtraTimeReturnHome_TextChanged(object sender, EventArgs e)
     {
-        c.ExtraTimeReturnHome = int.Parse(TB_ExtraTimeReturnHome.Text);
+        if (!string.IsNullOrEmpty(TB_ExtraTimeReturnHome.Text)) c.ExtraTimeReturnHome = int.Parse(TB_ExtraTimeReturnHome.Text);
     }
 
     private void CB_AvoidSystemUpdate_CheckedChanged(object sender, EventArgs e)
@@ -59,22 +59,22 @@ public partial class SeedResetSettings : Form
 
     private void TB_ExtraTimeCloseGame_TextChanged(object sender, EventArgs e)
     {
-        c.ExtraTimeCloseGame = int.Parse(TB_ExtraTimeCloseGame.Text);
+        if (!string.IsNullOrEmpty(TB_ExtraTimeCloseGame.Text)) c.ExtraTimeCloseGame = int.Parse(TB_ExtraTimeCloseGame.Text);
     }
 
     private void TB_ExtraTimeLoadProfile_TextChanged(object sender, EventArgs e)
     {
-        c.ExtraTimeLoadProfile = int.Parse(TB_ExtraTimeLoadProfile.Text);
+        if (!string.IsNullOrEmpty(TB_ExtraTimeLoadProfile.Text)) c.ExtraTimeLoadProfile = int.Parse(TB_ExtraTimeLoadProfile.Text);
     }
 
     private void TB_ExtraTimeCheckDLC_TextChanged(object sender, EventArgs e)
     {
-        c.ExtraTimeCheckDLC = int.Parse(TB_ExtraTimeCheckDLC.Text);
+        if (!string.IsNullOrEmpty(TB_ExtraTimeCheckDLC.Text)) c.ExtraTimeCheckDLC = int.Parse(TB_ExtraTimeCheckDLC.Text);
     }
 
     private void TB_ExtraTimeLoadGame_TextChanged(object sender, EventArgs e)
     {
-        c.ExtraTimeLoadGame = int.Parse(TB_ExtraTimeLoadGame.Text);
+        if (!string.IsNullOrEmpty(TB_ExtraTimeLoadGame.Text)) c.ExtraTimeLoadGame = int.Parse(TB_ExtraTimeLoadGame.Text);
     }
 
     private void CB_EnableWebhooks_CheckedChanged(object sender, EventArgs e)
@@ -119,5 +119,11 @@ public partial class SeedResetSettings : Form
                 e.Handled = true;
             }
         }
+    }
+
+    private void TB_Leave(object sender, EventArgs e)
+    {
+        var tb = (TextBox)sender;
+        if (string.IsNullOrEmpty(tb.Text)) tb.Text = "0";
     }
 }

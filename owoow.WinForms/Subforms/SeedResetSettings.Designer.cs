@@ -94,6 +94,7 @@ namespace owoow.WinForms.Subforms
             TB_ExtraTimeCloseGame.Text = "99999";
             TB_ExtraTimeCloseGame.TextChanged += TB_ExtraTimeCloseGame_TextChanged;
             TB_ExtraTimeCloseGame.KeyPress += KeyPress_AllowOnlyNumerical;
+            TB_ExtraTimeCloseGame.Leave += TB_Leave;
             // 
             // TB_ExtraTimeReturnHome
             // 
@@ -107,6 +108,7 @@ namespace owoow.WinForms.Subforms
             TB_ExtraTimeReturnHome.Text = "99999";
             TB_ExtraTimeReturnHome.TextChanged += TB_ExtraTimeReturnHome_TextChanged;
             TB_ExtraTimeReturnHome.KeyPress += KeyPress_AllowOnlyNumerical;
+            TB_ExtraTimeReturnHome.Leave += TB_Leave;
             // 
             // L_ExtraTimeCheckDLC
             // 
@@ -138,6 +140,7 @@ namespace owoow.WinForms.Subforms
             TB_ExtraTimeCheckDLC.Text = "99999";
             TB_ExtraTimeCheckDLC.TextChanged += TB_ExtraTimeCheckDLC_TextChanged;
             TB_ExtraTimeCheckDLC.KeyPress += KeyPress_AllowOnlyNumerical;
+            TB_ExtraTimeCheckDLC.Leave += TB_Leave;
             // 
             // TB_ExtraTimeLoadProfile
             // 
@@ -151,6 +154,7 @@ namespace owoow.WinForms.Subforms
             TB_ExtraTimeLoadProfile.Text = "99999";
             TB_ExtraTimeLoadProfile.TextChanged += TB_ExtraTimeLoadProfile_TextChanged;
             TB_ExtraTimeLoadProfile.KeyPress += KeyPress_AllowOnlyNumerical;
+            TB_ExtraTimeLoadProfile.Leave += TB_Leave;
             // 
             // L_ExtraTimeLoadGame
             // 
@@ -173,6 +177,7 @@ namespace owoow.WinForms.Subforms
             TB_ExtraTimeLoadGame.Text = "99999";
             TB_ExtraTimeLoadGame.TextChanged += TB_ExtraTimeLoadGame_TextChanged;
             TB_ExtraTimeLoadGame.KeyPress += KeyPress_AllowOnlyNumerical;
+            TB_ExtraTimeLoadGame.Leave += TB_Leave;
             // 
             // label1
             // 
