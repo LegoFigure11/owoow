@@ -285,6 +285,7 @@ namespace owoow.WinForms
             TSMI_WattTrader = new ToolStripMenuItem();
             TSMI_DiggingPa = new ToolStripMenuItem();
             TSMI_WailordRespawn = new ToolStripMenuItem();
+            TSMI_MarkAdvance = new ToolStripMenuItem();
             GB_SeedControlsContainer.SuspendLayout();
             GB_WildView.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)PB_MarkSprite).BeginInit();
@@ -3036,9 +3037,9 @@ namespace owoow.WinForms
             // 
             // CMS_RightClick
             // 
-            CMS_RightClick.Items.AddRange(new ToolStripItem[] { TSMI_CopySeeds, TSMI_SetAsInitial, TSMI_SetAdvances });
+            CMS_RightClick.Items.AddRange(new ToolStripItem[] { TSMI_CopySeeds, TSMI_SetAsInitial, TSMI_SetAdvances, TSMI_MarkAdvance });
             CMS_RightClick.Name = "CMS_RightClick";
-            CMS_RightClick.Size = new Size(205, 70);
+            CMS_RightClick.Size = new Size(205, 114);
             CMS_RightClick.Opening += CMS_RightClick_Opening;
             // 
             // TSMI_CopySeeds
@@ -3123,6 +3124,13 @@ namespace owoow.WinForms
             TSMI_WailordRespawn.Size = new Size(110, 20);
             TSMI_WailordRespawn.Text = "Wailord Respawn";
             TSMI_WailordRespawn.Click += TSMI_WailordRespawn_Click;
+            // 
+            // TSMI_MarkAdvance
+            // 
+            TSMI_MarkAdvance.Name = "TSMI_MarkAdvance";
+            TSMI_MarkAdvance.Size = new Size(204, 22);
+            TSMI_MarkAdvance.Text = "Mark Advance";
+            TSMI_MarkAdvance.Click += TSMI_MarkAdvance_Click;
             // 
             // MainWindow
             // 
@@ -3456,5 +3464,6 @@ namespace owoow.WinForms
         private ToolStripMenuItem TSMI_SpreadFinder;
         public CheckBox CB_RareEC;
         public ComboBox CB_Filter_Height;
+        private ToolStripMenuItem TSMI_MarkAdvance;
     }
 }

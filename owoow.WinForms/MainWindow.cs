@@ -1305,6 +1305,9 @@ public partial class MainWindow : Form
         // KO Count
         var ko = (TextBox?)Controls.Find($"TB_{tab}_KOs", true).FirstOrDefault();
         if (ko is not null && string.IsNullOrEmpty(GetControlText(ko))) SetTextBoxText("0", ko);
+
+        // Marked Advance
+        marked = null;
     }
 
     private void SetDexRecOptions()
@@ -1448,12 +1451,12 @@ public partial class MainWindow : Form
         else
         {
 #endif
-            if (TB_CurrentS0.Text != string.Empty && TB_CurrentS1.Text != string.Empty)
-            {
-                SetTextBoxText(TB_CurrentS0.Text, TB_Seed0);
-                SetTextBoxText(TB_CurrentS1.Text, TB_Seed1);
-                reset = true;
-            }
+        if (TB_CurrentS0.Text != string.Empty && TB_CurrentS1.Text != string.Empty)
+        {
+            SetTextBoxText(TB_CurrentS0.Text, TB_Seed0);
+            SetTextBoxText(TB_CurrentS1.Text, TB_Seed1);
+            reset = true;
+        }
 #if DEBUG
         }
 #endif
@@ -2061,6 +2064,7 @@ public partial class MainWindow : Form
     }
 
     public static readonly Font BoldFont = new("Microsoft Sans Serif", 8, FontStyle.Bold);
+    public static readonly Color DefaultBackBlue = Color.FromName("Highlight");
     private void DGV_Results_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
     {
         var index = e.RowIndex;
@@ -2068,13 +2072,22 @@ public partial class MainWindow : Form
         var row = DGV_Results.Rows[index];
         var result = Frames[index];
 
-        if (result.Shiny is "Square") row.DefaultCellStyle.BackColor = Color.LightCyan;
-        else if (result.Shiny is "Star") row.DefaultCellStyle.BackColor = Color.Aqua;
-        else if (result.Step == 1) row.DefaultCellStyle.BackColor = Color.Honeydew;
-        else if (result.Brilliant == 'Y') row.DefaultCellStyle.BackColor = Color.PapayaWhip;
-        else row.DefaultCellStyle.BackColor = row.Index % 2 == 0 ? Color.White : Color.WhiteSmoke;
+        if (marked is not null && result.Advances == marked)
+        {
+            row.DefaultCellStyle.BackColor = Color.LightPink;
+            row.DefaultCellStyle.SelectionBackColor = Color.MediumVioletRed;
+        }
+        else
+        {
+            row.DefaultCellStyle.SelectionBackColor = DefaultBackBlue;
+            if (result.Shiny is "Square") row.DefaultCellStyle.BackColor = Color.LightCyan;
+            else if (result.Shiny is "Star") row.DefaultCellStyle.BackColor = Color.Aqua;
+            else if (result.Step == 1) row.DefaultCellStyle.BackColor = Color.Honeydew;
+            else if (result.Brilliant == 'Y') row.DefaultCellStyle.BackColor = Color.PapayaWhip;
+            else row.DefaultCellStyle.BackColor = row.Index % 2 == 0 ? Color.White : Color.WhiteSmoke;
+        }
 
-        var iv = 11;
+        const int iv = 11;
         byte[] ivs = [result.H, result.A, result.B, result.C, result.D, result.S];
         for (var i = 0; i < ivs.Length; i++)
         {
@@ -2458,6 +2471,21 @@ public partial class MainWindow : Form
             var adv = DGV_Results.CurrentRow!.Cells[0].Value;
             var tab = TC_EncounterType.SelectedTab!.Text;
             ((TextBox)Controls.Find($"TB_{tab}_Initial", true).FirstOrDefault()!).Text = $"{adv}";
+        }
+        catch (NullReferenceException)
+        {
+            this.DisplayMessageBox("No row selected!");
+        }
+    }
+
+    private string? marked;
+    private void TSMI_MarkAdvance_Click(object sender, EventArgs e)
+    {
+        try
+        {
+            var val = $"{DGV_Results.CurrentRow!.Cells[0].Value}";
+            if (marked is not null && marked == val) marked = null;
+            else marked = val;
         }
         catch (NullReferenceException)
         {
