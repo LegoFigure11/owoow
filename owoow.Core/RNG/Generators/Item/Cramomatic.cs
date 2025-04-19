@@ -1,4 +1,4 @@
-﻿using owoow.Core.Enums;
+using owoow.Core.Enums;
 using owoow.Core.Interfaces;
 using owoow.Core.RNG.Generators.Misc;
 using PKHeX.Core;
@@ -125,12 +125,12 @@ public static class Cramomatic
     };
 
     private static readonly OrderedDictionary<CramomaticInputItemType, string[]> BallList = new() {
-        { CramomaticInputItemType.BlackApricorn,  ["Heavy Ball", "Luxury Ball", "Dusk Ball"] },
-        { CramomaticInputItemType.BlueApricorn,   ["Lure Ball", "Dive Ball", "Net Ball"] },
-        { CramomaticInputItemType.GreenApricorn,  ["Friend Ball", "Nest Ball", "Ultra Ball"] },
-        { CramomaticInputItemType.PinkApricorn,   ["Love Ball", "Heal Ball", "Ultra Ball"] },
-        { CramomaticInputItemType.RedApricorn,    ["Level Ball", "Repeat Ball", "Ultra Ball"] },
-        { CramomaticInputItemType.WhiteApricorn,  ["Fast Ball", "Timer Ball", "Premier Ball"] },
-        { CramomaticInputItemType.YellowApricorn, ["Moon Ball", "Quick Ball", "Ultra Ball"] },
+        { CramomaticInputItemType.BlackApricorn,  [ "Heavy Ball",  "Luxury Ball", "Dusk Ball"    ] },
+        { CramomaticInputItemType.BlueApricorn,   [ "Lure Ball",   "Dive Ball",   "Net Ball"     ] },
+        { CramomaticInputItemType.GreenApricorn,  [ "Friend Ball", "Nest Ball",   "Ultra Ball"   ] },
+        { CramomaticInputItemType.PinkApricorn,   [ "Love Ball",   "Heal Ball",   "Ultra Ball"   ] },
+        { CramomaticInputItemType.RedApricorn,    [ "Level Ball",  "Repeat Ball", "Ultra Ball"   ] },
+        { CramomaticInputItemType.WhiteApricorn,  [ "Fast Ball",   "Timer Ball",  "Premier Ball" ] },
+        { CramomaticInputItemType.YellowApricorn, [ "Moon Ball",   "Quick Ball",  "Ultra Ball"   ] },
     };
 }
