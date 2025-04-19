@@ -2060,7 +2060,7 @@ public partial class MainWindow : Form
         SetControlEnabledState(((CheckBox)sender).Checked && !CB_ConsiderFlying.Checked, B_CalculateRain);
     }
 
-    public readonly static Font BoldFont = new("Microsoft Sans Serif", 8, FontStyle.Bold);
+    public static readonly Font BoldFont = new("Microsoft Sans Serif", 8, FontStyle.Bold);
     private void DGV_Results_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
     {
         var index = e.RowIndex;

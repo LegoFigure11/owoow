@@ -6,17 +6,17 @@ namespace owoow.Core;
 
 public static class Encounters
 {
-    public readonly static Dictionary<string, Personal>? Personal;
+    public static readonly Dictionary<string, Personal>? Personal;
 
-    private readonly static Dictionary<string, Dictionary<string, Encounter>>? SwordFishing;
-    private readonly static Dictionary<string, Dictionary<string, Encounter>>? SwordHidden;
-    private readonly static Dictionary<string, Dictionary<string, Encounter>>? SwordSymbol;
-    private readonly static Dictionary<string, Dictionary<string, EncounterStatic>>? SwordStatic;
+    private static readonly Dictionary<string, Dictionary<string, Encounter>>? SwordFishing;
+    private static readonly Dictionary<string, Dictionary<string, Encounter>>? SwordHidden;
+    private static readonly Dictionary<string, Dictionary<string, Encounter>>? SwordSymbol;
+    private static readonly Dictionary<string, Dictionary<string, EncounterStatic>>? SwordStatic;
 
-    private readonly static Dictionary<string, Dictionary<string, Encounter>>? ShieldHidden;
-    private readonly static Dictionary<string, Dictionary<string, Encounter>>? ShieldFishing;
-    private readonly static Dictionary<string, Dictionary<string, Encounter>>? ShieldSymbol;
-    private readonly static Dictionary<string, Dictionary<string, EncounterStatic>>? ShieldStatic;
+    private static readonly Dictionary<string, Dictionary<string, Encounter>>? ShieldHidden;
+    private static readonly Dictionary<string, Dictionary<string, Encounter>>? ShieldFishing;
+    private static readonly Dictionary<string, Dictionary<string, Encounter>>? ShieldSymbol;
+    private static readonly Dictionary<string, Dictionary<string, EncounterStatic>>? ShieldStatic;
 
     static Encounters()
     {
