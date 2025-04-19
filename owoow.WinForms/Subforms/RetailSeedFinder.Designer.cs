@@ -1,4 +1,4 @@
-﻿namespace owoow.WinForms.Subforms
+namespace owoow.WinForms.Subforms
 {
     partial class RetailSeedFinder
     {
@@ -38,7 +38,6 @@
             L_InputAnimations = new Label();
             B_Physical = new Button();
             B_Special = new Button();
-            CancelButton = new Button();
             L_CompletedInputs = new Label();
             SuspendLayout();
             // 
@@ -142,17 +141,6 @@
             B_Special.UseVisualStyleBackColor = true;
             B_Special.Click += B_Special_Click;
             // 
-            // CancelButton
-            // 
-            CancelButton.DialogResult = DialogResult.Cancel;
-            CancelButton.Location = new Point(13, 157);
-            CancelButton.Margin = new Padding(4, 3, 4, 3);
-            CancelButton.Name = "CancelButton";
-            CancelButton.Size = new Size(175, 25);
-            CancelButton.TabIndex = 4;
-            CancelButton.Text = "Cancel";
-            CancelButton.UseVisualStyleBackColor = true;
-            // 
             // L_CompletedInputs
             // 
             L_CompletedInputs.Anchor = AnchorStyles.Top | AnchorStyles.Right;
@@ -169,9 +157,8 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(919, 188);
+            ClientSize = new Size(919, 164);
             Controls.Add(L_CompletedInputs);
-            Controls.Add(CancelButton);
             Controls.Add(B_Special);
             Controls.Add(B_Physical);
             Controls.Add(L_InputAnimations);
@@ -200,7 +187,6 @@
         private System.Windows.Forms.Label L_InputAnimations;
         private System.Windows.Forms.Button B_Physical;
         private System.Windows.Forms.Button B_Special;
-        private new System.Windows.Forms.Button CancelButton;
         private System.Windows.Forms.Label L_CompletedInputs;
     }
 }

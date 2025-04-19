@@ -1,4 +1,4 @@
-﻿using System.Text;
+using System.Text;
 using static owoow.Core.RNG.Generators.Misc.SeedFinder;
 
 namespace owoow.WinForms.Subforms
