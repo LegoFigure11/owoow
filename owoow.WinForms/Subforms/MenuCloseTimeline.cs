@@ -76,7 +76,7 @@ public partial class MenuCloseTimeline : Form
     private void MenuCloseTimeline_FormClosing(object sender, FormClosingEventArgs e)
     {
         MainWindow.MenuCloseTimelineFormOpen = false;
-        MainWindow.SetTextBoxText(TB_Timeline_NPCs.Text, (TextBox)MainWindow.Controls.Find($"TB_{Tab}_NPCs", true).FirstOrDefault()!);
+        if (!MainWindow.CB_ConsiderFlying.Checked) MainWindow.SetTextBoxText(TB_Timeline_NPCs.Text, (TextBox)MainWindow.Controls.Find($"TB_{Tab}_NPCs", true).FirstOrDefault()!);
     }
 
     private void CB_Leave(object sender, EventArgs e)
