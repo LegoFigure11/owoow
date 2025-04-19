@@ -25,12 +25,12 @@ public partial class WailordRespawn : Form
         f.SetCheckBoxCheckedState(((CheckBox)f.Controls.Find($"CB_{Tab}_MenuClose_Direction", true).FirstOrDefault()!).Checked, CB_Wailord_MenuClose_Direction);
         f.SetComboBoxSelectedIndex(0, CB_Target);
 
-        TB_Seed0.KeyPress += new KeyPressEventHandler(f.KeyPress_AllowOnlyHex!);
-        TB_Seed1.KeyPress += new KeyPressEventHandler(f.KeyPress_AllowOnlyHex!);
+        TB_Seed0.KeyPress += f.KeyPress_AllowOnlyHex!;
+        TB_Seed1.KeyPress += f.KeyPress_AllowOnlyHex!;
 
-        TB_Wailord_Initial.KeyPress += new KeyPressEventHandler(f.KeyPress_AllowOnlyNumerical!);
-        TB_Wailord_NPCs.KeyPress += new KeyPressEventHandler(f.KeyPress_AllowOnlyNumerical!);
-        TB_Wailord_Advances.KeyPress += new KeyPressEventHandler(f.KeyPress_AllowOnlyNumerical!);
+        TB_Wailord_Initial.KeyPress += f.KeyPress_AllowOnlyNumerical!;
+        TB_Wailord_NPCs.KeyPress += f.KeyPress_AllowOnlyNumerical!;
+        TB_Wailord_Advances.KeyPress += f.KeyPress_AllowOnlyNumerical!;
     }
 
     private void B_Wailord_Search_Click(object sender, EventArgs e)

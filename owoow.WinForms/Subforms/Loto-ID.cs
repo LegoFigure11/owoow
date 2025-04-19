@@ -38,12 +38,12 @@ public partial class LotoID : Form
 
         L_LoadedIDs.Text = $"Loaded IDs: {IDs.Count}";
 
-        TB_Seed0.KeyPress += new KeyPressEventHandler(f.KeyPress_AllowOnlyHex!);
-        TB_Seed1.KeyPress += new KeyPressEventHandler(f.KeyPress_AllowOnlyHex!);
+        TB_Seed0.KeyPress += f.KeyPress_AllowOnlyHex!;
+        TB_Seed1.KeyPress += f.KeyPress_AllowOnlyHex!;
 
-        TB_LotoID_Initial.KeyPress += new KeyPressEventHandler(f.KeyPress_AllowOnlyNumerical!);
-        TB_LotoID_NPCs.KeyPress += new KeyPressEventHandler(f.KeyPress_AllowOnlyNumerical!);
-        TB_LotoID_Advances.KeyPress += new KeyPressEventHandler(f.KeyPress_AllowOnlyNumerical!);
+        TB_LotoID_Initial.KeyPress += f.KeyPress_AllowOnlyNumerical!;
+        TB_LotoID_NPCs.KeyPress += f.KeyPress_AllowOnlyNumerical!;
+        TB_LotoID_Advances.KeyPress += f.KeyPress_AllowOnlyNumerical!;
     }
 
     private string Target = string.Empty;

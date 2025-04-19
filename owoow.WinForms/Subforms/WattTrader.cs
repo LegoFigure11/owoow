@@ -24,14 +24,14 @@ public partial class WattTrader : Form
         f.SetComboBoxSelectedIndex(CB_WattTrader_Weather.Items.IndexOf($"{((ComboBox)f.Controls.Find($"CB_{Tab}_Weather", true).FirstOrDefault()!).SelectedItem}"), CB_WattTrader_Weather);
         f.SetComboBoxSelectedIndex(0, CB_Target);
 
-        TB_Seed0.KeyPress += new KeyPressEventHandler(f.KeyPress_AllowOnlyHex!);
-        TB_Seed1.KeyPress += new KeyPressEventHandler(f.KeyPress_AllowOnlyHex!);
+        TB_Seed0.KeyPress += f.KeyPress_AllowOnlyHex!;
+        TB_Seed1.KeyPress += f.KeyPress_AllowOnlyHex!;
 
-        TB_SlotMin.KeyPress += new KeyPressEventHandler(f.KeyPress_AllowOnlyNumerical!);
-        TB_SlotMax.KeyPress += new KeyPressEventHandler(f.KeyPress_AllowOnlyNumerical!);
-        TB_WattTrader_Initial.KeyPress += new KeyPressEventHandler(f.KeyPress_AllowOnlyNumerical!);
-        TB_WattTrader_NPCs.KeyPress += new KeyPressEventHandler(f.KeyPress_AllowOnlyNumerical!);
-        TB_WattTrader_Advances.KeyPress += new KeyPressEventHandler(f.KeyPress_AllowOnlyNumerical!);
+        TB_SlotMin.KeyPress += f.KeyPress_AllowOnlyNumerical!;
+        TB_SlotMax.KeyPress += f.KeyPress_AllowOnlyNumerical!;
+        TB_WattTrader_Initial.KeyPress += f.KeyPress_AllowOnlyNumerical!;
+        TB_WattTrader_NPCs.KeyPress += f.KeyPress_AllowOnlyNumerical!;
+        TB_WattTrader_Advances.KeyPress += f.KeyPress_AllowOnlyNumerical!;
     }
 
     private void B_WattTrader_Search_Click(object sender, EventArgs e)

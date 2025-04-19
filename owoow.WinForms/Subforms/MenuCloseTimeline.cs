@@ -22,12 +22,12 @@ public partial class MenuCloseTimeline : Form
         f.SetTextBoxText(((TextBox)f.Controls.Find($"TB_{Tab}_NPCs", true).FirstOrDefault()!).Text, TB_Timeline_NPCs);
         f.SetComboBoxSelectedIndex(CB_Timeline_Weather.Items.IndexOf($"{((ComboBox)f.Controls.Find($"CB_{Tab}_Weather", true).FirstOrDefault()!).SelectedItem}"), CB_Timeline_Weather);
 
-        TB_Seed0.KeyPress += new KeyPressEventHandler(f.KeyPress_AllowOnlyHex!);
-        TB_Seed1.KeyPress += new KeyPressEventHandler(f.KeyPress_AllowOnlyHex!);
+        TB_Seed0.KeyPress += f.KeyPress_AllowOnlyHex!;
+        TB_Seed1.KeyPress += f.KeyPress_AllowOnlyHex!;
 
-        TB_Timeline_Initial.KeyPress += new KeyPressEventHandler(f.KeyPress_AllowOnlyNumerical!);
-        TB_Timeline_NPCs.KeyPress += new KeyPressEventHandler(f.KeyPress_AllowOnlyNumerical!);
-        TB_Timeline_Advances.KeyPress += new KeyPressEventHandler(f.KeyPress_AllowOnlyNumerical!);
+        TB_Timeline_Initial.KeyPress += f.KeyPress_AllowOnlyNumerical!;
+        TB_Timeline_NPCs.KeyPress += f.KeyPress_AllowOnlyNumerical!;
+        TB_Timeline_Advances.KeyPress += f.KeyPress_AllowOnlyNumerical!;
     }
 
     private void B_Timeline_Search_Click(object sender, EventArgs e)
