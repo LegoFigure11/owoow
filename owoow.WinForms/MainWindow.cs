@@ -445,7 +445,8 @@ public partial class MainWindow : Form
                     SetControlEnabledState(true, B_NTP);
                 }
             }
-        }, token);
+        });
+        await Task.Delay(200, AdvanceSource.Token).ConfigureAwait(false);
     }
 
     private void B_SkipForward_Click(object sender, EventArgs e)
@@ -461,11 +462,9 @@ public partial class MainWindow : Form
                     var skips = uint.Parse(TB_Skips.Text);
                     for (var i = 0; i < skips && !skipPause; i++)
                     {
-                        if (i % 366 == 0)
-                        {
+                        // Attempt to reset the time every 366 skips if NTP isn't on cooldown.
+                        if (i > 0 && i % 366 == 0)
                             await SafeResetTimeNTP(AdvanceSource.Token).ConfigureAwait(false);
-                            await Task.Delay(200, AdvanceSource.Token).ConfigureAwait(false);
-                        }
                         SetButtonText($"{i + 1}", B_SkipForward);
                         await ConnectionWrapper.DaySkip(AdvanceSource.Token).ConfigureAwait(false);
                         await Task.Delay(360, AdvanceSource.Token).ConfigureAwait(false);
