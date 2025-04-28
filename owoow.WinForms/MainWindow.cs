@@ -455,11 +455,6 @@ public partial class MainWindow : Form
                     var skips = uint.Parse(TB_Skips.Text);
                     for (var i = 0; i < skips && !skipPause; i++)
                     {
-                        if (i % 366 == 0)
-                        {
-                            await ConnectionWrapper.ResetTimeNTP(AdvanceSource.Token).ConfigureAwait(false);
-                            await Task.Delay(200, AdvanceSource.Token);
-                        }
                         SetButtonText($"{i + 1}", B_SkipBack);
                         await ConnectionWrapper.DaySkipBack(AdvanceSource.Token).ConfigureAwait(false);
                         await Task.Delay(360, AdvanceSource.Token);
