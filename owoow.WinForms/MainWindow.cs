@@ -293,11 +293,11 @@ public partial class MainWindow : Form
                 {
                     this.DisplayMessageBox(ex.Message);
                 }
-                await Source.CancelAsync();
+                await Source.CancelAsync().ConfigureAwait(false);
                 Source = new();
-                await AdvanceSource.CancelAsync();
+                await AdvanceSource.CancelAsync().ConfigureAwait(false);
                 AdvanceSource = new();
-                await ResetSource.CancelAsync();
+                await ResetSource.CancelAsync().ConfigureAwait(false);
                 ResetSource = new();
                 SetControlEnabledState(true, B_Connect);
             },
@@ -312,7 +312,7 @@ public partial class MainWindow : Form
             {
                 try
                 {
-                    await ConnectionWrapper.ResetTimeNTP(Source.Token);
+                    await ConnectionWrapper.ResetTimeNTP(Source.Token).ConfigureAwait(false);
                 }
                 catch (Exception ex)
                 {
@@ -373,7 +373,7 @@ public partial class MainWindow : Form
 
                         SetButtonText($"{i + 1}", B_SkipAdvance);
                         await ConnectionWrapper.PressL3(AdvanceSource.Token).ConfigureAwait(false);
-                        await Task.Delay(150, AdvanceSource.Token);
+                        await Task.Delay(150, AdvanceSource.Token).ConfigureAwait(false);
                     }
                     SetButtonText("Adv.", B_SkipAdvance);
                     SetControlEnabledState(true, B_SkipAdvance, B_SkipForward, B_SkipBack, B_Turbo, B_SeedSearch);
@@ -400,7 +400,7 @@ public partial class MainWindow : Form
         ResetSource = new();
         try
         {
-            if (ConnectionWrapper is { Connected: true }) await ConnectionWrapper.ResetStick(AdvanceSource.Token);
+            if (ConnectionWrapper is { Connected: true }) await ConnectionWrapper.ResetStick(AdvanceSource.Token).ConfigureAwait(false);
         }
         catch { }
     }
@@ -421,11 +421,11 @@ public partial class MainWindow : Form
                         if (i % 366 == 0)
                         {
                             await ConnectionWrapper.ResetTimeNTP(AdvanceSource.Token).ConfigureAwait(false);
-                            await Task.Delay(200, AdvanceSource.Token);
+                            await Task.Delay(200, AdvanceSource.Token).ConfigureAwait(false);
                         }
                         SetButtonText($"{i + 1}", B_SkipForward);
                         await ConnectionWrapper.DaySkip(AdvanceSource.Token).ConfigureAwait(false);
-                        await Task.Delay(360, AdvanceSource.Token);
+                        await Task.Delay(360, AdvanceSource.Token).ConfigureAwait(false);
                     }
                     SetButtonText("Days+", B_SkipForward);
                     SetControlEnabledState(true, B_SkipAdvance, B_SkipForward, B_SkipBack, B_Turbo, B_SeedSearch);
@@ -457,7 +457,7 @@ public partial class MainWindow : Form
                     {
                         SetButtonText($"{i + 1}", B_SkipBack);
                         await ConnectionWrapper.DaySkipBack(AdvanceSource.Token).ConfigureAwait(false);
-                        await Task.Delay(360, AdvanceSource.Token);
+                        await Task.Delay(360, AdvanceSource.Token).ConfigureAwait(false);
                     }
                     SetButtonText("Days-", B_SkipBack);
                     SetControlEnabledState(true, B_SkipAdvance, B_SkipForward, B_SkipBack, B_Turbo, B_SeedSearch);
@@ -571,7 +571,7 @@ public partial class MainWindow : Form
 
         Task.Run(async () =>
         {
-            results = await Task.WhenAll(tasks);
+            results = await Task.WhenAll(tasks).ConfigureAwait(false);
             List<OverworldFrame> AllResults = [];
             foreach (var result in results)
             {
@@ -685,7 +685,7 @@ public partial class MainWindow : Form
 
         Task.Run(async () =>
         {
-            results = await Task.WhenAll(tasks);
+            results = await Task.WhenAll(tasks).ConfigureAwait(false);
             List<OverworldFrame> AllResults = [];
             foreach (var result in results)
             {
@@ -789,7 +789,7 @@ public partial class MainWindow : Form
 
         Task.Run(async () =>
         {
-            results = await Task.WhenAll(tasks);
+            results = await Task.WhenAll(tasks).ConfigureAwait(false);
             List<OverworldFrame> AllResults = [];
             foreach (var result in results)
             {
@@ -904,7 +904,7 @@ public partial class MainWindow : Form
 
         Task.Run(async () =>
         {
-            results = await Task.WhenAll(tasks);
+            results = await Task.WhenAll(tasks).ConfigureAwait(false);
             List<OverworldFrame> AllResults = [];
             foreach (var result in results)
             {
@@ -1174,7 +1174,7 @@ public partial class MainWindow : Form
 
                             await Task.Run(async () =>
                             {
-                                results = await Task.WhenAll(tasks);
+                                results = await Task.WhenAll(tasks).ConfigureAwait(false);
                                 List<OverworldFrame> AllResults = [];
                                 foreach (var result in results)
                                 {
@@ -1433,7 +1433,7 @@ public partial class MainWindow : Form
                     {
                         ulong s0 = ulong.Parse(TB_Seed0.Text, NumberStyles.AllowHexSpecifier);
                         ulong s1 = ulong.Parse(TB_Seed1.Text, NumberStyles.AllowHexSpecifier);
-                        await ConnectionWrapper.WriteRNGState(s0, s1, Source.Token);
+                        await ConnectionWrapper.WriteRNGState(s0, s1, Source.Token).ConfigureAwait(false);
                         reset = true;
                     }
                     catch (Exception ex)
@@ -1571,7 +1571,7 @@ public partial class MainWindow : Form
                 try
                 {
                     readPause = true;
-                    await Task.Delay(100, Source.Token);
+                    await Task.Delay(100, Source.Token).ConfigureAwait(false);
 
                     var DexRec = await ConnectionWrapper.ReadDexRecommendation(Source.Token).ConfigureAwait(false);
 
@@ -1648,9 +1648,9 @@ public partial class MainWindow : Form
                     try
                     {
                         readPause = true;
-                        await Task.Delay(100, Source.Token);
+                        await Task.Delay(100, Source.Token).ConfigureAwait(false);
                         SetTextBoxText("Reading encounter...", TB_Wild);
-                        var pk = await ConnectionWrapper.ReadWildPokemon(Source.Token);
+                        var pk = await ConnectionWrapper.ReadWildPokemon(Source.Token).ConfigureAwait(false);
                         if (pk.Valid && pk.Species > 0)
                         {
                             CachedEncounter = pk;

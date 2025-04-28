@@ -65,7 +65,7 @@ public partial class MenuCloseTimeline : Form
 
         Task.Run(async () =>
         {
-            List<MenuCloseFrame> results = await Task.Run(async () => await MenuClose.Generate(s0, s1, initial, initial + advances, config));
+            List<MenuCloseFrame> results = await Task.Run(async () => await MenuClose.Generate(s0, s1, initial, initial + advances, config).ConfigureAwait(false));
 
             MainWindow.SetBindingSourceDataSource(results, MenuCloseResultsSource);
 

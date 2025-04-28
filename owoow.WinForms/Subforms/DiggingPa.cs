@@ -69,7 +69,7 @@ public partial class DiggingPa : Form
 
         Task.Run(async () =>
         {
-            Frames = await Task.Run(async () => await Core.RNG.Generators.Item.DiggingPa.Generate(s0, s1, initial, initial + advances, config));
+            Frames = await Task.Run(async () => await Core.RNG.Generators.Item.DiggingPa.Generate(s0, s1, initial, initial + advances, config).ConfigureAwait(false));
 
             MainWindow.SetBindingSourceDataSource(Frames, DiggingPaResultsSource);
 
