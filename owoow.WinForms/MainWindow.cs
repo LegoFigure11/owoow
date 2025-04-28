@@ -312,7 +312,7 @@ public partial class MainWindow : Form
             {
                 try
                 {
-                    await ConnectionWrapper.ResetTimeNTP(Source.Token).ConfigureAwait(false);
+                    await SafeResetTimeNTP(AdvanceSource.Token).ConfigureAwait(false);
                 }
                 catch (Exception ex)
                 {
@@ -405,6 +405,49 @@ public partial class MainWindow : Form
         catch { }
     }
 
+    private static bool canCallResetTimeNTP = true;
+    private static readonly Lock resetTimeNTPLock = new();
+
+    /// <summary>
+    /// Safely resets the time on the Nintendo Switch using the Network Time Protocol (NTP).
+    /// This method ensures that the reset operation is not called multiple times in a short
+    /// amount of time, which causes bad behavior with sys-botbase or usb-botbase.
+    /// </summary>
+    /// <param name="token">A cancellation token to handle task cancellation.</param>
+    /// <returns>A task representing the asynchronous operation.</returns>
+    private async Task SafeResetTimeNTP(CancellationToken token)
+    {
+        lock (resetTimeNTPLock)
+        {
+            // ResetTimeNTP is on cooldown, so do nothing.
+            if (!canCallResetTimeNTP)
+                return;
+            canCallResetTimeNTP = false;
+        }
+
+        _ = Task.Run(async () =>
+        {
+            try
+            {
+                await ConnectionWrapper.ResetTimeNTP(token).ConfigureAwait(false);
+                SetControlEnabledState(false, B_NTP);
+                await Task.Delay(2000).ConfigureAwait(false); // 2 second cooldown, don't allow it to be cancelled.
+            }
+            catch (Exception ex)
+            {
+                this.DisplayMessageBox($"Error during ResetTimeNTP: {ex.Message}");
+            }
+            finally
+            {
+                lock (resetTimeNTPLock)
+                {
+                    canCallResetTimeNTP = true;
+                    SetControlEnabledState(true, B_NTP);
+                }
+            }
+        }, token);
+    }
+
     private void B_SkipForward_Click(object sender, EventArgs e)
     {
         Task.Run(
@@ -420,7 +463,7 @@ public partial class MainWindow : Form
                     {
                         if (i % 366 == 0)
                         {
-                            await ConnectionWrapper.ResetTimeNTP(AdvanceSource.Token).ConfigureAwait(false);
+                            await SafeResetTimeNTP(AdvanceSource.Token).ConfigureAwait(false);
                             await Task.Delay(200, AdvanceSource.Token).ConfigureAwait(false);
                         }
                         SetButtonText($"{i + 1}", B_SkipForward);
