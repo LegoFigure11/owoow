@@ -435,14 +435,16 @@ public partial class MainWindow : Form
             }
             catch (Exception ex)
             {
-                this.DisplayMessageBox($"Error during ResetTimeNTP: {ex.Message}");
+                this.DisplayMessageBox($"Error during ResetTimeNTP: {ex.Message}\nPlease report this error.");
             }
             finally
             {
                 lock (resetTimeNTPLock)
                 {
                     canCallResetTimeNTP = true;
-                    SetControlEnabledState(true, B_NTP);
+                    // Only enable the NTP button if the skip advance button is enabled, which means we're not currently skipping.
+                    if (B_SkipAdvance.Enabled)
+                        SetControlEnabledState(true, B_NTP);
                 }
             }
         });
@@ -471,11 +473,17 @@ public partial class MainWindow : Form
                     }
                     SetButtonText("Days+", B_SkipForward);
                     SetControlEnabledState(true, B_SkipAdvance, B_SkipForward, B_SkipBack, B_Turbo, B_SeedSearch);
+                    // Only reset the NTP button if it's not on cooldown.
+                    if (canCallResetTimeNTP)
+                        SetControlEnabledState(true, B_NTP);
                     SetControlEnabledState(false, B_CancelSkip);
                 }
                 catch (Exception ex)
                 {
                     SetControlEnabledState(true, B_SkipAdvance, B_SkipForward, B_SkipBack, B_Turbo, B_SeedSearch);
+                    // Only reset the NTP button if it's not on cooldown.
+                    if (canCallResetTimeNTP)
+                        SetControlEnabledState(true, B_NTP);
                     SetControlEnabledState(false, B_CancelSkip);
                     SetButtonText("Days+", B_SkipForward);
                     if (ex is not OperationCanceledException) this.DisplayMessageBox(ex.Message);
@@ -503,11 +511,17 @@ public partial class MainWindow : Form
                     }
                     SetButtonText("Days-", B_SkipBack);
                     SetControlEnabledState(true, B_SkipAdvance, B_SkipForward, B_SkipBack, B_Turbo, B_SeedSearch);
+                    // Only reset the NTP button if it's not on cooldown.
+                    if (canCallResetTimeNTP)
+                        SetControlEnabledState(true, B_NTP);
                     SetControlEnabledState(false, B_CancelSkip);
                 }
                 catch (Exception ex)
                 {
                     SetControlEnabledState(true, B_SkipAdvance, B_SkipForward, B_SkipBack, B_Turbo, B_SeedSearch);
+                    // Only reset the NTP button if it's not on cooldown.
+                    if (canCallResetTimeNTP)
+                        SetControlEnabledState(true, B_NTP);
                     SetControlEnabledState(false, B_CancelSkip);
                     SetButtonText("Days-", B_SkipBack);
                     if (ex is not OperationCanceledException) this.DisplayMessageBox(ex.Message);
