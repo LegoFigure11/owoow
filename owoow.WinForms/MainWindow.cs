@@ -412,7 +412,7 @@ public partial class MainWindow : Form
             {
                 try
                 {
-                    SetControlEnabledState(false, B_SkipAdvance, B_SkipForward, B_SkipBack, B_Turbo, B_SeedSearch);
+                    SetControlEnabledState(false, B_SkipAdvance, B_SkipForward, B_SkipBack, B_Turbo, B_SeedSearch, B_NTP);
                     SetControlEnabledState(true, B_CancelSkip);
                     skipPause = false;
                     var skips = uint.Parse(TB_Skips.Text);
@@ -449,7 +449,7 @@ public partial class MainWindow : Form
             {
                 try
                 {
-                    SetControlEnabledState(false, B_SkipAdvance, B_SkipForward, B_SkipBack, B_Turbo, B_SeedSearch);
+                    SetControlEnabledState(false, B_SkipAdvance, B_SkipForward, B_SkipBack, B_Turbo, B_SeedSearch, B_NTP);
                     SetControlEnabledState(true, B_CancelSkip);
                     skipPause = false;
                     var skips = uint.Parse(TB_Skips.Text);
