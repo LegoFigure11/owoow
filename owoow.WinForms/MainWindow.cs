@@ -370,7 +370,6 @@ public partial class MainWindow : Form
                     var skips = uint.Parse(TB_Skips.Text);
                     for (var i = 0; i < skips && !skipPause; i++)
                     {
-
                         SetButtonText($"{i + 1}", B_SkipAdvance);
                         await ConnectionWrapper.PressL3(AdvanceSource.Token).ConfigureAwait(false);
                         await Task.Delay(150, AdvanceSource.Token).ConfigureAwait(false);
@@ -465,12 +464,17 @@ public partial class MainWindow : Form
                     for (var i = 0; i < skips && !skipPause; i++)
                     {
                         // Attempt to reset the time every 366 skips if NTP isn't on cooldown.
-                        if (i > 0 && i % 366 == 0)
+                        // If we're less than 366 from the end, then wait until then to NTP.
+                        if (i > 0 && i % 366 == 0 && skips - i > 366)
                             await SafeResetTimeNTP(AdvanceSource.Token).ConfigureAwait(false);
                         SetButtonText($"{i + 1}", B_SkipForward);
                         await ConnectionWrapper.DaySkip(AdvanceSource.Token).ConfigureAwait(false);
                         await Task.Delay(360, AdvanceSource.Token).ConfigureAwait(false);
                     }
+
+                    // Will only NTP if not on cooldown.
+                    await SafeResetTimeNTP(AdvanceSource.Token).ConfigureAwait(false);
+
                     SetButtonText("Days+", B_SkipForward);
                     SetControlEnabledState(true, B_SkipAdvance, B_SkipForward, B_SkipBack, B_Turbo, B_SeedSearch);
                     // Only reset the NTP button if it's not on cooldown.
