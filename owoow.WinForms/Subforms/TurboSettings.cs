@@ -1,4 +1,4 @@
-﻿using System.Text.Json;
+using System.Text.Json;
 
 namespace owoow.WinForms.Subforms;
 
@@ -69,7 +69,14 @@ public partial class TurboSettings : Form
     private void B_Remove_Click(object sender, EventArgs e)
     {
         var i = LB_List.SelectedIndex;
-        c.TurboSequence.RemoveAt(i);
+        if (c.TurboSequence.Count > 0)
+        {
+            c.TurboSequence.RemoveAt(i);
+        }
+        else
+        {
+            System.Media.SystemSounds.Asterisk.Play();
+        }
         ReloadList();
     }
 
