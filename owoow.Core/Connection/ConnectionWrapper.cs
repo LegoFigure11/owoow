@@ -318,7 +318,7 @@ public class ConnectionWrapperAsync(SwitchConnectionConfig Config, Action<string
         await Connection.SendAsync(Click(X, CRLF), token).ConfigureAwait(false);
         await Task.Delay(1_000, token).ConfigureAwait(false);
         await Connection.SendAsync(Click(A, CRLF), token).ConfigureAwait(false);
-        await Task.Delay(5_000 + config.ExtraTimeCloseGame, token);
+        await Task.Delay(5_000 + config.ExtraTimeCloseGame, token).ConfigureAwait(false);
     }
 
     // From https://github.com/kwsch/SysBot.NET/blob/8a82453e96ed5724e175b1a44464c70eca266df0/SysBot.Pokemon/SWSH/PokeRoutineExecutor8SWSH.cs#L233

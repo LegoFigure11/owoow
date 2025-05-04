@@ -293,11 +293,11 @@ public partial class MainWindow : Form
                 {
                     this.DisplayMessageBox(ex.Message);
                 }
-                await Source.CancelAsync();
+                await Source.CancelAsync().ConfigureAwait(false);
                 Source = new();
-                await AdvanceSource.CancelAsync();
+                await AdvanceSource.CancelAsync().ConfigureAwait(false);
                 AdvanceSource = new();
-                await ResetSource.CancelAsync();
+                await ResetSource.CancelAsync().ConfigureAwait(false);
                 ResetSource = new();
                 SetControlEnabledState(true, B_Connect);
             },
@@ -312,7 +312,7 @@ public partial class MainWindow : Form
             {
                 try
                 {
-                    await ConnectionWrapper.ResetTimeNTP(Source.Token);
+                    await SafeResetTimeNTP(AdvanceSource.Token).ConfigureAwait(false);
                 }
                 catch (Exception ex)
                 {
@@ -370,10 +370,9 @@ public partial class MainWindow : Form
                     var skips = uint.Parse(TB_Skips.Text);
                     for (var i = 0; i < skips && !skipPause; i++)
                     {
-
                         SetButtonText($"{i + 1}", B_SkipAdvance);
                         await ConnectionWrapper.PressL3(AdvanceSource.Token).ConfigureAwait(false);
-                        await Task.Delay(150, AdvanceSource.Token);
+                        await Task.Delay(150, AdvanceSource.Token).ConfigureAwait(false);
                     }
                     SetButtonText("Adv.", B_SkipAdvance);
                     SetControlEnabledState(true, B_SkipAdvance, B_SkipForward, B_SkipBack, B_Turbo, B_SeedSearch);
@@ -400,9 +399,55 @@ public partial class MainWindow : Form
         ResetSource = new();
         try
         {
-            if (ConnectionWrapper is { Connected: true }) await ConnectionWrapper.ResetStick(AdvanceSource.Token);
+            if (ConnectionWrapper is { Connected: true }) await ConnectionWrapper.ResetStick(AdvanceSource.Token).ConfigureAwait(false);
         }
         catch { }
+    }
+
+    private static bool canCallResetTimeNTP = true;
+    private static readonly Lock resetTimeNTPLock = new();
+
+    /// <summary>
+    /// Safely resets the time on the Nintendo Switch using the Network Time Protocol (NTP).
+    /// This method ensures that the reset operation is not called multiple times in a short
+    /// amount of time, which causes bad behavior with sys-botbase or usb-botbase.
+    /// </summary>
+    /// <param name="token">A cancellation token to handle task cancellation.</param>
+    /// <returns>A task representing the asynchronous operation.</returns>
+    private async Task SafeResetTimeNTP(CancellationToken token)
+    {
+        lock (resetTimeNTPLock)
+        {
+            // ResetTimeNTP is on cooldown, so do nothing.
+            if (!canCallResetTimeNTP)
+                return;
+            canCallResetTimeNTP = false;
+        }
+
+        _ = Task.Run(async () =>
+        {
+            try
+            {
+                await ConnectionWrapper.ResetTimeNTP(token).ConfigureAwait(false);
+                SetControlEnabledState(false, B_NTP);
+                await Task.Delay(2000).ConfigureAwait(false); // 2 second cooldown, don't allow it to be cancelled.
+            }
+            catch (Exception ex)
+            {
+                this.DisplayMessageBox($"Error during ResetTimeNTP: {ex.Message}\nPlease report this error.");
+            }
+            finally
+            {
+                lock (resetTimeNTPLock)
+                {
+                    canCallResetTimeNTP = true;
+                    // Only enable the NTP button if the skip advance button is enabled, which means we're not currently skipping.
+                    if (B_SkipAdvance.Enabled)
+                        SetControlEnabledState(true, B_NTP);
+                }
+            }
+        });
+        await Task.Delay(200, AdvanceSource.Token).ConfigureAwait(false);
     }
 
     private void B_SkipForward_Click(object sender, EventArgs e)
@@ -412,28 +457,37 @@ public partial class MainWindow : Form
             {
                 try
                 {
-                    SetControlEnabledState(false, B_SkipAdvance, B_SkipForward, B_SkipBack, B_Turbo, B_SeedSearch);
+                    SetControlEnabledState(false, B_SkipAdvance, B_SkipForward, B_SkipBack, B_Turbo, B_SeedSearch, B_NTP);
                     SetControlEnabledState(true, B_CancelSkip);
                     skipPause = false;
                     var skips = uint.Parse(TB_Skips.Text);
                     for (var i = 0; i < skips && !skipPause; i++)
                     {
-                        if (i % 366 == 0)
-                        {
-                            await ConnectionWrapper.ResetTimeNTP(AdvanceSource.Token).ConfigureAwait(false);
-                            await Task.Delay(200, AdvanceSource.Token);
-                        }
+                        // Attempt to reset the time every 366 skips if NTP isn't on cooldown.
+                        // If we're less than 366 from the end, then wait until then to NTP.
+                        if (i > 0 && i % 366 == 0 && skips - i > 366)
+                            await SafeResetTimeNTP(AdvanceSource.Token).ConfigureAwait(false);
                         SetButtonText($"{i + 1}", B_SkipForward);
                         await ConnectionWrapper.DaySkip(AdvanceSource.Token).ConfigureAwait(false);
-                        await Task.Delay(360, AdvanceSource.Token);
+                        await Task.Delay(360, AdvanceSource.Token).ConfigureAwait(false);
                     }
+
+                    // Will only NTP if not on cooldown.
+                    await SafeResetTimeNTP(AdvanceSource.Token).ConfigureAwait(false);
+
                     SetButtonText("Days+", B_SkipForward);
                     SetControlEnabledState(true, B_SkipAdvance, B_SkipForward, B_SkipBack, B_Turbo, B_SeedSearch);
+                    // Only reset the NTP button if it's not on cooldown.
+                    if (canCallResetTimeNTP)
+                        SetControlEnabledState(true, B_NTP);
                     SetControlEnabledState(false, B_CancelSkip);
                 }
                 catch (Exception ex)
                 {
                     SetControlEnabledState(true, B_SkipAdvance, B_SkipForward, B_SkipBack, B_Turbo, B_SeedSearch);
+                    // Only reset the NTP button if it's not on cooldown.
+                    if (canCallResetTimeNTP)
+                        SetControlEnabledState(true, B_NTP);
                     SetControlEnabledState(false, B_CancelSkip);
                     SetButtonText("Days+", B_SkipForward);
                     if (ex is not OperationCanceledException) this.DisplayMessageBox(ex.Message);
@@ -449,28 +503,29 @@ public partial class MainWindow : Form
             {
                 try
                 {
-                    SetControlEnabledState(false, B_SkipAdvance, B_SkipForward, B_SkipBack, B_Turbo, B_SeedSearch);
+                    SetControlEnabledState(false, B_SkipAdvance, B_SkipForward, B_SkipBack, B_Turbo, B_SeedSearch, B_NTP);
                     SetControlEnabledState(true, B_CancelSkip);
                     skipPause = false;
                     var skips = uint.Parse(TB_Skips.Text);
                     for (var i = 0; i < skips && !skipPause; i++)
                     {
-                        if (i % 366 == 0)
-                        {
-                            await ConnectionWrapper.ResetTimeNTP(AdvanceSource.Token).ConfigureAwait(false);
-                            await Task.Delay(200, AdvanceSource.Token);
-                        }
                         SetButtonText($"{i + 1}", B_SkipBack);
                         await ConnectionWrapper.DaySkipBack(AdvanceSource.Token).ConfigureAwait(false);
-                        await Task.Delay(360, AdvanceSource.Token);
+                        await Task.Delay(360, AdvanceSource.Token).ConfigureAwait(false);
                     }
                     SetButtonText("Days-", B_SkipBack);
                     SetControlEnabledState(true, B_SkipAdvance, B_SkipForward, B_SkipBack, B_Turbo, B_SeedSearch);
+                    // Only reset the NTP button if it's not on cooldown.
+                    if (canCallResetTimeNTP)
+                        SetControlEnabledState(true, B_NTP);
                     SetControlEnabledState(false, B_CancelSkip);
                 }
                 catch (Exception ex)
                 {
                     SetControlEnabledState(true, B_SkipAdvance, B_SkipForward, B_SkipBack, B_Turbo, B_SeedSearch);
+                    // Only reset the NTP button if it's not on cooldown.
+                    if (canCallResetTimeNTP)
+                        SetControlEnabledState(true, B_NTP);
                     SetControlEnabledState(false, B_CancelSkip);
                     SetButtonText("Days-", B_SkipBack);
                     if (ex is not OperationCanceledException) this.DisplayMessageBox(ex.Message);
@@ -576,7 +631,7 @@ public partial class MainWindow : Form
 
         Task.Run(async () =>
         {
-            results = await Task.WhenAll(tasks);
+            results = await Task.WhenAll(tasks).ConfigureAwait(false);
             List<OverworldFrame> AllResults = [];
             foreach (var result in results)
             {
@@ -690,7 +745,7 @@ public partial class MainWindow : Form
 
         Task.Run(async () =>
         {
-            results = await Task.WhenAll(tasks);
+            results = await Task.WhenAll(tasks).ConfigureAwait(false);
             List<OverworldFrame> AllResults = [];
             foreach (var result in results)
             {
@@ -794,7 +849,7 @@ public partial class MainWindow : Form
 
         Task.Run(async () =>
         {
-            results = await Task.WhenAll(tasks);
+            results = await Task.WhenAll(tasks).ConfigureAwait(false);
             List<OverworldFrame> AllResults = [];
             foreach (var result in results)
             {
@@ -909,7 +964,7 @@ public partial class MainWindow : Form
 
         Task.Run(async () =>
         {
-            results = await Task.WhenAll(tasks);
+            results = await Task.WhenAll(tasks).ConfigureAwait(false);
             List<OverworldFrame> AllResults = [];
             foreach (var result in results)
             {
@@ -1179,7 +1234,7 @@ public partial class MainWindow : Form
 
                             await Task.Run(async () =>
                             {
-                                results = await Task.WhenAll(tasks);
+                                results = await Task.WhenAll(tasks).ConfigureAwait(false);
                                 List<OverworldFrame> AllResults = [];
                                 foreach (var result in results)
                                 {
@@ -1438,7 +1493,7 @@ public partial class MainWindow : Form
                     {
                         ulong s0 = ulong.Parse(TB_Seed0.Text, NumberStyles.AllowHexSpecifier);
                         ulong s1 = ulong.Parse(TB_Seed1.Text, NumberStyles.AllowHexSpecifier);
-                        await ConnectionWrapper.WriteRNGState(s0, s1, Source.Token);
+                        await ConnectionWrapper.WriteRNGState(s0, s1, Source.Token).ConfigureAwait(false);
                         reset = true;
                     }
                     catch (Exception ex)
@@ -1576,7 +1631,7 @@ public partial class MainWindow : Form
                 try
                 {
                     readPause = true;
-                    await Task.Delay(100, Source.Token);
+                    await Task.Delay(100, Source.Token).ConfigureAwait(false);
 
                     var DexRec = await ConnectionWrapper.ReadDexRecommendation(Source.Token).ConfigureAwait(false);
 
@@ -1653,9 +1708,9 @@ public partial class MainWindow : Form
                     try
                     {
                         readPause = true;
-                        await Task.Delay(100, Source.Token);
+                        await Task.Delay(100, Source.Token).ConfigureAwait(false);
                         SetTextBoxText("Reading encounter...", TB_Wild);
-                        var pk = await ConnectionWrapper.ReadWildPokemon(Source.Token);
+                        var pk = await ConnectionWrapper.ReadWildPokemon(Source.Token).ConfigureAwait(false);
                         if (pk.Valid && pk.Species > 0)
                         {
                             CachedEncounter = pk;

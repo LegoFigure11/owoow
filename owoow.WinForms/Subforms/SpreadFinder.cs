@@ -107,7 +107,7 @@ public partial class SpreadFinder : Form
 
         Task.Run(async () =>
         {
-            results = await Task.WhenAll(tasks);
+            results = await Task.WhenAll(tasks).ConfigureAwait(false);
             List<SpreadFinderFrame> AllResults = [];
             foreach (var result in results)
             {

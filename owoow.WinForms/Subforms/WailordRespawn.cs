@@ -70,7 +70,7 @@ public partial class WailordRespawn : Form
 
         Task.Run(async () =>
         {
-            Frames = await Task.Run(async () => await Wailord.Generate(s0, s1, initial, initial + advances, config));
+            Frames = await Task.Run(async () => await Wailord.Generate(s0, s1, initial, initial + advances, config).ConfigureAwait(false));
 
             MainWindow.SetBindingSourceDataSource(Frames, WailordResultsSource);
 
