@@ -91,8 +91,7 @@ public static class Cramomatic
     {
         if (isBall)
         {
-            if (isSportSafari) return CramomaticGenerateType.SportSafari;
-            return GetBallType(roll);
+            return isSportSafari ? CramomaticGenerateType.SportSafari : GetBallType(roll);
         }
         return GetSweetType(roll);
     }
