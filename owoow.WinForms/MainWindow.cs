@@ -2443,7 +2443,7 @@ public partial class MainWindow : Form
         var adv = ulong.Parse(TB_RetailRange.Text);
         RetailInitial = ini;
         (RetailSequence, RetailSeed0, RetailSeed1) = SeedFinder.GenerateAnimationSequence(s0, s1, ini, adv);
-        System.Media.SystemSounds.Asterisk.Play();
+        System.Media.SystemSounds.Hand.Play();
     }
 
     private void TB_Animations_TextChanged(object sender, EventArgs e)
