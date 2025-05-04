@@ -1508,8 +1508,17 @@ public partial class MainWindow : Form
 #endif
         if (TB_CurrentS0.Text != string.Empty && TB_CurrentS1.Text != string.Empty)
         {
-            SetTextBoxText(TB_CurrentS0.Text, TB_Seed0);
-            SetTextBoxText(TB_CurrentS1.Text, TB_Seed1);
+            var s0 = TB_CurrentS0.Text;
+            var s1 = TB_CurrentS1.Text;
+
+            SetTextBoxText(s0, TB_Seed0);
+            SetTextBoxText(s1, TB_Seed1);
+            if (CramomaticFormOpen)     CramomaticForm    !.SetSeeds(s0, s1);
+            if (DiggingPaFormOpen)      DiggingPaForm     !.SetSeeds(s0, s1);
+            if (LotoIDFormOpen)         LotoIDForm        !.SetSeeds(s0, s1);
+            if (WailordRespawnFormOpen) WailordRespawnForm!.SetSeeds(s0, s1);
+            if (WattTraderFormOpen)     WattTraderForm    !.SetSeeds(s0, s1);
+
             reset = true;
         }
 #if DEBUG

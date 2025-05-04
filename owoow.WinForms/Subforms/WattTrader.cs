@@ -117,15 +117,14 @@ public partial class WattTrader : Form
         var last = cb.SelectedIndex;
         var text = cb.Text;
         var items = cb.Items.Cast<string>().ToList();
-        var match = items.Find(e => e.Equals(text, StringComparison.CurrentCultureIgnoreCase));
-        if (match is not null)
-        {
-            cb.SelectedIndex = items.IndexOf(match);
-        }
-        else
-        {
-            cb.SelectedIndex = Math.Max(last, 0);
-        }
+        var match = items.Find(el => el.Equals(text, StringComparison.CurrentCultureIgnoreCase));
+        cb.SelectedIndex = match is not null ? items.IndexOf(match) : Math.Max(last, 0);
+    }
+
+    public void SetSeeds(string s0, string s1)
+    {
+        MainWindow.SetTextBoxText(s0, TB_Seed0);
+        MainWindow.SetTextBoxText(s1, TB_Seed1);
     }
 
     private static (int, int) GetRangeFromItemName(string Item) => Item switch
