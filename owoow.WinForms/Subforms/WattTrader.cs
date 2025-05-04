@@ -125,6 +125,7 @@ public partial class WattTrader : Form
     {
         MainWindow.SetTextBoxText(s0, TB_Seed0);
         MainWindow.SetTextBoxText(s1, TB_Seed1);
+        Focus();
     }
 
     private static (int, int) GetRangeFromItemName(string Item) => Item switch

@@ -148,5 +148,6 @@ public partial class LotoID : Form
     {
         MainWindow.SetTextBoxText(s0, TB_Seed0);
         MainWindow.SetTextBoxText(s1, TB_Seed1);
+        Focus();
     }
 }
