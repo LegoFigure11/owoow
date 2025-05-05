@@ -2528,8 +2528,7 @@ public partial class MainWindow : Form
     #region Context Menu
     private void CMS_RightClick_Opening(object sender, System.ComponentModel.CancelEventArgs e)
     {
-        e.Cancel = !(DGV_Results.
-            CurrentRow?.Index >= 0);
+        e.Cancel = !(DGV_Results.CurrentRow?.Index >= 0);
     }
 
     private void TSMI_CopySeeds_Click(object sender, EventArgs e)
@@ -2567,7 +2566,7 @@ public partial class MainWindow : Form
         {
             var adv = DGV_Results.CurrentRow!.Cells[0].Value;
             var tab = TC_EncounterType.SelectedTab!.Text;
-            ((TextBox)Controls.Find($"TB_{tab}_Initial", true).FirstOrDefault()!).Text = $"{adv}";
+            ((TextBox)Controls.Find($"TB_{tab}_Initial", true).FirstOrDefault()!).Text = $"{adv}".Replace(",", string.Empty);
         }
         catch (NullReferenceException)
         {
@@ -2594,11 +2593,10 @@ public partial class MainWindow : Form
     {
         if (e.Button is MouseButtons.Right)
         {
-            var row = DGV_Results.HitTest(e.X, e.Y).RowIndex;
-            if (row is not -1)
+            var hti = DGV_Results.HitTest(e.X, e.Y);
+            if (hti.RowIndex is not -1)
             {
-                DGV_Results.ClearSelection();
-                DGV_Results.Rows[row].Selected = true;
+                DGV_Results.CurrentCell = DGV_Results.Rows[hti.RowIndex].Cells[hti.ColumnIndex];
             }
         }
     }
@@ -2616,7 +2614,7 @@ public static class Extension
             {
                 if (col is not null)
                 {
-                    var row = dgv.Rows[0];
+                    var row = dgv.Rows?[0];
                     if (row is not null)
                     {
                         var fv = row.Cells[col.Index].FormattedValue!.ToString();
