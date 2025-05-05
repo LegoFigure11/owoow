@@ -1,4 +1,4 @@
-﻿namespace owoow.WinForms.Subforms
+namespace owoow.WinForms.Subforms
 {
     partial class TurboSettings
     {
@@ -130,7 +130,7 @@
             Controls.Add(LB_List);
             Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "TurboSettings";
-            Text = "TurboSettings";
+            Text = "Turbo Settings";
             FormClosing += TurboSettings_FormClosing;
             Load += TurboSettings_Load;
             ResumeLayout(false);

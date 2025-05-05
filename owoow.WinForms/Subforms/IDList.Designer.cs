@@ -1,4 +1,4 @@
-﻿namespace owoow.WinForms.Subforms
+namespace owoow.WinForms.Subforms
 {
     partial class IDList
     {
@@ -97,7 +97,7 @@
             Controls.Add(LB_IDs);
             Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "IDList";
-            Text = "IDList";
+            Text = "ID List";
             FormClosing += IDList_FormClosing;
             ResumeLayout(false);
             PerformLayout();

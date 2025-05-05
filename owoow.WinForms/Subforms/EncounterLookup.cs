@@ -1,4 +1,4 @@
-﻿using owoow.Core.Interfaces;
+using owoow.Core.Interfaces;
 using System.Collections.Immutable;
 using static owoow.Core.Encounters;
 

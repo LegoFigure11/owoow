@@ -21,6 +21,7 @@ public partial class Cramomatic : Form
         f.SetTextBoxText(f.TB_Seed1.Text, TB_Seed1);
         f.SetTextBoxText(string.IsNullOrEmpty(f.TB_CurrentAdvances.Text) ? "0" : f.TB_CurrentAdvances.Text.Replace(",", string.Empty), TB_Cramomatic_Initial);
         f.SetTextBoxText(((TextBox)f.Controls.Find($"TB_{Tab}_NPCs", true).FirstOrDefault()!).Text, TB_Cramomatic_NPCs);
+        f.SetCheckBoxCheckedState(((CheckBox)f.Controls.Find($"CB_{Tab}_MenuClose", true).FirstOrDefault()!).Checked, CB_Cramomatic_MenuClose);
         f.SetCheckBoxCheckedState(((CheckBox)f.Controls.Find($"CB_{Tab}_MenuClose_Direction", true).FirstOrDefault()!).Checked, CB_Cramomatic_MenuClose_Direction);
         f.SetComboBoxSelectedIndex(0, CB_Target, CB_Item1, CB_Item2, CB_Item3, CB_Item4);
 
@@ -94,7 +95,9 @@ public partial class Cramomatic : Form
 
     private void CB_Cramomatic_MenuClose_CheckedChanged(object sender, EventArgs e)
     {
-        MainWindow.SetControlEnabledState(CB_Cramomatic_MenuClose.Checked, CB_Cramomatic_MenuClose_Direction, L_Cramomatic_NPCs, TB_Cramomatic_NPCs);
+        var c = CB_Cramomatic_MenuClose.Checked;
+        MainWindow.SetControlEnabledState(c, CB_Cramomatic_MenuClose_Direction, L_Cramomatic_NPCs, TB_Cramomatic_NPCs);
+        MainWindow.SetMenuClose(c);
     }
 
     private void DGV_Results_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
@@ -123,5 +126,20 @@ public partial class Cramomatic : Form
         MainWindow.SetTextBoxText(s0, TB_Seed0);
         MainWindow.SetTextBoxText(s1, TB_Seed1);
         Focus();
+    }
+
+    public void SetMenuClose(bool check)
+    {
+        MainWindow.SetCheckBoxCheckedState(check, CB_Cramomatic_MenuClose);
+    }
+
+    public void SetMenuCloseDirection(bool check)
+    {
+        MainWindow.SetCheckBoxCheckedState(check, CB_Cramomatic_MenuClose_Direction);
+    }
+
+    private void CB_Cramomatic_MenuClose_Direction_CheckedChanged(object sender, EventArgs e)
+    {
+        MainWindow.SetMenuCloseDirection(CB_Cramomatic_MenuClose_Direction.Checked);
     }
 }

@@ -20,6 +20,7 @@ public partial class DiggingPa : Form
         f.SetTextBoxText(f.TB_Seed1.Text, TB_Seed1);
         f.SetTextBoxText(string.IsNullOrEmpty(f.TB_CurrentAdvances.Text) ? "0" : f.TB_CurrentAdvances.Text.Replace(",", string.Empty), TB_DiggingPa_Initial);
         f.SetTextBoxText(((TextBox)f.Controls.Find($"TB_{Tab}_NPCs", true).FirstOrDefault()!).Text, TB_DiggingPa_NPCs);
+        f.SetCheckBoxCheckedState(((CheckBox)f.Controls.Find($"CB_{Tab}_MenuClose", true).FirstOrDefault()!).Checked, CB_DiggingPa_MenuClose);
         f.SetCheckBoxCheckedState(((CheckBox)f.Controls.Find($"CB_{Tab}_MenuClose_Direction", true).FirstOrDefault()!).Checked, CB_DiggingPa_MenuClose_Direction);
         f.SetComboBoxSelectedIndex(CB_DiggingPa_Weather.Items.IndexOf($"{((ComboBox)f.Controls.Find($"CB_{Tab}_Weather", true).FirstOrDefault()!).SelectedItem}"), CB_DiggingPa_Weather);
 
@@ -86,7 +87,9 @@ public partial class DiggingPa : Form
 
     private void CB_DiggingPa_MenuClose_CheckedChanged(object sender, EventArgs e)
     {
-        MainWindow.SetControlEnabledState(CB_DiggingPa_MenuClose.Checked, CB_DiggingPa_MenuClose_Direction, L_DiggingPa_NPCs, TB_DiggingPa_NPCs);
+        var c = CB_DiggingPa_MenuClose.Checked;
+        MainWindow.SetControlEnabledState(c, CB_DiggingPa_MenuClose_Direction, L_DiggingPa_NPCs, TB_DiggingPa_NPCs);
+        MainWindow.SetMenuClose(c);
     }
 
     private void DGV_Results_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
@@ -116,5 +119,19 @@ public partial class DiggingPa : Form
         MainWindow.SetTextBoxText(s0, TB_Seed0);
         MainWindow.SetTextBoxText(s1, TB_Seed1);
         Focus();
+    }
+
+    public void SetMenuClose(bool check)
+    {
+        MainWindow.SetCheckBoxCheckedState(check, CB_DiggingPa_MenuClose);
+    }
+    public void SetMenuCloseDirection(bool check)
+    {
+        MainWindow.SetCheckBoxCheckedState(check, CB_DiggingPa_MenuClose_Direction);
+    }
+
+    private void CB_DiggingPa_MenuClose_Direction_CheckedChanged(object sender, EventArgs e)
+    {
+        MainWindow.SetMenuCloseDirection(CB_DiggingPa_MenuClose_Direction.Checked);
     }
 }

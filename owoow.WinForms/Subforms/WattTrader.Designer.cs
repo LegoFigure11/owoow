@@ -255,6 +255,7 @@ namespace owoow.WinForms.Subforms
             CB_WattTrader_MenuClose_Direction.Tag = "";
             CB_WattTrader_MenuClose_Direction.Text = "Holding Direction?";
             CB_WattTrader_MenuClose_Direction.UseVisualStyleBackColor = true;
+            CB_WattTrader_MenuClose_Direction.CheckedChanged += CB_WattTrader_MenuClose_Direction_CheckedChanged;
             // 
             // L_WattTrader_NPCs
             // 
@@ -415,7 +416,7 @@ namespace owoow.WinForms.Subforms
             Controls.Add(GB_SearchSettings);
             Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "WattTrader";
-            Text = "WattTrader";
+            Text = "Watt Trader";
             FormClosing += MenuCloseTimeline_FormClosing;
             GB_Seed.ResumeLayout(false);
             GB_Seed.PerformLayout();

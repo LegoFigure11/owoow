@@ -430,7 +430,7 @@ public partial class MainWindow : Form
             {
                 await ConnectionWrapper.ResetTimeNTP(token).ConfigureAwait(false);
                 SetControlEnabledState(false, B_NTP);
-                await Task.Delay(2000).ConfigureAwait(false); // 2 second cooldown, don't allow it to be cancelled.
+                await Task.Delay(2000, CancellationToken.None).ConfigureAwait(false); // 2 second cooldown, don't allow it to be cancelled.
             }
             catch (Exception ex)
             {
@@ -1910,7 +1910,40 @@ public partial class MainWindow : Form
     {
         var cb = (CheckBox)sender;
         var tab = cb.Name.Replace("CB_", string.Empty).Replace("_MenuClose", string.Empty);
-        SetControlEnabledState(cb.Checked, Controls.Find($"TB_{tab}_NPCs", true).FirstOrDefault()!, Controls.Find($"B_{tab}_MenuClose", true).FirstOrDefault()!, Controls.Find($"CB_{tab}_MenuClose_Direction", true).FirstOrDefault()!);
+        var c = cb.Checked;
+        SetControlEnabledState(c, Controls.Find($"TB_{tab}_NPCs", true).FirstOrDefault()!, Controls.Find($"B_{tab}_MenuClose", true).FirstOrDefault()!, Controls.Find($"CB_{tab}_MenuClose_Direction", true).FirstOrDefault()!);
+
+        if (CramomaticFormOpen)     CramomaticForm    !.SetMenuClose(c);
+        if (DiggingPaFormOpen)      DiggingPaForm     !.SetMenuClose(c);
+        if (LotoIDFormOpen)         LotoIDForm        !.SetMenuClose(c);
+        if (WailordRespawnFormOpen) WailordRespawnForm!.SetMenuClose(c);
+        if (WattTraderFormOpen)     WattTraderForm    !.SetMenuClose(c);
+    }
+
+    private void CB_MenuCloseDirection_CheckedChanged(object sender, EventArgs e)
+    {
+        var cb = (CheckBox)sender;
+        var c = cb.Checked;
+
+        if (CramomaticFormOpen)     CramomaticForm    !.SetMenuCloseDirection(c);
+        if (DiggingPaFormOpen)      DiggingPaForm     !.SetMenuCloseDirection(c);
+        if (LotoIDFormOpen)         LotoIDForm        !.SetMenuCloseDirection(c);
+        if (WailordRespawnFormOpen) WailordRespawnForm!.SetMenuCloseDirection(c);
+        if (WattTraderFormOpen)     WattTraderForm    !.SetMenuCloseDirection(c);
+    }
+
+    public void SetMenuClose(bool check)
+    {
+        var tab = TC_EncounterType.SelectedTab?.Text;
+        var cb = (CheckBox?)Controls?.Find($"CB_{tab}_MenuClose", true).FirstOrDefault();
+        if (cb is not null) SetCheckBoxCheckedState(check, cb);
+    }
+
+    public void SetMenuCloseDirection(bool check)
+    {
+        var tab = TC_EncounterType.SelectedTab?.Text;
+        var cb = (CheckBox?)Controls?.Find($"CB_{tab}_MenuClose_Direction", true).FirstOrDefault();
+        if (cb is not null) SetCheckBoxCheckedState(check, cb);
     }
 
     private void CB_Leave(object sender, EventArgs e)

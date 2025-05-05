@@ -305,7 +305,7 @@ namespace owoow.WinForms.Subforms
             Controls.Add(GB_SearchSettings);
             Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "MenuCloseTimeline";
-            Text = "MenuCloseTimeline";
+            Text = "Menu Close Timeline";
             FormClosing += MenuCloseTimeline_FormClosing;
             GB_Seed.ResumeLayout(false);
             GB_Seed.PerformLayout();

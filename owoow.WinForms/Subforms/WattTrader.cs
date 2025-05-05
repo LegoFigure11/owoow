@@ -20,6 +20,7 @@ public partial class WattTrader : Form
         f.SetTextBoxText(f.TB_Seed1.Text, TB_Seed1);
         f.SetTextBoxText(string.IsNullOrEmpty(f.TB_CurrentAdvances.Text) ? "0" : f.TB_CurrentAdvances.Text.Replace(",", string.Empty), TB_WattTrader_Initial);
         f.SetTextBoxText(((TextBox)f.Controls.Find($"TB_{Tab}_NPCs", true).FirstOrDefault()!).Text, TB_WattTrader_NPCs);
+        f.SetCheckBoxCheckedState(((CheckBox)f.Controls.Find($"CB_{Tab}_MenuClose", true).FirstOrDefault()!).Checked, CB_WattTrader_MenuClose);
         f.SetCheckBoxCheckedState(((CheckBox)f.Controls.Find($"CB_{Tab}_MenuClose_Direction", true).FirstOrDefault()!).Checked, CB_WattTrader_MenuClose_Direction);
         f.SetComboBoxSelectedIndex(CB_WattTrader_Weather.Items.IndexOf($"{((ComboBox)f.Controls.Find($"CB_{Tab}_Weather", true).FirstOrDefault()!).SelectedItem}"), CB_WattTrader_Weather);
         f.SetComboBoxSelectedIndex(0, CB_Target);
@@ -89,7 +90,9 @@ public partial class WattTrader : Form
 
     private void CB_WattTrader_MenuClose_CheckedChanged(object sender, EventArgs e)
     {
-        MainWindow.SetControlEnabledState(CB_WattTrader_MenuClose.Checked, CB_WattTrader_MenuClose_Direction, L_WattTrader_NPCs, TB_WattTrader_NPCs);
+        var c = CB_WattTrader_MenuClose.Checked;
+        MainWindow.SetControlEnabledState(c, CB_WattTrader_MenuClose_Direction, L_WattTrader_NPCs, TB_WattTrader_NPCs);
+        MainWindow.SetMenuClose(c);
     }
 
     private void CB_Target_SelectedIndexChanged(object sender, EventArgs e)
@@ -126,6 +129,16 @@ public partial class WattTrader : Form
         MainWindow.SetTextBoxText(s0, TB_Seed0);
         MainWindow.SetTextBoxText(s1, TB_Seed1);
         Focus();
+    }
+
+    public void SetMenuClose(bool check)
+    {
+        MainWindow.SetCheckBoxCheckedState(check, CB_WattTrader_MenuClose);
+    }
+
+    public void SetMenuCloseDirection(bool check)
+    {
+        MainWindow.SetCheckBoxCheckedState(check, CB_WattTrader_MenuClose_Direction);
     }
 
     private static (int, int) GetRangeFromItemName(string Item) => Item switch
@@ -183,4 +196,9 @@ public partial class WattTrader : Form
         "Beast or Dream Ball" => (827, 828),
         _ => (0, 999),
     };
+
+    private void CB_WattTrader_MenuClose_Direction_CheckedChanged(object sender, EventArgs e)
+    {
+        MainWindow.SetMenuCloseDirection(CB_WattTrader_MenuClose_Direction.Checked);
+    }
 }

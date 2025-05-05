@@ -29,7 +29,7 @@ namespace owoow.WinForms.Subforms
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
-            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SpreadFinder));
             DGV_Results = new DataGridView();
             seedDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
@@ -107,9 +107,9 @@ namespace owoow.WinForms.Subforms
             // 
             DGV_Results.AllowUserToAddRows = false;
             DGV_Results.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle2.BackColor = Color.WhiteSmoke;
-            dataGridViewCellStyle2.ForeColor = Color.Black;
-            DGV_Results.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle1.BackColor = Color.WhiteSmoke;
+            dataGridViewCellStyle1.ForeColor = Color.Black;
+            DGV_Results.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             DGV_Results.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             DGV_Results.AutoGenerateColumns = false;
             DGV_Results.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -660,7 +660,7 @@ namespace owoow.WinForms.Subforms
             Controls.Add(DGV_Results);
             Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "SpreadFinder";
-            Text = "SpreadFinder";
+            Text = "Spread Finder";
             FormClosing += SpreadFinder_FormClosing;
             Load += SpreadFinder_Load;
             ((System.ComponentModel.ISupportInitialize)DGV_Results).EndInit();

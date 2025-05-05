@@ -345,7 +345,7 @@ namespace owoow.WinForms.Subforms
             Controls.Add(L_PokemonPresent);
             Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "OverworldScanner";
-            Text = "OverworldScanner";
+            Text = "Overworld Scanner";
             FormClosing += OverworldScanner_FormClosing;
             ((System.ComponentModel.ISupportInitialize)PB_MarkSprite).EndInit();
             ((System.ComponentModel.ISupportInitialize)PB_PokemonSprite).EndInit();

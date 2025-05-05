@@ -179,6 +179,7 @@ namespace owoow.WinForms.Subforms
             CB_Wailord_MenuClose_Direction.Tag = "";
             CB_Wailord_MenuClose_Direction.Text = "Holding Direction?";
             CB_Wailord_MenuClose_Direction.UseVisualStyleBackColor = true;
+            CB_Wailord_MenuClose_Direction.CheckedChanged += CB_Wailord_MenuClose_Direction_CheckedChanged;
             // 
             // L_Wailord_NPCs
             // 
@@ -332,7 +333,7 @@ namespace owoow.WinForms.Subforms
             Controls.Add(GB_SearchSettings);
             Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "WailordRespawn";
-            Text = "WailordRespawn";
+            Text = "Wailord Respawn";
             FormClosing += MenuCloseTimeline_FormClosing;
             GB_Seed.ResumeLayout(false);
             GB_Seed.PerformLayout();

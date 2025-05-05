@@ -205,6 +205,7 @@ namespace owoow.WinForms.Subforms
             CB_DiggingPa_MenuClose_Direction.Tag = "";
             CB_DiggingPa_MenuClose_Direction.Text = "Holding Direction?";
             CB_DiggingPa_MenuClose_Direction.UseVisualStyleBackColor = true;
+            CB_DiggingPa_MenuClose_Direction.CheckedChanged += CB_DiggingPa_MenuClose_Direction_CheckedChanged;
             // 
             // L_DiggingPa_NPCs
             // 
@@ -366,7 +367,7 @@ namespace owoow.WinForms.Subforms
             Controls.Add(GB_SearchSettings);
             Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "DiggingPa";
-            Text = "DiggingPa";
+            Text = "Digging Pa";
             FormClosing += MenuCloseTimeline_FormClosing;
             GB_Seed.ResumeLayout(false);
             GB_Seed.PerformLayout();

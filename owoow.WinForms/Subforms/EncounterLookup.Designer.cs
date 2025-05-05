@@ -1,4 +1,4 @@
-﻿namespace owoow.WinForms.Subforms
+namespace owoow.WinForms.Subforms
 {
     partial class EncounterLookup
     {
@@ -234,7 +234,7 @@
             Controls.Add(L_Species);
             Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "EncounterLookup";
-            Text = "EncounterLookup";
+            Text = "Encounter Lookup";
             FormClosing += EncounterLookup_FormClosing;
             ((System.ComponentModel.ISupportInitialize)DGV_Results).EndInit();
             ((System.ComponentModel.ISupportInitialize)ResultsSource).EndInit();

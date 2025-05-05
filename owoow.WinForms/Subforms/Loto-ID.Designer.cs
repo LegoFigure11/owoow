@@ -204,6 +204,7 @@ namespace owoow.WinForms.Subforms
             CB_LotoID_MenuClose_Direction.Tag = "";
             CB_LotoID_MenuClose_Direction.Text = "Holding Direction?";
             CB_LotoID_MenuClose_Direction.UseVisualStyleBackColor = true;
+            CB_LotoID_MenuClose_Direction.CheckedChanged += CB_LotoID_MenuClose_Direction_CheckedChanged;
             // 
             // L_LotoID_NPCs
             // 
@@ -364,7 +365,7 @@ namespace owoow.WinForms.Subforms
             Controls.Add(GB_SearchSettings);
             Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "LotoID";
-            Text = "LotoID";
+            Text = "Loto-ID";
             FormClosing += MenuCloseTimeline_FormClosing;
             GB_Seed.ResumeLayout(false);
             GB_Seed.PerformLayout();

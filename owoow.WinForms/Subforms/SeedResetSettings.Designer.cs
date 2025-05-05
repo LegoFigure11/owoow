@@ -315,7 +315,7 @@ namespace owoow.WinForms.Subforms
             Controls.Add(CB_AvoidSystemUpdate);
             Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "SeedResetSettings";
-            Text = "SeedResetSettings";
+            Text = "Seed Reset Settings";
             FormClosing += SeedResetSettings_FormClosing;
             Load += SeedResetSettings_Load;
             ResumeLayout(false);

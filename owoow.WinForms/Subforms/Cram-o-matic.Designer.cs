@@ -290,6 +290,7 @@ namespace owoow.WinForms.Subforms
             CB_Cramomatic_MenuClose_Direction.Tag = "";
             CB_Cramomatic_MenuClose_Direction.Text = "Holding Direction?";
             CB_Cramomatic_MenuClose_Direction.UseVisualStyleBackColor = true;
+            CB_Cramomatic_MenuClose_Direction.CheckedChanged += CB_Cramomatic_MenuClose_Direction_CheckedChanged;
             // 
             // L_Cramomatic_NPCs
             // 
@@ -450,7 +451,7 @@ namespace owoow.WinForms.Subforms
             Controls.Add(GB_SearchSettings);
             Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "Cramomatic";
-            Text = "Cramomatic";
+            Text = "Cram-o-matic";
             FormClosing += MenuCloseTimeline_FormClosing;
             GB_Seed.ResumeLayout(false);
             GB_Seed.PerformLayout();
