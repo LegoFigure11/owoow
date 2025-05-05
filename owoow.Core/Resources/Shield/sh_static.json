@@ -10009,6 +10009,14 @@
           "Ability": 0,
           "IsShinyLocked": false,
           "GuaranteedIVs": 0
+        },
+        "11": {
+          "Species": "Wailord",
+          "Level": 80,
+          "IsAbilityLocked": false,
+          "Ability": 0,
+          "IsShinyLocked": false,
+          "GuaranteedIVs": 0
         }
       }
     },
@@ -10081,6 +10089,14 @@
         "8": {
           "Species": "Zorua",
           "Level": 15,
+          "IsAbilityLocked": false,
+          "Ability": 0,
+          "IsShinyLocked": false,
+          "GuaranteedIVs": 0
+        },
+        "9": {
+          "Species": "Wailord",
+          "Level": 80,
           "IsAbilityLocked": false,
           "Ability": 0,
           "IsShinyLocked": false,
@@ -10177,6 +10193,14 @@
           "Ability": 0,
           "IsShinyLocked": false,
           "GuaranteedIVs": 0
+        },
+        "11": {
+          "Species": "Wailord",
+          "Level": 80,
+          "IsAbilityLocked": false,
+          "Ability": 0,
+          "IsShinyLocked": false,
+          "GuaranteedIVs": 0
         }
       }
     },
@@ -10257,6 +10281,14 @@
         "9": {
           "Species": "Raichu",
           "Level": 26,
+          "IsAbilityLocked": false,
+          "Ability": 0,
+          "IsShinyLocked": false,
+          "GuaranteedIVs": 0
+        },
+        "10": {
+          "Species": "Wailord",
+          "Level": 80,
           "IsAbilityLocked": false,
           "Ability": 0,
           "IsShinyLocked": false,
@@ -10345,6 +10377,14 @@
           "Ability": 0,
           "IsShinyLocked": false,
           "GuaranteedIVs": 0
+        },
+        "10": {
+          "Species": "Wailord",
+          "Level": 80,
+          "IsAbilityLocked": false,
+          "Ability": 0,
+          "IsShinyLocked": false,
+          "GuaranteedIVs": 0
         }
       }
     },
@@ -10373,6 +10413,14 @@
           "Ability": 0,
           "IsShinyLocked": true,
           "GuaranteedIVs": 3
+        },
+        "3": {
+          "Species": "Wailord",
+          "Level": 80,
+          "IsAbilityLocked": false,
+          "Ability": 0,
+          "IsShinyLocked": false,
+          "GuaranteedIVs": 0
         }
       }
     },
@@ -10461,6 +10509,14 @@
         "10": {
           "Species": "Zorua",
           "Level": 15,
+          "IsAbilityLocked": false,
+          "Ability": 0,
+          "IsShinyLocked": false,
+          "GuaranteedIVs": 0
+        },
+        "11": {
+          "Species": "Wailord",
+          "Level": 80,
           "IsAbilityLocked": false,
           "Ability": 0,
           "IsShinyLocked": false,
@@ -18033,6 +18089,14 @@
           "Ability": 0,
           "IsShinyLocked": false,
           "GuaranteedIVs": 0
+        },
+        "8": {
+          "Species": "Wailord",
+          "Level": 80,
+          "IsAbilityLocked": false,
+          "Ability": 0,
+          "IsShinyLocked": false,
+          "GuaranteedIVs": 0
         }
       }
     },
@@ -18041,6 +18105,14 @@
         "0": {
           "Species": "Rockruff",
           "Level": 22,
+          "IsAbilityLocked": false,
+          "Ability": 0,
+          "IsShinyLocked": false,
+          "GuaranteedIVs": 0
+        },
+        "1": {
+          "Species": "Wailord",
+          "Level": 80,
           "IsAbilityLocked": false,
           "Ability": 0,
           "IsShinyLocked": false,
@@ -18057,6 +18129,14 @@
           "Ability": 0,
           "IsShinyLocked": false,
           "GuaranteedIVs": 0
+        },
+        "1": {
+          "Species": "Wailord",
+          "Level": 80,
+          "IsAbilityLocked": false,
+          "Ability": 0,
+          "IsShinyLocked": false,
+          "GuaranteedIVs": 0
         }
       }
     },
@@ -18065,6 +18145,14 @@
         "0": {
           "Species": "Toxicroak",
           "Level": 26,
+          "IsAbilityLocked": false,
+          "Ability": 0,
+          "IsShinyLocked": false,
+          "GuaranteedIVs": 0
+        },
+        "1": {
+          "Species": "Wailord",
+          "Level": 80,
           "IsAbilityLocked": false,
           "Ability": 0,
           "IsShinyLocked": false,
@@ -18081,6 +18169,14 @@
           "Ability": 0,
           "IsShinyLocked": false,
           "GuaranteedIVs": 0
+        },
+        "1": {
+          "Species": "Wailord",
+          "Level": 80,
+          "IsAbilityLocked": false,
+          "Ability": 0,
+          "IsShinyLocked": false,
+          "GuaranteedIVs": 0
         }
       }
     },
@@ -18093,6 +18189,14 @@
           "Ability": 0,
           "IsShinyLocked": false,
           "GuaranteedIVs": 0
+        },
+        "1": {
+          "Species": "Wailord",
+          "Level": 80,
+          "IsAbilityLocked": false,
+          "Ability": 0,
+          "IsShinyLocked": false,
+          "GuaranteedIVs": 0
         }
       }
     },
@@ -18101,6 +18205,14 @@
         "0": {
           "Species": "Rockruff",
           "Level": 22,
+          "IsAbilityLocked": false,
+          "Ability": 0,
+          "IsShinyLocked": false,
+          "GuaranteedIVs": 0
+        },
+        "1": {
+          "Species": "Wailord",
+          "Level": 80,
           "IsAbilityLocked": false,
           "Ability": 0,
           "IsShinyLocked": false,

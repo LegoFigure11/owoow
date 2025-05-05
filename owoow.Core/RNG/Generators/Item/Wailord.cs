@@ -1,4 +1,4 @@
-﻿using owoow.Core.Interfaces;
+using owoow.Core.Interfaces;
 using owoow.Core.RNG.Generators.Misc;
 using PKHeX.Core;
 using static owoow.Core.RNG.Validators.Validator;
