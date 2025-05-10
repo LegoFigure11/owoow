@@ -337,6 +337,7 @@ public class ConnectionWrapperAsync(SwitchConnectionConfig Config, Action<string
             await Task.Delay(1_000 + config.ExtraTimeLoadProfile, token).ConfigureAwait(false);
         }
 
+        StatusUpdate("Opening the game...");
         await Connection.SendAsync(Click(A, CRLF), token).ConfigureAwait(false);
         await Task.Delay(0_600, token).ConfigureAwait(false);
 

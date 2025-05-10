@@ -27,7 +27,6 @@ public class ClientConfig : ISeedResetConfig, ITurboConfig, IWebhookConfig
 
     public int ExtraTimeLoadProfile { get; set; } = 0;
     public bool AvoidSystemUpdate { get; set; } = false;
-    public int ExtraTimeCheckDLC { get; set; } = 0;
     public int ExtraTimeLoadGame { get; set; } = 0;
 
     // Turbo

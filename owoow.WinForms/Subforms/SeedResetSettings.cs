@@ -23,7 +23,6 @@ public partial class SeedResetSettings : Form
         TB_ExtraTimeCloseGame.Text = $"{c.ExtraTimeCloseGame}";
 
         TB_ExtraTimeLoadProfile.Text = $"{c.ExtraTimeLoadProfile}";
-        TB_ExtraTimeCheckDLC.Text = $"{c.ExtraTimeCheckDLC}";
         TB_ExtraTimeLoadGame.Text = $"{c.ExtraTimeLoadGame}";
 
         CB_EnableWebhooks.Checked = c.WebhookEnabled;
@@ -65,11 +64,6 @@ public partial class SeedResetSettings : Form
     private void TB_ExtraTimeLoadProfile_TextChanged(object sender, EventArgs e)
     {
         if (!string.IsNullOrEmpty(TB_ExtraTimeLoadProfile.Text)) c.ExtraTimeLoadProfile = int.Parse(TB_ExtraTimeLoadProfile.Text);
-    }
-
-    private void TB_ExtraTimeCheckDLC_TextChanged(object sender, EventArgs e)
-    {
-        if (!string.IsNullOrEmpty(TB_ExtraTimeCheckDLC.Text)) c.ExtraTimeCheckDLC = int.Parse(TB_ExtraTimeCheckDLC.Text);
     }
 
     private void TB_ExtraTimeLoadGame_TextChanged(object sender, EventArgs e)

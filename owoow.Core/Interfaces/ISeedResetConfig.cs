@@ -1,4 +1,4 @@
-﻿namespace owoow.Core.Interfaces;
+namespace owoow.Core.Interfaces;
 
 public interface ISeedResetConfig
 {
@@ -7,6 +7,5 @@ public interface ISeedResetConfig
 
     int ExtraTimeLoadProfile { get; set; }
     bool AvoidSystemUpdate { get; set; }
-    int ExtraTimeCheckDLC { get; set; }
     int ExtraTimeLoadGame { get; set; }
 }
