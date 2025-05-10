@@ -39,4 +39,7 @@ public class ClientConfig : ISeedResetConfig, ITurboConfig, IWebhookConfig
     public string ErrorNotificationURL { get; set; } = string.Empty;
     public string ResultWebhookMessageContent { get; set; } = string.Empty;
     public string ErrorWebhookMessageContent { get; set; } = string.Empty;
+
+    // Profiles
+    public List<Profile> Profiles { get; set; } = [];
 }

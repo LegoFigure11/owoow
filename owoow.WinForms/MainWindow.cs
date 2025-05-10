@@ -2297,6 +2297,21 @@ public partial class MainWindow : Form
         }
     }
 
+    private void TSMI_Profiles_Click(object sender, EventArgs e)
+    {
+        using Profiles pf = new(this, ref Config);
+        if (pf.ShowDialog() == DialogResult.OK)
+        {
+            if (pf.Index < 0) return;
+            var profile = Config.Profiles[pf.Index];
+            TB_TID.Text = profile.TID;
+            TB_SID.Text = profile.SID;
+            CB_Game.SelectedIndex = profile.GameVersion;
+            CB_ShinyCharm.Checked = profile.HasShinyCharm;
+            CB_MarkCharm.Checked = profile.HasMarkCharm;
+        }
+    }
+
     public bool EncounterLookupFormOpen = false;
     EncounterLookup? EncounterLookupForm;
     private void TSMI_EncounterLookup_Click(object sender, EventArgs e)

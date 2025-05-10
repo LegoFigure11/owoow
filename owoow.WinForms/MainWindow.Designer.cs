@@ -279,6 +279,7 @@ namespace owoow.WinForms
             TSMI_MarkAdvance = new ToolStripMenuItem();
             ResultsSource = new BindingSource(components);
             MS_SubWindows = new MenuStrip();
+            TSMI_Profiles = new ToolStripMenuItem();
             TSMI_EncounterLookup = new ToolStripMenuItem();
             TSMI_SpreadFinder = new ToolStripMenuItem();
             TSMI_LotoID = new ToolStripMenuItem();
@@ -3081,11 +3082,18 @@ namespace owoow.WinForms
             // MS_SubWindows
             // 
             MS_SubWindows.BackColor = SystemColors.ButtonFace;
-            MS_SubWindows.Items.AddRange(new ToolStripItem[] { TSMI_EncounterLookup, TSMI_SpreadFinder, TSMI_LotoID, TSMI_Cramomatic, TSMI_WattTrader, TSMI_DiggingPa, TSMI_WailordRespawn });
+            MS_SubWindows.Items.AddRange(new ToolStripItem[] { TSMI_Profiles, TSMI_EncounterLookup, TSMI_SpreadFinder, TSMI_LotoID, TSMI_Cramomatic, TSMI_WattTrader, TSMI_DiggingPa, TSMI_WailordRespawn });
             MS_SubWindows.Location = new Point(0, 0);
             MS_SubWindows.Name = "MS_SubWindows";
             MS_SubWindows.Size = new Size(1278, 24);
             MS_SubWindows.TabIndex = 0;
+            // 
+            // TSMI_Profiles
+            // 
+            TSMI_Profiles.Name = "TSMI_Profiles";
+            TSMI_Profiles.Size = new Size(58, 20);
+            TSMI_Profiles.Text = "Profiles";
+            TSMI_Profiles.Click += TSMI_Profiles_Click;
             // 
             // TSMI_EncounterLookup
             // 
@@ -3228,13 +3236,9 @@ namespace owoow.WinForms
         private TextBox TB_SwitchIP;
         private Label L_Status;
         private TextBox TB_Status;
-        private CheckBox CB_ShinyCharm;
         private GroupBox GB_SAVInfo;
-        private TextBox TB_TID;
         private Label L_SID;
         private Label L_TID;
-        private CheckBox CB_MarkCharm;
-        private TextBox TB_SID;
         private Button B_CopyToInitial;
         private Label L_CurrentS1;
         private Label L_CurrentS0;
@@ -3291,7 +3295,6 @@ namespace owoow.WinForms
         private Label L_Symbol_Weather;
         private Label L_Symbol_Area;
         private Label L_Game;
-        private ComboBox CB_Game;
         private Button B_Symbol_Search;
         private Label L_Symbol_Advances;
         private Label L_Symbol_Initial;
@@ -3469,5 +3472,11 @@ namespace owoow.WinForms
         public CheckBox CB_RareEC;
         public ComboBox CB_Filter_Height;
         private ToolStripMenuItem TSMI_MarkAdvance;
+        private ToolStripMenuItem TSMI_Profiles;
+        public CheckBox CB_ShinyCharm;
+        public TextBox TB_TID;
+        public CheckBox CB_MarkCharm;
+        public TextBox TB_SID;
+        public ComboBox CB_Game;
     }
 }
