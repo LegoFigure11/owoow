@@ -9,7 +9,7 @@
 
 _by [@LegoFigure11](https://github.com/LegoFigure11/)_
 
-![The owstands for Overworld, the oow stands for RNG Tool](https://i.imgur.com/IGmlCkD.png)
+![The ow stands for Overworld, the oow stands for RNG Tool](https://i.imgur.com/IGmlCkD.png)
 
 RNG Tool and sys-botbase client for Pokémon Sword & Shield for the Nintendo Switch.
 
@@ -22,7 +22,7 @@ A comprehensive usage guide brought to you by [Billo-PS](https://github.com/Bill
 ## Features & shortcuts
 
 * Full RNG prediction for overworld encounter types:
-  * Static (Strong Spawns)
+  * Static (Strong Spawns) - including the IoA Wailord!
   * Symbol (Encounter Slots)
   * Hidden
   * Fishing
@@ -44,6 +44,7 @@ A comprehensive usage guide brought to you by [Billo-PS](https://github.com/Bill
 * Filtering results based on Species (rather than Encounter Slot), IVs, Shininess, Mark, Brilliant Aura, Height (for Jumbo/Teensy mark in Scarlet/Violet), and Rare EC (EC modulo 100 = 0, only useful for catching Dunsparce that evolve in to 3-Segment Dudunsparce in Scarlet/Violet).
 * Parallelised search (can be adjusted by changing the value of ``MaxSearchTasksNthPowerOfTwo`` in ``config.json`` while the program is closed, recommended for advanced users only), resulting in search times many many times faster than SwSh OWRNG Generator GUI.
 * Automatically read TID, SID, Shiny Charm, Mark Charm, Game Version, and Pok&eacute;dex Recommendations directly from RAM (CFW only).
+* Profiles for saving TID/SID/Charms for retail users who RNG across multiple save files.
 * Automatic searching and resetting for a seed that generates a specific target (CFW only), with Discord webhook integration for notifying when a result is found.
 * Automate advances through date skipping, summary screen attack animations, or your own custom input routines (CFW only).
 * Read Wild Encounters (Click) or the KCoordinates Overworld Save Block (Shift + Click) with the "Read Encounter" button (CFW only).
