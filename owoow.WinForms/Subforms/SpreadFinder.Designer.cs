@@ -86,6 +86,11 @@ namespace owoow.WinForms.Subforms
             B_Search = new Button();
             CB_Tasks = new ComboBox();
             L_Tasks = new Label();
+            RB_Seed = new RadioButton();
+            RB_EC = new RadioButton();
+            B_GenerateSingle = new Button();
+            TB_Single = new TextBox();
+            L_Target = new Label();
             ((System.ComponentModel.ISupportInitialize)DGV_Results).BeginInit();
             ((System.ComponentModel.ISupportInitialize)SpreadFinderResultsSource).BeginInit();
             ((System.ComponentModel.ISupportInitialize)NUD_Spe_Max).BeginInit();
@@ -121,7 +126,7 @@ namespace owoow.WinForms.Subforms
             DGV_Results.RowHeadersVisible = false;
             DGV_Results.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             DGV_Results.Size = new Size(570, 427);
-            DGV_Results.TabIndex = 29;
+            DGV_Results.TabIndex = 33;
             DGV_Results.CellFormatting += DGV_Results_CellFormatting;
             // 
             // seedDataGridViewTextBoxColumn
@@ -608,11 +613,67 @@ namespace owoow.WinForms.Subforms
             L_Tasks.TabIndex = 100;
             L_Tasks.Text = "Search Tasks:";
             // 
+            // RB_Seed
+            // 
+            RB_Seed.AutoSize = true;
+            RB_Seed.Checked = true;
+            RB_Seed.Location = new Point(125, 388);
+            RB_Seed.Name = "RB_Seed";
+            RB_Seed.Size = new Size(50, 19);
+            RB_Seed.TabIndex = 30;
+            RB_Seed.TabStop = true;
+            RB_Seed.Text = "Seed";
+            RB_Seed.UseVisualStyleBackColor = true;
+            // 
+            // RB_EC
+            // 
+            RB_EC.AutoSize = true;
+            RB_EC.Location = new Point(173, 388);
+            RB_EC.Name = "RB_EC";
+            RB_EC.Size = new Size(39, 19);
+            RB_EC.TabIndex = 31;
+            RB_EC.Text = "EC";
+            RB_EC.UseVisualStyleBackColor = true;
+            // 
+            // B_GenerateSingle
+            // 
+            B_GenerateSingle.Location = new Point(12, 413);
+            B_GenerateSingle.Name = "B_GenerateSingle";
+            B_GenerateSingle.Size = new Size(200, 25);
+            B_GenerateSingle.TabIndex = 32;
+            B_GenerateSingle.Text = "Generate Single";
+            B_GenerateSingle.UseVisualStyleBackColor = true;
+            B_GenerateSingle.Click += B_GenerateSingle_Click;
+            // 
+            // TB_Single
+            // 
+            TB_Single.Font = new Font("Courier New", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            TB_Single.Location = new Point(60, 387);
+            TB_Single.MaxLength = 8;
+            TB_Single.Name = "TB_Single";
+            TB_Single.Size = new Size(62, 21);
+            TB_Single.TabIndex = 29;
+            TB_Single.Text = "DEADC0DE";
+            // 
+            // L_Target
+            // 
+            L_Target.AutoSize = true;
+            L_Target.Location = new Point(12, 390);
+            L_Target.Name = "L_Target";
+            L_Target.Size = new Size(42, 15);
+            L_Target.TabIndex = 105;
+            L_Target.Text = "Target:";
+            // 
             // SpreadFinder
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(L_Target);
+            Controls.Add(TB_Single);
+            Controls.Add(B_GenerateSingle);
+            Controls.Add(RB_EC);
+            Controls.Add(RB_Seed);
             Controls.Add(L_Tasks);
             Controls.Add(CB_Tasks);
             Controls.Add(B_Search);
@@ -738,5 +799,10 @@ namespace owoow.WinForms.Subforms
         private DataGridViewTextBoxColumn heightDataGridViewTextBoxColumn;
         private ComboBox CB_Tasks;
         private Label L_Tasks;
+        private RadioButton RB_Seed;
+        private RadioButton RB_EC;
+        private Button B_GenerateSingle;
+        private TextBox TB_Single;
+        private Label L_Target;
     }
 }

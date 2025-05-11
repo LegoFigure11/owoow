@@ -1,4 +1,5 @@
 using owoow.Core.Interfaces;
+using PKHeX.Core;
 using static owoow.Core.RNG.FilterUtil;
 using static owoow.Core.RNG.FixedSeed;
 using static System.Globalization.NumberStyles;
@@ -15,6 +16,8 @@ public partial class SpreadFinder : Form
     {
         InitializeComponent();
         MainWindow = f;
+
+        TB_Single.KeyPress += f.KeyPress_AllowOnlyHex!;
     }
 
     private void B_Search_Click(object sender, EventArgs e)
@@ -35,17 +38,21 @@ public partial class SpreadFinder : Form
             FiltersEnabled = true,
         };
 
-        List<uint> seeds = [];
+        Search(sender, config);
+    }
+
+    private void Search(object sender, Core.RNG.GeneratorConfig config, List<uint>? seeds = null, bool reduced = false)
+    {
+        seeds ??= [];
 
         // Check if IVs match any of our pre-calculated seed lists
-        var reduced = false;
         if (config.GuaranteedIVs == 0)
         {
             var min = config.TargetMinIVs;
             var max = config.TargetMaxIVs;
 
-            var ct31 = min.Where(iv => iv == 31).Count();
-            var ct0 = max.Where(iv => iv == 0).Count();
+            var ct31 = min.Count(iv => iv == 31);
+            var ct0 = max.Count(iv => iv == 0);
 
             if (ct31 == 6) // flawless
             {
@@ -85,7 +92,7 @@ public partial class SpreadFinder : Form
             }
         }
 
-        List<SpreadFinderFrame>[] results = [];
+        List<SpreadFinderFrame>[] results;
         List<Task<List<SpreadFinderFrame>>> tasks = [];
 
         if (reduced)
@@ -115,13 +122,13 @@ public partial class SpreadFinder : Form
             }
 
             AllResults = [.. AllResults
-                .OrderBy(e => uint.Parse(e.Seed, AllowHexSpecifier))
-                .OrderByDescending(e => e.H)
-                .OrderByDescending(e => e.A)
-                .OrderByDescending(e => e.B)
-                .OrderByDescending(e => e.C)
-                .OrderByDescending(e => e.D)
-                .OrderByDescending(e => e.S)
+                .OrderBy(r => uint.Parse(r.Seed, AllowHexSpecifier))
+                .ThenByDescending(r => r.H)
+                .ThenByDescending(r => r.A)
+                .ThenByDescending(r => r.B)
+                .ThenByDescending(r => r.C)
+                .ThenByDescending(r => r.D)
+                .ThenByDescending(r => r.S)
                 ];
             Frames = AllResults;
             MainWindow.SetBindingSourceDataSource(AllResults, SpreadFinderResultsSource);
@@ -129,7 +136,7 @@ public partial class SpreadFinder : Form
             MainWindow.SetControlEnabledState(true, sender);
         }).ContinueWith(_ =>
         {
-            if (Frames.Count == 0) this.DisplayMessageBox("No reults found!", "SpreadFinder");
+            if (Frames.Count == 0) this.DisplayMessageBox("No results found!", "SpreadFinder");
         });
     }
 
@@ -217,5 +224,45 @@ public partial class SpreadFinder : Form
         }
 
         row.Cells[8].Style.Font = result.Height is not "XXXL (255)" and not "XXXS (0)" ? row.DefaultCellStyle.Font : MainWindow.BoldFont;
+    }
+
+    private void B_GenerateSingle_Click(object sender, EventArgs e)
+    {
+        MainWindow.SetControlEnabledState(false, sender);
+
+        Core.RNG.GeneratorConfig config = new()
+        {
+            TargetMinIVs = [0, 0, 0, 0, 0, 0],
+            TargetMaxIVs = [31, 31, 31, 31, 31, 31],
+
+            GuaranteedIVs = (int)NUD_GuaranteedIVs.Value,
+
+            FiltersEnabled = true,
+        };
+
+        List<uint> seeds = [];
+        var searchSeeds = RB_Seed.Checked;
+
+        if (string.IsNullOrEmpty(TB_Single.Text)) TB_Single.Text = "0";
+        TB_Single.Text = TB_Single.Text.PadLeft(8, '0');
+
+        if (searchSeeds)
+        {
+            seeds.Add(uint.Parse(TB_Single.Text, AllowHexSpecifier));
+        }
+        else
+        {
+            var ec = uint.Parse(TB_Single.Text, AllowHexSpecifier);
+            if (ec == 0xF8572EBE) // two seeds EC
+            {
+                seeds.Add(0xD5B9C463);
+                seeds.Add(0xDD6295A4);
+            }
+            else
+            {
+                seeds.Add(ec - unchecked((uint)Xoroshiro128Plus.XOROSHIRO_CONST));
+            }
+        }
+        Search(sender, config, seeds, true);
     }
 }
