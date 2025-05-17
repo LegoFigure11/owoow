@@ -37,6 +37,12 @@ namespace owoow.WinForms.Subforms
             L_Input = new Label();
             B_Remove = new Button();
             CB_Loop = new CheckBox();
+            L_NTPAfter = new Label();
+            L_NTPWhile = new Label();
+            L_Interval = new Label();
+            TB_Interval = new TextBox();
+            CB_NTPAfter = new CheckBox();
+            CB_NTPWhile = new CheckBox();
             SuspendLayout();
             // 
             // LB_List
@@ -115,11 +121,74 @@ namespace owoow.WinForms.Subforms
             CB_Loop.UseVisualStyleBackColor = true;
             CB_Loop.CheckedChanged += CB_Loop_CheckedChanged;
             // 
+            // L_NTPAfter
+            // 
+            L_NTPAfter.AutoSize = true;
+            L_NTPAfter.Location = new Point(12, 201);
+            L_NTPAfter.Name = "L_NTPAfter";
+            L_NTPAfter.Size = new Size(137, 15);
+            L_NTPAfter.TabIndex = 8;
+            L_NTPAfter.Text = "NTP after Date Skipping?";
+            // 
+            // L_NTPWhile
+            // 
+            L_NTPWhile.AutoSize = true;
+            L_NTPWhile.Location = new Point(12, 226);
+            L_NTPWhile.Name = "L_NTPWhile";
+            L_NTPWhile.Size = new Size(141, 15);
+            L_NTPWhile.TabIndex = 9;
+            L_NTPWhile.Text = "NTP while Date Skipping?";
+            // 
+            // L_Interval
+            // 
+            L_Interval.AutoSize = true;
+            L_Interval.Location = new Point(12, 250);
+            L_Interval.Name = "L_Interval";
+            L_Interval.Size = new Size(49, 15);
+            L_Interval.TabIndex = 10;
+            L_Interval.Text = "Interval:";
+            // 
+            // TB_Interval
+            // 
+            TB_Interval.Location = new Point(158, 247);
+            TB_Interval.MaxLength = 4;
+            TB_Interval.Name = "TB_Interval";
+            TB_Interval.Size = new Size(43, 23);
+            TB_Interval.TabIndex = 11;
+            TB_Interval.Text = "wwww";
+            TB_Interval.TextChanged += TB_Interval_TextChanged;
+            // 
+            // CB_NTPAfter
+            // 
+            CB_NTPAfter.AutoSize = true;
+            CB_NTPAfter.Location = new Point(180, 202);
+            CB_NTPAfter.Name = "CB_NTPAfter";
+            CB_NTPAfter.Size = new Size(15, 14);
+            CB_NTPAfter.TabIndex = 12;
+            CB_NTPAfter.UseVisualStyleBackColor = true;
+            CB_NTPAfter.CheckedChanged += CB_NTPAfter_CheckedChanged;
+            // 
+            // CB_NTPWhile
+            // 
+            CB_NTPWhile.AutoSize = true;
+            CB_NTPWhile.Location = new Point(180, 227);
+            CB_NTPWhile.Name = "CB_NTPWhile";
+            CB_NTPWhile.Size = new Size(15, 14);
+            CB_NTPWhile.TabIndex = 13;
+            CB_NTPWhile.UseVisualStyleBackColor = true;
+            CB_NTPWhile.CheckedChanged += CB_NTPWhile_CheckedChanged;
+            // 
             // TurboSettings
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(211, 201);
+            ClientSize = new Size(211, 278);
+            Controls.Add(CB_NTPWhile);
+            Controls.Add(CB_NTPAfter);
+            Controls.Add(TB_Interval);
+            Controls.Add(L_Interval);
+            Controls.Add(L_NTPWhile);
+            Controls.Add(L_NTPAfter);
             Controls.Add(CB_Loop);
             Controls.Add(B_Remove);
             Controls.Add(L_Input);
@@ -147,5 +216,11 @@ namespace owoow.WinForms.Subforms
         private Label L_Input;
         private Button B_Remove;
         private CheckBox CB_Loop;
+        private Label L_NTPAfter;
+        private Label L_NTPWhile;
+        private Label L_Interval;
+        private TextBox TB_Interval;
+        private CheckBox CB_NTPAfter;
+        private CheckBox CB_NTPWhile;
     }
 }

@@ -31,12 +31,19 @@ public partial class TurboSettings : Form
 
         CB_Loop.Checked = c.LoopTurbo;
 
+        CB_NTPAfter.Checked = c.NTPAfterDateSkipping;
+        CB_NTPWhile.Checked = c.NTPWhileDateSkipping;
+        TB_Interval.Text = $"{c.NTPWhileDateSkippingInterval}";
+        TB_Interval.Enabled = c.NTPWhileDateSkipping;
+
+        TB_Interval.KeyPress += p.KeyPress_AllowOnlyNumerical!;
+
         ReloadList();
     }
 
     private void ReloadList()
     {
-        c.TurboSequence = c.TurboSequence.Where(item => options.Contains(item)).ToList();
+        c.TurboSequence = [.. c.TurboSequence.Where(item => options.Contains(item))];
         if (bs.DataSource is null)
         {
             bs.DataSource = c.TurboSequence;
@@ -105,5 +112,23 @@ public partial class TurboSettings : Form
     private void CB_Loop_CheckedChanged(object sender, EventArgs e)
     {
         c.LoopTurbo = CB_Loop.Checked;
+    }
+
+    private void CB_NTPAfter_CheckedChanged(object sender, EventArgs e)
+    {
+        c.NTPAfterDateSkipping = CB_NTPAfter.Checked;
+    }
+
+    private void CB_NTPWhile_CheckedChanged(object sender, EventArgs e)
+    {
+        c.NTPWhileDateSkipping = CB_NTPWhile.Checked;
+        TB_Interval.Enabled = CB_NTPWhile.Checked;
+    }
+
+    private void TB_Interval_TextChanged(object sender, EventArgs e)
+    {
+        if (string.IsNullOrEmpty(TB_Interval.Text) || TB_Interval.Text == "0") TB_Interval.Text = "10";
+        if (!uint.TryParse(TB_Interval.Text, out _)) TB_Interval.Text = "10";
+        c.NTPWhileDateSkippingInterval = Math.Max(uint.Parse(TB_Interval.Text), 10);
     }
 }
