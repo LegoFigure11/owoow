@@ -1114,10 +1114,10 @@ public partial class MainWindow : Form
                 bool first = true;
                 var ct = 0;
                 var sw = Stopwatch.GetTimestamp();
+                ulong prevs0 = 0;
+                ulong prevs1 = 0;
                 while (ConnectionWrapper.Connected && !ResetSource.IsCancellationRequested && !resetPause && !found)
                 {
-                    ulong prevs0 = 0;
-                    ulong prevs1 = 0;
                     var (s0, s1) = await ConnectionWrapper.ReadRNGState(ResetSource.Token).ConfigureAwait(false);
 
                     if (!(s0 == prevs0 && s1 == prevs1))
