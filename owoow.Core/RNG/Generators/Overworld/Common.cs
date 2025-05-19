@@ -45,7 +45,7 @@ public static class Common
             uint rare = (uint)rng.NextInt(1000);
             uint personality = (uint)rng.NextInt(100);
             uint uncommon = (uint)rng.NextInt(50);
-            uint weather = (uint)rng.NextInt(50); RibbonIndex.MarkRare.GetPropertyName();
+            uint weather = (uint)rng.NextInt(50);
             uint time = (uint)rng.NextInt(50);
             uint fishing = (uint)rng.NextInt(25);
 
