@@ -1,4 +1,4 @@
-﻿namespace owoow.Core.Interfaces;
+namespace owoow.Core.Interfaces;
 
 public interface IEncounter
 {
@@ -18,6 +18,7 @@ public interface IEncounterStaticEntry
     string? Species { get; }
     int Level { get; }
     bool IsAbilityLocked { get; }
+    bool IsGenderLocked { get; }
     bool IsShinyLocked { get; }
     ulong Ability { get; }
     int GuaranteedIVs { get; }
@@ -48,6 +49,7 @@ public class EncounterStaticEntry : IEncounterStaticEntry
     public string? Species { get; set; } = string.Empty;
     public int Level { get; set; } = 0;
     public bool IsAbilityLocked { get; set; } = false;
+    public bool IsGenderLocked { get; set; } = false;
     public bool IsShinyLocked { get; set; } = false;
     public ulong Ability { get; set; } = 0;
     public int GuaranteedIVs { get; set; } = 0;
@@ -63,6 +65,7 @@ public class EncounterLookupEntry : IEncounter, IEncounterEntry, IEncounterStati
     public int MaxLevel { get; set; } = 0;
     public int EncounterRate { get; set; } = 0;
     public bool IsAbilityLocked { get; set; } = false;
+    public bool IsGenderLocked { get; set; } = false;
     public bool IsShinyLocked { get; set; } = false;
     public ulong Ability { get; set; } = 0;
     public int GuaranteedIVs { get; set; } = 0;

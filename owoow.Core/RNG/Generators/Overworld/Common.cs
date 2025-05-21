@@ -76,8 +76,9 @@ public static class Common
         return shiny;
     }
 
-    public static char GenerateGender(ref Xoroshiro128Plus rng, short gender, bool isCC = false)
+    public static char GenerateGender(ref Xoroshiro128Plus rng, short gender, bool isCC = false, bool isLocked = false)
     {
+        if (isLocked) return GetLockedGender(gender);
         var roll = ' ';
         if (!isCC) roll = rng.NextInt(2) == 0 ? 'F' : 'M'; // 50/50 regardless of gender ratio
         return gender switch
@@ -88,6 +89,13 @@ public static class Common
             _ => 'M',
         };
     }
+
+    private static char GetLockedGender(short gender) => gender switch
+    {
+        >= 255 => '-',
+        >= 254 => 'F',
+        _      => 'M',
+    };
 
     public static string GenerateNature(ref Xoroshiro128Plus rng, bool sync)
     {

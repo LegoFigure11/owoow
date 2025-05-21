@@ -9858,7 +9858,8 @@
           "IsAbilityLocked": true,
           "Ability": 0,
           "IsShinyLocked": false,
-          "GuaranteedIVs": 0
+          "GuaranteedIVs": 0,
+          "IsGenderLocked": true
         },
         "7": {
           "Species": "Sylveon",
@@ -14534,7 +14535,8 @@
           "IsAbilityLocked": false,
           "Ability": 0,
           "IsShinyLocked": false,
-          "GuaranteedIVs": 0
+          "GuaranteedIVs": 0,
+          "IsGenderLocked":  true
         },
         "3": {
           "Species": "Skarmory",

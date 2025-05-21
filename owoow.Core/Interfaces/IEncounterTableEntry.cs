@@ -1,4 +1,4 @@
-﻿namespace owoow.Core.Interfaces;
+namespace owoow.Core.Interfaces;
 
 public interface IEncounterTableEntry : IEncounter, IEncounterEntry, IPersonal
 {
@@ -43,6 +43,7 @@ public class EncounterStaticTableEntry(IPersonal personal, IEncounterStaticEntry
     public string[] Abilities { get; } = personal.Abilities!;
 
     public bool IsAbilityLocked { get; } = entry.IsAbilityLocked;
+    public bool IsGenderLocked { get; } = entry.IsGenderLocked;
     public bool IsShinyLocked { get; } = entry.IsShinyLocked;
 
     public int GuaranteedIVs { get; } = entry.GuaranteedIVs;

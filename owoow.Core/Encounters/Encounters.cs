@@ -106,6 +106,7 @@ public static class Encounters
                         Ability = enc.Value.Ability,
                         IsShinyLocked = enc.Value.IsShinyLocked,
                         GuaranteedIVs = enc.Value.GuaranteedIVs,
+                        IsGenderLocked = enc.Value.IsGenderLocked,
                     });
                 }
             }

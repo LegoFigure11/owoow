@@ -22,7 +22,7 @@ public class Static
             bool FiltersEnabled = config.FiltersEnabled;
 
             ulong Lead;
-            bool CuteCharm = false;
+            bool CuteCharm;
 
             bool IsShiny;
             uint ShinyXOR;
@@ -88,7 +88,7 @@ public class Static
                 IsShiny = !Encounter.IsShinyLocked && GenerateIsShiny(ref rng, config.ShinyRolls, config.TSV);
 
                 // GENDER
-                Gender = GenerateGender(ref rng, Encounter.Gender, CuteCharm);
+                Gender = GenerateGender(ref rng, Encounter.Gender, CuteCharm, Encounter.IsGenderLocked);
 
                 // NATURE
                 Nature = GenerateNature(ref rng, config.AbilityType == AbilityType.Synchronize);
