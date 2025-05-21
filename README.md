@@ -59,6 +59,7 @@ A comprehensive usage guide brought to you by [Billo-PS](https://github.com/Bill
 * [@kwsch](https://github.com/kwsch/) and contributors for [PKHeX](https://github.com/kwsch/PKHeX/), [pkNX](https://github.com/kwsch/pkNX), and [SysBot.NET](https://github.com/kwsch/SysBot.NET) which are all leveraged by this project in some manner.
 * [@Nicolic](https://github.com/NicoIic) for [this cat gif](https://tenor.com/view/cat-gif-25169380).
 * The crew from #citrus for your invaluable feedback and testing, and putting up with my rambling.
+* Everyone who participated in #owo, especially Anubis and Billo for facilitating, and Bowarcky, Cosplay Furret, mdash, ML_Lacius, Ohalright, santacrab, Tatertot74, TheBlah, TheMostPrimeape, tokeshimon, and wyrx for testing.
 * All existing contributors to and credits from [LegoFigure11/swsh-overworld-rng-gui](https://github.com/LegoFigure11/swsh-overworld-rng-gui) also apply.
 
 ## Disclaimer
