@@ -1,4 +1,4 @@
-﻿using PKHeX.Core;
+using PKHeX.Core;
 using System.Reflection;
 
 namespace owoow.Core;
@@ -62,5 +62,29 @@ public static class Utils
             }
         }
         return false;
+    }
+
+    public static Version? GetLatestVersion()
+    {
+        const string endpoint = "https://api.github.com/repos/LegoFigure11/owoow/releases/latest";
+        var response = NetUtil.GetStringFromURL(new Uri(endpoint));
+        if (response is null) return null;
+
+        const string tag = "tag_name";
+        var index = response.IndexOf(tag, StringComparison.Ordinal);
+        if (index == -1) return null;
+
+        var first = response.IndexOf('"', index + tag.Length + 1) + 1;
+        if (first == 0) return null;
+
+        var second = response.IndexOf('"', first);
+        if (second == -1) return null;
+
+        var tagString = response.AsSpan()[first..second].TrimStart('v');
+
+        var patchIndex = tagString.IndexOf('-');
+        if (patchIndex != -1) tagString = tagString.ToString().Remove(patchIndex).AsSpan();
+
+        return !Version.TryParse(tagString, out var latestVersion) ? null : latestVersion;
     }
 }

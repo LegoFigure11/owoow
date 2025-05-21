@@ -47,6 +47,8 @@ public partial class MainWindow : Form
 
     public WebhookHandler Webhook;
 
+    private readonly Version CurrentVersion = System.Reflection.Assembly.GetExecutingAssembly().GetName().Version!;
+
     public MainWindow()
     {
         Config = new ClientConfig();
@@ -71,7 +73,7 @@ public partial class MainWindow : Form
         Webhook = new(Config);
 
 
-        var v = System.Reflection.Assembly.GetExecutingAssembly().GetName().Version!;
+        var v = CurrentVersion;
 #if DEBUG
         var build = "";
 
@@ -126,6 +128,8 @@ public partial class MainWindow : Form
         SetAreaOptions();
 
         SetDexRecOptions();
+
+        CheckForUpdates();
     }
 
     #region Connection
@@ -1322,6 +1326,36 @@ public partial class MainWindow : Form
     private void UpdateStatus(string status)
     {
         SetTextBoxText(status, TB_Status);
+    }
+
+    private void CheckForUpdates()
+    {
+        Task.Run(async () =>
+        {
+            Version? latestVersion;
+            try { latestVersion = Utils.GetLatestVersion(); }
+            catch (Exception ex)
+            {
+                Debug.WriteLine($"Exception while checking for latest version: {ex}");
+                return;
+            }
+
+            if (latestVersion is null || latestVersion <= CurrentVersion)
+                return;
+
+            while (!IsHandleCreated) // Wait for form to be ready
+                await Task.Delay(2_000).ConfigureAwait(false);
+            await InvokeAsync(() => NotifyNewVersionAvailable(latestVersion));
+        });
+    }
+
+    private void NotifyNewVersionAvailable(Version version)
+    {
+        Text += $" - Update v{version.Major}.{version.Minor}.{version.Build} available!";
+#if !DEBUG
+        MessageBox.Show($"Update available! v{version.Major}.{version.Minor}.{version.Build}");
+        Process.Start(new ProcessStartInfo("https://github.com/LegoFigure11/owoow/releases/") { UseShellExecute = true });
+#endif
     }
 
     private void ValidateInputs(string tab)
