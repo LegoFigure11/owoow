@@ -34,6 +34,9 @@ namespace owoow.WinForms.Subforms
             L_Species = new Label();
             CB_Species = new ComboBox();
             DGV_Results = new DataGridView();
+            ResultsSource = new BindingSource(components);
+            L_Game = new Label();
+            CB_Game = new ComboBox();
             speciesDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             encounterTypeDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             areaDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
@@ -45,12 +48,10 @@ namespace owoow.WinForms.Subforms
             minLevelDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             maxLevelDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             isShinyLockedDataGridViewCheckBoxColumn = new DataGridViewCheckBoxColumn();
+            IsGenderLocked = new DataGridViewCheckBoxColumn();
             isAbilityLockedDataGridViewCheckBoxColumn = new DataGridViewCheckBoxColumn();
             abilityDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             guaranteedIVsDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            ResultsSource = new BindingSource(components);
-            L_Game = new Label();
-            CB_Game = new ComboBox();
             ((System.ComponentModel.ISupportInitialize)DGV_Results).BeginInit();
             ((System.ComponentModel.ISupportInitialize)ResultsSource).BeginInit();
             SuspendLayout();
@@ -82,7 +83,7 @@ namespace owoow.WinForms.Subforms
             DGV_Results.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             DGV_Results.AutoGenerateColumns = false;
             DGV_Results.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            DGV_Results.Columns.AddRange(new DataGridViewColumn[] { speciesDataGridViewTextBoxColumn, encounterTypeDataGridViewTextBoxColumn, areaDataGridViewTextBoxColumn, weatherDataGridViewTextBoxColumn, encounterRateDataGridViewTextBoxColumn, slotMinDataGridViewTextBoxColumn, slotMaxDataGridViewTextBoxColumn, levelDataGridViewTextBoxColumn, minLevelDataGridViewTextBoxColumn, maxLevelDataGridViewTextBoxColumn, isShinyLockedDataGridViewCheckBoxColumn, isAbilityLockedDataGridViewCheckBoxColumn, abilityDataGridViewTextBoxColumn, guaranteedIVsDataGridViewTextBoxColumn });
+            DGV_Results.Columns.AddRange(new DataGridViewColumn[] { speciesDataGridViewTextBoxColumn, encounterTypeDataGridViewTextBoxColumn, areaDataGridViewTextBoxColumn, weatherDataGridViewTextBoxColumn, encounterRateDataGridViewTextBoxColumn, slotMinDataGridViewTextBoxColumn, slotMaxDataGridViewTextBoxColumn, levelDataGridViewTextBoxColumn, minLevelDataGridViewTextBoxColumn, maxLevelDataGridViewTextBoxColumn, isShinyLockedDataGridViewCheckBoxColumn, IsGenderLocked, isAbilityLockedDataGridViewCheckBoxColumn, abilityDataGridViewTextBoxColumn, guaranteedIVsDataGridViewTextBoxColumn });
             DGV_Results.DataSource = ResultsSource;
             DGV_Results.Location = new Point(8, 31);
             DGV_Results.Name = "DGV_Results";
@@ -91,6 +92,31 @@ namespace owoow.WinForms.Subforms
             DGV_Results.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             DGV_Results.Size = new Size(784, 411);
             DGV_Results.TabIndex = 2;
+            // 
+            // ResultsSource
+            // 
+            ResultsSource.DataSource = typeof(Core.Interfaces.EncounterLookupEntry);
+            // 
+            // L_Game
+            // 
+            L_Game.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            L_Game.AutoSize = true;
+            L_Game.Location = new Point(610, 7);
+            L_Game.Name = "L_Game";
+            L_Game.Size = new Size(41, 15);
+            L_Game.TabIndex = 13;
+            L_Game.Text = "Game:";
+            // 
+            // CB_Game
+            // 
+            CB_Game.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            CB_Game.FormattingEnabled = true;
+            CB_Game.Items.AddRange(new object[] { "Sword", "Shield" });
+            CB_Game.Location = new Point(657, 4);
+            CB_Game.Name = "CB_Game";
+            CB_Game.Size = new Size(135, 23);
+            CB_Game.TabIndex = 1;
+            CB_Game.SelectedIndexChanged += CB_Game_SelectedIndexChanged;
             // 
             // speciesDataGridViewTextBoxColumn
             // 
@@ -156,14 +182,14 @@ namespace owoow.WinForms.Subforms
             // minLevelDataGridViewTextBoxColumn
             // 
             minLevelDataGridViewTextBoxColumn.DataPropertyName = "MinLevel";
-            minLevelDataGridViewTextBoxColumn.HeaderText = "MinLevel";
+            minLevelDataGridViewTextBoxColumn.HeaderText = "Min Level";
             minLevelDataGridViewTextBoxColumn.Name = "minLevelDataGridViewTextBoxColumn";
             minLevelDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // maxLevelDataGridViewTextBoxColumn
             // 
             maxLevelDataGridViewTextBoxColumn.DataPropertyName = "MaxLevel";
-            maxLevelDataGridViewTextBoxColumn.HeaderText = "MaxLevel";
+            maxLevelDataGridViewTextBoxColumn.HeaderText = "Max Level";
             maxLevelDataGridViewTextBoxColumn.Name = "maxLevelDataGridViewTextBoxColumn";
             maxLevelDataGridViewTextBoxColumn.ReadOnly = true;
             // 
@@ -173,6 +199,13 @@ namespace owoow.WinForms.Subforms
             isShinyLockedDataGridViewCheckBoxColumn.HeaderText = "Shiny Locked?";
             isShinyLockedDataGridViewCheckBoxColumn.Name = "isShinyLockedDataGridViewCheckBoxColumn";
             isShinyLockedDataGridViewCheckBoxColumn.ReadOnly = true;
+            // 
+            // IsGenderLocked
+            // 
+            IsGenderLocked.DataPropertyName = "IsGenderLocked";
+            IsGenderLocked.HeaderText = "Gender Locked?";
+            IsGenderLocked.Name = "IsGenderLocked";
+            IsGenderLocked.ReadOnly = true;
             // 
             // isAbilityLockedDataGridViewCheckBoxColumn
             // 
@@ -196,31 +229,6 @@ namespace owoow.WinForms.Subforms
             guaranteedIVsDataGridViewTextBoxColumn.Name = "guaranteedIVsDataGridViewTextBoxColumn";
             guaranteedIVsDataGridViewTextBoxColumn.ReadOnly = true;
             guaranteedIVsDataGridViewTextBoxColumn.Width = 140;
-            // 
-            // ResultsSource
-            // 
-            ResultsSource.DataSource = typeof(Core.Interfaces.EncounterLookupEntry);
-            // 
-            // L_Game
-            // 
-            L_Game.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            L_Game.AutoSize = true;
-            L_Game.Location = new Point(610, 7);
-            L_Game.Name = "L_Game";
-            L_Game.Size = new Size(41, 15);
-            L_Game.TabIndex = 13;
-            L_Game.Text = "Game:";
-            // 
-            // CB_Game
-            // 
-            CB_Game.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            CB_Game.FormattingEnabled = true;
-            CB_Game.Items.AddRange(new object[] { "Sword", "Shield" });
-            CB_Game.Location = new Point(657, 4);
-            CB_Game.Name = "CB_Game";
-            CB_Game.Size = new Size(135, 23);
-            CB_Game.TabIndex = 1;
-            CB_Game.SelectedIndexChanged += CB_Game_SelectedIndexChanged;
             // 
             // EncounterLookup
             // 
@@ -261,6 +269,7 @@ namespace owoow.WinForms.Subforms
         private DataGridViewTextBoxColumn minLevelDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn maxLevelDataGridViewTextBoxColumn;
         private DataGridViewCheckBoxColumn isShinyLockedDataGridViewCheckBoxColumn;
+        private DataGridViewCheckBoxColumn IsGenderLocked;
         private DataGridViewCheckBoxColumn isAbilityLockedDataGridViewCheckBoxColumn;
         private DataGridViewTextBoxColumn abilityDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn guaranteedIVsDataGridViewTextBoxColumn;

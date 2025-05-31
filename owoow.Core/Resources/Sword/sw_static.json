@@ -18176,7 +18176,8 @@
           "IsAbilityLocked": true,
           "Ability": 0,
           "IsShinyLocked": false,
-          "GuaranteedIVs": 0
+          "GuaranteedIVs": 0,
+          "IsGenderLocked": true
         },
         "6": {
           "Species": "Octillery",
