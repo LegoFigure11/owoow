@@ -8498,7 +8498,8 @@
           "IsAbilityLocked": false,
           "Ability": 0,
           "IsShinyLocked": false,
-          "GuaranteedIVs": 0
+          "GuaranteedIVs": 0,
+          "IsGenderLocked": true
         },
         "6": {
           "Species": "Rhydon",
@@ -8574,7 +8575,8 @@
           "IsAbilityLocked": false,
           "Ability": 0,
           "IsShinyLocked": false,
-          "GuaranteedIVs": 0
+          "GuaranteedIVs": 0,
+          "IsGenderLocked": true
         },
         "6": {
           "Species": "Rhydon",
@@ -8650,7 +8652,8 @@
           "IsAbilityLocked": false,
           "Ability": 0,
           "IsShinyLocked": false,
-          "GuaranteedIVs": 0
+          "GuaranteedIVs": 0,
+          "IsGenderLocked": true
         },
         "6": {
           "Species": "Rhydon",
@@ -8710,7 +8713,8 @@
           "IsAbilityLocked": false,
           "Ability": 0,
           "IsShinyLocked": false,
-          "GuaranteedIVs": 0
+          "GuaranteedIVs": 0,
+          "IsGenderLocked": true
         },
         "5": {
           "Species": "Rhydon",
@@ -8778,7 +8782,8 @@
           "IsAbilityLocked": false,
           "Ability": 0,
           "IsShinyLocked": false,
-          "GuaranteedIVs": 0
+          "GuaranteedIVs": 0,
+          "IsGenderLocked": true
         },
         "6": {
           "Species": "Rhydon",
@@ -8854,7 +8859,8 @@
           "IsAbilityLocked": false,
           "Ability": 0,
           "IsShinyLocked": false,
-          "GuaranteedIVs": 0
+          "GuaranteedIVs": 0,
+          "IsGenderLocked": true
         },
         "6": {
           "Species": "Rhydon",
@@ -8930,7 +8936,8 @@
           "IsAbilityLocked": false,
           "Ability": 0,
           "IsShinyLocked": false,
-          "GuaranteedIVs": 0
+          "GuaranteedIVs": 0,
+          "IsGenderLocked": true
         },
         "6": {
           "Species": "Rhydon",
@@ -9006,7 +9013,8 @@
           "IsAbilityLocked": false,
           "Ability": 0,
           "IsShinyLocked": false,
-          "GuaranteedIVs": 0
+          "GuaranteedIVs": 0,
+          "IsGenderLocked": true
         },
         "6": {
           "Species": "Rhydon",
@@ -9082,7 +9090,8 @@
           "IsAbilityLocked": false,
           "Ability": 0,
           "IsShinyLocked": false,
-          "GuaranteedIVs": 0
+          "GuaranteedIVs": 0,
+          "IsGenderLocked": true
         },
         "6": {
           "Species": "Rhydon",
@@ -9370,7 +9379,8 @@
           "IsAbilityLocked": false,
           "Ability": 0,
           "IsShinyLocked": false,
-          "GuaranteedIVs": 0
+          "GuaranteedIVs": 0,
+          "IsGenderLocked": true
         },
         "4": {
           "Species": "Jellicent",
@@ -9438,7 +9448,8 @@
           "IsAbilityLocked": false,
           "Ability": 0,
           "IsShinyLocked": false,
-          "GuaranteedIVs": 0
+          "GuaranteedIVs": 0,
+          "IsGenderLocked": true
         },
         "4": {
           "Species": "Jellicent",
@@ -9490,7 +9501,8 @@
           "IsAbilityLocked": false,
           "Ability": 0,
           "IsShinyLocked": false,
-          "GuaranteedIVs": 0
+          "GuaranteedIVs": 0,
+          "IsGenderLocked": true
         },
         "3": {
           "Species": "Jellicent",
@@ -9550,7 +9562,8 @@
           "IsAbilityLocked": false,
           "Ability": 0,
           "IsShinyLocked": false,
-          "GuaranteedIVs": 0
+          "GuaranteedIVs": 0,
+          "IsGenderLocked": true
         },
         "3": {
           "Species": "Jellicent",
@@ -9634,7 +9647,8 @@
           "IsAbilityLocked": false,
           "Ability": 0,
           "IsShinyLocked": false,
-          "GuaranteedIVs": 0
+          "GuaranteedIVs": 0,
+          "IsGenderLocked": true
         },
         "5": {
           "Species": "Seaking",
@@ -9686,7 +9700,8 @@
           "IsAbilityLocked": false,
           "Ability": 0,
           "IsShinyLocked": false,
-          "GuaranteedIVs": 0
+          "GuaranteedIVs": 0,
+          "IsGenderLocked": true
         },
         "5": {
           "Species": "Lapras",
@@ -9738,7 +9753,8 @@
           "IsAbilityLocked": false,
           "Ability": 0,
           "IsShinyLocked": false,
-          "GuaranteedIVs": 0
+          "GuaranteedIVs": 0,
+          "IsGenderLocked": true
         },
         "5": {
           "Species": "Lapras",
@@ -9774,7 +9790,8 @@
           "IsAbilityLocked": false,
           "Ability": 0,
           "IsShinyLocked": false,
-          "GuaranteedIVs": 0
+          "GuaranteedIVs": 0,
+          "IsGenderLocked": true
         },
         "3": {
           "Species": "Rhydon",
@@ -9826,7 +9843,8 @@
           "IsAbilityLocked": false,
           "Ability": 0,
           "IsShinyLocked": false,
-          "GuaranteedIVs": 0
+          "GuaranteedIVs": 0,
+          "IsGenderLocked": true
         },
         "3": {
           "Species": "Jellicent",
@@ -14536,7 +14554,7 @@
           "Ability": 0,
           "IsShinyLocked": false,
           "GuaranteedIVs": 0,
-          "IsGenderLocked":  true
+          "IsGenderLocked": true
         },
         "3": {
           "Species": "Skarmory",
