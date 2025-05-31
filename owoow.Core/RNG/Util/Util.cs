@@ -8,6 +8,8 @@ public static class Util
 {
     public static readonly IReadOnlyList<string> Natures = GameInfo.GetStrings(1).Natures;
 
+    public const uint MAX_TRACKED_ADVANCES = 50_000; // 50,000 chosen arbitrarily to prevent an infinite loop
+
     public static uint GetAdvancesPassed(ulong s0, ulong s1, ulong _s0, ulong _s1)
     {
         if (s0 == _s0 && s1 == _s1) return 0;
@@ -21,7 +23,7 @@ public static class Util
             var (cur0, cur1) = rng.GetState();
             if (cur0 == _s0 && cur1 == _s1) break;
 
-        } while (i < 50_000); // 50,000 chosen arbitrarily to prevent an infinite loop
+        } while (i < MAX_TRACKED_ADVANCES);
 
         return i;
     }

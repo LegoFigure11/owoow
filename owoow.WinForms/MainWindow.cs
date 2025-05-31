@@ -1120,16 +1120,18 @@ public partial class MainWindow : Form
                 var sw = Stopwatch.GetTimestamp();
                 ulong prevs0 = 0;
                 ulong prevs1 = 0;
+                int consecutiveFails = 0;
                 while (ConnectionWrapper.Connected && !ResetSource.IsCancellationRequested && !resetPause && !found)
                 {
                     var (s0, s1) = await ConnectionWrapper.ReadRNGState(ResetSource.Token).ConfigureAwait(false);
+                    var passed = GetAdvancesPassed(prevs0, prevs1, s0, s1);
 
-                    if (!(s0 == prevs0 && s1 == prevs1))
+                    if (passed == MAX_TRACKED_ADVANCES) // Has most likely reset the game
                     {
                         SetTextBoxText($"{s0:X16}", TB_Seed0, TB_CurrentS0);
                         SetTextBoxText($"{s1:X16}", TB_Seed1, TB_CurrentS1);
                         SetTextBoxText("0", TB_CurrentAdvances, TB_AdvancesIncrease);
-
+                        consecutiveFails = 0;
 
                         if (tab != null)
                         {
@@ -1256,6 +1258,19 @@ public partial class MainWindow : Form
                     }
                     else
                     {
+                        if (consecutiveFails == 0)
+                        {
+                            await Webhook
+                                .SendErrorNotification(
+                                    $"Advances passed since last reset: {passed:N0}, please check that all controllers are disconnected, your configured timings are correct, and the routine is working properly.\n\nThe routine will continue until this happens again without a successful reset in between.",
+                                    "Seed Reset Notification", CancellationToken.None).ConfigureAwait(false);
+                            consecutiveFails++;
+                        }
+                        else
+                        {
+                            throw new Exception("Seed reset failed to get a new seed twice in a row, cancelling routine to preserve your CPU.");
+                        }
+
                         await Task.Delay(5_000, ResetSource.Token).ConfigureAwait(false);
                     }
 
@@ -1268,10 +1283,10 @@ public partial class MainWindow : Form
                         if (first)
                         {
                             await ConnectionWrapper.PressL3(ResetSource.Token).ConfigureAwait(false); // First input doesn't always go through
-                            first = false;
                         }
-                        await ConnectionWrapper.CloseGame(cfg, ResetSource.Token).ConfigureAwait(false);
+                        await ConnectionWrapper.CloseGame(cfg, first, ResetSource.Token).ConfigureAwait(false);
                         await ConnectionWrapper.OpenGame(cfg, ResetSource.Token).ConfigureAwait(false);
+                        first = false;
                         UpdateStatus($"Searching... ({ct})");
                     }
 
@@ -1281,7 +1296,6 @@ public partial class MainWindow : Form
                         SetControlEnabledState(false, B_CancelSkip);
                         if (GetCheckBoxIsChecked(CB_FocusWindow)) ActivateWindow();
                         if (GetCheckBoxIsChecked(CB_PlayTone)) System.Media.SystemSounds.Asterisk.Play();
-                        await ConnectionWrapper.PressHome(ResetSource.Token).ConfigureAwait(false);
                         var timeSpan = Stopwatch.GetElapsedTime(sw);
                         var time = $"{timeSpan.Days:00}:{timeSpan.Hours:00}:{timeSpan.Minutes:00}:{timeSpan.Seconds:00}";
                         await Webhook.SendNotification(Frames[0], time, ct, Frames.Count, Frames.Any(x => x.Shiny != "No"), ResetSource.Token).ConfigureAwait(false);
@@ -1304,9 +1318,15 @@ public partial class MainWindow : Form
                 {
                     try
                     {
-                        await Webhook.SendErrorNotification(ex.Message, "Seed Reset Error", CancellationToken.None).ConfigureAwait(false);
+                        await Webhook.SendErrorNotification(ex.Message, "Seed Reset Error", CancellationToken.None)
+                            .ConfigureAwait(false);
                     }
-                    catch { }
+                    catch
+                    {
+                        // Unhandled
+                    }
+
+                    UpdateStatus("Seed Reset Error.");
                     this.DisplayMessageBox($"Error occurred during Seed Reset routine: {ex.Message}");
                 }
                 return;

@@ -18,7 +18,7 @@ public class WebhookHandler(IWebhookConfig config)
     {
         if (WebhookURLs is null || !config.WebhookEnabled) return;
 
-        var personal = Encounters.Personal![frame.Species]!;
+        var personal = Encounters.Personal![frame.Species];
 
         var color = GetWebhookColor(personal.Types![0]);
 
