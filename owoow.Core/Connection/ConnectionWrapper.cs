@@ -267,21 +267,22 @@ public class ConnectionWrapperAsync(SwitchConnectionConfig Config, Action<string
         return (pks, block.X, block.Y, block.Z, block.M);
     }
 
+    private static RNG.GeneratorConfig DefaultConfig => new();
     private PK8 GetPK8FromOverworldData(Span<byte> data)
     {
         PK8 pk = new()
         {
-            Species = ReadUInt16LittleEndian(data[0x0..]),
+            Species = ReadUInt16LittleEndian(data[..]),
             Form = data[2],
             CurrentLevel = data[4],
             Nature = (Nature)data[8],
-            Gender = (byte)((data[0x0a] == 1) ? 0 : 1),
+            Gender = (byte)(data[0x0a] == 1 ? 0 : 1),
             TID16 = sav.MyStatus.TID16,
             SID16 = sav.MyStatus.SID16,
             Version = (GameVersion)44,
         };
         pk.SetNature((Nature)data[8]);
-        pk.SetAbility(data[0x0c] - 1);
+        pk.SetAbilityIndex(data[0x0c] - 1);
         if (data[0x16] != 0xFF) pk.SetRibbonIndex((RibbonIndex)data[0x16]);
         if (!pk.IsGenderValid()) pk.Gender = 2;
         if (data[0x0e] == 1) pk.HeldItem = data[0x10];
@@ -294,7 +295,7 @@ public class ConnectionWrapperAsync(SwitchConnectionConfig Config, Action<string
         pk.EncryptionConstant = RNG.Generators.Fixed.GenerateEC(ref rng);
         pk.PID = RNG.Generators.Fixed.GeneratePID(ref rng, shiny, RNG.Util.GetShinyValue(sav.MyStatus.TID16, sav.MyStatus.SID16));
 
-        var (_, ivs) = RNG.Generators.Fixed.GenerateIVs(ref rng, fixedivs, new RNG.GeneratorConfig());
+        var (_, ivs) = RNG.Generators.Fixed.GenerateIVs(ref rng, fixedivs, DefaultConfig);
         pk.IV_HP = ivs[0];
         pk.IV_ATK = ivs[1];
         pk.IV_DEF = ivs[2];
