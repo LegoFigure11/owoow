@@ -125,7 +125,7 @@ namespace owoow.WinForms.Subforms
             DGV_Results.ReadOnly = true;
             DGV_Results.RowHeadersVisible = false;
             DGV_Results.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            DGV_Results.Size = new Size(570, 427);
+            DGV_Results.Size = new Size(589, 427);
             DGV_Results.TabIndex = 33;
             DGV_Results.CellFormatting += DGV_Results_CellFormatting;
             // 
@@ -668,7 +668,7 @@ namespace owoow.WinForms.Subforms
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(819, 450);
             Controls.Add(L_Target);
             Controls.Add(TB_Single);
             Controls.Add(B_GenerateSingle);
@@ -720,6 +720,7 @@ namespace owoow.WinForms.Subforms
             Controls.Add(NUD_HP_Min);
             Controls.Add(DGV_Results);
             Icon = (Icon)resources.GetObject("$this.Icon");
+            MinimumSize = new Size(835, 489);
             Name = "SpreadFinder";
             Text = "Spread Finder";
             FormClosing += SpreadFinder_FormClosing;

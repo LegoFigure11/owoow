@@ -241,6 +241,7 @@ namespace owoow.WinForms.Subforms
             Controls.Add(CB_Species);
             Controls.Add(L_Species);
             Icon = (Icon)resources.GetObject("$this.Icon");
+            MinimumSize = new Size(816, 154);
             Name = "EncounterLookup";
             Text = "Encounter Lookup";
             FormClosing += EncounterLookup_FormClosing;

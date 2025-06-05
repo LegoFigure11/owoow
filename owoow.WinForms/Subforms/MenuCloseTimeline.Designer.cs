@@ -304,6 +304,7 @@ namespace owoow.WinForms.Subforms
             Controls.Add(GB_Seed);
             Controls.Add(GB_SearchSettings);
             Icon = (Icon)resources.GetObject("$this.Icon");
+            MinimumSize = new Size(519, 253);
             Name = "MenuCloseTimeline";
             Text = "Menu Close Timeline";
             FormClosing += MenuCloseTimeline_FormClosing;

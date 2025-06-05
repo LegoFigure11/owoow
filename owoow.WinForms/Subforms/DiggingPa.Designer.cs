@@ -366,6 +366,7 @@ namespace owoow.WinForms.Subforms
             Controls.Add(GB_Seed);
             Controls.Add(GB_SearchSettings);
             Icon = (Icon)resources.GetObject("$this.Icon");
+            MinimumSize = new Size(816, 297);
             Name = "DiggingPa";
             Text = "Digging Pa";
             FormClosing += MenuCloseTimeline_FormClosing;

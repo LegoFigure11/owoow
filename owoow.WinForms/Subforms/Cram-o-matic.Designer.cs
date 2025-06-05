@@ -450,6 +450,7 @@ namespace owoow.WinForms.Subforms
             Controls.Add(GB_Seed);
             Controls.Add(GB_SearchSettings);
             Icon = (Icon)resources.GetObject("$this.Icon");
+            MinimumSize = new Size(816, 392);
             Name = "Cramomatic";
             Text = "Cram-o-matic";
             FormClosing += MenuCloseTimeline_FormClosing;
