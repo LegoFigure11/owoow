@@ -43,6 +43,8 @@ namespace owoow.WinForms.Subforms
             TB_Interval = new TextBox();
             CB_NTPAfter = new CheckBox();
             CB_NTPWhile = new CheckBox();
+            TB_Sleep = new TextBox();
+            L_Sleep = new Label();
             SuspendLayout();
             // 
             // LB_List
@@ -124,7 +126,7 @@ namespace owoow.WinForms.Subforms
             // L_NTPAfter
             // 
             L_NTPAfter.AutoSize = true;
-            L_NTPAfter.Location = new Point(12, 201);
+            L_NTPAfter.Location = new Point(8, 226);
             L_NTPAfter.Name = "L_NTPAfter";
             L_NTPAfter.Size = new Size(137, 15);
             L_NTPAfter.TabIndex = 8;
@@ -133,7 +135,7 @@ namespace owoow.WinForms.Subforms
             // L_NTPWhile
             // 
             L_NTPWhile.AutoSize = true;
-            L_NTPWhile.Location = new Point(12, 226);
+            L_NTPWhile.Location = new Point(8, 251);
             L_NTPWhile.Name = "L_NTPWhile";
             L_NTPWhile.Size = new Size(141, 15);
             L_NTPWhile.TabIndex = 9;
@@ -142,15 +144,15 @@ namespace owoow.WinForms.Subforms
             // L_Interval
             // 
             L_Interval.AutoSize = true;
-            L_Interval.Location = new Point(12, 250);
+            L_Interval.Location = new Point(8, 275);
             L_Interval.Name = "L_Interval";
-            L_Interval.Size = new Size(49, 15);
+            L_Interval.Size = new Size(110, 15);
             L_Interval.TabIndex = 10;
-            L_Interval.Text = "Interval:";
+            L_Interval.Text = "NTP Interval (Days):";
             // 
             // TB_Interval
             // 
-            TB_Interval.Location = new Point(158, 247);
+            TB_Interval.Location = new Point(158, 272);
             TB_Interval.MaxLength = 4;
             TB_Interval.Name = "TB_Interval";
             TB_Interval.Size = new Size(43, 23);
@@ -161,7 +163,7 @@ namespace owoow.WinForms.Subforms
             // CB_NTPAfter
             // 
             CB_NTPAfter.AutoSize = true;
-            CB_NTPAfter.Location = new Point(180, 202);
+            CB_NTPAfter.Location = new Point(176, 227);
             CB_NTPAfter.Name = "CB_NTPAfter";
             CB_NTPAfter.Size = new Size(15, 14);
             CB_NTPAfter.TabIndex = 12;
@@ -171,18 +173,39 @@ namespace owoow.WinForms.Subforms
             // CB_NTPWhile
             // 
             CB_NTPWhile.AutoSize = true;
-            CB_NTPWhile.Location = new Point(180, 227);
+            CB_NTPWhile.Location = new Point(176, 252);
             CB_NTPWhile.Name = "CB_NTPWhile";
             CB_NTPWhile.Size = new Size(15, 14);
             CB_NTPWhile.TabIndex = 13;
             CB_NTPWhile.UseVisualStyleBackColor = true;
             CB_NTPWhile.CheckedChanged += CB_NTPWhile_CheckedChanged;
             // 
+            // TB_Sleep
+            // 
+            TB_Sleep.Location = new Point(158, 198);
+            TB_Sleep.MaxLength = 4;
+            TB_Sleep.Name = "TB_Sleep";
+            TB_Sleep.Size = new Size(43, 23);
+            TB_Sleep.TabIndex = 15;
+            TB_Sleep.Text = "wwww";
+            TB_Sleep.TextChanged += TB_Sleep_TextChanged;
+            // 
+            // L_Sleep
+            // 
+            L_Sleep.AutoSize = true;
+            L_Sleep.Location = new Point(8, 201);
+            L_Sleep.Name = "L_Sleep";
+            L_Sleep.Size = new Size(147, 15);
+            L_Sleep.TabIndex = 14;
+            L_Sleep.Text = "Time between inputs (ms):";
+            // 
             // TurboSettings
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(211, 278);
+            ClientSize = new Size(211, 303);
+            Controls.Add(TB_Sleep);
+            Controls.Add(L_Sleep);
             Controls.Add(CB_NTPWhile);
             Controls.Add(CB_NTPAfter);
             Controls.Add(TB_Interval);
@@ -222,5 +245,7 @@ namespace owoow.WinForms.Subforms
         private TextBox TB_Interval;
         private CheckBox CB_NTPAfter;
         private CheckBox CB_NTPWhile;
+        private TextBox TB_Sleep;
+        private Label L_Sleep;
     }
 }

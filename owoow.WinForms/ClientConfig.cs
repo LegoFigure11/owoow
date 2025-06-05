@@ -33,6 +33,8 @@ public class ClientConfig : ISeedResetConfig, ITurboConfig, IWebhookConfig
     public bool LoopTurbo { get; set; } = false;
     public List<string> TurboSequence { get; set; } = [];
 
+    public int InputSleepTime { get; set; } = 200;
+
     public bool NTPAfterDateSkipping { get; set; } = true;
     public bool NTPWhileDateSkipping { get; set; } = true;
     public uint NTPWhileDateSkippingInterval { get; set; } = 366;

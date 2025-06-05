@@ -31,11 +31,14 @@ public partial class TurboSettings : Form
 
         CB_Loop.Checked = c.LoopTurbo;
 
+        TB_Sleep.Text = $"{c.InputSleepTime}";
+
         CB_NTPAfter.Checked = c.NTPAfterDateSkipping;
         CB_NTPWhile.Checked = c.NTPWhileDateSkipping;
         TB_Interval.Text = $"{c.NTPWhileDateSkippingInterval}";
         TB_Interval.Enabled = c.NTPWhileDateSkipping;
 
+        TB_Sleep.KeyPress += p.KeyPress_AllowOnlyNumerical!;
         TB_Interval.KeyPress += p.KeyPress_AllowOnlyNumerical!;
 
         ReloadList();
@@ -130,5 +133,12 @@ public partial class TurboSettings : Form
         if (string.IsNullOrEmpty(TB_Interval.Text) || TB_Interval.Text == "0") TB_Interval.Text = "10";
         if (!uint.TryParse(TB_Interval.Text, out _)) TB_Interval.Text = "10";
         c.NTPWhileDateSkippingInterval = Math.Max(uint.Parse(TB_Interval.Text), 10);
+    }
+
+    private void TB_Sleep_TextChanged(object sender, EventArgs e)
+    {
+        if (string.IsNullOrEmpty(TB_Sleep.Text) || TB_Sleep.Text == "0") TB_Sleep.Text = "50";
+        if (!int.TryParse(TB_Sleep.Text, out _)) TB_Sleep.Text = "50";
+        c.InputSleepTime = Math.Max(int.Parse(TB_Sleep.Text), 50);
     }
 }

@@ -36,9 +36,9 @@ public partial class MainWindow : Form
 
     private bool stop;
     private bool reset;
-    private bool readPause = false;
-    private bool skipPause = false;
-    private bool resetPause = false;
+    private bool readPause;
+    private bool skipPause;
+    private bool resetPause;
     private long total;
 
     private List<OverworldFrame> Frames = [];
@@ -344,7 +344,7 @@ public partial class MainWindow : Form
                         {
                             if (!AdvanceSource.IsCancellationRequested) await ConnectionWrapper.DoTurboCommand(Config.TurboSequence[i], AdvanceSource.Token).ConfigureAwait(false);
                             i = (i + 1) % Config.TurboSequence.Count;
-                            if (!AdvanceSource.IsCancellationRequested) await Task.Delay(200, AdvanceSource.Token).ConfigureAwait(false);
+                            if (!AdvanceSource.IsCancellationRequested) await Task.Delay(Config.InputSleepTime, AdvanceSource.Token).ConfigureAwait(false);
                             if (i == 0) flag = true;
                         } while (!AdvanceSource.IsCancellationRequested && (Config.LoopTurbo || !flag) && !skipPause && Config.TurboSequence.Count > 0);
                     }
@@ -1326,7 +1326,7 @@ public partial class MainWindow : Form
                         // Unhandled
                     }
 
-                    UpdateStatus("Seed Reset Error.");
+                    UpdateStatus("Seed Reset Error");
                     this.DisplayMessageBox($"Error occurred during Seed Reset routine: {ex.Message}");
                 }
                 return;
