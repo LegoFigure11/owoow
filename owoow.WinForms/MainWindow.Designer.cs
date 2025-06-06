@@ -3160,6 +3160,7 @@ namespace owoow.WinForms
             Controls.Add(MS_SubWindows);
             Icon = (Icon)resources.GetObject("$this.Icon");
             MainMenuStrip = MS_SubWindows;
+            MinimumSize = new Size(883, 472);
             Name = "MainWindow";
             RightToLeft = RightToLeft.No;
             FormClosing += MainWindow_FormClosing;
