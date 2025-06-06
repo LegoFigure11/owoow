@@ -4,7 +4,7 @@ public enum AbilityType
 {
     NoEffect,
     IncreaseEncounterRate,
-    DecreseEncounterRate,
+    DecreaseEncounterRate,
     Synchronize,
     CuteCharm,
     TypePulling,

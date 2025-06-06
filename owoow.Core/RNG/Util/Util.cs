@@ -55,7 +55,7 @@ public static class Util
         var rate = Math.Min((step + 1) * 22, 100);
         switch (ability)
         {
-            case AbilityType.DecreseEncounterRate:
+            case AbilityType.DecreaseEncounterRate:
                 rate >>= 3;
                 break;
 

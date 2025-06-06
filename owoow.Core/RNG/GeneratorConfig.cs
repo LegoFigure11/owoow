@@ -22,7 +22,7 @@ public class GeneratorConfig
     public AbilityType AbilityType => LeadAbility switch
     {
         "Illuminate" or "Arena Trap" or "No Guard" => AbilityType.IncreaseEncounterRate,
-        "Stench" or "Quick Feet" or "White Smoke" or "Infiltrator" => AbilityType.DecreseEncounterRate,
+        "Stench" or "Quick Feet" or "White Smoke" or "Infiltrator" => AbilityType.DecreaseEncounterRate,
         "Synchronize" => AbilityType.Synchronize,
         "Cute Charm" => AbilityType.CuteCharm,
         "Magnet Pull" or "Lightning Rod" or "Static" or "Flash Fire" or "Storm Drain" or "Harvest" => AbilityType.TypePulling,
