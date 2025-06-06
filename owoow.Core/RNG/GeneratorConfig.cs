@@ -15,6 +15,7 @@ public class GeneratorConfig
 
     public uint[] TargetMinIVs { get; set; } = [0, 0, 0, 0, 0, 0];
     public uint[] TargetMaxIVs { get; set; } = [31, 31, 31, 31, 31, 31];
+    public IVSearchType[] SearchTypes { get; set; } = [IVSearchType.Range, IVSearchType.Range, IVSearchType.Range, IVSearchType.Range, IVSearchType.Range, IVSearchType.Range];
 
     public bool RareEC { get; set; } = false;
 
@@ -47,7 +48,7 @@ public class GeneratorConfig
     public WeatherType Weather { get; set; } = WeatherType.AllWeather;
     public bool WeatherActive => Weather != WeatherType.NormalWeather;
 
-    public bool IsDexRecActive => DexRecSlots.Where(s => s != 0).Any();
+    public bool IsDexRecActive => DexRecSlots.Any(s => s != 0);
     public short[] DexRecSlots { get; set; } = [0, 0, 0, 0];
 
     public bool ConsiderMenuClose { get; set; } = false;

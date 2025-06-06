@@ -1,3 +1,4 @@
+using owoow.Core.Enums;
 using PKHeX.Core;
 
 namespace owoow.Core.RNG.Generators;
@@ -56,14 +57,26 @@ public static class Fixed
 
             ivs[idx] = 31;
 
-            if (config.FiltersEnabled && ivs[idx] > config.TargetMaxIVs[idx]) return (false, ivs);
+            if (
+                config.FiltersEnabled &&
+                (
+                    (config.SearchTypes[idx] == IVSearchType.Range && ivs[idx] > config.TargetMaxIVs[idx]) ||
+                    (config.SearchTypes[idx] == IVSearchType.Or && ivs[idx] != config.TargetMinIVs[idx] && ivs[idx] != config.TargetMaxIVs[idx])
+                )
+            ) return (false, ivs);
         }
         // Random
         for (var i = 0; i < 6; i++)
         {
             if (ivs[i] == 32) ivs[i] = GenerateIV(ref rng);
 
-            if (config.FiltersEnabled && (ivs[i] < config.TargetMinIVs[i] || ivs[i] > config.TargetMaxIVs[i])) return (false, ivs);
+            if (
+                config.FiltersEnabled &&
+                (
+                    (config.SearchTypes[i] == IVSearchType.Range && (ivs[i] < config.TargetMinIVs[i] || ivs[i] > config.TargetMaxIVs[i])) ||
+                    (config.SearchTypes[i] == IVSearchType.Or && ivs[i] != config.TargetMinIVs[i] && ivs[i] != config.TargetMaxIVs[i])
+                )
+            ) return (false, ivs);
         }
         return (true, ivs);
     }

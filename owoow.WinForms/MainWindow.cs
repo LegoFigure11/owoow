@@ -575,6 +575,7 @@ public partial class MainWindow : Form
 
             TargetMinIVs = [(uint)NUD_HP_Min.Value, (uint)NUD_Atk_Min.Value, (uint)NUD_Def_Min.Value, (uint)NUD_SpA_Min.Value, (uint)NUD_SpD_Min.Value, (uint)NUD_Spe_Min.Value],
             TargetMaxIVs = [(uint)NUD_HP_Max.Value, (uint)NUD_Atk_Max.Value, (uint)NUD_Def_Max.Value, (uint)NUD_SpA_Max.Value, (uint)NUD_SpD_Max.Value, (uint)NUD_Spe_Max.Value],
+            SearchTypes = [GetIVSearchType(L_HPSpacer.Text), GetIVSearchType(L_AtkSpacer.Text), GetIVSearchType(L_DefSpacer.Text), GetIVSearchType(L_SpASpacer.Text), GetIVSearchType(L_SpDSpacer.Text), GetIVSearchType(L_SpeSpacer.Text)],
 
             AuraKOs = int.Parse(TB_Symbol_KOs.Text),
 
@@ -691,6 +692,7 @@ public partial class MainWindow : Form
 
             TargetMinIVs = [(uint)NUD_HP_Min.Value, (uint)NUD_Atk_Min.Value, (uint)NUD_Def_Min.Value, (uint)NUD_SpA_Min.Value, (uint)NUD_SpD_Min.Value, (uint)NUD_Spe_Min.Value],
             TargetMaxIVs = [(uint)NUD_HP_Max.Value, (uint)NUD_Atk_Max.Value, (uint)NUD_Def_Max.Value, (uint)NUD_SpA_Max.Value, (uint)NUD_SpD_Max.Value, (uint)NUD_Spe_Max.Value],
+            SearchTypes = [GetIVSearchType(L_HPSpacer.Text), GetIVSearchType(L_AtkSpacer.Text), GetIVSearchType(L_DefSpacer.Text), GetIVSearchType(L_SpASpacer.Text), GetIVSearchType(L_SpDSpacer.Text), GetIVSearchType(L_SpeSpacer.Text)],
 
             RareEC = CB_RareEC.Checked,
 
@@ -803,6 +805,7 @@ public partial class MainWindow : Form
 
             TargetMinIVs = [(uint)NUD_HP_Min.Value, (uint)NUD_Atk_Min.Value, (uint)NUD_Def_Min.Value, (uint)NUD_SpA_Min.Value, (uint)NUD_SpD_Min.Value, (uint)NUD_Spe_Min.Value],
             TargetMaxIVs = [(uint)NUD_HP_Max.Value, (uint)NUD_Atk_Max.Value, (uint)NUD_Def_Max.Value, (uint)NUD_SpA_Max.Value, (uint)NUD_SpD_Max.Value, (uint)NUD_Spe_Max.Value],
+            SearchTypes = [GetIVSearchType(L_HPSpacer.Text), GetIVSearchType(L_AtkSpacer.Text), GetIVSearchType(L_DefSpacer.Text), GetIVSearchType(L_SpASpacer.Text), GetIVSearchType(L_SpDSpacer.Text), GetIVSearchType(L_SpeSpacer.Text)],
 
             RareEC = CB_RareEC.Checked,
 
@@ -908,6 +911,7 @@ public partial class MainWindow : Form
 
             TargetMinIVs = [(uint)NUD_HP_Min.Value, (uint)NUD_Atk_Min.Value, (uint)NUD_Def_Min.Value, (uint)NUD_SpA_Min.Value, (uint)NUD_SpD_Min.Value, (uint)NUD_Spe_Min.Value],
             TargetMaxIVs = [(uint)NUD_HP_Max.Value, (uint)NUD_Atk_Max.Value, (uint)NUD_Def_Max.Value, (uint)NUD_SpA_Max.Value, (uint)NUD_SpD_Max.Value, (uint)NUD_Spe_Max.Value],
+            SearchTypes = [GetIVSearchType(L_HPSpacer.Text), GetIVSearchType(L_AtkSpacer.Text), GetIVSearchType(L_DefSpacer.Text), GetIVSearchType(L_SpASpacer.Text), GetIVSearchType(L_SpDSpacer.Text), GetIVSearchType(L_SpeSpacer.Text)],
 
             AuraKOs = int.Parse(TB_Fishing_KOs.Text),
 
@@ -1032,6 +1036,7 @@ public partial class MainWindow : Form
 
                 TargetMinIVs = [(uint)NUD_HP_Min.Value, (uint)NUD_Atk_Min.Value, (uint)NUD_Def_Min.Value, (uint)NUD_SpA_Min.Value, (uint)NUD_SpD_Min.Value, (uint)NUD_Spe_Min.Value],
                 TargetMaxIVs = [(uint)NUD_HP_Max.Value, (uint)NUD_Atk_Max.Value, (uint)NUD_Def_Max.Value, (uint)NUD_SpA_Max.Value, (uint)NUD_SpD_Max.Value, (uint)NUD_Spe_Max.Value],
+                SearchTypes = [GetIVSearchType(L_HPSpacer.Text), GetIVSearchType(L_AtkSpacer.Text), GetIVSearchType(L_DefSpacer.Text), GetIVSearchType(L_SpASpacer.Text), GetIVSearchType(L_SpDSpacer.Text), GetIVSearchType(L_SpeSpacer.Text)],
 
                 RareEC = CB_RareEC.Checked,
 
@@ -1174,7 +1179,7 @@ public partial class MainWindow : Form
 
                                 TargetMinIVs = [GetNUDValue(NUD_HP_Min), GetNUDValue(NUD_Atk_Min), GetNUDValue(NUD_Def_Min), GetNUDValue(NUD_SpA_Min), GetNUDValue(NUD_SpD_Min), GetNUDValue(NUD_Spe_Min)],
                                 TargetMaxIVs = [GetNUDValue(NUD_HP_Max), GetNUDValue(NUD_Atk_Max), GetNUDValue(NUD_Def_Max), GetNUDValue(NUD_SpA_Max), GetNUDValue(NUD_SpD_Max), GetNUDValue(NUD_Spe_Max)],
-
+                                SearchTypes = [GetIVSearchType(GetControlText(L_HPSpacer)), GetIVSearchType(GetControlText(L_AtkSpacer)), GetIVSearchType(GetControlText(L_DefSpacer)), GetIVSearchType(GetControlText(L_SpASpacer)), GetIVSearchType(GetControlText(L_SpDSpacer)), GetIVSearchType(GetControlText(L_SpeSpacer))],
                                 RareEC = GetCheckBoxIsChecked(CB_RareEC),
 
                                 DexRecSlots =
@@ -1946,7 +1951,6 @@ public partial class MainWindow : Form
         }
     }
 
-
     private void IV_Label_Click(object sender, EventArgs e)
     {
         var st = ((Label)sender).Name.Replace("L_", string.Empty);
@@ -1955,8 +1959,29 @@ public partial class MainWindow : Form
         {
             var min = (NumericUpDown)Controls.Find($"NUD_{stat}_Min", true).FirstOrDefault()!;
             var max = (NumericUpDown)Controls.Find($"NUD_{stat}_Max", true).FirstOrDefault()!;
+            var lab = (Label)Controls.Find($"L_{stat}Spacer", true).FirstOrDefault()!;
             min.Value = 0;
             max.Value = 31;
+            if (lab.Text == "||")
+            {
+                lab.Text = "~";
+                lab.Location = lab.Location with { X = lab.Location.X - 1 };
+            }
+        }
+    }
+
+    private void IV_Spacer_Click(object sender, EventArgs e)
+    {
+        var l = (Label)sender;
+        if (l.Text == "~")
+        {
+            l.Text = "||";
+            l.Location = l.Location with { X = l.Location.X + 1 };
+        }
+        else
+        {
+            l.Text = "~";
+            l.Location = l.Location with { X = l.Location.X - 1 };
         }
     }
 

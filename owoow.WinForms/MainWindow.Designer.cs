@@ -525,7 +525,7 @@ namespace owoow.WinForms
             // L_Filter_Height
             // 
             L_Filter_Height.AutoSize = true;
-            L_Filter_Height.Location = new Point(6, 252);
+            L_Filter_Height.Location = new Point(2, 252);
             L_Filter_Height.Name = "L_Filter_Height";
             L_Filter_Height.Size = new Size(46, 15);
             L_Filter_Height.TabIndex = 47;
@@ -536,16 +536,16 @@ namespace owoow.WinForms
             // 
             CB_Filter_Height.FormattingEnabled = true;
             CB_Filter_Height.Items.AddRange(new object[] { "Ignore", "XXXS", "XXS", "XS", "S", "M", "L", "XL", "XXL", "XXXL", "XXXS or XXXL" });
-            CB_Filter_Height.Location = new Point(58, 249);
+            CB_Filter_Height.Location = new Point(54, 249);
             CB_Filter_Height.Name = "CB_Filter_Height";
-            CB_Filter_Height.Size = new Size(138, 23);
+            CB_Filter_Height.Size = new Size(142, 23);
             CB_Filter_Height.TabIndex = 27;
             CB_Filter_Height.Leave += CB_Leave;
             // 
             // L_Filter_Aura
             // 
             L_Filter_Aura.AutoSize = true;
-            L_Filter_Aura.Location = new Point(17, 226);
+            L_Filter_Aura.Location = new Point(13, 226);
             L_Filter_Aura.Name = "L_Filter_Aura";
             L_Filter_Aura.Size = new Size(35, 15);
             L_Filter_Aura.TabIndex = 45;
@@ -556,16 +556,16 @@ namespace owoow.WinForms
             // 
             CB_Filter_Aura.FormattingEnabled = true;
             CB_Filter_Aura.Items.AddRange(new object[] { "Ignore", "Brilliant", "None" });
-            CB_Filter_Aura.Location = new Point(58, 223);
+            CB_Filter_Aura.Location = new Point(54, 223);
             CB_Filter_Aura.Name = "CB_Filter_Aura";
-            CB_Filter_Aura.Size = new Size(138, 23);
+            CB_Filter_Aura.Size = new Size(142, 23);
             CB_Filter_Aura.TabIndex = 26;
             CB_Filter_Aura.Leave += CB_Leave;
             // 
             // L_Filter_Mark
             // 
             L_Filter_Mark.AutoSize = true;
-            L_Filter_Mark.Location = new Point(15, 200);
+            L_Filter_Mark.Location = new Point(11, 200);
             L_Filter_Mark.Name = "L_Filter_Mark";
             L_Filter_Mark.Size = new Size(37, 15);
             L_Filter_Mark.TabIndex = 43;
@@ -576,16 +576,16 @@ namespace owoow.WinForms
             // 
             CB_Filter_Mark.FormattingEnabled = true;
             CB_Filter_Mark.Items.AddRange(new object[] { "Ignore", "None", "Any Mark", "Any Personality", "Personality/Rare", "Uncommon", "Time", "Weather", "Fishing", "Rare", "Rowdy", "Absent-Minded", "Jittery", "Excited", "Charismatic", "Calmness", "Intense", "Zoned-Out", "Joyful", "Angry", "Smiley", "Teary", "Upbeat", "Peeved", "Intellectual", "Ferocious", "Crafty", "Scowling", "Kindly", "Flustered", "Pumped-Up", "Zero Energy", "Prideful", "Unsure", "Humble", "Thorny", "Vigor", "Slump" });
-            CB_Filter_Mark.Location = new Point(58, 197);
+            CB_Filter_Mark.Location = new Point(54, 197);
             CB_Filter_Mark.Name = "CB_Filter_Mark";
-            CB_Filter_Mark.Size = new Size(138, 23);
+            CB_Filter_Mark.Size = new Size(142, 23);
             CB_Filter_Mark.TabIndex = 25;
             CB_Filter_Mark.Leave += CB_Leave;
             // 
             // L_Filter_Shiny
             // 
             L_Filter_Shiny.AutoSize = true;
-            L_Filter_Shiny.Location = new Point(13, 174);
+            L_Filter_Shiny.Location = new Point(9, 174);
             L_Filter_Shiny.Name = "L_Filter_Shiny";
             L_Filter_Shiny.Size = new Size(39, 15);
             L_Filter_Shiny.TabIndex = 41;
@@ -596,9 +596,9 @@ namespace owoow.WinForms
             // 
             CB_Filter_Shiny.FormattingEnabled = true;
             CB_Filter_Shiny.Items.AddRange(new object[] { "Ignore", "Star/Square", "Square Only", "Star Only", "Not Shiny" });
-            CB_Filter_Shiny.Location = new Point(58, 171);
+            CB_Filter_Shiny.Location = new Point(54, 171);
             CB_Filter_Shiny.Name = "CB_Filter_Shiny";
-            CB_Filter_Shiny.Size = new Size(138, 23);
+            CB_Filter_Shiny.Size = new Size(142, 23);
             CB_Filter_Shiny.TabIndex = 24;
             CB_Filter_Shiny.Leave += CB_Leave;
             // 
@@ -625,7 +625,7 @@ namespace owoow.WinForms
             // L_Spe
             // 
             L_Spe.AutoSize = true;
-            L_Spe.Location = new Point(23, 146);
+            L_Spe.Location = new Point(19, 146);
             L_Spe.Name = "L_Spe";
             L_Spe.Size = new Size(29, 15);
             L_Spe.TabIndex = 37;
@@ -635,11 +635,12 @@ namespace owoow.WinForms
             // L_SpeSpacer
             // 
             L_SpeSpacer.AutoSize = true;
-            L_SpeSpacer.Location = new Point(91, 144);
+            L_SpeSpacer.Location = new Point(87, 144);
             L_SpeSpacer.Name = "L_SpeSpacer";
-            L_SpeSpacer.Size = new Size(12, 15);
+            L_SpeSpacer.Size = new Size(15, 15);
             L_SpeSpacer.TabIndex = 11;
-            L_SpeSpacer.Text = "-";
+            L_SpeSpacer.Text = "~";
+            L_SpeSpacer.Click += IV_Spacer_Click;
             // 
             // NUD_Spe_Max
             // 
@@ -653,7 +654,7 @@ namespace owoow.WinForms
             // 
             // NUD_Spe_Min
             // 
-            NUD_Spe_Min.Location = new Point(58, 142);
+            NUD_Spe_Min.Location = new Point(54, 142);
             NUD_Spe_Min.Maximum = new decimal(new int[] { 31, 0, 0, 0 });
             NUD_Spe_Min.Name = "NUD_Spe_Min";
             NUD_Spe_Min.Size = new Size(32, 23);
@@ -683,7 +684,7 @@ namespace owoow.WinForms
             // L_SpD
             // 
             L_SpD.AutoSize = true;
-            L_SpD.Location = new Point(21, 122);
+            L_SpD.Location = new Point(17, 122);
             L_SpD.Name = "L_SpD";
             L_SpD.Size = new Size(31, 15);
             L_SpD.TabIndex = 31;
@@ -693,11 +694,12 @@ namespace owoow.WinForms
             // L_SpDSpacer
             // 
             L_SpDSpacer.AutoSize = true;
-            L_SpDSpacer.Location = new Point(91, 119);
+            L_SpDSpacer.Location = new Point(87, 119);
             L_SpDSpacer.Name = "L_SpDSpacer";
-            L_SpDSpacer.Size = new Size(12, 15);
+            L_SpDSpacer.Size = new Size(15, 15);
             L_SpDSpacer.TabIndex = 9;
-            L_SpDSpacer.Text = "-";
+            L_SpDSpacer.Text = "~";
+            L_SpDSpacer.Click += IV_Spacer_Click;
             // 
             // NUD_SpD_Max
             // 
@@ -711,7 +713,7 @@ namespace owoow.WinForms
             // 
             // NUD_SpD_Min
             // 
-            NUD_SpD_Min.Location = new Point(58, 117);
+            NUD_SpD_Min.Location = new Point(54, 117);
             NUD_SpD_Min.Maximum = new decimal(new int[] { 31, 0, 0, 0 });
             NUD_SpD_Min.Name = "NUD_SpD_Min";
             NUD_SpD_Min.Size = new Size(32, 23);
@@ -741,7 +743,7 @@ namespace owoow.WinForms
             // L_SpA
             // 
             L_SpA.AutoSize = true;
-            L_SpA.Location = new Point(21, 94);
+            L_SpA.Location = new Point(17, 94);
             L_SpA.Name = "L_SpA";
             L_SpA.Size = new Size(31, 15);
             L_SpA.TabIndex = 25;
@@ -751,11 +753,12 @@ namespace owoow.WinForms
             // L_SpASpacer
             // 
             L_SpASpacer.AutoSize = true;
-            L_SpASpacer.Location = new Point(91, 94);
+            L_SpASpacer.Location = new Point(87, 94);
             L_SpASpacer.Name = "L_SpASpacer";
-            L_SpASpacer.Size = new Size(12, 15);
+            L_SpASpacer.Size = new Size(15, 15);
             L_SpASpacer.TabIndex = 7;
-            L_SpASpacer.Text = "-";
+            L_SpASpacer.Text = "~";
+            L_SpASpacer.Click += IV_Spacer_Click;
             // 
             // NUD_SpA_Max
             // 
@@ -769,7 +772,7 @@ namespace owoow.WinForms
             // 
             // NUD_SpA_Min
             // 
-            NUD_SpA_Min.Location = new Point(58, 92);
+            NUD_SpA_Min.Location = new Point(54, 92);
             NUD_SpA_Min.Maximum = new decimal(new int[] { 31, 0, 0, 0 });
             NUD_SpA_Min.Name = "NUD_SpA_Min";
             NUD_SpA_Min.Size = new Size(32, 23);
@@ -799,7 +802,7 @@ namespace owoow.WinForms
             // L_Def
             // 
             L_Def.AutoSize = true;
-            L_Def.Location = new Point(24, 69);
+            L_Def.Location = new Point(20, 69);
             L_Def.Name = "L_Def";
             L_Def.Size = new Size(28, 15);
             L_Def.TabIndex = 19;
@@ -809,11 +812,12 @@ namespace owoow.WinForms
             // L_DefSpacer
             // 
             L_DefSpacer.AutoSize = true;
-            L_DefSpacer.Location = new Point(91, 69);
+            L_DefSpacer.Location = new Point(87, 69);
             L_DefSpacer.Name = "L_DefSpacer";
-            L_DefSpacer.Size = new Size(12, 15);
+            L_DefSpacer.Size = new Size(15, 15);
             L_DefSpacer.TabIndex = 5;
-            L_DefSpacer.Text = "-";
+            L_DefSpacer.Text = "~";
+            L_DefSpacer.Click += IV_Spacer_Click;
             // 
             // NUD_Def_Max
             // 
@@ -827,7 +831,7 @@ namespace owoow.WinForms
             // 
             // NUD_Def_Min
             // 
-            NUD_Def_Min.Location = new Point(58, 67);
+            NUD_Def_Min.Location = new Point(54, 67);
             NUD_Def_Min.Maximum = new decimal(new int[] { 31, 0, 0, 0 });
             NUD_Def_Min.Name = "NUD_Def_Min";
             NUD_Def_Min.Size = new Size(32, 23);
@@ -857,7 +861,7 @@ namespace owoow.WinForms
             // L_Atk
             // 
             L_Atk.AutoSize = true;
-            L_Atk.Location = new Point(24, 44);
+            L_Atk.Location = new Point(20, 44);
             L_Atk.Name = "L_Atk";
             L_Atk.Size = new Size(28, 15);
             L_Atk.TabIndex = 13;
@@ -867,11 +871,12 @@ namespace owoow.WinForms
             // L_AtkSpacer
             // 
             L_AtkSpacer.AutoSize = true;
-            L_AtkSpacer.Location = new Point(91, 44);
+            L_AtkSpacer.Location = new Point(87, 44);
             L_AtkSpacer.Name = "L_AtkSpacer";
-            L_AtkSpacer.Size = new Size(12, 15);
+            L_AtkSpacer.Size = new Size(15, 15);
             L_AtkSpacer.TabIndex = 3;
-            L_AtkSpacer.Text = "-";
+            L_AtkSpacer.Text = "~";
+            L_AtkSpacer.Click += IV_Spacer_Click;
             // 
             // NUD_Atk_Max
             // 
@@ -885,7 +890,7 @@ namespace owoow.WinForms
             // 
             // NUD_Atk_Min
             // 
-            NUD_Atk_Min.Location = new Point(58, 42);
+            NUD_Atk_Min.Location = new Point(54, 42);
             NUD_Atk_Min.Maximum = new decimal(new int[] { 31, 0, 0, 0 });
             NUD_Atk_Min.Name = "NUD_Atk_Min";
             NUD_Atk_Min.Size = new Size(32, 23);
@@ -915,7 +920,7 @@ namespace owoow.WinForms
             // L_HP
             // 
             L_HP.AutoSize = true;
-            L_HP.Location = new Point(26, 19);
+            L_HP.Location = new Point(22, 19);
             L_HP.Name = "L_HP";
             L_HP.Size = new Size(26, 15);
             L_HP.TabIndex = 7;
@@ -925,11 +930,12 @@ namespace owoow.WinForms
             // L_HPSpacer
             // 
             L_HPSpacer.AutoSize = true;
-            L_HPSpacer.Location = new Point(91, 19);
+            L_HPSpacer.Location = new Point(87, 19);
             L_HPSpacer.Name = "L_HPSpacer";
-            L_HPSpacer.Size = new Size(12, 15);
+            L_HPSpacer.Size = new Size(15, 15);
             L_HPSpacer.TabIndex = 6;
-            L_HPSpacer.Text = "-";
+            L_HPSpacer.Text = "~";
+            L_HPSpacer.Click += IV_Spacer_Click;
             // 
             // NUD_HP_Max
             // 
@@ -943,7 +949,7 @@ namespace owoow.WinForms
             // 
             // NUD_HP_Min
             // 
-            NUD_HP_Min.Location = new Point(58, 17);
+            NUD_HP_Min.Location = new Point(54, 17);
             NUD_HP_Min.Maximum = new decimal(new int[] { 31, 0, 0, 0 });
             NUD_HP_Min.Name = "NUD_HP_Min";
             NUD_HP_Min.Size = new Size(32, 23);

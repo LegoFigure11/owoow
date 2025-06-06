@@ -50,6 +50,7 @@ A comprehensive usage guide brought to you by [Billo-PS](https://github.com/Bill
 * Read Wild Encounters (Click) or the KCoordinates Overworld Save Block (Shift + Click) with the "Read Encounter" button (CFW only).
 * Reset any filter on the main window by clicking the associated label.
 * Shift + Click on an IV button or label to apply the effect to every stat (Shift + Max = 31 all, Shift + Min = 0 all, Shift + any stat name = reset all).
+* Click on the icon between IVs to switch between IV search modes for that stat: ``~`` for a range (e.g. ``0 ~ 31`` accepting all IVs, ``0 ~ 3`` accepting 0, 1, 2, or 3), or ``||`` for either or (e.g. ``0 || 31`` accepting 0 and 31 only, ``29 || 31`` accepting 29 and 31 only).
 
 ## Credits and thanks to
 

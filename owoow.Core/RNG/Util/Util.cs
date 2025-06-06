@@ -63,7 +63,6 @@ public static class Util
                 rate <<= 1;
                 break;
         }
-        ;
         return Math.Min(rate, 100);
     }
 
@@ -112,6 +111,9 @@ public static class Util
         "Heavy Fog" => WeatherType.HeavyFog,
         _ => WeatherType.AllWeather,
     };
+
+    public static IVSearchType GetIVSearchType(string labelText) =>
+        labelText == "||" ? IVSearchType.Or : IVSearchType.Range;
 
     public static string GetLotoIDPrizeName(LotoIDTargetType item) => item switch
     {
