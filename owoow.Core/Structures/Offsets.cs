@@ -1,4 +1,4 @@
-namespace owoow.Core.Connection;
+namespace owoow.Core.Structures;
 
 public abstract class Offsets
 {

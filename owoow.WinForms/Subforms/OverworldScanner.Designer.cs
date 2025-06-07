@@ -54,6 +54,12 @@ namespace owoow.WinForms.Subforms
             L_Z = new Label();
             L_X = new Label();
             L_Map = new Label();
+            L_MonX = new Label();
+            TB_MonX = new TextBox();
+            L_MonY = new Label();
+            TB_MonY = new TextBox();
+            L_MonZ = new Label();
+            TB_MonZ = new TextBox();
             ((System.ComponentModel.ISupportInitialize)PB_MarkSprite).BeginInit();
             ((System.ComponentModel.ISupportInitialize)PB_PokemonSprite).BeginInit();
             SuspendLayout();
@@ -61,7 +67,7 @@ namespace owoow.WinForms.Subforms
             // L_PokemonPresent
             // 
             L_PokemonPresent.AutoSize = true;
-            L_PokemonPresent.Location = new Point(8, 154);
+            L_PokemonPresent.Location = new Point(8, 226);
             L_PokemonPresent.Name = "L_PokemonPresent";
             L_PokemonPresent.Size = new Size(115, 15);
             L_PokemonPresent.TabIndex = 2;
@@ -282,27 +288,27 @@ namespace owoow.WinForms.Subforms
             L_Y.AutoSize = true;
             L_Y.Location = new Point(8, 66);
             L_Y.Name = "L_Y";
-            L_Y.Size = new Size(29, 15);
+            L_Y.Size = new Size(64, 15);
             L_Y.TabIndex = 25;
-            L_Y.Text = "Y: w";
+            L_Y.Text = "Player Y: w";
             // 
             // L_Z
             // 
             L_Z.AutoSize = true;
             L_Z.Location = new Point(8, 82);
             L_Z.Name = "L_Z";
-            L_Z.Size = new Size(29, 15);
+            L_Z.Size = new Size(64, 15);
             L_Z.TabIndex = 26;
-            L_Z.Text = "Z: w";
+            L_Z.Text = "Player Z: w";
             // 
             // L_X
             // 
             L_X.AutoSize = true;
             L_X.Location = new Point(8, 50);
             L_X.Name = "L_X";
-            L_X.Size = new Size(29, 15);
+            L_X.Size = new Size(64, 15);
             L_X.TabIndex = 27;
-            L_X.Text = "X: w";
+            L_X.Text = "Player X: w";
             // 
             // L_Map
             // 
@@ -313,11 +319,83 @@ namespace owoow.WinForms.Subforms
             L_Map.TabIndex = 28;
             L_Map.Text = "Map ID: w";
             // 
+            // L_MonX
+            // 
+            L_MonX.AutoSize = true;
+            L_MonX.Location = new Point(276, 178);
+            L_MonX.Name = "L_MonX";
+            L_MonX.Size = new Size(17, 15);
+            L_MonX.TabIndex = 29;
+            L_MonX.Text = "X:";
+            // 
+            // TB_MonX
+            // 
+            TB_MonX.CharacterCasing = CharacterCasing.Upper;
+            TB_MonX.Font = new Font("Consolas", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            TB_MonX.Location = new Point(299, 176);
+            TB_MonX.MaxLength = 16;
+            TB_MonX.Name = "TB_MonX";
+            TB_MonX.ReadOnly = true;
+            TB_MonX.Size = new Size(191, 22);
+            TB_MonX.TabIndex = 30;
+            TB_MonX.TabStop = false;
+            TB_MonX.Text = "12345.678901234567890";
+            // 
+            // L_MonY
+            // 
+            L_MonY.AutoSize = true;
+            L_MonY.Location = new Point(276, 202);
+            L_MonY.Name = "L_MonY";
+            L_MonY.Size = new Size(17, 15);
+            L_MonY.TabIndex = 31;
+            L_MonY.Text = "Y:";
+            // 
+            // TB_MonY
+            // 
+            TB_MonY.CharacterCasing = CharacterCasing.Upper;
+            TB_MonY.Font = new Font("Consolas", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            TB_MonY.Location = new Point(299, 200);
+            TB_MonY.MaxLength = 16;
+            TB_MonY.Name = "TB_MonY";
+            TB_MonY.ReadOnly = true;
+            TB_MonY.Size = new Size(191, 22);
+            TB_MonY.TabIndex = 32;
+            TB_MonY.TabStop = false;
+            TB_MonY.Text = "12345.678901234567890";
+            // 
+            // L_MonZ
+            // 
+            L_MonZ.AutoSize = true;
+            L_MonZ.Location = new Point(276, 226);
+            L_MonZ.Name = "L_MonZ";
+            L_MonZ.Size = new Size(17, 15);
+            L_MonZ.TabIndex = 33;
+            L_MonZ.Text = "Z:";
+            // 
+            // TB_MonZ
+            // 
+            TB_MonZ.CharacterCasing = CharacterCasing.Upper;
+            TB_MonZ.Font = new Font("Consolas", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            TB_MonZ.Location = new Point(299, 224);
+            TB_MonZ.MaxLength = 16;
+            TB_MonZ.Name = "TB_MonZ";
+            TB_MonZ.ReadOnly = true;
+            TB_MonZ.Size = new Size(191, 22);
+            TB_MonZ.TabIndex = 34;
+            TB_MonZ.TabStop = false;
+            TB_MonZ.Text = "12345.678901234567890";
+            // 
             // OverworldScanner
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(498, 183);
+            ClientSize = new Size(498, 252);
+            Controls.Add(L_MonZ);
+            Controls.Add(TB_MonZ);
+            Controls.Add(L_MonY);
+            Controls.Add(TB_MonY);
+            Controls.Add(L_MonX);
+            Controls.Add(TB_MonX);
             Controls.Add(L_Map);
             Controls.Add(L_X);
             Controls.Add(L_Z);
@@ -380,5 +458,11 @@ namespace owoow.WinForms.Subforms
         private Label L_Z;
         private Label L_X;
         private Label L_Map;
+        private Label L_MonX;
+        private TextBox TB_MonX;
+        private Label L_MonY;
+        private TextBox TB_MonY;
+        private Label L_MonZ;
+        private TextBox TB_MonZ;
     }
 }

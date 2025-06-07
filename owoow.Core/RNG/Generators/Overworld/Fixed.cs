@@ -5,6 +5,8 @@ namespace owoow.Core.RNG.Generators;
 
 public static class Fixed
 {
+    private static readonly GeneratorConfig DefaultConfig = new();
+
     public static uint GenerateFixedSeed(ref Xoroshiro128Plus rng)
     {
         return (uint)rng.Next();
@@ -42,6 +44,7 @@ public static class Fixed
         return (byte)rng.NextInt(32);
     }
 
+    public static (bool, byte[]) GenerateIVs(ref Xoroshiro128Plus rng, int aura) => GenerateIVs(ref rng, aura, DefaultConfig);
     public static (bool, byte[]) GenerateIVs(ref Xoroshiro128Plus rng, int aura, GeneratorConfig config)
     {
         byte[] ivs = [32, 32, 32, 32, 32, 32];

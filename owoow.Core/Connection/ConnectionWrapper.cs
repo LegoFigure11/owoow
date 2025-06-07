@@ -1,4 +1,5 @@
 using owoow.Core.Interfaces;
+using owoow.Core.Structures;
 using PKHeX.Core;
 using SysBot.Base;
 using System.Net.Sockets;
@@ -216,10 +217,10 @@ public class ConnectionWrapperAsync(SwitchConnectionConfig Config, Action<string
     }
 
     // Adapted from https://github.com/Lincoln-LM/PyNXReader/blob/master/structure/KCoordinates.py
-    public (List<PK8> pk8s, float x, float y, float z, ulong map) GetOverworldPK8FromKCoordinates()
+    public (List<OverworldPokemon> pkms, float x, float y, float z, ulong map) GetOverworldPokemonFromKCoordinates()
     {
         var block = sav.Blocks.Coordinates;
-        List<PK8> pks = [];
+        List<OverworldPokemon> pks = [];
         var data = block.Data;
 
         int i = 8;
@@ -233,8 +234,8 @@ public class ConnectionWrapperAsync(SwitchConnectionConfig Config, Action<string
                 var check = data[i - 0x44];
                 if (check is not 0 and not 0xFF)
                 {
-                    var bytes = data[(i - 0x44)..(i - 0xC)];
-                    PK8 pk = GetPK8FromOverworldData(bytes);
+                    var bytes = data[(i - 0x74)..(i - 0xC)];
+                    OverworldPokemon pk = new(bytes.ToArray(), sav.Blocks.MyStatus);
                     j = 0;
                     i = last + 8;
                     last = i;
@@ -265,48 +266,6 @@ public class ConnectionWrapperAsync(SwitchConnectionConfig Config, Action<string
         }
 
         return (pks, block.X, block.Y, block.Z, block.M);
-    }
-
-    private static RNG.GeneratorConfig DefaultConfig => new();
-    private PK8 GetPK8FromOverworldData(Span<byte> data)
-    {
-        PK8 pk = new()
-        {
-            Species = ReadUInt16LittleEndian(data[..]),
-            Form = data[2],
-            CurrentLevel = data[4],
-            Nature = (Nature)data[8],
-            Gender = (byte)(data[0x0a] == 1 ? 0 : 1),
-            TID16 = sav.MyStatus.TID16,
-            SID16 = sav.MyStatus.SID16,
-            Version = (GameVersion)44,
-        };
-        pk.SetNature((Nature)data[8]);
-        pk.SetAbilityIndex(data[0x0c] - 1);
-        if (data[0x16] != 0xFF) pk.SetRibbonIndex((RibbonIndex)data[0x16]);
-        if (!pk.IsGenderValid()) pk.Gender = 2;
-        if (data[0x0e] == 1) pk.HeldItem = data[0x10];
-
-        var shiny = data[6] == 1;
-        var fixedivs = data[0x12];
-        var seed = ReadUInt32LittleEndian(data[24..]);
-
-        var rng = new Xoroshiro128Plus(seed, 0x82A2B175229D6A5B);
-        pk.EncryptionConstant = RNG.Generators.Fixed.GenerateEC(ref rng);
-        pk.PID = RNG.Generators.Fixed.GeneratePID(ref rng, shiny, RNG.Util.GetShinyValue(sav.MyStatus.TID16, sav.MyStatus.SID16));
-
-        var (_, ivs) = RNG.Generators.Fixed.GenerateIVs(ref rng, fixedivs, DefaultConfig);
-        pk.IV_HP = ivs[0];
-        pk.IV_ATK = ivs[1];
-        pk.IV_DEF = ivs[2];
-        pk.IV_SPA = ivs[3];
-        pk.IV_SPD = ivs[4];
-        pk.IV_SPE = ivs[5];
-
-        var height = RNG.Generators.Fixed.GenerateHeightWeightScale(ref rng);
-        pk.HeightScalar = (byte)height;
-
-        return pk;
     }
 
     // Modified from https://github.com/kwsch/SysBot.NET/blob/8a82453e96ed5724e175b1a44464c70eca266df0/SysBot.Pokemon/SWSH/PokeRoutineExecutor8SWSH.cs#L223

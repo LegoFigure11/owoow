@@ -15,6 +15,7 @@ using System.Diagnostics;
 using System.Globalization;
 using System.Text;
 using System.Text.Json;
+using owoow.Core.Structures;
 using static owoow.Core.Encounters;
 using static owoow.Core.RNG.FilterUtil;
 using static owoow.Core.RNG.Util;
@@ -1740,12 +1741,12 @@ public partial class MainWindow : Form
                             await ConnectionWrapper.ReadKCoordinatesAsync(Source.Token).ConfigureAwait(false);
                             readPause = false;
                             SetControlEnabledState(true, B_ReadEncounter);
-                            var (pk8s, x, y, z, map) = ConnectionWrapper.GetOverworldPK8FromKCoordinates();
+                            var (pkms, x, y, z, map) = ConnectionWrapper.GetOverworldPokemonFromKCoordinates();
 
-                            if (pk8s.Count > 0)
+                            if (pkms.Count > 0)
                             {
                                 OverworldScannerFormOpen = true;
-                                OverworldScannerForm = new OverworldScanner(this, [.. pk8s], x, y, z, map);
+                                OverworldScannerForm = new OverworldScanner(this, [.. pkms], x, y, z, map);
                                 OverworldScannerForm.ShowDialog();
                             }
                             else
