@@ -5,7 +5,6 @@ using SysBot.Base;
 using System.Net.Sockets;
 using static SysBot.Base.SwitchButton;
 using static SysBot.Base.SwitchCommand;
-using static System.Buffers.Binary.BinaryPrimitives;
 
 namespace owoow.Core.Connection;
 
