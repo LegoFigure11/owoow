@@ -49,7 +49,18 @@ public class OverworldPokemon(byte[] data, MyStatus8 myStatus)
         pk8.SetNature((Nature)Nature);
         pk8.SetAbilityIndex(AbilityIndex);
         if (HasMark) pk8.SetRibbonIndex((RibbonIndex)Mark);
+
+        // Correct pk.Gender for single-gender species since data may not match.
+        var gr = PersonalTable.SWSH[pk8.Species].Gender;
+        pk8.Gender = gr switch
+        {
+            PersonalInfo.RatioMagicMale => 0,
+            PersonalInfo.RatioMagicFemale => 1,
+            PersonalInfo.RatioMagicGenderless => 2,
+            _ => pk8.Gender,
+        };
         if (!pk8.IsGenderValid()) pk8.Gender = 2;
+
         if (HasHeldItem) pk8.HeldItem = HeldItem;
 
         var rng = new Xoroshiro128Plus(Seed);
