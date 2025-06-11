@@ -216,52 +216,18 @@ public class ConnectionWrapperAsync(SwitchConnectionConfig Config, Action<string
     }
 
     // Adapted from https://github.com/Lincoln-LM/PyNXReader/blob/master/structure/KCoordinates.py
-    public (List<OverworldPokemon> pkms, float x, float y, float z, ulong map) GetOverworldPokemonFromKCoordinates()
+    public (List<FieldObject> pkms, float x, float y, float z, ulong map) ParseCoordinatesBlock()
     {
         var block = sav.Blocks.Coordinates;
-        List<OverworldPokemon> pks = [];
+        List<FieldObject> pks = [];
         var data = block.Data;
 
-        int i = 8;
-        int j = 0;
-        int last = 8;
-
-        while (i < data.Length)
+        for (var i = 0; i < 128; i++)
         {
-            if (j == 12)
-            {
-                var check = data[i - 0x44];
-                if (check is not 0 and not 0xFF)
-                {
-                    var bytes = data[(i - 0x74)..(i - 0xC)];
-                    OverworldPokemon pk = new(bytes.ToArray(), sav.Blocks.MyStatus);
-                    j = 0;
-                    i = last + 8;
-                    last = i;
-
-                    pks.Add(pk);
-                }
-            }
-            if (data[i] == 0xFF)
-            {
-                if (i % 8 == 0) last = i;
-                i++;
-                j++;
-            }
-            else
-            {
-                j = 0;
-                if (i == last)
-                {
-                    i += 8;
-                    last = i;
-                }
-                else
-                {
-                    i = last + 8;
-                    last = i;
-                }
-            }
+            var start = i * FieldObject.SIZE;
+            var chunk = data[start..(start + FieldObject.SIZE)];
+            FieldObject fo = new(chunk.ToArray(), sav.Blocks.MyStatus);
+            if (fo is { IsPokemon: true, IsFollowingPokemon: false }) pks.Add(fo);
         }
 
         return (pks, block.X, block.Y, block.Z, block.M);

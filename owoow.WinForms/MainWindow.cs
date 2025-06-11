@@ -1741,7 +1741,7 @@ public partial class MainWindow : Form
                             await ConnectionWrapper.ReadKCoordinatesAsync(Source.Token).ConfigureAwait(false);
                             readPause = false;
                             SetControlEnabledState(true, B_ReadEncounter);
-                            var (pkms, x, y, z, map) = ConnectionWrapper.GetOverworldPokemonFromKCoordinates();
+                            var (pkms, x, y, z, map) = ConnectionWrapper.GetFieldObjects();
 
                             if (pkms.Count > 0)
                             {

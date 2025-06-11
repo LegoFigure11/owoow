@@ -1,3 +1,4 @@
+using System.Runtime.CompilerServices;
 using owoow.Core;
 using owoow.Core.Structures;
 using PKHeX.Core;
@@ -9,9 +10,9 @@ namespace owoow.WinForms.Subforms;
 public partial class OverworldScanner : Form
 {
     readonly MainWindow MainWindow;
-    private readonly OverworldPokemon[] pks;
+    private readonly FieldObject[] pks;
 
-    public OverworldScanner(MainWindow f, OverworldPokemon[] pkl, float x, float y, float z, ulong m)
+    public OverworldScanner(MainWindow f, FieldObject[] pkl, float x, float y, float z, ulong m)
     {
         InitializeComponent();
 
@@ -27,10 +28,10 @@ public partial class OverworldScanner : Form
 
         CB_ViewSelect.Items.Clear();
 
-        pks = [.. pks.OrderBy(pkm => pkm.PK8.Species)];
+        pks = [.. pks.OrderBy(pkm => pkm.Species)];
         foreach (var pkm in pks)
         {
-            var dexno = $"{pkm.PK8.Species:D4} | ";
+            var dex = $"{pkm.PK8!.Species:D4} | ";
             var species = f.Strings.Species[pkm.PK8.Species];
             var form = pkm.PK8.Form != 0 ? $"-{pkm.PK8.Form}" : string.Empty;
             string shiny = pkm.PK8.ShinyXor switch
@@ -46,7 +47,7 @@ public partial class OverworldScanner : Form
                 _ => string.Empty,
             };
 
-            CB_ViewSelect.Items.Add($"{dexno}{shiny}{species}{form}{gender}");
+            CB_ViewSelect.Items.Add($"{dex}{shiny}{species}{form}{gender}");
         }
         CB_ViewSelect.SelectedIndex = 0;
     }
@@ -61,9 +62,9 @@ public partial class OverworldScanner : Form
         if (pks.Length > 0)
         {
             var pkm = pks[CB_ViewSelect.SelectedIndex];
-            if (pkm is not null)
+            if (pkm is { IsPokemon: true, PK8: not null })
             {
-                TB_Seed.Text = $"{pkm.Seed:X8}";
+                TB_Seed.Text = $"{pkm.FixedSeed:X8}";
                 TB_EC.Text = $"{pkm.PK8.EncryptionConstant:X8}";
                 TB_PID.Text = $"{pkm.PK8.PID:X8}";
 
@@ -110,6 +111,9 @@ public partial class OverworldScanner : Form
             TB_Ability.Text = string.Empty;
             TB_IVs.Text = string.Empty;
             TB_Height.Text = string.Empty;
+            TB_MonX.Text = string.Empty;
+            TB_MonY.Text = string.Empty;
+            TB_MonZ.Text = string.Empty;
         }
     }
 }
