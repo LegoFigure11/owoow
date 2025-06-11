@@ -13,8 +13,8 @@ public class OverworldPokemon(byte[] data, MyStatus8 myStatus)
     private ushort SID => myStatus.SID16;
 
     public float X => ReadSingleLittleEndian(Data.AsSpan()[..]);
-    public float Y => ReadSingleLittleEndian(Data.AsSpan()[0x04..]);
-    public float Z => ReadSingleLittleEndian(Data.AsSpan()[0x08..]);
+    public float Y => ReadSingleLittleEndian(Data.AsSpan()[0x08..]);
+    public float Z => ReadSingleLittleEndian(Data.AsSpan()[0x04..]);
 
     public PK8 PK8 => GeneratePK8();
 
@@ -43,7 +43,7 @@ public class OverworldPokemon(byte[] data, MyStatus8 myStatus)
             Gender = (byte)(Gender == 1 ? 0 : 1),
             TID16 = TID,
             SID16 = SID,
-            Version = (GameVersion)44,
+            Version = GameVersion.SW,
         };
 
         pk8.SetNature((Nature)Nature);
