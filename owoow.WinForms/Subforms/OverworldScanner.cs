@@ -1,4 +1,3 @@
-using System.Runtime.CompilerServices;
 using owoow.Core;
 using owoow.Core.Structures;
 using PKHeX.Core;
@@ -11,6 +10,9 @@ public partial class OverworldScanner : Form
 {
     readonly MainWindow MainWindow;
     private readonly FieldObject[] pks;
+    private readonly float _x;
+    private readonly float _y;
+    private readonly float _z;
 
     public OverworldScanner(MainWindow f, FieldObject[] pkl, float x, float y, float z, ulong m)
     {
@@ -18,11 +20,14 @@ public partial class OverworldScanner : Form
 
         MainWindow = f;
         pks = pkl;
+        _x = x;
+        _y = y;
+        _z = z;
 
-        L_X.Text = $"Player X: {x}";
-        L_Y.Text = $"Player Y: {y}";
-        L_Z.Text = $"Player Z: {z}";
-        L_Map.Text = $"Map ID: {m:X16}";
+        TB_X.Text = $"{x}";
+        TB_Y.Text = $"{y}";
+        TB_Z.Text = $"{z}";
+        TB_Map.Text = $"{m:X16}";
 
         L_PokemonPresent.Text = $"Pokémon Present: {pks.Length}";
 
@@ -97,6 +102,12 @@ public partial class OverworldScanner : Form
                 TB_MonX.Text = $"{pkm.X}";
                 TB_MonY.Text = $"{pkm.Y}";
                 TB_MonZ.Text = $"{pkm.Z}";
+
+                float[] player = [_x, _y, _z];
+                float[] mon = [pkm.X, pkm.Y, pkm.Z];
+                var dist = Math.Sqrt(player.Zip(mon, (a, b) => (a - b) * (a - b)).Sum());
+
+                TB_Distance.Text = $"{dist}";
             }
         }
         else
@@ -114,6 +125,7 @@ public partial class OverworldScanner : Form
             TB_MonX.Text = string.Empty;
             TB_MonY.Text = string.Empty;
             TB_MonZ.Text = string.Empty;
+            TB_Distance.Text = string.Empty;
         }
     }
 }

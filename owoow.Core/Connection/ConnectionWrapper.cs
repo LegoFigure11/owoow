@@ -201,18 +201,18 @@ public class ConnectionWrapperAsync(SwitchConnectionConfig Config, Action<string
 
     public (string, string) GetIDs()
     {
-        var MyStatus = sav.MyStatus;
-        return ($"{MyStatus.TID16:D05}", $"{MyStatus.SID16:D05}");
+        var myStatus = sav.MyStatus;
+        return ($"{myStatus.TID16:D05}", $"{myStatus.SID16:D05}");
     }
 
     public bool GetHasShinyCharm()
     {
-        return sav.Blocks.Items.Inventory[8].Items.Any(Item => Item.Index == 0x0278);
+        return sav.Blocks.Items.Inventory[8].Items.Any(item => item.Index == 0x0278);
     }
 
     public bool GetHasMarkCharm()
     {
-        return sav.Blocks.Items.Inventory[8].Items.Any(Item => Item.Index == 0x0635);
+        return sav.Blocks.Items.Inventory[8].Items.Any(item => item.Index == 0x0635);
     }
 
     // Adapted from https://github.com/Lincoln-LM/PyNXReader/blob/master/structure/KCoordinates.py
