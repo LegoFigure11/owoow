@@ -1739,9 +1739,10 @@ public partial class MainWindow : Form
                         {
                             await Task.Delay(100, Source.Token).ConfigureAwait(false);
                             await ConnectionWrapper.ReadKCoordinatesAsync(Source.Token).ConfigureAwait(false);
+                            var map = await ConnectionWrapper.ReadSaveLocation(Source.Token).ConfigureAwait(false);
                             readPause = false;
                             SetControlEnabledState(true, B_ReadEncounter);
-                            var (pkms, x, y, z, map) = ConnectionWrapper.ParseCoordinatesBlock();
+                            var (pkms, x, y, z) = ConnectionWrapper.ParseCoordinatesBlock();
 
                             if (pkms.Count > 0)
                             {

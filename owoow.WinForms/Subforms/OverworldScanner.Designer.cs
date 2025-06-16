@@ -424,15 +424,14 @@ namespace owoow.WinForms.Subforms
             // L_Map
             // 
             L_Map.AutoSize = true;
-            L_Map.Location = new Point(8, 130);
+            L_Map.Location = new Point(22, 130);
             L_Map.Name = "L_Map";
-            L_Map.Size = new Size(48, 15);
+            L_Map.Size = new Size(34, 15);
             L_Map.TabIndex = 35;
-            L_Map.Text = "Map ID:";
+            L_Map.Text = "Map:";
             // 
             // TB_Map
             // 
-            TB_Map.CharacterCasing = CharacterCasing.Upper;
             TB_Map.Font = new Font("Consolas", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             TB_Map.Location = new Point(62, 128);
             TB_Map.MaxLength = 16;

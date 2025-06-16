@@ -5,6 +5,7 @@ using SysBot.Base;
 using System.Net.Sockets;
 using static SysBot.Base.SwitchButton;
 using static SysBot.Base.SwitchCommand;
+using static System.Buffers.Binary.BinaryPrimitives;
 
 namespace owoow.Core.Connection;
 
@@ -117,6 +118,13 @@ public class ConnectionWrapperAsync(SwitchConnectionConfig Config, Action<string
         data.AsSpan().CopyTo(sav.Blocks.Coordinates.Data);
     }
 
+    public async Task<ulong> ReadSaveLocation(CancellationToken token)
+    {
+        var data = await Connection.ReadBytesAsync(SaveLocation_7BE8A4C6, SaveLocation_7BE8A4C6_Size, token)
+            .ConfigureAwait(false);
+        return ReadUInt64LittleEndian(data.AsSpan()[0x08..]);
+    }
+
     public async Task DaySkip(CancellationToken token)
     {
         await Connection.DaySkip(token).ConfigureAwait(false);
@@ -216,7 +224,7 @@ public class ConnectionWrapperAsync(SwitchConnectionConfig Config, Action<string
     }
 
     // Adapted from https://github.com/Lincoln-LM/PyNXReader/blob/master/structure/KCoordinates.py
-    public (List<FieldObject> pkms, float x, float y, float z, ulong map) ParseCoordinatesBlock()
+    public (List<FieldObject> pkms, float x, float y, float z) ParseCoordinatesBlock()
     {
         var block = sav.Blocks.Coordinates;
         List<FieldObject> pks = [];
@@ -230,7 +238,7 @@ public class ConnectionWrapperAsync(SwitchConnectionConfig Config, Action<string
             if (fo is { IsPokemon: true, IsFollowingPokemon: false }) pks.Add(fo);
         }
 
-        return (pks, block.X, block.Y, block.Z, block.M);
+        return (pks, block.X, block.Y, block.Z);
     }
 
     // Modified from https://github.com/kwsch/SysBot.NET/blob/8a82453e96ed5724e175b1a44464c70eca266df0/SysBot.Pokemon/SWSH/PokeRoutineExecutor8SWSH.cs#L223
