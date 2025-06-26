@@ -597,7 +597,7 @@
           "GuaranteedIVs": 0
         },
         "1": {
-          "Species": "Gastrodon",
+          "Species": "Gastrodon-1",
           "Level": 56,
           "IsAbilityLocked": false,
           "Ability": 0,
@@ -641,7 +641,7 @@
     "Overcast": {
       "Encounters": {
         "0": {
-          "Species": "Gastrodon",
+          "Species": "Gastrodon-1",
           "Level": 56,
           "IsAbilityLocked": false,
           "Ability": 0,
@@ -693,7 +693,7 @@
     "Raining": {
       "Encounters": {
         "0": {
-          "Species": "Gastrodon",
+          "Species": "Gastrodon-1",
           "Level": 56,
           "IsAbilityLocked": false,
           "Ability": 0,
@@ -753,7 +753,7 @@
     "Thunderstorm": {
       "Encounters": {
         "0": {
-          "Species": "Gastrodon",
+          "Species": "Gastrodon-1",
           "Level": 56,
           "IsAbilityLocked": false,
           "Ability": 0,
@@ -805,7 +805,7 @@
           "GuaranteedIVs": 0
         },
         "1": {
-          "Species": "Gastrodon",
+          "Species": "Gastrodon-1",
           "Level": 56,
           "IsAbilityLocked": false,
           "Ability": 0,
@@ -857,7 +857,7 @@
           "GuaranteedIVs": 0
         },
         "1": {
-          "Species": "Gastrodon",
+          "Species": "Gastrodon-1",
           "Level": 56,
           "IsAbilityLocked": false,
           "Ability": 0,
@@ -909,7 +909,7 @@
     "Snowstorm": {
       "Encounters": {
         "0": {
-          "Species": "Gastrodon",
+          "Species": "Gastrodon-1",
           "Level": 56,
           "IsAbilityLocked": false,
           "Ability": 0,
@@ -961,7 +961,7 @@
     "Sandstorm": {
       "Encounters": {
         "0": {
-          "Species": "Gastrodon",
+          "Species": "Gastrodon-1",
           "Level": 56,
           "IsAbilityLocked": false,
           "Ability": 0,
@@ -1021,7 +1021,7 @@
           "GuaranteedIVs": 0
         },
         "1": {
-          "Species": "Gastrodon",
+          "Species": "Gastrodon-1",
           "Level": 56,
           "IsAbilityLocked": false,
           "Ability": 0,
@@ -7547,7 +7547,7 @@
           "GuaranteedIVs": 0
         },
         "9": {
-          "Species": "Keldeo",
+          "Species": "Keldeo-1",
           "Level": 65,
           "IsAbilityLocked": true,
           "Ability": 0,
@@ -7655,11 +7655,11 @@
           "GuaranteedIVs": 0
         },
         "6": {
-          "Species": "Keldeo",
+          "Species": "Keldeo-1",
           "Level": 65,
           "IsAbilityLocked": true,
           "Ability": 0,
-          "IsShinyLocked": false,
+          "IsShinyLocked": true,
           "GuaranteedIVs": 3
         },
         "7": {
@@ -7811,11 +7811,11 @@
           "GuaranteedIVs": 0
         },
         "11": {
-          "Species": "Keldeo",
+          "Species": "Keldeo-1",
           "Level": 65,
           "IsAbilityLocked": true,
           "Ability": 0,
-          "IsShinyLocked": false,
+          "IsShinyLocked": true,
           "GuaranteedIVs": 3
         },
         "12": {
@@ -7975,11 +7975,11 @@
           "GuaranteedIVs": 0
         },
         "13": {
-          "Species": "Keldeo",
+          "Species": "Keldeo-1",
           "Level": 65,
           "IsAbilityLocked": true,
           "Ability": 0,
-          "IsShinyLocked": false,
+          "IsShinyLocked": true,
           "GuaranteedIVs": 3
         },
         "14": {
@@ -8083,11 +8083,11 @@
           "GuaranteedIVs": 0
         },
         "7": {
-          "Species": "Keldeo",
+          "Species": "Keldeo-1",
           "Level": 65,
           "IsAbilityLocked": true,
           "Ability": 0,
-          "IsShinyLocked": false,
+          "IsShinyLocked": true,
           "GuaranteedIVs": 3
         },
         "8": {
@@ -8223,11 +8223,11 @@
           "GuaranteedIVs": 0
         },
         "9": {
-          "Species": "Keldeo",
+          "Species": "Keldeo-1",
           "Level": 65,
           "IsAbilityLocked": true,
           "Ability": 0,
-          "IsShinyLocked": false,
+          "IsShinyLocked": true,
           "GuaranteedIVs": 3
         },
         "10": {
@@ -8399,11 +8399,11 @@
           "GuaranteedIVs": 0
         },
         "10": {
-          "Species": "Keldeo",
+          "Species": "Keldeo-1",
           "Level": 65,
           "IsAbilityLocked": true,
           "Ability": 0,
-          "IsShinyLocked": false,
+          "IsShinyLocked": true,
           "GuaranteedIVs": 3
         },
         "11": {
@@ -11444,7 +11444,7 @@
           "GuaranteedIVs": 0
         },
         "2": {
-          "Species": "Gastrodon",
+          "Species": "Gastrodon-1",
           "Level": 56,
           "IsAbilityLocked": false,
           "Ability": 0,
@@ -11528,7 +11528,7 @@
           "GuaranteedIVs": 0
         },
         "2": {
-          "Species": "Gastrodon",
+          "Species": "Gastrodon-1",
           "Level": 56,
           "IsAbilityLocked": false,
           "Ability": 0,
@@ -11612,7 +11612,7 @@
           "GuaranteedIVs": 0
         },
         "2": {
-          "Species": "Gastrodon",
+          "Species": "Gastrodon-1",
           "Level": 56,
           "IsAbilityLocked": false,
           "Ability": 0,
@@ -11688,7 +11688,7 @@
           "GuaranteedIVs": 0
         },
         "2": {
-          "Species": "Gastrodon",
+          "Species": "Gastrodon-1",
           "Level": 56,
           "IsAbilityLocked": false,
           "Ability": 0,
@@ -11756,7 +11756,7 @@
           "GuaranteedIVs": 0
         },
         "1": {
-          "Species": "Gastrodon",
+          "Species": "Gastrodon-1",
           "Level": 56,
           "IsAbilityLocked": false,
           "Ability": 0,
@@ -11840,7 +11840,7 @@
           "GuaranteedIVs": 0
         },
         "1": {
-          "Species": "Gastrodon",
+          "Species": "Gastrodon-1",
           "Level": 56,
           "IsAbilityLocked": false,
           "Ability": 0,
@@ -11924,7 +11924,7 @@
           "GuaranteedIVs": 0
         },
         "1": {
-          "Species": "Gastrodon",
+          "Species": "Gastrodon-1",
           "Level": 56,
           "IsAbilityLocked": false,
           "Ability": 0,
@@ -12016,7 +12016,7 @@
           "GuaranteedIVs": 0
         },
         "2": {
-          "Species": "Gastrodon",
+          "Species": "Gastrodon-1",
           "Level": 56,
           "IsAbilityLocked": false,
           "Ability": 0,
@@ -12100,7 +12100,7 @@
           "GuaranteedIVs": 0
         },
         "2": {
-          "Species": "Gastrodon",
+          "Species": "Gastrodon-1",
           "Level": 56,
           "IsAbilityLocked": false,
           "Ability": 0,
@@ -19274,7 +19274,7 @@
           "GuaranteedIVs": 0
         },
         "1": {
-          "Species": "Gastrodon",
+          "Species": "Gastrodon-1",
           "Level": 50,
           "IsAbilityLocked": false,
           "Ability": 0,
