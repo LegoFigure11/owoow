@@ -1378,9 +1378,16 @@ public partial class MainWindow : Form
     private void NotifyNewVersionAvailable(Version version)
     {
         Text += $" - Update v{version.Major}.{version.Minor}.{version.Build} available!";
+        
 #if !DEBUG
-        MessageBox.Show($"Update available! v{version.Major}.{version.Minor}.{version.Build}");
-        Process.Start(new ProcessStartInfo("https://github.com/LegoFigure11/owoow/releases/") { UseShellExecute = true });
+        using UpdateNotifPopup nup = new(CurrentVersion, version);
+        if (nup.ShowDialog() == DialogResult.OK)
+        {
+            Process.Start(new ProcessStartInfo("https://github.com/LegoFigure11/owoow/releases/")
+            {
+                UseShellExecute = true
+            });
+        }
 #endif
     }
 
