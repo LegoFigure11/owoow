@@ -35,9 +35,7 @@ public class ClientConfig : ISeedResetConfig, ITurboConfig, IWebhookConfig
 
     public int InputSleepTime { get; set; } = 200;
 
-    public bool NTPAfterDateSkipping { get; set; } = true;
-    public bool NTPWhileDateSkipping { get; set; } = true;
-    public uint NTPWhileDateSkippingInterval { get; set; } = 366;
+    public bool ResetTimeAfterDateSkipping { get; set; } = true;
 
     // Webhook
     public bool WebhookEnabled { get; set; } = false;

@@ -3,9 +3,11 @@ using owoow.Core.Structures;
 using PKHeX.Core;
 using SysBot.Base;
 using System.Net.Sockets;
+using System.Text;
 using static SysBot.Base.SwitchButton;
 using static SysBot.Base.SwitchCommand;
 using static System.Buffers.Binary.BinaryPrimitives;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace owoow.Core.Connection;
 
@@ -138,6 +140,20 @@ public class ConnectionWrapperAsync(SwitchConnectionConfig Config, Action<string
     public async Task ResetTimeNTP(CancellationToken token)
     {
         await Connection.ResetTimeNTP(token).ConfigureAwait(false);
+    }
+
+    public async Task<ulong> GetCurrentTime(CancellationToken token)
+    {
+        var command = Encoding.ASCII.GetBytes($"getCurrentTime{(CRLF ? "\r\n" : "")}");
+        var res = await Connection.ReadRaw(command, 17, token).ConfigureAwait(false);
+        ulong.TryParse(Encoding.ASCII.GetString(res).Trim('\n'), System.Globalization.NumberStyles.AllowHexSpecifier, null, out var time);
+        return time;
+    }
+
+    public async Task SetCurrentTime(ulong tick, CancellationToken token)
+    {
+        var command = Encoding.ASCII.GetBytes($"setCurrentTime {tick}{(CRLF ? "\r\n" : "")}");
+        await Connection.SendAsync(command, token).ConfigureAwait(false);
     }
 
     public async Task PressL3(CancellationToken token)

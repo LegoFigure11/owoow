@@ -7,7 +7,5 @@ public interface ITurboConfig
 
     int InputSleepTime { get; set; }
 
-    bool NTPAfterDateSkipping { get; set; }
-    bool NTPWhileDateSkipping { get; set; }
-    uint NTPWhileDateSkippingInterval { get; set; }
+    bool ResetTimeAfterDateSkipping { get; set; }
 }

@@ -455,6 +455,7 @@ public partial class MainWindow : Form
         await Task.Delay(200, AdvanceSource.Token).ConfigureAwait(false);
     }
 
+    private readonly Stopwatch _swForwards = new();
     private void B_SkipForward_Click(object sender, EventArgs e)
     {
         Task.Run(
@@ -466,19 +467,56 @@ public partial class MainWindow : Form
                     SetControlEnabledState(true, B_CancelSkip);
                     skipPause = false;
                     var skips = uint.Parse(TB_Skips.Text);
-                    for (var i = 0; i < skips && !skipPause; i++)
+                    ulong startTick = 0;
+                    var tries = 0;
+                    while (startTick == 0 && tries < 10)
                     {
-                        // Attempt to reset the time every n skips if NTP isn't on cooldown.
-                        // If we're less than n from the end, then wait until then to NTP.
-                        if (Config.NTPWhileDateSkipping && i > 0 && i % Config.NTPWhileDateSkippingInterval == 0 && skips - i > Config.NTPWhileDateSkippingInterval)
-                            await SafeResetTimeNTP(AdvanceSource.Token).ConfigureAwait(false);
-                        SetButtonText($"{i + 1}", B_SkipForward);
-                        await ConnectionWrapper.DaySkip(AdvanceSource.Token).ConfigureAwait(false);
-                        await Task.Delay(360, AdvanceSource.Token).ConfigureAwait(false);
+                        try
+                        {
+                            tries++;
+                            startTick = await ConnectionWrapper.GetCurrentTime(AdvanceSource.Token)
+                                .ConfigureAwait(false);
+                            await Task.Delay(100, AdvanceSource.Token).ConfigureAwait(false);
+                        }
+                        catch
+                        {
+                            // Ignore
+                        }
                     }
 
-                    // Will only NTP if not on cooldown.
-                    if (Config.NTPAfterDateSkipping) await SafeResetTimeNTP(AdvanceSource.Token).ConfigureAwait(false);
+                    if (startTick < Time.MIN_TIME) throw new Exception("Failed to get start tick!");
+
+                    _swForwards.Reset();
+                    _swForwards.Start();
+
+                    for (var i = 0; i < skips && !skipPause; i++)
+                    {
+                        var currentTick = await ConnectionWrapper.GetCurrentTime(AdvanceSource.Token)
+                            .ConfigureAwait(false);
+                        // If current time is approaching OOB, reset it
+                        if (currentTick >= Time.MAX_TIME) await ConnectionWrapper.SetCurrentTime(Time.MIN_TIME, CancellationToken.None).ConfigureAwait(false);
+
+                        SetButtonText($"{i + 1}", B_SkipForward);
+                        await ConnectionWrapper.DaySkip(AdvanceSource.Token).ConfigureAwait(false);
+                        await Task.Delay(310, AdvanceSource.Token).ConfigureAwait(false);
+                    }
+
+                    _swForwards.Stop();
+
+                    if (Config.ResetTimeAfterDateSkipping)
+                    {
+
+                        var currentTime = startTick + (ulong)_swForwards.Elapsed.Seconds;
+                        if (currentTime < Time.MAX_TIME)
+                        {
+                            await ConnectionWrapper.SetCurrentTime(currentTime, AdvanceSource.Token)
+                                .ConfigureAwait(false);
+                        }
+                        else
+                        {
+                            await SafeResetTimeNTP(AdvanceSource.Token).ConfigureAwait(false);
+                        }
+                    }
 
                     SetButtonText("Days+", B_SkipForward);
                     SetControlEnabledState(true, B_SkipAdvance, B_SkipForward, B_SkipBack, B_Turbo, B_SeedSearch);
@@ -512,11 +550,36 @@ public partial class MainWindow : Form
                     SetControlEnabledState(true, B_CancelSkip);
                     skipPause = false;
                     var skips = uint.Parse(TB_Skips.Text);
+
+                    ulong startTick = 0;
+                    var tries = 0;
+                    while (startTick == 0 && tries < 10)
+                    {
+                        try
+                        {
+                            tries++;
+                            startTick = await ConnectionWrapper.GetCurrentTime(AdvanceSource.Token)
+                                .ConfigureAwait(false);
+                            await Task.Delay(100, AdvanceSource.Token).ConfigureAwait(false);
+                        }
+                        catch
+                        {
+                            // Ignore
+                        }
+                    }
+
+                    if (startTick <= Time.MIN_TIME) throw new Exception("Something went wrong retrieving the system time! Please NTP and try again.");
+
                     for (var i = 0; i < skips && !skipPause; i++)
                     {
+                        var currentTick = await ConnectionWrapper.GetCurrentTime(AdvanceSource.Token)
+                            .ConfigureAwait(false);
+                        // If current time is approaching OOB, throw
+                        if (currentTick <= Time.MIN_TIME) throw new Exception("Cannot push the date any further back! Please NTP and try again.");
+
                         SetButtonText($"{i + 1}", B_SkipBack);
                         await ConnectionWrapper.DaySkipBack(AdvanceSource.Token).ConfigureAwait(false);
-                        await Task.Delay(360, AdvanceSource.Token).ConfigureAwait(false);
+                        await Task.Delay(310, AdvanceSource.Token).ConfigureAwait(false);
                     }
                     SetButtonText("Days-", B_SkipBack);
                     SetControlEnabledState(true, B_SkipAdvance, B_SkipForward, B_SkipBack, B_Turbo, B_SeedSearch);
