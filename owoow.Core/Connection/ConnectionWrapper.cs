@@ -7,7 +7,6 @@ using System.Text;
 using static SysBot.Base.SwitchButton;
 using static SysBot.Base.SwitchCommand;
 using static System.Buffers.Binary.BinaryPrimitives;
-using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace owoow.Core.Connection;
 

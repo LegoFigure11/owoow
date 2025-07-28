@@ -1,6 +1,5 @@
 using System.Text.Json;
 using owoow.Core.Interfaces;
-using PKHeX.Core;
 
 namespace owoow.WinForms.Subforms;
 
