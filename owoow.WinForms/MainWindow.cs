@@ -455,7 +455,7 @@ public partial class MainWindow : Form
         await Task.Delay(200, AdvanceSource.Token).ConfigureAwait(false);
     }
 
-    private readonly Stopwatch _swForwards = new();
+    private readonly Stopwatch _sw = new();
     private void B_SkipForward_Click(object sender, EventArgs e)
     {
         Task.Run(
@@ -486,8 +486,8 @@ public partial class MainWindow : Form
 
                     if (startTick < Time.MIN_TIME) throw new Exception("Failed to get start tick!");
 
-                    _swForwards.Reset();
-                    _swForwards.Start();
+                    _sw.Reset();
+                    _sw.Start();
 
                     for (var i = 0; i < skips && !skipPause; i++)
                     {
@@ -501,13 +501,13 @@ public partial class MainWindow : Form
                         await Task.Delay(310, AdvanceSource.Token).ConfigureAwait(false);
                     }
 
-                    _swForwards.Stop();
+                    _sw.Stop();
 
                     if (Config.ResetTimeAfterDateSkipping)
                     {
 
-                        var currentTime = startTick + (ulong)_swForwards.Elapsed.Seconds;
-                        if (currentTime < Time.MAX_TIME)
+                        var currentTime = startTick + (ulong)_sw.Elapsed.TotalSeconds;
+                        if (currentTime is < Time.MAX_TIME and > Time.MIN_TIME)
                         {
                             await ConnectionWrapper.SetCurrentTime(currentTime, AdvanceSource.Token)
                                 .ConfigureAwait(false);
@@ -1923,7 +1923,7 @@ public partial class MainWindow : Form
                         this.DisplayMessageBox(ex.Message);
                     }
                 }
-                        );
+            );
         }
     }
 
@@ -1931,7 +1931,7 @@ public partial class MainWindow : Form
     {
         if (CachedEncounter is not null)
         {
-            SetNUDValue(CachedEncounter.IV_HP, NUD_HP_Min, NUD_HP_Max);
+            SetNUDValue(CachedEncounter.IV_HP , NUD_HP_Min , NUD_HP_Max );
             SetNUDValue(CachedEncounter.IV_ATK, NUD_Atk_Min, NUD_Atk_Max);
             SetNUDValue(CachedEncounter.IV_DEF, NUD_Def_Min, NUD_Def_Max);
             SetNUDValue(CachedEncounter.IV_SPA, NUD_SpA_Min, NUD_SpA_Max);
