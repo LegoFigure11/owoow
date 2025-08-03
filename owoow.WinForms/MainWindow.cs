@@ -670,9 +670,7 @@ public partial class MainWindow : Form
             SID = uint.Parse(TB_SID.Text),
         };
 
-        var rng = new Xoroshiro128Plus(s0, s1);
-
-        for (ulong i = 0; i < initial; i++) rng.Next();
+        (s0, s1) = XoroshiroJump(s0, s1, initial);
 
         List<OverworldFrame>[] results = [];
 
@@ -681,20 +679,16 @@ public partial class MainWindow : Form
         {
             var last = i == numTasks - 1;
 
-            var (_s0, _s1) = rng.GetState();
             var start = initial + (i * interval);
             var end = initial + (interval * (i + (uint)1)) - 1;
 
             if (last) end += advances % interval;
 
-            tasks.Add(Symbol.Generate(_s0, _s1, table, start, end, config));
+            tasks.Add(Symbol.Generate(s0, s1, table, start, end, config));
 
             if (!last)
             {
-                for (ulong j = 0; j < interval; j++)
-                {
-                    rng.Next();
-                }
+                (s0, s1) = XoroshiroJump(s0, s1, interval);
             }
         }
 
@@ -785,9 +779,7 @@ public partial class MainWindow : Form
             SID = uint.Parse(TB_SID.Text),
         };
 
-        var rng = new Xoroshiro128Plus(s0, s1);
-
-        for (ulong i = 0; i < initial; i++) rng.Next();
+        (s0, s1) = XoroshiroJump(s0, s1, initial);
 
         List<OverworldFrame>[] results = [];
 
@@ -796,20 +788,16 @@ public partial class MainWindow : Form
         {
             var last = i == numTasks - 1;
 
-            var (_s0, _s1) = rng.GetState();
             var start = initial + (i * interval);
             var end = initial + (interval * (i + (uint)1)) - 1;
 
             if (last) end += advances % interval;
 
-            tasks.Add(Hidden.Generate(_s0, _s1, table, start, end, config));
+            tasks.Add(Hidden.Generate(s0, s1, table, start, end, config));
 
             if (!last)
             {
-                for (ulong j = 0; j < interval; j++)
-                {
-                    rng.Next();
-                }
+                (s0, s1) = XoroshiroJump(s0, s1, interval);
             }
         }
 
@@ -890,9 +878,7 @@ public partial class MainWindow : Form
             SID = uint.Parse(TB_SID.Text),
         };
 
-        var rng = new Xoroshiro128Plus(s0, s1);
-
-        for (ulong i = 0; i < initial; i++) rng.Next();
+        (s0, s1) = XoroshiroJump(s0, s1, initial);
 
         List<OverworldFrame>[] results = [];
 
@@ -901,20 +887,16 @@ public partial class MainWindow : Form
         {
             var last = i == numTasks - 1;
 
-            var (_s0, _s1) = rng.GetState();
             var start = initial + (i * interval);
             var end = initial + (interval * (i + (uint)1)) - 1;
 
             if (last) end += advances % interval;
 
-            tasks.Add(Static.Generate(_s0, _s1, table, start, end, config));
+            tasks.Add(Static.Generate(s0, s1, table, start, end, config));
 
             if (!last)
             {
-                for (ulong j = 0; j < interval; j++)
-                {
-                    rng.Next();
-                }
+                (s0, s1) = XoroshiroJump(s0, s1, initial);
             }
         }
 
@@ -1006,9 +988,7 @@ public partial class MainWindow : Form
             SID = uint.Parse(TB_SID.Text),
         };
 
-        var rng = new Xoroshiro128Plus(s0, s1);
-
-        for (ulong i = 0; i < initial; i++) rng.Next();
+        (s0, s1) = XoroshiroJump(s0, s1, initial);
 
         List<OverworldFrame>[] results = [];
 
@@ -1017,20 +997,16 @@ public partial class MainWindow : Form
         {
             var last = i == numTasks - 1;
 
-            var (_s0, _s1) = rng.GetState();
             var start = initial + (i * interval);
             var end = initial + (interval * (i + (uint)1)) - 1;
 
             if (last) end += advances % interval;
 
-            tasks.Add(Fishing.Generate(_s0, _s1, table, start, end, config));
+            tasks.Add(Fishing.Generate(s0, s1, table, start, end, config));
 
             if (!last)
             {
-                for (ulong j = 0; j < interval; j++)
-                {
-                    rng.Next();
-                }
+                (s0, s1) = XoroshiroJump(s0, s1, initial);
             }
         }
 
@@ -1129,11 +1105,7 @@ public partial class MainWindow : Form
                 SID = uint.Parse(TB_SID.Text),
             };
 
-            var rng = new Xoroshiro128Plus(s0, s1);
-
-            for (ulong i = 0; i < initial; i++) rng.Next();
-
-            var (_s0, _s1) = rng.GetState();
+            (s0, s1) = XoroshiroJump(s0, s1, initial);
 
             List<uint> ticks = [];
 
@@ -1146,10 +1118,10 @@ public partial class MainWindow : Form
                 config.RainTicksEncounter = i;
                 results = type switch
                 {
-                    "Static" => Task.Run(() => Static.Generate(_s0, _s1, table, initial, initial + (ulong)advances, config)).Result,
-                    "Symbol" => Task.Run(() => Symbol.Generate(_s0, _s1, table, initial, initial + (ulong)advances, config)).Result,
-                    "Fishing" => Task.Run(() => Fishing.Generate(_s0, _s1, table, initial, initial + (ulong)advances, config)).Result,
-                    _ => Task.Run(() => Hidden.Generate(_s0, _s1, table, initial, initial + (ulong)advances, config)).Result,
+                    "Static" => Task.Run(() => Static.Generate(s0, s1, table, initial, initial + (ulong)advances, config)).Result,
+                    "Symbol" => Task.Run(() => Symbol.Generate(s0, s1, table, initial, initial + (ulong)advances, config)).Result,
+                    "Fishing" => Task.Run(() => Fishing.Generate(s0, s1, table, initial, initial + (ulong)advances, config)).Result,
+                    _ => Task.Run(() => Hidden.Generate(s0, s1, table, initial, initial + (ulong)advances, config)).Result,
                 };
                 if (results.Count != 0)
                     ticks.Add(i);
@@ -1193,6 +1165,7 @@ public partial class MainWindow : Form
                 while (ConnectionWrapper.Connected && !ResetSource.IsCancellationRequested && !resetPause && !found)
                 {
                     var (s0, s1) = await ConnectionWrapper.ReadRNGState(ResetSource.Token).ConfigureAwait(false);
+                    var (_s0, _s1) = (s0, s1);
                     var passed = GetAdvancesPassed(prevs0, prevs1, s0, s1);
 
                     if (passed == MAX_TRACKED_ADVANCES) // Has most likely reset the game
@@ -1270,10 +1243,8 @@ public partial class MainWindow : Form
                                 TID = uint.Parse(GetControlText(TB_TID)),
                                 SID = uint.Parse(GetControlText(TB_SID)),
                             };
-
-                            var rng = new Xoroshiro128Plus(s0, s1);
-
-                            for (ulong i = 0; i < initial; i++) rng.Next();
+                            
+                            (s0, s1) = XoroshiroJump(s0, s1, initial);
 
                             List<OverworldFrame>[] results = [];
 
@@ -1282,7 +1253,6 @@ public partial class MainWindow : Form
                             {
                                 var last = i == numTasks - 1;
 
-                                var (_s0, _s1) = rng.GetState();
                                 var start = initial + (i * interval);
                                 var end = initial + (interval * (i + (uint)1)) - 1;
 
@@ -1290,20 +1260,17 @@ public partial class MainWindow : Form
 
                                 var t = type switch
                                 {
-                                    "Static" => Static.Generate(_s0, _s1, table, start, end, config),
-                                    "Symbol" => Symbol.Generate(_s0, _s1, table, start, end, config),
-                                    "Fishing" => Fishing.Generate(_s0, _s1, table, start, end, config),
-                                    _ => Hidden.Generate(_s0, _s1, table, start, end, config),
+                                    "Static" => Static.Generate(s0, s1, table, start, end, config),
+                                    "Symbol" => Symbol.Generate(s0, s1, table, start, end, config),
+                                    "Fishing" => Fishing.Generate(s0, s1, table, start, end, config),
+                                    _ => Hidden.Generate(s0, s1, table, start, end, config),
                                 };
 
                                 tasks.Add(t);
 
                                 if (!last)
                                 {
-                                    for (ulong j = 0; j < interval; j++)
-                                    {
-                                        rng.Next();
-                                    }
+                                    (s0, s1) = XoroshiroJump(s0, s1, initial);
                                 }
                             }
 
@@ -1343,8 +1310,8 @@ public partial class MainWindow : Form
                         await Task.Delay(5_000, ResetSource.Token).ConfigureAwait(false);
                     }
 
-                    prevs0 = s0;
-                    prevs1 = s1;
+                    prevs0 = _s0;
+                    prevs1 = _s1;
 
                     if (!found && Config is ISeedResetConfig cfg)
                     {
@@ -1441,7 +1408,7 @@ public partial class MainWindow : Form
     private void NotifyNewVersionAvailable(Version version)
     {
         Text += $" - Update v{version.Major}.{version.Minor}.{version.Build} available!";
-        
+
 #if !DEBUG
         using UpdateNotifPopup nup = new(CurrentVersion, version);
         if (nup.ShowDialog() == DialogResult.OK)
