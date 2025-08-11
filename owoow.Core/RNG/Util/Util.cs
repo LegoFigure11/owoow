@@ -91,6 +91,104 @@ public static class Util
         return rng.GetState();
     }
 
+    // From Lincoln-LM, see also http://peteroupc.github.io/jump.html and https://xoshiro.di.unimi.it/xoroshiro128plus.c
+    private static readonly BigInteger CharacteristicPolynomial = BigInteger.Parse("10008828e513b43d5095b8f76579aa001", System.Globalization.NumberStyles.HexNumber);
+    public static (ulong s0, ulong s1) XoroshiroLongJump(ulong _s0, ulong _s1, UInt128 jump)
+    {
+        ulong s0 = 0;
+        ulong s1 = 0;
+        var rng = new Xoroshiro128Plus(_s0, _s1);
+
+        BigInteger poly = CalcJumpPolynomial(CharacteristicPolynomial, jump);
+
+        for (var i = 0; i < 128; i++)
+        {
+            if (((poly >> i) & 1) != 0)
+            {
+                var (state0, state1) = rng.GetState();
+                s0 ^= state0;
+                s1 ^= state1;
+            }
+
+            rng.Next();
+        }
+
+        return (s0, s1);
+    }
+
+    private static int MSSBPosition(BigInteger poly)
+    {
+        var pos = -1;
+        while (poly != 0)
+        {
+            poly >>= 1;
+            pos++;
+        }
+
+        return pos;
+    }
+
+    private static BigInteger BitModGF2(BigInteger poly, BigInteger modulus)
+    {
+        int shift = MSSBPosition(poly) - MSSBPosition(modulus);
+        if (shift < 0)
+            return poly;
+
+        modulus <<= shift;
+        for (int i = 0; i <= shift; i++)
+        {
+            if (poly == 0)
+                return 0;
+
+            if ((poly >> MSSBPosition(modulus)) == 1)
+                poly ^= modulus;
+
+            modulus >>= 1;
+        }
+        return poly;
+    }
+
+    private static BigInteger BitMultModGF2(BigInteger a, BigInteger b, BigInteger? modulus = null, int size = 256)
+    {
+        BigInteger result = 0;
+        BigInteger mask = (BigInteger.One << size) - 1;
+        BigInteger mod = modulus ?? mask + 1;
+
+        while (a != 0 && b != 0)
+        {
+            if ((b & 1) != 0)
+                result ^= a;
+
+            a <<= 1;
+            b >>= 1;
+            a &= mask;
+        }
+
+        return BitModGF2(result, mod);
+    }
+
+    public static BigInteger BitBase2PowModGF2(UInt128 power, BigInteger modulus)
+    {
+        BigInteger baseVal = 2;
+        BigInteger result = 1;
+
+        while (power > 0)
+        {
+            if ((power & 1) != 0)
+                result = BitMultModGF2(result, baseVal, modulus);
+
+            power >>= 1;
+            baseVal = BitMultModGF2(baseVal, baseVal, modulus);
+        }
+        return result;
+    }
+
+    public static BigInteger CalcJumpPolynomial(BigInteger characteristic, UInt128 jumpCount)
+    {
+        return BitBase2PowModGF2(jumpCount, characteristic);
+    }
+    // Thanks Lincoln!
+
     public static (uint threshold, int rolls) GetBrilliantInfo(int KOs) => KOs switch
     {
         >= 500 => (30, 6),
