@@ -93,6 +93,7 @@ public static class Util
 
     // From Lincoln-LM, see also http://peteroupc.github.io/jump.html and https://xoshiro.di.unimi.it/xoroshiro128plus.c
     private static readonly BigInteger CharacteristicPolynomial = BigInteger.Parse("10008828e513b43d5095b8f76579aa001", System.Globalization.NumberStyles.HexNumber);
+    // TODO: Calculate a jump table for reverse direction
     public static (ulong s0, ulong s1) XoroshiroLongJump(ulong _s0, ulong _s1, UInt128 jump)
     {
         ulong s0 = 0;

@@ -2558,6 +2558,22 @@ public partial class MainWindow : Form
         }
     }
 
+    public bool XoroshiroToolsFormOpen = false;
+    private XoroshiroTools? XoroshiroToolsForm;
+    private void TSMI_XoroshiroTools_Click(object sender, EventArgs e)
+    {
+        if (!XoroshiroToolsFormOpen)
+        {
+            XoroshiroToolsFormOpen = true;
+            XoroshiroToolsForm = new XoroshiroTools(this);
+            XoroshiroToolsForm.Show();
+        }
+        else
+        {
+            XoroshiroToolsForm?.Focus();
+        }
+    }
+
     public bool SeedSearchFormOpen = false;
     SeedResetSettings? SeedResetSettingsForm;
     private void B_SeedSearch_Settings_Click(object sender, EventArgs e)

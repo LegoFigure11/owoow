@@ -287,6 +287,7 @@ namespace owoow.WinForms
             TSMI_WattTrader = new ToolStripMenuItem();
             TSMI_DiggingPa = new ToolStripMenuItem();
             TSMI_WailordRespawn = new ToolStripMenuItem();
+            TSMI_XoroshiroTools = new ToolStripMenuItem();
             GB_SeedControlsContainer.SuspendLayout();
             GB_WildView.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)PB_MarkSprite).BeginInit();
@@ -3088,7 +3089,7 @@ namespace owoow.WinForms
             // MS_SubWindows
             // 
             MS_SubWindows.BackColor = SystemColors.ButtonFace;
-            MS_SubWindows.Items.AddRange(new ToolStripItem[] { TSMI_Profiles, TSMI_EncounterLookup, TSMI_SpreadFinder, TSMI_LotoID, TSMI_Cramomatic, TSMI_WattTrader, TSMI_DiggingPa, TSMI_WailordRespawn });
+            MS_SubWindows.Items.AddRange(new ToolStripItem[] { TSMI_Profiles, TSMI_EncounterLookup, TSMI_SpreadFinder, TSMI_LotoID, TSMI_Cramomatic, TSMI_WattTrader, TSMI_DiggingPa, TSMI_WailordRespawn, TSMI_XoroshiroTools });
             MS_SubWindows.Location = new Point(0, 0);
             MS_SubWindows.Name = "MS_SubWindows";
             MS_SubWindows.Size = new Size(1278, 24);
@@ -3149,6 +3150,13 @@ namespace owoow.WinForms
             TSMI_WailordRespawn.Size = new Size(110, 20);
             TSMI_WailordRespawn.Text = "Wailord Respawn";
             TSMI_WailordRespawn.Click += TSMI_WailordRespawn_Click;
+            // 
+            // TSMI_XoroshiroTools
+            // 
+            TSMI_XoroshiroTools.Name = "TSMI_XoroshiroTools";
+            TSMI_XoroshiroTools.Size = new Size(100, 20);
+            TSMI_XoroshiroTools.Text = "Xoroshiro Tools";
+            TSMI_XoroshiroTools.Click += TSMI_XoroshiroTools_Click;
             // 
             // MainWindow
             // 
@@ -3485,5 +3493,6 @@ namespace owoow.WinForms
         public CheckBox CB_MarkCharm;
         public TextBox TB_SID;
         public ComboBox CB_Game;
+        private ToolStripMenuItem TSMI_XoroshiroTools;
     }
 }
