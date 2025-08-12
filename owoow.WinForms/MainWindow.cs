@@ -1627,6 +1627,9 @@ public partial class MainWindow : Form
     {
         SetTextBoxText("0", TB_CurrentAdvances);
         B_CopyToInitial_Click(sender, e);
+        B_GenerateRetailPattern_Click(sender, e);
+        SetTextBoxText(string.Empty, TB_Animations);
+        TB_Animations.Focus();
     }
 
     private void TB_SwitchIP_TextChanged(object sender, EventArgs e)
@@ -2646,20 +2649,20 @@ public partial class MainWindow : Form
             if (pattern.Length > 5)
             {
                 var (hits, advances, s0, s1) = SeedFinder.ReidentifySeed(RetailSequence, RetailSeed0, RetailSeed1, pattern);
-                if (hits == 1)
+                switch (hits)
                 {
-                    TB_RetailAdvances.Text = $"{(uint)advances + RetailInitial:N0}";
-                    TB_CurrentAdvances.Text = $"{(uint)advances + RetailInitial:N0}";
-                    TB_CurrentS0.Text = $"{s0:X16}";
-                    TB_CurrentS1.Text = $"{s1:X16}";
-                }
-                else if (hits == 0)
-                {
-                    TB_RetailAdvances.Text = "No results";
-                }
-                else
-                {
-                    TB_RetailAdvances.Text = $"{hits} results";
+                    case 1:
+                        TB_RetailAdvances.Text = $"{(uint)advances + RetailInitial:N0}";
+                        TB_CurrentAdvances.Text = $"{(uint)advances + RetailInitial:N0}";
+                        TB_CurrentS0.Text = $"{s0:X16}";
+                        TB_CurrentS1.Text = $"{s1:X16}";
+                        break;
+                    case 0:
+                        TB_RetailAdvances.Text = "No results";
+                        break;
+                    default:
+                        TB_RetailAdvances.Text = $"{hits} results";
+                        break;
                 }
             }
             else
