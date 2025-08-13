@@ -451,7 +451,7 @@ public partial class MainWindow : Form
                         SetControlEnabledState(true, B_NTP);
                 }
             }
-        });
+        }, CancellationToken.None);
         await Task.Delay(200, AdvanceSource.Token).ConfigureAwait(false);
     }
 
