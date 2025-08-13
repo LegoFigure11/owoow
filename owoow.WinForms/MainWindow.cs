@@ -896,7 +896,7 @@ public partial class MainWindow : Form
 
             if (!last)
             {
-                (s0, s1) = XoroshiroJump(s0, s1, initial);
+                (s0, s1) = XoroshiroJump(s0, s1, interval);
             }
         }
 
@@ -1006,7 +1006,7 @@ public partial class MainWindow : Form
 
             if (!last)
             {
-                (s0, s1) = XoroshiroJump(s0, s1, initial);
+                (s0, s1) = XoroshiroJump(s0, s1, interval);
             }
         }
 
@@ -1270,7 +1270,7 @@ public partial class MainWindow : Form
 
                                 if (!last)
                                 {
-                                    (s0, s1) = XoroshiroJump(s0, s1, initial);
+                                    (s0, s1) = XoroshiroJump(s0, s1, interval);
                                 }
                             }
 
