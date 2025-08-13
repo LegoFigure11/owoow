@@ -34,13 +34,13 @@ public static class Encounters
         ShieldStatic = JsonSerializer.Deserialize<Dictionary<string, Dictionary<string, EncounterStatic>>>(Utils.GetStringResource("sh_static.json") ?? "{}");
     }
 
-    public static ImmutableSortedDictionary<string, List<EncounterLookupEntry>> GetEncounterLookupForGame(string game)
+    public static ImmutableSortedDictionary<string, List<EncounterLookupEntry>> GetEncounterLookupForGame(Game game)
     {
         var list = new Dictionary<string, List<EncounterLookupEntry>>();
-        var fishing = game == "Sword" ? SwordFishing : ShieldFishing;
-        var hidden  = game == "Sword" ? SwordHidden  : ShieldHidden ;
-        var symbol  = game == "Sword" ? SwordSymbol  : ShieldSymbol ;
-        var strong  = game == "Sword" ? SwordStatic  : ShieldStatic ;
+        var fishing = game == Game.Sword ? SwordFishing : ShieldFishing;
+        var hidden  = game == Game.Sword ? SwordHidden  : ShieldHidden ;
+        var symbol  = game == Game.Sword ? SwordSymbol  : ShieldSymbol ;
+        var strong  = game == Game.Sword ? SwordStatic  : ShieldStatic ;
 
         foreach (var area in symbol!)
         {
@@ -198,19 +198,19 @@ public static class Encounters
         return list.ToImmutableSortedDictionary();
     }
 
-    public static Encounter? GetEncounters(string game, EncounterType tabName, string area, string weather)
+    public static Encounter? GetEncounters(Game game, EncounterType tabName, string area, string weather)
     {
         try
         {
             return game switch
             {
-                "Sword" => tabName switch
+                Game.Sword => tabName switch
                 {
                     EncounterType.Fishing => SwordFishing ![area][weather],
                     EncounterType.Hidden  => SwordHidden  ![area][weather],
                     _                     => SwordSymbol  ![area][weather],
                 },
-                _ => tabName switch
+                _          => tabName switch
                 {
                     EncounterType.Fishing => ShieldFishing![area][weather],
                     EncounterType.Hidden  => ShieldHidden ![area][weather],
@@ -221,29 +221,29 @@ public static class Encounters
         catch { return null; }
     }
 
-    public static EncounterStatic? GetStaticEncounters(string game, string area, string weather)
+    public static EncounterStatic? GetStaticEncounters(Game game, string area, string weather)
     {
         try
         {
             return game switch
             {
-                "Sword" => SwordStatic![area][weather],
-                _ => ShieldStatic![area][weather],
+                Game.Sword => SwordStatic ![area][weather],
+                _          => ShieldStatic![area][weather],
             };
         }
         catch { return null; }
     }
 
-    public static IReadOnlyList<string> GetAreaList(string game, EncounterType tabName) => game switch
+    public static IReadOnlyList<string> GetAreaList(Game game, EncounterType tabName) => game switch
     {
-        "Sword" => tabName switch
+        Game.Sword => tabName switch
         {
             EncounterType.Fishing => [.. SwordFishing !.Keys],
             EncounterType.Hidden  => [.. SwordHidden  !.Keys],
             EncounterType.Static  => [.. SwordStatic  !.Keys],
             _                     => [.. SwordSymbol  !.Keys],
         },
-        _ => tabName switch
+        _          => tabName switch
         {
             EncounterType.Fishing => [.. ShieldFishing!.Keys],
             EncounterType.Hidden  => [.. ShieldHidden !.Keys],
@@ -252,16 +252,16 @@ public static class Encounters
         },
     };
 
-    public static IReadOnlyList<string> GetWeatherList(string game, EncounterType tabName, string area) => game switch
+    public static IReadOnlyList<string> GetWeatherList(Game game, EncounterType tabName, string area) => game switch
     {
-        "Sword" => tabName switch
+        Game.Sword => tabName switch
         {
             EncounterType.Fishing => [.. SwordFishing ![area].Keys.Where(weather => (WeatherNameToValue(weather) & WeathersByArea[area]) != 0)],
             EncounterType.Hidden  => [.. SwordHidden  ![area].Keys.Where(weather => (WeatherNameToValue(weather) & WeathersByArea[area]) != 0)],
             EncounterType.Static  => [.. SwordStatic  ![area].Keys.Where(weather => (WeatherNameToValue(weather) & WeathersByArea[area]) != 0)],
             _                     => [.. SwordSymbol  ![area].Keys.Where(weather => (WeatherNameToValue(weather) & WeathersByArea[area]) != 0)],
         },
-        _ => tabName switch
+        _          => tabName switch
         {
             EncounterType.Fishing => [.. ShieldFishing![area].Keys.Where(weather => (WeatherNameToValue(weather) & WeathersByArea[area]) != 0)],
             EncounterType.Hidden  => [.. ShieldHidden ![area].Keys.Where(weather => (WeatherNameToValue(weather) & WeathersByArea[area]) != 0)],
@@ -270,7 +270,7 @@ public static class Encounters
         },
     };
 
-    public static IReadOnlyList<string> GetSpeciesList(string game, EncounterType tabName, string area, string weather)
+    public static IReadOnlyList<string> GetSpeciesList(Game game, EncounterType tabName, string area, string weather)
     {
         if (tabName == EncounterType.Static) return GetSpeciesListStatic(game, area, weather);
 
@@ -287,7 +287,7 @@ public static class Encounters
         return ret.AsReadOnly();
     }
 
-    public static IReadOnlyList<string> GetSpeciesListStatic(string game, string area, string weather)
+    public static IReadOnlyList<string> GetSpeciesListStatic(Game game, string area, string weather)
     {
         var enc = GetStaticEncounters(game, area, weather);
         IList<string> ret = [];

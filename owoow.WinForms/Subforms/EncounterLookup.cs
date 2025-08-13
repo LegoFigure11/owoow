@@ -1,22 +1,23 @@
 using owoow.Core.Interfaces;
 using System.Collections.Immutable;
+using owoow.Core.Enums;
 using static owoow.Core.Encounters;
 
 namespace owoow.WinForms.Subforms
 {
     public partial class EncounterLookup : Form
     {
-        private string Game;
+        private Game Game;
         private ImmutableSortedDictionary<string, List<EncounterLookupEntry>> encs;
 
         readonly MainWindow MainWindow;
 
-        public EncounterLookup(MainWindow f, int game)
+        public EncounterLookup(MainWindow f, Game game)
         {
-            InitializeComponent();
+            InitializeComponent();  
             MainWindow = f;
-            Game = game == 0 ? "Sword" : "Shield";
-            CB_Game.SelectedIndex = game;
+            Game = game;
+            CB_Game.SelectedIndex = (int)game;
             encs = GetEncounterLookupForGame(Game);
             SetSpeciesOptions();
         }
@@ -33,7 +34,7 @@ namespace owoow.WinForms.Subforms
 
         private void CB_Game_SelectedIndexChanged(object sender, EventArgs e)
         {
-            Game = CB_Game.SelectedIndex == 0 ? "Sword" : "Shield";
+            Game = (Game)CB_Game.SelectedIndex;
             encs = GetEncounterLookupForGame(Game);
             SetSpeciesOptions();
         }
@@ -41,11 +42,7 @@ namespace owoow.WinForms.Subforms
         private void CB_Species_SelectedIndexChanged(object sender, EventArgs e)
         {
             var entry = encs.ElementAt(CB_Species.SelectedIndex);
-            var list = new List<EncounterLookupEntry>();
-            foreach (var enc in entry.Value)
-            {
-                list.Add(enc);
-            }
+            var list = entry.Value.ToList();
             ResultsSource.DataSource = list;
             ResultsSource.ResetBindings(false);
         }

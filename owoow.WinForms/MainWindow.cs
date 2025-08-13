@@ -203,7 +203,7 @@ public partial class MainWindow : Form
                 SetTextBoxText(tid, TB_TID);
                 SetTextBoxText(sid, TB_SID);
 
-                SetComboBoxSelectedIndex(game == "Sword" ? 0 : 1, CB_Game);
+                SetComboBoxSelectedIndex(game == "Sword" ? (int)Game.Sword : (int)Game.Shield, CB_Game);
 
                 UpdateStatus("Reading Pokédex Recommendations...");
                 try
@@ -611,7 +611,7 @@ public partial class MainWindow : Form
 
         ValidateInputs("Symbol");
 
-        var table = new EncounterTable(CB_Game.Text, EncounterType.Symbol, CB_Symbol_Area.Text, CB_Symbol_Weather.Text, CB_Symbol_LeadAbility.Text);
+        var table = new EncounterTable((Game)CB_Game.SelectedIndex, EncounterType.Symbol, CB_Symbol_Area.Text, CB_Symbol_Weather.Text, CB_Symbol_LeadAbility.Text);
 
         var initial = ulong.Parse(TB_Symbol_Initial.Text);
         var advances = ulong.Parse(TB_Symbol_Advances.Text);
@@ -721,7 +721,7 @@ public partial class MainWindow : Form
 
         ValidateInputs("Hidden");
 
-        var table = new EncounterTable(CB_Game.Text, EncounterType.Hidden, CB_Hidden_Area.Text, CB_Hidden_Weather.Text, CB_Hidden_LeadAbility.Text);
+        var table = new EncounterTable((Game)CB_Game.SelectedIndex, EncounterType.Hidden, CB_Hidden_Area.Text, CB_Hidden_Weather.Text, CB_Hidden_LeadAbility.Text);
 
         var initial = ulong.Parse(TB_Hidden_Initial.Text);
         var advances = ulong.Parse(TB_Hidden_Advances.Text);
@@ -830,7 +830,7 @@ public partial class MainWindow : Form
 
         ValidateInputs("Static");
 
-        var table = new EncounterTable(CB_Game.Text, EncounterType.Static, CB_Static_Area.Text, CB_Static_Weather.Text, CB_Static_LeadAbility.Text);
+        var table = new EncounterTable((Game)CB_Game.SelectedIndex, EncounterType.Static, CB_Static_Area.Text, CB_Static_Weather.Text, CB_Static_LeadAbility.Text);
 
         var initial = ulong.Parse(TB_Static_Initial.Text);
         var advances = ulong.Parse(TB_Static_Advances.Text);
@@ -929,7 +929,7 @@ public partial class MainWindow : Form
 
         ValidateInputs("Fishing");
 
-        var table = new EncounterTable(CB_Game.Text, EncounterType.Fishing, CB_Fishing_Area.Text, CB_Fishing_Weather.Text, CB_Fishing_LeadAbility.Text);
+        var table = new EncounterTable((Game)CB_Game.SelectedIndex, EncounterType.Fishing, CB_Fishing_Area.Text, CB_Fishing_Weather.Text, CB_Fishing_LeadAbility.Text);
 
         var initial = ulong.Parse(TB_Fishing_Initial.Text);
         var advances = ulong.Parse(TB_Fishing_Advances.Text);
@@ -1041,7 +1041,7 @@ public partial class MainWindow : Form
         ValidateInputs(type);
 
         var table = new EncounterTable(
-            CB_Game.Text,
+            (Game)CB_Game.SelectedIndex,
             et,
             ((ComboBox)Controls.Find($"CB_{type}_Area", true).FirstOrDefault()!).Text,
             ((ComboBox)Controls.Find($"CB_{type}_Weather", true).FirstOrDefault()!).Text,
@@ -1177,7 +1177,7 @@ public partial class MainWindow : Form
                         ValidateInputs(type);
 
                         var table = new EncounterTable(
-                            GetControlText(CB_Game),
+                            (Game)GetComboBoxSelectedIndex(CB_Game),
                             et,
                             GetControlText((ComboBox)Controls.Find($"CB_{type}_Area", true).FirstOrDefault()!),
                             GetControlText((ComboBox)Controls.Find($"CB_{type}_Weather", true).FirstOrDefault()!),
@@ -1492,7 +1492,7 @@ public partial class MainWindow : Form
         if (Controls.Find($"CB_{tab}_Area", true).FirstOrDefault() is not ComboBox target) return;
 
         target.Items.Clear();
-        var areas = GetAreaList(CB_Game.Text, tab).ToArray();
+        var areas = GetAreaList((Game)CB_Game.SelectedIndex, tab).ToArray();
         Array.Sort(areas);
         foreach (var area in areas)
         {
@@ -1509,7 +1509,7 @@ public partial class MainWindow : Form
         if (Controls.Find($"CB_{tab}_Area", true).FirstOrDefault() is not ComboBox area) return;
 
         target.Items.Clear();
-        var weathers = GetWeatherList(CB_Game.Text, tab, $"{area.SelectedItem}").ToArray();
+        var weathers = GetWeatherList((Game)CB_Game.SelectedIndex, tab, $"{area.SelectedItem}").ToArray();
         foreach (var weather in weathers)
         {
             target.Items.Add(weather);
@@ -1527,7 +1527,7 @@ public partial class MainWindow : Form
         if (Controls.Find($"CB_{tab}_Area", true).FirstOrDefault() is not ComboBox area) return;
 
         target.Items.Clear();
-        var species = GetSpeciesList(CB_Game.Text, tab, $"{area.SelectedItem}", $"{weather.SelectedItem}").ToArray();
+        var species = GetSpeciesList((Game)CB_Game.SelectedIndex, tab, $"{area.SelectedItem}", $"{weather.SelectedItem}").ToArray();
         Array.Sort(species);
         foreach (var specie in species)
         {
@@ -1911,7 +1911,7 @@ public partial class MainWindow : Form
         var type = (EncounterType)TC_EncounterType.SelectedIndex;
         var et = type.ToString();
         return new EncounterTable(
-            GetControlText(CB_Game),
+            (Game)GetComboBoxSelectedIndex(CB_Game),
             type,
             GetControlText((ComboBox)Controls.Find($"CB_{et}_Area", true).FirstOrDefault()!),
             GetControlText((ComboBox)Controls.Find($"CB_{et}_Weather", true).FirstOrDefault()!),
@@ -2424,7 +2424,7 @@ public partial class MainWindow : Form
         if (!EncounterLookupFormOpen)
         {
             EncounterLookupFormOpen = true;
-            EncounterLookupForm = new EncounterLookup(this, CB_Game.SelectedIndex);
+            EncounterLookupForm = new EncounterLookup(this, (Game)CB_Game.SelectedIndex);
             EncounterLookupForm.Show();
         }
         else
