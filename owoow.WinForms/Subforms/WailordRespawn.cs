@@ -9,10 +9,10 @@ namespace owoow.WinForms.Subforms;
 public partial class WailordRespawn : Form
 {
     readonly MainWindow MainWindow;
-    readonly string Tab;
+    readonly EncounterType Tab;
     List<WailordFrame> Frames = [];
 
-    public WailordRespawn(MainWindow f, string tab)
+    public WailordRespawn(MainWindow f, EncounterType tab)
     {
         InitializeComponent();
         MainWindow = f;

@@ -9,11 +9,11 @@ namespace owoow.WinForms.Subforms;
 public partial class LotoID : Form
 {
     readonly MainWindow MainWindow;
-    readonly string Tab;
+    readonly EncounterType Tab;
     public List<string> IDs = [];
     List<LotoIDFrame> Frames = [];
 
-    public LotoID(MainWindow f, string tab)
+    public LotoID(MainWindow f, EncounterType tab)
     {
         InitializeComponent();
         MainWindow = f;

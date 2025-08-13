@@ -1,16 +1,17 @@
 using owoow.Core.Interfaces;
 using PKHeX.Core;
 using System.Globalization;
+using owoow.Core.Enums;
 
 namespace owoow.WinForms.Subforms;
 
 public partial class DiggingPa : Form
 {
     readonly MainWindow MainWindow;
-    readonly string Tab;
+    readonly EncounterType Tab;
     List<DiggingPaFrame> Frames = [];
 
-    public DiggingPa(MainWindow f, string tab)
+    public DiggingPa(MainWindow f, EncounterType tab)
     {
         InitializeComponent();
         MainWindow = f;

@@ -1,21 +1,22 @@
+using owoow.Core.Enums;
 using owoow.Core.Interfaces;
 using static owoow.Core.Encounters;
 
 namespace owoow.Core.EncounterTable;
 
-public class EncounterTable(string game, string tabName, string area, string weather, string leadAbility)
+public class EncounterTable(string game, EncounterType EncounterType, string area, string weather, string leadAbility)
 {
-    public IDictionary<int, IEncounterTableEntry> MainTable { get; set; } = GetEncounterTable(game, tabName, area, weather)!;
-    public IDictionary<int, IEncounterTableEntry> AbilityTable { get; set; } = GetAbilityTable(game, tabName, area, weather, leadAbility)!;
+    public IDictionary<int, IEncounterTableEntry> MainTable { get; set; } = GetEncounterTable(game, EncounterType, area, weather)!;
+    public IDictionary<int, IEncounterTableEntry> AbilityTable { get; set; } = GetAbilityTable(game, EncounterType, area, weather, leadAbility)!;
     public IDictionary<int, IEncounterStaticTableEntry> StaticTable { get; set; } = GetStaticTable(game, area, weather);
 
     private const byte EXPECTED_COUNT = 100;
 
-    public static IDictionary<int, IEncounterTableEntry>? GetEncounterTable(string game, string tabName, string area, string weather)
+    public static IDictionary<int, IEncounterTableEntry>? GetEncounterTable(string game, EncounterType encounterType, string area, string weather)
     {
         try
         {
-            var enc = GetEncounters(game, tabName, area, weather);
+            var enc = GetEncounters(game, encounterType, area, weather);
             Dictionary<int, IEncounterTableEntry> table = [];
 
             if (enc is not null)
@@ -30,26 +31,25 @@ public class EncounterTable(string game, string tabName, string area, string wea
                     }
                 }
 
-                if (table.Count != EXPECTED_COUNT)
-                {
-                    var ex = new Exception(
-                        @$"Uable to build encounter table! Please report this as a bug.
-                        Game: {game}
-                        Encounter Type: {tabName}
-                        Area: {area}
-                        Count: {weather} (Expected {EXPECTED_COUNT})"
-                        );
-                    throw ex;
-                }
+                if (table.Count == EXPECTED_COUNT) return table;
+
+                var ex = new Exception(
+                    @$"Unable to build encounter table! Please report this as a bug.
+                       Game: {game}
+                       Encounter Type: {encounterType}
+                       Area: {area}
+                       Count: {weather} (Expected {EXPECTED_COUNT})"
+                );
+                throw ex;
             }
             return table;
         }
         catch { return null; }
     }
 
-    public static IDictionary<int, IEncounterTableEntry> GetAbilityTable(string game, string tabName, string area, string weather, string ability)
+    public static IDictionary<int, IEncounterTableEntry> GetAbilityTable(string game, EncounterType encounterType, string area, string weather, string ability)
     {
-        var enc = GetEncounters(game, tabName, area, weather);
+        var enc = GetEncounters(game, encounterType, area, weather);
         Dictionary<int, IEncounterTableEntry> table = [];
         var type = RNG.Util.GetTypePullingLeadAbilityType(ability);
         var i = 0;

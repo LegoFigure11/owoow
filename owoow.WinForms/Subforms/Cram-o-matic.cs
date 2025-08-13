@@ -8,10 +8,10 @@ namespace owoow.WinForms.Subforms;
 public partial class Cramomatic : Form
 {
     readonly MainWindow MainWindow;
-    readonly string Tab;
+    readonly EncounterType Tab;
     List<CramomaticFrame> Frames = [];
 
-    public Cramomatic(MainWindow f, string tab)
+    public Cramomatic(MainWindow f, EncounterType tab)
     {
         InitializeComponent();
         MainWindow = f;

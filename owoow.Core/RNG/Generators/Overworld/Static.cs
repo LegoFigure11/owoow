@@ -40,7 +40,7 @@ public class Static
 
             uint Jump = 0;
 
-            IEncounterStaticTableEntry Encounter = table.StaticTable.Values.Where(enc => enc.Species == config.TargetSpecies).FirstOrDefault()!;
+            IEncounterStaticTableEntry Encounter = table.StaticTable.Values.FirstOrDefault(enc => enc.Species == config.TargetSpecies)!;
 
             RibbonIndex Mark;
 

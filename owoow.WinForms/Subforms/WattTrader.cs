@@ -1,16 +1,17 @@
 using owoow.Core.Interfaces;
 using PKHeX.Core;
 using System.Globalization;
+using owoow.Core.Enums;
 
 namespace owoow.WinForms.Subforms;
 
 public partial class WattTrader : Form
 {
     readonly MainWindow MainWindow;
-    readonly string Tab;
+    readonly EncounterType Tab;
     List<WattTraderFrame> Frames = [];
 
-    public WattTrader(MainWindow f, string tab)
+    public WattTrader(MainWindow f, EncounterType tab)
     {
         InitializeComponent();
         MainWindow = f;

@@ -611,7 +611,7 @@ public partial class MainWindow : Form
 
         ValidateInputs("Symbol");
 
-        var table = new EncounterTable(CB_Game.Text, "Symbol", CB_Symbol_Area.Text, CB_Symbol_Weather.Text, CB_Symbol_LeadAbility.Text);
+        var table = new EncounterTable(CB_Game.Text, EncounterType.Symbol, CB_Symbol_Area.Text, CB_Symbol_Weather.Text, CB_Symbol_LeadAbility.Text);
 
         var initial = ulong.Parse(TB_Symbol_Initial.Text);
         var advances = ulong.Parse(TB_Symbol_Advances.Text);
@@ -721,7 +721,7 @@ public partial class MainWindow : Form
 
         ValidateInputs("Hidden");
 
-        var table = new EncounterTable(CB_Game.Text, "Hidden", CB_Hidden_Area.Text, CB_Hidden_Weather.Text, CB_Hidden_LeadAbility.Text);
+        var table = new EncounterTable(CB_Game.Text, EncounterType.Hidden, CB_Hidden_Area.Text, CB_Hidden_Weather.Text, CB_Hidden_LeadAbility.Text);
 
         var initial = ulong.Parse(TB_Hidden_Initial.Text);
         var advances = ulong.Parse(TB_Hidden_Advances.Text);
@@ -830,7 +830,7 @@ public partial class MainWindow : Form
 
         ValidateInputs("Static");
 
-        var table = new EncounterTable(CB_Game.Text, "Static", CB_Static_Area.Text, CB_Static_Weather.Text, CB_Static_LeadAbility.Text);
+        var table = new EncounterTable(CB_Game.Text, EncounterType.Static, CB_Static_Area.Text, CB_Static_Weather.Text, CB_Static_LeadAbility.Text);
 
         var initial = ulong.Parse(TB_Static_Initial.Text);
         var advances = ulong.Parse(TB_Static_Advances.Text);
@@ -929,7 +929,7 @@ public partial class MainWindow : Form
 
         ValidateInputs("Fishing");
 
-        var table = new EncounterTable(CB_Game.Text, "Fishing", CB_Fishing_Area.Text, CB_Fishing_Weather.Text, CB_Fishing_LeadAbility.Text);
+        var table = new EncounterTable(CB_Game.Text, EncounterType.Fishing, CB_Fishing_Area.Text, CB_Fishing_Weather.Text, CB_Fishing_LeadAbility.Text);
 
         var initial = ulong.Parse(TB_Fishing_Initial.Text);
         var advances = ulong.Parse(TB_Fishing_Advances.Text);
@@ -1035,117 +1035,114 @@ public partial class MainWindow : Form
 
     private void B_CalculateRain_Click(object sender, EventArgs e)
     {
-        var tab = TC_EncounterType.SelectedTab;
-        if (tab != null)
+        var et = (EncounterType)TC_EncounterType.SelectedIndex;
+        var type = et.ToString();
+
+        ValidateInputs(type);
+
+        var table = new EncounterTable(
+            CB_Game.Text,
+            et,
+            ((ComboBox)Controls.Find($"CB_{type}_Area", true).FirstOrDefault()!).Text,
+            ((ComboBox)Controls.Find($"CB_{type}_Weather", true).FirstOrDefault()!).Text,
+            ((ComboBox)Controls.Find($"CB_{type}_LeadAbility", true).FirstOrDefault()!).Text
+        );
+
+        var initial = ulong.Parse(((TextBox)Controls.Find($"TB_{type}_Initial", true).FirstOrDefault()!).Text);
+        var advances = 0;
+
+        var s0 = ulong.Parse(TB_Seed0.Text, NumberStyles.AllowHexSpecifier);
+        var s1 = ulong.Parse(TB_Seed1.Text, NumberStyles.AllowHexSpecifier);
+
+        Core.RNG.GeneratorConfig config = new()
         {
-            var type = tab.Text;
+            TargetSpecies = ((ComboBox)Controls.Find($"CB_{type}_Species", true).FirstOrDefault()!).Text,
+            LeadAbility = ((ComboBox)Controls.Find($"CB_{type}_LeadAbility", true).FirstOrDefault()!).Text,
 
-            ValidateInputs(type);
+            AuraKOs = et is EncounterType.Symbol or EncounterType.Fishing ? int.Parse(GetControlText((TextBox)Controls.Find($"TB_{type}_KOs", true).FirstOrDefault()!)) : 0,
 
-            var table = new EncounterTable(
-                CB_Game.Text,
-                type,
-                ((ComboBox)Controls.Find($"CB_{type}_Area", true).FirstOrDefault()!).Text,
-                ((ComboBox)Controls.Find($"CB_{type}_Weather", true).FirstOrDefault()!).Text,
-                ((ComboBox)Controls.Find($"CB_{type}_LeadAbility", true).FirstOrDefault()!).Text
-                );
+            Weather = GetWeatherType(((ComboBox)Controls.Find($"CB_{type}_Weather", true).FirstOrDefault()!).Text),
 
-            var initial = ulong.Parse(((TextBox)Controls.Find($"TB_{type}_Initial", true).FirstOrDefault()!).Text);
-            var advances = 0;
+            ShinyRolls = CB_ShinyCharm.Checked ? 3 : 1,
+            MarkRolls = CB_MarkCharm.Checked ? 3 : 1,
 
-            var s0 = ulong.Parse(TB_Seed0.Text, NumberStyles.AllowHexSpecifier);
-            var s1 = ulong.Parse(TB_Seed1.Text, NumberStyles.AllowHexSpecifier);
+            MaxStep = et is EncounterType.Hidden ? CB_Hidden_MaxStep.SelectedIndex : 0,
 
-            Core.RNG.GeneratorConfig config = new()
+            TargetShiny = GetFilterShinyType(CB_Filter_Shiny.SelectedIndex),
+            TargetMark = GetFilterMarkype(CB_Filter_Mark.SelectedIndex),
+            TargetScale = GetFilterScaleType(CB_Filter_Height.SelectedIndex),
+
+            TargetMinIVs = [(uint)NUD_HP_Min.Value, (uint)NUD_Atk_Min.Value, (uint)NUD_Def_Min.Value, (uint)NUD_SpA_Min.Value, (uint)NUD_SpD_Min.Value, (uint)NUD_Spe_Min.Value],
+            TargetMaxIVs = [(uint)NUD_HP_Max.Value, (uint)NUD_Atk_Max.Value, (uint)NUD_Def_Max.Value, (uint)NUD_SpA_Max.Value, (uint)NUD_SpD_Max.Value, (uint)NUD_Spe_Max.Value],
+            SearchTypes = [GetIVSearchType(L_HPSpacer.Text), GetIVSearchType(L_AtkSpacer.Text), GetIVSearchType(L_DefSpacer.Text), GetIVSearchType(L_SpASpacer.Text), GetIVSearchType(L_SpDSpacer.Text), GetIVSearchType(L_SpeSpacer.Text)],
+
+            RareEC = CB_RareEC.Checked,
+
+            DexRecSlots =
+            [
+                GetDexRecommendation(CB_DexRec1.Text),
+                GetDexRecommendation(CB_DexRec2.Text),
+                GetDexRecommendation(CB_DexRec3.Text),
+                GetDexRecommendation(CB_DexRec4.Text)
+            ],
+
+            ConsiderMenuClose = ((CheckBox)Controls.Find($"CB_{type}_MenuClose", true).FirstOrDefault()!).Checked,
+            MenuCloseIsHoldingDirection = ((CheckBox)Controls.Find($"CB_{type}_MenuClose_Direction", true).FirstOrDefault()!).Checked,
+            MenuCloseNPCs = uint.Parse(((TextBox)Controls.Find($"TB_{type}_NPCs", true).FirstOrDefault()!).Text),
+
+            ConsiderFly = CB_ConsiderFlying.Checked,
+            ConsiderRain = CB_ConsiderRain.Checked,
+            AreaLoadAdvances = (uint)NUD_AreaLoad.Value,
+            AreaLoadNPCs = (uint)NUD_FlyNPCs.Value,
+            RainTicksAreaLoad = CB_ConsiderFlying.Checked && CB_ConsiderRain.Checked ? (uint)NUD_RainTick.Value : 0,
+            RainTicksEncounter = CB_ConsiderFlying.Checked && CB_ConsiderRain.Checked ? 0 : (uint)NUD_RainTick.Value,
+
+            FiltersEnabled = true,
+
+            TID = uint.Parse(TB_TID.Text),
+            SID = uint.Parse(TB_SID.Text),
+        };
+
+        (s0, s1) = XoroshiroJump(s0, s1, initial);
+
+        List<uint> ticks = [];
+
+        List<OverworldFrame> results = [];
+
+        const int max = 300;
+
+        for (uint i = 0; i < max; i++) // search next 300 ticks
+        {
+            config.RainTicksEncounter = i;
+            results = et switch
             {
-                TargetSpecies = ((ComboBox)Controls.Find($"CB_{type}_Species", true).FirstOrDefault()!).Text,
-                LeadAbility = ((ComboBox)Controls.Find($"CB_{type}_LeadAbility", true).FirstOrDefault()!).Text,
-
-                AuraKOs = type is "Symbol" or "Fishing" ? int.Parse(GetControlText((TextBox)Controls.Find($"TB_{type}_KOs", true).FirstOrDefault()!)) : 0,
-
-                Weather = GetWeatherType(((ComboBox)Controls.Find($"CB_{type}_Weather", true).FirstOrDefault()!).Text),
-
-                ShinyRolls = CB_ShinyCharm.Checked ? 3 : 1,
-                MarkRolls = CB_MarkCharm.Checked ? 3 : 1,
-
-                MaxStep = type is "Hidden" ? CB_Hidden_MaxStep.SelectedIndex : 0,
-
-                TargetShiny = GetFilterShinyType(CB_Filter_Shiny.SelectedIndex),
-                TargetMark = GetFilterMarkype(CB_Filter_Mark.SelectedIndex),
-                TargetScale = GetFilterScaleType(CB_Filter_Height.SelectedIndex),
-
-                TargetMinIVs = [(uint)NUD_HP_Min.Value, (uint)NUD_Atk_Min.Value, (uint)NUD_Def_Min.Value, (uint)NUD_SpA_Min.Value, (uint)NUD_SpD_Min.Value, (uint)NUD_Spe_Min.Value],
-                TargetMaxIVs = [(uint)NUD_HP_Max.Value, (uint)NUD_Atk_Max.Value, (uint)NUD_Def_Max.Value, (uint)NUD_SpA_Max.Value, (uint)NUD_SpD_Max.Value, (uint)NUD_Spe_Max.Value],
-                SearchTypes = [GetIVSearchType(L_HPSpacer.Text), GetIVSearchType(L_AtkSpacer.Text), GetIVSearchType(L_DefSpacer.Text), GetIVSearchType(L_SpASpacer.Text), GetIVSearchType(L_SpDSpacer.Text), GetIVSearchType(L_SpeSpacer.Text)],
-
-                RareEC = CB_RareEC.Checked,
-
-                DexRecSlots =
-                [
-                    GetDexRecommendation(CB_DexRec1.Text),
-                    GetDexRecommendation(CB_DexRec2.Text),
-                    GetDexRecommendation(CB_DexRec3.Text),
-                    GetDexRecommendation(CB_DexRec4.Text)
-                ],
-
-                ConsiderMenuClose = ((CheckBox)Controls.Find($"CB_{type}_MenuClose", true).FirstOrDefault()!).Checked,
-                MenuCloseIsHoldingDirection = ((CheckBox)Controls.Find($"CB_{type}_MenuClose_Direction", true).FirstOrDefault()!).Checked,
-                MenuCloseNPCs = uint.Parse(((TextBox)Controls.Find($"TB_{type}_NPCs", true).FirstOrDefault()!).Text),
-
-                ConsiderFly = CB_ConsiderFlying.Checked,
-                ConsiderRain = CB_ConsiderRain.Checked,
-                AreaLoadAdvances = (uint)NUD_AreaLoad.Value,
-                AreaLoadNPCs = (uint)NUD_FlyNPCs.Value,
-                RainTicksAreaLoad = CB_ConsiderFlying.Checked && CB_ConsiderRain.Checked ? (uint)NUD_RainTick.Value : 0,
-                RainTicksEncounter = CB_ConsiderFlying.Checked && CB_ConsiderRain.Checked ? 0 : (uint)NUD_RainTick.Value,
-
-                FiltersEnabled = true,
-
-                TID = uint.Parse(TB_TID.Text),
-                SID = uint.Parse(TB_SID.Text),
+                EncounterType.Static  => Task.Run(() => Static .Generate(s0, s1, table, initial, initial + (ulong)advances, config)).Result,
+                EncounterType.Symbol  => Task.Run(() => Symbol .Generate(s0, s1, table, initial, initial + (ulong)advances, config)).Result,
+                EncounterType.Fishing => Task.Run(() => Fishing.Generate(s0, s1, table, initial, initial + (ulong)advances, config)).Result,
+                _                     => Task.Run(() => Hidden .Generate(s0, s1, table, initial, initial + (ulong)advances, config)).Result,
             };
+            if (results.Count != 0)
+                ticks.Add(i);
+        }
 
-            (s0, s1) = XoroshiroJump(s0, s1, initial);
-
-            List<uint> ticks = [];
-
-            List<OverworldFrame> results = [];
-
-            int max = 300;
-
-            for (uint i = 0; i < max; i++) // search next 300 ticks
-            {
-                config.RainTicksEncounter = i;
-                results = type switch
-                {
-                    "Static" => Task.Run(() => Static.Generate(s0, s1, table, initial, initial + (ulong)advances, config)).Result,
-                    "Symbol" => Task.Run(() => Symbol.Generate(s0, s1, table, initial, initial + (ulong)advances, config)).Result,
-                    "Fishing" => Task.Run(() => Fishing.Generate(s0, s1, table, initial, initial + (ulong)advances, config)).Result,
-                    _ => Task.Run(() => Hidden.Generate(s0, s1, table, initial, initial + (ulong)advances, config)).Result,
-                };
-                if (results.Count != 0)
-                    ticks.Add(i);
-            }
-
-            if (ticks.Count == max)
-            {
-                MessageBox.Show("Whoops! Max number of results found, please set the IV filters to be stricter and try again.");
-            }
-            else if (ticks.Count != 0)
-            {
-                SetNUDValue(ticks[0], NUD_RainTick);
-                MessageBox.Show($"Found {ticks.Count} result{(ticks.Count != 1 ? "s" : string.Empty)}: {string.Join(", ", ticks)}");
-            }
-            else
-            {
-                MessageBox.Show("No results found.");
-            }
+        if (ticks.Count == max)
+        {
+            MessageBox.Show("Whoops! Max number of results found, please set the IV filters to be stricter and try again.");
+        }
+        else if (ticks.Count != 0)
+        {
+            SetNUDValue(ticks[0], NUD_RainTick);
+            MessageBox.Show($"Found {ticks.Count} result{(ticks.Count != 1 ? "s" : string.Empty)}: {string.Join(", ", ticks)}");
+        }
+        else
+        {
+            MessageBox.Show("No results found.");
         }
     }
 
     private void B_SeedSearch_Click(object sender, EventArgs e)
     {
-        var tab = TC_EncounterType.SelectedTab;
+        var et = (EncounterType)TC_EncounterType.SelectedIndex;
         Task.Run(async () =>
         {
             try
@@ -1175,122 +1172,120 @@ public partial class MainWindow : Form
                         SetTextBoxText("0", TB_CurrentAdvances, TB_AdvancesIncrease);
                         consecutiveFails = 0;
 
-                        if (tab != null)
+                        var type = et.ToString();
+
+                        ValidateInputs(type);
+
+                        var table = new EncounterTable(
+                            GetControlText(CB_Game),
+                            et,
+                            GetControlText((ComboBox)Controls.Find($"CB_{type}_Area", true).FirstOrDefault()!),
+                            GetControlText((ComboBox)Controls.Find($"CB_{type}_Weather", true).FirstOrDefault()!),
+                            GetControlText((ComboBox)Controls.Find($"CB_{type}_LeadAbility", true).FirstOrDefault()!)
+                        );
+
+                        var initial = ulong.Parse(GetControlText((TextBox)Controls.Find($"TB_{type}_Initial", true).FirstOrDefault()!));
+                        var advances = ulong.Parse(GetControlText((TextBox)Controls.Find($"TB_{type}_Advances", true).FirstOrDefault()!));
+
+                        var numTasks = (byte)(advances < 1_000 ? 1 : advances < 50_000 ? 2 : Math.Max(4, 1 << Config.MaxSearchTasksNthPowerOfTwo));
+                        var interval = advances / numTasks;
+
+                        Core.RNG.GeneratorConfig config = new()
                         {
-                            var type = tab.Text;
+                            TargetSpecies = GetControlText((ComboBox)Controls.Find($"CB_{type}_Species", true).FirstOrDefault()!),
+                            LeadAbility = GetControlText((ComboBox)Controls.Find($"CB_{type}_LeadAbility", true).FirstOrDefault()!),
 
-                            ValidateInputs(type);
+                            AuraKOs = et is EncounterType.Symbol or EncounterType.Fishing ? int.Parse(GetControlText((TextBox)Controls.Find($"TB_{type}_KOs", true).FirstOrDefault()!)) : 0,
+                            TargetAura = et is EncounterType.Symbol or EncounterType.Fishing ? GetFilterAuraType(GetComboBoxSelectedIndex(CB_Filter_Aura)) : AuraType.Any,
 
-                            var table = new EncounterTable(
-                                GetControlText(CB_Game),
-                                type,
-                                GetControlText((ComboBox)Controls.Find($"CB_{type}_Area", true).FirstOrDefault()!),
-                                GetControlText((ComboBox)Controls.Find($"CB_{type}_Weather", true).FirstOrDefault()!),
-                                GetControlText((ComboBox)Controls.Find($"CB_{type}_LeadAbility", true).FirstOrDefault()!)
-                                );
+                            Weather = GetWeatherType(GetControlText((ComboBox)Controls.Find($"CB_{type}_Weather", true).FirstOrDefault()!)),
 
-                            var initial = ulong.Parse(GetControlText((TextBox)Controls.Find($"TB_{type}_Initial", true).FirstOrDefault()!));
-                            var advances = ulong.Parse(GetControlText((TextBox)Controls.Find($"TB_{type}_Advances", true).FirstOrDefault()!));
+                            ShinyRolls = GetCheckBoxIsChecked(CB_ShinyCharm) ? 3 : 1,
+                            MarkRolls = GetCheckBoxIsChecked(CB_MarkCharm) ? 3 : 1,
 
-                            var numTasks = (byte)(advances < 1_000 ? 1 : advances < 50_000 ? 2 : Math.Max(4, 1 << Config.MaxSearchTasksNthPowerOfTwo));
-                            var interval = advances / numTasks;
+                            MaxStep = et is EncounterType.Hidden ? GetComboBoxSelectedIndex(CB_Hidden_MaxStep) : 0,
 
-                            Core.RNG.GeneratorConfig config = new()
+                            TargetShiny = GetFilterShinyType(GetComboBoxSelectedIndex(CB_Filter_Shiny)),
+                            TargetMark = GetFilterMarkype(GetComboBoxSelectedIndex(CB_Filter_Mark)),
+                            TargetScale = GetFilterScaleType(GetComboBoxSelectedIndex(CB_Filter_Height)),
+
+                            TargetMinIVs = [GetNUDValue(NUD_HP_Min), GetNUDValue(NUD_Atk_Min), GetNUDValue(NUD_Def_Min), GetNUDValue(NUD_SpA_Min), GetNUDValue(NUD_SpD_Min), GetNUDValue(NUD_Spe_Min)],
+                            TargetMaxIVs = [GetNUDValue(NUD_HP_Max), GetNUDValue(NUD_Atk_Max), GetNUDValue(NUD_Def_Max), GetNUDValue(NUD_SpA_Max), GetNUDValue(NUD_SpD_Max), GetNUDValue(NUD_Spe_Max)],
+                            SearchTypes = [GetIVSearchType(GetControlText(L_HPSpacer)), GetIVSearchType(GetControlText(L_AtkSpacer)), GetIVSearchType(GetControlText(L_DefSpacer)), GetIVSearchType(GetControlText(L_SpASpacer)), GetIVSearchType(GetControlText(L_SpDSpacer)), GetIVSearchType(GetControlText(L_SpeSpacer))],
+                            RareEC = GetCheckBoxIsChecked(CB_RareEC),
+
+                            DexRecSlots =
+                            [
+                                GetDexRecommendation(GetControlText(CB_DexRec1)),
+                                GetDexRecommendation(GetControlText(CB_DexRec2)),
+                                GetDexRecommendation(GetControlText(CB_DexRec3)),
+                                GetDexRecommendation(GetControlText(CB_DexRec4))
+                            ],
+
+                            ConsiderMenuClose = GetCheckBoxIsChecked((CheckBox)Controls.Find($"CB_{type}_MenuClose", true).FirstOrDefault()!),
+                            MenuCloseIsHoldingDirection = GetCheckBoxIsChecked((CheckBox)Controls.Find($"CB_{type}_MenuClose_Direction", true).FirstOrDefault()!),
+                            MenuCloseNPCs = uint.Parse(GetControlText((TextBox)Controls.Find($"TB_{type}_NPCs", true).FirstOrDefault()!)),
+
+                            ConsiderFly = GetCheckBoxIsChecked(CB_ConsiderFlying),
+                            ConsiderRain = GetCheckBoxIsChecked(CB_ConsiderRain),
+                            AreaLoadAdvances = GetNUDValue(NUD_AreaLoad),
+                            AreaLoadNPCs = GetNUDValue(NUD_FlyNPCs),
+                            RainTicksAreaLoad = GetCheckBoxIsChecked(CB_ConsiderFlying) && GetCheckBoxIsChecked(CB_ConsiderRain) ? GetNUDValue(NUD_RainTick) : 0,
+                            RainTicksEncounter = GetCheckBoxIsChecked(CB_ConsiderFlying) && GetCheckBoxIsChecked(CB_ConsiderRain) ? 0 : GetNUDValue(NUD_RainTick),
+
+                            FiltersEnabled = true,
+
+                            TID = uint.Parse(GetControlText(TB_TID)),
+                            SID = uint.Parse(GetControlText(TB_SID)),
+                        };
+
+                        (s0, s1) = XoroshiroJump(s0, s1, initial);
+
+                        List<OverworldFrame>[] results = [];
+
+                        List<Task<List<OverworldFrame>>> tasks = [];
+                        for (byte i = 0; i < numTasks; i++)
+                        {
+                            var last = i == numTasks - 1;
+
+                            var start = initial + (i * interval);
+                            var end = initial + (interval * (i + (uint)1)) - 1;
+
+                            if (last) end += advances % interval;
+
+                            var t = et switch
                             {
-                                TargetSpecies = GetControlText((ComboBox)Controls.Find($"CB_{type}_Species", true).FirstOrDefault()!),
-                                LeadAbility = GetControlText((ComboBox)Controls.Find($"CB_{type}_LeadAbility", true).FirstOrDefault()!),
-
-                                AuraKOs = type is "Symbol" or "Fishing" ? int.Parse(GetControlText((TextBox)Controls.Find($"TB_{type}_KOs", true).FirstOrDefault()!)) : 0,
-                                TargetAura = type is "Symbol" or "Fishing" ? GetFilterAuraType(GetComboBoxSelectedIndex(CB_Filter_Aura)) : AuraType.Any,
-
-                                Weather = GetWeatherType(GetControlText((ComboBox)Controls.Find($"CB_{type}_Weather", true).FirstOrDefault()!)),
-
-                                ShinyRolls = GetCheckBoxIsChecked(CB_ShinyCharm) ? 3 : 1,
-                                MarkRolls = GetCheckBoxIsChecked(CB_MarkCharm) ? 3 : 1,
-
-                                MaxStep = type is "Hidden" ? GetComboBoxSelectedIndex(CB_Hidden_MaxStep) : 0,
-
-                                TargetShiny = GetFilterShinyType(GetComboBoxSelectedIndex(CB_Filter_Shiny)),
-                                TargetMark = GetFilterMarkype(GetComboBoxSelectedIndex(CB_Filter_Mark)),
-                                TargetScale = GetFilterScaleType(GetComboBoxSelectedIndex(CB_Filter_Height)),
-
-                                TargetMinIVs = [GetNUDValue(NUD_HP_Min), GetNUDValue(NUD_Atk_Min), GetNUDValue(NUD_Def_Min), GetNUDValue(NUD_SpA_Min), GetNUDValue(NUD_SpD_Min), GetNUDValue(NUD_Spe_Min)],
-                                TargetMaxIVs = [GetNUDValue(NUD_HP_Max), GetNUDValue(NUD_Atk_Max), GetNUDValue(NUD_Def_Max), GetNUDValue(NUD_SpA_Max), GetNUDValue(NUD_SpD_Max), GetNUDValue(NUD_Spe_Max)],
-                                SearchTypes = [GetIVSearchType(GetControlText(L_HPSpacer)), GetIVSearchType(GetControlText(L_AtkSpacer)), GetIVSearchType(GetControlText(L_DefSpacer)), GetIVSearchType(GetControlText(L_SpASpacer)), GetIVSearchType(GetControlText(L_SpDSpacer)), GetIVSearchType(GetControlText(L_SpeSpacer))],
-                                RareEC = GetCheckBoxIsChecked(CB_RareEC),
-
-                                DexRecSlots =
-                                [
-                                    GetDexRecommendation(GetControlText(CB_DexRec1)),
-                                    GetDexRecommendation(GetControlText(CB_DexRec2)),
-                                    GetDexRecommendation(GetControlText(CB_DexRec3)),
-                                    GetDexRecommendation(GetControlText(CB_DexRec4))
-                                ],
-
-                                ConsiderMenuClose = GetCheckBoxIsChecked((CheckBox)Controls.Find($"CB_{type}_MenuClose", true).FirstOrDefault()!),
-                                MenuCloseIsHoldingDirection = GetCheckBoxIsChecked((CheckBox)Controls.Find($"CB_{type}_MenuClose_Direction", true).FirstOrDefault()!),
-                                MenuCloseNPCs = uint.Parse(GetControlText((TextBox)Controls.Find($"TB_{type}_NPCs", true).FirstOrDefault()!)),
-
-                                ConsiderFly = GetCheckBoxIsChecked(CB_ConsiderFlying),
-                                ConsiderRain = GetCheckBoxIsChecked(CB_ConsiderRain),
-                                AreaLoadAdvances = GetNUDValue(NUD_AreaLoad),
-                                AreaLoadNPCs = GetNUDValue(NUD_FlyNPCs),
-                                RainTicksAreaLoad = GetCheckBoxIsChecked(CB_ConsiderFlying) && GetCheckBoxIsChecked(CB_ConsiderRain) ? GetNUDValue(NUD_RainTick) : 0,
-                                RainTicksEncounter = GetCheckBoxIsChecked(CB_ConsiderFlying) && GetCheckBoxIsChecked(CB_ConsiderRain) ? 0 : GetNUDValue(NUD_RainTick),
-
-                                FiltersEnabled = true,
-
-                                TID = uint.Parse(GetControlText(TB_TID)),
-                                SID = uint.Parse(GetControlText(TB_SID)),
+                                EncounterType.Static  => Static .Generate(s0, s1, table, start, end, config),
+                                EncounterType.Symbol  => Symbol .Generate(s0, s1, table, start, end, config),
+                                EncounterType.Fishing => Fishing.Generate(s0, s1, table, start, end, config),
+                                _                     => Hidden .Generate(s0, s1, table, start, end, config),
                             };
-                            
-                            (s0, s1) = XoroshiroJump(s0, s1, initial);
 
-                            List<OverworldFrame>[] results = [];
+                            tasks.Add(t);
 
-                            List<Task<List<OverworldFrame>>> tasks = [];
-                            for (byte i = 0; i < numTasks; i++)
+                            if (!last)
                             {
-                                var last = i == numTasks - 1;
+                                (s0, s1) = XoroshiroJump(s0, s1, interval);
+                            }
+                        }
 
-                                var start = initial + (i * interval);
-                                var end = initial + (interval * (i + (uint)1)) - 1;
-
-                                if (last) end += advances % interval;
-
-                                var t = type switch
-                                {
-                                    "Static" => Static.Generate(s0, s1, table, start, end, config),
-                                    "Symbol" => Symbol.Generate(s0, s1, table, start, end, config),
-                                    "Fishing" => Fishing.Generate(s0, s1, table, start, end, config),
-                                    _ => Hidden.Generate(s0, s1, table, start, end, config),
-                                };
-
-                                tasks.Add(t);
-
-                                if (!last)
-                                {
-                                    (s0, s1) = XoroshiroJump(s0, s1, interval);
-                                }
+                        await Task.Run(async () =>
+                        {
+                            results = await Task.WhenAll(tasks).ConfigureAwait(false);
+                            List<OverworldFrame> AllResults = [];
+                            foreach (var result in results)
+                            {
+                                AllResults.AddRange(result);
                             }
 
-                            await Task.Run(async () =>
-                            {
-                                results = await Task.WhenAll(tasks).ConfigureAwait(false);
-                                List<OverworldFrame> AllResults = [];
-                                foreach (var result in results)
-                                {
-                                    AllResults.AddRange(result);
-                                }
+                            Frames = AllResults;
+                            if (AllResults.Count > 0) found = true;
+                            if (AllResults.Count > 1000) AllResults = AllResults[0..1000];
+                            //AllResults.Sort();
+                            SetBindingSourceDataSource(AllResults, ResultsSource);
+                            DGV_Results.SanitizeColumns(this);
+                        }).ConfigureAwait(false);
 
-                                Frames = AllResults;
-                                if (AllResults.Count > 0) found = true;
-                                if (AllResults.Count > 1000) AllResults = AllResults[0..1000];
-                                //AllResults.Sort();
-                                SetBindingSourceDataSource(AllResults, ResultsSource);
-                                DGV_Results.SanitizeColumns(this);
-                            }).ConfigureAwait(false);
-                        }
                     }
                     else
                     {
@@ -1492,67 +1487,53 @@ public partial class MainWindow : Form
 
     private void SetAreaOptions()
     {
-        var tab = TC_EncounterType.SelectedTab;
-        if (tab != null)
+        var tab = (EncounterType)TC_EncounterType.SelectedIndex;
+
+        if (Controls.Find($"CB_{tab}_Area", true).FirstOrDefault() is not ComboBox target) return;
+
+        target.Items.Clear();
+        var areas = GetAreaList(CB_Game.Text, tab).ToArray();
+        Array.Sort(areas);
+        foreach (var area in areas)
         {
-            if (Controls.Find($"CB_{tab.Text}_Area", true).FirstOrDefault() is ComboBox target)
-            {
-                target.Items.Clear();
-                var areas = GetAreaList(CB_Game.Text, tab.Text).ToArray();
-                Array.Sort(areas);
-                foreach (var area in areas)
-                {
-                    target.Items.Add(area);
-                }
-                target.SelectedIndex = 0;
-            }
+            target.Items.Add(area);
         }
+        target.SelectedIndex = 0;
     }
 
     private void SetWeatherOptions()
     {
-        var tab = TC_EncounterType.SelectedTab;
-        if (tab != null)
+        var tab = (EncounterType)TC_EncounterType.SelectedIndex;
+
+        if (Controls.Find($"CB_{tab}_Weather", true).FirstOrDefault() is not ComboBox target) return;
+        if (Controls.Find($"CB_{tab}_Area", true).FirstOrDefault() is not ComboBox area) return;
+
+        target.Items.Clear();
+        var weathers = GetWeatherList(CB_Game.Text, tab, $"{area.SelectedItem}").ToArray();
+        foreach (var weather in weathers)
         {
-            if (Controls.Find($"CB_{tab.Text}_Weather", true).FirstOrDefault() is ComboBox target)
-            {
-                if (Controls.Find($"CB_{tab.Text}_Area", true).FirstOrDefault() is ComboBox area)
-                {
-                    target.Items.Clear();
-                    var weathers = GetWeatherList(CB_Game.Text, tab.Text, $"{area.SelectedItem}").ToArray();
-                    foreach (var weather in weathers)
-                    {
-                        target.Items.Add(weather);
-                    }
-                    target.SelectedIndex = 0;
-                }
-            }
+            target.Items.Add(weather);
         }
+        target.SelectedIndex = 0;
+
     }
 
     private void SetSpeciesOptions()
     {
-        var tab = TC_EncounterType.SelectedTab;
-        if (tab != null)
+        var tab = (EncounterType)TC_EncounterType.SelectedIndex;
+
+        if (Controls.Find($"CB_{tab}_Species", true).FirstOrDefault() is not ComboBox target) return;
+        if (Controls.Find($"CB_{tab}_Weather", true).FirstOrDefault() is not ComboBox weather) return;
+        if (Controls.Find($"CB_{tab}_Area", true).FirstOrDefault() is not ComboBox area) return;
+
+        target.Items.Clear();
+        var species = GetSpeciesList(CB_Game.Text, tab, $"{area.SelectedItem}", $"{weather.SelectedItem}").ToArray();
+        Array.Sort(species);
+        foreach (var specie in species)
         {
-            if (Controls.Find($"CB_{tab.Text}_Species", true).FirstOrDefault() is ComboBox target)
-            {
-                if (Controls.Find($"CB_{tab.Text}_Weather", true).FirstOrDefault() is ComboBox weather)
-                {
-                    if (Controls.Find($"CB_{tab.Text}_Area", true).FirstOrDefault() is ComboBox area)
-                    {
-                        target.Items.Clear();
-                        var species = GetSpeciesList(CB_Game.Text, tab.Text, $"{area.SelectedItem}", $"{weather.SelectedItem}").ToArray();
-                        Array.Sort(species);
-                        foreach (var specie in species)
-                        {
-                            target.Items.Add(specie);
-                        }
-                        target.SelectedIndex = 0;
-                    }
-                }
-            }
+            target.Items.Add(specie);
         }
+        target.SelectedIndex = 0;
     }
 
     private void B_Connect_Click(object sender, EventArgs e)
@@ -1927,43 +1908,46 @@ public partial class MainWindow : Form
 
     private EncounterTable GetCurrentTable()
     {
-        var type = TC_EncounterType.SelectedTab!.Text;
-
+        var type = (EncounterType)TC_EncounterType.SelectedIndex;
+        var et = type.ToString();
         return new EncounterTable(
             GetControlText(CB_Game),
             type,
-            GetControlText((ComboBox)Controls.Find($"CB_{type}_Area", true).FirstOrDefault()!),
-            GetControlText((ComboBox)Controls.Find($"CB_{type}_Weather", true).FirstOrDefault()!),
-            GetControlText((ComboBox)Controls.Find($"CB_{type}_LeadAbility", true).FirstOrDefault()!)
+            GetControlText((ComboBox)Controls.Find($"CB_{et}_Area", true).FirstOrDefault()!),
+            GetControlText((ComboBox)Controls.Find($"CB_{et}_Weather", true).FirstOrDefault()!),
+            GetControlText((ComboBox)Controls.Find($"CB_{et}_LeadAbility", true).FirstOrDefault()!)
         );
     }
 
     private void CB_Target_TextChanged(object sender, EventArgs e)
     {
-        var type = TC_EncounterType.SelectedTab!.Text;
+        var type = (EncounterType)TC_EncounterType.SelectedIndex;
 
         CB_Filter_Shiny.Enabled = true;
         CB_Filter_Aura.Enabled = true;
         CB_ConsiderFlying.Enabled = true;
 
-        if (type == "Static")
+        // ReSharper disable once SwitchStatementMissingSomeEnumCasesNoDefault
+        switch (type)
         {
-            var species = ((ComboBox)sender).Text;
-            var enc = GetCurrentTable().StaticTable.Where(e => e.Value.Species == species).FirstOrDefault();
-            if (species != string.Empty && enc.Value is not null) CB_Filter_Shiny.Enabled = !enc.Value.IsShinyLocked;
+            case EncounterType.Static:
+            {
+                var species = ((ComboBox)sender).Text;
+                var enc = GetCurrentTable().StaticTable.FirstOrDefault(e => e.Value.Species == species);
+                if (species != string.Empty && enc.Value is not null) CB_Filter_Shiny.Enabled = !enc.Value.IsShinyLocked;
 
-            CB_Filter_Aura.Enabled = false;
-        }
-        else if (type == "Hidden")
-        {
-            CB_Filter_Aura.Enabled = false;
-            CB_ConsiderFlying.Checked = false;
-            CB_ConsiderFlying.Enabled = false;
-        }
-        else if (type == "Fishing")
-        {
-            CB_ConsiderFlying.Enabled = false;
-            CB_ConsiderFlying.Enabled = false;
+                CB_Filter_Aura.Enabled = false;
+                break;
+            }
+            case EncounterType.Hidden:
+                CB_Filter_Aura.Enabled = false;
+                CB_ConsiderFlying.Checked = false;
+                CB_ConsiderFlying.Enabled = false;
+                break;
+            case EncounterType.Fishing:
+                CB_ConsiderFlying.Enabled = false;
+                CB_ConsiderFlying.Enabled = false;
+                break;
         }
     }
 
@@ -2055,14 +2039,14 @@ public partial class MainWindow : Form
 
     public void SetMenuClose(bool check)
     {
-        var tab = TC_EncounterType.SelectedTab?.Text;
+        var tab = (EncounterType)TC_EncounterType.SelectedIndex;
         var cb = (CheckBox?)Controls?.Find($"CB_{tab}_MenuClose", true).FirstOrDefault();
         if (cb is not null) SetCheckBoxCheckedState(check, cb);
     }
 
     public void SetMenuCloseDirection(bool check)
     {
-        var tab = TC_EncounterType.SelectedTab?.Text;
+        var tab = (EncounterType)TC_EncounterType.SelectedIndex;
         var cb = (CheckBox?)Controls?.Find($"CB_{tab}_MenuClose_Direction", true).FirstOrDefault();
         if (cb is not null) SetCheckBoxCheckedState(check, cb);
     }
@@ -2488,7 +2472,7 @@ public partial class MainWindow : Form
         if (!LotoIDFormOpen)
         {
             LotoIDFormOpen = true;
-            LotoIDForm = new LotoID(this, TC_EncounterType.SelectedTab!.Text);
+            LotoIDForm = new LotoID(this, (EncounterType)TC_EncounterType.SelectedIndex);
             LotoIDForm.Show();
         }
         else
@@ -2504,7 +2488,7 @@ public partial class MainWindow : Form
         if (!CramomaticFormOpen)
         {
             CramomaticFormOpen = true;
-            CramomaticForm = new Cramomatic(this, TC_EncounterType.SelectedTab!.Text);
+            CramomaticForm = new Cramomatic(this, (EncounterType)TC_EncounterType.SelectedIndex);
             CramomaticForm.Show();
         }
         else
@@ -2520,7 +2504,7 @@ public partial class MainWindow : Form
         if (!WattTraderFormOpen)
         {
             WattTraderFormOpen = true;
-            WattTraderForm = new WattTrader(this, TC_EncounterType.SelectedTab!.Text);
+            WattTraderForm = new WattTrader(this, (EncounterType)TC_EncounterType.SelectedIndex);
             WattTraderForm.Show();
         }
         else
@@ -2536,7 +2520,7 @@ public partial class MainWindow : Form
         if (!DiggingPaFormOpen)
         {
             DiggingPaFormOpen = true;
-            DiggingPaForm = new DiggingPa(this, TC_EncounterType.SelectedTab!.Text);
+            DiggingPaForm = new DiggingPa(this, (EncounterType)TC_EncounterType.SelectedIndex);
             DiggingPaForm.Show();
         }
         else
@@ -2552,7 +2536,7 @@ public partial class MainWindow : Form
         if (!WailordRespawnFormOpen)
         {
             WailordRespawnFormOpen = true;
-            WailordRespawnForm = new WailordRespawn(this, TC_EncounterType.SelectedTab!.Text);
+            WailordRespawnForm = new WailordRespawn(this, (EncounterType)TC_EncounterType.SelectedIndex);
             WailordRespawnForm.Show();
         }
         else
@@ -2717,7 +2701,7 @@ public partial class MainWindow : Form
         try
         {
             var adv = DGV_Results.CurrentRow!.Cells[0].Value;
-            var tab = TC_EncounterType.SelectedTab!.Text;
+            var tab = (EncounterType)TC_EncounterType.SelectedIndex;
             ((TextBox)Controls.Find($"TB_{tab}_Initial", true).FirstOrDefault()!).Text = $"{adv}".Replace(",", string.Empty);
         }
         catch (NullReferenceException)
