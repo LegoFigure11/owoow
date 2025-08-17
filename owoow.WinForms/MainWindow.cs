@@ -398,8 +398,8 @@ public partial class MainWindow : Form
     {
         skipPause = true;
         resetPause = true;
-        AdvanceSource.Cancel();
-        ResetSource.Cancel();
+        await AdvanceSource.CancelAsync();
+        await ResetSource.CancelAsync();
         AdvanceSource = new();
         ResetSource = new();
         try
@@ -466,39 +466,35 @@ public partial class MainWindow : Form
                     SetControlEnabledState(false, B_SkipAdvance, B_SkipForward, B_SkipBack, B_Turbo, B_SeedSearch, B_NTP);
                     SetControlEnabledState(true, B_CancelSkip);
                     skipPause = false;
+                    readPause = true;
                     var skips = uint.Parse(TB_Skips.Text);
-                    ulong startTick = 0;
-                    var tries = 0;
-                    while (startTick == 0 && tries < 10)
-                    {
-                        try
-                        {
-                            tries++;
-                            startTick = await ConnectionWrapper.GetCurrentTime(AdvanceSource.Token)
-                                .ConfigureAwait(false);
-                            await Task.Delay(100, AdvanceSource.Token).ConfigureAwait(false);
-                        }
-                        catch
-                        {
-                            // Ignore
-                        }
-                    }
 
-                    if (startTick < Time.MIN_TIME) throw new Exception("Failed to get start tick!");
+                    await Task.Delay(200, AdvanceSource.Token).ConfigureAwait(false);
+                    ulong startTick = await ConnectionWrapper.GetCurrentTime(AdvanceSource.Token)
+                                .ConfigureAwait(false);
+                    var currentTick = startTick;
+                    if (currentTick < Time.MIN_TIME) throw new Exception("Failed to get start tick!");
+                    
 
                     _sw.Reset();
                     _sw.Start();
 
+                    readPause = false;
+
                     for (var i = 0; i < skips && !skipPause; i++)
                     {
-                        var currentTick = await ConnectionWrapper.GetCurrentTime(AdvanceSource.Token)
-                            .ConfigureAwait(false);
+                        var delay = 310;
+                        currentTick += 86400;
                         // If current time is approaching OOB, reset it
-                        if (currentTick >= Time.MAX_TIME) await ConnectionWrapper.SetCurrentTime(Time.MIN_TIME, CancellationToken.None).ConfigureAwait(false);
+                        if (currentTick >= Time.MAX_TIME)
+                        {
+                            await ConnectionWrapper.SetCurrentTime(Time.MIN_TIME, CancellationToken.None).ConfigureAwait(false);
+                            delay -= 100;
+                        }
 
                         SetButtonText($"{i + 1}", B_SkipForward);
                         await ConnectionWrapper.DaySkip(AdvanceSource.Token).ConfigureAwait(false);
-                        await Task.Delay(310, AdvanceSource.Token).ConfigureAwait(false);
+                        await Task.Delay(delay, AdvanceSource.Token).ConfigureAwait(false);
                     }
 
                     _sw.Stop();
@@ -549,31 +545,21 @@ public partial class MainWindow : Form
                     SetControlEnabledState(false, B_SkipAdvance, B_SkipForward, B_SkipBack, B_Turbo, B_SeedSearch, B_NTP);
                     SetControlEnabledState(true, B_CancelSkip);
                     skipPause = false;
+                    readPause = true;
                     var skips = uint.Parse(TB_Skips.Text);
 
-                    ulong startTick = 0;
-                    var tries = 0;
-                    while (startTick == 0 && tries < 10)
-                    {
-                        try
-                        {
-                            tries++;
-                            startTick = await ConnectionWrapper.GetCurrentTime(AdvanceSource.Token)
-                                .ConfigureAwait(false);
-                            await Task.Delay(100, AdvanceSource.Token).ConfigureAwait(false);
-                        }
-                        catch
-                        {
-                            // Ignore
-                        }
-                    }
+                    await Task.Delay(200, AdvanceSource.Token).ConfigureAwait(false);
+                    ulong startTick = await ConnectionWrapper.GetCurrentTime(AdvanceSource.Token)
+                        .ConfigureAwait(false);
+                    var currentTick = startTick;
 
                     if (startTick <= Time.MIN_TIME) throw new Exception("Something went wrong retrieving the system time! Please NTP and try again.");
 
+                    readPause = false;
+
                     for (var i = 0; i < skips && !skipPause; i++)
                     {
-                        var currentTick = await ConnectionWrapper.GetCurrentTime(AdvanceSource.Token)
-                            .ConfigureAwait(false);
+                        currentTick -= 86400;
                         // If current time is approaching OOB, throw
                         if (currentTick <= Time.MIN_TIME) throw new Exception("Cannot push the date any further back! Please NTP and try again.");
 
