@@ -34,6 +34,7 @@ public partial class TurboSettings : Form
         TB_Sleep.Text = $"{c.InputSleepTime}";
 
         CB_NTPAfter.Checked = c.ResetTimeAfterDateSkipping;
+        CB_Log.Checked = c.LogResultsWhileInProgress;
 
         TB_Sleep.KeyPress += p.KeyPress_AllowOnlyNumerical!;
 
@@ -123,5 +124,10 @@ public partial class TurboSettings : Form
         if (string.IsNullOrEmpty(TB_Sleep.Text) || TB_Sleep.Text == "0") TB_Sleep.Text = "50";
         if (!int.TryParse(TB_Sleep.Text, out _)) TB_Sleep.Text = "50";
         c.InputSleepTime = Math.Max(int.Parse(TB_Sleep.Text), 50);
+    }
+
+    private void CB_Log_CheckedChanged(object sender, EventArgs e)
+    {
+        c.LogResultsWhileInProgress = CB_Log.Checked;
     }
 }

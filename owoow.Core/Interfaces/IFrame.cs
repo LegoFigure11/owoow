@@ -89,6 +89,8 @@ namespace owoow.Core.Interfaces
 
         public string Seed0 { get; set; } = string.Empty;
         public string Seed1 { get; set; } = string.Empty;
+
+        public override string ToString() => $"Advance: {Advances} ({Seed0} {Seed1}) | {Species} (Shiny: {Shiny}) | {H}/{A}/{B}/{C}/{D}/{S} | Mark: {Mark}";
     }
 
     public class SpreadFinderFrame : ISpreadFinderFrame

@@ -107,4 +107,6 @@ public class GeneratorConfig
     public ulong DiggingPaMinWatts { get; set; } = 0;
 
     public bool FiltersEnabled { get; set; } = false;
+
+    public bool LogResultsToFile { get; set; } = false;
 };

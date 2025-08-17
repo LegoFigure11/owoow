@@ -29,6 +29,8 @@ public class ClientConfig : ISeedResetConfig, ITurboConfig, IWebhookConfig
     public bool AvoidSystemUpdate { get; set; } = false;
     public int ExtraTimeLoadGame { get; set; } = 0;
 
+    public bool LogResultsWhileInProgress { get; set; } = true;
+
     // Turbo
     public bool LoopTurbo { get; set; } = false;
     public List<string> TurboSequence { get; set; } = [];

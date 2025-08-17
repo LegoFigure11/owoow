@@ -1223,6 +1223,8 @@ public partial class MainWindow : Form
 
                             TID = uint.Parse(GetControlText(TB_TID)),
                             SID = uint.Parse(GetControlText(TB_SID)),
+
+                            LogResultsToFile = Config.LogResultsWhileInProgress,
                         };
 
                         (s0, s1) = XoroshiroJump(s0, s1, initial);

@@ -8,4 +8,6 @@ public interface ISeedResetConfig
     int ExtraTimeLoadProfile { get; set; }
     bool AvoidSystemUpdate { get; set; }
     int ExtraTimeLoadGame { get; set; }
+
+    bool LogResultsWhileInProgress { get; set; }
 }

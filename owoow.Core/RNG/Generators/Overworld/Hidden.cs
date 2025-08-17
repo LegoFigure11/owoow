@@ -2,6 +2,7 @@ using owoow.Core.Enums;
 using owoow.Core.Interfaces;
 using owoow.Core.RNG.Generators.Misc;
 using PKHeX.Core;
+using SysBot.Base;
 using static owoow.Core.RNG.Generators.Fixed;
 using static owoow.Core.RNG.Generators.Overworld.Common;
 using static owoow.Core.RNG.Validators.Validator;
@@ -233,7 +234,7 @@ public class Hidden
                 }
 
                 // Matches, keep!
-                frames.Add(new OverworldFrame()
+                var f = new OverworldFrame()
                 {
                     Advances = $"{i:N0}",
 
@@ -268,7 +269,9 @@ public class Hidden
 
                     Seed0 = $"{os.s0:X16}",
                     Seed1 = $"{os.s1:X16}",
-                });
+                };
+                frames.Add(f);
+                if (config.LogResultsToFile) LogUtil.LogText($"Result found! {f}");
                 outer.Next();
             }
             return frames;
