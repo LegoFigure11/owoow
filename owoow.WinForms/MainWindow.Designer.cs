@@ -286,6 +286,7 @@ namespace owoow.WinForms
             TSMI_Cramomatic = new ToolStripMenuItem();
             TSMI_WattTrader = new ToolStripMenuItem();
             TSMI_DiggingPa = new ToolStripMenuItem();
+            TMSI_SkillBro = new ToolStripMenuItem();
             TSMI_WailordRespawn = new ToolStripMenuItem();
             TSMI_XoroshiroTools = new ToolStripMenuItem();
             GB_SeedControlsContainer.SuspendLayout();
@@ -3089,7 +3090,7 @@ namespace owoow.WinForms
             // MS_SubWindows
             // 
             MS_SubWindows.BackColor = SystemColors.ButtonFace;
-            MS_SubWindows.Items.AddRange(new ToolStripItem[] { TSMI_Profiles, TSMI_EncounterLookup, TSMI_SpreadFinder, TSMI_LotoID, TSMI_Cramomatic, TSMI_WattTrader, TSMI_DiggingPa, TSMI_WailordRespawn, TSMI_XoroshiroTools });
+            MS_SubWindows.Items.AddRange(new ToolStripItem[] { TSMI_Profiles, TSMI_EncounterLookup, TSMI_SpreadFinder, TSMI_LotoID, TSMI_Cramomatic, TSMI_WattTrader, TSMI_DiggingPa, TMSI_SkillBro, TSMI_WailordRespawn, TSMI_XoroshiroTools });
             MS_SubWindows.Location = new Point(0, 0);
             MS_SubWindows.Name = "MS_SubWindows";
             MS_SubWindows.Size = new Size(1278, 24);
@@ -3143,6 +3144,13 @@ namespace owoow.WinForms
             TSMI_DiggingPa.Size = new Size(77, 20);
             TSMI_DiggingPa.Text = "Digging Pa";
             TSMI_DiggingPa.Click += TSMI_DiggingPa_Click;
+            // 
+            // TMSI_SkillBro
+            // 
+            TMSI_SkillBro.Name = "TMSI_SkillBro";
+            TMSI_SkillBro.Size = new Size(114, 20);
+            TMSI_SkillBro.Text = "Digging Bro (Skill)";
+            TMSI_SkillBro.Click += TSMI_SkillBro_Click;
             // 
             // TSMI_WailordRespawn
             // 
@@ -3494,5 +3502,6 @@ namespace owoow.WinForms
         public TextBox TB_SID;
         public ComboBox CB_Game;
         private ToolStripMenuItem TSMI_XoroshiroTools;
+        private ToolStripMenuItem TMSI_SkillBro;
     }
 }

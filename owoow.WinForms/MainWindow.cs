@@ -1584,6 +1584,7 @@ public partial class MainWindow : Form
             if (LotoIDFormOpen)         LotoIDForm        !.SetSeeds(s0, s1);
             if (WailordRespawnFormOpen) WailordRespawnForm!.SetSeeds(s0, s1);
             if (WattTraderFormOpen)     WattTraderForm    !.SetSeeds(s0, s1);
+            if (SkillBroFormOpen)       SkillBroForm      !.SetSeeds(s0, s1);
 
             reset = true;
         }
@@ -2011,6 +2012,7 @@ public partial class MainWindow : Form
         if (LotoIDFormOpen)         LotoIDForm        !.SetMenuClose(c);
         if (WailordRespawnFormOpen) WailordRespawnForm!.SetMenuClose(c);
         if (WattTraderFormOpen)     WattTraderForm    !.SetMenuClose(c);
+        if (SkillBroFormOpen)       SkillBroForm      !.SetMenuClose(c);
     }
 
     private void CB_MenuCloseDirection_CheckedChanged(object sender, EventArgs e)
@@ -2023,6 +2025,7 @@ public partial class MainWindow : Form
         if (LotoIDFormOpen)         LotoIDForm        !.SetMenuCloseDirection(c);
         if (WailordRespawnFormOpen) WailordRespawnForm!.SetMenuCloseDirection(c);
         if (WattTraderFormOpen)     WattTraderForm    !.SetMenuCloseDirection(c);
+        if (SkillBroFormOpen)       SkillBroForm      !.SetMenuCloseDirection(c);
     }
 
     public void SetMenuClose(bool check)
@@ -2578,6 +2581,22 @@ public partial class MainWindow : Form
         else
         {
             TurboSettingsForm?.Focus();
+        }
+    }
+
+    public bool SkillBroFormOpen = false;
+    SkillBro? SkillBroForm;
+    private void TSMI_SkillBro_Click(object sender, EventArgs e)
+    {
+        if (!SkillBroFormOpen)
+        {
+            SkillBroFormOpen = true;
+            SkillBroForm = new SkillBro(this, (EncounterType)TC_EncounterType.SelectedIndex);
+            SkillBroForm?.Show();
+        }
+        else
+        {
+            SkillBroForm?.Focus();
         }
     }
     #endregion

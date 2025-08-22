@@ -34,6 +34,7 @@ A comprehensive usage guide brought to you by [Billo-PS](https://github.com/Bill
   * Cram-o-matic (specifically for Pok&eacute;balls and Star/Ribbon Sweets)
   * Snowslide Slope Watt Trader's Highlight item
   * Digging Pa Watts
+  * Digging Duo item rewards (Skill Brother only)
   * Isle of Armor Wailord Respawn
 * Switch connectivity over both Wi-Fi and USB thanks to the bundled sys-botbase homebrew sysmodule for users with Custom Firmware (CFW).
 * Automated seed reading and tracking (CFW only).

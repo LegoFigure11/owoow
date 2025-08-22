@@ -106,7 +106,12 @@ public class GeneratorConfig
 
     public ulong DiggingPaMinWatts { get; set; } = 0;
 
+    public byte[] SkillBroItemsMin { get; set; } = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+    public int SkillBroItemsMinCount { get; set; } = 0;
+
     public bool FiltersEnabled { get; set; } = false;
 
     public bool LogResultsToFile { get; set; } = false;
+
+    public Game Game { get; set; } = Game.Sword;
 };
