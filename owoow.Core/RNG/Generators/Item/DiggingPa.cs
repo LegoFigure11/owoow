@@ -1,4 +1,4 @@
-﻿using owoow.Core.Interfaces;
+using owoow.Core.Interfaces;
 using owoow.Core.RNG.Generators.Misc;
 using PKHeX.Core;
 
@@ -15,9 +15,6 @@ public static class DiggingPa
         {
             List<DiggingPaFrame> frames = [];
 
-            Xoroshiro128Plus outer = new(s0, s1);
-
-            ulong advances = 0;
             uint Jump = 0;
 
             uint earned = 0;
@@ -25,10 +22,9 @@ public static class DiggingPa
 
             uint success = 0;
 
-            for (; advances < start; advances++)
-            {
-                outer.Next();
-            }
+            (s0, s1) = Util.XoroshiroJump(s0, s1, start);
+
+            Xoroshiro128Plus outer = new(s0, s1);
 
             for (ulong i = start; i <= end; i++)
             {

@@ -67,8 +67,6 @@ public partial class WailordRespawn : Form
             SuccessType = Core.RNG.Util.GetSuccessType(CB_Target.SelectedIndex),
         };
 
-        var rng = new Xoroshiro128Plus(s0, s1);
-
         Task.Run(async () =>
         {
             Frames = await Task.Run(async () => await Wailord.Generate(s0, s1, initial, initial + advances, config).ConfigureAwait(false));

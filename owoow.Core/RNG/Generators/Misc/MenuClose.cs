@@ -1,4 +1,4 @@
-﻿using owoow.Core.Enums;
+using owoow.Core.Enums;
 using owoow.Core.Interfaces;
 using PKHeX.Core;
 
@@ -43,13 +43,10 @@ public static class MenuClose
         {
             List<MenuCloseFrame> frames = [];
 
+            (s0, s1) = Util.XoroshiroJump(s0, s1, start);
             Xoroshiro128Plus rng = new(s0, s1);
 
-            ulong advances = 0;
-            for (; advances < start; advances++)
-            {
-                rng.Next();
-            }
+            ulong advances = start;
 
             while (advances < end)
             {

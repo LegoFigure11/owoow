@@ -1,4 +1,4 @@
-﻿using owoow.Core.Interfaces;
+using owoow.Core.Interfaces;
 using owoow.Core.RNG.Generators.Misc;
 using PKHeX.Core;
 
@@ -12,15 +12,10 @@ public static class WattTrader
         {
             List<WattTraderFrame> frames = [];
 
+            (s0, s1) = Util.XoroshiroJump(s0, s1, start);
             Xoroshiro128Plus outer = new(s0, s1);
 
-            ulong advances = 0;
             uint Jump = 0;
-
-            for (; advances < start; advances++)
-            {
-                outer.Next();
-            }
 
             for (ulong i = start; i <= end; i++)
             {

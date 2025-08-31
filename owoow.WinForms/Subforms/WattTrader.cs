@@ -70,8 +70,6 @@ public partial class WattTrader : Form
             WattTraderSlotMax = uint.Parse(TB_SlotMax.Text),
         };
 
-        var rng = new Xoroshiro128Plus(s0, s1);
-
         Task.Run(async () =>
         {
             Frames = await Task.Run(async () => await Core.RNG.Generators.Item.WattTrader.Generate(s0, s1, initial, initial + advances, config).ConfigureAwait(false));

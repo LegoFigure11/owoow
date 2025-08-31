@@ -17,15 +17,11 @@ public static class Cramomatic
             bool isSweet = config.CramomaticInputs.Any(i => i is CramomaticInputItemType.SweetIngredient);
             bool allSame = config.CramomaticInputs.All(i => i == config.CramomaticInputs[0]);
 
-            Xoroshiro128Plus outer = new(s0, s1);
-
-            ulong advances = 0;
             uint Jump = 0;
 
-            for (; advances < start; advances++)
-            {
-                outer.Next();
-            }
+            (s0, s1) = Util.XoroshiroJump(s0, s1, start);
+
+            Xoroshiro128Plus outer = new(s0, s1);
 
             for (ulong i = start; i <= end; i++)
             {

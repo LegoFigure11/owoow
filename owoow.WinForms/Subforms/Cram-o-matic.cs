@@ -74,8 +74,6 @@ public partial class Cramomatic : Form
             BonusOnly = CB_BonusOnly.Checked,
         };
 
-        var rng = new Xoroshiro128Plus(s0, s1);
-
         Task.Run(async () =>
         {
             Frames = await Task.Run(async () => await Core.RNG.Generators.Item.Cramomatic.Generate(s0, s1, initial, initial + advances, config).ConfigureAwait(false));

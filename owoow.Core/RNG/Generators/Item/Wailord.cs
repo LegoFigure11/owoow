@@ -16,17 +16,12 @@ public static class Wailord
         {
             List<WailordFrame> frames = [];
 
-            Xoroshiro128Plus outer = new(s0, s1);
-
-            ulong advances = 0;
             uint Jump = 0;
             uint SpawnAttempt = 0;
             List<uint> Locations = [];
 
-            for (; advances < start; advances++)
-            {
-                outer.Next();
-            }
+            (s0, s1) = Util.XoroshiroJump(s0, s1, start);
+            Xoroshiro128Plus outer = new(s0, s1);
 
             for (ulong i = start; i <= end; i++)
             {

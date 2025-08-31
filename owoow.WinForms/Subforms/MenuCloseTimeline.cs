@@ -61,8 +61,6 @@ public partial class MenuCloseTimeline : Form
             Weather = Core.RNG.Util.GetWeatherType($"{CB_Timeline_Weather.SelectedItem}"),
         };
 
-        var rng = new Xoroshiro128Plus(s0, s1);
-
         Task.Run(async () =>
         {
             List<MenuCloseFrame> results = await Task.Run(async () => await MenuClose.Generate(s0, s1, initial, initial + advances, config).ConfigureAwait(false));

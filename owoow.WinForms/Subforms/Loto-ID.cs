@@ -84,8 +84,6 @@ public partial class LotoID : Form
 
         Target = Core.RNG.Util.GetLotoIDPrizeName(config.LotoIDTargetType);
 
-        var rng = new Xoroshiro128Plus(s0, s1);
-
         Task.Run(async () =>
         {
             Frames = await Task.Run(async () => await Core.RNG.Generators.Item.LotoID.Generate(s0, s1, initial, initial + advances, config).ConfigureAwait(false));
