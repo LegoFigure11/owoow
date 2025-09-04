@@ -32,6 +32,8 @@ public partial class SeedResetSettings : Form
         TB_ResultURLs.Text = $"{c.ResultNotificationURL}";
         TB_ErrorURLs.Text = $"{c.ErrorNotificationURL}";
 
+        CB_Log.Checked = c.LogResultsWhileInProgress;
+
         p.SetControlEnabledState(c.WebhookEnabled, TB_WebhookMessage, TB_WebhookErrorMessage, TB_ResultURLs, TB_ErrorURLs, B_TestWebhooks);
     }
 
@@ -119,5 +121,10 @@ public partial class SeedResetSettings : Form
     {
         var tb = (TextBox)sender;
         if (string.IsNullOrEmpty(tb.Text)) tb.Text = "0";
+    }
+
+    private void CB_Log_CheckedChanged(object sender, EventArgs e)
+    {
+        c.LogResultsWhileInProgress = CB_Log.Checked;
     }
 }

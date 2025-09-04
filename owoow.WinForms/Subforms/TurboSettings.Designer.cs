@@ -41,8 +41,6 @@ namespace owoow.WinForms.Subforms
             CB_NTPAfter = new CheckBox();
             TB_Sleep = new TextBox();
             L_Sleep = new Label();
-            CB_Log = new CheckBox();
-            L_Log = new Label();
             SuspendLayout();
             // 
             // LB_List
@@ -159,32 +157,11 @@ namespace owoow.WinForms.Subforms
             L_Sleep.TabIndex = 14;
             L_Sleep.Text = "Time between inputs (ms):";
             // 
-            // CB_Log
-            // 
-            CB_Log.AutoSize = true;
-            CB_Log.Location = new Point(186, 243);
-            CB_Log.Name = "CB_Log";
-            CB_Log.Size = new Size(15, 14);
-            CB_Log.TabIndex = 17;
-            CB_Log.UseVisualStyleBackColor = true;
-            CB_Log.CheckedChanged += CB_Log_CheckedChanged;
-            // 
-            // L_Log
-            // 
-            L_Log.AutoSize = true;
-            L_Log.Location = new Point(8, 242);
-            L_Log.Name = "L_Log";
-            L_Log.Size = new Size(176, 15);
-            L_Log.TabIndex = 16;
-            L_Log.Text = "Log results while Date Skipping?";
-            // 
             // TurboSettings
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(211, 261);
-            Controls.Add(CB_Log);
-            Controls.Add(L_Log);
+            ClientSize = new Size(211, 249);
             Controls.Add(TB_Sleep);
             Controls.Add(L_Sleep);
             Controls.Add(CB_NTPAfter);
@@ -220,7 +197,5 @@ namespace owoow.WinForms.Subforms
         private CheckBox CB_NTPAfter;
         private TextBox TB_Sleep;
         private Label L_Sleep;
-        private CheckBox CB_Log;
-        private Label L_Log;
     }
 }

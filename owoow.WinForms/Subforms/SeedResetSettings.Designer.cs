@@ -50,6 +50,8 @@ namespace owoow.WinForms.Subforms
             B_TestWebhooks = new Button();
             TB_WebhookErrorMessage = new TextBox();
             L_WebhookErrorMessage = new Label();
+            CB_Log = new CheckBox();
+            L_Log = new Label();
             SuspendLayout();
             // 
             // CB_AvoidSystemUpdate
@@ -166,7 +168,7 @@ namespace owoow.WinForms.Subforms
             // L_EnableWebhooks
             // 
             L_EnableWebhooks.AutoSize = true;
-            L_EnableWebhooks.Location = new Point(12, 143);
+            L_EnableWebhooks.Location = new Point(12, 160);
             L_EnableWebhooks.Name = "L_EnableWebhooks";
             L_EnableWebhooks.Size = new Size(149, 15);
             L_EnableWebhooks.TabIndex = 18;
@@ -175,7 +177,7 @@ namespace owoow.WinForms.Subforms
             // CB_EnableWebhooks
             // 
             CB_EnableWebhooks.AutoSize = true;
-            CB_EnableWebhooks.Location = new Point(253, 144);
+            CB_EnableWebhooks.Location = new Point(253, 161);
             CB_EnableWebhooks.Name = "CB_EnableWebhooks";
             CB_EnableWebhooks.Size = new Size(15, 14);
             CB_EnableWebhooks.TabIndex = 6;
@@ -185,7 +187,7 @@ namespace owoow.WinForms.Subforms
             // L_WebhookMessage
             // 
             L_WebhookMessage.AutoSize = true;
-            L_WebhookMessage.Location = new Point(12, 164);
+            L_WebhookMessage.Location = new Point(12, 181);
             L_WebhookMessage.Name = "L_WebhookMessage";
             L_WebhookMessage.Size = new Size(182, 15);
             L_WebhookMessage.TabIndex = 19;
@@ -193,7 +195,7 @@ namespace owoow.WinForms.Subforms
             // 
             // TB_WebhookMessage
             // 
-            TB_WebhookMessage.Location = new Point(12, 182);
+            TB_WebhookMessage.Location = new Point(12, 199);
             TB_WebhookMessage.Name = "TB_WebhookMessage";
             TB_WebhookMessage.Size = new Size(268, 23);
             TB_WebhookMessage.TabIndex = 7;
@@ -201,7 +203,7 @@ namespace owoow.WinForms.Subforms
             // 
             // TB_ResultURLs
             // 
-            TB_ResultURLs.Location = new Point(12, 270);
+            TB_ResultURLs.Location = new Point(12, 287);
             TB_ResultURLs.Name = "TB_ResultURLs";
             TB_ResultURLs.Size = new Size(268, 23);
             TB_ResultURLs.TabIndex = 9;
@@ -210,7 +212,7 @@ namespace owoow.WinForms.Subforms
             // L_ResultURLs
             // 
             L_ResultURLs.AutoSize = true;
-            L_ResultURLs.Location = new Point(12, 252);
+            L_ResultURLs.Location = new Point(12, 269);
             L_ResultURLs.Name = "L_ResultURLs";
             L_ResultURLs.Size = new Size(120, 15);
             L_ResultURLs.TabIndex = 21;
@@ -218,7 +220,7 @@ namespace owoow.WinForms.Subforms
             // 
             // TB_ErrorURLs
             // 
-            TB_ErrorURLs.Location = new Point(12, 314);
+            TB_ErrorURLs.Location = new Point(12, 331);
             TB_ErrorURLs.Name = "TB_ErrorURLs";
             TB_ErrorURLs.Size = new Size(268, 23);
             TB_ErrorURLs.TabIndex = 10;
@@ -227,7 +229,7 @@ namespace owoow.WinForms.Subforms
             // L_ErrorURLs
             // 
             L_ErrorURLs.AutoSize = true;
-            L_ErrorURLs.Location = new Point(12, 296);
+            L_ErrorURLs.Location = new Point(12, 313);
             L_ErrorURLs.Name = "L_ErrorURLs";
             L_ErrorURLs.Size = new Size(113, 15);
             L_ErrorURLs.TabIndex = 22;
@@ -235,7 +237,7 @@ namespace owoow.WinForms.Subforms
             // 
             // B_TestWebhooks
             // 
-            B_TestWebhooks.Location = new Point(12, 339);
+            B_TestWebhooks.Location = new Point(12, 356);
             B_TestWebhooks.Name = "B_TestWebhooks";
             B_TestWebhooks.Size = new Size(268, 25);
             B_TestWebhooks.TabIndex = 11;
@@ -245,7 +247,7 @@ namespace owoow.WinForms.Subforms
             // 
             // TB_WebhookErrorMessage
             // 
-            TB_WebhookErrorMessage.Location = new Point(12, 226);
+            TB_WebhookErrorMessage.Location = new Point(12, 243);
             TB_WebhookErrorMessage.Name = "TB_WebhookErrorMessage";
             TB_WebhookErrorMessage.Size = new Size(268, 23);
             TB_WebhookErrorMessage.TabIndex = 8;
@@ -254,17 +256,38 @@ namespace owoow.WinForms.Subforms
             // L_WebhookErrorMessage
             // 
             L_WebhookErrorMessage.AutoSize = true;
-            L_WebhookErrorMessage.Location = new Point(12, 208);
+            L_WebhookErrorMessage.Location = new Point(12, 225);
             L_WebhookErrorMessage.Name = "L_WebhookErrorMessage";
             L_WebhookErrorMessage.Size = new Size(138, 15);
             L_WebhookErrorMessage.TabIndex = 20;
             L_WebhookErrorMessage.Text = "Error Webhook Message:";
             // 
+            // CB_Log
+            // 
+            CB_Log.AutoSize = true;
+            CB_Log.Location = new Point(253, 136);
+            CB_Log.Name = "CB_Log";
+            CB_Log.Size = new Size(15, 14);
+            CB_Log.TabIndex = 24;
+            CB_Log.UseVisualStyleBackColor = true;
+            CB_Log.CheckedChanged += CB_Log_CheckedChanged;
+            // 
+            // L_Log
+            // 
+            L_Log.AutoSize = true;
+            L_Log.Location = new Point(12, 135);
+            L_Log.Name = "L_Log";
+            L_Log.Size = new Size(180, 15);
+            L_Log.TabIndex = 23;
+            L_Log.Text = "Log results while Seed Resetting?";
+            // 
             // SeedResetSettings
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(286, 368);
+            ClientSize = new Size(286, 390);
+            Controls.Add(CB_Log);
+            Controls.Add(L_Log);
             Controls.Add(TB_WebhookErrorMessage);
             Controls.Add(L_WebhookErrorMessage);
             Controls.Add(B_TestWebhooks);
@@ -318,5 +341,7 @@ namespace owoow.WinForms.Subforms
         private Button B_TestWebhooks;
         private TextBox TB_WebhookErrorMessage;
         private Label L_WebhookErrorMessage;
+        private CheckBox CB_Log;
+        private Label L_Log;
     }
 }
