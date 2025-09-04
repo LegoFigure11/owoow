@@ -101,6 +101,7 @@ public partial class SeedResetSettings : Form
 
     private void B_TestWebhooks_Click(object sender, EventArgs e)
     {
+        p.Webhook = new(c);
         _ = p.Webhook.SendTestWebhook(CancellationToken.None);
     }
 
