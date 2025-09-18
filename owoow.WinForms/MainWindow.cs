@@ -1704,12 +1704,12 @@ public partial class MainWindow : Form
 
     private void B_RefreshDexRec_Click(object sender, EventArgs e)
     {
-        Task.Run(
-            async () =>
+        Task.Run(async () =>
             {
                 try
                 {
                     readPause = true;
+                    SetControlEnabledState(false, B_RefreshDexRec, B_ReadEncounter, B_CopyToInitial, B_RetailUpdateSeeds);
                     await Task.Delay(100, Source.Token).ConfigureAwait(false);
 
                     var DexRec = await ConnectionWrapper.ReadDexRecommendation(Source.Token).ConfigureAwait(false);
@@ -1720,11 +1720,13 @@ public partial class MainWindow : Form
                     SetComboBoxSelectedIndex(CB_DexRec4.Items.IndexOf(GetDexRecommendation(DexRec[3])), CB_DexRec4);
 
                     readPause = false;
+                    SetControlEnabledState(true, B_RefreshDexRec, B_ReadEncounter, B_CopyToInitial, B_RetailUpdateSeeds);
                 }
                 catch (Exception ex)
                 {
                     readPause = false;
                     this.DisplayMessageBox($"Error occurred while reading Pokédex Recommendations: {ex.Message}");
+                    SetControlEnabledState(true, B_RefreshDexRec, B_ReadEncounter, B_CopyToInitial, B_RetailUpdateSeeds);
                     return;
                 }
             }
@@ -1743,6 +1745,7 @@ public partial class MainWindow : Form
                 {
                     SetControlEnabledState(false, B_ReadEncounter);
                     readPause = true;
+                    SetControlEnabledState(false, B_RefreshDexRec, B_ReadEncounter, B_CopyToInitial, B_RetailUpdateSeeds);
 
                     Task.Run(
                         async () =>
@@ -1751,7 +1754,7 @@ public partial class MainWindow : Form
                             await ConnectionWrapper.ReadKCoordinatesAsync(Source.Token).ConfigureAwait(false);
                             var map = await ConnectionWrapper.ReadSaveLocation(Source.Token).ConfigureAwait(false);
                             readPause = false;
-                            SetControlEnabledState(true, B_ReadEncounter);
+                            SetControlEnabledState(true, B_RefreshDexRec, B_ReadEncounter, B_CopyToInitial, B_RetailUpdateSeeds);
                             var (pkms, x, y, z) = ConnectionWrapper.ParseCoordinatesBlock();
 
                             if (pkms.Count > 0)
@@ -1764,6 +1767,7 @@ public partial class MainWindow : Form
                             {
                                 MessageBox.Show("No Pokémon found in KCoordinates block! If you think there should be any, save the game in an area with wild spawns and try again.");
                             }
+
                         }
                     );
                 }
@@ -1775,7 +1779,7 @@ public partial class MainWindow : Form
             catch (Exception ex)
             {
                 readPause = false;
-                SetControlEnabledState(true, B_ReadEncounter);
+                SetControlEnabledState(true, B_RefreshDexRec, B_ReadEncounter, B_CopyToInitial, B_RetailUpdateSeeds);
                 this.DisplayMessageBox($"Error occurred while attempting to read KCoordinates block: {ex.Message}");
                 return;
             }
@@ -1788,6 +1792,7 @@ public partial class MainWindow : Form
                     try
                     {
                         readPause = true;
+                        SetControlEnabledState(false, B_RefreshDexRec, B_ReadEncounter, B_CopyToInitial, B_RetailUpdateSeeds);
                         await Task.Delay(100, Source.Token).ConfigureAwait(false);
                         SetTextBoxText("Reading encounter...", TB_Wild);
                         var pk = await ConnectionWrapper.ReadWildPokemon(Source.Token).ConfigureAwait(false);
@@ -1851,10 +1856,13 @@ public partial class MainWindow : Form
                             SetTextBoxText("No encounter present.", TB_Wild);
                             SetControlEnabledState(false, B_CopyToFilter);
                         }
+
+                        SetControlEnabledState(true, B_RefreshDexRec, B_ReadEncounter, B_CopyToInitial, B_RetailUpdateSeeds);
                     }
                     catch (Exception ex)
                     {
                         readPause = false;
+                        SetControlEnabledState(true, B_RefreshDexRec, B_ReadEncounter, B_CopyToInitial, B_RetailUpdateSeeds);
                         CachedEncounter = null;
                         PB_PokemonSprite.Image = null;
                         PB_MarkSprite.Image = null;
