@@ -212,11 +212,6 @@ public class ConnectionWrapperAsync(SwitchConnectionConfig Config, Action<string
         }
     }
 
-    public async Task PressHome(CancellationToken token)
-    {
-        await Connection.SendAsync(Click(HOME, CRLF), token).ConfigureAwait(false);
-    }
-
     public async Task ResetStick(CancellationToken token)
     {
         await Connection.SendAsync(SwitchCommand.ResetStick(SwitchStick.LEFT, CRLF), token).ConfigureAwait(false);
