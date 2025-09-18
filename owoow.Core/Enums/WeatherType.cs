@@ -17,9 +17,7 @@ public enum WeatherType
 
 // From https://github.com/kwsch/pkNX/blob/master/FlatBuffers/SWSH/Gen8/Wild/EncounterTableUtil.cs#L144
 [Flags]
-#pragma warning disable RCS1154 // Sort enum members.
 public enum AvailableWeather
-#pragma warning restore RCS1154 // Sort enum members.
 {
     None = 0,
     Normal = 1,

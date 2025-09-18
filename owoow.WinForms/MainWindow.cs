@@ -33,7 +33,7 @@ public partial class MainWindow : Form
     private ConnectionWrapperAsync ConnectionWrapper = default!;
     private readonly SwitchConnectionConfig ConnectionConfig;
 
-    public readonly GameStrings Strings = GameInfo.GetStrings(1);
+    public readonly GameStrings Strings = GameInfo.GetStrings("en");
 
     private bool stop;
     private bool reset;

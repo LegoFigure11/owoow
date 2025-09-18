@@ -7,7 +7,7 @@ namespace owoow.Core.RNG;
 
 public static class Util
 {
-    public static readonly IReadOnlyList<string> Natures = GameInfo.GetStrings(1).Natures;
+    public static readonly IReadOnlyList<string> Natures = GameInfo.GetStrings("en").Natures;
 
     public const uint MAX_TRACKED_ADVANCES = 50_000; // 50,000 chosen arbitrarily to prevent an infinite loop
 

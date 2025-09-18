@@ -2,8 +2,8 @@ namespace owoow.WinForms.Subforms;
 
 public partial class UpdateNotifPopup : Form
 {
-    private Version cv;
-    private Version nv;
+    private readonly Version cv;
+    private readonly Version nv;
     public UpdateNotifPopup(Version currentVersion, Version newVersion)
     {
         cv = currentVersion;
