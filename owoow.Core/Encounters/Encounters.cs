@@ -9,6 +9,8 @@ public static class Encounters
 {
     public static readonly Dictionary<string, Personal>? Personal;
 
+    public static readonly string ANY_SPECIES = "(Any)";
+
     private static readonly Dictionary<string, Dictionary<string, Encounter>>? SwordFishing;
     private static readonly Dictionary<string, Dictionary<string, Encounter>>? SwordHidden;
     private static readonly Dictionary<string, Dictionary<string, Encounter>>? SwordSymbol;

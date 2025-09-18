@@ -1521,6 +1521,9 @@ public partial class MainWindow : Form
         {
             target.Items.Add(specie);
         }
+
+        if (tab != EncounterType.Static) target.Items.Add(ANY_SPECIES);
+
         target.SelectedIndex = 0;
     }
 

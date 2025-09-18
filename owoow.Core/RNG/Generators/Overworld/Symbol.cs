@@ -137,7 +137,7 @@ public class Symbol
                 }
 
                 Encounter = ActiveTable[(int)EncounterSlot];
-                if (FiltersEnabled && Encounter.Species != config.TargetSpecies)
+                if (FiltersEnabled && config.TargetSpecies != Encounters.ANY_SPECIES && Encounter.Species != config.TargetSpecies)
                 {
                     outer.Next();
                     continue;
