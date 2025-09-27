@@ -33,8 +33,8 @@
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="LibUsbDotNet" Version="2.2.29" />
-    <PackageReference Include="NLog" Version="6.0.4" />
-    <PackageReference Include="PKHeX.Core" Version="25.8.31" />
+    <PackageReference Include="NLog" Version="5.4.0" />
+    <PackageReference Include="PKHeX.Core" Version="25.9.25" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="PKHeX.Drawing.PokeSprite">
