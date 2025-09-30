@@ -2259,12 +2259,45 @@ public partial class MainWindow : Form
     {
         SetControlEnabledState(((CheckBox)sender).Checked, L_AreaLoad, NUD_AreaLoad, L_FlyNPCs, NUD_FlyNPCs);
         SetControlEnabledState(!((CheckBox)sender).Checked && CB_ConsiderRain.Checked, B_CalculateRain);
+        HandleNPCBoxFlyingInteraction();
     }
 
     private void CB_ConsiderRain_CheckedChanged(object sender, EventArgs e)
     {
         SetControlEnabledState(((CheckBox)sender).Checked, L_RainTick, NUD_RainTick);
         SetControlEnabledState(((CheckBox)sender).Checked && !CB_ConsiderFlying.Checked, B_CalculateRain);
+        HandleNPCBoxFlyingInteraction();
+    }
+
+    private string[] _cachedNPCs = [string.Empty, string.Empty, string.Empty, string.Empty];
+    private void HandleNPCBoxFlyingInteraction()
+    {
+        var tab = TC_EncounterType.SelectedTab?.Text;
+        if (tab is not null && ((CheckBox)Controls.Find($"CB_{tab}_MenuClose", true).FirstOrDefault()!).Checked)
+        {
+            if (CB_ConsiderFlying.Checked && !CB_ConsiderRain.Checked)
+            {
+                _cachedNPCs[0] = TB_Static_NPCs.Text;
+                _cachedNPCs[1] = TB_Symbol_NPCs.Text;
+                _cachedNPCs[2] = TB_Hidden_NPCs.Text;
+                _cachedNPCs[3] = TB_Fishing_NPCs.Text;
+
+                TB_Static_NPCs.Text = "0";
+                TB_Symbol_NPCs.Text = "0";
+                TB_Hidden_NPCs.Text = "0";
+                TB_Fishing_NPCs.Text = "0";
+
+                SetControlEnabledState(false, Controls.Find($"TB_{tab}_NPCs", true).FirstOrDefault()!);
+            }
+            else
+            {
+                if (_cachedNPCs[0] != string.Empty) TB_Static_NPCs.Text = _cachedNPCs[0];
+                if (_cachedNPCs[1] != string.Empty) TB_Symbol_NPCs.Text = _cachedNPCs[1];
+                if (_cachedNPCs[2] != string.Empty) TB_Hidden_NPCs.Text = _cachedNPCs[2];
+                if (_cachedNPCs[3] != string.Empty) TB_Fishing_NPCs.Text = _cachedNPCs[3];
+                SetControlEnabledState(true, Controls.Find($"TB_{tab}_NPCs", true).FirstOrDefault()!);
+            }
+        }
     }
 
     public static readonly Font BoldFont = new("Microsoft Sans Serif", 8, FontStyle.Bold);
