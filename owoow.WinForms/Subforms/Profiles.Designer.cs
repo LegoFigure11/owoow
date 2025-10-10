@@ -203,6 +203,7 @@ namespace owoow.WinForms.Subforms
             Controls.Add(B_Remove);
             Controls.Add(B_Add);
             Controls.Add(LB_ProfileList);
+            FormBorderStyle = FormBorderStyle.FixedSingle;
             Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "Profiles";
             Text = "Profile Manager";
