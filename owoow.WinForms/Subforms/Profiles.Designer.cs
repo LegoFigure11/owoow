@@ -83,6 +83,7 @@ namespace owoow.WinForms.Subforms
             B_Select.TabIndex = 9;
             B_Select.Text = "Select";
             B_Select.UseVisualStyleBackColor = true;
+            B_Select.Click += B_Select_Click;
             // 
             // L_Game
             // 

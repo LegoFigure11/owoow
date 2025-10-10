@@ -47,6 +47,11 @@ public partial class Profiles : Form
 
     private void B_Add_Click(object sender, EventArgs e)
     {
+        AddProfile();
+    }
+
+    private void AddProfile()
+    {
         if (string.IsNullOrEmpty(TB_Name.Text))
         {
             MessageBox.Show("Name is a required field!");
@@ -161,5 +166,10 @@ public partial class Profiles : Form
         {
             B_Add.Text = "Add";
         }
+    }
+
+    private void B_Select_Click(object sender, EventArgs e)
+    {
+        AddProfile();
     }
 }
