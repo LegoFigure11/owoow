@@ -171,30 +171,43 @@ public partial class MainWindow : Form
                     _ => "",
                 };
 
-                if (game is "")
+                if (ModifierKeys != Keys.Shift)
                 {
-                    try
+                    if (game is "")
                     {
-                        (bool success, string err) = await ConnectionWrapper
-                            .DisconnectAsync(token)
-                            .ConfigureAwait(false);
-                        if (!success)
+                        try
+                        {
+                            (bool success, string err) = await ConnectionWrapper
+                                .DisconnectAsync(token)
+                                .ConfigureAwait(false);
+                            if (!success)
+                            {
+                                SetControlEnabledState(true, B_Connect);
+                                this.DisplayMessageBox(err);
+                                return;
+                            }
+                        }
+                        catch
+                        {
+                            // ignored
+                        }
+                        finally
                         {
                             SetControlEnabledState(true, B_Connect);
-                            this.DisplayMessageBox(err);
-                            return;
+                            this.DisplayMessageBox(
+                                "Unable to detect Pokémon Sword or Pokémon Shield running on your Switch!");
                         }
+
+                        return;
                     }
-                    catch
+                }
+                else
+                {
+                    if (game is "")
                     {
-                        // ignored
+                        this.DisplayMessageBox(
+                            "Unable to detect Pokémon Sword or Pokémon Shield running on your Switch, but forcing connection anyway as Shift was held.");
                     }
-                    finally
-                    {
-                        SetControlEnabledState(true, B_Connect);
-                        this.DisplayMessageBox("Unable to detect Pokémon Sword or Pokémon Shield running on your Switch!");
-                    }
-                    return;
                 }
 
                 SetCheckBoxCheckedState(ConnectionWrapper.GetHasShinyCharm(), CB_ShinyCharm);
