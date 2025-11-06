@@ -166,6 +166,7 @@ namespace owoow.WinForms.Subforms
             TB_TID.Size = new Size(41, 22);
             TB_TID.TabIndex = 3;
             TB_TID.Text = "12345";
+            TB_TID.TextChanged += ID_TextChanged;
             TB_TID.KeyPress += ID_KeyPress;
             // 
             // TB_Name

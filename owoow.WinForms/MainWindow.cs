@@ -1652,6 +1652,11 @@ public partial class MainWindow : Form
         if (TB_TID.Text.Length > 0)
         {
             var tid = int.Parse(TB_TID.Text);
+            if (tid > 0xFFFF)
+            {
+                tid = 0xFFFF;
+                SetTextBoxText($"{tid}", TB_TID);
+            }
             Config.TID = tid;
         }
     }
@@ -1661,6 +1666,11 @@ public partial class MainWindow : Form
         if (TB_SID.Text.Length > 0)
         {
             var sid = int.Parse(TB_SID.Text);
+            if (sid > 0xFFFF)
+            {
+                sid = 0xFFFF;
+                SetTextBoxText($"{sid}", TB_SID);
+            }
             Config.SID = sid;
         }
     }

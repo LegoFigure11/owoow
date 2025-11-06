@@ -172,4 +172,18 @@ public partial class Profiles : Form
     {
         AddProfile();
     }
+
+    private void ID_TextChanged(object sender, EventArgs e)
+    {
+        var tb = (TextBox)sender;
+        if (tb.Text.Length > 0)
+        {
+            var id = int.Parse(tb.Text);
+            if (id > 0xFFFF)
+            {
+                id = 0xFFFF;
+                tb.Text = $"{id}";
+            }
+        }
+    }
 }
