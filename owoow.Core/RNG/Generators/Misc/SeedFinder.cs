@@ -70,8 +70,6 @@ public static class SeedFinder
     {
         int hits = 0;
         int pos = 0;
-        ulong _s0 = 0;
-        ulong _s1 = 0;
 
         if (pattern.Length > 5)
         {
@@ -93,13 +91,8 @@ public static class SeedFinder
             }
         }
 
-        if (hits == 1)
-        {
-            var rng = new Xoroshiro128Plus(s0, s1);
-            for (var i = 0; i <= pos; i++) rng.Next();
-            (_s0, _s1) = rng.GetState();
-        }
+        if (hits == 1) (s0, s1) = Util.XoroshiroJump(s0, s1, (ulong)pos);
 
-        return (hits, pos + 1, _s0, _s1);
+        return (hits, pos + 1, s0, s1);
     }
 }
