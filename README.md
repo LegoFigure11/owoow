@@ -36,7 +36,7 @@ A comprehensive usage guide brought to you by [Billo-PS](https://github.com/Bill
   * Digging Pa Watts
   * Digging Duo item rewards (Skill Brother only)
   * Isle of Armor Wailord Respawn
-* Switch connectivity over both Wi-Fi and USB thanks to the bundled sys-botbase homebrew sysmodule for users with Custom Firmware (CFW).
+* Switch connectivity over both Wi-Fi and USB thanks to the bundled sys-botbase homebrew sysmodule for users with Custom Firmware (CFW). Shift can be held while connecting to skip the game check and force a connection, in case you want to use Turbo routines in other games.
 * Automated seed reading and tracking (CFW only).
 * Animations → Seed and Animations → Advances (re-identification) calculators for retail/stock firmware users.
 * Encounter Lookup tool + prefilled encounter tables and personal details (Egg Move counts, etc) for every area.
