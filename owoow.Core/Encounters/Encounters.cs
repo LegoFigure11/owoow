@@ -407,7 +407,7 @@ public static class Encounters
         { "Route 5", AvailableWeather.Normal },
         { "Route 6", AvailableWeather.Intense_Sun },
         { "Route 7", AvailableWeather.Normal },
-        { "Route 8", AvailableWeather.Snowing },
+        { "Route 8", AvailableWeather.Normal },
         { "Route 8 (on Steamdrift Way)", AvailableWeather.Snowing },
         { "Route 9", AvailableWeather.Snowing },
         { "Route 9  (Surfing)", AvailableWeather.Snowing },
