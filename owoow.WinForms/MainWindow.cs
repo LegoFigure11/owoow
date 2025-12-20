@@ -42,6 +42,8 @@ public partial class MainWindow : Form
     private bool resetPause;
     private long total;
 
+    private bool skippedGameCheck;
+
     private List<OverworldFrame> Frames = [];
 
     private PK8? CachedEncounter;
@@ -170,7 +172,7 @@ public partial class MainWindow : Form
                     Offsets.ShieldID => "Shield",
                     _ => "",
                 };
-
+                skippedGameCheck = false;
                 if (ModifierKeys != Keys.Shift)
                 {
                     if (game is "")
@@ -205,90 +207,96 @@ public partial class MainWindow : Form
                 {
                     if (game is "")
                     {
+                        skippedGameCheck = true;
+                        UpdateStatus("Connected! (forced)");
                         this.DisplayMessageBox(
                             "Unable to detect Pokémon Sword or Pokémon Shield running on your Switch, but forcing connection anyway as Shift was held.");
                     }
-                }
-
-                SetCheckBoxCheckedState(ConnectionWrapper.GetHasShinyCharm(), CB_ShinyCharm);
-                SetCheckBoxCheckedState(ConnectionWrapper.GetHasMarkCharm(), CB_MarkCharm);
-                var (tid, sid) = ConnectionWrapper.GetIDs();
-                SetTextBoxText(tid, TB_TID);
-                SetTextBoxText(sid, TB_SID);
-
-                SetComboBoxSelectedIndex(game == "Sword" ? (int)Game.Sword : (int)Game.Shield, CB_Game);
-
-                UpdateStatus("Reading Pokédex Recommendations...");
-                try
-                {
-                    var DexRec = await ConnectionWrapper.ReadDexRecommendation(token).ConfigureAwait(false);
-                    SetComboBoxSelectedIndex(CB_DexRec1.Items.IndexOf(GetDexRecommendation(DexRec[0])), CB_DexRec1);
-                    SetComboBoxSelectedIndex(CB_DexRec2.Items.IndexOf(GetDexRecommendation(DexRec[1])), CB_DexRec2);
-                    SetComboBoxSelectedIndex(CB_DexRec3.Items.IndexOf(GetDexRecommendation(DexRec[2])), CB_DexRec3);
-                    SetComboBoxSelectedIndex(CB_DexRec4.Items.IndexOf(GetDexRecommendation(DexRec[3])), CB_DexRec4);
-                }
-                catch (Exception ex)
-                {
-                    this.DisplayMessageBox($"Error occurred while reading Pokédex Recommendations: {ex.Message}");
-                    return;
-                }
-
-                UpdateStatus("Reading RNG State...");
-                ulong _s0, _s1;
-                try
-                {
-                    (_s0, _s1) = await ConnectionWrapper.ReadRNGState(token).ConfigureAwait(false);
-                    SetTextBoxText($"{_s0:X16}", TB_Seed0, TB_CurrentS0);
-                    SetTextBoxText($"{_s1:X16}", TB_Seed1, TB_CurrentS1);
-                    SetTextBoxText("0", TB_CurrentAdvances, TB_AdvancesIncrease);
+                    SetControlEnabledState(true, B_Disconnect, B_SkipAdvance, B_SkipForward, B_SkipBack, B_Turbo, B_NTP, L_Skips, TB_Skips);
 
                 }
-                catch (Exception ex)
+                if (!skippedGameCheck)
                 {
-                    this.DisplayMessageBox($"Error occurred while reading initial RNG state: {ex.Message}");
-                    return;
-                }
+                    SetCheckBoxCheckedState(ConnectionWrapper.GetHasShinyCharm(), CB_ShinyCharm);
+                    SetCheckBoxCheckedState(ConnectionWrapper.GetHasMarkCharm(), CB_MarkCharm);
+                    var (tid, sid) = ConnectionWrapper.GetIDs();
+                    SetTextBoxText(tid, TB_TID);
+                    SetTextBoxText(sid, TB_SID);
 
-                SetControlEnabledState(true, B_Disconnect, B_CopyToInitial, B_ReadEncounter, B_RefreshDexRec, B_SkipAdvance, B_SkipForward, B_SkipBack, B_Turbo, B_NTP, L_Skips, TB_Skips, B_SeedSearch);
+                    SetComboBoxSelectedIndex(game == "Sword" ? (int)Game.Sword : (int)Game.Shield, CB_Game);
 
-                UpdateStatus("Monitoring RNG State...");
-                try
-                {
-                    total = 0;
-                    stop = false;
-                    while (!stop)
+                    UpdateStatus("Reading Pokédex Recommendations...");
+                    try
                     {
-                        if (ConnectionWrapper.Connected && !readPause)
+                        var DexRec = await ConnectionWrapper.ReadDexRecommendation(token).ConfigureAwait(false);
+                        SetComboBoxSelectedIndex(CB_DexRec1.Items.IndexOf(GetDexRecommendation(DexRec[0])), CB_DexRec1);
+                        SetComboBoxSelectedIndex(CB_DexRec2.Items.IndexOf(GetDexRecommendation(DexRec[1])), CB_DexRec2);
+                        SetComboBoxSelectedIndex(CB_DexRec3.Items.IndexOf(GetDexRecommendation(DexRec[2])), CB_DexRec3);
+                        SetComboBoxSelectedIndex(CB_DexRec4.Items.IndexOf(GetDexRecommendation(DexRec[3])), CB_DexRec4);
+                    }
+                    catch (Exception ex)
+                    {
+                        this.DisplayMessageBox($"Error occurred while reading Pokédex Recommendations: {ex.Message}");
+                        return;
+                    }
+
+                    UpdateStatus("Reading RNG State...");
+                    ulong _s0, _s1;
+                    try
+                    {
+                        (_s0, _s1) = await ConnectionWrapper.ReadRNGState(token).ConfigureAwait(false);
+                        SetTextBoxText($"{_s0:X16}", TB_Seed0, TB_CurrentS0);
+                        SetTextBoxText($"{_s1:X16}", TB_Seed1, TB_CurrentS1);
+                        SetTextBoxText("0", TB_CurrentAdvances, TB_AdvancesIncrease);
+
+                    }
+                    catch (Exception ex)
+                    {
+                        this.DisplayMessageBox($"Error occurred while reading initial RNG state: {ex.Message}");
+                        return;
+                    }
+
+                    SetControlEnabledState(true, B_Disconnect, B_CopyToInitial, B_ReadEncounter, B_RefreshDexRec, B_SkipAdvance, B_SkipForward, B_SkipBack, B_Turbo, B_NTP, L_Skips, TB_Skips, B_SeedSearch);
+
+                    UpdateStatus("Monitoring RNG State...");
+                    try
+                    {
+                        total = 0;
+                        stop = false;
+                        while (!stop)
                         {
-                            var (s0, s1) = await ConnectionWrapper.ReadRNGState(token).ConfigureAwait(false);
-                            var adv = GetAdvancesPassed(_s0, _s1, s0, s1);
-                            if (reset || adv > 0)
+                            if (ConnectionWrapper.Connected && !readPause)
                             {
-                                if (reset || adv == 50_000)
+                                var (s0, s1) = await ConnectionWrapper.ReadRNGState(token).ConfigureAwait(false);
+                                var adv = GetAdvancesPassed(_s0, _s1, s0, s1);
+                                if (reset || adv > 0)
                                 {
-                                    total = 0;
-                                    reset = false;
-                                    adv = 0;
-                                }
-                                else
-                                {
-                                    total += adv;
-                                }
+                                    if (reset || adv == 50_000)
+                                    {
+                                        total = 0;
+                                        reset = false;
+                                        adv = 0;
+                                    }
+                                    else
+                                    {
+                                        total += adv;
+                                    }
 
-                                _s0 = s0;
-                                _s1 = s1;
+                                    _s0 = s0;
+                                    _s1 = s1;
 
-                                SetTextBoxText($"{_s0:X16}", TB_CurrentS0);
-                                SetTextBoxText($"{_s1:X16}", TB_CurrentS1);
-                                SetTextBoxText($"{total:N0}", TB_CurrentAdvances);
-                                SetTextBoxText($"{adv:N0}", TB_AdvancesIncrease);
+                                    SetTextBoxText($"{_s0:X16}", TB_CurrentS0);
+                                    SetTextBoxText($"{_s1:X16}", TB_CurrentS1);
+                                    SetTextBoxText($"{total:N0}", TB_CurrentAdvances);
+                                    SetTextBoxText($"{adv:N0}", TB_AdvancesIncrease);
+                                }
                             }
                         }
                     }
-                }
-                catch
-                {
-                    // Ignored
+                    catch
+                    {
+                        // Ignored
+                    }
                 }
             },
             token
