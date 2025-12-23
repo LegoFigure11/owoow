@@ -10,4 +10,6 @@ public interface ISeedResetConfig
     int ExtraTimeLoadGame { get; set; }
 
     bool LogResultsWhileInProgress { get; set; }
+
+    bool ScreenOff { get; set; }
 }

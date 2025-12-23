@@ -31,6 +31,8 @@ public class ClientConfig : ISeedResetConfig, ITurboConfig, IWebhookConfig
 
     public bool LogResultsWhileInProgress { get; set; } = true;
 
+    public bool ScreenOff { get; set; } = false;
+
     // Turbo
     public bool LoopTurbo { get; set; } = false;
     public List<string> TurboSequence { get; set; } = [];

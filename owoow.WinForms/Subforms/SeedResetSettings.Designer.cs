@@ -52,33 +52,35 @@ namespace owoow.WinForms.Subforms
             L_WebhookErrorMessage = new Label();
             CB_Log = new CheckBox();
             L_Log = new Label();
+            L_ScreenState = new Label();
+            CB_ScreenState = new CheckBox();
             SuspendLayout();
             // 
             // CB_AvoidSystemUpdate
             // 
             CB_AvoidSystemUpdate.AutoSize = true;
-            CB_AvoidSystemUpdate.Location = new Point(253, 11);
+            CB_AvoidSystemUpdate.Location = new Point(253, 34);
             CB_AvoidSystemUpdate.Name = "CB_AvoidSystemUpdate";
             CB_AvoidSystemUpdate.Size = new Size(15, 14);
-            CB_AvoidSystemUpdate.TabIndex = 0;
+            CB_AvoidSystemUpdate.TabIndex = 1;
             CB_AvoidSystemUpdate.UseVisualStyleBackColor = true;
             CB_AvoidSystemUpdate.CheckedChanged += CB_AvoidSystemUpdate_CheckedChanged;
             // 
             // L_ExtraTimeCloseGame
             // 
             L_ExtraTimeCloseGame.AutoSize = true;
-            L_ExtraTimeCloseGame.Location = new Point(12, 58);
+            L_ExtraTimeCloseGame.Location = new Point(12, 81);
             L_ExtraTimeCloseGame.Name = "L_ExtraTimeCloseGame";
-            L_ExtraTimeCloseGame.Size = new Size(160, 15);
+            L_ExtraTimeCloseGame.Size = new Size(159, 15);
             L_ExtraTimeCloseGame.TabIndex = 14;
             L_ExtraTimeCloseGame.Text = "Extra time to close the game:";
             // 
             // L_ExtraTimeReturnHome
             // 
             L_ExtraTimeReturnHome.AutoSize = true;
-            L_ExtraTimeReturnHome.Location = new Point(12, 34);
+            L_ExtraTimeReturnHome.Location = new Point(12, 57);
             L_ExtraTimeReturnHome.Name = "L_ExtraTimeReturnHome";
-            L_ExtraTimeReturnHome.Size = new Size(182, 15);
+            L_ExtraTimeReturnHome.Size = new Size(181, 15);
             L_ExtraTimeReturnHome.TabIndex = 13;
             L_ExtraTimeReturnHome.Text = "Extra time to open HOME Menu: ";
             // 
@@ -86,11 +88,11 @@ namespace owoow.WinForms.Subforms
             // 
             TB_ExtraTimeCloseGame.CharacterCasing = CharacterCasing.Upper;
             TB_ExtraTimeCloseGame.Font = new Font("Consolas", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            TB_ExtraTimeCloseGame.Location = new Point(238, 56);
+            TB_ExtraTimeCloseGame.Location = new Point(238, 79);
             TB_ExtraTimeCloseGame.MaxLength = 16;
             TB_ExtraTimeCloseGame.Name = "TB_ExtraTimeCloseGame";
             TB_ExtraTimeCloseGame.Size = new Size(42, 22);
-            TB_ExtraTimeCloseGame.TabIndex = 2;
+            TB_ExtraTimeCloseGame.TabIndex = 3;
             TB_ExtraTimeCloseGame.Text = "99999";
             TB_ExtraTimeCloseGame.TextChanged += TB_ExtraTimeCloseGame_TextChanged;
             TB_ExtraTimeCloseGame.KeyPress += KeyPress_AllowOnlyNumerical;
@@ -100,11 +102,11 @@ namespace owoow.WinForms.Subforms
             // 
             TB_ExtraTimeReturnHome.CharacterCasing = CharacterCasing.Upper;
             TB_ExtraTimeReturnHome.Font = new Font("Consolas", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            TB_ExtraTimeReturnHome.Location = new Point(238, 32);
+            TB_ExtraTimeReturnHome.Location = new Point(238, 55);
             TB_ExtraTimeReturnHome.MaxLength = 5;
             TB_ExtraTimeReturnHome.Name = "TB_ExtraTimeReturnHome";
             TB_ExtraTimeReturnHome.Size = new Size(42, 22);
-            TB_ExtraTimeReturnHome.TabIndex = 1;
+            TB_ExtraTimeReturnHome.TabIndex = 2;
             TB_ExtraTimeReturnHome.Text = "99999";
             TB_ExtraTimeReturnHome.TextChanged += TB_ExtraTimeReturnHome_TextChanged;
             TB_ExtraTimeReturnHome.KeyPress += KeyPress_AllowOnlyNumerical;
@@ -113,9 +115,9 @@ namespace owoow.WinForms.Subforms
             // L_ExtraTimeLoadProfile
             // 
             L_ExtraTimeLoadProfile.AutoSize = true;
-            L_ExtraTimeLoadProfile.Location = new Point(12, 86);
+            L_ExtraTimeLoadProfile.Location = new Point(12, 109);
             L_ExtraTimeLoadProfile.Name = "L_ExtraTimeLoadProfile";
-            L_ExtraTimeLoadProfile.Size = new Size(175, 15);
+            L_ExtraTimeLoadProfile.Size = new Size(174, 15);
             L_ExtraTimeLoadProfile.TabIndex = 15;
             L_ExtraTimeLoadProfile.Text = "Extra time to load player profile:";
             // 
@@ -123,11 +125,11 @@ namespace owoow.WinForms.Subforms
             // 
             TB_ExtraTimeLoadProfile.CharacterCasing = CharacterCasing.Upper;
             TB_ExtraTimeLoadProfile.Font = new Font("Consolas", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            TB_ExtraTimeLoadProfile.Location = new Point(238, 84);
+            TB_ExtraTimeLoadProfile.Location = new Point(238, 107);
             TB_ExtraTimeLoadProfile.MaxLength = 16;
             TB_ExtraTimeLoadProfile.Name = "TB_ExtraTimeLoadProfile";
             TB_ExtraTimeLoadProfile.Size = new Size(42, 22);
-            TB_ExtraTimeLoadProfile.TabIndex = 3;
+            TB_ExtraTimeLoadProfile.TabIndex = 4;
             TB_ExtraTimeLoadProfile.Text = "99999";
             TB_ExtraTimeLoadProfile.TextChanged += TB_ExtraTimeLoadProfile_TextChanged;
             TB_ExtraTimeLoadProfile.KeyPress += KeyPress_AllowOnlyNumerical;
@@ -136,9 +138,9 @@ namespace owoow.WinForms.Subforms
             // L_ExtraTimeLoadGame
             // 
             L_ExtraTimeLoadGame.AutoSize = true;
-            L_ExtraTimeLoadGame.Location = new Point(12, 110);
+            L_ExtraTimeLoadGame.Location = new Point(12, 133);
             L_ExtraTimeLoadGame.Name = "L_ExtraTimeLoadGame";
-            L_ExtraTimeLoadGame.Size = new Size(156, 15);
+            L_ExtraTimeLoadGame.Size = new Size(155, 15);
             L_ExtraTimeLoadGame.TabIndex = 17;
             L_ExtraTimeLoadGame.Text = "Extra time to load the game:";
             // 
@@ -146,7 +148,7 @@ namespace owoow.WinForms.Subforms
             // 
             TB_ExtraTimeLoadGame.CharacterCasing = CharacterCasing.Upper;
             TB_ExtraTimeLoadGame.Font = new Font("Consolas", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            TB_ExtraTimeLoadGame.Location = new Point(238, 108);
+            TB_ExtraTimeLoadGame.Location = new Point(238, 131);
             TB_ExtraTimeLoadGame.MaxLength = 16;
             TB_ExtraTimeLoadGame.Name = "TB_ExtraTimeLoadGame";
             TB_ExtraTimeLoadGame.Size = new Size(42, 22);
@@ -159,7 +161,7 @@ namespace owoow.WinForms.Subforms
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(12, 10);
+            label1.Location = new Point(12, 33);
             label1.Name = "label1";
             label1.Size = new Size(125, 15);
             label1.TabIndex = 12;
@@ -168,7 +170,7 @@ namespace owoow.WinForms.Subforms
             // L_EnableWebhooks
             // 
             L_EnableWebhooks.AutoSize = true;
-            L_EnableWebhooks.Location = new Point(12, 160);
+            L_EnableWebhooks.Location = new Point(12, 183);
             L_EnableWebhooks.Name = "L_EnableWebhooks";
             L_EnableWebhooks.Size = new Size(149, 15);
             L_EnableWebhooks.TabIndex = 18;
@@ -177,17 +179,17 @@ namespace owoow.WinForms.Subforms
             // CB_EnableWebhooks
             // 
             CB_EnableWebhooks.AutoSize = true;
-            CB_EnableWebhooks.Location = new Point(253, 161);
+            CB_EnableWebhooks.Location = new Point(253, 184);
             CB_EnableWebhooks.Name = "CB_EnableWebhooks";
             CB_EnableWebhooks.Size = new Size(15, 14);
-            CB_EnableWebhooks.TabIndex = 6;
+            CB_EnableWebhooks.TabIndex = 7;
             CB_EnableWebhooks.UseVisualStyleBackColor = true;
             CB_EnableWebhooks.CheckedChanged += CB_EnableWebhooks_CheckedChanged;
             // 
             // L_WebhookMessage
             // 
             L_WebhookMessage.AutoSize = true;
-            L_WebhookMessage.Location = new Point(12, 181);
+            L_WebhookMessage.Location = new Point(12, 204);
             L_WebhookMessage.Name = "L_WebhookMessage";
             L_WebhookMessage.Size = new Size(182, 15);
             L_WebhookMessage.TabIndex = 19;
@@ -195,24 +197,24 @@ namespace owoow.WinForms.Subforms
             // 
             // TB_WebhookMessage
             // 
-            TB_WebhookMessage.Location = new Point(12, 199);
+            TB_WebhookMessage.Location = new Point(12, 222);
             TB_WebhookMessage.Name = "TB_WebhookMessage";
             TB_WebhookMessage.Size = new Size(268, 23);
-            TB_WebhookMessage.TabIndex = 7;
+            TB_WebhookMessage.TabIndex = 8;
             TB_WebhookMessage.TextChanged += TB_WebhookMessage_TextChanged;
             // 
             // TB_ResultURLs
             // 
-            TB_ResultURLs.Location = new Point(12, 287);
+            TB_ResultURLs.Location = new Point(12, 310);
             TB_ResultURLs.Name = "TB_ResultURLs";
             TB_ResultURLs.Size = new Size(268, 23);
-            TB_ResultURLs.TabIndex = 9;
+            TB_ResultURLs.TabIndex = 10;
             TB_ResultURLs.TextChanged += TB_ResultURLs_TextChanged;
             // 
             // L_ResultURLs
             // 
             L_ResultURLs.AutoSize = true;
-            L_ResultURLs.Location = new Point(12, 269);
+            L_ResultURLs.Location = new Point(12, 292);
             L_ResultURLs.Name = "L_ResultURLs";
             L_ResultURLs.Size = new Size(120, 15);
             L_ResultURLs.TabIndex = 21;
@@ -220,16 +222,16 @@ namespace owoow.WinForms.Subforms
             // 
             // TB_ErrorURLs
             // 
-            TB_ErrorURLs.Location = new Point(12, 331);
+            TB_ErrorURLs.Location = new Point(12, 354);
             TB_ErrorURLs.Name = "TB_ErrorURLs";
             TB_ErrorURLs.Size = new Size(268, 23);
-            TB_ErrorURLs.TabIndex = 10;
+            TB_ErrorURLs.TabIndex = 11;
             TB_ErrorURLs.TextChanged += TB_ErrorURLs_TextChanged;
             // 
             // L_ErrorURLs
             // 
             L_ErrorURLs.AutoSize = true;
-            L_ErrorURLs.Location = new Point(12, 313);
+            L_ErrorURLs.Location = new Point(12, 336);
             L_ErrorURLs.Name = "L_ErrorURLs";
             L_ErrorURLs.Size = new Size(113, 15);
             L_ErrorURLs.TabIndex = 22;
@@ -237,26 +239,26 @@ namespace owoow.WinForms.Subforms
             // 
             // B_TestWebhooks
             // 
-            B_TestWebhooks.Location = new Point(12, 356);
+            B_TestWebhooks.Location = new Point(12, 379);
             B_TestWebhooks.Name = "B_TestWebhooks";
             B_TestWebhooks.Size = new Size(268, 25);
-            B_TestWebhooks.TabIndex = 11;
+            B_TestWebhooks.TabIndex = 12;
             B_TestWebhooks.Text = "Test Webhooks";
             B_TestWebhooks.UseVisualStyleBackColor = true;
             B_TestWebhooks.Click += B_TestWebhooks_Click;
             // 
             // TB_WebhookErrorMessage
             // 
-            TB_WebhookErrorMessage.Location = new Point(12, 243);
+            TB_WebhookErrorMessage.Location = new Point(12, 266);
             TB_WebhookErrorMessage.Name = "TB_WebhookErrorMessage";
             TB_WebhookErrorMessage.Size = new Size(268, 23);
-            TB_WebhookErrorMessage.TabIndex = 8;
+            TB_WebhookErrorMessage.TabIndex = 9;
             TB_WebhookErrorMessage.TextChanged += TB_WebhookErrorMessage_TextChanged;
             // 
             // L_WebhookErrorMessage
             // 
             L_WebhookErrorMessage.AutoSize = true;
-            L_WebhookErrorMessage.Location = new Point(12, 225);
+            L_WebhookErrorMessage.Location = new Point(12, 248);
             L_WebhookErrorMessage.Name = "L_WebhookErrorMessage";
             L_WebhookErrorMessage.Size = new Size(138, 15);
             L_WebhookErrorMessage.TabIndex = 20;
@@ -265,27 +267,48 @@ namespace owoow.WinForms.Subforms
             // CB_Log
             // 
             CB_Log.AutoSize = true;
-            CB_Log.Location = new Point(253, 136);
+            CB_Log.Location = new Point(253, 159);
             CB_Log.Name = "CB_Log";
             CB_Log.Size = new Size(15, 14);
-            CB_Log.TabIndex = 24;
+            CB_Log.TabIndex = 6;
             CB_Log.UseVisualStyleBackColor = true;
             CB_Log.CheckedChanged += CB_Log_CheckedChanged;
             // 
             // L_Log
             // 
             L_Log.AutoSize = true;
-            L_Log.Location = new Point(12, 135);
+            L_Log.Location = new Point(12, 158);
             L_Log.Name = "L_Log";
             L_Log.Size = new Size(180, 15);
             L_Log.TabIndex = 23;
             L_Log.Text = "Log results while Seed Resetting?";
             // 
+            // L_ScreenState
+            // 
+            L_ScreenState.AutoSize = true;
+            L_ScreenState.Location = new Point(12, 9);
+            L_ScreenState.Name = "L_ScreenState";
+            L_ScreenState.Size = new Size(95, 15);
+            L_ScreenState.TabIndex = 26;
+            L_ScreenState.Text = "Turn Screen Off?";
+            // 
+            // CB_ScreenState
+            // 
+            CB_ScreenState.AutoSize = true;
+            CB_ScreenState.Location = new Point(253, 10);
+            CB_ScreenState.Name = "CB_ScreenState";
+            CB_ScreenState.Size = new Size(15, 14);
+            CB_ScreenState.TabIndex = 0;
+            CB_ScreenState.UseVisualStyleBackColor = true;
+            CB_ScreenState.CheckedChanged += CB_ScreenState_CheckedChanged;
+            // 
             // SeedResetSettings
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(286, 390);
+            ClientSize = new Size(286, 412);
+            Controls.Add(L_ScreenState);
+            Controls.Add(CB_ScreenState);
             Controls.Add(CB_Log);
             Controls.Add(L_Log);
             Controls.Add(TB_WebhookErrorMessage);
@@ -343,5 +366,7 @@ namespace owoow.WinForms.Subforms
         private Label L_WebhookErrorMessage;
         private CheckBox CB_Log;
         private Label L_Log;
+        private Label L_ScreenState;
+        private CheckBox CB_ScreenState;
     }
 }

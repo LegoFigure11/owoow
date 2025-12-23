@@ -153,7 +153,7 @@ namespace owoow.WinForms.Subforms
             L_Sleep.AutoSize = true;
             L_Sleep.Location = new Point(8, 201);
             L_Sleep.Name = "L_Sleep";
-            L_Sleep.Size = new Size(147, 15);
+            L_Sleep.Size = new Size(148, 15);
             L_Sleep.TabIndex = 14;
             L_Sleep.Text = "Time between inputs (ms):";
             // 

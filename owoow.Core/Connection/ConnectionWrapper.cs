@@ -206,10 +206,18 @@ public class ConnectionWrapperAsync(SwitchConnectionConfig Config, Action<string
                     "HOME" => await Connection.SendAsync(Click(HOME, CRLF), token).ConfigureAwait(false),
                     "Screenshot" => await Connection.SendAsync(Click(CAPTURE, CRLF), token).ConfigureAwait(false),
 
+                    "Screen On" => await Connection.SendAsync(SetScreen(ScreenState.On, CRLF), token).ConfigureAwait(false),
+                    "Screen Off" => await Connection.SendAsync(SetScreen(ScreenState.Off, CRLF), token).ConfigureAwait(false),
+
                     _ => throw new NotImplementedException(),
                 };
                 break;
         }
+    }
+
+    public async Task SetScreenState(ScreenState state, CancellationToken token)
+    {
+        await Connection.SendAsync(SetScreen(state, CRLF), token).ConfigureAwait(false);
     }
 
     public async Task ResetStick(CancellationToken token)

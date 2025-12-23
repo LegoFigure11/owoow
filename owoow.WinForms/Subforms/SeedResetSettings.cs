@@ -18,6 +18,7 @@ public partial class SeedResetSettings : Form
     private void SeedResetSettings_Load(object sender, EventArgs e)
     {
         CB_AvoidSystemUpdate.Checked = c.AvoidSystemUpdate;
+        CB_ScreenState.Checked = c.ScreenOff;
 
         TB_ExtraTimeReturnHome.Text = $"{c.ExtraTimeReturnHome}";
         TB_ExtraTimeCloseGame.Text = $"{c.ExtraTimeCloseGame}";
@@ -127,5 +128,10 @@ public partial class SeedResetSettings : Form
     private void CB_Log_CheckedChanged(object sender, EventArgs e)
     {
         c.LogResultsWhileInProgress = CB_Log.Checked;
+    }
+
+    private void CB_ScreenState_CheckedChanged(object sender, EventArgs e)
+    {
+        c.ScreenOff = CB_ScreenState.Checked;
     }
 }

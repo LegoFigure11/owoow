@@ -1160,6 +1160,7 @@ public partial class MainWindow : Form
                 readPause = true;
                 bool found = false;
                 await Task.Delay(150, ResetSource.Token).ConfigureAwait(false);
+                await ConnectionWrapper.SetScreenState(Config.ScreenOff ? ScreenState.Off : ScreenState.On, ResetSource.Token).ConfigureAwait(false);
                 bool first = true;
                 var ct = 0;
                 var sw = Stopwatch.GetTimestamp();
@@ -1308,6 +1309,14 @@ public partial class MainWindow : Form
                         }
                         else
                         {
+                            try
+                            {
+                                await ConnectionWrapper.SetScreenState(ScreenState.On, ResetSource.Token).ConfigureAwait(false);
+                            }
+                            catch
+                            {
+                                // Ignored
+                            }
                             throw new Exception("Seed reset failed to get a new seed twice in a row, cancelling routine to preserve your CPU.");
                         }
 
@@ -1332,6 +1341,14 @@ public partial class MainWindow : Form
 
                     if (found)
                     {
+                        try
+                        {
+                            await ConnectionWrapper.SetScreenState(ScreenState.On, ResetSource.Token).ConfigureAwait(false);
+                        }
+                        catch
+                        {
+                            // Ignored
+                        }
                         SetControlEnabledState(true, B_SkipAdvance, B_SkipForward, B_SkipBack, B_Turbo, B_SeedSearch, B_ReadEncounter);
                         SetControlEnabledState(false, B_CancelSkip);
                         if (GetCheckBoxIsChecked(CB_FocusWindow)) ActivateWindow();
@@ -1354,6 +1371,14 @@ public partial class MainWindow : Form
                 reset = true;
                 SetControlEnabledState(true, B_SkipAdvance, B_SkipForward, B_SkipBack, B_Turbo, B_SeedSearch, B_ReadEncounter);
                 SetControlEnabledState(false, B_CancelSkip);
+                try
+                {
+                    await ConnectionWrapper.SetScreenState(ScreenState.On, ResetSource.Token).ConfigureAwait(false);
+                }
+                catch
+                {
+                    // Ignored
+                }
                 if (ex is not TaskCanceledException)
                 {
                     try
@@ -1374,6 +1399,14 @@ public partial class MainWindow : Form
 
             SetControlEnabledState(true, B_SkipAdvance, B_SkipForward, B_SkipBack, B_Turbo, B_SeedSearch, B_ReadEncounter);
             SetControlEnabledState(false, B_CancelSkip);
+            try
+            {
+                await ConnectionWrapper.SetScreenState(ScreenState.On, ResetSource.Token).ConfigureAwait(false);
+            }
+            catch
+            {
+                // Ignored
+            }
             readPause = false;
             skipPause = false;
             resetPause = false;
@@ -1720,6 +1753,7 @@ public partial class MainWindow : Form
         {
             try
             {
+               ConnectionWrapper.SetScreenState(ScreenState.On, Source.Token).ConfigureAwait(false);
                 _ = ConnectionWrapper.DisconnectAsync(Source.Token).ConfigureAwait(false);
             }
             catch

@@ -13,7 +13,8 @@ public partial class TurboSettings : Form
         "Up (Hold)", "Down (Hold)", "Left (Hold)", "Right (Hold)", "Release Stick",
         "D-Pad Up", "D-Pad Down", "D-Pad Left", "D-Pad Right",
         "HOME", "Screenshot",
-        "Wait (100ms)", "Wait (500ms)", "Wait (1000ms)"
+        "Wait (100ms)", "Wait (500ms)", "Wait (1000ms)",
+        "Screen On", "Screen Off",
     ];
 
     public TurboSettings(ref ClientConfig config, MainWindow parent)
