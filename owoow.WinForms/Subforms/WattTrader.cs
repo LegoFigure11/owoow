@@ -28,12 +28,19 @@ public partial class WattTrader : Form
 
         TB_Seed0.KeyPress += f.KeyPress_AllowOnlyHex!;
         TB_Seed1.KeyPress += f.KeyPress_AllowOnlyHex!;
+        TB_Seed0.KeyDown += f.State_HandlePaste!;
+        TB_Seed1.KeyDown += f.State_HandlePaste!;
 
         TB_SlotMin.KeyPress += f.KeyPress_AllowOnlyNumerical!;
         TB_SlotMax.KeyPress += f.KeyPress_AllowOnlyNumerical!;
         TB_WattTrader_Initial.KeyPress += f.KeyPress_AllowOnlyNumerical!;
         TB_WattTrader_NPCs.KeyPress += f.KeyPress_AllowOnlyNumerical!;
         TB_WattTrader_Advances.KeyPress += f.KeyPress_AllowOnlyNumerical!;
+        TB_SlotMin.KeyDown += f.Dec_HandlePaste!;
+        TB_SlotMax.KeyDown += f.Dec_HandlePaste!;
+        TB_WattTrader_Initial.KeyDown += f.Dec_HandlePaste!;
+        TB_WattTrader_NPCs.KeyDown += f.Dec_HandlePaste!;
+        TB_WattTrader_Advances.KeyDown += f.Dec_HandlePaste!;
     }
 
     private void B_WattTrader_Search_Click(object sender, EventArgs e)

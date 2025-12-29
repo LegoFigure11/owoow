@@ -37,6 +37,7 @@ public partial class TurboSettings : Form
         CB_NTPAfter.Checked = c.ResetTimeAfterDateSkipping;
 
         TB_Sleep.KeyPress += p.KeyPress_AllowOnlyNumerical!;
+        TB_Sleep.KeyDown += p.Dec_HandlePaste!;
 
         ReloadList();
     }

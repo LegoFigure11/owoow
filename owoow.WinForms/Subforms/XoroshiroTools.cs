@@ -21,7 +21,10 @@ public partial class XoroshiroTools : Form
 
         TB_Seed0.KeyPress += f.KeyPress_AllowOnlyHex!;
         TB_Seed1.KeyPress += f.KeyPress_AllowOnlyHex!;
+        TB_Seed0.KeyDown += f.State_HandlePaste!;
+        TB_Seed1.KeyDown += f.State_HandlePaste!;
         TB_N.KeyPress += KeyPress_AllowOnlyHexExtended!;
+        TB_N.KeyDown += f.Dec_HandlePaste!;
     }
 
     private void XoroshiroTools_Load(object sender, EventArgs e)

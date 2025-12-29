@@ -490,7 +490,7 @@ namespace owoow.WinForms
             CB_PlayTone.CheckAlign = ContentAlignment.MiddleRight;
             CB_PlayTone.Location = new Point(2, 296);
             CB_PlayTone.Name = "CB_PlayTone";
-            CB_PlayTone.Size = new Size(81, 19);
+            CB_PlayTone.Size = new Size(82, 19);
             CB_PlayTone.TabIndex = 30;
             CB_PlayTone.Tag = "";
             CB_PlayTone.Text = "Play Tone?";
@@ -1222,6 +1222,7 @@ namespace owoow.WinForms
             TB_Animations.Size = new Size(148, 22);
             TB_Animations.TabIndex = 4;
             TB_Animations.TextChanged += TB_Animations_TextChanged;
+            TB_Animations.KeyDown += Bin_HandlePaste;
             TB_Animations.KeyPress += KeyPress_AllowOnlyBinary;
             // 
             // TB_RetailInitial
@@ -1235,6 +1236,7 @@ namespace owoow.WinForms
             TB_RetailInitial.TabIndex = 1;
             TB_RetailInitial.Text = "0";
             TB_RetailInitial.TextAlign = HorizontalAlignment.Right;
+            TB_RetailInitial.KeyDown += Dec_HandlePaste;
             TB_RetailInitial.KeyPress += KeyPress_AllowOnlyNumerical;
             // 
             // L_RetailInitial
@@ -1385,7 +1387,7 @@ namespace owoow.WinForms
             L_RainTick.Enabled = false;
             L_RainTick.Location = new Point(6, 111);
             L_RainTick.Name = "L_RainTick";
-            L_RainTick.Size = new Size(62, 15);
+            L_RainTick.Size = new Size(63, 15);
             L_RainTick.TabIndex = 15;
             L_RainTick.Text = "Rain Ticks:";
             // 
@@ -1435,7 +1437,7 @@ namespace owoow.WinForms
             CB_ConsiderRain.AutoSize = true;
             CB_ConsiderRain.Location = new Point(6, 89);
             CB_ConsiderRain.Name = "CB_ConsiderRain";
-            CB_ConsiderRain.Size = new Size(168, 19);
+            CB_ConsiderRain.Size = new Size(169, 19);
             CB_ConsiderRain.TabIndex = 3;
             CB_ConsiderRain.Text = "Raining/Thunderstorming?";
             CB_ConsiderRain.UseVisualStyleBackColor = true;
@@ -1536,6 +1538,7 @@ namespace owoow.WinForms
             TB_Static_NPCs.TabIndex = 4;
             TB_Static_NPCs.Text = "3";
             TB_Static_NPCs.TextAlign = HorizontalAlignment.Right;
+            TB_Static_NPCs.KeyDown += Dec_HandlePaste;
             TB_Static_NPCs.KeyPress += KeyPress_AllowOnlyNumerical;
             // 
             // L_Static_Advances
@@ -1586,7 +1589,7 @@ namespace owoow.WinForms
             L_Static_Species.AutoSize = true;
             L_Static_Species.Location = new Point(22, 75);
             L_Static_Species.Name = "L_Static_Species";
-            L_Static_Species.Size = new Size(42, 15);
+            L_Static_Species.Size = new Size(43, 15);
             L_Static_Species.TabIndex = 14;
             L_Static_Species.Text = "Target:";
             // 
@@ -1652,6 +1655,7 @@ namespace owoow.WinForms
             TB_Static_Advances.TabIndex = 6;
             TB_Static_Advances.Text = "5000";
             TB_Static_Advances.TextAlign = HorizontalAlignment.Right;
+            TB_Static_Advances.KeyDown += Dec_HandlePaste;
             TB_Static_Advances.KeyPress += KeyPress_AllowOnlyNumerical;
             // 
             // TB_Static_Initial
@@ -1665,6 +1669,7 @@ namespace owoow.WinForms
             TB_Static_Initial.TabIndex = 5;
             TB_Static_Initial.Text = "0";
             TB_Static_Initial.TextAlign = HorizontalAlignment.Right;
+            TB_Static_Initial.KeyDown += Dec_HandlePaste;
             TB_Static_Initial.KeyPress += KeyPress_AllowOnlyNumerical;
             // 
             // L_Static_LeadAbility
@@ -1772,6 +1777,7 @@ namespace owoow.WinForms
             TB_Symbol_NPCs.TabIndex = 6;
             TB_Symbol_NPCs.Text = "3";
             TB_Symbol_NPCs.TextAlign = HorizontalAlignment.Right;
+            TB_Symbol_NPCs.KeyDown += Dec_HandlePaste;
             TB_Symbol_NPCs.KeyPress += KeyPress_AllowOnlyNumerical;
             // 
             // L_Symbol_KOs
@@ -1794,6 +1800,7 @@ namespace owoow.WinForms
             TB_Symbol_KOs.TabIndex = 2;
             TB_Symbol_KOs.Text = "500";
             TB_Symbol_KOs.TextAlign = HorizontalAlignment.Right;
+            TB_Symbol_KOs.KeyDown += Dec_HandlePaste;
             TB_Symbol_KOs.KeyPress += KeyPress_AllowOnlyNumerical;
             // 
             // L_Symbol_Advances
@@ -1844,7 +1851,7 @@ namespace owoow.WinForms
             L_Symbol_Species.AutoSize = true;
             L_Symbol_Species.Location = new Point(22, 75);
             L_Symbol_Species.Name = "L_Symbol_Species";
-            L_Symbol_Species.Size = new Size(42, 15);
+            L_Symbol_Species.Size = new Size(43, 15);
             L_Symbol_Species.TabIndex = 14;
             L_Symbol_Species.Text = "Target:";
             // 
@@ -1910,6 +1917,7 @@ namespace owoow.WinForms
             TB_Symbol_Advances.TabIndex = 8;
             TB_Symbol_Advances.Text = "5000";
             TB_Symbol_Advances.TextAlign = HorizontalAlignment.Right;
+            TB_Symbol_Advances.KeyDown += Dec_HandlePaste;
             TB_Symbol_Advances.KeyPress += KeyPress_AllowOnlyNumerical;
             // 
             // TB_Symbol_Initial
@@ -1923,6 +1931,7 @@ namespace owoow.WinForms
             TB_Symbol_Initial.TabIndex = 7;
             TB_Symbol_Initial.Text = "0";
             TB_Symbol_Initial.TextAlign = HorizontalAlignment.Right;
+            TB_Symbol_Initial.KeyDown += Dec_HandlePaste;
             TB_Symbol_Initial.KeyPress += KeyPress_AllowOnlyNumerical;
             // 
             // L_Symbol_LeadAbility
@@ -1975,7 +1984,7 @@ namespace owoow.WinForms
             L_Hidden_MaxStep.AutoSize = true;
             L_Hidden_MaxStep.Location = new Point(17, 134);
             L_Hidden_MaxStep.Name = "L_Hidden_MaxStep";
-            L_Hidden_MaxStep.Size = new Size(59, 15);
+            L_Hidden_MaxStep.Size = new Size(58, 15);
             L_Hidden_MaxStep.TabIndex = 65;
             L_Hidden_MaxStep.Text = "Max Step:";
             L_Hidden_MaxStep.Click += L_ResetComboBox;
@@ -2050,6 +2059,7 @@ namespace owoow.WinForms
             TB_Hidden_NPCs.TabIndex = 5;
             TB_Hidden_NPCs.Text = "3";
             TB_Hidden_NPCs.TextAlign = HorizontalAlignment.Right;
+            TB_Hidden_NPCs.KeyDown += Dec_HandlePaste;
             TB_Hidden_NPCs.KeyPress += KeyPress_AllowOnlyNumerical;
             // 
             // L_Hidden_Advances
@@ -2100,7 +2110,7 @@ namespace owoow.WinForms
             L_Hidden_Target.AutoSize = true;
             L_Hidden_Target.Location = new Point(22, 75);
             L_Hidden_Target.Name = "L_Hidden_Target";
-            L_Hidden_Target.Size = new Size(42, 15);
+            L_Hidden_Target.Size = new Size(43, 15);
             L_Hidden_Target.TabIndex = 14;
             L_Hidden_Target.Text = "Target:";
             // 
@@ -2166,6 +2176,7 @@ namespace owoow.WinForms
             TB_Hidden_Advances.TabIndex = 7;
             TB_Hidden_Advances.Text = "5000";
             TB_Hidden_Advances.TextAlign = HorizontalAlignment.Right;
+            TB_Hidden_Advances.KeyDown += Dec_HandlePaste;
             TB_Hidden_Advances.KeyPress += KeyPress_AllowOnlyNumerical;
             // 
             // TB_Hidden_Initial
@@ -2179,6 +2190,7 @@ namespace owoow.WinForms
             TB_Hidden_Initial.TabIndex = 6;
             TB_Hidden_Initial.Text = "0";
             TB_Hidden_Initial.TextAlign = HorizontalAlignment.Right;
+            TB_Hidden_Initial.KeyDown += Dec_HandlePaste;
             TB_Hidden_Initial.KeyPress += KeyPress_AllowOnlyNumerical;
             // 
             // L_Hidden_LeadAbility
@@ -2285,6 +2297,7 @@ namespace owoow.WinForms
             TB_Fishing_NPCs.TabIndex = 5;
             TB_Fishing_NPCs.Text = "3";
             TB_Fishing_NPCs.TextAlign = HorizontalAlignment.Right;
+            TB_Fishing_NPCs.KeyDown += Dec_HandlePaste;
             TB_Fishing_NPCs.KeyPress += KeyPress_AllowOnlyNumerical;
             // 
             // L_Fishing_KOs
@@ -2307,6 +2320,7 @@ namespace owoow.WinForms
             TB_Fishing_KOs.TabIndex = 1;
             TB_Fishing_KOs.Text = "500";
             TB_Fishing_KOs.TextAlign = HorizontalAlignment.Right;
+            TB_Fishing_KOs.KeyDown += Dec_HandlePaste;
             TB_Fishing_KOs.KeyPress += KeyPress_AllowOnlyNumerical;
             // 
             // L_Fishing_Advances
@@ -2368,7 +2382,7 @@ namespace owoow.WinForms
             L_Fishing_Species.AutoSize = true;
             L_Fishing_Species.Location = new Point(22, 75);
             L_Fishing_Species.Name = "L_Fishing_Species";
-            L_Fishing_Species.Size = new Size(42, 15);
+            L_Fishing_Species.Size = new Size(43, 15);
             L_Fishing_Species.TabIndex = 14;
             L_Fishing_Species.Text = "Target:";
             // 
@@ -2434,6 +2448,7 @@ namespace owoow.WinForms
             TB_Fishing_Advances.TabIndex = 7;
             TB_Fishing_Advances.Text = "5000";
             TB_Fishing_Advances.TextAlign = HorizontalAlignment.Right;
+            TB_Fishing_Advances.KeyDown += Dec_HandlePaste;
             TB_Fishing_Advances.KeyPress += KeyPress_AllowOnlyNumerical;
             // 
             // TB_Fishing_Initial
@@ -2447,6 +2462,7 @@ namespace owoow.WinForms
             TB_Fishing_Initial.TabIndex = 6;
             TB_Fishing_Initial.Text = "0";
             TB_Fishing_Initial.TextAlign = HorizontalAlignment.Right;
+            TB_Fishing_Initial.KeyDown += Dec_HandlePaste;
             TB_Fishing_Initial.KeyPress += KeyPress_AllowOnlyNumerical;
             // 
             // L_Fishing_LeadAbility
@@ -2500,6 +2516,7 @@ namespace owoow.WinForms
             TB_Seed1.Size = new Size(118, 22);
             TB_Seed1.TabIndex = 1;
             TB_Seed1.Text = "0123456789ABCDEF";
+            TB_Seed1.KeyDown += State_HandlePaste;
             TB_Seed1.KeyPress += KeyPress_AllowOnlyHex;
             // 
             // TB_Seed0
@@ -2512,6 +2529,7 @@ namespace owoow.WinForms
             TB_Seed0.Size = new Size(118, 22);
             TB_Seed0.TabIndex = 0;
             TB_Seed0.Text = "0123456789ABCDEF";
+            TB_Seed0.KeyDown += State_HandlePaste;
             TB_Seed0.KeyPress += KeyPress_AllowOnlyHex;
             // 
             // GB_Connection
@@ -2694,6 +2712,7 @@ namespace owoow.WinForms
             TB_SwitchIP.TabIndex = 0;
             TB_SwitchIP.Text = "123.123.123.123";
             TB_SwitchIP.TextChanged += TB_SwitchIP_TextChanged;
+            TB_SwitchIP.KeyDown += IP_HandlePaste;
             TB_SwitchIP.KeyPress += KeyPress_AllowOnlyIP;
             // 
             // GB_SAVInfo
@@ -2757,7 +2776,7 @@ namespace owoow.WinForms
             L_TID.AutoSize = true;
             L_TID.Location = new Point(132, 17);
             L_TID.Name = "L_TID";
-            L_TID.Size = new Size(27, 15);
+            L_TID.Size = new Size(28, 15);
             L_TID.TabIndex = 19;
             L_TID.Text = "TID:";
             // 
@@ -2772,6 +2791,7 @@ namespace owoow.WinForms
             TB_SID.TabIndex = 3;
             TB_SID.Text = "54321";
             TB_SID.TextChanged += SID_TextChanged;
+            TB_SID.KeyDown += Dec_HandlePaste;
             TB_SID.KeyPress += KeyPress_AllowOnlyNumerical;
             // 
             // CB_ShinyCharm
@@ -2798,6 +2818,7 @@ namespace owoow.WinForms
             TB_TID.TabIndex = 2;
             TB_TID.Text = "12345";
             TB_TID.TextChanged += TID_TextChanged;
+            TB_TID.KeyDown += Dec_HandlePaste;
             TB_TID.KeyPress += KeyPress_AllowOnlyNumerical;
             // 
             // DGV_Results
@@ -3134,7 +3155,7 @@ namespace owoow.WinForms
             // TSMI_WattTrader
             // 
             TSMI_WattTrader.Name = "TSMI_WattTrader";
-            TSMI_WattTrader.Size = new Size(79, 20);
+            TSMI_WattTrader.Size = new Size(80, 20);
             TSMI_WattTrader.Text = "Watt Trader";
             TSMI_WattTrader.Click += TSMI_WattTrader_Click;
             // 
@@ -3162,7 +3183,7 @@ namespace owoow.WinForms
             // TSMI_XoroshiroTools
             // 
             TSMI_XoroshiroTools.Name = "TSMI_XoroshiroTools";
-            TSMI_XoroshiroTools.Size = new Size(100, 20);
+            TSMI_XoroshiroTools.Size = new Size(101, 20);
             TSMI_XoroshiroTools.Text = "Xoroshiro Tools";
             TSMI_XoroshiroTools.Click += TSMI_XoroshiroTools_Click;
             // 

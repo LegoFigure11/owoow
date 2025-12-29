@@ -28,10 +28,15 @@ public partial class SkillBro : Form
 
         TB_Seed0.KeyPress += f.KeyPress_AllowOnlyHex!;
         TB_Seed1.KeyPress += f.KeyPress_AllowOnlyHex!;
+        TB_Seed0.KeyDown += f.State_HandlePaste!;
+        TB_Seed1.KeyDown += f.State_HandlePaste!;
 
         TB_SkillBro_Initial.KeyPress += f.KeyPress_AllowOnlyNumerical!;
         TB_SkillBro_NPCs.KeyPress += f.KeyPress_AllowOnlyNumerical!;
         TB_SkillBro_Advances.KeyPress += f.KeyPress_AllowOnlyNumerical!;
+        TB_SkillBro_Initial.KeyDown += f.Dec_HandlePaste!;
+        TB_SkillBro_NPCs.KeyDown += f.Dec_HandlePaste!;
+        TB_SkillBro_Advances.KeyDown += f.Dec_HandlePaste!;
     }
 
     private void B_SkillBro_Search_Click(object sender, EventArgs e)

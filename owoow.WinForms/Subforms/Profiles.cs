@@ -24,6 +24,9 @@ public partial class Profiles : Form
         this.parent = parent;
         this.config = config;
 
+        TB_TID.KeyDown += parent.Dec_HandlePaste!;
+        TB_SID.KeyDown += parent.Dec_HandlePaste!;
+
         ReloadList();
 
         var idx = LB_ProfileList.SelectedIndex;

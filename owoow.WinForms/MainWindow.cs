@@ -495,7 +495,7 @@ public partial class MainWindow : Form
                                 .ConfigureAwait(false);
                     var currentTick = startTick;
                     if (currentTick < Time.MIN_TIME) throw new Exception("Failed to get start tick!");
-                    
+
 
                     _sw.Reset();
                     _sw.Start();
@@ -1753,7 +1753,7 @@ public partial class MainWindow : Form
         {
             try
             {
-               ConnectionWrapper.SetScreenState(ScreenState.On, Source.Token).ConfigureAwait(false);
+                ConnectionWrapper.SetScreenState(ScreenState.On, Source.Token).ConfigureAwait(false);
                 _ = ConnectionWrapper.DisconnectAsync(Source.Token).ConfigureAwait(false);
             }
             catch
@@ -1996,14 +1996,14 @@ public partial class MainWindow : Form
         switch (type)
         {
             case EncounterType.Static:
-            {
-                var species = ((ComboBox)sender).Text;
-                var enc = GetCurrentTable().StaticTable.FirstOrDefault(e => e.Value.Species == species);
-                if (species != string.Empty && enc.Value is not null) CB_Filter_Shiny.Enabled = !enc.Value.IsShinyLocked;
+                {
+                    var species = ((ComboBox)sender).Text;
+                    var enc = GetCurrentTable().StaticTable.FirstOrDefault(e => e.Value.Species == species);
+                    if (species != string.Empty && enc.Value is not null) CB_Filter_Shiny.Enabled = !enc.Value.IsShinyLocked;
 
-                CB_Filter_Aura.Enabled = false;
-                break;
-            }
+                    CB_Filter_Aura.Enabled = false;
+                    break;
+                }
             case EncounterType.Hidden:
                 CB_Filter_Aura.Enabled = false;
                 CB_ConsiderFlying.Checked = false;
@@ -2418,16 +2418,18 @@ public partial class MainWindow : Form
     #endregion
 
     #region Input Validation
+    private static bool IsHex(char c) => char.IsBetween(c, '0', '9') || char.IsBetween(c, 'a', 'f') || char.IsBetween(c, 'A', 'F');
+    private static bool IsDec(char c, bool allowPeriod = false) => char.IsBetween(c, '0', '9') || (allowPeriod && c == '.');
+    private static bool IsBin(char c) => char.IsBetween(c, '0', '1');
+    private static bool IsBin0(char c) => c == '0' || c == ',' || c == 'p' || c == 'P';
+    private static bool IsBin1(char c) => c == '1' || c == '.' || c == 's' || c == 'S';
+
     public void KeyPress_AllowOnlyHex(object sender, KeyPressEventArgs e)
     {
         var c = e.KeyChar;
         if (c != (char)Keys.Back && !char.IsControl(c))
         {
-            if (
-                !char.IsBetween(c, '0', '9') &&
-                !char.IsBetween(c, 'a', 'f') &&
-                !char.IsBetween(c, 'A', 'F')
-            )
+            if (!IsHex(c))
             {
                 System.Media.SystemSounds.Asterisk.Play();
                 e.Handled = true;
@@ -2440,7 +2442,7 @@ public partial class MainWindow : Form
         var c = e.KeyChar;
         if (c != (char)Keys.Back && !char.IsControl(c))
         {
-            if (!char.IsBetween(c, '0', '9'))
+            if (!IsDec(c))
             {
                 System.Media.SystemSounds.Asterisk.Play();
                 e.Handled = true;
@@ -2453,7 +2455,7 @@ public partial class MainWindow : Form
         var c = e.KeyChar;
         if (c != (char)Keys.Back && !char.IsControl(c))
         {
-            if (!char.IsBetween(c, '0', '9') && c != '.')
+            if (!IsDec(c, true))
             {
                 System.Media.SystemSounds.Asterisk.Play();
                 e.Handled = true;
@@ -2463,28 +2465,139 @@ public partial class MainWindow : Form
 
     private void KeyPress_AllowOnlyBinary(object sender, KeyPressEventArgs e)
     {
-        string s = string.Empty;
+        char c;
 
-        if (e.KeyChar is ',' or 'p' or 'P')
+        if (IsBin0(e.KeyChar))
         {
             e.KeyChar = '0';
         }
-        else if (e.KeyChar is '.' or 's' or 'S')
+        else if (IsBin1(e.KeyChar))
         {
             e.KeyChar = '1';
         }
 
-        s += e.KeyChar;
+        c = e.KeyChar;
 
-        byte[] b = Encoding.ASCII.GetBytes(s);
-
-        if (e.KeyChar != (char)Keys.Back && !char.IsControl(e.KeyChar))
+        if (c != (char)Keys.Back && !char.IsControl(c))
         {
-            if (!(('0' <= b[0]) && (b[0] <= '1')))
+            if (!IsBin(c))
             {
                 System.Media.SystemSounds.Asterisk.Play();
                 e.Handled = true;
             }
+        }
+    }
+    public void State_HandlePaste(object sender, KeyEventArgs e)
+    {
+        if (!(e.Modifiers == Keys.Control && e.KeyCode == Keys.V) && !(e.Modifiers == Keys.Shift && e.KeyCode == Keys.Insert)) return;
+        var n = string.Empty;
+        var newline = 0;
+        foreach (char c in Clipboard.GetText())
+        {
+            if (IsHex(c)) n += c;
+            if (c == (char)Keys.Enter) newline++;
+        }
+
+        var l = n.Length;
+        if (l == 0)
+        {
+            Clipboard.Clear();
+            return;
+        }
+        if (l == 32 && newline <= 1)
+        {
+            ((Control)sender).Parent!.Controls.Find("TB_Seed0", true).FirstOrDefault()!.Text = n[..16];
+            ((Control)sender).Parent!.Controls.Find("TB_Seed1", true).FirstOrDefault()!.Text = n[16..32];
+        }
+        else if (l > 16)
+        {
+            ((TextBox)sender).Text = n[..16];
+        }
+        else
+        {
+            Clipboard.SetText(n);
+        }
+    }
+
+    public void Dec_HandlePaste(object sender, KeyEventArgs e)
+    {
+        if (!(e.Modifiers == Keys.Control && e.KeyCode == Keys.V) && !(e.Modifiers == Keys.Shift && e.KeyCode == Keys.Insert)) return;
+        var n = string.Empty;
+
+        foreach (char c in Clipboard.GetText())
+        {
+            if (IsDec(c)) n += c;
+        }
+
+        var l = n.Length;
+        var tb = (TextBox)sender;
+        var max = tb.MaxLength;
+        if (l == 0)
+        {
+            Clipboard.Clear();
+        }
+        else if (l > max)
+        {
+            tb.Text = n[..max];
+        }
+        else
+        {
+            Clipboard.SetText(n);
+        }
+    }
+
+    private void IP_HandlePaste(object sender, KeyEventArgs e)
+    {
+        if (!(e.Modifiers == Keys.Control && e.KeyCode == Keys.V) && !(e.Modifiers == Keys.Shift && e.KeyCode == Keys.Insert)) return;
+        var n = string.Empty;
+
+        foreach (char c in Clipboard.GetText())
+        {
+            if (IsDec(c, true)) n += c;
+        }
+
+        var l = n.Length;
+        var tb = (TextBox)sender;
+        var max = tb.MaxLength;
+        if (l == 0)
+        {
+            Clipboard.Clear();
+        }
+        else if (l > max)
+        {
+            tb.Text = n[..max];
+        }
+        else
+        {
+            Clipboard.SetText(n);
+        }
+    }
+
+    public void Bin_HandlePaste(object sender, KeyEventArgs e)
+    {
+        if (!(e.Modifiers == Keys.Control && e.KeyCode == Keys.V) && !(e.Modifiers == Keys.Shift && e.KeyCode == Keys.Insert)) return;
+        var n = string.Empty;
+
+        foreach (char c in Clipboard.GetText())
+        {
+            if (IsBin0(c)) n += '0';
+            else if (IsBin1(c)) n += '1';
+        }
+
+        var l = n.Length;
+        var tb = (TextBox)sender;
+        var max = tb.MaxLength;
+        if (l == 0)
+        {
+            Clipboard.Clear();
+        }
+        else if (l > max)
+        {
+            tb.Text = n[..max];
+        }
+        else
+        {
+            Clipboard.SetText(n);
         }
     }
     #endregion

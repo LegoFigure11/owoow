@@ -17,6 +17,11 @@ public partial class SeedResetSettings : Form
 
     private void SeedResetSettings_Load(object sender, EventArgs e)
     {
+        TB_ExtraTimeReturnHome.KeyDown += p.Dec_HandlePaste!;
+        TB_ExtraTimeCloseGame.KeyDown += p.Dec_HandlePaste!;
+        TB_ExtraTimeLoadProfile.KeyDown += p.Dec_HandlePaste!;
+        TB_ExtraTimeLoadGame.KeyDown += p.Dec_HandlePaste!;
+
         CB_AvoidSystemUpdate.Checked = c.AvoidSystemUpdate;
         CB_ScreenState.Checked = c.ScreenOff;
 
