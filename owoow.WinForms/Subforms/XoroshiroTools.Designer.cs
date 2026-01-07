@@ -100,7 +100,7 @@ namespace owoow.WinForms.Subforms
             // CB_Operation
             // 
             CB_Operation.FormattingEnabled = true;
-            CB_Operation.Items.AddRange(new object[] { "Advance 𝑛", "Backwards 𝑛", "NextInt(𝑛)" });
+            CB_Operation.Items.AddRange(new object[] { "Advance 𝑛", "Backwards 𝑛", "NextInt(𝑛)", "Find Initial" });
             CB_Operation.Location = new Point(89, 55);
             CB_Operation.Name = "CB_Operation";
             CB_Operation.Size = new Size(118, 23);

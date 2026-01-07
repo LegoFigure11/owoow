@@ -65,6 +65,29 @@ public partial class XoroshiroTools : Form
                 n = GetAdvancesPassed(s0, s1, _s0, _s1, 0xFFFF);
                 (s0, s1) = (_s0, _s1);
                 break;
+
+            case XoroshiroToolsOperation.FindInitial:
+                ulong i = 0;
+                var found = false;
+                do
+                {
+                    i++;
+                    rng.Prev();
+                    var (__s0, __s1) = rng.GetState();
+                    if (__s1 == 0x82A2B175229D6A5B)
+                    {
+                        found = true;
+                        break;
+                    }
+
+                } while (i < n);
+
+                if (found)
+                {
+                    (s0, s1) = rng.GetState();
+                    n = i;
+                }
+                break;
         }
 
         TB_Result_S0.Text = $"{s0:X16}";

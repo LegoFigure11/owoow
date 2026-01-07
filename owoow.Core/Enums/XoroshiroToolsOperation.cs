@@ -4,5 +4,6 @@ public enum XoroshiroToolsOperation
 {
     Next,
     Prev,
-    NextInt
+    NextInt,
+    FindInitial
 };
