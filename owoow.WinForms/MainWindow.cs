@@ -1864,7 +1864,7 @@ public partial class MainWindow : Form
                         await Task.Delay(100, Source.Token).ConfigureAwait(false);
                         SetTextBoxText("Reading encounter...", TB_Wild);
                         var pk = await ConnectionWrapper.ReadWildPokemon(Source.Token).ConfigureAwait(false);
-                        if (pk.Valid && pk.Species > 0)
+                        if (pk is { Valid: true, Species: > 0 })
                         {
                             CachedEncounter = pk;
                             bool HasRibbon = Utils.HasMark(pk, out RibbonIndex mark);
@@ -2489,7 +2489,7 @@ public partial class MainWindow : Form
     }
     public void State_HandlePaste(object sender, KeyEventArgs e)
     {
-        if (!(e.Modifiers == Keys.Control && e.KeyCode == Keys.V) && !(e.Modifiers == Keys.Shift && e.KeyCode == Keys.Insert)) return;
+        if (e is not { Modifiers: Keys.Control, KeyCode: Keys.V } && e is not { Modifiers: Keys.Shift, KeyCode: Keys.Insert }) return;
         var n = string.Empty;
         var newline = 0;
         foreach (char c in Clipboard.GetText())
@@ -2521,7 +2521,7 @@ public partial class MainWindow : Form
 
     public void Dec_HandlePaste(object sender, KeyEventArgs e)
     {
-        if (!(e.Modifiers == Keys.Control && e.KeyCode == Keys.V) && !(e.Modifiers == Keys.Shift && e.KeyCode == Keys.Insert)) return;
+        if (e is not { Modifiers: Keys.Control, KeyCode: Keys.V } && e is not { Modifiers: Keys.Shift, KeyCode: Keys.Insert }) return;
         var n = string.Empty;
 
         foreach (char c in Clipboard.GetText())
@@ -2548,7 +2548,7 @@ public partial class MainWindow : Form
 
     private void IP_HandlePaste(object sender, KeyEventArgs e)
     {
-        if (!(e.Modifiers == Keys.Control && e.KeyCode == Keys.V) && !(e.Modifiers == Keys.Shift && e.KeyCode == Keys.Insert)) return;
+        if (e is not { Modifiers: Keys.Control, KeyCode: Keys.V } && e is not { Modifiers: Keys.Shift, KeyCode: Keys.Insert }) return;
         var n = string.Empty;
 
         foreach (char c in Clipboard.GetText())
@@ -2575,7 +2575,7 @@ public partial class MainWindow : Form
 
     public void Bin_HandlePaste(object sender, KeyEventArgs e)
     {
-        if (!(e.Modifiers == Keys.Control && e.KeyCode == Keys.V) && !(e.Modifiers == Keys.Shift && e.KeyCode == Keys.Insert)) return;
+        if (e is not { Modifiers: Keys.Control, KeyCode: Keys.V } && e is not { Modifiers: Keys.Shift, KeyCode: Keys.Insert }) return;
         var n = string.Empty;
 
         foreach (char c in Clipboard.GetText())
