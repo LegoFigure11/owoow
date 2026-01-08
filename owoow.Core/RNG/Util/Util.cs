@@ -11,6 +11,8 @@ public static class Util
 
     public const uint MAX_TRACKED_ADVANCES = 50_000; // 50,000 chosen arbitrarily to prevent an infinite loop
 
+    public const ulong XOROSHIRO_CONST = 0x82A2B175229D6A5B;
+
     public static uint GetAdvancesPassed(ulong s0, ulong s1, ulong _s0, ulong _s1, ulong limit = MAX_TRACKED_ADVANCES)
     {
         if (s0 == _s0 && s1 == _s1) return 0;

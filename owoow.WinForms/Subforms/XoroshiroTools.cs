@@ -74,7 +74,7 @@ public partial class XoroshiroTools : Form
                     i++;
                     rng.Prev();
                     var (__s0, __s1) = rng.GetState();
-                    if (__s1 == 0x82A2B175229D6A5B)
+                    if (__s1 == XOROSHIRO_CONST)
                     {
                         found = true;
                         break;

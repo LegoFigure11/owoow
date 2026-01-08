@@ -103,7 +103,7 @@ public class Static
                 Ability = GenerateAbility(ref rng, Encounter.Abilities, Encounter.IsAbilityLocked, Encounter.Ability);
 
                 // FIXED SEED
-                var go = new Xoroshiro128Plus(GenerateFixedSeed(ref rng), 0x82A2B175229D6A5B);
+                var go = new Xoroshiro128Plus(GenerateFixedSeed(ref rng), RNG.Util.XOROSHIRO_CONST);
 
                 // ENCRYPTION CONSTANT
                 EC = GenerateEC(ref go);
