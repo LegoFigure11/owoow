@@ -39,6 +39,13 @@ namespace owoow.WinForms.Subforms
             B_Physical = new Button();
             B_Special = new Button();
             L_CompletedInputs = new Label();
+            CB_Advanced = new CheckBox();
+            label1 = new Label();
+            TB_Max = new TextBox();
+            label2 = new Label();
+            TB_Min = new TextBox();
+            TB_Status = new TextBox();
+            label3 = new Label();
             SuspendLayout();
             // 
             // OKButton
@@ -153,11 +160,103 @@ namespace owoow.WinForms.Subforms
             L_CompletedInputs.Text = "Completed Animations: 0 / 128";
             L_CompletedInputs.TextAlign = ContentAlignment.TopRight;
             // 
+            // CB_Advanced
+            // 
+            CB_Advanced.AutoSize = true;
+            CB_Advanced.Location = new Point(612, 7);
+            CB_Advanced.Name = "CB_Advanced";
+            CB_Advanced.Size = new Size(113, 19);
+            CB_Advanced.TabIndex = 96;
+            CB_Advanced.Text = "Advanced Mode";
+            CB_Advanced.UseVisualStyleBackColor = true;
+            CB_Advanced.CheckedChanged += CB_Advanced_CheckedChanged;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new Point(732, 32);
+            label1.Margin = new Padding(4, 0, 4, 0);
+            label1.Name = "label1";
+            label1.Size = new Size(60, 15);
+            label1.TabIndex = 100;
+            label1.Text = "Max Adv.:";
+            // 
+            // TB_Max
+            // 
+            TB_Max.Enabled = false;
+            TB_Max.Font = new Font("Consolas", 9F);
+            TB_Max.Location = new Point(798, 30);
+            TB_Max.Margin = new Padding(4, 3, 4, 3);
+            TB_Max.MaxLength = 16;
+            TB_Max.Name = "TB_Max";
+            TB_Max.Size = new Size(118, 22);
+            TB_Max.TabIndex = 99;
+            TB_Max.TabStop = false;
+            TB_Max.Text = "527";
+            TB_Max.TextAlign = HorizontalAlignment.Right;
+            TB_Max.KeyDown += Dec_HandlePaste;
+            TB_Max.KeyPress += Decimal_KeyPress;
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Location = new Point(732, 8);
+            label2.Margin = new Padding(4, 0, 4, 0);
+            label2.Name = "label2";
+            label2.Size = new Size(58, 15);
+            label2.TabIndex = 98;
+            label2.Text = "Min Adv.:";
+            // 
+            // TB_Min
+            // 
+            TB_Min.Enabled = false;
+            TB_Min.Font = new Font("Consolas", 9F);
+            TB_Min.Location = new Point(798, 6);
+            TB_Min.Margin = new Padding(4, 3, 4, 3);
+            TB_Min.MaxLength = 16;
+            TB_Min.Name = "TB_Min";
+            TB_Min.Size = new Size(118, 22);
+            TB_Min.TabIndex = 97;
+            TB_Min.TabStop = false;
+            TB_Min.Text = "400";
+            TB_Min.TextAlign = HorizontalAlignment.Right;
+            TB_Min.KeyDown += Dec_HandlePaste;
+            TB_Min.KeyPress += Decimal_KeyPress;
+            // 
+            // TB_Status
+            // 
+            TB_Status.Font = new Font("Consolas", 9F);
+            TB_Status.Location = new Point(798, 54);
+            TB_Status.Margin = new Padding(4, 3, 4, 3);
+            TB_Status.MaxLength = 16;
+            TB_Status.Name = "TB_Status";
+            TB_Status.ReadOnly = true;
+            TB_Status.Size = new Size(118, 22);
+            TB_Status.TabIndex = 101;
+            TB_Status.TabStop = false;
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Location = new Point(745, 56);
+            label3.Margin = new Padding(4, 0, 4, 0);
+            label3.Name = "label3";
+            label3.Size = new Size(42, 15);
+            label3.TabIndex = 102;
+            label3.Text = "Status:";
+            // 
             // RetailSeedFinder
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(919, 164);
+            Controls.Add(label3);
+            Controls.Add(TB_Status);
+            Controls.Add(label1);
+            Controls.Add(TB_Max);
+            Controls.Add(label2);
+            Controls.Add(TB_Min);
+            Controls.Add(CB_Advanced);
             Controls.Add(L_CompletedInputs);
             Controls.Add(B_Special);
             Controls.Add(B_Physical);
@@ -188,5 +287,12 @@ namespace owoow.WinForms.Subforms
         private System.Windows.Forms.Button B_Physical;
         private System.Windows.Forms.Button B_Special;
         private System.Windows.Forms.Label L_CompletedInputs;
+        private CheckBox CB_Advanced;
+        private Label label1;
+        private TextBox TB_Max;
+        private Label label2;
+        private TextBox TB_Min;
+        private TextBox TB_Status;
+        private Label label3;
     }
 }

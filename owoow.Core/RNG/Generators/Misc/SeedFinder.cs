@@ -1,4 +1,5 @@
 using PKHeX.Core;
+using static owoow.Core.RNG.MatrixUtil;
 
 namespace owoow.Core.RNG.Generators.Misc;
 
@@ -41,22 +42,22 @@ public static class SeedFinder
 
     public static (ulong, ulong) CalculateRetailSeed(string animations)
     {
-        ulong State0 = 0;
-        ulong State1 = 0;
-        for (int i = 0; i < 128; i++)
+        ulong state0 = 0;
+        ulong state1 = 0;
+        for (var i = 0; i < 128; i++)
         {
             if (animations[i] == '1')
             {
-                State0 ^= ObservationsToState[i, 0];
-                State1 ^= ObservationsToState[i, 1];
+                state0 ^= ObservationsToState[i, 0];
+                state1 ^= ObservationsToState[i, 1];
             }
         }
-        return (State0, State1);
+        return (state0, state1);
     }
 
     public static (byte[] sequence, ulong s0, ulong s1) GenerateAnimationSequence(ulong s0, ulong s1, ulong ini, ulong adv)
     {
-        byte[] res = new byte[adv];
+        var res = new byte[adv];
         var rng = new Xoroshiro128Plus(s0, s1);
         for (ulong i = 0; i < ini; i++) rng.Next();
         for (ulong i = 0; i < adv; i++)
@@ -68,8 +69,8 @@ public static class SeedFinder
 
     public static (int hits, int advances, ulong s0, ulong s1) ReidentifySeed(byte[] sequence, ulong s0, ulong s1, string pattern)
     {
-        int hits = 0;
-        int pos = 0;
+        var hits = 0;
+        var pos = 0;
 
         if (pattern.Length > 5)
         {
@@ -94,5 +95,106 @@ public static class SeedFinder
         if (hits == 1) (s0, s1) = Util.XoroshiroJump(s0, s1, (ulong)pos);
 
         return (hits, pos + 1, s0, s1);
+    }
+
+    // Adapted from https://github.com/lincoln-lm/swsh-initial-seed/blob/main/main.py
+    // I have no idea how this works but Lincoln can probably explain it if needed
+    // See also: https://github.com/LegoFigure11/owoow/issues/2
+    public static List<(ulong s0, ulong s1)> GetInitialSeedFromRange(int min, int max, byte[] observations)
+    {
+        // Min/Max validation already handled by caller method
+
+        var len = observations.Length;
+
+        var fullRange = max - min + 1 + 128;
+
+        var jump = Util.XoroshiroJump(0, Util.XOROSHIRO_CONST, (ulong)min);
+        var rng = new Xoroshiro128Plus(jump.s0, jump.s1);
+
+        var constObservations = new byte[fullRange];
+        for (var i = 0; i < fullRange; i++)
+        {
+            constObservations[i] = (byte)rng.NextInt(2);
+        }
+
+        var allSeedToObservations = new byte[ 64 , fullRange ];
+        for (var bit = 0; bit < 64; bit++)
+        {
+            jump = Util.XoroshiroJump((ulong)1 << bit, 0, (ulong)min);
+            var rng2 = new Xoroshiro128Plus(jump.s0, jump.s1);
+            for (var i = 0; i < fullRange; i++)
+            {
+                allSeedToObservations[bit, i] = (byte)rng2.NextInt(2);
+            }
+        }
+
+        List<(ulong, ulong)> results = [];
+        for (var advance = min; advance < max + 1; advance++)
+        {
+            var offset = advance - min;
+            var seedToObservations = new byte[64, len];
+            for (var i = 0; i < 64; i++)
+            {
+                for (var j = 0; j < len; j++)
+                {
+                    seedToObservations[i, j] = allSeedToObservations[i, offset + j];
+                }
+            }
+
+            var (observationsToSeed, nullBasis) = GeneralizedInverse(seedToObservations);
+
+            var diff = new byte[len];
+            for (var i = 0; i < len; i++)
+            {
+                diff[i] = (byte)(observations[i] ^ constObservations[offset + i]);
+            }
+
+            var cols = observationsToSeed.GetLength(1);
+            var principle = new int[cols];
+            for (var j = 0; j < cols; j++)
+            {
+                var sum = 0;
+                for (var i = 0; i < diff.Length; i++) sum ^= diff[i] & observationsToSeed[i, j];
+                principle[j] = sum;
+            }
+
+            var nullBasisRows = nullBasis.GetLength(0);
+            var nullBasisCols = nullBasis.GetLength(1);
+            for (var key = 0; key < (1 << nullBasisRows); key++)
+            {
+                var keyBits = IntToBitVector(key, nullBasisRows);
+
+                var candidate = new byte[nullBasisCols];
+
+                for (var j = 0; j < nullBasisCols; j++)
+                {
+                    var sum = 0;
+                    for (var i = 0; i < nullBasisRows; i++)
+                    {
+                        sum += (byte)(keyBits[i] * nullBasis[i, j]);
+                    }
+
+                    candidate[j] = (byte)(principle[j] ^ (sum & 1));
+                }
+
+                var initialSeed = BitVectorToInt(candidate);
+
+                jump = Util.XoroshiroJump(initialSeed, Util.XOROSHIRO_CONST, (ulong)advance);
+                var rng3 = new Xoroshiro128Plus(jump.s0, jump.s1);
+                var matches = true;
+                for (var i = 0; i < len; i++)
+                {
+                    if ((rng3.Next() & 1) == observations[i]) continue;
+                    matches = false;
+                    break;
+                }
+                if (matches)
+                {
+                    results.Add(Util.XoroshiroJump(jump.s0, jump.s1, (ulong)len));
+                }
+            }
+        }
+
+        return results;
     }
 }

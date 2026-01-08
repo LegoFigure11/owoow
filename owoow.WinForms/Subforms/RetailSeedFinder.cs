@@ -43,16 +43,54 @@ namespace owoow.WinForms.Subforms
         {
             int l = TB_InputAnimations.Text.Length;
             L_CompletedInputs.Text = $"Completed Motions: {l} / 128";
-            if (l == 128)
+            if (CB_Advanced.Checked)
             {
-                var (s0, s1) = CalculateRetailSeed(TB_InputAnimations.Text);
-                TB_Seed0.Text = s0.ToString("X16");
-                TB_Seed1.Text = s1.ToString("X16");
+                if (l >= 64)
+                {
+                    var text = TB_InputAnimations.Text;
+                    var arr = new byte[l];
+                    for (var i = 0; i < l; i++)
+                    {
+                        arr[i] = (byte)(text[i] - '0');
+                    }
+
+                    var min = int.Parse(TB_Min.Text);
+                    var max = int.Parse(TB_Max.Text);
+
+                    var seeds = GetInitialSeedFromRange(min, max, arr);
+                    switch (seeds.Count)
+                    {
+                        case > 1:
+                            TB_Status.Text = $"~{Math.Floor(Math.Log2(seeds.Count))} more inputs";
+                            break;
+                        case 1:
+                            TB_Status.Text = "Result found!";
+                            TB_Seed0.Text = $"{seeds[0].s0:X16}";
+                            TB_Seed1.Text = $"{seeds[0].s1:X16}";
+                            break;
+                        case 0:
+                            TB_Status.Text = "No seeds found.";
+                            break;
+                    }
+                }
+                else
+                {
+                    TB_Status.Text = "";
+                }
             }
             else
             {
-                TB_Seed0.Text = string.Empty;
-                TB_Seed1.Text = string.Empty;
+                if (l == 128)
+                {
+                    var (s0, s1) = CalculateRetailSeed(TB_InputAnimations.Text);
+                    TB_Seed0.Text = s0.ToString("X16");
+                    TB_Seed1.Text = s1.ToString("X16");
+                }
+                else
+                {
+                    TB_Seed0.Text = string.Empty;
+                    TB_Seed1.Text = string.Empty;
+                }
             }
         }
 
@@ -79,6 +117,52 @@ namespace owoow.WinForms.Subforms
                 {
                     e.Handled = true;
                 }
+            }
+        }
+
+        private void CB_Advanced_CheckedChanged(object sender, EventArgs e)
+        {
+            TB_Min.Enabled = CB_Advanced.Checked;
+            TB_Max.Enabled = CB_Advanced.Checked;
+        }
+        private static bool IsDec(char c, bool allowPeriod = false) => char.IsBetween(c, '0', '9') || (allowPeriod && c == '.');
+        private void Decimal_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            var c = e.KeyChar;
+            if (c != (char)Keys.Back && !char.IsControl(c))
+            {
+                if (!IsDec(c))
+                {
+                    System.Media.SystemSounds.Asterisk.Play();
+                    e.Handled = true;
+                }
+            }
+        }
+
+        private void Dec_HandlePaste(object sender, KeyEventArgs e)
+        {
+            if (e is not { Modifiers: Keys.Control, KeyCode: Keys.V } && e is not { Modifiers: Keys.Shift, KeyCode: Keys.Insert }) return;
+            var n = string.Empty;
+
+            foreach (char c in Clipboard.GetText())
+            {
+                if (IsDec(c)) n += c;
+            }
+
+            var l = n.Length;
+            var tb = (TextBox)sender;
+            var max = tb.MaxLength;
+            if (l == 0)
+            {
+                Clipboard.Clear();
+            }
+            else if (l > max)
+            {
+                tb.Text = n[..max];
+            }
+            else
+            {
+                Clipboard.SetText(n);
             }
         }
     }
