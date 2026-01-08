@@ -57,20 +57,28 @@ namespace owoow.WinForms.Subforms
                     var min = int.Parse(TB_Min.Text);
                     var max = int.Parse(TB_Max.Text);
 
-                    var seeds = GetInitialSeedFromRange(min, max, arr);
-                    switch (seeds.Count)
+                    if (max - min <= 150)
                     {
-                        case > 1:
-                            TB_Status.Text = $"~{Math.Floor(Math.Log2(seeds.Count))} more inputs";
-                            break;
-                        case 1:
-                            TB_Status.Text = "Result found!";
-                            TB_Seed0.Text = $"{seeds[0].s0:X16}";
-                            TB_Seed1.Text = $"{seeds[0].s1:X16}";
-                            break;
-                        case 0:
-                            TB_Status.Text = "No seeds found.";
-                            break;
+                        B_CalcSeed.Enabled = false;
+                        var seeds = GetInitialSeedFromRange(min, max, arr);
+                        switch (seeds.Count)
+                        {
+                            case > 1:
+                                TB_Status.Text = $"~{Math.Floor(Math.Log2(seeds.Count))} more inputs";
+                                break;
+                            case 1:
+                                TB_Status.Text = "Result found!";
+                                TB_Seed0.Text = $"{seeds[0].s0:X16}";
+                                TB_Seed1.Text = $"{seeds[0].s1:X16}";
+                                break;
+                            case 0:
+                                TB_Status.Text = "No seeds found.";
+                                break;
+                        }
+                    }
+                    else
+                    {
+                        B_CalcSeed.Enabled = true;
                     }
                 }
                 else
@@ -163,6 +171,84 @@ namespace owoow.WinForms.Subforms
             else
             {
                 Clipboard.SetText(n);
+            }
+        }
+
+        private void TB_Min_Leave(object sender, EventArgs e)
+        {
+            var val = int.Parse(TB_Min.Text);
+            var max = int.Parse(TB_Max.Text);
+            if (val > max)
+            {
+                MessageBox.Show("Min Advances cannot be greater than Max Advances");
+                TB_Max.Text = TB_Min.Text;
+                max = val;
+            }
+
+            B_CalcSeed.Enabled = max - val > 150;
+        }
+
+        private void TB_Max_Leave(object sender, EventArgs e)
+        {
+            var val = int.Parse(TB_Max.Text);
+            var min = int.Parse(TB_Min.Text);
+            if (val < min)
+            {
+                MessageBox.Show("Max Advances cannot be less than Min Advances");
+                TB_Min.Text = TB_Max.Text;
+                val = min;
+            }
+
+            B_CalcSeed.Enabled = val - min > 150;
+        }
+
+        private void B_CalcSeed_Click(object sender, EventArgs e)
+        {
+            var l = TB_InputAnimations.Text.Length;
+            TB_InputAnimations.Enabled = false;
+            B_CalcSeed.Enabled = false;
+            B_Physical.Enabled = false;
+            B_Special.Enabled = false;
+            TB_Status.Text = "Calculating...";
+            if (CB_Advanced.Checked)
+            {
+                if (l >= 64)
+                {
+                    var text = TB_InputAnimations.Text;
+                    var arr = new byte[l];
+                    for (var i = 0; i < l; i++)
+                    {
+                        arr[i] = (byte)(text[i] - '0');
+                    }
+
+                    var min = int.Parse(TB_Min.Text);
+                    var max = int.Parse(TB_Max.Text);
+
+                    var seeds = GetInitialSeedFromRange(min, max, arr);
+                    switch (seeds.Count)
+                    {
+                        case > 1:
+                            TB_Status.Text = $"~{Math.Floor(Math.Log2(seeds.Count))} more inputs";
+                            break;
+                        case 1:
+                            TB_Status.Text = "Result found!";
+                            TB_Seed0.Text = $"{seeds[0].s0:X16}";
+                            TB_Seed1.Text = $"{seeds[0].s1:X16}";
+                            break;
+                        case 0:
+                            TB_Status.Text = "No seeds found.";
+                            break;
+                    }
+
+                    TB_InputAnimations.Enabled = true;
+                    B_CalcSeed.Enabled = true;
+                    B_Physical.Enabled = true;
+                    B_Special.Enabled = true;
+                }
+                else
+                {
+                    TB_Status.Text = "";
+                }
             }
         }
     }

@@ -40,12 +40,13 @@ namespace owoow.WinForms.Subforms
             B_Special = new Button();
             L_CompletedInputs = new Label();
             CB_Advanced = new CheckBox();
-            label1 = new Label();
+            L_Max = new Label();
             TB_Max = new TextBox();
-            label2 = new Label();
+            L_Min = new Label();
             TB_Min = new TextBox();
             TB_Status = new TextBox();
-            label3 = new Label();
+            L_Status = new Label();
+            B_CalcSeed = new Button();
             SuspendLayout();
             // 
             // OKButton
@@ -171,15 +172,15 @@ namespace owoow.WinForms.Subforms
             CB_Advanced.UseVisualStyleBackColor = true;
             CB_Advanced.CheckedChanged += CB_Advanced_CheckedChanged;
             // 
-            // label1
+            // L_Max
             // 
-            label1.AutoSize = true;
-            label1.Location = new Point(732, 32);
-            label1.Margin = new Padding(4, 0, 4, 0);
-            label1.Name = "label1";
-            label1.Size = new Size(60, 15);
-            label1.TabIndex = 100;
-            label1.Text = "Max Adv.:";
+            L_Max.AutoSize = true;
+            L_Max.Location = new Point(732, 32);
+            L_Max.Margin = new Padding(4, 0, 4, 0);
+            L_Max.Name = "L_Max";
+            L_Max.Size = new Size(60, 15);
+            L_Max.TabIndex = 100;
+            L_Max.Text = "Max Adv.:";
             // 
             // TB_Max
             // 
@@ -196,16 +197,17 @@ namespace owoow.WinForms.Subforms
             TB_Max.TextAlign = HorizontalAlignment.Right;
             TB_Max.KeyDown += Dec_HandlePaste;
             TB_Max.KeyPress += Decimal_KeyPress;
+            TB_Max.Leave += TB_Max_Leave;
             // 
-            // label2
+            // L_Min
             // 
-            label2.AutoSize = true;
-            label2.Location = new Point(732, 8);
-            label2.Margin = new Padding(4, 0, 4, 0);
-            label2.Name = "label2";
-            label2.Size = new Size(58, 15);
-            label2.TabIndex = 98;
-            label2.Text = "Min Adv.:";
+            L_Min.AutoSize = true;
+            L_Min.Location = new Point(734, 8);
+            L_Min.Margin = new Padding(4, 0, 4, 0);
+            L_Min.Name = "L_Min";
+            L_Min.Size = new Size(58, 15);
+            L_Min.TabIndex = 98;
+            L_Min.Text = "Min Adv.:";
             // 
             // TB_Min
             // 
@@ -222,6 +224,7 @@ namespace owoow.WinForms.Subforms
             TB_Min.TextAlign = HorizontalAlignment.Right;
             TB_Min.KeyDown += Dec_HandlePaste;
             TB_Min.KeyPress += Decimal_KeyPress;
+            TB_Min.Leave += TB_Min_Leave;
             // 
             // TB_Status
             // 
@@ -235,26 +238,38 @@ namespace owoow.WinForms.Subforms
             TB_Status.TabIndex = 101;
             TB_Status.TabStop = false;
             // 
-            // label3
+            // L_Status
             // 
-            label3.AutoSize = true;
-            label3.Location = new Point(745, 56);
-            label3.Margin = new Padding(4, 0, 4, 0);
-            label3.Name = "label3";
-            label3.Size = new Size(42, 15);
-            label3.TabIndex = 102;
-            label3.Text = "Status:";
+            L_Status.AutoSize = true;
+            L_Status.Location = new Point(750, 56);
+            L_Status.Margin = new Padding(4, 0, 4, 0);
+            L_Status.Name = "L_Status";
+            L_Status.Size = new Size(42, 15);
+            L_Status.TabIndex = 102;
+            L_Status.Text = "Status:";
+            // 
+            // B_CalcSeed
+            // 
+            B_CalcSeed.Enabled = false;
+            B_CalcSeed.Location = new Point(612, 51);
+            B_CalcSeed.Name = "B_CalcSeed";
+            B_CalcSeed.Size = new Size(113, 25);
+            B_CalcSeed.TabIndex = 103;
+            B_CalcSeed.Text = "Calculate Seed";
+            B_CalcSeed.UseVisualStyleBackColor = true;
+            B_CalcSeed.Click += B_CalcSeed_Click;
             // 
             // RetailSeedFinder
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(919, 164);
-            Controls.Add(label3);
+            Controls.Add(B_CalcSeed);
+            Controls.Add(L_Status);
             Controls.Add(TB_Status);
-            Controls.Add(label1);
+            Controls.Add(L_Max);
             Controls.Add(TB_Max);
-            Controls.Add(label2);
+            Controls.Add(L_Min);
             Controls.Add(TB_Min);
             Controls.Add(CB_Advanced);
             Controls.Add(L_CompletedInputs);
@@ -288,11 +303,12 @@ namespace owoow.WinForms.Subforms
         private System.Windows.Forms.Button B_Special;
         private System.Windows.Forms.Label L_CompletedInputs;
         private CheckBox CB_Advanced;
-        private Label label1;
+        private Label L_Max;
         private TextBox TB_Max;
-        private Label label2;
+        private Label L_Min;
         private TextBox TB_Min;
         private TextBox TB_Status;
-        private Label label3;
+        private Label L_Status;
+        private Button B_CalcSeed;
     }
 }
