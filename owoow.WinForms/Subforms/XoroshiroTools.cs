@@ -154,12 +154,7 @@ public partial class XoroshiroTools : Form
         var c = e.KeyChar;
         if (c != (char)Keys.Back && !char.IsControl(c))
         {
-            if (
-                !char.IsBetween(c, '0', '9') &&
-                !char.IsBetween(c, 'a', 'f') &&
-                !char.IsBetween(c, 'A', 'F') &&
-                c != 'x' && c != 'X'
-            )
+            if (!c.IsHex(true))
             {
                 System.Media.SystemSounds.Asterisk.Play();
                 e.Handled = true;

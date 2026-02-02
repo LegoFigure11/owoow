@@ -7,18 +7,12 @@ namespace owoow.WinForms.Subforms
     {
         public string Seed0
         {
-            get
-            {
-                return TB_Seed0.Text;
-            }
+            get => TB_Seed0.Text;
         }
 
         public string Seed1
         {
-            get
-            {
-                return TB_Seed1.Text;
-            }
+            get => TB_Seed1.Text;
         }
 
         public RetailSeedFinder()
@@ -106,22 +100,12 @@ namespace owoow.WinForms.Subforms
         {
             string s = string.Empty;
 
-            if (e.KeyChar is ',' or 'p' or 'P')
-            {
-                e.KeyChar = '0';
-            }
-            else if (e.KeyChar is '.' or 's' or 'S')
-            {
-                e.KeyChar = '1';
-            }
-
-            s += e.KeyChar;
-
-            byte[] b = Encoding.ASCII.GetBytes(s);
+            if (e.KeyChar.IsBin0()) e.KeyChar = '0';
+            else if (e.KeyChar.IsBin1()) e.KeyChar = '1';
 
             if (e.KeyChar != (char)Keys.Back && !char.IsControl(e.KeyChar))
             {
-                if (!(('0' <= b[0]) && (b[0] <= '1')))
+                if (!e.KeyChar.IsBin())
                 {
                     e.Handled = true;
                 }
@@ -133,13 +117,12 @@ namespace owoow.WinForms.Subforms
             TB_Min.Enabled = CB_Advanced.Checked;
             TB_Max.Enabled = CB_Advanced.Checked;
         }
-        private static bool IsDec(char c, bool allowPeriod = false) => char.IsBetween(c, '0', '9') || (allowPeriod && c == '.');
         private void Decimal_KeyPress(object sender, KeyPressEventArgs e)
         {
             var c = e.KeyChar;
             if (c != (char)Keys.Back && !char.IsControl(c))
             {
-                if (!IsDec(c))
+                if (!c.IsDec())
                 {
                     System.Media.SystemSounds.Asterisk.Play();
                     e.Handled = true;
@@ -154,7 +137,7 @@ namespace owoow.WinForms.Subforms
 
             foreach (char c in Clipboard.GetText())
             {
-                if (IsDec(c)) n += c;
+                if (c.IsDec()) n += c;
             }
 
             var l = n.Length;

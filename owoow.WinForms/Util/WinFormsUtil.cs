@@ -14,4 +14,12 @@ public static class WinFormsUtil
 
     internal static TabPage? GetSelectedTab(this TabControl tc) => tc.InvokeRequired ? tc.Invoke(() => tc.SelectedTab) : tc.SelectedTab;
 
+    extension(char c)
+    {
+        internal bool IsHex(bool allowHexPrefix = false) => char.IsBetween(c, '0', '9') || char.IsBetween(c, 'a', 'f') || char.IsBetween(c, 'A', 'F') || (allowHexPrefix && c is 'x' or 'X');
+        internal bool IsDec(bool allowPeriod = false) => char.IsBetween(c, '0', '9') || (allowPeriod && c == '.');
+        internal bool IsBin() => c is '0' or '1';
+        internal bool IsBin0() => c is '0' or ',' or 'p' or 'P';
+        internal bool IsBin1() => c is '1' or '.' or 's' or 'S';
+    }
 }

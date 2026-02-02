@@ -2392,18 +2392,12 @@ public partial class MainWindow : Form
     #endregion
 
     #region Input Validation
-    private static bool IsHex(char c) => char.IsBetween(c, '0', '9') || char.IsBetween(c, 'a', 'f') || char.IsBetween(c, 'A', 'F');
-    private static bool IsDec(char c, bool allowPeriod = false) => char.IsBetween(c, '0', '9') || (allowPeriod && c == '.');
-    private static bool IsBin(char c) => char.IsBetween(c, '0', '1');
-    private static bool IsBin0(char c) => c == '0' || c == ',' || c == 'p' || c == 'P';
-    private static bool IsBin1(char c) => c == '1' || c == '.' || c == 's' || c == 'S';
-
     public void KeyPress_AllowOnlyHex(object sender, KeyPressEventArgs e)
     {
         var c = e.KeyChar;
         if (c != (char)Keys.Back && !char.IsControl(c))
         {
-            if (!IsHex(c))
+            if (!c.IsHex())
             {
                 System.Media.SystemSounds.Asterisk.Play();
                 e.Handled = true;
@@ -2416,7 +2410,7 @@ public partial class MainWindow : Form
         var c = e.KeyChar;
         if (c != (char)Keys.Back && !char.IsControl(c))
         {
-            if (!IsDec(c))
+            if (!c.IsDec())
             {
                 System.Media.SystemSounds.Asterisk.Play();
                 e.Handled = true;
@@ -2429,7 +2423,7 @@ public partial class MainWindow : Form
         var c = e.KeyChar;
         if (c != (char)Keys.Back && !char.IsControl(c))
         {
-            if (!IsDec(c, true))
+            if (!c.IsDec(true))
             {
                 System.Media.SystemSounds.Asterisk.Play();
                 e.Handled = true;
@@ -2439,22 +2433,14 @@ public partial class MainWindow : Form
 
     private void KeyPress_AllowOnlyBinary(object sender, KeyPressEventArgs e)
     {
-        char c;
+        if (e.KeyChar.IsBin0()) e.KeyChar = '0';
+        else if (e.KeyChar.IsBin1()) e.KeyChar = '1';
 
-        if (IsBin0(e.KeyChar))
-        {
-            e.KeyChar = '0';
-        }
-        else if (IsBin1(e.KeyChar))
-        {
-            e.KeyChar = '1';
-        }
-
-        c = e.KeyChar;
+        var c = e.KeyChar;
 
         if (c != (char)Keys.Back && !char.IsControl(c))
         {
-            if (!IsBin(c))
+            if (!c.IsBin())
             {
                 System.Media.SystemSounds.Asterisk.Play();
                 e.Handled = true;
@@ -2468,7 +2454,7 @@ public partial class MainWindow : Form
         var newline = 0;
         foreach (char c in Clipboard.GetText())
         {
-            if (IsHex(c)) n += c;
+            if (c.IsHex()) n += c;
             if (c == (char)Keys.Enter) newline++;
         }
 
@@ -2500,7 +2486,7 @@ public partial class MainWindow : Form
 
         foreach (char c in Clipboard.GetText())
         {
-            if (IsDec(c)) n += c;
+            if (c.IsDec()) n += c;
         }
 
         var l = n.Length;
@@ -2527,7 +2513,7 @@ public partial class MainWindow : Form
 
         foreach (char c in Clipboard.GetText())
         {
-            if (IsDec(c, true)) n += c;
+            if (c.IsDec(true)) n += c;
         }
 
         var l = n.Length;
@@ -2554,8 +2540,8 @@ public partial class MainWindow : Form
 
         foreach (char c in Clipboard.GetText())
         {
-            if (IsBin0(c)) n += '0';
-            else if (IsBin1(c)) n += '1';
+            if (c.IsBin0()) n += '0';
+            else if (c.IsBin1()) n += '1';
         }
 
         var l = n.Length;
