@@ -101,7 +101,7 @@ public partial class SpreadFinder : Form
         }
         else
         {
-            uint numTasks = (uint)(1 << MainWindow.GetComboBoxSelectedIndex(CB_Tasks));
+            uint numTasks = (uint)(1 << CB_Tasks.GetSelectedIndex());
             uint interval = (uint)(0x100000000 / numTasks);
 
             for (uint i = 0; i < numTasks; i++)

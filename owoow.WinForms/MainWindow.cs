@@ -13,7 +13,6 @@ using PKHeX.Drawing.PokeSprite;
 using SysBot.Base;
 using System.Diagnostics;
 using System.Globalization;
-using System.Text;
 using System.Text.Json;
 using owoow.Core.Structures;
 using static owoow.Core.Encounters;
@@ -1066,7 +1065,7 @@ public partial class MainWindow : Form
             TargetSpecies = ((ComboBox)Controls.Find($"CB_{type}_Species", true).FirstOrDefault()!).Text,
             LeadAbility = ((ComboBox)Controls.Find($"CB_{type}_LeadAbility", true).FirstOrDefault()!).Text,
 
-            AuraKOs = et is EncounterType.Symbol or EncounterType.Fishing ? int.Parse(GetControlText((TextBox)Controls.Find($"TB_{type}_KOs", true).FirstOrDefault()!)) : 0,
+            AuraKOs = et is EncounterType.Symbol or EncounterType.Fishing ? int.Parse(((Controls.Find($"TB_{type}_KOs", true)).FirstOrDefault()!).GetText()) : 0,
 
             Weather = GetWeatherType(((ComboBox)Controls.Find($"CB_{type}_Weather", true).FirstOrDefault()!).Text),
 
@@ -1185,66 +1184,66 @@ public partial class MainWindow : Form
                         ValidateInputs(type);
 
                         var table = new EncounterTable(
-                            (Game)GetComboBoxSelectedIndex(CB_Game),
+                            (Game)CB_Game.GetSelectedIndex(),
                             et,
-                            GetControlText((ComboBox)Controls.Find($"CB_{type}_Area", true).FirstOrDefault()!),
-                            GetControlText((ComboBox)Controls.Find($"CB_{type}_Weather", true).FirstOrDefault()!),
-                            GetControlText((ComboBox)Controls.Find($"CB_{type}_LeadAbility", true).FirstOrDefault()!)
+                            (Controls.Find($"CB_{type}_Area", true).FirstOrDefault()!).GetText(),
+                            (Controls.Find($"CB_{type}_Weather", true).FirstOrDefault()!).GetText(),
+                            (Controls.Find($"CB_{type}_LeadAbility", true).FirstOrDefault()!).GetText()
                         );
 
-                        var initial = ulong.Parse(GetControlText((TextBox)Controls.Find($"TB_{type}_Initial", true).FirstOrDefault()!));
-                        var advances = ulong.Parse(GetControlText((TextBox)Controls.Find($"TB_{type}_Advances", true).FirstOrDefault()!));
+                        var initial = ulong.Parse((Controls.Find($"TB_{type}_Initial", true).FirstOrDefault()!).GetText());
+                        var advances = ulong.Parse((Controls.Find($"TB_{type}_Advances", true).FirstOrDefault()!).GetText());
 
                         var numTasks = (byte)(advances < 1_000 ? 1 : advances < 50_000 ? 2 : Math.Max(4, 1 << Config.MaxSearchTasksNthPowerOfTwo));
                         var interval = advances / numTasks;
 
                         Core.RNG.GeneratorConfig config = new()
                         {
-                            TargetSpecies = GetControlText((ComboBox)Controls.Find($"CB_{type}_Species", true).FirstOrDefault()!),
-                            LeadAbility = GetControlText((ComboBox)Controls.Find($"CB_{type}_LeadAbility", true).FirstOrDefault()!),
+                            TargetSpecies = (Controls.Find($"CB_{type}_Species", true).FirstOrDefault()!).GetText(),
+                            LeadAbility = (Controls.Find($"CB_{type}_LeadAbility", true).FirstOrDefault()!).GetText(),
 
-                            AuraKOs = et is EncounterType.Symbol or EncounterType.Fishing ? int.Parse(GetControlText((TextBox)Controls.Find($"TB_{type}_KOs", true).FirstOrDefault()!)) : 0,
-                            TargetAura = et is EncounterType.Symbol or EncounterType.Fishing ? GetFilterAuraType(GetComboBoxSelectedIndex(CB_Filter_Aura)) : AuraType.Any,
+                            AuraKOs = et is EncounterType.Symbol or EncounterType.Fishing ? int.Parse((Controls.Find($"TB_{type}_KOs", true).FirstOrDefault()!).GetText()) : 0,
+                            TargetAura = et is EncounterType.Symbol or EncounterType.Fishing ? GetFilterAuraType(CB_Filter_Aura.GetSelectedIndex()) : AuraType.Any,
 
-                            Weather = GetWeatherType(GetControlText((ComboBox)Controls.Find($"CB_{type}_Weather", true).FirstOrDefault()!)),
+                            Weather = GetWeatherType((Controls.Find($"CB_{type}_Weather", true).FirstOrDefault()!).GetText()),
 
-                            ShinyRolls = GetCheckBoxIsChecked(CB_ShinyCharm) ? 3 : 1,
-                            MarkRolls = GetCheckBoxIsChecked(CB_MarkCharm) ? 3 : 1,
+                            ShinyRolls = CB_ShinyCharm.GetIsChecked() ? 3 : 1,
+                            MarkRolls = CB_MarkCharm.GetIsChecked() ? 3 : 1,
 
-                            MaxStep = et is EncounterType.Hidden ? GetComboBoxSelectedIndex(CB_Hidden_MaxStep) : 0,
+                            MaxStep = et is EncounterType.Hidden ? CB_Hidden_MaxStep.GetSelectedIndex() : 0,
 
-                            TargetShiny = GetFilterShinyType(GetComboBoxSelectedIndex(CB_Filter_Shiny)),
-                            TargetMark = GetFilterMarkype(GetComboBoxSelectedIndex(CB_Filter_Mark)),
-                            TargetScale = GetFilterScaleType(GetComboBoxSelectedIndex(CB_Filter_Height)),
+                            TargetShiny = GetFilterShinyType(CB_Filter_Shiny.GetSelectedIndex()),
+                            TargetMark = GetFilterMarkype(CB_Filter_Mark.GetSelectedIndex()),
+                            TargetScale = GetFilterScaleType(CB_Filter_Height.GetSelectedIndex()),
 
-                            TargetMinIVs = [GetNUDValue(NUD_HP_Min), GetNUDValue(NUD_Atk_Min), GetNUDValue(NUD_Def_Min), GetNUDValue(NUD_SpA_Min), GetNUDValue(NUD_SpD_Min), GetNUDValue(NUD_Spe_Min)],
-                            TargetMaxIVs = [GetNUDValue(NUD_HP_Max), GetNUDValue(NUD_Atk_Max), GetNUDValue(NUD_Def_Max), GetNUDValue(NUD_SpA_Max), GetNUDValue(NUD_SpD_Max), GetNUDValue(NUD_Spe_Max)],
-                            SearchTypes = [GetIVSearchType(GetControlText(L_HPSpacer)), GetIVSearchType(GetControlText(L_AtkSpacer)), GetIVSearchType(GetControlText(L_DefSpacer)), GetIVSearchType(GetControlText(L_SpASpacer)), GetIVSearchType(GetControlText(L_SpDSpacer)), GetIVSearchType(GetControlText(L_SpeSpacer))],
-                            RareEC = GetCheckBoxIsChecked(CB_RareEC),
+                            TargetMinIVs = [NUD_HP_Min.GetValue(), NUD_Atk_Min.GetValue(), NUD_Def_Min.GetValue(), NUD_SpA_Min.GetValue(), NUD_SpD_Min.GetValue(), NUD_Spe_Min.GetValue()],
+                            TargetMaxIVs = [NUD_HP_Max.GetValue(), NUD_Atk_Max.GetValue(), NUD_Def_Max.GetValue(), NUD_SpA_Max.GetValue(), NUD_SpD_Max.GetValue(), NUD_Spe_Max.GetValue()],
+                            SearchTypes = [GetIVSearchType(L_HPSpacer.GetText()), GetIVSearchType(L_AtkSpacer.GetText()), GetIVSearchType(L_DefSpacer.GetText()), GetIVSearchType(L_SpASpacer.GetText()), GetIVSearchType(L_SpDSpacer.GetText()), GetIVSearchType(L_SpeSpacer.GetText())],
+                            RareEC = CB_RareEC.GetIsChecked(),
 
                             DexRecSlots =
                             [
-                                GetDexRecommendation(GetControlText(CB_DexRec1)),
-                                GetDexRecommendation(GetControlText(CB_DexRec2)),
-                                GetDexRecommendation(GetControlText(CB_DexRec3)),
-                                GetDexRecommendation(GetControlText(CB_DexRec4))
+                                GetDexRecommendation(CB_DexRec1.GetText()),
+                                GetDexRecommendation(CB_DexRec2.GetText()),
+                                GetDexRecommendation(CB_DexRec3.GetText()),
+                                GetDexRecommendation(CB_DexRec4.GetText())
                             ],
 
-                            ConsiderMenuClose = GetCheckBoxIsChecked((CheckBox)Controls.Find($"CB_{type}_MenuClose", true).FirstOrDefault()!),
-                            MenuCloseIsHoldingDirection = GetCheckBoxIsChecked((CheckBox)Controls.Find($"CB_{type}_MenuClose_Direction", true).FirstOrDefault()!),
-                            MenuCloseNPCs = uint.Parse(GetControlText((TextBox)Controls.Find($"TB_{type}_NPCs", true).FirstOrDefault()!)),
+                            ConsiderMenuClose = ((CheckBox)(Controls.Find($"CB_{type}_MenuClose", true).FirstOrDefault()!)).GetIsChecked(),
+                            MenuCloseIsHoldingDirection = ((CheckBox)Controls.Find($"CB_{type}_MenuClose_Direction", true).FirstOrDefault()!).GetIsChecked(),
+                            MenuCloseNPCs = uint.Parse((Controls.Find($"TB_{type}_NPCs", true).FirstOrDefault()!).GetText()),
 
-                            ConsiderFly = GetCheckBoxIsChecked(CB_ConsiderFlying),
-                            ConsiderRain = GetCheckBoxIsChecked(CB_ConsiderRain),
-                            AreaLoadAdvances = GetNUDValue(NUD_AreaLoad),
-                            AreaLoadNPCs = GetNUDValue(NUD_FlyNPCs),
-                            RainTicksAreaLoad = GetCheckBoxIsChecked(CB_ConsiderFlying) && GetCheckBoxIsChecked(CB_ConsiderRain) ? GetNUDValue(NUD_RainTick) : 0,
-                            RainTicksEncounter = GetCheckBoxIsChecked(CB_ConsiderFlying) && GetCheckBoxIsChecked(CB_ConsiderRain) ? 0 : GetNUDValue(NUD_RainTick),
+                            ConsiderFly = CB_ConsiderFlying.GetIsChecked(),
+                            ConsiderRain = CB_ConsiderRain.GetIsChecked(),
+                            AreaLoadAdvances = NUD_AreaLoad.GetValue(),
+                            AreaLoadNPCs = NUD_FlyNPCs.GetValue(),
+                            RainTicksAreaLoad = CB_ConsiderFlying.GetIsChecked() && CB_ConsiderRain.GetIsChecked() ? NUD_RainTick.GetValue() : 0,
+                            RainTicksEncounter = CB_ConsiderFlying.GetIsChecked() && CB_ConsiderRain.GetIsChecked() ? 0 : NUD_RainTick.GetValue(),
 
                             FiltersEnabled = true,
 
-                            TID = uint.Parse(GetControlText(TB_TID)),
-                            SID = uint.Parse(GetControlText(TB_SID)),
+                            TID = uint.Parse(TB_TID.GetText()),
+                            SID = uint.Parse(TB_SID.GetText()),
 
                             LogResultsToFile = Config.LogResultsWhileInProgress,
                         };
@@ -1351,8 +1350,8 @@ public partial class MainWindow : Form
                         }
                         SetControlEnabledState(true, B_SkipAdvance, B_SkipForward, B_SkipBack, B_Turbo, B_SeedSearch, B_ReadEncounter);
                         SetControlEnabledState(false, B_CancelSkip);
-                        if (GetCheckBoxIsChecked(CB_FocusWindow)) ActivateWindow();
-                        if (GetCheckBoxIsChecked(CB_PlayTone)) System.Media.SystemSounds.Asterisk.Play();
+                        if (CB_FocusWindow.GetIsChecked()) ActivateWindow();
+                        if (CB_PlayTone.GetIsChecked()) System.Media.SystemSounds.Asterisk.Play();
                         var timeSpan = Stopwatch.GetElapsedTime(sw);
                         var time = $"{timeSpan.Days:00}:{timeSpan.Hours:00}:{timeSpan.Minutes:00}:{timeSpan.Seconds:00}";
                         await Webhook.SendNotification(Frames[0], time, ct, Frames.Count, Frames.Any(x => x.Shiny != "No"), ResetSource.Token).ConfigureAwait(false);
@@ -1462,38 +1461,38 @@ public partial class MainWindow : Form
     {
         // Initial
         var initial = (TextBox)Controls.Find($"TB_{tab}_Initial", true).FirstOrDefault()!;
-        if (string.IsNullOrEmpty(GetControlText(initial))) SetTextBoxText("0", initial);
+        if (string.IsNullOrEmpty(initial.GetText())) SetTextBoxText("0", initial);
 
         // Advances
         var advances = (TextBox)Controls.Find($"TB_{tab}_Advances", true).FirstOrDefault()!;
-        var adv = GetControlText(advances);
+        var adv = advances.GetText();
         if (string.IsNullOrEmpty(adv) || adv is "0") SetTextBoxText("1", advances);
 
         // Seed
-        if (string.IsNullOrEmpty(GetControlText(TB_Seed0))) SetTextBoxText("0", TB_Seed0);
-        if (string.IsNullOrEmpty(GetControlText(TB_Seed1))) SetTextBoxText("0", TB_Seed1);
+        if (string.IsNullOrEmpty(TB_Seed0.GetText())) SetTextBoxText("0", TB_Seed0);
+        if (string.IsNullOrEmpty(TB_Seed1.GetText())) SetTextBoxText("0", TB_Seed1);
 
-        if (GetControlText(TB_Seed0) is "0" && GetControlText(TB_Seed1) is "0")
+        if (TB_Seed0.GetText() is "0" && TB_Seed1.GetText() is "0")
         {
             SetTextBoxText("1337", TB_Seed0);
             SetTextBoxText("1390", TB_Seed1);
         }
-        SetTextBoxText(GetControlText(TB_Seed0).PadLeft(16, '0'), TB_Seed0);
-        SetTextBoxText(GetControlText(TB_Seed1).PadLeft(16, '0'), TB_Seed1);
+        SetTextBoxText(TB_Seed0.GetText().PadLeft(16, '0'), TB_Seed0);
+        SetTextBoxText(TB_Seed1.GetText().PadLeft(16, '0'), TB_Seed1);
 
         // IDs
-        if (string.IsNullOrEmpty(GetControlText(TB_TID))) SetTextBoxText("0", TB_TID);
-        if (string.IsNullOrEmpty(GetControlText(TB_SID))) SetTextBoxText("0", TB_SID);
-        SetTextBoxText(GetControlText(TB_TID).PadLeft(5, '0'), TB_TID);
-        SetTextBoxText(GetControlText(TB_SID).PadLeft(5, '0'), TB_SID);
+        if (string.IsNullOrEmpty(TB_TID.GetText())) SetTextBoxText("0", TB_TID);
+        if (string.IsNullOrEmpty(TB_SID.GetText())) SetTextBoxText("0", TB_SID);
+        SetTextBoxText(TB_TID.GetText().PadLeft(5, '0'), TB_TID);
+        SetTextBoxText(TB_SID.GetText().PadLeft(5, '0'), TB_SID);
 
         // NPCs
         var npc = (TextBox)Controls.Find($"TB_{tab}_NPCs", true).FirstOrDefault()!;
-        if (string.IsNullOrEmpty(GetControlText(npc))) SetTextBoxText("0", npc);
+        if (string.IsNullOrEmpty(npc.GetText())) SetTextBoxText("0", npc);
 
         // KO Count
         var ko = (TextBox?)Controls.Find($"TB_{tab}_KOs", true).FirstOrDefault();
-        if (ko is not null && string.IsNullOrEmpty(GetControlText(ko))) SetTextBoxText("0", ko);
+        if (ko is not null && string.IsNullOrEmpty(ko.GetText())) SetTextBoxText("0", ko);
 
         // Marked Advance
         marked = null;
@@ -1976,11 +1975,11 @@ public partial class MainWindow : Form
         var type = (EncounterType)TC_EncounterType.SelectedIndex;
         var et = type.ToString();
         return new EncounterTable(
-            (Game)GetComboBoxSelectedIndex(CB_Game),
+            (Game)CB_Game.GetSelectedIndex(),
             type,
-            GetControlText((ComboBox)Controls.Find($"CB_{et}_Area", true).FirstOrDefault()!),
-            GetControlText((ComboBox)Controls.Find($"CB_{et}_Weather", true).FirstOrDefault()!),
-            GetControlText((ComboBox)Controls.Find($"CB_{et}_LeadAbility", true).FirstOrDefault()!)
+            (Controls.Find($"CB_{et}_Area", true).FirstOrDefault()!).GetText(),
+            (Controls.Find($"CB_{et}_Weather", true).FirstOrDefault()!).GetText(),
+            (Controls.Find($"CB_{et}_LeadAbility", true).FirstOrDefault()!).GetText()
         );
     }
 
@@ -2293,31 +2292,6 @@ public partial class MainWindow : Form
             else
                 dgv.Columns[index].Visible = visible;
         }
-    }
-
-    public string GetControlText(Control c)
-    {
-        return (InvokeRequired ? Invoke(() => c.Text) : c.Text);
-    }
-
-    public TabPage? GetTabControlTab(TabControl c)
-    {
-        return (InvokeRequired ? Invoke(() => c.SelectedTab) : c.SelectedTab);
-    }
-
-    public bool GetCheckBoxIsChecked(CheckBox c)
-    {
-        return (InvokeRequired ? Invoke(() => c.Checked) : c.Checked);
-    }
-
-    public uint GetNUDValue(NumericUpDown c)
-    {
-        return (uint)(InvokeRequired ? Invoke(() => c.Value) : c.Value);
-    }
-
-    public int GetComboBoxSelectedIndex(ComboBox c)
-    {
-        return (InvokeRequired ? Invoke(() => c.SelectedIndex) : c.SelectedIndex);
     }
 
     private void CB_ConsiderFlying_CheckedChanged(object sender, EventArgs e)
@@ -2974,7 +2948,7 @@ public static class Extension
     {
         try
         {
-            var tab = mw.GetTabControlTab(mw.TC_EncounterType);
+            var tab = mw.TC_EncounterType.GetSelectedTab();
             foreach (DataGridViewColumn col in dgv.Columns)
             {
                 if (col is not null)
@@ -2990,7 +2964,7 @@ public static class Extension
 
                     if (tab is not null)
                     {
-                        var text = mw.GetControlText(tab);
+                        var text = tab.GetText();
                         if (col.HeaderText is "Step")
                         {
                             mw.SetDataGridViewColumnVisibility(text is "Hidden", col.Index, dgv);
@@ -3000,8 +2974,8 @@ public static class Extension
                         {
                             var mc = (CheckBox?)mw.Controls.Find($"CB_{text}_MenuClose", true).FirstOrDefault();
                             var check = false;
-                            if (mc is not null) check = mw.GetCheckBoxIsChecked(mc);
-                            var vis = mw.GetCheckBoxIsChecked(mw.CB_ConsiderFlying) || mw.GetCheckBoxIsChecked(mw.CB_ConsiderRain) || check;
+                            if (mc is not null) check = mc.GetIsChecked();
+                            var vis = mw.CB_ConsiderFlying.GetIsChecked() || mw.CB_ConsiderRain.GetIsChecked() || check;
                             mw.SetDataGridViewColumnVisibility(vis, col.Index, dgv);
                         }
                     }

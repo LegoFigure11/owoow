@@ -110,15 +110,15 @@ public partial class XoroshiroTools : Form
     private void ValidateInputs(bool allowOnlyInt)
     {
         // Seed
-        if (string.IsNullOrEmpty(main.GetControlText(TB_Seed0))) main.SetTextBoxText("0", TB_Seed0);
-        if (string.IsNullOrEmpty(main.GetControlText(TB_Seed1))) main.SetTextBoxText("0", TB_Seed1);
-        main.SetTextBoxText(main.GetControlText(TB_Seed0).PadLeft(16, '0'), TB_Seed0);
-        main.SetTextBoxText(main.GetControlText(TB_Seed1).PadLeft(16, '0'), TB_Seed1);
+        if (string.IsNullOrEmpty(TB_Seed0.GetText())) main.SetTextBoxText("0", TB_Seed0);
+        if (string.IsNullOrEmpty(TB_Seed1.GetText())) main.SetTextBoxText("0", TB_Seed1);
+        main.SetTextBoxText(TB_Seed0.GetText().PadLeft(16, '0'), TB_Seed0);
+        main.SetTextBoxText(TB_Seed1.GetText().PadLeft(16, '0'), TB_Seed1);
 
         // Operation already assumed to be valid
 
         // n
-        var n = main.GetControlText(TB_N).ToLower();
+        var n = TB_N.GetText().ToLower();
         var nIsHex = n.Contains("0x");
         var sanitized = n.Replace("0x", string.Empty).Replace("x", string.Empty);
         if (!nIsHex)
@@ -136,7 +136,7 @@ public partial class XoroshiroTools : Form
         main.SetTextBoxText($"{(nIsHex ? "0x" : string.Empty)}{sanitized.ToUpper()}", TB_N);
 
         if (string.IsNullOrEmpty(sanitized) || sanitized is "0" || sanitized is "0x") main.SetTextBoxText("1", TB_N);
-        n = main.GetControlText(TB_N).ToLower();
+        n = TB_N.GetText().ToLower();
         if (allowOnlyInt)
         {
             var val = ulong.Parse(n.Replace("0x", string.Empty), nIsHex ? NumberStyles.AllowHexSpecifier : NumberStyles.None);
