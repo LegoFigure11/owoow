@@ -116,7 +116,7 @@ public partial class SeedResetSettings : Form
         var c = e.KeyChar;
         if (c != (char)Keys.Back && !char.IsControl(c))
         {
-            if (!char.IsBetween(c, '0', '9'))
+            if (!c.IsDec())
             {
                 System.Media.SystemSounds.Asterisk.Play();
                 e.Handled = true;
