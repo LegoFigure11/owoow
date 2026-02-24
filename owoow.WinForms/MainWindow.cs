@@ -1879,16 +1879,18 @@ public partial class MainWindow : Form
                             };
                             string shiny = pk.ShinyXor switch
                             {
-                                0 => "■ - ",
+                                0    => "■ - ",
                                 < 16 => "★ - ",
-                                _ => string.Empty,
+                                _    => string.Empty,
                             };
 
 
                             string item = pk.HeldItem > 0 ? $" @ {Strings.Item[pk.HeldItem]}" : string.Empty;
-                            string markString = HasRibbon ? $"{n}Mark: {mark.ToString().Replace("Mark", "")}" : string.Empty;
+                            string markString =
+                                HasRibbon ? $"{n}Mark: {mark.ToString().Replace("Mark", "")}" : string.Empty;
 
-                            string scale = $"Height: {PokeSizeDetailedUtil.GetSizeRating(pk.HeightScalar)} ({pk.HeightScalar})";
+                            string scale =
+                                $"Height: {PokeSizeDetailedUtil.GetSizeRating(pk.HeightScalar)} ({pk.HeightScalar})";
 
                             string moves = string.Empty;
 
@@ -1899,7 +1901,8 @@ public partial class MainWindow : Form
                                 moves += $"{n}- {Strings.Move[move]}";
                             }
 
-                            string output = $"{shiny}{(Species)pk.Species}{form}{gender}{item}{n}EC: {pk.EncryptionConstant:X8}{n}PID: {pk.PID:X8}{n}{Strings.Natures[(int)pk.Nature]} Nature{n}Ability: {Strings.Ability[pk.Ability]}{n}IVs: {pk.IV_HP}/{pk.IV_ATK}/{pk.IV_DEF}/{pk.IV_SPA}/{pk.IV_SPD}/{pk.IV_SPE}{n}{scale}{markString}{moves}";
+                            string output =
+                                $"{shiny}{(Species)pk.Species}{form}{gender}{item}{n}EC: {pk.EncryptionConstant:X8}{(CB_RareEC.GetIsChecked() ? $" (% 100 = {pk.EncryptionConstant % 100})" : string.Empty)}{n}PID: {pk.PID:X8}{n}{Strings.Natures[(int)pk.Nature]} Nature{n}Ability: {Strings.Ability[pk.Ability]}{n}IVs: {pk.IV_HP}/{pk.IV_ATK}/{pk.IV_DEF}/{pk.IV_SPA}/{pk.IV_SPD}/{pk.IV_SPE}{n}{scale}{markString}{moves}";
 
                             readPause = false;
                             SetPictureBoxImage(pk.Sprite(), PB_PokemonSprite);
