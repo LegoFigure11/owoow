@@ -1817,22 +1817,29 @@ public partial class MainWindow : Form
                     Task.Run(
                         async () =>
                         {
-                            await Task.Delay(100, Source.Token).ConfigureAwait(false);
-                            await ConnectionWrapper.ReadKCoordinatesAsync(Source.Token).ConfigureAwait(false);
-                            var map = await ConnectionWrapper.ReadSaveLocation(Source.Token).ConfigureAwait(false);
-                            readPause = false;
-                            SetControlEnabledState(true, B_RefreshDexRec, B_ReadEncounter, B_CopyToInitial, B_RetailUpdateSeeds);
-                            var (pkms, x, y, z) = ConnectionWrapper.ParseCoordinatesBlock();
+                            try
+                            {
+                                await Task.Delay(100, Source.Token).ConfigureAwait(false);
+                                await ConnectionWrapper.ReadKCoordinatesAsync(Source.Token).ConfigureAwait(false);
+                                var map = await ConnectionWrapper.ReadSaveLocation(Source.Token).ConfigureAwait(false);
+                                readPause = false;
+                                SetControlEnabledState(true, B_RefreshDexRec, B_ReadEncounter, B_CopyToInitial, B_RetailUpdateSeeds);
+                                var (pkms, x, y, z) = ConnectionWrapper.ParseCoordinatesBlock();
 
-                            if (pkms.Count > 0)
-                            {
-                                OverworldScannerFormOpen = true;
-                                OverworldScannerForm = new OverworldScanner(this, [.. pkms], x, y, z, map);
-                                OverworldScannerForm.ShowDialog();
+                                if (pkms.Count > 0)
+                                {
+                                    OverworldScannerFormOpen = true;
+                                    OverworldScannerForm = new OverworldScanner(this, [.. pkms], x, y, z, map);
+                                    OverworldScannerForm.ShowDialog();
+                                }
+                                else
+                                {
+                                    MessageBox.Show("No Pokémon found in KCoordinates block! If you think there should be any, save the game in an area with wild spawns and try again.");
+                                }
                             }
-                            else
+                            catch (Exception ex)
                             {
-                                MessageBox.Show("No Pokémon found in KCoordinates block! If you think there should be any, save the game in an area with wild spawns and try again.");
+                                this.DisplayMessageBox(ex.Message);
                             }
 
                         }

@@ -34,6 +34,10 @@ public class ConnectionWrapperAsync(SwitchConnectionConfig Config, Action<string
             Connection.Connect();
             IsConnected = true;
 
+            StatusUpdate("Configuring sysmodule...");
+            var cmd = Configure(SwitchConfigureParameter.mainLoopSleepTime, 50, CRLF);
+            await Connection.SendAsync(cmd, token).ConfigureAwait(false);
+
             StatusUpdate("Reading SAV...");
             await ReadMyStatusAsync(token).ConfigureAwait(false);
             await ReadMyItemAsync(token).ConfigureAwait(false);
