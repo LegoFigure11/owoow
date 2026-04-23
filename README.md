@@ -9,7 +9,7 @@
 
 _by [@LegoFigure11](https://github.com/LegoFigure11/)_
 
-![The ow stands for Overworld, the oow stands for RNG Tool](https://i.imgur.com/IGmlCkD.png)
+![The ow stands for Overworld, the oow stands for RNG Tool](https://legofigure11.github.io/tools/desktop/res/owoow/oowstandsforrngtool.png)
 
 RNG Tool and sys-botbase client for Pokémon Sword & Shield for the Nintendo Switch.
 
@@ -17,7 +17,7 @@ Successor to [LegoFigure11/swsh-overworld-rng-gui](https://github.com/LegoFigure
 
 A comprehensive usage guide brought to you by [Billo-PS](https://github.com/Billo-PS) can be found **[here](https://billo-guides.github.io/)**.
 
-![Tool Image](https://i.imgur.com/MaAmBky.png)
+![Tool Image](https://legofigure11.github.io/tools/desktop/res/owoow/README.png)
 
 ## Features & shortcuts
 
