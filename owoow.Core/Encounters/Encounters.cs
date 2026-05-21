@@ -415,7 +415,7 @@ public static class Encounters
         { "Route 9 (in Circhester Bay) (Surfing)", AvailableWeather.Snowing },
         { "Route 9 (in Outer Spikemuth)", AvailableWeather.Overcast },
         { "Route 10", AvailableWeather.Snowstorm },
-        { "Route 10 (Near Station)", AvailableWeather.Snowstorm },
+        { "Route 10 (Near Station)", AvailableWeather.Snowing },
         { "Slippery Slope", AvailableWeather.Normal | AvailableWeather.Overcast | AvailableWeather.Intense_Sun | AvailableWeather.Icy | AvailableWeather.Heavy_Fog },
         { "Slumbering Weald", AvailableWeather.Normal },
         { "Slumbering Weald (High Level)", AvailableWeather.Normal },
