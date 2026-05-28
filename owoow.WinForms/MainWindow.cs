@@ -479,80 +479,82 @@ public partial class MainWindow : Form
     private void B_SkipForward_Click(object sender, EventArgs e)
     {
         Task.Run(
-            async () =>
+            async () => AdvanceDate()
+       );
+    }
+
+    public async void AdvanceDate(uint? days = null)
+    {
+        try
+        {
+            SetControlEnabledState(false, B_SkipAdvance, B_SkipForward, B_SkipBack, B_Turbo, B_SeedSearch, B_NTP);
+            SetControlEnabledState(true, B_CancelSkip);
+            skipPause = false;
+            readPause = true;
+            var skips = days is not null ? days : uint.Parse(TB_Skips.GetText());
+
+            await Task.Delay(200, AdvanceSource.Token).ConfigureAwait(false);
+            ulong startTick = await ConnectionWrapper.GetCurrentTime(AdvanceSource.Token)
+                        .ConfigureAwait(false);
+            var currentTick = startTick;
+            if (currentTick < Time.MIN_TIME) throw new Exception("Failed to get start tick!");
+
+
+            _sw.Reset();
+            _sw.Start();
+
+            readPause = false;
+
+            for (var i = 0; i < skips && !skipPause; i++)
             {
-                try
+                var delay = 310;
+                currentTick += 86400;
+                // If current time is approaching OOB, reset it
+                if (currentTick >= Time.MAX_TIME)
                 {
-                    SetControlEnabledState(false, B_SkipAdvance, B_SkipForward, B_SkipBack, B_Turbo, B_SeedSearch, B_NTP);
-                    SetControlEnabledState(true, B_CancelSkip);
-                    skipPause = false;
-                    readPause = true;
-                    var skips = uint.Parse(TB_Skips.Text);
-
-                    await Task.Delay(200, AdvanceSource.Token).ConfigureAwait(false);
-                    ulong startTick = await ConnectionWrapper.GetCurrentTime(AdvanceSource.Token)
-                                .ConfigureAwait(false);
-                    var currentTick = startTick;
-                    if (currentTick < Time.MIN_TIME) throw new Exception("Failed to get start tick!");
-
-
-                    _sw.Reset();
-                    _sw.Start();
-
-                    readPause = false;
-
-                    for (var i = 0; i < skips && !skipPause; i++)
-                    {
-                        var delay = 310;
-                        currentTick += 86400;
-                        // If current time is approaching OOB, reset it
-                        if (currentTick >= Time.MAX_TIME)
-                        {
-                            await ConnectionWrapper.SetCurrentTime(Time.MIN_TIME, CancellationToken.None).ConfigureAwait(false);
-                            delay -= 100;
-                        }
-
-                        SetButtonText($"{i + 1}", B_SkipForward);
-                        await ConnectionWrapper.DaySkip(AdvanceSource.Token).ConfigureAwait(false);
-                        await Task.Delay(delay, AdvanceSource.Token).ConfigureAwait(false);
-                    }
-
-                    _sw.Stop();
-
-                    if (Config.ResetTimeAfterDateSkipping)
-                    {
-
-                        var currentTime = startTick + (ulong)_sw.Elapsed.TotalSeconds;
-                        if (currentTime is < Time.MAX_TIME and > Time.MIN_TIME)
-                        {
-                            await ConnectionWrapper.SetCurrentTime(currentTime, AdvanceSource.Token)
-                                .ConfigureAwait(false);
-                        }
-                        else
-                        {
-                            await SafeResetTimeNTP(AdvanceSource.Token).ConfigureAwait(false);
-                        }
-                    }
-
-                    SetButtonText("Days+", B_SkipForward);
-                    SetControlEnabledState(true, B_SkipAdvance, B_SkipForward, B_SkipBack, B_Turbo, B_SeedSearch);
-                    // Only reset the NTP button if it's not on cooldown.
-                    if (canCallResetTimeNTP)
-                        SetControlEnabledState(true, B_NTP);
-                    SetControlEnabledState(false, B_CancelSkip);
+                    await ConnectionWrapper.SetCurrentTime(Time.MIN_TIME, CancellationToken.None).ConfigureAwait(false);
+                    delay -= 100;
                 }
-                catch (Exception ex)
+
+                SetButtonText($"{i + 1}", B_SkipForward);
+                await ConnectionWrapper.DaySkip(AdvanceSource.Token).ConfigureAwait(false);
+                await Task.Delay(delay, AdvanceSource.Token).ConfigureAwait(false);
+            }
+
+            _sw.Stop();
+
+            if (Config.ResetTimeAfterDateSkipping)
+            {
+
+                var currentTime = startTick + (ulong)_sw.Elapsed.TotalSeconds;
+                if (currentTime is < Time.MAX_TIME and > Time.MIN_TIME)
                 {
-                    SetControlEnabledState(true, B_SkipAdvance, B_SkipForward, B_SkipBack, B_Turbo, B_SeedSearch);
-                    // Only reset the NTP button if it's not on cooldown.
-                    if (canCallResetTimeNTP)
-                        SetControlEnabledState(true, B_NTP);
-                    SetControlEnabledState(false, B_CancelSkip);
-                    SetButtonText("Days+", B_SkipForward);
-                    if (ex is not OperationCanceledException) this.DisplayMessageBox(ex.Message);
+                    await ConnectionWrapper.SetCurrentTime(currentTime, AdvanceSource.Token)
+                        .ConfigureAwait(false);
+                }
+                else
+                {
+                    await SafeResetTimeNTP(AdvanceSource.Token).ConfigureAwait(false);
                 }
             }
-        );
+
+            SetButtonText("Days+", B_SkipForward);
+            SetControlEnabledState(true, B_SkipAdvance, B_SkipForward, B_SkipBack, B_Turbo, B_SeedSearch);
+            // Only reset the NTP button if it's not on cooldown.
+            if (canCallResetTimeNTP)
+                SetControlEnabledState(true, B_NTP);
+            SetControlEnabledState(false, B_CancelSkip);
+        }
+        catch (Exception ex)
+        {
+            SetControlEnabledState(true, B_SkipAdvance, B_SkipForward, B_SkipBack, B_Turbo, B_SeedSearch);
+            // Only reset the NTP button if it's not on cooldown.
+            if (canCallResetTimeNTP)
+                SetControlEnabledState(true, B_NTP);
+            SetControlEnabledState(false, B_CancelSkip);
+            SetButtonText("Days+", B_SkipForward);
+            if (ex is not OperationCanceledException) this.DisplayMessageBox(ex.Message);
+        }
     }
 
     private void B_SkipBack_Click(object sender, EventArgs e)
