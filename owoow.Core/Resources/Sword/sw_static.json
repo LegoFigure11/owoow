@@ -19012,6 +19012,14 @@
           "GuaranteedIVs": 3
         },
         "1": {
+          "Species": "Exeggutor",
+          "Level": 50,
+          "IsAbilityLocked": false,
+          "Ability": 0,
+          "IsShinyLocked": false,
+          "GuaranteedIVs": 0
+        },
+        "2": {
           "Species": "Moltres-1",
           "Level": 70,
           "IsAbilityLocked": true,
@@ -19019,7 +19027,7 @@
           "IsShinyLocked": true,
           "GuaranteedIVs": 3
         },
-        "2": {
+        "3": {
           "Species": "Rotom",
           "Level": 50,
           "IsAbilityLocked": false,
@@ -19027,7 +19035,7 @@
           "IsShinyLocked": false,
           "GuaranteedIVs": 3
         },
-        "3": {
+        "4": {
           "Species": "Wailord",
           "Level": 80,
           "IsAbilityLocked": false,
@@ -19035,7 +19043,7 @@
           "IsShinyLocked": false,
           "GuaranteedIVs": 0
         },
-        "4": {
+        "5": {
           "Species": "Rotom-1",
           "Level": 50,
           "IsAbilityLocked": false,
@@ -19043,7 +19051,7 @@
           "IsShinyLocked": false,
           "GuaranteedIVs": 0
         },
-        "5": {
+        "6": {
           "Species": "Rotom-2",
           "Level": 50,
           "IsAbilityLocked": false,
@@ -19051,7 +19059,7 @@
           "IsShinyLocked": false,
           "GuaranteedIVs": 0
         },
-        "6": {
+        "7": {
           "Species": "Rotom-3",
           "Level": 50,
           "IsAbilityLocked": false,
@@ -19059,7 +19067,7 @@
           "IsShinyLocked": false,
           "GuaranteedIVs": 0
         },
-        "7": {
+        "8": {
           "Species": "Rotom-4",
           "Level": 50,
           "IsAbilityLocked": false,
@@ -19067,7 +19075,7 @@
           "IsShinyLocked": false,
           "GuaranteedIVs": 0
         },
-        "8": {
+        "9": {
           "Species": "Rotom-5",
           "Level": 50,
           "IsAbilityLocked": false,
@@ -19268,6 +19276,14 @@
           "GuaranteedIVs": 3
         },
         "1": {
+          "Species": "Exeggutor",
+          "Level": 50,
+          "IsAbilityLocked": false,
+          "Ability": 0,
+          "IsShinyLocked": false,
+          "GuaranteedIVs": 0
+        },
+        "2": {
           "Species": "Moltres-1",
           "Level": 70,
           "IsAbilityLocked": true,
@@ -19275,7 +19291,7 @@
           "IsShinyLocked": true,
           "GuaranteedIVs": 3
         },
-        "2": {
+        "3": {
           "Species": "Rotom",
           "Level": 50,
           "IsAbilityLocked": false,
@@ -19283,7 +19299,7 @@
           "IsShinyLocked": false,
           "GuaranteedIVs": 3
         },
-        "3": {
+        "4": {
           "Species": "Wailord",
           "Level": 80,
           "IsAbilityLocked": false,
@@ -19291,7 +19307,7 @@
           "IsShinyLocked": false,
           "GuaranteedIVs": 0
         },
-        "4": {
+        "5": {
           "Species": "Rotom-1",
           "Level": 50,
           "IsAbilityLocked": false,
@@ -19299,7 +19315,7 @@
           "IsShinyLocked": false,
           "GuaranteedIVs": 0
         },
-        "5": {
+        "6": {
           "Species": "Rotom-2",
           "Level": 50,
           "IsAbilityLocked": false,
@@ -19307,7 +19323,7 @@
           "IsShinyLocked": false,
           "GuaranteedIVs": 0
         },
-        "6": {
+        "7": {
           "Species": "Rotom-3",
           "Level": 50,
           "IsAbilityLocked": false,
@@ -19315,7 +19331,7 @@
           "IsShinyLocked": false,
           "GuaranteedIVs": 0
         },
-        "7": {
+        "8": {
           "Species": "Rotom-4",
           "Level": 50,
           "IsAbilityLocked": false,
@@ -19323,7 +19339,7 @@
           "IsShinyLocked": false,
           "GuaranteedIVs": 0
         },
-        "8": {
+        "9": {
           "Species": "Rotom-5",
           "Level": 50,
           "IsAbilityLocked": false,
