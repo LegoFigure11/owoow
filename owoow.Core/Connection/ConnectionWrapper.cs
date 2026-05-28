@@ -99,6 +99,12 @@ public class ConnectionWrapperAsync(SwitchConnectionConfig Config, Action<string
         return dexrec;
     }
 
+    public async Task<PokedexRecommendation> ReadDexRecommendationFull(CancellationToken token)
+    {
+        var data = await Connection.ReadBytesAsync(DexRecommendation, PokedexRecommendation.SIZE, token).ConfigureAwait(false);
+        return new PokedexRecommendation(data);
+    }
+
     public async Task<PK8> ReadWildPokemon(CancellationToken token)
     {
         var data = await Connection.ReadBytesAsync(WildPokemon, WildPokemon_Size, token).ConfigureAwait(false);
