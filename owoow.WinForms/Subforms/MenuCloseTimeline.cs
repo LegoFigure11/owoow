@@ -16,10 +16,10 @@ public partial class MenuCloseTimeline : Form
         MainWindow = f;
         Tab = tab;
 
-        f.SetTextBoxText(f.TB_Seed0.Text, TB_Seed0);
-        f.SetTextBoxText(f.TB_Seed1.Text, TB_Seed1);
-        f.SetTextBoxText(string.IsNullOrEmpty(f.TB_CurrentAdvances.Text) ? "0" : f.TB_CurrentAdvances.Text.Replace(",", string.Empty), TB_Timeline_Initial);
-        f.SetTextBoxText(((TextBox)f.Controls.Find($"TB_{Tab}_NPCs", true).FirstOrDefault()!).Text, TB_Timeline_NPCs);
+        f.SetControlText(f.TB_Seed0.Text, TB_Seed0);
+        f.SetControlText(f.TB_Seed1.Text, TB_Seed1);
+        f.SetControlText(string.IsNullOrEmpty(f.TB_CurrentAdvances.Text) ? "0" : f.TB_CurrentAdvances.Text.Replace(",", string.Empty), TB_Timeline_Initial);
+        f.SetControlText(((TextBox)f.Controls.Find($"TB_{Tab}_NPCs", true).FirstOrDefault()!).Text, TB_Timeline_NPCs);
         f.SetComboBoxSelectedIndex(CB_Timeline_Weather.Items.IndexOf($"{((ComboBox)f.Controls.Find($"CB_{Tab}_Weather", true).FirstOrDefault()!).SelectedItem}"), CB_Timeline_Weather);
 
         TB_Seed0.KeyPress += f.KeyPress_AllowOnlyHex!;
@@ -79,7 +79,7 @@ public partial class MenuCloseTimeline : Form
     private void MenuCloseTimeline_FormClosing(object sender, FormClosingEventArgs e)
     {
         MainWindow.MenuCloseTimelineFormOpen = false;
-        if (!MainWindow.CB_ConsiderFlying.Checked) MainWindow.SetTextBoxText(TB_Timeline_NPCs.Text, (TextBox)MainWindow.Controls.Find($"TB_{Tab}_NPCs", true).FirstOrDefault()!);
+        if (!MainWindow.CB_ConsiderFlying.Checked) MainWindow.SetControlText(TB_Timeline_NPCs.Text, (TextBox)MainWindow.Controls.Find($"TB_{Tab}_NPCs", true).FirstOrDefault()!);
     }
 
     private void CB_Leave(object sender, EventArgs e)

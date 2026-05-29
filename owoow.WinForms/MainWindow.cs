@@ -122,8 +122,8 @@ public partial class MainWindow : Form
         CB_PlayTone.Checked = Config.PlayTone;
         CB_FocusWindow.Checked = Config.FocusWindow;
 
-        SetTextBoxText("0", TB_Seed0, TB_Seed1);
-        SetTextBoxText(string.Empty, TB_CurrentAdvances, TB_AdvancesIncrease, TB_CurrentS0, TB_CurrentS1, TB_Wild);
+        SetControlText("0", TB_Seed0, TB_Seed1);
+        SetControlText(string.Empty, TB_CurrentAdvances, TB_AdvancesIncrease, TB_CurrentS0, TB_CurrentS1, TB_Wild);
         SetComboBoxSelectedIndex(0, CB_Filter_Shiny, CB_Filter_Mark, CB_Filter_Aura, CB_Filter_Height);
 
         TB_Status.Text = "Not Connected.";
@@ -219,8 +219,8 @@ public partial class MainWindow : Form
                     SetCheckBoxCheckedState(ConnectionWrapper.GetHasShinyCharm(), CB_ShinyCharm);
                     SetCheckBoxCheckedState(ConnectionWrapper.GetHasMarkCharm(), CB_MarkCharm);
                     var (tid, sid) = ConnectionWrapper.GetIDs();
-                    SetTextBoxText(tid, TB_TID);
-                    SetTextBoxText(sid, TB_SID);
+                    SetControlText(tid, TB_TID);
+                    SetControlText(sid, TB_SID);
 
                     SetComboBoxSelectedIndex(game == "Sword" ? (int)Game.Sword : (int)Game.Shield, CB_Game);
 
@@ -244,9 +244,9 @@ public partial class MainWindow : Form
                     try
                     {
                         (_s0, _s1) = await ConnectionWrapper.ReadRNGState(token).ConfigureAwait(false);
-                        SetTextBoxText($"{_s0:X16}", TB_Seed0, TB_CurrentS0);
-                        SetTextBoxText($"{_s1:X16}", TB_Seed1, TB_CurrentS1);
-                        SetTextBoxText("0", TB_CurrentAdvances, TB_AdvancesIncrease);
+                        SetControlText($"{_s0:X16}", TB_Seed0, TB_CurrentS0);
+                        SetControlText($"{_s1:X16}", TB_Seed1, TB_CurrentS1);
+                        SetControlText("0", TB_CurrentAdvances, TB_AdvancesIncrease);
 
                     }
                     catch (Exception ex)
@@ -284,10 +284,10 @@ public partial class MainWindow : Form
                                     _s0 = s0;
                                     _s1 = s1;
 
-                                    SetTextBoxText($"{_s0:X16}", TB_CurrentS0);
-                                    SetTextBoxText($"{_s1:X16}", TB_CurrentS1);
-                                    SetTextBoxText($"{total:N0}", TB_CurrentAdvances);
-                                    SetTextBoxText($"{adv:N0}", TB_AdvancesIncrease);
+                                    SetControlText($"{_s0:X16}", TB_CurrentS0);
+                                    SetControlText($"{_s1:X16}", TB_CurrentS1);
+                                    SetControlText($"{total:N0}", TB_CurrentAdvances);
+                                    SetControlText($"{adv:N0}", TB_AdvancesIncrease);
                                 }
                             }
                         }
@@ -1176,9 +1176,9 @@ public partial class MainWindow : Form
 
                     if (passed == MAX_TRACKED_ADVANCES) // Has most likely reset the game
                     {
-                        SetTextBoxText($"{s0:X16}", TB_Seed0, TB_CurrentS0);
-                        SetTextBoxText($"{s1:X16}", TB_Seed1, TB_CurrentS1);
-                        SetTextBoxText("0", TB_CurrentAdvances, TB_AdvancesIncrease);
+                        SetControlText($"{s0:X16}", TB_Seed0, TB_CurrentS0);
+                        SetControlText($"{s1:X16}", TB_Seed1, TB_CurrentS1);
+                        SetControlText("0", TB_CurrentAdvances, TB_AdvancesIncrease);
                         consecutiveFails = 0;
 
                         var type = et.ToString();
@@ -1419,7 +1419,7 @@ public partial class MainWindow : Form
     #region UI Methods
     private void UpdateStatus(string status)
     {
-        SetTextBoxText(status, TB_Status);
+        SetControlText(status, TB_Status);
     }
 
     private void CheckForUpdates()
@@ -1463,38 +1463,38 @@ public partial class MainWindow : Form
     {
         // Initial
         var initial = (TextBox)Controls.Find($"TB_{tab}_Initial", true).FirstOrDefault()!;
-        if (string.IsNullOrEmpty(initial.GetText())) SetTextBoxText("0", initial);
+        if (string.IsNullOrEmpty(initial.GetText())) SetControlText("0", initial);
 
         // Advances
         var advances = (TextBox)Controls.Find($"TB_{tab}_Advances", true).FirstOrDefault()!;
         var adv = advances.GetText();
-        if (string.IsNullOrEmpty(adv) || adv is "0") SetTextBoxText("1", advances);
+        if (string.IsNullOrEmpty(adv) || adv is "0") SetControlText("1", advances);
 
         // Seed
-        if (string.IsNullOrEmpty(TB_Seed0.GetText())) SetTextBoxText("0", TB_Seed0);
-        if (string.IsNullOrEmpty(TB_Seed1.GetText())) SetTextBoxText("0", TB_Seed1);
+        if (string.IsNullOrEmpty(TB_Seed0.GetText())) SetControlText("0", TB_Seed0);
+        if (string.IsNullOrEmpty(TB_Seed1.GetText())) SetControlText("0", TB_Seed1);
 
         if (TB_Seed0.GetText() is "0" && TB_Seed1.GetText() is "0")
         {
-            SetTextBoxText("1337", TB_Seed0);
-            SetTextBoxText("1390", TB_Seed1);
+            SetControlText("1337", TB_Seed0);
+            SetControlText("1390", TB_Seed1);
         }
-        SetTextBoxText(TB_Seed0.GetText().PadLeft(16, '0'), TB_Seed0);
-        SetTextBoxText(TB_Seed1.GetText().PadLeft(16, '0'), TB_Seed1);
+        SetControlText(TB_Seed0.GetText().PadLeft(16, '0'), TB_Seed0);
+        SetControlText(TB_Seed1.GetText().PadLeft(16, '0'), TB_Seed1);
 
         // IDs
-        if (string.IsNullOrEmpty(TB_TID.GetText())) SetTextBoxText("0", TB_TID);
-        if (string.IsNullOrEmpty(TB_SID.GetText())) SetTextBoxText("0", TB_SID);
-        SetTextBoxText(TB_TID.GetText().PadLeft(5, '0'), TB_TID);
-        SetTextBoxText(TB_SID.GetText().PadLeft(5, '0'), TB_SID);
+        if (string.IsNullOrEmpty(TB_TID.GetText())) SetControlText("0", TB_TID);
+        if (string.IsNullOrEmpty(TB_SID.GetText())) SetControlText("0", TB_SID);
+        SetControlText(TB_TID.GetText().PadLeft(5, '0'), TB_TID);
+        SetControlText(TB_SID.GetText().PadLeft(5, '0'), TB_SID);
 
         // NPCs
         var npc = (TextBox)Controls.Find($"TB_{tab}_NPCs", true).FirstOrDefault()!;
-        if (string.IsNullOrEmpty(npc.GetText())) SetTextBoxText("0", npc);
+        if (string.IsNullOrEmpty(npc.GetText())) SetControlText("0", npc);
 
         // KO Count
         var ko = (TextBox?)Controls.Find($"TB_{tab}_KOs", true).FirstOrDefault();
-        if (ko is not null && string.IsNullOrEmpty(ko.GetText())) SetTextBoxText("0", ko);
+        if (ko is not null && string.IsNullOrEmpty(ko.GetText())) SetControlText("0", ko);
 
         // Marked Advance
         marked = null;
@@ -1634,8 +1634,8 @@ public partial class MainWindow : Form
             var s0 = TB_CurrentS0.Text;
             var s1 = TB_CurrentS1.Text;
 
-            SetTextBoxText(s0, TB_Seed0);
-            SetTextBoxText(s1, TB_Seed1);
+            SetControlText(s0, TB_Seed0);
+            SetControlText(s1, TB_Seed1);
             if (CramomaticFormOpen)     CramomaticForm    !.SetSeeds(s0, s1);
             if (DiggingPaFormOpen)      DiggingPaForm     !.SetSeeds(s0, s1);
             if (LotoIDFormOpen)         LotoIDForm        !.SetSeeds(s0, s1);
@@ -1652,10 +1652,10 @@ public partial class MainWindow : Form
 
     private void B_RetailUpdateSeeds_Click(object sender, EventArgs e)
     {
-        SetTextBoxText("0", TB_CurrentAdvances);
+        SetControlText("0", TB_CurrentAdvances);
         B_CopyToInitial_Click(sender, e);
         B_GenerateRetailPattern_Click(sender, e);
-        SetTextBoxText(string.Empty, TB_Animations);
+        SetControlText(string.Empty, TB_Animations);
         TB_Animations.Focus();
     }
 
@@ -1696,7 +1696,7 @@ public partial class MainWindow : Form
             if (tid > 0xFFFF)
             {
                 tid = 0xFFFF;
-                SetTextBoxText($"{tid}", TB_TID);
+                SetControlText($"{tid}", TB_TID);
             }
             Config.TID = tid;
         }
@@ -1710,7 +1710,7 @@ public partial class MainWindow : Form
             if (sid > 0xFFFF)
             {
                 sid = 0xFFFF;
-                SetTextBoxText($"{sid}", TB_SID);
+                SetControlText($"{sid}", TB_SID);
             }
             Config.SID = sid;
         }
@@ -1879,7 +1879,7 @@ public partial class MainWindow : Form
                         readPause = true;
                         SetControlEnabledState(false, B_RefreshDexRec, B_ReadEncounter, B_CopyToInitial, B_RetailUpdateSeeds);
                         await Task.Delay(100, Source.Token).ConfigureAwait(false);
-                        SetTextBoxText("Reading encounter...", TB_Wild);
+                        SetControlText("Reading encounter...", TB_Wild);
                         var pk = await ConnectionWrapper.ReadWildPokemon(Source.Token).ConfigureAwait(false);
                         if (pk is { Valid: true, Species: > 0 })
                         {
@@ -1932,7 +1932,7 @@ public partial class MainWindow : Form
                             {
                                 PB_MarkSprite.Image = null;
                             }
-                            SetTextBoxText(output, TB_Wild);
+                            SetControlText(output, TB_Wild);
                             SetControlEnabledState(true, B_CopyToFilter);
                         }
                         else
@@ -1941,7 +1941,7 @@ public partial class MainWindow : Form
                             CachedEncounter = null;
                             PB_PokemonSprite.Image = null;
                             PB_MarkSprite.Image = null;
-                            SetTextBoxText("No encounter present.", TB_Wild);
+                            SetControlText("No encounter present.", TB_Wild);
                             SetControlEnabledState(false, B_CopyToFilter);
                         }
 
@@ -1954,7 +1954,7 @@ public partial class MainWindow : Form
                         CachedEncounter = null;
                         PB_PokemonSprite.Image = null;
                         PB_MarkSprite.Image = null;
-                        SetTextBoxText(string.Empty, TB_Wild);
+                        SetControlText(string.Empty, TB_Wild);
                         SetControlEnabledState(false, B_CopyToFilter);
                         this.DisplayMessageBox(ex.Message);
                     }
@@ -2231,17 +2231,17 @@ public partial class MainWindow : Form
         }
     }
 
-    public void SetTextBoxText(string text, params object[] obj)
+    public void SetControlText(string text, params object[] obj)
     {
         foreach (object o in obj)
         {
-            if (o is not TextBox tb)
+            if (o is not Control c)
                 continue;
 
             if (InvokeRequired)
-                Invoke(() => tb.Text = text);
+                Invoke(() => c.Text = text);
             else
-                tb.Text = text;
+                c.Text = text;
         }
     }
 

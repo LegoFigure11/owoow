@@ -110,10 +110,10 @@ public partial class XoroshiroTools : Form
     private void ValidateInputs(bool allowOnlyInt)
     {
         // Seed
-        if (string.IsNullOrEmpty(TB_Seed0.GetText())) main.SetTextBoxText("0", TB_Seed0);
-        if (string.IsNullOrEmpty(TB_Seed1.GetText())) main.SetTextBoxText("0", TB_Seed1);
-        main.SetTextBoxText(TB_Seed0.GetText().PadLeft(16, '0'), TB_Seed0);
-        main.SetTextBoxText(TB_Seed1.GetText().PadLeft(16, '0'), TB_Seed1);
+        if (string.IsNullOrEmpty(TB_Seed0.GetText())) main.SetControlText("0", TB_Seed0);
+        if (string.IsNullOrEmpty(TB_Seed1.GetText())) main.SetControlText("0", TB_Seed1);
+        main.SetControlText(TB_Seed0.GetText().PadLeft(16, '0'), TB_Seed0);
+        main.SetControlText(TB_Seed1.GetText().PadLeft(16, '0'), TB_Seed1);
 
         // Operation already assumed to be valid
 
@@ -133,19 +133,19 @@ public partial class XoroshiroTools : Form
                 .Replace("f", string.Empty);
         }
         sanitized = sanitized.TrimStart('0');
-        main.SetTextBoxText($"{(nIsHex ? "0x" : string.Empty)}{sanitized.ToUpper()}", TB_N);
+        main.SetControlText($"{(nIsHex ? "0x" : string.Empty)}{sanitized.ToUpper()}", TB_N);
 
-        if (string.IsNullOrEmpty(sanitized) || sanitized is "0" || sanitized is "0x") main.SetTextBoxText("1", TB_N);
+        if (string.IsNullOrEmpty(sanitized) || sanitized is "0" || sanitized is "0x") main.SetControlText("1", TB_N);
         n = TB_N.GetText().ToLower();
         if (allowOnlyInt)
         {
             var val = ulong.Parse(n.Replace("0x", string.Empty), nIsHex ? NumberStyles.AllowHexSpecifier : NumberStyles.None);
-            if (val > uint.MaxValue) main.SetTextBoxText(nIsHex ? $"0x{uint.MaxValue:X}" : $"{uint.MaxValue}", TB_N);
+            if (val > uint.MaxValue) main.SetControlText(nIsHex ? $"0x{uint.MaxValue:X}" : $"{uint.MaxValue}", TB_N);
         }
         else
         {
             var success = ulong.TryParse(n.Replace("0x", string.Empty), nIsHex ? NumberStyles.AllowHexSpecifier : NumberStyles.None, null, out _);
-            if (!success) main.SetTextBoxText(nIsHex ? $"0x{ulong.MaxValue:X}" : $"{ulong.MaxValue}");
+            if (!success) main.SetControlText(nIsHex ? $"0x{ulong.MaxValue:X}" : $"{ulong.MaxValue}");
         }
     }
 
@@ -177,8 +177,8 @@ public partial class XoroshiroTools : Form
         }
         else
         {
-            main.SetTextBoxText(TB_Result_S0.Text, main.TB_Seed0);
-            main.SetTextBoxText(TB_Result_S1.Text, main.TB_Seed1);
+            main.SetControlText(TB_Result_S0.Text, main.TB_Seed0);
+            main.SetControlText(TB_Result_S1.Text, main.TB_Seed1);
         }
     }
 }

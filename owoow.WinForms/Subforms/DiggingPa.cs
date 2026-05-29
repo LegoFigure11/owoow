@@ -17,10 +17,10 @@ public partial class DiggingPa : Form
         MainWindow = f;
         Tab = tab;
 
-        f.SetTextBoxText(f.TB_Seed0.Text, TB_Seed0);
-        f.SetTextBoxText(f.TB_Seed1.Text, TB_Seed1);
-        f.SetTextBoxText(string.IsNullOrEmpty(f.TB_CurrentAdvances.Text) ? "0" : f.TB_CurrentAdvances.Text.Replace(",", string.Empty), TB_DiggingPa_Initial);
-        f.SetTextBoxText(((TextBox)f.Controls.Find($"TB_{Tab}_NPCs", true).FirstOrDefault()!).Text, TB_DiggingPa_NPCs);
+        f.SetControlText(f.TB_Seed0.Text, TB_Seed0);
+        f.SetControlText(f.TB_Seed1.Text, TB_Seed1);
+        f.SetControlText(string.IsNullOrEmpty(f.TB_CurrentAdvances.Text) ? "0" : f.TB_CurrentAdvances.Text.Replace(",", string.Empty), TB_DiggingPa_Initial);
+        f.SetControlText(((TextBox)f.Controls.Find($"TB_{Tab}_NPCs", true).FirstOrDefault()!).Text, TB_DiggingPa_NPCs);
         f.SetCheckBoxCheckedState(((CheckBox)f.Controls.Find($"CB_{Tab}_MenuClose", true).FirstOrDefault()!).Checked, CB_DiggingPa_MenuClose);
         f.SetCheckBoxCheckedState(((CheckBox)f.Controls.Find($"CB_{Tab}_MenuClose_Direction", true).FirstOrDefault()!).Checked, CB_DiggingPa_MenuClose_Direction);
         f.SetComboBoxSelectedIndex(CB_DiggingPa_Weather.Items.IndexOf($"{((ComboBox)f.Controls.Find($"CB_{Tab}_Weather", true).FirstOrDefault()!).SelectedItem}"), CB_DiggingPa_Weather);
@@ -87,7 +87,7 @@ public partial class DiggingPa : Form
     {
         MainWindow.DiggingPaFormOpen = false;
         MainWindow.SetCheckBoxCheckedState(CB_DiggingPa_MenuClose_Direction.Checked, (CheckBox)MainWindow.Controls.Find($"CB_{Tab}_MenuClose_Direction", true).FirstOrDefault()!);
-        MainWindow.SetTextBoxText(TB_DiggingPa_NPCs.Text, (TextBox)MainWindow.Controls.Find($"TB_{Tab}_NPCs", true).FirstOrDefault()!);
+        MainWindow.SetControlText(TB_DiggingPa_NPCs.Text, (TextBox)MainWindow.Controls.Find($"TB_{Tab}_NPCs", true).FirstOrDefault()!);
     }
 
     private void CB_DiggingPa_MenuClose_CheckedChanged(object sender, EventArgs e)
@@ -121,8 +121,8 @@ public partial class DiggingPa : Form
 
     public void SetSeeds(string s0, string s1)
     {
-        MainWindow.SetTextBoxText(s0, TB_Seed0);
-        MainWindow.SetTextBoxText(s1, TB_Seed1);
+        MainWindow.SetControlText(s0, TB_Seed0);
+        MainWindow.SetControlText(s1, TB_Seed1);
         Focus();
     }
 
