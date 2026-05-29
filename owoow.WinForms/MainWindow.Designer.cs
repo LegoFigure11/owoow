@@ -490,7 +490,7 @@ namespace owoow.WinForms
             CB_PlayTone.CheckAlign = ContentAlignment.MiddleRight;
             CB_PlayTone.Location = new Point(2, 296);
             CB_PlayTone.Name = "CB_PlayTone";
-            CB_PlayTone.Size = new Size(82, 19);
+            CB_PlayTone.Size = new Size(81, 19);
             CB_PlayTone.TabIndex = 30;
             CB_PlayTone.Tag = "";
             CB_PlayTone.Text = "Play Tone?";
@@ -1387,7 +1387,7 @@ namespace owoow.WinForms
             L_RainTick.Enabled = false;
             L_RainTick.Location = new Point(6, 111);
             L_RainTick.Name = "L_RainTick";
-            L_RainTick.Size = new Size(63, 15);
+            L_RainTick.Size = new Size(62, 15);
             L_RainTick.TabIndex = 15;
             L_RainTick.Text = "Rain Ticks:";
             // 
@@ -1437,7 +1437,7 @@ namespace owoow.WinForms
             CB_ConsiderRain.AutoSize = true;
             CB_ConsiderRain.Location = new Point(6, 89);
             CB_ConsiderRain.Name = "CB_ConsiderRain";
-            CB_ConsiderRain.Size = new Size(169, 19);
+            CB_ConsiderRain.Size = new Size(168, 19);
             CB_ConsiderRain.TabIndex = 3;
             CB_ConsiderRain.Text = "Raining/Thunderstorming?";
             CB_ConsiderRain.UseVisualStyleBackColor = true;
@@ -1589,7 +1589,7 @@ namespace owoow.WinForms
             L_Static_Species.AutoSize = true;
             L_Static_Species.Location = new Point(22, 75);
             L_Static_Species.Name = "L_Static_Species";
-            L_Static_Species.Size = new Size(43, 15);
+            L_Static_Species.Size = new Size(42, 15);
             L_Static_Species.TabIndex = 14;
             L_Static_Species.Text = "Target:";
             // 
@@ -1851,7 +1851,7 @@ namespace owoow.WinForms
             L_Symbol_Species.AutoSize = true;
             L_Symbol_Species.Location = new Point(22, 75);
             L_Symbol_Species.Name = "L_Symbol_Species";
-            L_Symbol_Species.Size = new Size(43, 15);
+            L_Symbol_Species.Size = new Size(42, 15);
             L_Symbol_Species.TabIndex = 14;
             L_Symbol_Species.Text = "Target:";
             // 
@@ -1984,7 +1984,7 @@ namespace owoow.WinForms
             L_Hidden_MaxStep.AutoSize = true;
             L_Hidden_MaxStep.Location = new Point(17, 134);
             L_Hidden_MaxStep.Name = "L_Hidden_MaxStep";
-            L_Hidden_MaxStep.Size = new Size(58, 15);
+            L_Hidden_MaxStep.Size = new Size(59, 15);
             L_Hidden_MaxStep.TabIndex = 65;
             L_Hidden_MaxStep.Text = "Max Step:";
             L_Hidden_MaxStep.Click += L_ResetComboBox;
@@ -2110,7 +2110,7 @@ namespace owoow.WinForms
             L_Hidden_Target.AutoSize = true;
             L_Hidden_Target.Location = new Point(22, 75);
             L_Hidden_Target.Name = "L_Hidden_Target";
-            L_Hidden_Target.Size = new Size(43, 15);
+            L_Hidden_Target.Size = new Size(42, 15);
             L_Hidden_Target.TabIndex = 14;
             L_Hidden_Target.Text = "Target:";
             // 
@@ -2382,7 +2382,7 @@ namespace owoow.WinForms
             L_Fishing_Species.AutoSize = true;
             L_Fishing_Species.Location = new Point(22, 75);
             L_Fishing_Species.Name = "L_Fishing_Species";
-            L_Fishing_Species.Size = new Size(43, 15);
+            L_Fishing_Species.Size = new Size(42, 15);
             L_Fishing_Species.TabIndex = 14;
             L_Fishing_Species.Text = "Target:";
             // 
@@ -2776,7 +2776,7 @@ namespace owoow.WinForms
             L_TID.AutoSize = true;
             L_TID.Location = new Point(132, 17);
             L_TID.Name = "L_TID";
-            L_TID.Size = new Size(28, 15);
+            L_TID.Size = new Size(27, 15);
             L_TID.TabIndex = 19;
             L_TID.Text = "TID:";
             // 
@@ -2846,7 +2846,7 @@ namespace owoow.WinForms
             // 
             // advancesDataGridViewTextBoxColumn
             // 
-            advancesDataGridViewTextBoxColumn.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            advancesDataGridViewTextBoxColumn.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
             advancesDataGridViewTextBoxColumn.DataPropertyName = "Advances";
             advancesDataGridViewTextBoxColumn.HeaderText = "Advances";
             advancesDataGridViewTextBoxColumn.Name = "advancesDataGridViewTextBoxColumn";
@@ -2855,7 +2855,7 @@ namespace owoow.WinForms
             // 
             // jumpDataGridViewTextBoxColumn
             // 
-            jumpDataGridViewTextBoxColumn.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            jumpDataGridViewTextBoxColumn.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
             jumpDataGridViewTextBoxColumn.DataPropertyName = "Jump";
             jumpDataGridViewTextBoxColumn.HeaderText = "Jump";
             jumpDataGridViewTextBoxColumn.Name = "jumpDataGridViewTextBoxColumn";
@@ -2864,7 +2864,7 @@ namespace owoow.WinForms
             // 
             // stepDataGridViewTextBoxColumn
             // 
-            stepDataGridViewTextBoxColumn.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            stepDataGridViewTextBoxColumn.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
             stepDataGridViewTextBoxColumn.DataPropertyName = "Step";
             stepDataGridViewTextBoxColumn.HeaderText = "Step";
             stepDataGridViewTextBoxColumn.Name = "stepDataGridViewTextBoxColumn";
@@ -2873,7 +2873,7 @@ namespace owoow.WinForms
             // 
             // animationDataGridViewTextBoxColumn
             // 
-            animationDataGridViewTextBoxColumn.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            animationDataGridViewTextBoxColumn.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
             animationDataGridViewTextBoxColumn.DataPropertyName = "Animation";
             animationDataGridViewTextBoxColumn.HeaderText = "Animation";
             animationDataGridViewTextBoxColumn.Name = "animationDataGridViewTextBoxColumn";
@@ -2882,7 +2882,7 @@ namespace owoow.WinForms
             // 
             // speciesDataGridViewTextBoxColumn
             // 
-            speciesDataGridViewTextBoxColumn.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            speciesDataGridViewTextBoxColumn.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
             speciesDataGridViewTextBoxColumn.DataPropertyName = "Species";
             speciesDataGridViewTextBoxColumn.HeaderText = "Species";
             speciesDataGridViewTextBoxColumn.Name = "speciesDataGridViewTextBoxColumn";
@@ -2891,7 +2891,7 @@ namespace owoow.WinForms
             // 
             // shinyDataGridViewTextBoxColumn
             // 
-            shinyDataGridViewTextBoxColumn.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            shinyDataGridViewTextBoxColumn.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
             shinyDataGridViewTextBoxColumn.DataPropertyName = "Shiny";
             shinyDataGridViewTextBoxColumn.HeaderText = "Shiny";
             shinyDataGridViewTextBoxColumn.Name = "shinyDataGridViewTextBoxColumn";
@@ -2900,7 +2900,7 @@ namespace owoow.WinForms
             // 
             // brilliantDataGridViewTextBoxColumn
             // 
-            brilliantDataGridViewTextBoxColumn.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            brilliantDataGridViewTextBoxColumn.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
             brilliantDataGridViewTextBoxColumn.DataPropertyName = "Brilliant";
             brilliantDataGridViewTextBoxColumn.HeaderText = "Brilliant";
             brilliantDataGridViewTextBoxColumn.Name = "brilliantDataGridViewTextBoxColumn";
@@ -2909,7 +2909,7 @@ namespace owoow.WinForms
             // 
             // levelDataGridViewTextBoxColumn
             // 
-            levelDataGridViewTextBoxColumn.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            levelDataGridViewTextBoxColumn.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
             levelDataGridViewTextBoxColumn.DataPropertyName = "Level";
             levelDataGridViewTextBoxColumn.HeaderText = "Level";
             levelDataGridViewTextBoxColumn.Name = "levelDataGridViewTextBoxColumn";
@@ -2918,7 +2918,7 @@ namespace owoow.WinForms
             // 
             // abilityDataGridViewTextBoxColumn
             // 
-            abilityDataGridViewTextBoxColumn.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            abilityDataGridViewTextBoxColumn.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
             abilityDataGridViewTextBoxColumn.DataPropertyName = "Ability";
             abilityDataGridViewTextBoxColumn.HeaderText = "Ability";
             abilityDataGridViewTextBoxColumn.Name = "abilityDataGridViewTextBoxColumn";
@@ -2927,7 +2927,7 @@ namespace owoow.WinForms
             // 
             // natureDataGridViewTextBoxColumn
             // 
-            natureDataGridViewTextBoxColumn.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            natureDataGridViewTextBoxColumn.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
             natureDataGridViewTextBoxColumn.DataPropertyName = "Nature";
             natureDataGridViewTextBoxColumn.HeaderText = "Nature";
             natureDataGridViewTextBoxColumn.Name = "natureDataGridViewTextBoxColumn";
@@ -2936,7 +2936,7 @@ namespace owoow.WinForms
             // 
             // genderDataGridViewTextBoxColumn
             // 
-            genderDataGridViewTextBoxColumn.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            genderDataGridViewTextBoxColumn.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
             genderDataGridViewTextBoxColumn.DataPropertyName = "Gender";
             genderDataGridViewTextBoxColumn.HeaderText = "Gender";
             genderDataGridViewTextBoxColumn.Name = "genderDataGridViewTextBoxColumn";
@@ -2945,7 +2945,7 @@ namespace owoow.WinForms
             // 
             // hDataGridViewTextBoxColumn
             // 
-            hDataGridViewTextBoxColumn.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            hDataGridViewTextBoxColumn.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
             hDataGridViewTextBoxColumn.DataPropertyName = "H";
             hDataGridViewTextBoxColumn.HeaderText = "HP";
             hDataGridViewTextBoxColumn.Name = "hDataGridViewTextBoxColumn";
@@ -2954,7 +2954,7 @@ namespace owoow.WinForms
             // 
             // aDataGridViewTextBoxColumn
             // 
-            aDataGridViewTextBoxColumn.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            aDataGridViewTextBoxColumn.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
             aDataGridViewTextBoxColumn.DataPropertyName = "A";
             aDataGridViewTextBoxColumn.HeaderText = "Atk";
             aDataGridViewTextBoxColumn.Name = "aDataGridViewTextBoxColumn";
@@ -2963,7 +2963,7 @@ namespace owoow.WinForms
             // 
             // bDataGridViewTextBoxColumn
             // 
-            bDataGridViewTextBoxColumn.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            bDataGridViewTextBoxColumn.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
             bDataGridViewTextBoxColumn.DataPropertyName = "B";
             bDataGridViewTextBoxColumn.HeaderText = "Def";
             bDataGridViewTextBoxColumn.Name = "bDataGridViewTextBoxColumn";
@@ -2972,7 +2972,7 @@ namespace owoow.WinForms
             // 
             // cDataGridViewTextBoxColumn
             // 
-            cDataGridViewTextBoxColumn.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            cDataGridViewTextBoxColumn.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
             cDataGridViewTextBoxColumn.DataPropertyName = "C";
             cDataGridViewTextBoxColumn.HeaderText = "SpA";
             cDataGridViewTextBoxColumn.Name = "cDataGridViewTextBoxColumn";
@@ -2981,7 +2981,7 @@ namespace owoow.WinForms
             // 
             // dDataGridViewTextBoxColumn
             // 
-            dDataGridViewTextBoxColumn.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            dDataGridViewTextBoxColumn.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
             dDataGridViewTextBoxColumn.DataPropertyName = "D";
             dDataGridViewTextBoxColumn.HeaderText = "SpD";
             dDataGridViewTextBoxColumn.Name = "dDataGridViewTextBoxColumn";
@@ -2990,7 +2990,7 @@ namespace owoow.WinForms
             // 
             // sDataGridViewTextBoxColumn
             // 
-            sDataGridViewTextBoxColumn.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            sDataGridViewTextBoxColumn.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
             sDataGridViewTextBoxColumn.DataPropertyName = "S";
             sDataGridViewTextBoxColumn.HeaderText = "Spe";
             sDataGridViewTextBoxColumn.Name = "sDataGridViewTextBoxColumn";
@@ -2999,7 +2999,7 @@ namespace owoow.WinForms
             // 
             // markDataGridViewTextBoxColumn
             // 
-            markDataGridViewTextBoxColumn.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            markDataGridViewTextBoxColumn.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
             markDataGridViewTextBoxColumn.DataPropertyName = "Mark";
             markDataGridViewTextBoxColumn.HeaderText = "Mark";
             markDataGridViewTextBoxColumn.Name = "markDataGridViewTextBoxColumn";
@@ -3008,7 +3008,7 @@ namespace owoow.WinForms
             // 
             // eCDataGridViewTextBoxColumn
             // 
-            eCDataGridViewTextBoxColumn.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            eCDataGridViewTextBoxColumn.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
             eCDataGridViewTextBoxColumn.DataPropertyName = "EC";
             eCDataGridViewTextBoxColumn.HeaderText = "EC";
             eCDataGridViewTextBoxColumn.Name = "eCDataGridViewTextBoxColumn";
@@ -3017,7 +3017,7 @@ namespace owoow.WinForms
             // 
             // pIDDataGridViewTextBoxColumn
             // 
-            pIDDataGridViewTextBoxColumn.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            pIDDataGridViewTextBoxColumn.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
             pIDDataGridViewTextBoxColumn.DataPropertyName = "PID";
             pIDDataGridViewTextBoxColumn.HeaderText = "PID";
             pIDDataGridViewTextBoxColumn.Name = "pIDDataGridViewTextBoxColumn";
@@ -3026,7 +3026,7 @@ namespace owoow.WinForms
             // 
             // heightDataGridViewTextBoxColumn
             // 
-            heightDataGridViewTextBoxColumn.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            heightDataGridViewTextBoxColumn.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
             heightDataGridViewTextBoxColumn.DataPropertyName = "Height";
             heightDataGridViewTextBoxColumn.HeaderText = "Height";
             heightDataGridViewTextBoxColumn.Name = "heightDataGridViewTextBoxColumn";
@@ -3035,7 +3035,7 @@ namespace owoow.WinForms
             // 
             // itemDataGridViewTextBoxColumn
             // 
-            itemDataGridViewTextBoxColumn.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            itemDataGridViewTextBoxColumn.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
             itemDataGridViewTextBoxColumn.DataPropertyName = "Item";
             itemDataGridViewTextBoxColumn.HeaderText = "Item";
             itemDataGridViewTextBoxColumn.Name = "itemDataGridViewTextBoxColumn";
@@ -3044,7 +3044,7 @@ namespace owoow.WinForms
             // 
             // eggMoveDataGridViewTextBoxColumn
             // 
-            eggMoveDataGridViewTextBoxColumn.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            eggMoveDataGridViewTextBoxColumn.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
             eggMoveDataGridViewTextBoxColumn.DataPropertyName = "EggMove";
             eggMoveDataGridViewTextBoxColumn.HeaderText = "Egg Move";
             eggMoveDataGridViewTextBoxColumn.Name = "eggMoveDataGridViewTextBoxColumn";
@@ -3053,7 +3053,7 @@ namespace owoow.WinForms
             // 
             // seed0DataGridViewTextBoxColumn
             // 
-            seed0DataGridViewTextBoxColumn.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            seed0DataGridViewTextBoxColumn.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
             seed0DataGridViewTextBoxColumn.DataPropertyName = "Seed0";
             seed0DataGridViewTextBoxColumn.HeaderText = "Seed0";
             seed0DataGridViewTextBoxColumn.Name = "seed0DataGridViewTextBoxColumn";
@@ -3062,7 +3062,7 @@ namespace owoow.WinForms
             // 
             // seed1DataGridViewTextBoxColumn
             // 
-            seed1DataGridViewTextBoxColumn.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            seed1DataGridViewTextBoxColumn.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
             seed1DataGridViewTextBoxColumn.DataPropertyName = "Seed1";
             seed1DataGridViewTextBoxColumn.HeaderText = "Seed1";
             seed1DataGridViewTextBoxColumn.Name = "seed1DataGridViewTextBoxColumn";
@@ -3107,6 +3107,7 @@ namespace owoow.WinForms
             // ResultsSource
             // 
             ResultsSource.DataSource = typeof(Core.Interfaces.OverworldFrame);
+            ResultsSource.DataSourceChanged += ResultsSource_DataSourceChanged;
             // 
             // MS_SubWindows
             // 
@@ -3155,7 +3156,7 @@ namespace owoow.WinForms
             // TSMI_WattTrader
             // 
             TSMI_WattTrader.Name = "TSMI_WattTrader";
-            TSMI_WattTrader.Size = new Size(80, 20);
+            TSMI_WattTrader.Size = new Size(79, 20);
             TSMI_WattTrader.Text = "Watt Trader";
             TSMI_WattTrader.Click += TSMI_WattTrader_Click;
             // 
@@ -3183,7 +3184,7 @@ namespace owoow.WinForms
             // TSMI_XoroshiroTools
             // 
             TSMI_XoroshiroTools.Name = "TSMI_XoroshiroTools";
-            TSMI_XoroshiroTools.Size = new Size(101, 20);
+            TSMI_XoroshiroTools.Size = new Size(100, 20);
             TSMI_XoroshiroTools.Text = "Xoroshiro Tools";
             TSMI_XoroshiroTools.Click += TSMI_XoroshiroTools_Click;
             // 
@@ -3402,31 +3403,6 @@ namespace owoow.WinForms
         private TextBox TB_Static_Initial;
         private Label L_Static_LeadAbility;
         private ComboBox CB_Static_LeadAbility;
-        private DataGridViewTextBoxColumn advancesDataGridViewTextBoxColumn;
-        private DataGridViewTextBoxColumn jumpDataGridViewTextBoxColumn;
-        private DataGridViewTextBoxColumn stepDataGridViewTextBoxColumn;
-        private DataGridViewTextBoxColumn animationDataGridViewTextBoxColumn;
-        private DataGridViewTextBoxColumn speciesDataGridViewTextBoxColumn;
-        private DataGridViewTextBoxColumn shinyDataGridViewTextBoxColumn;
-        private DataGridViewTextBoxColumn brilliantDataGridViewTextBoxColumn;
-        private DataGridViewTextBoxColumn levelDataGridViewTextBoxColumn;
-        private DataGridViewTextBoxColumn abilityDataGridViewTextBoxColumn;
-        private DataGridViewTextBoxColumn natureDataGridViewTextBoxColumn;
-        private DataGridViewTextBoxColumn genderDataGridViewTextBoxColumn;
-        private DataGridViewTextBoxColumn hDataGridViewTextBoxColumn;
-        private DataGridViewTextBoxColumn aDataGridViewTextBoxColumn;
-        private DataGridViewTextBoxColumn bDataGridViewTextBoxColumn;
-        private DataGridViewTextBoxColumn cDataGridViewTextBoxColumn;
-        private DataGridViewTextBoxColumn dDataGridViewTextBoxColumn;
-        private DataGridViewTextBoxColumn sDataGridViewTextBoxColumn;
-        private DataGridViewTextBoxColumn markDataGridViewTextBoxColumn;
-        private DataGridViewTextBoxColumn eCDataGridViewTextBoxColumn;
-        private DataGridViewTextBoxColumn pIDDataGridViewTextBoxColumn;
-        private DataGridViewTextBoxColumn heightDataGridViewTextBoxColumn;
-        private DataGridViewTextBoxColumn itemDataGridViewTextBoxColumn;
-        private DataGridViewTextBoxColumn eggMoveDataGridViewTextBoxColumn;
-        private DataGridViewTextBoxColumn seed0DataGridViewTextBoxColumn;
-        private DataGridViewTextBoxColumn seed1DataGridViewTextBoxColumn;
         private GroupBox GB_SwitchControls;
         private GroupBox GB_SeedSearch;
         private Button B_SeedSearch_Settings;
@@ -3524,5 +3500,30 @@ namespace owoow.WinForms
         public ComboBox CB_Game;
         private ToolStripMenuItem TSMI_XoroshiroTools;
         private ToolStripMenuItem TMSI_SkillBro;
+        private DataGridViewTextBoxColumn advancesDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn jumpDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn stepDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn animationDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn speciesDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn shinyDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn brilliantDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn levelDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn abilityDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn natureDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn genderDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn hDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn aDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn bDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn cDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn dDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn sDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn markDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn eCDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn pIDDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn heightDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn itemDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn eggMoveDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn seed0DataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn seed1DataGridViewTextBoxColumn;
     }
 }

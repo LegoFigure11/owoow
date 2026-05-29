@@ -2410,6 +2410,16 @@ public partial class MainWindow : Form
         row.Cells[17].Style.Font = result.Mark == "None" ? row.DefaultCellStyle.Font : BoldFont;
         row.Cells[20].Style.Font = result.Height is not "XXXL (255)" and not "XXXS (0)" ? row.DefaultCellStyle.Font : BoldFont;
     }
+    private void ResultsSource_DataSourceChanged(object sender, EventArgs e)
+    {
+        for (var i = 0; i <= DGV_Results.ColumnCount - 1; i++)
+        {
+            DGV_Results.Columns[i].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            var width = DGV_Results.Columns[i].Width;
+            DGV_Results.Columns[i].AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
+            DGV_Results.Columns[i].Width = width;
+        }
+    }
     #endregion
 
     #region Input Validation
