@@ -52,6 +52,7 @@ namespace owoow.WinForms.Subforms
             L_Seed = new Label();
             label1 = new Label();
             label2 = new Label();
+            CB_Date = new CheckBox();
             SuspendLayout();
             // 
             // L_S4
@@ -293,11 +294,22 @@ namespace owoow.WinForms.Subforms
             label2.TabIndex = 58;
             label2.Text = "Target Species:";
             // 
+            // CB_Date
+            // 
+            CB_Date.AutoSize = true;
+            CB_Date.Location = new Point(166, 57);
+            CB_Date.Name = "CB_Date";
+            CB_Date.Size = new Size(109, 19);
+            CB_Date.TabIndex = 59;
+            CB_Date.Text = "Keep same date";
+            CB_Date.UseVisualStyleBackColor = true;
+            // 
             // DexRecSearcher
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(538, 159);
+            Controls.Add(CB_Date);
             Controls.Add(label2);
             Controls.Add(label1);
             Controls.Add(TB_Seed);
@@ -352,5 +364,6 @@ namespace owoow.WinForms.Subforms
         private Label L_Seed;
         private Label label1;
         private Label label2;
+        private CheckBox CB_Date;
     }
 }

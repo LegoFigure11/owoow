@@ -9,7 +9,8 @@ public partial class DexRecSearcher : Form
 {
     readonly MainWindow MainWindow;
     readonly ConnectionWrapperAsync ConnectionWrapper;
-    bool stop = false;
+    private bool stop = false;
+    private string text = string.Empty;
 
     public DexRecSearcher(MainWindow f, ConnectionWrapperAsync c)
     {
@@ -18,7 +19,9 @@ public partial class DexRecSearcher : Form
         MainWindow = f;
         ConnectionWrapper = c;
 
-        MainWindow.SetTextBoxText(string.Empty, TB_Map, TB_S1, TB_S2, TB_S3, TB_S4, TB_Seed);
+        text = Text;
+
+        MainWindow.SetControlText(string.Empty, TB_Map, TB_S1, TB_S2, TB_S3, TB_S4, TB_Seed);
 
         CB_Target.Items.Clear();
         var list = Encounters.GetDexRecOptions(false);
@@ -76,12 +79,12 @@ public partial class DexRecSearcher : Form
 
     private void SetDexRecDetails(PokedexRecommendation dr)
     {
-        MainWindow.SetTextBoxText(dr.Location, TB_Map);
-        MainWindow.SetTextBoxText($"{dr.Seed:X16}", TB_Seed);
-        MainWindow.SetTextBoxText(Core.RNG.Util.GetDexRecommendation(dr.Species1), TB_S1);
-        MainWindow.SetTextBoxText(Core.RNG.Util.GetDexRecommendation(dr.Species2), TB_S2);
-        MainWindow.SetTextBoxText(Core.RNG.Util.GetDexRecommendation(dr.Species3), TB_S3);
-        MainWindow.SetTextBoxText(Core.RNG.Util.GetDexRecommendation(dr.Species4), TB_S4);
+        MainWindow.SetControlText(dr.Location, TB_Map);
+        MainWindow.SetControlText($"{dr.Seed:X16}", TB_Seed);
+        MainWindow.SetControlText(Core.RNG.Util.GetDexRecommendation(dr.Species1), TB_S1);
+        MainWindow.SetControlText(Core.RNG.Util.GetDexRecommendation(dr.Species2), TB_S2);
+        MainWindow.SetControlText(Core.RNG.Util.GetDexRecommendation(dr.Species3), TB_S3);
+        MainWindow.SetControlText(Core.RNG.Util.GetDexRecommendation(dr.Species4), TB_S4);
     }
 
     private void CB_SpecificSlot_CheckedChanged(object sender, EventArgs e)
@@ -107,13 +110,16 @@ public partial class DexRecSearcher : Form
                 await Task.Delay(100, MainWindow.Source.Token);
                 MainWindow.SetControlEnabledState(false, B_Search);
                 MainWindow.SetControlEnabledState(true, B_Cancel);
+                var tick = await ConnectionWrapper.GetCurrentTime(MainWindow.Source.Token).ConfigureAwait(false);
                 stop = false;
                 bool first = true;
                 while (!stop)
                 {
                     MainWindow.readPause = true;
-                    await ConnectionWrapper.OpenPokedex(first, MainWindow.Source.Token);
-                    var dr = await ConnectionWrapper.ReadDexRecommendationFull(MainWindow.Source.Token);
+                    MainWindow.SetControlText(text + " - Opening Pokédex...", this);
+                    await ConnectionWrapper.OpenPokedex(first, MainWindow.Source.Token).ConfigureAwait(false);
+                    MainWindow.SetControlText(text + " - Reading Pokédex Recommendation...", this);
+                    var dr = await ConnectionWrapper.ReadDexRecommendationFull(MainWindow.Source.Token).ConfigureAwait(false);
                     MainWindow.readPause = false;
                     var target = (ushort)Core.RNG.Util.GetDexRecommendation(CB_Target.GetText());
                     var slotSpecified = CB_SpecificSlot.GetIsChecked();
@@ -146,21 +152,33 @@ public partial class DexRecSearcher : Form
                         {
                             if (dr.Species1 != target && dr.Species2 != target && dr.Species3 != target && dr.Species4 != target) found = false;
                         }
+
                         if (found)
                         {
                             this.DisplayMessageBox("Matching Pokédex Recommendation Found!", "Pokédex Recommendation Search Result");
                             break;
                         }
                     }
-                    await MainWindow.AdvanceDate(1);
-                    await ConnectionWrapper.ClosePokedexAndSave(MainWindow.Source.Token);
+
+                    MainWindow.SetControlText(text + " - Closing Pokédex and saving the game...", this);
+                    await ConnectionWrapper.ClosePokedexAndSave(MainWindow.Source.Token).ConfigureAwait(false);
+
+                    MainWindow.SetControlText(text + " - Advancing date...", this);
+                    await MainWindow.AdvanceDate(1).ConfigureAwait(false);
+                    if (CB_Date.GetIsChecked())
+                    {
+                        MainWindow.SetControlText(text + " - Resetting date...", this);
+                        await ConnectionWrapper.SetCurrentTime(tick, MainWindow.Source.Token).ConfigureAwait(false);
+                    }
                 }
+                MainWindow.SetControlText(text, this);
                 MainWindow.SetControlEnabledState(true, B_Search);
                 MainWindow.SetControlEnabledState(false, B_Cancel);
                 MainWindow.readPause = false;
             }
             catch (Exception ex)
             {
+                MainWindow.SetControlText(text, this);
                 MainWindow.readPause = false;
                 MainWindow.SetControlEnabledState(true, B_Search);
                 MainWindow.SetControlEnabledState(false, B_Cancel);
