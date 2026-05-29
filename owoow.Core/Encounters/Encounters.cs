@@ -304,6 +304,17 @@ public static class Encounters
         return ret.AsReadOnly();
     }
 
+    public static List<string> GetDexRecOptions(bool includeNone = true)
+    {
+        List<string> range = includeNone ? ["(None)"] : [];
+        if (Personal is not null)
+        {
+            // Special handling to keep Jangmo-o, Hakamo-o, Kommo-o, and Porygon-Z. Silvally-10+ also need to be filtered out
+            range.AddRange(Personal.Keys.Where(k => !((k[^2] == '-' || k[^3] == '-') && k[^1] != 'o' && k[^1] != 'Z')));
+        }
+        return range;
+    }
+
     private static AvailableWeather WeatherNameToValue(string name) => name switch
     {
         "Normal Weather" => AvailableWeather.Normal,

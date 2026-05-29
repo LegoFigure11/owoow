@@ -105,6 +105,25 @@ public class ConnectionWrapperAsync(SwitchConnectionConfig Config, Action<string
         return new PokedexRecommendation(data);
     }
 
+    public async Task OpenPokedex(bool first, CancellationToken token)
+    {
+        if (first) await DoTurboCommand("Left Stick (L3)", token);
+        await DoTurboCommand("X", token);
+        await Task.Delay(1_200, token);
+        await DoTurboCommand("A", token);
+        await Task.Delay(2_700, token);
+    }
+
+    public async Task ClosePokedexAndSave(CancellationToken token)
+    {
+        await DoTurboCommand("B", token);
+        await Task.Delay(2_400, token);
+        await DoTurboCommand("R", token);
+        await Task.Delay(1_700, token);
+        await DoTurboCommand("A", token);
+        await Task.Delay(4_000, token);
+    }
+
     public async Task<PK8> ReadWildPokemon(CancellationToken token)
     {
         var data = await Connection.ReadBytesAsync(WildPokemon, WildPokemon_Size, token).ConfigureAwait(false);

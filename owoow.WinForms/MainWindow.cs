@@ -23,7 +23,7 @@ namespace owoow.WinForms;
 
 public partial class MainWindow : Form
 {
-    private static CancellationTokenSource Source = new();
+    public static CancellationTokenSource Source = new();
     private static CancellationTokenSource AdvanceSource = new();
     private static CancellationTokenSource ResetSource = new();
     private static readonly Lock _connectLock = new();
@@ -36,7 +36,7 @@ public partial class MainWindow : Form
 
     private bool stop;
     private bool reset;
-    private bool readPause;
+    public bool readPause;
     private bool skipPause;
     private bool resetPause;
     private long total;
@@ -483,7 +483,7 @@ public partial class MainWindow : Form
        );
     }
 
-    public async void AdvanceDate(uint? days = null)
+    public async Task AdvanceDate(uint? days = null)
     {
         try
         {
@@ -1505,8 +1505,7 @@ public partial class MainWindow : Form
         if (Encounters.Personal is not null)
         {
             // Special handling to keep Jangmo-o, Hakamo-o, Kommo-o, and Porygon-Z. Silvally-10+ also need to be filtered out
-            List<string> range = ["(None)"];
-            range.AddRange(Encounters.Personal.Keys.Where(k => !((k[^2] == '-' || k[^3] == '-') && k[^1] != 'o' && k[^1] != 'Z')));
+            List<string> range = Encounters.GetDexRecOptions();
 
             CB_DexRec1.Items.Clear();
             CB_DexRec2.Items.Clear();
@@ -1773,33 +1772,43 @@ public partial class MainWindow : Form
 
     private void B_RefreshDexRec_Click(object sender, EventArgs e)
     {
-        Task.Run(async () =>
-            {
-                try
+        if ((ModifierKeys & Keys.Shift) == Keys.Shift)
+        {
+            using DexRecSearcher drs = new(this, ConnectionWrapper);
+            readPause = true;
+            drs.ShowDialog();
+            readPause = false;
+        }
+        else
+        {
+            Task.Run(async () =>
                 {
-                    readPause = true;
-                    SetControlEnabledState(false, B_RefreshDexRec, B_ReadEncounter, B_CopyToInitial, B_RetailUpdateSeeds);
-                    await Task.Delay(100, Source.Token).ConfigureAwait(false);
+                    try
+                    {
+                        readPause = true;
+                        SetControlEnabledState(false, B_RefreshDexRec, B_ReadEncounter, B_CopyToInitial, B_RetailUpdateSeeds);
+                        await Task.Delay(100, Source.Token).ConfigureAwait(false);
 
-                    var DexRec = await ConnectionWrapper.ReadDexRecommendation(Source.Token).ConfigureAwait(false);
+                        var DexRec = await ConnectionWrapper.ReadDexRecommendation(Source.Token).ConfigureAwait(false);
 
-                    SetComboBoxSelectedIndex(CB_DexRec1.Items.IndexOf(GetDexRecommendation(DexRec[0])), CB_DexRec1);
-                    SetComboBoxSelectedIndex(CB_DexRec2.Items.IndexOf(GetDexRecommendation(DexRec[1])), CB_DexRec2);
-                    SetComboBoxSelectedIndex(CB_DexRec3.Items.IndexOf(GetDexRecommendation(DexRec[2])), CB_DexRec3);
-                    SetComboBoxSelectedIndex(CB_DexRec4.Items.IndexOf(GetDexRecommendation(DexRec[3])), CB_DexRec4);
+                        SetComboBoxSelectedIndex(CB_DexRec1.Items.IndexOf(GetDexRecommendation(DexRec[0])), CB_DexRec1);
+                        SetComboBoxSelectedIndex(CB_DexRec2.Items.IndexOf(GetDexRecommendation(DexRec[1])), CB_DexRec2);
+                        SetComboBoxSelectedIndex(CB_DexRec3.Items.IndexOf(GetDexRecommendation(DexRec[2])), CB_DexRec3);
+                        SetComboBoxSelectedIndex(CB_DexRec4.Items.IndexOf(GetDexRecommendation(DexRec[3])), CB_DexRec4);
 
-                    readPause = false;
-                    SetControlEnabledState(true, B_RefreshDexRec, B_ReadEncounter, B_CopyToInitial, B_RetailUpdateSeeds);
+                        readPause = false;
+                        SetControlEnabledState(true, B_RefreshDexRec, B_ReadEncounter, B_CopyToInitial, B_RetailUpdateSeeds);
+                    }
+                    catch (Exception ex)
+                    {
+                        readPause = false;
+                        this.DisplayMessageBox($"Error occurred while reading Pokédex Recommendations: {ex.Message}");
+                        SetControlEnabledState(true, B_RefreshDexRec, B_ReadEncounter, B_CopyToInitial, B_RetailUpdateSeeds);
+                        return;
+                    }
                 }
-                catch (Exception ex)
-                {
-                    readPause = false;
-                    this.DisplayMessageBox($"Error occurred while reading Pokédex Recommendations: {ex.Message}");
-                    SetControlEnabledState(true, B_RefreshDexRec, B_ReadEncounter, B_CopyToInitial, B_RetailUpdateSeeds);
-                    return;
-                }
-            }
-        );
+            );
+        }
     }
 
     public bool OverworldScannerFormOpen = false;
