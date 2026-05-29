@@ -39,7 +39,7 @@ public partial class DexRecSearcher : Form
                 val.Contains("Garbage") ||
                 val.Contains("(2)") ||
                 val.Contains("(3)") ||
-                val.Contains("High Level") ||
+                (val.Contains("High Level") && !val.Contains("Slumbering Weald)")) ||
                 val.Contains("Beach") ||
                 val.Contains("Lunatone")
                 )
@@ -148,7 +148,7 @@ public partial class DexRecSearcher : Form
                         }
                         if (found)
                         {
-                            this.DisplayMessageBox("Matching Pokedex Recommendation Found!", "Pokedex Recommendatino Search Result");
+                            this.DisplayMessageBox("Matching Pokédex Recommendation Found!", "Pokédex Recommendation Search Result");
                             break;
                         }
                     }
