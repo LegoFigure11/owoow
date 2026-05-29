@@ -45,6 +45,9 @@
     <Compile Update="Subforms\DexRecSearcher.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Subforms\DexRecLocationList.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Subforms\SkillBro.cs">
       <SubType>Form</SubType>
     </Compile>

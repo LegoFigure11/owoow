@@ -95,6 +95,7 @@ namespace owoow.WinForms.Subforms
             Controls.Add(L_ID);
             Controls.Add(B_Add);
             Controls.Add(LB_IDs);
+            FormBorderStyle = FormBorderStyle.FixedSingle;
             Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "IDList";
             Text = "ID List";

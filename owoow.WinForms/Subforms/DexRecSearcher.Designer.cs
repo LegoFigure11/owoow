@@ -40,7 +40,6 @@ namespace owoow.WinForms.Subforms
             TB_S1 = new TextBox();
             L_S1 = new Label();
             CB_Target = new ComboBox();
-            CB_IgnoreMap = new ComboBox();
             CB_SpecificSlot = new CheckBox();
             RB_S1 = new RadioButton();
             RB_S2 = new RadioButton();
@@ -50,9 +49,10 @@ namespace owoow.WinForms.Subforms
             B_Cancel = new Button();
             TB_Seed = new TextBox();
             L_Seed = new Label();
-            label1 = new Label();
-            label2 = new Label();
+            L_IgnoredMaps = new Label();
+            L_Target = new Label();
             CB_Date = new CheckBox();
+            B_ManageMaps = new Button();
             SuspendLayout();
             // 
             // L_S4
@@ -168,14 +168,6 @@ namespace owoow.WinForms.Subforms
             CB_Target.Size = new Size(173, 23);
             CB_Target.TabIndex = 46;
             // 
-            // CB_IgnoreMap
-            // 
-            CB_IgnoreMap.FormattingEnabled = true;
-            CB_IgnoreMap.Location = new Point(102, 31);
-            CB_IgnoreMap.Name = "CB_IgnoreMap";
-            CB_IgnoreMap.Size = new Size(173, 23);
-            CB_IgnoreMap.TabIndex = 47;
-            // 
             // CB_SpecificSlot
             // 
             CB_SpecificSlot.AutoSize = true;
@@ -276,23 +268,23 @@ namespace owoow.WinForms.Subforms
             L_Seed.TabIndex = 55;
             L_Seed.Text = "Seed:";
             // 
-            // label1
+            // L_IgnoredMaps
             // 
-            label1.AutoSize = true;
-            label1.Location = new Point(17, 34);
-            label1.Name = "label1";
-            label1.Size = new Size(78, 15);
-            label1.TabIndex = 57;
-            label1.Text = "Exclude Map:";
+            L_IgnoredMaps.AutoSize = true;
+            L_IgnoredMaps.Location = new Point(6, 34);
+            L_IgnoredMaps.Name = "L_IgnoredMaps";
+            L_IgnoredMaps.Size = new Size(99, 15);
+            L_IgnoredMaps.TabIndex = 57;
+            L_IgnoredMaps.Text = "Excluded Maps: 0";
             // 
-            // label2
+            // L_Target
             // 
-            label2.AutoSize = true;
-            label2.Location = new Point(12, 10);
-            label2.Name = "label2";
-            label2.Size = new Size(84, 15);
-            label2.TabIndex = 58;
-            label2.Text = "Target Species:";
+            L_Target.AutoSize = true;
+            L_Target.Location = new Point(12, 10);
+            L_Target.Name = "L_Target";
+            L_Target.Size = new Size(84, 15);
+            L_Target.TabIndex = 58;
+            L_Target.Text = "Target Species:";
             // 
             // CB_Date
             // 
@@ -304,14 +296,25 @@ namespace owoow.WinForms.Subforms
             CB_Date.Text = "Keep same date";
             CB_Date.UseVisualStyleBackColor = true;
             // 
+            // B_ManageMaps
+            // 
+            B_ManageMaps.Location = new Point(130, 32);
+            B_ManageMaps.Name = "B_ManageMaps";
+            B_ManageMaps.Size = new Size(145, 25);
+            B_ManageMaps.TabIndex = 60;
+            B_ManageMaps.Text = "Manage  Excluded Maps";
+            B_ManageMaps.UseVisualStyleBackColor = true;
+            B_ManageMaps.Click += B_ManageMaps_Click;
+            // 
             // DexRecSearcher
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(538, 159);
+            Controls.Add(B_ManageMaps);
             Controls.Add(CB_Date);
-            Controls.Add(label2);
-            Controls.Add(label1);
+            Controls.Add(L_Target);
+            Controls.Add(L_IgnoredMaps);
             Controls.Add(TB_Seed);
             Controls.Add(L_Seed);
             Controls.Add(B_Cancel);
@@ -321,7 +324,6 @@ namespace owoow.WinForms.Subforms
             Controls.Add(RB_S2);
             Controls.Add(RB_S1);
             Controls.Add(CB_SpecificSlot);
-            Controls.Add(CB_IgnoreMap);
             Controls.Add(CB_Target);
             Controls.Add(L_S1);
             Controls.Add(TB_S1);
@@ -333,6 +335,7 @@ namespace owoow.WinForms.Subforms
             Controls.Add(L_S2);
             Controls.Add(TB_S2);
             Controls.Add(L_Map);
+            FormBorderStyle = FormBorderStyle.FixedSingle;
             Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "DexRecSearcher";
             Text = "Pokédex Recommendation Searcher";
@@ -352,7 +355,6 @@ namespace owoow.WinForms.Subforms
         private TextBox TB_S1;
         private Label L_S1;
         private ComboBox CB_Target;
-        private ComboBox CB_IgnoreMap;
         private CheckBox CB_SpecificSlot;
         private RadioButton RB_S1;
         private RadioButton RB_S2;
@@ -362,8 +364,9 @@ namespace owoow.WinForms.Subforms
         private Button B_Cancel;
         private TextBox TB_Seed;
         private Label L_Seed;
-        private Label label1;
-        private Label label2;
+        private Label L_Target;
         private CheckBox CB_Date;
+        private Button B_ManageMaps;
+        public Label L_IgnoredMaps;
     }
 }

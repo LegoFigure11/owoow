@@ -1,7 +1,7 @@
 using owoow.Core;
 using owoow.Core.Connection;
 using owoow.Core.Structures;
-using PKHeX.Core;
+using System.Text.Json;
 
 namespace owoow.WinForms.Subforms;
 
@@ -12,6 +12,9 @@ public partial class DexRecSearcher : Form
     private bool stop = false;
     private string text = string.Empty;
 
+    public bool SubformOpen = false;
+    public List<string> Maps = [];
+
     public DexRecSearcher(MainWindow f, ConnectionWrapperAsync c)
     {
         InitializeComponent();
@@ -21,39 +24,18 @@ public partial class DexRecSearcher : Form
 
         text = Text;
 
+        var mapsPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "ignore-locations-list.json");
+        if (File.Exists(mapsPath))
+            Maps = JsonSerializer.Deserialize<List<string>>(File.ReadAllText(mapsPath)) ?? [];
+
+        L_IgnoredMaps.Text = $"Excluded Maps: {Maps.Count}";
+
         MainWindow.SetControlText(string.Empty, TB_Map, TB_S1, TB_S2, TB_S3, TB_S4, TB_Seed);
 
         CB_Target.Items.Clear();
         var list = Encounters.GetDexRecOptions(false);
         foreach (var item in list) CB_Target.Items.Add(item);
         CB_Target.SelectedIndex = 0;
-
-        CB_IgnoreMap.Items.Clear();
-        CB_IgnoreMap.Items.Add("(None)");
-        foreach (var item in Encounters.Zones)
-        {
-            var val = item.Value;
-            if (
-                val.Contains("Surfing") ||
-                val.Contains("Sharpedo") ||
-                val.Contains("Flying") ||
-                val.Contains("Ground") ||
-                val.Contains("Puddle") ||
-                val.Contains("Garbage") ||
-                val.Contains("(2)") ||
-                val.Contains("(3)") ||
-                (val.Contains("High Level") && !val.Contains("Slumbering Weald)")) ||
-                val.Contains("Beach") ||
-                val.Contains("Lunatone")
-                )
-            {
-                continue;
-            }
-
-            if (CB_IgnoreMap.Items.Contains(val)) continue;
-            CB_IgnoreMap.Items.Add(val);
-        }
-        CB_IgnoreMap.SelectedIndex = 0;
 
         if (ConnectionWrapper.Connected)
         {
@@ -124,11 +106,10 @@ public partial class DexRecSearcher : Form
                     var target = (ushort)Core.RNG.Util.GetDexRecommendation(CB_Target.GetText());
                     var slotSpecified = CB_SpecificSlot.GetIsChecked();
                     var slot = GetSpecificSlot();
-                    var exclArea = CB_IgnoreMap.GetText();
 
                     SetDexRecDetails(dr);
                     var found = true;
-                    if (exclArea != dr.Location)
+                    if (!Maps.Contains(dr.Location))
                     {
                         if (slotSpecified)
                         {
@@ -190,5 +171,20 @@ public partial class DexRecSearcher : Form
     private void B_Cancel_Click(object sender, EventArgs e)
     {
         stop = true;
+    }
+
+    DexRecLocationList? Drl;
+    private void B_ManageMaps_Click(object sender, EventArgs e)
+    {
+        if (!SubformOpen)
+        {
+            SubformOpen = true;
+            Drl = new DexRecLocationList(ref Maps, this);
+            Drl.Show();
+        }
+        else
+        {
+            Drl?.Focus();
+        }
     }
 }
