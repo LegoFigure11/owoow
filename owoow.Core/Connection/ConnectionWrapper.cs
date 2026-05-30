@@ -107,21 +107,23 @@ public class ConnectionWrapperAsync(SwitchConnectionConfig Config, Action<string
 
     public async Task OpenPokedex(bool first, CancellationToken token)
     {
-        if (first) await DoTurboCommand("Left Stick (L3)", token);
-        await DoTurboCommand("X", token);
-        await Task.Delay(1_200, token);
-        await DoTurboCommand("A", token);
-        await Task.Delay(2_700, token);
+        // Send a "useless" command to connect controller, just in case this is the first time connecting
+        if (first) await DoTurboCommand("D-Pad Down", token).ConfigureAwait(false);
+
+        await DoTurboCommand("X", token).ConfigureAwait(false);
+        await Task.Delay(1_200, token).ConfigureAwait(false);
+        await DoTurboCommand("A", token).ConfigureAwait(false);
+        await Task.Delay(2_700, token).ConfigureAwait(false);
     }
 
     public async Task ClosePokedexAndSave(CancellationToken token)
     {
-        await DoTurboCommand("B", token);
-        await Task.Delay(2_400, token);
-        await DoTurboCommand("R", token);
-        await Task.Delay(1_700, token);
-        await DoTurboCommand("A", token);
-        await Task.Delay(4_000, token);
+        await DoTurboCommand("B", token).ConfigureAwait(false);
+        await Task.Delay(2_400, token).ConfigureAwait(false);
+        await DoTurboCommand("R", token).ConfigureAwait(false);
+        await Task.Delay(1_700, token).ConfigureAwait(false);
+        await DoTurboCommand("A", token).ConfigureAwait(false);
+        await Task.Delay(4_000, token).ConfigureAwait(false);
     }
 
     public async Task<PK8> ReadWildPokemon(CancellationToken token)

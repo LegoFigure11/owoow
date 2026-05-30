@@ -151,6 +151,7 @@ public partial class DexRecSearcher : Form
                         MainWindow.SetControlText(text + " - Resetting date...", this);
                         await ConnectionWrapper.SetCurrentTime(tick, MainWindow.Source.Token).ConfigureAwait(false);
                     }
+                    first = false;
                 }
                 MainWindow.SetControlText(text, this);
                 MainWindow.SetControlEnabledState(true, B_Search);
