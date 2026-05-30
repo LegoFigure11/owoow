@@ -3409,10 +3409,6 @@ namespace owoow.WinForms
         private Button B_SeedSearch;
         private Panel P_EncounterSettings;
         private GroupBox GB_DexRec;
-        private ComboBox CB_DexRec4;
-        private ComboBox CB_DexRec3;
-        private ComboBox CB_DexRec2;
-        private ComboBox CB_DexRec1;
         private GroupBox GB_Advanced;
         private NumericUpDown NUD_AreaLoad;
         private Button B_CalculateRain;
@@ -3525,5 +3521,9 @@ namespace owoow.WinForms
         private DataGridViewTextBoxColumn eggMoveDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn seed0DataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn seed1DataGridViewTextBoxColumn;
+        public ComboBox CB_DexRec4;
+        public ComboBox CB_DexRec3;
+        public ComboBox CB_DexRec2;
+        public ComboBox CB_DexRec1;
     }
 }

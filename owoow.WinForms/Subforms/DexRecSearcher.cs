@@ -2,6 +2,7 @@ using owoow.Core;
 using owoow.Core.Connection;
 using owoow.Core.Structures;
 using System.Text.Json;
+using static owoow.Core.RNG.Util;
 
 namespace owoow.WinForms.Subforms;
 
@@ -63,10 +64,15 @@ public partial class DexRecSearcher : Form
     {
         MainWindow.SetControlText(dr.Location, TB_Map);
         MainWindow.SetControlText($"{dr.Seed:X16}", TB_Seed);
-        MainWindow.SetControlText(Core.RNG.Util.GetDexRecommendation(dr.Species1), TB_S1);
-        MainWindow.SetControlText(Core.RNG.Util.GetDexRecommendation(dr.Species2), TB_S2);
-        MainWindow.SetControlText(Core.RNG.Util.GetDexRecommendation(dr.Species3), TB_S3);
-        MainWindow.SetControlText(Core.RNG.Util.GetDexRecommendation(dr.Species4), TB_S4);
+        MainWindow.SetControlText(GetDexRecommendation(dr.Species1), TB_S1);
+        MainWindow.SetControlText(GetDexRecommendation(dr.Species2), TB_S2);
+        MainWindow.SetControlText(GetDexRecommendation(dr.Species3), TB_S3);
+        MainWindow.SetControlText(GetDexRecommendation(dr.Species4), TB_S4);
+
+        MainWindow.SetComboBoxSelectedIndex(MainWindow.CB_DexRec1.Items.IndexOf(GetDexRecommendation(dr.Species1)), MainWindow.CB_DexRec1);
+        MainWindow.SetComboBoxSelectedIndex(MainWindow.CB_DexRec2.Items.IndexOf(GetDexRecommendation(dr.Species2)), MainWindow.CB_DexRec2);
+        MainWindow.SetComboBoxSelectedIndex(MainWindow.CB_DexRec3.Items.IndexOf(GetDexRecommendation(dr.Species3)), MainWindow.CB_DexRec3);
+        MainWindow.SetComboBoxSelectedIndex(MainWindow.CB_DexRec4.Items.IndexOf(GetDexRecommendation(dr.Species4)), MainWindow.CB_DexRec4);
     }
 
     private void CB_SpecificSlot_CheckedChanged(object sender, EventArgs e)
@@ -103,7 +109,7 @@ public partial class DexRecSearcher : Form
                     MainWindow.SetControlText(text + " - Reading Pokédex Recommendation...", this);
                     var dr = await ConnectionWrapper.ReadDexRecommendationFull(MainWindow.Source.Token).ConfigureAwait(false);
                     MainWindow.readPause = false;
-                    var target = (ushort)Core.RNG.Util.GetDexRecommendation(CB_Target.GetText());
+                    var target = (ushort)GetDexRecommendation(CB_Target.GetText());
                     var slotSpecified = CB_SpecificSlot.GetIsChecked();
                     var slot = GetSpecificSlot();
 
