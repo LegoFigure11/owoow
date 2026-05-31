@@ -43,6 +43,7 @@ A comprehensive usage guide brought to you by [Billo-PS](https://github.com/Bill
 * Spread Finder tool to check the availability of specific IV spread + Height combinations, given the number of guaranteed flawless IVs for an encounter (recommended for advanced users only).
 * Mini tool for skipping a Xoroshiro128+ RNG an arbitrary amount forwards or backwards.
 * Full support for encounter-modifying conditions such as Lead Abilities and Pok&eacute;dex Recommendations.
+* Automated tool for resetting for specific Pok&eacute;dex Recommendations (CFW only). Shift + Click the "Refresh" button under Poke&eacute;dex Recommendations in the main window to get started.
 * Filtering results based on Species (rather than Encounter Slot), IVs, Shininess, Mark, Brilliant Aura, Height (for Jumbo/Teensy mark in Scarlet/Violet), and Rare EC (EC modulo 100 = 0, only useful for catching Dunsparce that evolve in to 3-Segment Dudunsparce in Scarlet/Violet).
 * Parallelised search (can be adjusted by changing the value of ``MaxSearchTasksNthPowerOfTwo`` in ``config.json`` while the program is closed, recommended for advanced users only), resulting in search times many many times faster than SwSh OWRNG Generator GUI.
 * Automatically read TID, SID, Shiny Charm, Mark Charm, Game Version, and Pok&eacute;dex Recommendations directly from RAM (CFW only).
