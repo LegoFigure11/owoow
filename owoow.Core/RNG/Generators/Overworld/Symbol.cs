@@ -119,7 +119,7 @@ public class Symbol
                 if (!EncounterSlotChosen)
                 {
                     DexRec = GenerateDexRecActivation(ref rng);
-                    if (DexRec > 49 && config.IsDexRecActive)
+                    if (DexRec < 50 && config.IsDexRecActive)
                     {
                         DexRecSlot = config.DexRecSlots[GenerateEncounterSlot(ref rng, 4)];
                         var DexRecMatchingSpecies = ActiveTable.Where(enc => enc.Value.DevId == DexRecSlot);
