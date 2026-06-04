@@ -172,7 +172,7 @@ public partial class MainWindow : Form
                     _ => "",
                 };
                 skippedGameCheck = false;
-                if (ModifierKeys != Keys.Shift)
+                if ((ModifierKeys & Keys.Shift) != Keys.Shift)
                 {
                     if (game is "")
                     {
@@ -1820,7 +1820,7 @@ public partial class MainWindow : Form
     OverworldScanner? OverworldScannerForm;
     private void B_ReadEncounter_Click(object sender, EventArgs e)
     {
-        if (ModifierKeys == Keys.Shift)
+        if ((ModifierKeys & Keys.Shift) == Keys.Shift)
         {
             try
             {
