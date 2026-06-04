@@ -1151,6 +1151,7 @@ public partial class MainWindow : Form
     private void B_SeedSearch_Click(object sender, EventArgs e)
     {
         var et = (EncounterType)TC_EncounterType.SelectedIndex;
+        var turnedScreenOff = false;
         Task.Run(async () =>
         {
             try
@@ -1161,7 +1162,11 @@ public partial class MainWindow : Form
                 readPause = true;
                 bool found = false;
                 await Task.Delay(150, ResetSource.Token).ConfigureAwait(false);
-                await ConnectionWrapper.SetScreenState(Config.ScreenOff ? ScreenState.Off : ScreenState.On, ResetSource.Token).ConfigureAwait(false);
+                if (Config.ScreenOff)
+                {
+                    turnedScreenOff = true;
+                    await ConnectionWrapper.SetScreenState(Config.ScreenOff ? ScreenState.Off : ScreenState.On, ResetSource.Token).ConfigureAwait(false);
+                }
                 bool first = true;
                 var ct = 0;
                 var sw = Stopwatch.GetTimestamp();
@@ -1312,7 +1317,7 @@ public partial class MainWindow : Form
                         {
                             try
                             {
-                                await ConnectionWrapper.SetScreenState(ScreenState.On, ResetSource.Token).ConfigureAwait(false);
+                                if (turnedScreenOff) await ConnectionWrapper.SetScreenState(ScreenState.On, ResetSource.Token).ConfigureAwait(false);
                             }
                             catch
                             {
@@ -1344,7 +1349,7 @@ public partial class MainWindow : Form
                     {
                         try
                         {
-                            await ConnectionWrapper.SetScreenState(ScreenState.On, ResetSource.Token).ConfigureAwait(false);
+                            if (turnedScreenOff) await ConnectionWrapper.SetScreenState(ScreenState.On, ResetSource.Token).ConfigureAwait(false);
                         }
                         catch
                         {
@@ -1374,7 +1379,7 @@ public partial class MainWindow : Form
                 SetControlEnabledState(false, B_CancelSkip);
                 try
                 {
-                    await ConnectionWrapper.SetScreenState(ScreenState.On, ResetSource.Token).ConfigureAwait(false);
+                    if (turnedScreenOff) await ConnectionWrapper.SetScreenState(ScreenState.On, ResetSource.Token).ConfigureAwait(false);
                 }
                 catch
                 {
@@ -1402,7 +1407,7 @@ public partial class MainWindow : Form
             SetControlEnabledState(false, B_CancelSkip);
             try
             {
-                await ConnectionWrapper.SetScreenState(ScreenState.On, ResetSource.Token).ConfigureAwait(false);
+                if (turnedScreenOff) await ConnectionWrapper.SetScreenState(ScreenState.On, ResetSource.Token).ConfigureAwait(false);
             }
             catch
             {
@@ -1753,7 +1758,7 @@ public partial class MainWindow : Form
         {
             try
             {
-                ConnectionWrapper.SetScreenState(ScreenState.On, Source.Token).ConfigureAwait(false);
+                if (Config.ScreenOff) ConnectionWrapper.SetScreenState(ScreenState.On, Source.Token).ConfigureAwait(false);
                 _ = ConnectionWrapper.DisconnectAsync(Source.Token).ConfigureAwait(false);
             }
             catch
