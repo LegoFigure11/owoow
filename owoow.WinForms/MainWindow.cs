@@ -2039,33 +2039,35 @@ public partial class MainWindow : Form
     private void B_IV_Max_Click(object sender, EventArgs e)
     {
         var st = ((Button)sender).Name.Replace("B_", string.Empty).Replace("_Max", string.Empty);
-        List<string> stats = ModifierKeys == Keys.Shift ? ["HP", "Atk", "Def", "SpA", "SpD", "Spe"] : [st];
+        List<string> stats = (ModifierKeys & Keys.Shift) == Keys.Shift ? ["HP", "Atk", "Def", "SpA", "SpD", "Spe"] : [st];
+        var val = (ModifierKeys & Keys.Control) == Keys.Control ? 30 : 31;
         foreach (var stat in stats)
         {
             var min = (NumericUpDown)Controls.Find($"NUD_{stat}_Min", true).FirstOrDefault()!;
             var max = (NumericUpDown)Controls.Find($"NUD_{stat}_Max", true).FirstOrDefault()!;
-            min.Value = 31;
-            max.Value = 31;
+            min.Value = val;
+            max.Value = val;
         }
     }
 
     private void B_IV_Min_Click(object sender, EventArgs e)
     {
         var st = ((Button)sender).Name.Replace("B_", string.Empty).Replace("_Min", string.Empty);
-        List<string> stats = ModifierKeys == Keys.Shift ? ["HP", "Atk", "Def", "SpA", "SpD", "Spe"] : [st];
+        List<string> stats = (ModifierKeys & Keys.Shift) == Keys.Shift ? ["HP", "Atk", "Def", "SpA", "SpD", "Spe"] : [st];
+        var val = (ModifierKeys & Keys.Control) == Keys.Control ? 1 : 0;
         foreach (var stat in stats)
         {
             var min = (NumericUpDown)Controls.Find($"NUD_{stat}_Min", true).FirstOrDefault()!;
             var max = (NumericUpDown)Controls.Find($"NUD_{stat}_Max", true).FirstOrDefault()!;
-            min.Value = 0;
-            max.Value = 0;
+            min.Value = val;
+            max.Value = val;
         }
     }
 
     private void IV_Label_Click(object sender, EventArgs e)
     {
         var st = ((Label)sender).Name.Replace("L_", string.Empty);
-        List<string> stats = ModifierKeys == Keys.Shift ? ["HP", "Atk", "Def", "SpA", "SpD", "Spe"] : [st];
+        List<string> stats = (ModifierKeys & Keys.Shift) == Keys.Shift ? ["HP", "Atk", "Def", "SpA", "SpD", "Spe"] : [st];
         foreach (var stat in stats)
         {
             var min = (NumericUpDown)Controls.Find($"NUD_{stat}_Min", true).FirstOrDefault()!;
