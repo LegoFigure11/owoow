@@ -34,18 +34,20 @@ namespace owoow.WinForms.Subforms
             B_Start = new Button();
             B_Stop = new Button();
             B_RefreshSources = new Button();
-            B_ScreenshotIdle = new Button();
+            B_ScreenshotPhysical = new Button();
             B_ScreenshotSpecial = new Button();
             PB_Physical = new PictureBox();
             PB_Special = new PictureBox();
             B_LoadPhys = new Button();
             B_LoadSpec = new Button();
-            B_Compare = new Button();
-            B_ScreenshotPhysical = new Button();
-            pictureBox1 = new PictureBox();
+            B_ScreenshotIdle = new Button();
+            PB_Idle = new PictureBox();
+            L_Obs = new Label();
+            TB_Obs = new TextBox();
+            B_LoadIdle = new Button();
             ((System.ComponentModel.ISupportInitialize)PB_Physical).BeginInit();
             ((System.ComponentModel.ISupportInitialize)PB_Special).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)PB_Idle).BeginInit();
             SuspendLayout();
             // 
             // CB_SourceSelect
@@ -96,15 +98,15 @@ namespace owoow.WinForms.Subforms
             B_RefreshSources.UseVisualStyleBackColor = true;
             B_RefreshSources.Click += B_RefreshSources_Click;
             // 
-            // B_ScreenshotIdle
+            // B_ScreenshotPhysical
             // 
-            B_ScreenshotIdle.Location = new Point(171, 93);
-            B_ScreenshotIdle.Name = "B_ScreenshotIdle";
-            B_ScreenshotIdle.Size = new Size(160, 25);
-            B_ScreenshotIdle.TabIndex = 11;
-            B_ScreenshotIdle.Text = "Screenshot (Idle)";
-            B_ScreenshotIdle.UseVisualStyleBackColor = true;
-            B_ScreenshotIdle.Click += B_ScreenshotPhysical_Click;
+            B_ScreenshotPhysical.Location = new Point(10, 93);
+            B_ScreenshotPhysical.Name = "B_ScreenshotPhysical";
+            B_ScreenshotPhysical.Size = new Size(160, 25);
+            B_ScreenshotPhysical.TabIndex = 11;
+            B_ScreenshotPhysical.Text = "Screenshot (Physical)";
+            B_ScreenshotPhysical.UseVisualStyleBackColor = true;
+            B_ScreenshotPhysical.Click += B_ScreenshotPhysical_Click;
             // 
             // B_ScreenshotSpecial
             // 
@@ -138,65 +140,86 @@ namespace owoow.WinForms.Subforms
             // 
             // B_LoadPhys
             // 
-            B_LoadPhys.Location = new Point(10, 261);
+            B_LoadPhys.Location = new Point(10, 220);
             B_LoadPhys.Name = "B_LoadPhys";
-            B_LoadPhys.Size = new Size(238, 25);
+            B_LoadPhys.Size = new Size(160, 25);
             B_LoadPhys.TabIndex = 15;
             B_LoadPhys.Text = "Load Image (Physical)";
             B_LoadPhys.UseVisualStyleBackColor = true;
             // 
             // B_LoadSpec
             // 
-            B_LoadSpec.Location = new Point(254, 261);
+            B_LoadSpec.Location = new Point(332, 220);
             B_LoadSpec.Name = "B_LoadSpec";
-            B_LoadSpec.Size = new Size(238, 25);
+            B_LoadSpec.Size = new Size(160, 25);
             B_LoadSpec.TabIndex = 16;
             B_LoadSpec.Text = "Load Image (Special)";
             B_LoadSpec.UseVisualStyleBackColor = true;
             // 
-            // B_Compare
+            // B_ScreenshotIdle
             // 
-            B_Compare.Location = new Point(10, 292);
-            B_Compare.Name = "B_Compare";
-            B_Compare.Size = new Size(482, 25);
-            B_Compare.TabIndex = 17;
-            B_Compare.Text = "Scan Animations";
-            B_Compare.UseVisualStyleBackColor = true;
-            B_Compare.Click += B_Compare_Click;
+            B_ScreenshotIdle.Location = new Point(171, 93);
+            B_ScreenshotIdle.Name = "B_ScreenshotIdle";
+            B_ScreenshotIdle.Size = new Size(160, 25);
+            B_ScreenshotIdle.TabIndex = 18;
+            B_ScreenshotIdle.Text = "Screenshot (Idle)";
+            B_ScreenshotIdle.UseVisualStyleBackColor = true;
+            B_ScreenshotIdle.Click += B_ScreenshotIdle_Click;
             // 
-            // B_ScreenshotPhysical
+            // PB_Idle
             // 
-            B_ScreenshotPhysical.Location = new Point(10, 93);
-            B_ScreenshotPhysical.Name = "B_ScreenshotPhysical";
-            B_ScreenshotPhysical.Size = new Size(160, 25);
-            B_ScreenshotPhysical.TabIndex = 18;
-            B_ScreenshotPhysical.Text = "Screenshot (Physical)";
-            B_ScreenshotPhysical.UseVisualStyleBackColor = true;
+            PB_Idle.BorderStyle = BorderStyle.FixedSingle;
+            PB_Idle.Location = new Point(171, 124);
+            PB_Idle.Name = "PB_Idle";
+            PB_Idle.Size = new Size(160, 90);
+            PB_Idle.SizeMode = PictureBoxSizeMode.Zoom;
+            PB_Idle.TabIndex = 19;
+            PB_Idle.TabStop = false;
             // 
-            // pictureBox1
+            // L_Obs
             // 
-            pictureBox1.BorderStyle = BorderStyle.FixedSingle;
-            pictureBox1.Location = new Point(171, 124);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(160, 90);
-            pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
-            pictureBox1.TabIndex = 19;
-            pictureBox1.TabStop = false;
+            L_Obs.AutoSize = true;
+            L_Obs.Location = new Point(12, 277);
+            L_Obs.Name = "L_Obs";
+            L_Obs.Size = new Size(88, 15);
+            L_Obs.TabIndex = 20;
+            L_Obs.Text = "Observations: 0";
+            // 
+            // TB_Obs
+            // 
+            TB_Obs.Font = new Font("Consolas", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            TB_Obs.Location = new Point(10, 295);
+            TB_Obs.Name = "TB_Obs";
+            TB_Obs.ReadOnly = true;
+            TB_Obs.Size = new Size(482, 22);
+            TB_Obs.TabIndex = 21;
+            TB_Obs.TextChanged += TB_Obs_TextChanged;
+            // 
+            // B_LoadIdle
+            // 
+            B_LoadIdle.Location = new Point(171, 220);
+            B_LoadIdle.Name = "B_LoadIdle";
+            B_LoadIdle.Size = new Size(160, 25);
+            B_LoadIdle.TabIndex = 22;
+            B_LoadIdle.Text = "Load Image (Idle)";
+            B_LoadIdle.UseVisualStyleBackColor = true;
             // 
             // VideoFeed
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(504, 449);
-            Controls.Add(pictureBox1);
-            Controls.Add(B_ScreenshotPhysical);
-            Controls.Add(B_Compare);
+            ClientSize = new Size(504, 361);
+            Controls.Add(B_LoadIdle);
+            Controls.Add(TB_Obs);
+            Controls.Add(L_Obs);
+            Controls.Add(PB_Idle);
+            Controls.Add(B_ScreenshotIdle);
             Controls.Add(B_LoadSpec);
             Controls.Add(B_LoadPhys);
             Controls.Add(PB_Special);
             Controls.Add(PB_Physical);
             Controls.Add(B_ScreenshotSpecial);
-            Controls.Add(B_ScreenshotIdle);
+            Controls.Add(B_ScreenshotPhysical);
             Controls.Add(B_RefreshSources);
             Controls.Add(B_Stop);
             Controls.Add(B_Start);
@@ -204,7 +227,7 @@ namespace owoow.WinForms.Subforms
             Controls.Add(CB_SourceSelect);
             Icon = (Icon)resources.GetObject("$this.Icon");
             MaximumSize = new Size(520, 488);
-            MinimumSize = new Size(520, 488);
+            MinimumSize = new Size(520, 400);
             Name = "VideoFeed";
             SizeGripStyle = SizeGripStyle.Hide;
             Text = "Video Feed";
@@ -212,7 +235,7 @@ namespace owoow.WinForms.Subforms
             Load += VideoFeed_Load;
             ((System.ComponentModel.ISupportInitialize)PB_Physical).EndInit();
             ((System.ComponentModel.ISupportInitialize)PB_Special).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)PB_Idle).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -223,14 +246,16 @@ namespace owoow.WinForms.Subforms
         private Button B_Start;
         private Button B_Stop;
         private Button B_RefreshSources;
-        private Button B_ScreenshotIdle;
+        private Button B_ScreenshotPhysical;
         private Button B_ScreenshotSpecial;
         private PictureBox PB_Physical;
         private PictureBox PB_Special;
         private Button B_LoadPhys;
         private Button B_LoadSpec;
-        private Button B_Compare;
-        private Button B_ScreenshotPhysical;
-        private PictureBox pictureBox1;
+        private Button B_ScreenshotIdle;
+        private PictureBox PB_Idle;
+        private Label L_Obs;
+        private TextBox TB_Obs;
+        private Button B_LoadIdle;
     }
 }

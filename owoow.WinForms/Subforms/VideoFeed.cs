@@ -23,9 +23,21 @@ public partial class VideoFeed : Form
     private readonly Lock _templateLock = new();
     private Mat? _physMat;
     private Mat? _specMat;
+    private Mat? _idleMat;
 
     private Image? _phys;
     private Image? _spec;
+    private Image? _idle;
+
+    private Winner winner = Winner.Idle;
+    private Winner lastwinner = Winner.Idle;
+
+    private enum Winner
+    {
+        Idle,
+        Physical,
+        Special
+    }
 
     public VideoFeed(MainWindow f)
     {
@@ -56,6 +68,7 @@ public partial class VideoFeed : Form
     {
         var phys = baseDir + @"\physical.png";
         var spec = baseDir + @"\special.png";
+        var idle = baseDir + @"\idle.png";
 
         if (File.Exists(phys))
         {
@@ -80,6 +93,19 @@ public partial class VideoFeed : Form
             lock (_templateLock)
             {
                 _specMat = Cv2.ImRead(spec);
+            }
+        }
+
+        if (File.Exists(idle))
+        {
+            byte[] bytes = File.ReadAllBytes(idle);
+            using var ms = new MemoryStream(bytes);
+            _idle = Image.FromStream(ms);
+            PB_Idle.Image?.Dispose();
+            PB_Idle.Image = _idle;
+            lock (_templateLock)
+            {
+                _idleMat = Cv2.ImRead(idle);
             }
         }
 
@@ -138,11 +164,14 @@ public partial class VideoFeed : Form
         using var frame = new Mat();
         using var localPhys = new Mat();
         using var localSpec = new Mat();
+        using var localIdle = new Mat();
 
         using var diffPhys = new Mat();
         using var diffSpec = new Mat();
+        using var diffIdle = new Mat();
         using var grayPhys = new Mat();
         using var graySpec = new Mat();
+        using var grayIdle = new Mat();
 
         long lastLogTimestamp = 0;
         const long logCooldownMs = 1000; // 1 second cooldown
@@ -166,12 +195,13 @@ public partial class VideoFeed : Form
             bool templatesAreReady = false;
             lock (_templateLock)
             {
-                if (_physMat != null && !_physMat.Empty() && _specMat != null && !_specMat.Empty())
+                if (_physMat != null && !_physMat.Empty() && _specMat != null && !_specMat.Empty() && _idleMat != null && !_idleMat.Empty())
                 {
-                    if (_physMat.Size() == frame.Size() && _specMat.Size() == frame.Size())
+                    if (_physMat.Size() == frame.Size() && _specMat.Size() == frame.Size() && _idleMat.Size() == frame.Size())
                     {
                         _physMat.CopyTo(localPhys);
                         _specMat.CopyTo(localSpec);
+                        _idleMat.CopyTo(localIdle);
                         templatesAreReady = true;
                     }
                 }
@@ -192,28 +222,43 @@ public partial class VideoFeed : Form
                 int diffCountSpec = Cv2.CountNonZero(graySpec);
                 int pixelDifferenceThreshold = (frame.Size().Height * frame.Size().Width) / 100;
 
+                Cv2.Absdiff(frame, localIdle, diffIdle);
+                Cv2.CvtColor(diffIdle, grayIdle, ColorConversionCodes.BGR2GRAY);
+                Cv2.Threshold(grayIdle, grayIdle, 30, 255, ThresholdTypes.Binary);
+                int diffCountIdle = Cv2.CountNonZero(grayIdle);
+
+                int minDiff = Math.Min(diffCountPhys, Math.Min(diffCountSpec, diffCountIdle));
                 long currentTimestamp = Environment.TickCount64;
+                bool allowLog = (currentTimestamp - lastLogTimestamp >= logCooldownMs);
 
-                if (diffCountPhys < diffCountSpec)
+                if (minDiff == diffCountPhys && lastwinner == Winner.Idle)
                 {
-                    resultText = $"Match: Physical (Diff Pixels: {diffCountPhys})";
-
-                    if (diffCountPhys < pixelDifferenceThreshold && (currentTimestamp - lastLogTimestamp >= logCooldownMs))
+                    winner = Winner.Physical;
+                    resultText = $"Match: Physical (Diff: {diffCountPhys})";
+                    if (diffCountPhys < pixelDifferenceThreshold && allowLog)
                     {
-                        Debug.WriteLine($"[MATCH ACCEPTED] Feed matches Physical Matrix. Score: {diffCountPhys} variant pixels.");
+                        Debug.WriteLine($"[{DateTime.Now:HH:mm:ss}] [MATCH ACCEPTED] Physical Matrix. Score: {diffCountPhys}");
                         lastLogTimestamp = currentTimestamp;
+                        MainWindow.SetControlText(TB_Obs.GetText() + "0", TB_Obs);
+                    }
+                }
+                else if (minDiff == diffCountSpec && lastwinner == Winner.Idle)
+                {
+                    winner = Winner.Special;
+                    resultText = $"Match: Special (Diff: {diffCountSpec})";
+                    if (diffCountSpec < pixelDifferenceThreshold && allowLog)
+                    {
+                        Debug.WriteLine($"[{DateTime.Now:HH:mm:ss}] [MATCH ACCEPTED] Special Matrix. Score: {diffCountSpec}");
+                        lastLogTimestamp = currentTimestamp;
+                        MainWindow.SetControlText(TB_Obs.GetText() + "1", TB_Obs);
                     }
                 }
                 else
                 {
-                    resultText = $"Match: Special (Diff Pixels: {diffCountSpec})";
-
-                    if (diffCountSpec < pixelDifferenceThreshold && (currentTimestamp - lastLogTimestamp >= logCooldownMs))
-                    {
-                        Debug.WriteLine($"[MATCH ACCEPTED] Feed matches Special Matrix. Score: {diffCountSpec} variant pixels.");
-                        lastLogTimestamp = currentTimestamp;
-                    }
+                    winner = Winner.Idle;
+                    resultText = $"Match: Idle (Diff: {diffCountIdle})";
                 }
+                lastwinner = winner;
             }
 
             Cv2.PutText(frame, resultText, new OpenCvSharp.Point(20, 40),
@@ -260,6 +305,8 @@ public partial class VideoFeed : Form
             _physMat = null;
             _specMat?.Dispose();
             _specMat = null;
+            _idleMat?.Dispose();
+            _idleMat = null;
         }
     }
 
@@ -321,7 +368,7 @@ public partial class VideoFeed : Form
                             _physMat = Cv2.ImRead(saveFileDialog.FileName);
                         }
                     }
-                    else
+                    else if (filename == "special")
                     {
                         byte[] bytes = File.ReadAllBytes(saveFileDialog.FileName);
                         using var ms = new MemoryStream(bytes);
@@ -333,6 +380,20 @@ public partial class VideoFeed : Form
                         {
                             _specMat?.Dispose();
                             _specMat = Cv2.ImRead(saveFileDialog.FileName);
+                        }
+                    }
+                    else
+                    {
+                        byte[] bytes = File.ReadAllBytes(saveFileDialog.FileName);
+                        using var ms = new MemoryStream(bytes);
+                        _idle?.Dispose();
+                        _idle = Image.FromStream(ms);
+                        PB_Idle.Image?.Dispose();
+                        PB_Idle.Image = _idle;
+                        lock (_templateLock)
+                        {
+                            _idleMat?.Dispose();
+                            _idleMat = Cv2.ImRead(saveFileDialog.FileName);
                         }
                     }
                     MessageBox.Show("Screenshot saved successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -348,5 +409,15 @@ public partial class VideoFeed : Form
     private void B_Compare_Click(object sender, EventArgs e)
     {
         _isComparing = !_isComparing;
+    }
+
+    private void B_ScreenshotIdle_Click(object sender, EventArgs e)
+    {
+        SaveScreenshot("idle");
+    }
+
+    private void TB_Obs_TextChanged(object sender, EventArgs e)
+    {
+        MainWindow.SetControlText($"Observations: {TB_Obs.GetText().Length}", L_Obs);
     }
 }
