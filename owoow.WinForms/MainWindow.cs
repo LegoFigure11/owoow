@@ -2604,13 +2604,21 @@ public partial class MainWindow : Form
     #region SubForms
     private void B_RetailSeedFinder_Click(object sender, EventArgs e)
     {
-        using RetailSeedFinder rsf = new();
-        if (rsf.ShowDialog() == DialogResult.OK)
+        if ((ModifierKeys & Keys.Shift) == Keys.Shift)
         {
-            TB_Seed0.Text = rsf.Seed0;
-            TB_Seed1.Text = rsf.Seed1;
-            TB_CurrentS0.Text = rsf.Seed0;
-            TB_CurrentS1.Text = rsf.Seed1;
+            using VideoFeed vf = new(this);
+            vf.ShowDialog();
+        }
+        else
+        {
+            using RetailSeedFinder rsf = new();
+            if (rsf.ShowDialog() == DialogResult.OK)
+            {
+                TB_Seed0.Text = rsf.Seed0;
+                TB_Seed1.Text = rsf.Seed1;
+                TB_CurrentS0.Text = rsf.Seed0;
+                TB_CurrentS1.Text = rsf.Seed1;
+            }
         }
     }
 
