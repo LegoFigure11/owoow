@@ -28,9 +28,11 @@ partial class VideoFeedLog
     /// </summary>
     private void InitializeComponent()
     {
+        System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(VideoFeedLog));
         TB_Logs = new TextBox();
         CB_Reject = new CheckBox();
         CB_Accept = new CheckBox();
+        CB_Topmost = new CheckBox();
         SuspendLayout();
         // 
         // TB_Logs
@@ -71,15 +73,29 @@ partial class VideoFeedLog
         CB_Accept.UseVisualStyleBackColor = true;
         CB_Accept.CheckedChanged += CB_Accept_CheckedChanged;
         // 
+        // CB_Topmost
+        // 
+        CB_Topmost.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+        CB_Topmost.AutoSize = true;
+        CB_Topmost.Location = new Point(606, 273);
+        CB_Topmost.Name = "CB_Topmost";
+        CB_Topmost.Size = new Size(78, 19);
+        CB_Topmost.TabIndex = 3;
+        CB_Topmost.Text = "Pin to top";
+        CB_Topmost.UseVisualStyleBackColor = true;
+        CB_Topmost.CheckedChanged += this.CB_Topmost_CheckedChanged;
+        // 
         // VideoFeedLog
         // 
         AutoScaleDimensions = new SizeF(7F, 15F);
         AutoScaleMode = AutoScaleMode.Font;
         ClientSize = new Size(694, 301);
+        Controls.Add(CB_Topmost);
         Controls.Add(CB_Accept);
         Controls.Add(CB_Reject);
         Controls.Add(TB_Logs);
         FormBorderStyle = FormBorderStyle.SizableToolWindow;
+        Icon = (Icon)resources.GetObject("$this.Icon");
         Name = "VideoFeedLog";
         Text = "VideoFeedLog";
         FormClosing += VideoFeedDebugLog_FormClosing;
@@ -92,4 +108,5 @@ partial class VideoFeedLog
     private TextBox TB_Logs;
     private CheckBox CB_Reject;
     private CheckBox CB_Accept;
+    private CheckBox CB_Topmost;
 }

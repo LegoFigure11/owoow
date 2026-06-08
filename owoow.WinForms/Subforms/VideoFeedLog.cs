@@ -43,4 +43,9 @@ public partial class VideoFeedLog : Form
     {
         _reject = CB_Reject.GetIsChecked();
     }
+
+    private void CB_Topmost_CheckedChanged(object sender, EventArgs e)
+    {
+        TopMost = CB_Topmost.GetIsChecked();
+    }
 }
