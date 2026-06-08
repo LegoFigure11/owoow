@@ -45,9 +45,21 @@ namespace owoow.WinForms.Subforms
             L_Obs = new Label();
             TB_Obs = new TextBox();
             B_LoadIdle = new Button();
+            B_ObserveStop = new Button();
+            B_ObserveStart = new Button();
+            CB_TopMost = new CheckBox();
+            L_Thresh = new Label();
+            L_Time = new Label();
+            NUD_Thresh = new NumericUpDown();
+            NUD_Time = new NumericUpDown();
+            B_Thresh = new Button();
+            B_Time = new Button();
+            CB_ShowLog = new CheckBox();
             ((System.ComponentModel.ISupportInitialize)PB_Physical).BeginInit();
             ((System.ComponentModel.ISupportInitialize)PB_Special).BeginInit();
             ((System.ComponentModel.ISupportInitialize)PB_Idle).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)NUD_Thresh).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)NUD_Time).BeginInit();
             SuspendLayout();
             // 
             // CB_SourceSelect
@@ -55,7 +67,7 @@ namespace owoow.WinForms.Subforms
             CB_SourceSelect.FormattingEnabled = true;
             CB_SourceSelect.Location = new Point(130, 10);
             CB_SourceSelect.Name = "CB_SourceSelect";
-            CB_SourceSelect.Size = new Size(283, 23);
+            CB_SourceSelect.Size = new Size(201, 23);
             CB_SourceSelect.TabIndex = 1;
             // 
             // L_SourceSelect
@@ -73,7 +85,7 @@ namespace owoow.WinForms.Subforms
             B_Start.Name = "B_Start";
             B_Start.Size = new Size(482, 25);
             B_Start.TabIndex = 3;
-            B_Start.Text = "Start";
+            B_Start.Text = "Start Feed";
             B_Start.UseVisualStyleBackColor = true;
             B_Start.Click += B_Start_Click;
             // 
@@ -84,15 +96,15 @@ namespace owoow.WinForms.Subforms
             B_Stop.Name = "B_Stop";
             B_Stop.Size = new Size(482, 25);
             B_Stop.TabIndex = 4;
-            B_Stop.Text = "Stop";
+            B_Stop.Text = "Stop Feed";
             B_Stop.UseVisualStyleBackColor = true;
             B_Stop.Click += B_Stop_Click;
             // 
             // B_RefreshSources
             // 
-            B_RefreshSources.Location = new Point(418, 8);
+            B_RefreshSources.Location = new Point(337, 8);
             B_RefreshSources.Name = "B_RefreshSources";
-            B_RefreshSources.Size = new Size(74, 25);
+            B_RefreshSources.Size = new Size(71, 25);
             B_RefreshSources.TabIndex = 5;
             B_RefreshSources.Text = "Refresh";
             B_RefreshSources.UseVisualStyleBackColor = true;
@@ -146,6 +158,7 @@ namespace owoow.WinForms.Subforms
             B_LoadPhys.TabIndex = 15;
             B_LoadPhys.Text = "Load Image (Physical)";
             B_LoadPhys.UseVisualStyleBackColor = true;
+            B_LoadPhys.Click += B_LoadPhys_Click;
             // 
             // B_LoadSpec
             // 
@@ -155,6 +168,7 @@ namespace owoow.WinForms.Subforms
             B_LoadSpec.TabIndex = 16;
             B_LoadSpec.Text = "Load Image (Special)";
             B_LoadSpec.UseVisualStyleBackColor = true;
+            B_LoadSpec.Click += B_LoadSpec_Click;
             // 
             // B_ScreenshotIdle
             // 
@@ -179,7 +193,7 @@ namespace owoow.WinForms.Subforms
             // L_Obs
             // 
             L_Obs.AutoSize = true;
-            L_Obs.Location = new Point(12, 277);
+            L_Obs.Location = new Point(12, 360);
             L_Obs.Name = "L_Obs";
             L_Obs.Size = new Size(88, 15);
             L_Obs.TabIndex = 20;
@@ -188,7 +202,7 @@ namespace owoow.WinForms.Subforms
             // TB_Obs
             // 
             TB_Obs.Font = new Font("Consolas", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            TB_Obs.Location = new Point(10, 295);
+            TB_Obs.Location = new Point(10, 378);
             TB_Obs.Name = "TB_Obs";
             TB_Obs.ReadOnly = true;
             TB_Obs.Size = new Size(482, 22);
@@ -203,12 +217,125 @@ namespace owoow.WinForms.Subforms
             B_LoadIdle.TabIndex = 22;
             B_LoadIdle.Text = "Load Image (Idle)";
             B_LoadIdle.UseVisualStyleBackColor = true;
+            B_LoadIdle.Click += B_LoadIdle_Click;
+            // 
+            // B_ObserveStop
+            // 
+            B_ObserveStop.Enabled = false;
+            B_ObserveStop.Location = new Point(10, 329);
+            B_ObserveStop.Name = "B_ObserveStop";
+            B_ObserveStop.Size = new Size(482, 25);
+            B_ObserveStop.TabIndex = 24;
+            B_ObserveStop.Text = "Stop Monitoring";
+            B_ObserveStop.UseVisualStyleBackColor = true;
+            B_ObserveStop.Click += B_ObserveStop_Click;
+            // 
+            // B_ObserveStart
+            // 
+            B_ObserveStart.Enabled = false;
+            B_ObserveStart.Location = new Point(10, 302);
+            B_ObserveStart.Name = "B_ObserveStart";
+            B_ObserveStart.Size = new Size(482, 25);
+            B_ObserveStart.TabIndex = 23;
+            B_ObserveStart.Text = "Monitor Animations";
+            B_ObserveStart.UseVisualStyleBackColor = true;
+            B_ObserveStart.Click += B_Compare_Click;
+            // 
+            // CB_TopMost
+            // 
+            CB_TopMost.AutoSize = true;
+            CB_TopMost.Location = new Point(414, 12);
+            CB_TopMost.Name = "CB_TopMost";
+            CB_TopMost.Size = new Size(78, 19);
+            CB_TopMost.TabIndex = 25;
+            CB_TopMost.Text = "Pin to top";
+            CB_TopMost.UseVisualStyleBackColor = true;
+            CB_TopMost.CheckedChanged += CB_TopMost_CheckedChanged;
+            // 
+            // L_Thresh
+            // 
+            L_Thresh.AutoSize = true;
+            L_Thresh.Location = new Point(10, 248);
+            L_Thresh.Name = "L_Thresh";
+            L_Thresh.Size = new Size(205, 15);
+            L_Thresh.TabIndex = 26;
+            L_Thresh.Text = "Acceptable Difference Threshold (px):";
+            // 
+            // L_Time
+            // 
+            L_Time.AutoSize = true;
+            L_Time.Location = new Point(254, 248);
+            L_Time.Name = "L_Time";
+            L_Time.Size = new Size(129, 15);
+            L_Time.TabIndex = 29;
+            L_Time.Text = "Match Cooldown (ms):";
+            // 
+            // NUD_Thresh
+            // 
+            NUD_Thresh.Location = new Point(10, 266);
+            NUD_Thresh.Maximum = new decimal(new int[] { 2073600, 0, 0, 0 });
+            NUD_Thresh.Name = "NUD_Thresh";
+            NUD_Thresh.Size = new Size(161, 23);
+            NUD_Thresh.TabIndex = 30;
+            NUD_Thresh.TextAlign = HorizontalAlignment.Right;
+            NUD_Thresh.ValueChanged += NUD_Thresh_ValueChanged;
+            // 
+            // NUD_Time
+            // 
+            NUD_Time.Location = new Point(254, 266);
+            NUD_Time.Maximum = new decimal(new int[] { 10000, 0, 0, 0 });
+            NUD_Time.Name = "NUD_Time";
+            NUD_Time.Size = new Size(161, 23);
+            NUD_Time.TabIndex = 31;
+            NUD_Time.TextAlign = HorizontalAlignment.Right;
+            NUD_Time.ValueChanged += NUD_Time_ValueChanged;
+            // 
+            // B_Thresh
+            // 
+            B_Thresh.Location = new Point(177, 266);
+            B_Thresh.Name = "B_Thresh";
+            B_Thresh.Size = new Size(71, 25);
+            B_Thresh.TabIndex = 32;
+            B_Thresh.Text = "Update";
+            B_Thresh.UseVisualStyleBackColor = true;
+            B_Thresh.Click += B_Thresh_Click;
+            // 
+            // B_Time
+            // 
+            B_Time.Location = new Point(421, 266);
+            B_Time.Name = "B_Time";
+            B_Time.Size = new Size(71, 25);
+            B_Time.TabIndex = 33;
+            B_Time.Text = "Update";
+            B_Time.UseVisualStyleBackColor = true;
+            B_Time.Click += B_Time_Click;
+            // 
+            // CB_ShowLog
+            // 
+            CB_ShowLog.AutoSize = true;
+            CB_ShowLog.Location = new Point(378, 359);
+            CB_ShowLog.Name = "CB_ShowLog";
+            CB_ShowLog.Size = new Size(114, 19);
+            CB_ShowLog.TabIndex = 34;
+            CB_ShowLog.Text = "Show CV Output";
+            CB_ShowLog.UseVisualStyleBackColor = true;
+            CB_ShowLog.CheckedChanged += CB_ShowLog_CheckedChanged;
             // 
             // VideoFeed
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(504, 361);
+            ClientSize = new Size(504, 411);
+            Controls.Add(CB_ShowLog);
+            Controls.Add(B_Time);
+            Controls.Add(B_Thresh);
+            Controls.Add(NUD_Time);
+            Controls.Add(NUD_Thresh);
+            Controls.Add(L_Time);
+            Controls.Add(L_Thresh);
+            Controls.Add(CB_TopMost);
+            Controls.Add(B_ObserveStop);
+            Controls.Add(B_ObserveStart);
             Controls.Add(B_LoadIdle);
             Controls.Add(TB_Obs);
             Controls.Add(L_Obs);
@@ -236,6 +363,8 @@ namespace owoow.WinForms.Subforms
             ((System.ComponentModel.ISupportInitialize)PB_Physical).EndInit();
             ((System.ComponentModel.ISupportInitialize)PB_Special).EndInit();
             ((System.ComponentModel.ISupportInitialize)PB_Idle).EndInit();
+            ((System.ComponentModel.ISupportInitialize)NUD_Thresh).EndInit();
+            ((System.ComponentModel.ISupportInitialize)NUD_Time).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -257,5 +386,15 @@ namespace owoow.WinForms.Subforms
         private Label L_Obs;
         private TextBox TB_Obs;
         private Button B_LoadIdle;
+        private Button B_ObserveStop;
+        private Button B_ObserveStart;
+        private CheckBox CB_TopMost;
+        private Label L_Thresh;
+        private Label L_Time;
+        private NumericUpDown NUD_Thresh;
+        private NumericUpDown NUD_Time;
+        private Button B_Thresh;
+        private Button B_Time;
+        private CheckBox CB_ShowLog;
     }
 }

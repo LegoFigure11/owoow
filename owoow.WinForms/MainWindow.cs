@@ -2606,7 +2606,7 @@ public partial class MainWindow : Form
     {
         if ((ModifierKeys & Keys.Shift) == Keys.Shift)
         {
-            using VideoFeed vf = new(this);
+            using VideoFeed vf = new(this, ref Config);
             vf.ShowDialog();
         }
         else
