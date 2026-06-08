@@ -1,11 +1,21 @@
 using FlashCap;
 using OpenCvSharp;
+using OpenCvSharp.Extensions;
 using System.Diagnostics;
+using System.Runtime.InteropServices;
 
 namespace owoow.WinForms.Subforms;
 
 public partial class VideoFeed : Form
 {
+    [DllImport("user32.dll")]
+    [return: MarshalAs(UnmanagedType.Bool)]
+    private static extern bool IsWindow(IntPtr hWnd);
+
+    [DllImport("user32.dll", SetLastError = true)]
+    private static extern IntPtr FindWindow(string? lpClassName, string lpWindowName);
+
+
     readonly MainWindow MainWindow;
     readonly ClientConfig _cfg;
 
@@ -162,14 +172,13 @@ public partial class VideoFeed : Form
         {
             Task.Run(() => RunCameraLoop(cameraIndex, _cts.Token), _cts.Token);
         }
-        catch (OperationCanceledException)
-        {
-            // ignore, clean exit handled safely
-        }
         catch (Exception ex)
         {
-            MessageBox.Show($"Feed Error: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            StopCamera();
+            if (ex is not OperationCanceledException)
+            {
+                MessageBox.Show($"Feed Error: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                StopCamera();
+            }
         }
     }
 
@@ -204,10 +213,20 @@ public partial class VideoFeed : Form
 
         Cv2.SetWindowProperty(windowName, WindowPropertyFlags.Topmost, topMost);
 
+        IntPtr nativeWindowHandle = IntPtr.Zero;
+        for (int i = 0; i < 20; i++)
+        {
+            nativeWindowHandle = FindWindow(null, windowName);
+            if (nativeWindowHandle != IntPtr.Zero) break;
+            Thread.Sleep(50);
+        }
+
         while (!token.IsCancellationRequested)
         {
             capture.Read(frame);
             if (frame.Empty()) continue;
+
+            if (frame.Width == 0 || frame.Height == 0) continue;
 
             lock (_frameLock)
             {
@@ -231,61 +250,95 @@ public partial class VideoFeed : Form
                             templatesReady = true;
                         }
                     }
+                    else
+                    {
+                        if (_physMat == null && _phys != null)
+                        {
+                            Mat newMat = new();
+                            var tmp = new Bitmap(_phys);
+                            using var bgraMat = tmp.ToMat();
+                            Cv2.CvtColor(bgraMat, newMat, ColorConversionCodes.BGRA2BGR);
+                            _physMat = newMat;
+                        }
+                        if (_specMat == null && _spec != null)
+                        {
+                            Mat newMat = new();
+                            var tmp = new Bitmap(_spec);
+                            using var bgraMat = tmp.ToMat();
+                            Cv2.CvtColor(bgraMat, newMat, ColorConversionCodes.BGRA2BGR);
+                            _specMat = newMat;
+                        }
+                        if (_idleMat == null && _idle != null)
+                        {
+                            Mat newMat = new();
+                            var tmp = new Bitmap(_idle);
+                            using var bgraMat = tmp.ToMat();
+                            Cv2.CvtColor(bgraMat, newMat, ColorConversionCodes.BGRA2BGR);
+                            _idleMat = newMat;
+                        }
+                    }
                 }
 
-                string resultText = "No reference matches found";
+                string resultText = $"No reference matches found.\nPhysical Mat Exists: {_physMat != null}\nSpecial Mat Exists: {_specMat != null}\nIdle Mat Exists: {_idleMat != null}";
 
                 if (templatesReady)
                 {
-                    Cv2.Absdiff(frame, localPhys, diffPhys);
-                    Cv2.CvtColor(diffPhys, grayPhys, ColorConversionCodes.BGR2GRAY);
-                    Cv2.Threshold(grayPhys, grayPhys, 30, 255, ThresholdTypes.Binary);
-                    int diffCountPhys = Cv2.CountNonZero(grayPhys);
-
-                    Cv2.Absdiff(frame, localSpec, diffSpec);
-                    Cv2.CvtColor(diffSpec, graySpec, ColorConversionCodes.BGR2GRAY);
-                    Cv2.Threshold(graySpec, graySpec, 30, 255, ThresholdTypes.Binary);
-                    int diffCountSpec = Cv2.CountNonZero(graySpec);
-
-                    Cv2.Absdiff(frame, localIdle, diffIdle);
-                    Cv2.CvtColor(diffIdle, grayIdle, ColorConversionCodes.BGR2GRAY);
-                    Cv2.Threshold(grayIdle, grayIdle, 30, 255, ThresholdTypes.Binary);
-                    int diffCountIdle = Cv2.CountNonZero(grayIdle);
-
-                    int minDiff = Math.Min(diffCountPhys, Math.Min(diffCountSpec, diffCountIdle));
-                    long currentTimestamp = Environment.TickCount64;
-                    bool allowLog = (currentTimestamp - lastLog >= _cooldown);
-
-                    if (minDiff == diffCountPhys && lastwinner == Winner.Idle)
+                    try
                     {
-                        winner = Winner.Physical;
-                        resultText = $"Match: Physical\nPhysical: {diffCountPhys}\nSpecial: {diffCountSpec}\nIdle: {diffCountIdle}";
-                        if (diffCountPhys < _threshold && allowLog)
+                        Cv2.Absdiff(frame, localPhys, diffPhys);
+                        Cv2.CvtColor(diffPhys, grayPhys, ColorConversionCodes.BGR2GRAY);
+                        Cv2.Threshold(grayPhys, grayPhys, 30, 255, ThresholdTypes.Binary);
+                        int diffCountPhys = Cv2.CountNonZero(grayPhys);
+
+                        Cv2.Absdiff(frame, localSpec, diffSpec);
+                        Cv2.CvtColor(diffSpec, graySpec, ColorConversionCodes.BGR2GRAY);
+                        Cv2.Threshold(graySpec, graySpec, 30, 255, ThresholdTypes.Binary);
+                        int diffCountSpec = Cv2.CountNonZero(graySpec);
+
+                        Cv2.Absdiff(frame, localIdle, diffIdle);
+                        Cv2.CvtColor(diffIdle, grayIdle, ColorConversionCodes.BGR2GRAY);
+                        Cv2.Threshold(grayIdle, grayIdle, 30, 255, ThresholdTypes.Binary);
+                        int diffCountIdle = Cv2.CountNonZero(grayIdle);
+
+                        int minDiff = Math.Min(diffCountPhys, Math.Min(diffCountSpec, diffCountIdle));
+                        long currentTimestamp = Environment.TickCount64;
+                        bool allowLog = (currentTimestamp - lastLog >= _cooldown);
+
+                        if (minDiff == diffCountPhys && lastwinner == Winner.Idle)
                         {
-                            Debug.WriteLine($"[{DateTime.Now:HH:mm:ss}] [MATCH ACCEPTED] Physical Matrix | Score: {diffCountPhys}");
-                            lastLog = currentTimestamp;
-                            MainWindow.SetControlText(TB_Obs.GetText() + "0", TB_Obs);
-                            SetCursorToEnd(TB_Obs);
+                            winner = Winner.Physical;
+                            resultText = $"Match: Physical\nPhysical: {diffCountPhys}\nSpecial: {diffCountSpec}\nIdle: {diffCountIdle}";
+                            if (diffCountPhys < _threshold && allowLog)
+                            {
+                                Debug.WriteLine($"[{DateTime.Now:HH:mm:ss}] [MATCH ACCEPTED] Physical Matrix | Score: {diffCountPhys}");
+                                lastLog = currentTimestamp;
+                                MainWindow.SetControlText(TB_Obs.GetText() + "0", TB_Obs);
+                                SetCursorToEnd(TB_Obs);
+                            }
                         }
-                    }
-                    else if (minDiff == diffCountSpec && lastwinner == Winner.Idle)
-                    {
-                        winner = Winner.Special;
-                        resultText = $"Match: Special\nPhysical: {diffCountPhys}\nSpecial: {diffCountSpec}\nIdle: {diffCountIdle}";
-                        if (diffCountSpec < _threshold && allowLog)
+                        else if (minDiff == diffCountSpec && lastwinner == Winner.Idle)
                         {
-                            Debug.WriteLine($"[{DateTime.Now:HH:mm:ss}] [MATCH ACCEPTED] Special Matrix  | Score: {diffCountSpec}");
-                            lastLog = currentTimestamp;
-                            MainWindow.SetControlText(TB_Obs.GetText() + "1", TB_Obs);
-                            SetCursorToEnd(TB_Obs);
+                            winner = Winner.Special;
+                            resultText = $"Match: Special\nPhysical: {diffCountPhys}\nSpecial: {diffCountSpec}\nIdle: {diffCountIdle}";
+                            if (diffCountSpec < _threshold && allowLog)
+                            {
+                                Debug.WriteLine($"[{DateTime.Now:HH:mm:ss}] [MATCH ACCEPTED] Special Matrix  | Score: {diffCountSpec}");
+                                lastLog = currentTimestamp;
+                                MainWindow.SetControlText(TB_Obs.GetText() + "1", TB_Obs);
+                                SetCursorToEnd(TB_Obs);
+                            }
                         }
+                        else
+                        {
+                            winner = Winner.Idle;
+                            resultText = $"Match: Idle\nPhysical: {diffCountPhys}\nSpecial: {diffCountSpec}\nIdle: {diffCountIdle}";
+                        }
+                        lastwinner = winner;
                     }
-                    else
+                    catch (Exception ex)
                     {
-                        winner = Winner.Idle;
-                        resultText = $"Match: Idle\nPhysical: {diffCountPhys}\nSpecial: {diffCountSpec}\nIdle: {diffCountIdle}";
+                        this.DisplayMessageBox(ex.Message, nameof(ex.GetType));
                     }
-                    lastwinner = winner;
                 }
 
                 if (_showCv) DrawMultiLineText(frame, resultText, new OpenCvSharp.Point(35, 720));
@@ -294,9 +347,9 @@ public partial class VideoFeed : Form
 
             Cv2.ImShow(windowName, frame);
 
-            int key = Cv2.WaitKey(1);
+            var key = Cv2.WaitKey(1);
 
-            if (key == (int)Keys.Escape)
+            if ((nativeWindowHandle != IntPtr.Zero && !IsWindow(nativeWindowHandle)) || key == (int)Keys.Escape)
             {
                 Invoke(new Action(StopCamera));
                 break;
@@ -556,6 +609,12 @@ public partial class VideoFeed : Form
             MainWindow.SetControlEnabledState(false, B_ObserveStart);
         }
         MainWindow.SetControlEnabledState(false, B_ObserveStop);
+
+        if (!_isFeedRunning)
+        {
+            MainWindow.SetControlEnabledState(false, B_Stop);
+            MainWindow.SetControlEnabledState(true, B_Start, B_RefreshSources);
+        }
     }
 
     private void CB_TopMost_CheckedChanged(object sender, EventArgs e)
