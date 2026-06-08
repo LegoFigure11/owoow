@@ -376,9 +376,9 @@ namespace owoow.WinForms.Subforms
             Controls.Add(B_Start);
             Controls.Add(L_SourceSelect);
             Controls.Add(CB_SourceSelect);
+            FormBorderStyle = FormBorderStyle.FixedSingle;
             Icon = (Icon)resources.GetObject("$this.Icon");
-            MaximumSize = new Size(520, 488);
-            MinimumSize = new Size(520, 400);
+            MaximizeBox = false;
             Name = "VideoFeed";
             SizeGripStyle = SizeGripStyle.Hide;
             Text = "Video Feed";
