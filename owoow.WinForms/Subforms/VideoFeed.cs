@@ -95,6 +95,7 @@ public partial class VideoFeed : Form
     {
         MainWindow.VideoFeedFormOpen = false;
         StopCamera();
+        _log?.Dispose();
     }
 
     private void VideoFeed_Load(object sender, EventArgs e)
