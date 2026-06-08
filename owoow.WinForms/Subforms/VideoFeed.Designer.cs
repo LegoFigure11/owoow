@@ -55,6 +55,8 @@ namespace owoow.WinForms.Subforms
             B_Thresh = new Button();
             B_Time = new Button();
             CB_ShowLog = new CheckBox();
+            B_Copy = new Button();
+            B_Clear = new Button();
             ((System.ComponentModel.ISupportInitialize)PB_Physical).BeginInit();
             ((System.ComponentModel.ISupportInitialize)PB_Special).BeginInit();
             ((System.ComponentModel.ISupportInitialize)PB_Idle).BeginInit();
@@ -321,11 +323,33 @@ namespace owoow.WinForms.Subforms
             CB_ShowLog.UseVisualStyleBackColor = true;
             CB_ShowLog.CheckedChanged += CB_ShowLog_CheckedChanged;
             // 
+            // B_Copy
+            // 
+            B_Copy.Location = new Point(171, 402);
+            B_Copy.Name = "B_Copy";
+            B_Copy.Size = new Size(321, 25);
+            B_Copy.TabIndex = 35;
+            B_Copy.Text = "Copy";
+            B_Copy.UseVisualStyleBackColor = true;
+            B_Copy.Click += B_Copy_Click;
+            // 
+            // B_Clear
+            // 
+            B_Clear.Location = new Point(10, 402);
+            B_Clear.Name = "B_Clear";
+            B_Clear.Size = new Size(160, 25);
+            B_Clear.TabIndex = 36;
+            B_Clear.Text = "Clear";
+            B_Clear.UseVisualStyleBackColor = true;
+            B_Clear.Click += B_Clear_Click;
+            // 
             // VideoFeed
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(504, 411);
+            ClientSize = new Size(504, 434);
+            Controls.Add(B_Clear);
+            Controls.Add(B_Copy);
             Controls.Add(CB_ShowLog);
             Controls.Add(B_Time);
             Controls.Add(B_Thresh);
@@ -396,5 +420,7 @@ namespace owoow.WinForms.Subforms
         private Button B_Thresh;
         private Button B_Time;
         private CheckBox CB_ShowLog;
+        private Button B_Copy;
+        private Button B_Clear;
     }
 }

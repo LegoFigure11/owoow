@@ -2604,21 +2604,13 @@ public partial class MainWindow : Form
     #region SubForms
     private void B_RetailSeedFinder_Click(object sender, EventArgs e)
     {
-        if ((ModifierKeys & Keys.Shift) == Keys.Shift)
+        using RetailSeedFinder rsf = new();
+        if (rsf.ShowDialog() == DialogResult.OK)
         {
-            using VideoFeed vf = new(this, ref Config);
-            vf.ShowDialog();
-        }
-        else
-        {
-            using RetailSeedFinder rsf = new();
-            if (rsf.ShowDialog() == DialogResult.OK)
-            {
-                TB_Seed0.Text = rsf.Seed0;
-                TB_Seed1.Text = rsf.Seed1;
-                TB_CurrentS0.Text = rsf.Seed0;
-                TB_CurrentS1.Text = rsf.Seed1;
-            }
+            TB_Seed0.Text = rsf.Seed0;
+            TB_Seed1.Text = rsf.Seed1;
+            TB_CurrentS0.Text = rsf.Seed0;
+            TB_CurrentS1.Text = rsf.Seed1;
         }
     }
 
@@ -2634,6 +2626,22 @@ public partial class MainWindow : Form
             CB_Game.SelectedIndex = profile.GameVersion;
             CB_ShinyCharm.Checked = profile.HasShinyCharm;
             CB_MarkCharm.Checked = profile.HasMarkCharm;
+        }
+    }
+
+    public bool VideoFeedFormOpen = false;
+    VideoFeed? VideoFeedForm;
+    private void TSMI_VideoFeed_Click(object sender, EventArgs e)
+    {
+        if (!VideoFeedFormOpen)
+        {
+            VideoFeedFormOpen = true;
+            VideoFeedForm = new VideoFeed(this, ref Config);
+            VideoFeedForm.Show();
+        }
+        else
+        {
+            VideoFeedForm?.Focus();
         }
     }
 

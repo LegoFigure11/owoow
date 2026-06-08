@@ -81,7 +81,7 @@ public partial class VideoFeed : Form
 
     private void VideoFeed_FormClosing(object sender, FormClosingEventArgs e)
     {
-        MainWindow.SpreadFinderFormOpen = false;
+        MainWindow.VideoFeedFormOpen = false;
         StopCamera();
     }
 
@@ -680,6 +680,25 @@ public partial class VideoFeed : Form
         lock (_cvLock)
         {
             _showCv = CB_ShowLog.GetIsChecked();
+        }
+    }
+
+    private void B_Clear_Click(object sender, EventArgs e)
+    {
+        MainWindow.SetControlText(string.Empty, TB_Obs);
+    }
+
+    private void B_Copy_Click(object sender, EventArgs e)
+    {
+        try
+        {
+            Clipboard.Clear();
+            Clipboard.SetText(TB_Obs.GetText());
+            System.Media.SystemSounds.Asterisk.Play();
+        }
+        catch (Exception ex)
+        {
+            this.DisplayMessageBox(ex.Message);
         }
     }
 }
