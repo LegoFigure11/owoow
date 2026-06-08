@@ -6,6 +6,7 @@ using owoow.Core.Enums;
 using owoow.Core.Interfaces;
 using owoow.Core.RNG.Generators.Misc;
 using owoow.Core.RNG.Generators.Overworld;
+using owoow.Core.Structures;
 using owoow.WinForms.Subforms;
 using PKHeX.Core;
 using PKHeX.Drawing.Misc;
@@ -14,7 +15,6 @@ using SysBot.Base;
 using System.Diagnostics;
 using System.Globalization;
 using System.Text.Json;
-using owoow.Core.Structures;
 using static owoow.Core.Encounters;
 using static owoow.Core.RNG.FilterUtil;
 using static owoow.Core.RNG.Util;
@@ -2602,15 +2602,28 @@ public partial class MainWindow : Form
     #endregion
 
     #region SubForms
+
+    internal void UpdateStates(string s0, string s1)
+    {
+        TB_Seed0.Text = s0;
+        TB_Seed1.Text = s1;
+        TB_CurrentS0.Text = s0;
+        TB_CurrentS1.Text = s1;
+    }
+
+    public bool RetailSeedFinderFormOpen = false;
+    RetailSeedFinder? rsf;
     private void B_RetailSeedFinder_Click(object sender, EventArgs e)
     {
-        using RetailSeedFinder rsf = new();
-        if (rsf.ShowDialog() == DialogResult.OK)
+        if (!RetailSeedFinderFormOpen)
         {
-            TB_Seed0.Text = rsf.Seed0;
-            TB_Seed1.Text = rsf.Seed1;
-            TB_CurrentS0.Text = rsf.Seed0;
-            TB_CurrentS1.Text = rsf.Seed1;
+            RetailSeedFinderFormOpen = true;
+            rsf = new RetailSeedFinder(this);
+            rsf.Show();
+        }
+        else
+        {
+            rsf?.Focus();
         }
     }
 

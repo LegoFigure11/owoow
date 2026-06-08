@@ -59,6 +59,7 @@ namespace owoow.WinForms.Subforms
             OKButton.TabIndex = 3;
             OKButton.Text = "Update Main Form";
             OKButton.UseVisualStyleBackColor = true;
+            OKButton.Click += OKButton_Click;
             // 
             // L_Seed1
             // 
@@ -286,6 +287,7 @@ namespace owoow.WinForms.Subforms
             Margin = new Padding(4, 3, 4, 3);
             Name = "RetailSeedFinder";
             Text = "Retail Seed Finder";
+            FormClosing += RetailSeedFinder_FormClosing;
             ResumeLayout(false);
             PerformLayout();
         }
