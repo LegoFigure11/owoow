@@ -1,25 +1,37 @@
 using FlashCap;
 using OpenCvSharp;
 using OpenCvSharp.Extensions;
-using System.Diagnostics;
 using System.Runtime.InteropServices;
 
 namespace owoow.WinForms.Subforms;
 
 public partial class VideoFeed : Form
 {
-    [DllImport("user32.dll")]
+    #region Dll Imports and System Calls
+#pragma warning disable SYSLIB1054
+    [DllImport("user32.dll", EntryPoint = "FindWindowW", CharSet = CharSet.Unicode, SetLastError = true)]
+    private static extern IntPtr FindWindow(string? lpClassName, string lpWindowName);
+
+    [DllImport("user32.dll", SetLastError = true)]
     [return: MarshalAs(UnmanagedType.Bool)]
     private static extern bool IsWindow(IntPtr hWnd);
 
-    [DllImport("user32.dll", SetLastError = true)]
-    private static extern IntPtr FindWindow(string? lpClassName, string lpWindowName);
+    [DllImport("user32.dll", CharSet = CharSet.Auto)]
+    private static extern IntPtr SendMessage(IntPtr hWnd, uint Msg, IntPtr wParam, IntPtr lParam);
 
+#pragma warning restore SYSLIB1054
+    private const uint WM_SETICON = 0x0080;
+    private static readonly IntPtr ICON_SMALL = new IntPtr(0);
+    private static readonly IntPtr ICON_BIG = new IntPtr(1);
+    #endregion
 
     readonly MainWindow MainWindow;
     readonly ClientConfig _cfg;
 
     private readonly static string baseDir = AppContext.BaseDirectory;
+
+    private readonly Lock _logLock = new();
+    private VideoFeedLog? _log;
 
     private CancellationTokenSource? _cts;
     private bool _isFeedRunning = false;
@@ -176,8 +188,8 @@ public partial class VideoFeed : Form
         {
             if (ex is not OperationCanceledException)
             {
-                MessageBox.Show($"Feed Error: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 StopCamera();
+                this.DisplayMessageBox(ex.Message, "Feed Error");
             }
         }
     }
@@ -213,12 +225,22 @@ public partial class VideoFeed : Form
 
         Cv2.SetWindowProperty(windowName, WindowPropertyFlags.Topmost, topMost);
 
-        IntPtr nativeWindowHandle = IntPtr.Zero;
+        IntPtr windowHandle = IntPtr.Zero;
         for (int i = 0; i < 20; i++)
         {
-            nativeWindowHandle = FindWindow(null, windowName);
-            if (nativeWindowHandle != IntPtr.Zero) break;
+            windowHandle = FindWindow(null, windowName);
+            if (windowHandle != IntPtr.Zero) break;
             Thread.Sleep(50);
+        }
+
+        if (windowHandle != IntPtr.Zero)
+        {
+            IntPtr handle = Icon!.Handle;
+            if (handle != IntPtr.Zero)
+            {
+                SendMessage(windowHandle, WM_SETICON, ICON_SMALL, handle);
+                SendMessage(windowHandle, WM_SETICON, ICON_BIG, handle);
+            }
         }
 
         while (!token.IsCancellationRequested)
@@ -300,9 +322,10 @@ public partial class VideoFeed : Form
                         Cv2.Threshold(grayIdle, grayIdle, 30, 255, ThresholdTypes.Binary);
                         int diffCountIdle = Cv2.CountNonZero(grayIdle);
 
-                        int minDiff = Math.Min(diffCountPhys, Math.Min(diffCountSpec, diffCountIdle));
-                        long currentTimestamp = Environment.TickCount64;
-                        bool allowLog = (currentTimestamp - lastLog >= _cooldown);
+                        var minDiff = Math.Min(diffCountPhys, Math.Min(diffCountSpec, diffCountIdle));
+                        var currentTimestamp = Environment.TickCount64;
+                        var logTime = currentTimestamp - lastLog;
+                        var allowLog = (logTime >= _cooldown);
 
                         if (minDiff == diffCountPhys && lastwinner == Winner.Idle)
                         {
@@ -310,10 +333,21 @@ public partial class VideoFeed : Form
                             resultText = $"Match: Physical\nPhysical: {diffCountPhys}\nSpecial: {diffCountSpec}\nIdle: {diffCountIdle}";
                             if (diffCountPhys < _threshold && allowLog)
                             {
-                                Debug.WriteLine($"[{DateTime.Now:HH:mm:ss}] [MATCH ACCEPTED] Physical Matrix | Score: {diffCountPhys}");
+                                _log?.AddLine($"[{DateTime.Now:HH:mm:ss}] [MATCH ACCEPTED] (Log: 0) Physical | Score: {diffCountPhys,7} | Time since match: {logTime}", true);
                                 lastLog = currentTimestamp;
-                                MainWindow.SetControlText(TB_Obs.GetText() + "0", TB_Obs);
-                                SetCursorToEnd(TB_Obs);
+                                AppendTextBoxText("0", TB_Obs);
+                            }
+                            else if (!allowLog && diffCountPhys < _threshold)
+                            {
+                                _log?.AddLine($"[{DateTime.Now:HH:mm:ss}] [REJECTED]       [TIME]   Physical | Score: {diffCountPhys,7} | Time since match: {logTime}", false);
+                            }
+                            else if (allowLog && !(diffCountPhys < _threshold))
+                            {
+                                _log?.AddLine($"[{DateTime.Now:HH:mm:ss}] [REJECTED]       [THRESH] Physical | Score: {diffCountPhys,7} | Time since match: {logTime}", false);
+                            }
+                            else
+                            {
+                                _log?.AddLine($"[{DateTime.Now:HH:mm:ss}] [REJECTED]       [BOTH]   Physical | Score: {diffCountPhys,7} | Time since match: {logTime}", false);
                             }
                         }
                         else if (minDiff == diffCountSpec && lastwinner == Winner.Idle)
@@ -322,10 +356,21 @@ public partial class VideoFeed : Form
                             resultText = $"Match: Special\nPhysical: {diffCountPhys}\nSpecial: {diffCountSpec}\nIdle: {diffCountIdle}";
                             if (diffCountSpec < _threshold && allowLog)
                             {
-                                Debug.WriteLine($"[{DateTime.Now:HH:mm:ss}] [MATCH ACCEPTED] Special Matrix  | Score: {diffCountSpec}");
+                                _log?.AddLine($"[{DateTime.Now:HH:mm:ss}] [MATCH ACCEPTED] (Log: 1) Special  | Score: {diffCountSpec,7} | Time since match: {logTime}", true);
                                 lastLog = currentTimestamp;
-                                MainWindow.SetControlText(TB_Obs.GetText() + "1", TB_Obs);
-                                SetCursorToEnd(TB_Obs);
+                                AppendTextBoxText("1", TB_Obs);
+                            }
+                            else if (!allowLog && diffCountSpec < _threshold)
+                            {
+                                _log?.AddLine($"[{DateTime.Now:HH:mm:ss}] [REJECTED]       [TIME]   Special  | Score: {diffCountSpec,7} | Time since match: {logTime}", false);
+                            }
+                            else if (allowLog && !(diffCountSpec < _threshold))
+                            {
+                                _log?.AddLine($"[{DateTime.Now:HH:mm:ss}] [REJECTED]       [THRESH] Special  | Score: {diffCountSpec,7} | Time since match: {logTime}", false);
+                            }
+                            else
+                            {
+                                _log?.AddLine($"[{DateTime.Now:HH:mm:ss}] [REJECTED]       [BOTH]   Special  | Score: {diffCountSpec,7} | Time since match: {logTime}", false);
                             }
                         }
                         else
@@ -349,7 +394,7 @@ public partial class VideoFeed : Form
 
             var key = Cv2.WaitKey(1);
 
-            if ((nativeWindowHandle != IntPtr.Zero && !IsWindow(nativeWindowHandle)) || key == (int)Keys.Escape)
+            if ((windowHandle != IntPtr.Zero && !IsWindow(windowHandle)) || key == (int)Keys.Escape)
             {
                 Invoke(new Action(StopCamera));
                 break;
@@ -357,6 +402,20 @@ public partial class VideoFeed : Form
         }
 
         Cv2.DestroyWindow(windowName);
+    }
+
+    public void AppendTextBoxText(string text, params object[] obj)
+    {
+        foreach (object o in obj)
+        {
+            if (o is not TextBox tb)
+                continue;
+
+            if (InvokeRequired)
+                Invoke(() => tb.AppendText(text));
+            else
+                tb.AppendText(text);
+        }
     }
 
     private void StopCamera()
@@ -378,6 +437,8 @@ public partial class VideoFeed : Form
         {
             _referenceFrame?.Dispose();
             _referenceFrame = null;
+            if (_isComparing)
+                _log?.AddLine($"[{DateTime.Now:HH:mm:ss}] [INFO] Stopping monitoring...", true, true);
             _isComparing = false;
         }
 
@@ -404,42 +465,11 @@ public partial class VideoFeed : Form
         }
     }
 
-    private void SetCursorToEnd(TextBox tb)
-    {
-        if (InvokeRequired)
-        {
-            Invoke(() =>
-            {
-                tb.Focus();
-                tb.SelectionStart = tb.Text.Length;
-                tb.SelectionLength = 0;
-                tb.ScrollToCaret();
-            });
-        }
-        else
-        {
-            tb.Focus();
-            tb.SelectionStart = tb.Text.Length;
-            tb.SelectionLength = 0;
-            tb.ScrollToCaret();
-        }
-    }
-
-
     private void B_Stop_Click(object sender, EventArgs e)
     {
         StopCamera();
         MainWindow.SetControlEnabledState(false, B_Stop);
         MainWindow.SetControlEnabledState(true, B_Start, B_RefreshSources);
-    }
-
-    private void B_ScreenshotPhysical_Click(object sender, EventArgs e)
-    {
-        SaveScreenshot("physical");
-    }
-    private void B_ScreenshotSpecial_Click(object sender, EventArgs e)
-    {
-        SaveScreenshot("special");
     }
 
     private void OpenScreenshot(string filename)
@@ -499,7 +529,7 @@ public partial class VideoFeed : Form
     {
         if (!_isFeedRunning || _latestFrame == null)
         {
-            MessageBox.Show("Please start the feed before taking a screenshot.", "Notice", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            this.DisplayMessageBox("Please start the feed before taking a screenshot.", "Notice");
             return;
         }
 
@@ -563,12 +593,12 @@ public partial class VideoFeed : Form
                         }
                     }
                     CheckShouldEnableMonitorButtons();
-                    MessageBox.Show("Screenshot saved successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    System.Media.SystemSounds.Asterisk.Play();
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Failed to save screenshot: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                this.DisplayMessageBox($"Failed to save screenshot: {ex.Message}");
             }
         }
     }
@@ -578,11 +608,8 @@ public partial class VideoFeed : Form
         MainWindow.SetControlEnabledState(true, B_ObserveStop);
         MainWindow.SetControlEnabledState(false, B_ObserveStart);
         _isComparing = true;
-    }
+        _log?.AddLine($"[{DateTime.Now:HH:mm:ss}] [INFO] Starting monitoring...", true, true);
 
-    private void B_ScreenshotIdle_Click(object sender, EventArgs e)
-    {
-        SaveScreenshot("idle");
     }
 
     private void TB_Obs_TextChanged(object sender, EventArgs e)
@@ -592,6 +619,8 @@ public partial class VideoFeed : Form
 
     private void B_ObserveStop_Click(object sender, EventArgs e)
     {
+        if (_isComparing)
+            _log?.AddLine($"[{DateTime.Now:HH:mm:ss}] [INFO] Stopping monitoring...", true, true);
         _isComparing = false;
         MainWindow.SetControlEnabledState(true, B_ObserveStart);
         MainWindow.SetControlEnabledState(false, B_ObserveStop);
@@ -599,6 +628,8 @@ public partial class VideoFeed : Form
 
     private void CheckShouldEnableMonitorButtons()
     {
+        if (_isComparing)
+            _log?.AddLine($"[{DateTime.Now:HH:mm:ss}] [INFO] Stopping monitoring...", true, true);
         _isComparing = false;
         if (_isFeedRunning && _phys is not null && _spec is not null && _idle is not null)
         {
@@ -643,6 +674,19 @@ public partial class VideoFeed : Form
     private void B_LoadSpec_Click(object sender, EventArgs e)
     {
         OpenScreenshot("special");
+    }
+    private void B_ScreenshotPhysical_Click(object sender, EventArgs e)
+    {
+        SaveScreenshot("physical");
+    }
+
+    private void B_ScreenshotIdle_Click(object sender, EventArgs e)
+    {
+        SaveScreenshot("idle");
+    }
+    private void B_ScreenshotSpecial_Click(object sender, EventArgs e)
+    {
+        SaveScreenshot("special");
     }
 
     private void B_Thresh_Click(object sender, EventArgs e)
@@ -699,6 +743,28 @@ public partial class VideoFeed : Form
         catch (Exception ex)
         {
             this.DisplayMessageBox(ex.Message);
+        }
+    }
+
+    internal void ToggleLogs(bool state)
+    {
+        MainWindow.SetCheckBoxCheckedState(state, CB_ShowLogs);
+    }
+
+    private void CB_ShowLogs_CheckedChanged(object sender, EventArgs e)
+    {
+        lock (_logLock)
+        {
+            if (CB_ShowLogs.GetIsChecked())
+            {
+                _log = new(this);
+                _log.Show();
+            }
+            else
+            {
+                _log?.Dispose();
+                _log = null;
+            }
         }
     }
 }

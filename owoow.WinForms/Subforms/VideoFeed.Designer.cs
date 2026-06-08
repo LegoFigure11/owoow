@@ -57,6 +57,7 @@ namespace owoow.WinForms.Subforms
             CB_ShowLog = new CheckBox();
             B_Copy = new Button();
             B_Clear = new Button();
+            CB_ShowLogs = new CheckBox();
             ((System.ComponentModel.ISupportInitialize)PB_Physical).BeginInit();
             ((System.ComponentModel.ISupportInitialize)PB_Special).BeginInit();
             ((System.ComponentModel.ISupportInitialize)PB_Idle).BeginInit();
@@ -343,11 +344,23 @@ namespace owoow.WinForms.Subforms
             B_Clear.UseVisualStyleBackColor = true;
             B_Clear.Click += B_Clear_Click;
             // 
+            // CB_ShowLogs
+            // 
+            CB_ShowLogs.AutoSize = true;
+            CB_ShowLogs.Location = new Point(254, 359);
+            CB_ShowLogs.Name = "CB_ShowLogs";
+            CB_ShowLogs.Size = new Size(83, 19);
+            CB_ShowLogs.TabIndex = 37;
+            CB_ShowLogs.Text = "Show Logs";
+            CB_ShowLogs.UseVisualStyleBackColor = true;
+            CB_ShowLogs.CheckedChanged += CB_ShowLogs_CheckedChanged;
+            // 
             // VideoFeed
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(504, 434);
+            Controls.Add(CB_ShowLogs);
             Controls.Add(B_Clear);
             Controls.Add(B_Copy);
             Controls.Add(CB_ShowLog);
@@ -381,7 +394,7 @@ namespace owoow.WinForms.Subforms
             MaximizeBox = false;
             Name = "VideoFeed";
             SizeGripStyle = SizeGripStyle.Hide;
-            Text = "Video Feed";
+            Text = "VideoFeed";
             FormClosing += VideoFeed_FormClosing;
             Load += VideoFeed_Load;
             ((System.ComponentModel.ISupportInitialize)PB_Physical).EndInit();
@@ -422,5 +435,6 @@ namespace owoow.WinForms.Subforms
         private CheckBox CB_ShowLog;
         private Button B_Copy;
         private Button B_Clear;
+        private CheckBox CB_ShowLogs;
     }
 }
