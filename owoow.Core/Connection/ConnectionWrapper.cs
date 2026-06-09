@@ -264,12 +264,14 @@ public class ConnectionWrapperAsync(SwitchConnectionConfig Config, Action<string
 
     public bool GetHasShinyCharm()
     {
-        return sav.Blocks.Items.Inventory[8].Items.Any(item => item.Index == 0x0278);
+        var bag = new PlayerBag8(sav).GetPouch(InventoryType.KeyItems);
+        return bag.HasItem(0x0278);
     }
 
     public bool GetHasMarkCharm()
     {
-        return sav.Blocks.Items.Inventory[8].Items.Any(item => item.Index == 0x0635);
+        var bag = new PlayerBag8(sav).GetPouch(InventoryType.KeyItems);
+        return bag.HasItem(0x0635);
     }
 
     // Adapted from https://github.com/Lincoln-LM/PyNXReader/blob/master/structure/KCoordinates.py

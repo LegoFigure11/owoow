@@ -261,7 +261,7 @@ public static class Util
         RibbonIndex.MAX_COUNT => "None",
         RibbonIndex.MarkLunchtime => "Time",
         RibbonIndex.MarkCloudy => "Weather",
-        _ => rib.GetPropertyName().Replace("RibbonMark", string.Empty),
+        _ => rib.ToString().Replace("Mark", string.Empty),
     };
 
     public static WeatherType GetWeatherType(string weather) => weather switch
