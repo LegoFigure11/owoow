@@ -11,7 +11,7 @@ public partial class DexRecSearcher : Form
     readonly MainWindow MainWindow;
     readonly ConnectionWrapperAsync ConnectionWrapper;
     private bool stop = false;
-    private readonly string text = string.Empty;
+    private readonly string text;
 
     public bool SubformOpen = false;
     public List<string> Maps = [];
@@ -198,5 +198,12 @@ public partial class DexRecSearcher : Form
         {
             _drl?.Focus();
         }
+    }
+
+    private void DexRecSearcher_FormClosing(object sender, FormClosingEventArgs e)
+    {
+        Source.Cancel();
+        Source.Dispose();
+        Source = new();
     }
 }

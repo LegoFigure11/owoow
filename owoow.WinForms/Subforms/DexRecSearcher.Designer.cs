@@ -339,6 +339,7 @@ namespace owoow.WinForms.Subforms
             Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "DexRecSearcher";
             Text = "Pokédex Recommendation Searcher";
+            FormClosing += DexRecSearcher_FormClosing;
             ResumeLayout(false);
             PerformLayout();
         }
