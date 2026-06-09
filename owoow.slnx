@@ -1,0 +1,12 @@
+<Solution>
+  <Configurations>
+    <Platform Name="x64" />
+  </Configurations>
+  <Project Path="owoow.Core/owoow.Core.csproj">
+    <Platform Project="x64" />
+  </Project>
+  <Project Path="owoow.WinForms/owoow.WinForms.csproj">
+    <BuildDependency Project="owoow.Core/owoow.Core.csproj" />
+    <Platform Project="x64" />
+  </Project>
+</Solution>
