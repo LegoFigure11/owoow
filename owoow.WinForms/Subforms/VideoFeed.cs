@@ -497,7 +497,7 @@ public partial class VideoFeed : Form
         using var ofd = new OpenFileDialog();
         ofd.Filter = "PNG Image|*.png";
         ofd.Title = "Open Screenshot";
-        ofd.FileName = filename;
+        ofd.FileName = filename + ".png";
         ofd.InitialDirectory = baseDir;
 
         if (ofd.ShowDialog() == DialogResult.OK)
