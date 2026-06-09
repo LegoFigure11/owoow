@@ -289,6 +289,7 @@ namespace owoow.WinForms
             TMSI_SkillBro = new ToolStripMenuItem();
             TSMI_WailordRespawn = new ToolStripMenuItem();
             TSMI_XoroshiroTools = new ToolStripMenuItem();
+            TSMI_VideoFeed = new ToolStripMenuItem();
             GB_SeedControlsContainer.SuspendLayout();
             GB_WildView.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)PB_MarkSprite).BeginInit();
@@ -3112,7 +3113,7 @@ namespace owoow.WinForms
             // MS_SubWindows
             // 
             MS_SubWindows.BackColor = SystemColors.ButtonFace;
-            MS_SubWindows.Items.AddRange(new ToolStripItem[] { TSMI_Profiles, TSMI_EncounterLookup, TSMI_SpreadFinder, TSMI_LotoID, TSMI_Cramomatic, TSMI_WattTrader, TSMI_DiggingPa, TMSI_SkillBro, TSMI_WailordRespawn, TSMI_XoroshiroTools });
+            MS_SubWindows.Items.AddRange(new ToolStripItem[] { TSMI_Profiles, TSMI_EncounterLookup, TSMI_SpreadFinder, TSMI_LotoID, TSMI_Cramomatic, TSMI_WattTrader, TSMI_DiggingPa, TMSI_SkillBro, TSMI_WailordRespawn, TSMI_XoroshiroTools, TSMI_VideoFeed });
             MS_SubWindows.Location = new Point(0, 0);
             MS_SubWindows.Name = "MS_SubWindows";
             MS_SubWindows.Size = new Size(1278, 24);
@@ -3187,6 +3188,13 @@ namespace owoow.WinForms
             TSMI_XoroshiroTools.Size = new Size(100, 20);
             TSMI_XoroshiroTools.Text = "Xoroshiro Tools";
             TSMI_XoroshiroTools.Click += TSMI_XoroshiroTools_Click;
+            // 
+            // TSMI_VideoFeed
+            // 
+            TSMI_VideoFeed.Name = "TSMI_VideoFeed";
+            TSMI_VideoFeed.Size = new Size(135, 20);
+            TSMI_VideoFeed.Text = "Capture Card Monitor";
+            TSMI_VideoFeed.Click += TSMI_VideoFeed_Click;
             // 
             // MainWindow
             // 
@@ -3525,5 +3533,6 @@ namespace owoow.WinForms
         public ComboBox CB_DexRec3;
         public ComboBox CB_DexRec2;
         public ComboBox CB_DexRec1;
+        private ToolStripMenuItem TSMI_VideoFeed;
     }
 }

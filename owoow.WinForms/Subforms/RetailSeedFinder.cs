@@ -4,18 +4,10 @@ namespace owoow.WinForms.Subforms
 {
     public partial class RetailSeedFinder : Form
     {
-        public string Seed0
+        MainWindow MainWindow;
+        public RetailSeedFinder(MainWindow f)
         {
-            get => TB_Seed0.Text;
-        }
-
-        public string Seed1
-        {
-            get => TB_Seed1.Text;
-        }
-
-        public RetailSeedFinder()
-        {
+            MainWindow = f;
             InitializeComponent();
             TB_InputAnimations.Text = string.Empty;
         }
@@ -232,6 +224,17 @@ namespace owoow.WinForms.Subforms
                     TB_Status.Text = "";
                 }
             }
+        }
+
+        private void OKButton_Click(object sender, EventArgs e)
+        {
+            MainWindow.UpdateStates(TB_Seed0.GetText(), TB_Seed1.GetText());
+            Close();
+        }
+
+        private void RetailSeedFinder_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            MainWindow.RetailSeedFinderFormOpen = false;
         }
     }
 }

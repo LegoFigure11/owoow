@@ -41,6 +41,10 @@ public class ClientConfig : ISeedResetConfig, ITurboConfig, IWebhookConfig
 
     public bool ResetTimeAfterDateSkipping { get; set; } = true;
 
+    // Video Feed
+    public long VideoFeedCooldown { get; set; } = 1000;
+    public uint VideoFeedThreshold { get; set; } = 20736;
+
     // Webhook
     public bool WebhookEnabled { get; set; } = false;
     public string ResultNotificationURL { get; set; } = string.Empty;
