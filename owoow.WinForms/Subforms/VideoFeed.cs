@@ -65,6 +65,8 @@ public partial class VideoFeed : Form
     private Winner winner = Winner.Idle;
     private Winner lastwinner = Winner.Idle;
 
+    private const int max = 128;
+
     private enum Winner
     {
         Idle,
@@ -336,7 +338,7 @@ public partial class VideoFeed : Form
                             {
                                 _log?.AddLine($"[{DateTime.Now:HH:mm:ss}] [MATCH ACCEPTED] (Log: 0) Physical | Score: {diffCountPhys,7} | Time since match: {logTime}", true);
                                 lastLog = currentTimestamp;
-                                AppendTextBoxText("0", TB_Obs);
+                                AppendTextBoxText(true, "0", TB_Obs);
                             }
                             else if (!allowLog && diffCountPhys < _threshold)
                             {
@@ -359,7 +361,7 @@ public partial class VideoFeed : Form
                             {
                                 _log?.AddLine($"[{DateTime.Now:HH:mm:ss}] [MATCH ACCEPTED] (Log: 1) Special  | Score: {diffCountSpec,7} | Time since match: {logTime}", true);
                                 lastLog = currentTimestamp;
-                                AppendTextBoxText("1", TB_Obs);
+                                AppendTextBoxText(true, "1", TB_Obs);
                             }
                             else if (!allowLog && diffCountSpec < _threshold)
                             {
@@ -405,7 +407,7 @@ public partial class VideoFeed : Form
         Cv2.DestroyWindow(windowName);
     }
 
-    public void AppendTextBoxText(string text, params object[] obj)
+    public void AppendTextBoxText(bool limitTo128, string text, params object[] obj)
     {
         foreach (object o in obj)
         {
@@ -413,9 +415,26 @@ public partial class VideoFeed : Form
                 continue;
 
             if (InvokeRequired)
-                Invoke(() => tb.AppendText(text));
+            {
+                Invoke(() =>
+                {
+                    if (limitTo128 && tb.GetText().Length == max)
+                    {
+                        MainWindow.SetControlText(tb.GetText()[1..], tb);
+                        _log?.AddLine($"[{DateTime.Now:HH:mm:ss}] [INFO] Max observations reached, discarding first observation", true, true);
+
+                    }
+                    tb.AppendText(text);
+                });
+            }
             else
+            {
+                if (limitTo128 && tb.GetText().Length == max)
+                {
+                    MainWindow.SetControlText(tb.GetText()[1..], tb);
+                }
                 tb.AppendText(text);
+            }
         }
     }
 
@@ -615,7 +634,18 @@ public partial class VideoFeed : Form
 
     private void TB_Obs_TextChanged(object sender, EventArgs e)
     {
-        MainWindow.SetControlText($"Observations: {TB_Obs.GetText().Length}", L_Obs);
+        var len = TB_Obs.GetText().Length;
+
+        if (len == max)
+        {
+            TB_Obs.BackColor = Color.YellowGreen;
+            System.Media.SystemSounds.Asterisk.Play();
+        }
+        else
+        {
+            TB_Obs.BackColor = DefaultBackColor;
+        }
+        MainWindow.SetControlText($"Observations: {len}", L_Obs);
     }
 
     private void B_ObserveStop_Click(object sender, EventArgs e)
