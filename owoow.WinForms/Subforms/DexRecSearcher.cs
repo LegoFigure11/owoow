@@ -11,10 +11,12 @@ public partial class DexRecSearcher : Form
     readonly MainWindow MainWindow;
     readonly ConnectionWrapperAsync ConnectionWrapper;
     private bool stop = false;
-    private string text = string.Empty;
+    private readonly string text = string.Empty;
 
     public bool SubformOpen = false;
     public List<string> Maps = [];
+
+    CancellationTokenSource Source = new();
 
     public DexRecSearcher(MainWindow f, ConnectionWrapperAsync c)
     {
@@ -46,8 +48,8 @@ public partial class DexRecSearcher : Form
                     async () =>
                     {
                         MainWindow.readPause = true;
-                        await Task.Delay(100, MainWindow.Source.Token);
-                        var dr = await ConnectionWrapper.ReadDexRecommendationFull(MainWindow.Source.Token);
+                        await Task.Delay(100, Source.Token);
+                        var dr = await ConnectionWrapper.ReadDexRecommendationFull(Source.Token);
                         SetDexRecDetails(dr);
                         MainWindow.readPause = false;
                     }
@@ -95,19 +97,19 @@ public partial class DexRecSearcher : Form
             try
             {
                 MainWindow.readPause = true;
-                await Task.Delay(100, MainWindow.Source.Token);
+                await Task.Delay(100, Source.Token);
                 MainWindow.SetControlEnabledState(false, B_Search);
                 MainWindow.SetControlEnabledState(true, B_Cancel);
-                var tick = await ConnectionWrapper.GetCurrentTime(MainWindow.Source.Token).ConfigureAwait(false);
+                var tick = await ConnectionWrapper.GetCurrentTime(Source.Token).ConfigureAwait(false);
                 stop = false;
                 bool first = true;
                 while (!stop)
                 {
                     MainWindow.readPause = true;
                     MainWindow.SetControlText(text + " - Opening Pokédex...", this);
-                    await ConnectionWrapper.OpenPokedex(first, MainWindow.Source.Token).ConfigureAwait(false);
+                    await ConnectionWrapper.OpenPokedex(first, Source.Token).ConfigureAwait(false);
                     MainWindow.SetControlText(text + " - Reading Pokédex Recommendation...", this);
-                    var dr = await ConnectionWrapper.ReadDexRecommendationFull(MainWindow.Source.Token).ConfigureAwait(false);
+                    var dr = await ConnectionWrapper.ReadDexRecommendationFull(Source.Token).ConfigureAwait(false);
                     MainWindow.readPause = false;
                     var target = (ushort)GetDexRecommendation(CB_Target.GetText());
                     var slotSpecified = CB_SpecificSlot.GetIsChecked();
@@ -148,14 +150,14 @@ public partial class DexRecSearcher : Form
                     }
 
                     MainWindow.SetControlText(text + " - Closing Pokédex and saving the game...", this);
-                    await ConnectionWrapper.ClosePokedexAndSave(MainWindow.Source.Token).ConfigureAwait(false);
+                    await ConnectionWrapper.ClosePokedexAndSave(Source.Token).ConfigureAwait(false);
 
                     MainWindow.SetControlText(text + " - Advancing date...", this);
                     await MainWindow.AdvanceDate(1).ConfigureAwait(false);
                     if (CB_Date.GetIsChecked())
                     {
                         MainWindow.SetControlText(text + " - Resetting date...", this);
-                        await ConnectionWrapper.SetCurrentTime(tick, MainWindow.Source.Token).ConfigureAwait(false);
+                        await ConnectionWrapper.SetCurrentTime(tick, Source.Token).ConfigureAwait(false);
                     }
                     first = false;
                 }
@@ -170,7 +172,7 @@ public partial class DexRecSearcher : Form
                 MainWindow.readPause = false;
                 MainWindow.SetControlEnabledState(true, B_Search);
                 MainWindow.SetControlEnabledState(false, B_Cancel);
-                this.DisplayMessageBox(ex.Message);
+                if (ex is not TaskCanceledException) this.DisplayMessageBox(ex.Message);
             }
         });
     }
@@ -178,20 +180,23 @@ public partial class DexRecSearcher : Form
     private void B_Cancel_Click(object sender, EventArgs e)
     {
         stop = true;
+        Source.Cancel();
+        Source.Dispose();
+        Source = new();
     }
 
-    DexRecLocationList? Drl;
+    DexRecLocationList? _drl;
     private void B_ManageMaps_Click(object sender, EventArgs e)
     {
         if (!SubformOpen)
         {
             SubformOpen = true;
-            Drl = new DexRecLocationList(ref Maps, this);
-            Drl.Show();
+            _drl = new DexRecLocationList(ref Maps, this);
+            _drl.Show();
         }
         else
         {
-            Drl?.Focus();
+            _drl?.Focus();
         }
     }
 }
