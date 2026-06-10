@@ -39,6 +39,7 @@ A comprehensive usage guide brought to you by [Billo-PS](https://github.com/Bill
 * Switch connectivity over both Wi-Fi and USB thanks to the bundled sys-botbase homebrew sysmodule for users with Custom Firmware (CFW). Shift can be held while connecting to skip the game check and force a connection, in case you want to use Turbo routines in other games.
 * Automated seed reading and tracking (CFW only).
 * Animations → Seed and Animations → Advances (re-identification) calculators for retail/stock firmware users.
+* Inbuilt capture card monitoring tool for automatically recording Animations (automatic Initial Seed finding and reidentification) for retail users.
 * Encounter Lookup tool + prefilled encounter tables and personal details (Egg Move counts, etc) for every area.
 * Spread Finder tool to check the availability of specific IV spread + Height combinations, given the number of guaranteed flawless IVs for an encounter (recommended for advanced users only).
 * Mini tool for skipping a Xoroshiro128+ RNG an arbitrary amount forwards or backwards.
