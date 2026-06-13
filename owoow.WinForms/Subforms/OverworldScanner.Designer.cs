@@ -375,7 +375,7 @@ namespace owoow.WinForms.Subforms
             TB_Z.Size = new Size(173, 22);
             TB_Z.TabIndex = 42;
             TB_Z.TabStop = false;
-            TB_Z.Text = "123456789";
+            TB_Z.Text = "12345.678901234567890";
             // 
             // L_Y
             // 
@@ -397,7 +397,7 @@ namespace owoow.WinForms.Subforms
             TB_Y.Size = new Size(173, 22);
             TB_Y.TabIndex = 40;
             TB_Y.TabStop = false;
-            TB_Y.Text = "123456789";
+            TB_Y.Text = "12345.678901234567890";
             // 
             // L_X
             // 
@@ -419,7 +419,7 @@ namespace owoow.WinForms.Subforms
             TB_X.Size = new Size(173, 22);
             TB_X.TabIndex = 38;
             TB_X.TabStop = false;
-            TB_X.Text = "123456789";
+            TB_X.Text = "12345.678901234567890";
             // 
             // L_Map
             // 
@@ -453,7 +453,7 @@ namespace owoow.WinForms.Subforms
             TB_Distance.Size = new Size(173, 22);
             TB_Distance.TabIndex = 44;
             TB_Distance.TabStop = false;
-            TB_Distance.Text = "0123456789ABCDEF";
+            TB_Distance.Text = "12345.678901234567890";
             // 
             // L_Distance
             // 
@@ -506,6 +506,7 @@ namespace owoow.WinForms.Subforms
             Controls.Add(L_ViewSelect);
             Controls.Add(CB_ViewSelect);
             Controls.Add(L_PokemonPresent);
+            FormBorderStyle = FormBorderStyle.FixedSingle;
             Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "OverworldScanner";
             Text = "Overworld Scanner";
