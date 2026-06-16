@@ -15,7 +15,7 @@ public partial class OverworldScanner : Form
     private readonly float _y;
     private readonly float _z;
 
-    public OverworldScanner(MainWindow f, FieldObject[] pkl, float x, float y, float z, ulong m)
+    public OverworldScanner(MainWindow f, FieldObject[] pkl, float x, float y, float z, ulong m, byte Friendship = 0, byte Hatch = 0)
     {
         InitializeComponent();
 
@@ -25,42 +25,56 @@ public partial class OverworldScanner : Form
         _y = y;
         _z = z;
 
+        TB_FriendshipSteps.Text = $"{Friendship}";
+        TB_HatchSteps.Text = $"{Hatch}";
+
         TB_X.Text = $"{x}";
         TB_Y.Text = $"{y}";
         TB_Z.Text = $"{z}";
-        TB_Map.Text = Zones[m];
+        TB_Map.Text = Zones.ContainsKey(m) ? Zones[m] : $"{m:X16}";
 
         L_PokemonPresent.Text = $"Pokémon Present: {pks.Length}";
 
         CB_ViewSelect.Items.Clear();
 
-        pks = [.. pks.OrderBy(pkm => pkm.Species)];
-        foreach (var pkm in pks)
+        if (pks.Length > 0)
         {
-            var dex = $"{pkm.PK8!.Species:D4} | ";
-            var species = f.Strings.Species[pkm.PK8.Species];
-            var form = pkm.PK8.Form != 0 ? $"-{pkm.PK8.Form}" : string.Empty;
-            string shiny = pkm.PK8.ShinyXor switch
+            pks = [.. pks.OrderBy(pkm => pkm.Species)];
+            foreach (var pkm in pks)
             {
-                0 => "■ - ",
-                < 16 => "★ - ",
-                _ => string.Empty,
-            };
-            string gender = pkm.PK8.Gender switch
-            {
-                0 => " (M)",
-                1 => " (F)",
-                _ => string.Empty,
-            };
+                var dex = $"{pkm.PK8!.Species:D4} | ";
+                var species = f.Strings.Species[pkm.PK8.Species];
+                var form = pkm.PK8.Form != 0 ? $"-{pkm.PK8.Form}" : string.Empty;
+                string shiny = pkm.PK8.ShinyXor switch
+                {
+                    0 => "■ - ",
+                    < 16 => "★ - ",
+                    _ => string.Empty,
+                };
+                string gender = pkm.PK8.Gender switch
+                {
+                    0 => " (M)",
+                    1 => " (F)",
+                    _ => string.Empty,
+                };
 
-            CB_ViewSelect.Items.Add($"{dex}{shiny}{species}{form}{gender}");
+                CB_ViewSelect.Items.Add($"{dex}{shiny}{species}{form}{gender}");
+            }
+            CB_ViewSelect.SelectedIndex = 0;
         }
-        CB_ViewSelect.SelectedIndex = 0;
+        else
+        {
+            CB_ViewSelect.Items.Add("(None)");
+            CB_ViewSelect.SelectedIndex = 0;
+
+            f.SetControlEnabledState(false, L_ViewSelect, CB_ViewSelect, PB_PokemonSprite, PB_MarkSprite, L_Seed, TB_Seed, L_EC, TB_EC, L_PID, TB_PID, L_Gender, TB_Gender, L_Nature, TB_Nature, L_Ability, TB_Ability, L_IVs, TB_IVs, L_Height, TB_Height, L_MonX, TB_MonX, L_MonY, TB_MonY, L_MonZ, TB_MonZ, L_Distance, TB_Distance);
+        }
     }
 
     private void OverworldScanner_FormClosing(object sender, FormClosingEventArgs e)
     {
         MainWindow.OverworldScannerFormOpen = false;
+        MainWindow.SetControlEnabledState(true, MainWindow.B_ReadEncounter);
     }
 
     private void CB_ViewSelect_SelectedIndexChanged(object sender, EventArgs e)
@@ -128,5 +142,10 @@ public partial class OverworldScanner : Form
             TB_MonZ.Text = string.Empty;
             TB_Distance.Text = string.Empty;
         }
+    }
+
+    private void OverworldScanner_Load(object sender, EventArgs e)
+    {
+        Activate();
     }
 }

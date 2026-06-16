@@ -3444,7 +3444,6 @@ namespace owoow.WinForms
         private ToolStripMenuItem TSMI_WattTrader;
         private ToolStripMenuItem TSMI_DiggingPa;
         private ToolStripMenuItem TSMI_WailordRespawn;
-        private Button B_ReadEncounter;
         private TextBox TB_RetailRange;
         private Label L_RetailRange;
         private Button B_GenerateRetailPattern;
@@ -3534,5 +3533,6 @@ namespace owoow.WinForms
         public ComboBox CB_DexRec2;
         public ComboBox CB_DexRec1;
         private ToolStripMenuItem TSMI_VideoFeed;
+        internal Button B_ReadEncounter;
     }
 }

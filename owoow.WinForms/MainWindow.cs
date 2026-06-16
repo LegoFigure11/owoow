@@ -1842,20 +1842,14 @@ public partial class MainWindow : Form
                                 await Task.Delay(100, Source.Token).ConfigureAwait(false);
                                 await ConnectionWrapper.ReadKCoordinatesAsync(Source.Token).ConfigureAwait(false);
                                 var map = await ConnectionWrapper.ReadSaveLocation(Source.Token).ConfigureAwait(false);
+                                var (friend, egg) = await ConnectionWrapper.ReadStepCounters(Source.Token).ConfigureAwait(false);
                                 readPause = false;
-                                SetControlEnabledState(true, B_RefreshDexRec, B_ReadEncounter, B_CopyToInitial, B_RetailUpdateSeeds);
+                                SetControlEnabledState(true, B_RefreshDexRec, B_CopyToInitial, B_RetailUpdateSeeds);
                                 var (pkms, x, y, z) = ConnectionWrapper.ParseCoordinatesBlock();
 
-                                if (pkms.Count > 0)
-                                {
-                                    OverworldScannerFormOpen = true;
-                                    OverworldScannerForm = new OverworldScanner(this, [.. pkms], x, y, z, map);
-                                    OverworldScannerForm.ShowDialog();
-                                }
-                                else
-                                {
-                                    MessageBox.Show("No Pokémon found in KCoordinates block! If you think there should be any, save the game in an area with wild spawns and try again.");
-                                }
+                                OverworldScannerFormOpen = true;
+                                OverworldScannerForm = new OverworldScanner(this, [.. pkms], x, y, z, map, friend, egg);
+                                OverworldScannerForm.ShowDialog();
                             }
                             catch (Exception ex)
                             {
@@ -1864,10 +1858,6 @@ public partial class MainWindow : Form
 
                         }
                     );
-                }
-                else
-                {
-                    FocusControl(OverworldScannerForm);
                 }
             }
             catch (Exception ex)

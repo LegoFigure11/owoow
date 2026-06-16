@@ -20,9 +20,12 @@ public abstract class Offsets
     public const uint DexRecommendation = 0x45072b18;
     public const int DexRecommendation_Size = 0x20;
 
+    public const uint StepCounters = 0x45073010;
+    public const int StepCounters_Size = 0x04;
+
     public const uint KCoordinates = 0x4505b3c0;
     public const int KCoordinates_Size = 0x6010;
 
     public const uint SaveLocation_7BE8A4C6 = 0x4505b328; // Thanks @Lincoln-LM!
-    public const int SaveLocation_7BE8A4C6_Size = 0x10; // Might be bigger but this is all we need to read
+    public const int SaveLocation_7BE8A4C6_Size = 0x10; // Actually 0x20, but this is all we need to read
 }

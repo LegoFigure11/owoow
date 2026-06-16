@@ -37,19 +37,19 @@ namespace owoow.WinForms.Subforms
             TB_PID = new TextBox();
             TB_EC = new TextBox();
             TB_IVs = new TextBox();
-            label1 = new Label();
+            L_IVs = new Label();
             TB_Nature = new TextBox();
-            label2 = new Label();
+            L_Nature = new Label();
             TB_Gender = new TextBox();
-            label3 = new Label();
+            L_Gender = new Label();
             TB_Ability = new TextBox();
-            label4 = new Label();
+            L_Ability = new Label();
             L_Seed = new Label();
             TB_Seed = new TextBox();
             PB_MarkSprite = new PictureBox();
             PB_PokemonSprite = new PictureBox();
             TB_Height = new TextBox();
-            label5 = new Label();
+            L_Height = new Label();
             L_MonX = new Label();
             TB_MonX = new TextBox();
             L_MonY = new Label();
@@ -66,6 +66,10 @@ namespace owoow.WinForms.Subforms
             TB_Map = new TextBox();
             TB_Distance = new TextBox();
             L_Distance = new Label();
+            TB_FriendshipSteps = new TextBox();
+            L_FriendshipSteps = new Label();
+            TB_HatchSteps = new TextBox();
+            L_HatchSteps = new Label();
             ((System.ComponentModel.ISupportInitialize)PB_MarkSprite).BeginInit();
             ((System.ComponentModel.ISupportInitialize)PB_PokemonSprite).BeginInit();
             SuspendLayout();
@@ -155,14 +159,14 @@ namespace owoow.WinForms.Subforms
             TB_IVs.TabStop = false;
             TB_IVs.Text = "31/31/31/31/31/31";
             // 
-            // label1
+            // L_IVs
             // 
-            label1.AutoSize = true;
-            label1.Location = new Point(281, 130);
-            label1.Name = "label1";
-            label1.Size = new Size(25, 15);
-            label1.TabIndex = 15;
-            label1.Text = "IVs:";
+            L_IVs.AutoSize = true;
+            L_IVs.Location = new Point(281, 130);
+            L_IVs.Name = "L_IVs";
+            L_IVs.Size = new Size(25, 15);
+            L_IVs.TabIndex = 15;
+            L_IVs.Text = "IVs:";
             // 
             // TB_Nature
             // 
@@ -176,14 +180,14 @@ namespace owoow.WinForms.Subforms
             TB_Nature.TabStop = false;
             TB_Nature.Text = "Adamant";
             // 
-            // label2
+            // L_Nature
             // 
-            label2.AutoSize = true;
-            label2.Location = new Point(389, 85);
-            label2.Name = "label2";
-            label2.Size = new Size(46, 15);
-            label2.TabIndex = 11;
-            label2.Text = "Nature:";
+            L_Nature.AutoSize = true;
+            L_Nature.Location = new Point(389, 85);
+            L_Nature.Name = "L_Nature";
+            L_Nature.Size = new Size(46, 15);
+            L_Nature.TabIndex = 11;
+            L_Nature.Text = "Nature:";
             // 
             // TB_Gender
             // 
@@ -197,14 +201,14 @@ namespace owoow.WinForms.Subforms
             TB_Gender.TabStop = false;
             TB_Gender.Text = "F";
             // 
-            // label3
+            // L_Gender
             // 
-            label3.AutoSize = true;
-            label3.Location = new Point(258, 82);
-            label3.Name = "label3";
-            label3.Size = new Size(48, 15);
-            label3.TabIndex = 9;
-            label3.Text = "Gender:";
+            L_Gender.AutoSize = true;
+            L_Gender.Location = new Point(258, 82);
+            L_Gender.Name = "L_Gender";
+            L_Gender.Size = new Size(48, 15);
+            L_Gender.TabIndex = 9;
+            L_Gender.Text = "Gender:";
             // 
             // TB_Ability
             // 
@@ -218,14 +222,14 @@ namespace owoow.WinForms.Subforms
             TB_Ability.TabStop = false;
             TB_Ability.Text = "Compoundeyes";
             // 
-            // label4
+            // L_Ability
             // 
-            label4.AutoSize = true;
-            label4.Location = new Point(262, 106);
-            label4.Name = "label4";
-            label4.Size = new Size(44, 15);
-            label4.TabIndex = 13;
-            label4.Text = "Ability:";
+            L_Ability.AutoSize = true;
+            L_Ability.Location = new Point(262, 106);
+            L_Ability.Name = "L_Ability";
+            L_Ability.Size = new Size(44, 15);
+            L_Ability.TabIndex = 13;
+            L_Ability.Text = "Ability:";
             // 
             // L_Seed
             // 
@@ -280,14 +284,14 @@ namespace owoow.WinForms.Subforms
             TB_Height.TabStop = false;
             TB_Height.Text = "255 (XXXL)";
             // 
-            // label5
+            // L_Height
             // 
-            label5.AutoSize = true;
-            label5.Location = new Point(260, 154);
-            label5.Name = "label5";
-            label5.Size = new Size(46, 15);
-            label5.TabIndex = 17;
-            label5.Text = "Height:";
+            L_Height.AutoSize = true;
+            L_Height.Location = new Point(260, 154);
+            L_Height.Name = "L_Height";
+            L_Height.Size = new Size(46, 15);
+            L_Height.TabIndex = 17;
+            L_Height.Text = "Height:";
             // 
             // L_MonX
             // 
@@ -464,11 +468,59 @@ namespace owoow.WinForms.Subforms
             L_Distance.TabIndex = 45;
             L_Distance.Text = "Distance:";
             // 
+            // TB_FriendshipSteps
+            // 
+            TB_FriendshipSteps.Font = new Font("Consolas", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            TB_FriendshipSteps.Location = new Point(173, 83);
+            TB_FriendshipSteps.MaxLength = 16;
+            TB_FriendshipSteps.Name = "TB_FriendshipSteps";
+            TB_FriendshipSteps.ReadOnly = true;
+            TB_FriendshipSteps.Size = new Size(62, 22);
+            TB_FriendshipSteps.TabIndex = 47;
+            TB_FriendshipSteps.TabStop = false;
+            TB_FriendshipSteps.Text = "127";
+            TB_FriendshipSteps.TextAlign = HorizontalAlignment.Right;
+            // 
+            // L_FriendshipSteps
+            // 
+            L_FriendshipSteps.AutoSize = true;
+            L_FriendshipSteps.Location = new Point(8, 85);
+            L_FriendshipSteps.Name = "L_FriendshipSteps";
+            L_FriendshipSteps.Size = new Size(96, 15);
+            L_FriendshipSteps.TabIndex = 46;
+            L_FriendshipSteps.Text = "Friendship Steps:";
+            // 
+            // TB_HatchSteps
+            // 
+            TB_HatchSteps.Font = new Font("Consolas", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            TB_HatchSteps.Location = new Point(173, 106);
+            TB_HatchSteps.MaxLength = 16;
+            TB_HatchSteps.Name = "TB_HatchSteps";
+            TB_HatchSteps.ReadOnly = true;
+            TB_HatchSteps.Size = new Size(62, 22);
+            TB_HatchSteps.TabIndex = 49;
+            TB_HatchSteps.TabStop = false;
+            TB_HatchSteps.Text = "127";
+            TB_HatchSteps.TextAlign = HorizontalAlignment.Right;
+            // 
+            // L_HatchSteps
+            // 
+            L_HatchSteps.AutoSize = true;
+            L_HatchSteps.Location = new Point(8, 108);
+            L_HatchSteps.Name = "L_HatchSteps";
+            L_HatchSteps.Size = new Size(105, 15);
+            L_HatchSteps.TabIndex = 48;
+            L_HatchSteps.Text = "Hatch Cycle Steps:";
+            // 
             // OverworldScanner
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(510, 252);
+            Controls.Add(TB_HatchSteps);
+            Controls.Add(L_HatchSteps);
+            Controls.Add(TB_FriendshipSteps);
+            Controls.Add(L_FriendshipSteps);
             Controls.Add(L_Distance);
             Controls.Add(TB_Distance);
             Controls.Add(TB_Map);
@@ -485,18 +537,18 @@ namespace owoow.WinForms.Subforms
             Controls.Add(TB_MonY);
             Controls.Add(L_MonX);
             Controls.Add(TB_MonX);
-            Controls.Add(label5);
+            Controls.Add(L_Height);
             Controls.Add(TB_Height);
             Controls.Add(PB_MarkSprite);
             Controls.Add(PB_PokemonSprite);
             Controls.Add(TB_Ability);
-            Controls.Add(label4);
+            Controls.Add(L_Ability);
             Controls.Add(TB_Gender);
-            Controls.Add(label3);
+            Controls.Add(L_Gender);
             Controls.Add(TB_Nature);
-            Controls.Add(label2);
+            Controls.Add(L_Nature);
             Controls.Add(TB_IVs);
-            Controls.Add(label1);
+            Controls.Add(L_IVs);
             Controls.Add(TB_EC);
             Controls.Add(TB_PID);
             Controls.Add(TB_Seed);
@@ -511,6 +563,7 @@ namespace owoow.WinForms.Subforms
             Name = "OverworldScanner";
             Text = "Overworld Scanner";
             FormClosing += OverworldScanner_FormClosing;
+            Load += OverworldScanner_Load;
             ((System.ComponentModel.ISupportInitialize)PB_MarkSprite).EndInit();
             ((System.ComponentModel.ISupportInitialize)PB_PokemonSprite).EndInit();
             ResumeLayout(false);
@@ -527,19 +580,19 @@ namespace owoow.WinForms.Subforms
         private TextBox TB_PID;
         private TextBox TB_EC;
         private TextBox TB_IVs;
-        private Label label1;
+        private Label L_IVs;
         private TextBox TB_Nature;
-        private Label label2;
+        private Label L_Nature;
         private TextBox TB_Gender;
-        private Label label3;
+        private Label L_Gender;
         private TextBox TB_Ability;
-        private Label label4;
+        private Label L_Ability;
         private Label L_Seed;
         private TextBox TB_Seed;
         private PictureBox PB_MarkSprite;
         private PictureBox PB_PokemonSprite;
         private TextBox TB_Height;
-        private Label label5;
+        private Label L_Height;
         private Label L_MonX;
         private TextBox TB_MonX;
         private Label L_MonY;
@@ -556,5 +609,9 @@ namespace owoow.WinForms.Subforms
         private TextBox TB_Map;
         private TextBox TB_Distance;
         private Label L_Distance;
+        private TextBox TB_FriendshipSteps;
+        private Label L_FriendshipSteps;
+        private TextBox TB_HatchSteps;
+        private Label L_HatchSteps;
     }
 }

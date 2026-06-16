@@ -105,6 +105,12 @@ public class ConnectionWrapperAsync(SwitchConnectionConfig Config, Action<string
         return new PokedexRecommendation(data);
     }
 
+    public async Task<(byte FriendshipSteps, byte EggHatchCycleSteps)> ReadStepCounters(CancellationToken token)
+    {
+        var data = await Connection.ReadBytesAsync(StepCounters, StepCounters_Size, token).ConfigureAwait(false);
+        return (data[0], data[2]);
+    }
+
     public async Task OpenPokedex(bool first, CancellationToken token)
     {
         // Send a "useless" command to connect controller, just in case this is the first time connecting
