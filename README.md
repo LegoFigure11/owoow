@@ -40,18 +40,18 @@ A comprehensive usage guide brought to you by [Billo-PS](https://github.com/Bill
 * Automated seed reading and tracking (CFW only).
 * Animations → Seed and Animations → Advances (re-identification) calculators for retail/stock firmware users.
 * Inbuilt capture card monitoring tool for automatically recording Animations (automatic Initial Seed finding and reidentification) for retail users.
-* Encounter Lookup tool + prefilled encounter tables and personal details (Egg Move counts, etc) for every area.
+* Encounter Lookup tool + prefilled encounter tables and personal details (Egg Move counts, etc.) for every area.
 * Spread Finder tool to check the availability of specific IV spread + Height combinations, given the number of guaranteed flawless IVs for an encounter (recommended for advanced users only).
 * Mini tool for skipping a Xoroshiro128+ RNG an arbitrary amount forwards or backwards.
 * Full support for encounter-modifying conditions such as Lead Abilities and Pok&eacute;dex Recommendations.
-* Automated tool for resetting for specific Pok&eacute;dex Recommendations (CFW only). Shift + Click the "Refresh" button under Poke&eacute;dex Recommendations in the main window to get started.
+* Automated tool for resetting for specific Pok&eacute;dex Recommendations (CFW only). Shift + Click the "Refresh" button under Pok&eacute;dex Recommendations in the main window to get started.
 * Filtering results based on Species (rather than Encounter Slot), IVs, Shininess, Mark, Brilliant Aura, Height (for Jumbo/Teensy mark in Scarlet/Violet), and Rare EC (EC modulo 100 = 0, only useful for catching Dunsparce that evolve in to 3-Segment Dudunsparce in Scarlet/Violet).
 * Parallelised search (can be adjusted by changing the value of ``MaxSearchTasksNthPowerOfTwo`` in ``config.json`` while the program is closed, recommended for advanced users only), resulting in search times many many times faster than SwSh OWRNG Generator GUI.
 * Automatically read TID, SID, Shiny Charm, Mark Charm, Game Version, and Pok&eacute;dex Recommendations directly from RAM (CFW only).
 * Profiles for saving TID/SID/Charms for retail users who RNG across multiple save files.
 * Automatic searching and resetting for a seed that generates a specific target (CFW only), with Discord webhook integration for notifying when a result is found and the ability to log search results to a file while a search is underway.
 * Automate advances through date skipping, summary screen attack animations, or your own custom input routines (CFW only).
-* Read Wild Encounters (Click) or the KCoordinates Overworld Save Block (Shift + Click) with the "Read Encounter" button (CFW only).
+* Read Wild Encounters (Click) or the KCoordinates Overworld Save Block and Friendship Step Count (Shift + Click) with the "Read Encounter" button (CFW only).
 * Reset any filter on the main window by clicking the associated label.
 * Shift + Click on an IV button or label to apply the effect to every stat (Shift + Max = 31 all, Shift + Min = 0 all, Shift + any stat name = reset all).
 * Click on the icon between IVs to switch between IV search modes for that stat: ``~`` for a range (e.g. ``0 ~ 31`` accepting all IVs, ``0 ~ 3`` accepting 0, 1, 2, or 3), or ``||`` for either or (e.g. ``0 || 31`` accepting 0 and 31 only, ``29 || 31`` accepting 29 and 31 only).
