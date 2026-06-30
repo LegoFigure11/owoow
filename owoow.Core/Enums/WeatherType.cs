@@ -12,6 +12,9 @@ public enum WeatherType
     Snowstorm,
     Sandstorm,
     HeavyFog,
+
+    Unk_Overcast = 16,
+    Unk_Snowing = 19,
 };
 
 
