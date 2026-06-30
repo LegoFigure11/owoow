@@ -695,7 +695,7 @@ public static class Encounters
         { 0xB60EE14028E66493, "Budew Drop Inn (Upstairs)" },
         { 0xB60B604028E35389, "Budew Drop Inn (Guest Room)" },
         { 0xB60B5E4028E35023, "Budew Drop Inn (Guest Room)" },
-        { 0xB60B5D4028E34E70, "Budew Drop Inn {Guest Room)" },
+        { 0xB60B5D4028E34E70, "Budew Drop Inn (Guest Room)" },
         { 0xB60EE24028E66646, "Budew Drop Inn (Downstairs)" },
         { 0xF12207C040C1CE88, "Town of Turffield" },
         { 0xB641F5C0EAA2E42C, "Turffield Pokémon Center" },
