@@ -10,6 +10,9 @@
     <PublishSingleFile>true</PublishSingleFile>
     <IncludeNativeLibrariesForSelfExtract>true</IncludeNativeLibrariesForSelfExtract>
     <SelfContained>false</SelfContained>
+    <PackageId>owoow.WinForms</PackageId>
+    <AssemblyName>owoow</AssemblyName>
+    <Description>Nintendo Switch Pokémon Sword and Shield RNG Tool</Description>
   </PropertyGroup>
   <ItemGroup>
     <Content Include="icon.ico" />
