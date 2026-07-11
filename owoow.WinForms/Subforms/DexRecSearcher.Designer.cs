@@ -337,6 +337,7 @@ namespace owoow.WinForms.Subforms
             Controls.Add(L_Map);
             FormBorderStyle = FormBorderStyle.FixedSingle;
             Icon = (Icon)resources.GetObject("$this.Icon");
+            MaximizeBox = false;
             Name = "DexRecSearcher";
             Text = "Pokédex Recommendation Searcher";
             FormClosing += DexRecSearcher_FormClosing;

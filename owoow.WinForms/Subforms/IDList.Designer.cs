@@ -97,6 +97,7 @@ namespace owoow.WinForms.Subforms
             Controls.Add(LB_IDs);
             FormBorderStyle = FormBorderStyle.FixedSingle;
             Icon = (Icon)resources.GetObject("$this.Icon");
+            MaximizeBox = false;
             Name = "IDList";
             Text = "ID List";
             FormClosing += IDList_FormClosing;

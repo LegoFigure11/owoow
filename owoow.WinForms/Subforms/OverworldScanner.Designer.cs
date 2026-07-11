@@ -560,6 +560,7 @@ namespace owoow.WinForms.Subforms
             Controls.Add(L_PokemonPresent);
             FormBorderStyle = FormBorderStyle.FixedSingle;
             Icon = (Icon)resources.GetObject("$this.Icon");
+            MaximizeBox = false;
             Name = "OverworldScanner";
             Text = "Overworld Scanner";
             FormClosing += OverworldScanner_FormClosing;

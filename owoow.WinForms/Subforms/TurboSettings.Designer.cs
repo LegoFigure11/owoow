@@ -174,7 +174,9 @@ namespace owoow.WinForms.Subforms
             Controls.Add(B_Add);
             Controls.Add(CB_Input);
             Controls.Add(LB_List);
+            FormBorderStyle = FormBorderStyle.FixedSingle;
             Icon = (Icon)resources.GetObject("$this.Icon");
+            MaximizeBox = false;
             Name = "TurboSettings";
             Text = "Turbo Settings";
             FormClosing += TurboSettings_FormClosing;

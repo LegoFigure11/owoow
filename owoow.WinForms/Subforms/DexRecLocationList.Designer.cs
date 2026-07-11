@@ -106,6 +106,7 @@ namespace owoow.WinForms.Subforms
             Controls.Add(LB_Locations);
             FormBorderStyle = FormBorderStyle.FixedSingle;
             Icon = (Icon)resources.GetObject("$this.Icon");
+            MaximizeBox = false;
             Name = "DexRecLocationList";
             Text = "Location List";
             FormClosing += DexRecLocationList_FormClosing;

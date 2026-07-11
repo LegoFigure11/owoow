@@ -283,8 +283,10 @@ namespace owoow.WinForms.Subforms
             Controls.Add(L_Seed0);
             Controls.Add(TB_Seed0);
             Controls.Add(OKButton);
+            FormBorderStyle = FormBorderStyle.FixedSingle;
             Icon = (Icon)resources.GetObject("$this.Icon");
             Margin = new Padding(4, 3, 4, 3);
+            MaximizeBox = false;
             Name = "RetailSeedFinder";
             Text = "Retail Seed Finder";
             FormClosing += RetailSeedFinder_FormClosing;
