@@ -90,7 +90,7 @@ namespace owoow.Core.Interfaces
         public string Seed0    { get; set; } = string.Empty;
         public string Seed1    { get; set; } = string.Empty;
 
-        public override string ToString() => $"Advance: {Advances} ({Seed0} {Seed1}) | {Species} (Shiny: {Shiny}) | {H}/{A}/{B}/{C}/{D}/{S} | Mark: {Mark}";
+        public override string ToString() => $"推进：{Advances}（{Seed0} {Seed1}）| {Species}（闪光：{Shiny}）| {H}/{A}/{B}/{C}/{D}/{S} | 证章：{Mark}";
     }
 
     public class SpreadFinderFrame : ISpreadFinderFrame

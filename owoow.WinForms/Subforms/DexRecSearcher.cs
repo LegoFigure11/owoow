@@ -21,6 +21,7 @@ public partial class DexRecSearcher : Form
     public DexRecSearcher(MainWindow f, ConnectionWrapperAsync c)
     {
         InitializeComponent();
+        ChineseLocalizer.Apply(this);
 
         MainWindow = f;
         ConnectionWrapper = c;
@@ -31,7 +32,7 @@ public partial class DexRecSearcher : Form
         if (File.Exists(mapsPath))
             Maps = JsonSerializer.Deserialize<List<string>>(File.ReadAllText(mapsPath)) ?? [];
 
-        L_IgnoredMaps.Text = $"Excluded Maps: {Maps.Count}";
+        L_IgnoredMaps.Text = $"已排除地图：{Maps.Count}";
 
         MainWindow.SetControlText(string.Empty, TB_Map, TB_S1, TB_S2, TB_S3, TB_S4, TB_Seed);
 
@@ -64,7 +65,7 @@ public partial class DexRecSearcher : Form
 
     private void SetDexRecDetails(PokedexRecommendation dr)
     {
-        MainWindow.SetControlText(dr.Location, TB_Map);
+        MainWindow.SetControlText(ChineseLocalizer.TranslateValue(dr.Location), TB_Map);
         MainWindow.SetControlText($"{dr.Seed:X16}", TB_Seed);
         MainWindow.SetControlText(GetDexRecommendation(dr.Species1), TB_S1);
         MainWindow.SetControlText(GetDexRecommendation(dr.Species2), TB_S2);
@@ -106,12 +107,12 @@ public partial class DexRecSearcher : Form
                 while (!stop)
                 {
                     MainWindow.readPause = true;
-                    MainWindow.SetControlText(text + " - Opening Pokédex...", this);
+                    MainWindow.SetControlText(text + " - 正在打开图鉴……", this);
                     await ConnectionWrapper.OpenPokedex(first, Source.Token).ConfigureAwait(false);
-                    MainWindow.SetControlText(text + " - Reading Pokédex Recommendation...", this);
+                    MainWindow.SetControlText(text + " - 正在读取图鉴推荐……", this);
                     var dr = await ConnectionWrapper.ReadDexRecommendationFull(Source.Token).ConfigureAwait(false);
                     MainWindow.readPause = false;
-                    var target = (ushort)GetDexRecommendation(CB_Target.GetText());
+                    var target = (ushort)GetDexRecommendation(CB_Target.GetInvariantText());
                     var slotSpecified = CB_SpecificSlot.GetIsChecked();
                     var slot = GetSpecificSlot();
 
@@ -144,19 +145,19 @@ public partial class DexRecSearcher : Form
 
                         if (found)
                         {
-                            this.DisplayMessageBox("Matching Pokédex Recommendation Found!", "Pokédex Recommendation Search Result");
+                            this.DisplayMessageBox("找到了匹配的图鉴推荐！", "图鉴推荐搜索结果");
                             break;
                         }
                     }
 
-                    MainWindow.SetControlText(text + " - Closing Pokédex and saving the game...", this);
+                    MainWindow.SetControlText(text + " - 正在关闭图鉴并保存游戏……", this);
                     await ConnectionWrapper.ClosePokedexAndSave(Source.Token).ConfigureAwait(false);
 
-                    MainWindow.SetControlText(text + " - Advancing date...", this);
+                    MainWindow.SetControlText(text + " - 正在推进日期……", this);
                     await MainWindow.AdvanceDate(1).ConfigureAwait(false);
                     if (CB_Date.GetIsChecked())
                     {
-                        MainWindow.SetControlText(text + " - Resetting date...", this);
+                        MainWindow.SetControlText(text + " - 正在重置日期……", this);
                         await ConnectionWrapper.SetCurrentTime(tick, Source.Token).ConfigureAwait(false);
                     }
                     first = false;

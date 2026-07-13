@@ -32,7 +32,7 @@ public partial class MainWindow : Form
     private ConnectionWrapperAsync ConnectionWrapper = default!;
     private SwitchConnectionConfig ConnectionConfig;
 
-    public readonly GameStrings Strings = GameInfo.GetStrings("en");
+    public readonly GameStrings Strings = GameInfo.GetStrings(ChineseLocalizer.LanguageCode);
 
     private bool stop;
     private bool reset;
@@ -95,6 +95,7 @@ public partial class MainWindow : Form
         Text = $"owoow (´・ω・`) v{v.Major}.{v.Minor}.{v.Build}{build}";
 
         InitializeComponent();
+        ChineseLocalizer.Apply(this);
     }
 
     private void MainWindow_Load(object sender, EventArgs e)
@@ -107,7 +108,7 @@ public partial class MainWindow : Form
         }
         else
         {
-            L_SwitchIP.Text = "USB Port:";
+            L_SwitchIP.Text = "USB 端口：";
             TB_SwitchIP.Text = $"{Config.UsbPort}";
         }
 
@@ -126,7 +127,7 @@ public partial class MainWindow : Form
         SetControlText(string.Empty, TB_CurrentAdvances, TB_AdvancesIncrease, TB_CurrentS0, TB_CurrentS1, TB_Wild);
         SetComboBoxSelectedIndex(0, CB_Filter_Shiny, CB_Filter_Mark, CB_Filter_Aura, CB_Filter_Height);
 
-        TB_Status.Text = "Not Connected.";
+        TB_Status.Text = "未连接。";
         SetAreaOptions();
 
         SetDexRecOptions();
@@ -625,7 +626,7 @@ public partial class MainWindow : Form
 
         ValidateInputs("Symbol");
 
-        var table = new EncounterTable((Game)CB_Game.SelectedIndex, EncounterType.Symbol, CB_Symbol_Area.Text, CB_Symbol_Weather.Text, CB_Symbol_LeadAbility.Text);
+        var table = new EncounterTable((Game)CB_Game.SelectedIndex, EncounterType.Symbol, CB_Symbol_Area.GetInvariantText(), CB_Symbol_Weather.GetInvariantText(), CB_Symbol_LeadAbility.GetInvariantText());
 
         var initial = ulong.Parse(TB_Symbol_Initial.Text);
         var advances = ulong.Parse(TB_Symbol_Advances.Text);
@@ -638,8 +639,8 @@ public partial class MainWindow : Form
 
         Core.RNG.GeneratorConfig config = new()
         {
-            TargetSpecies = CB_Symbol_Species.Text,
-            LeadAbility = CB_Symbol_LeadAbility.Text,
+            TargetSpecies = CB_Symbol_Species.GetInvariantText(),
+            LeadAbility = CB_Symbol_LeadAbility.GetInvariantText(),
 
             Weather = GetWeatherType($"{CB_Symbol_Weather.SelectedItem}"),
 
@@ -661,10 +662,10 @@ public partial class MainWindow : Form
 
             DexRecSlots =
             [
-                GetDexRecommendation(CB_DexRec1.Text),
-                GetDexRecommendation(CB_DexRec2.Text),
-                GetDexRecommendation(CB_DexRec3.Text),
-                GetDexRecommendation(CB_DexRec4.Text)
+                GetDexRecommendation(CB_DexRec1.GetInvariantText()),
+                GetDexRecommendation(CB_DexRec2.GetInvariantText()),
+                GetDexRecommendation(CB_DexRec3.GetInvariantText()),
+                GetDexRecommendation(CB_DexRec4.GetInvariantText())
             ],
 
             ConsiderMenuClose = CB_Symbol_MenuClose.Checked,
@@ -725,7 +726,7 @@ public partial class MainWindow : Form
         {
             if (CB_FocusWindow.Checked) ActivateWindow();
             if (CB_PlayTone.Checked) System.Media.SystemSounds.Asterisk.Play();
-            if (Frames.Count >= 1_000) MessageBox.Show($"Too many results found, displayed results capped at 1000. Please re-run the search with more restrictive filters or a smaller range of advances.");
+            if (Frames.Count >= 1_000) MessageBox.Show("找到的结果过多，最多显示 1000 条。请使用更严格的筛选条件或缩小推进范围后重新搜索。");
         });
     }
 
@@ -735,7 +736,7 @@ public partial class MainWindow : Form
 
         ValidateInputs("Hidden");
 
-        var table = new EncounterTable((Game)CB_Game.SelectedIndex, EncounterType.Hidden, CB_Hidden_Area.Text, CB_Hidden_Weather.Text, CB_Hidden_LeadAbility.Text);
+        var table = new EncounterTable((Game)CB_Game.SelectedIndex, EncounterType.Hidden, CB_Hidden_Area.GetInvariantText(), CB_Hidden_Weather.GetInvariantText(), CB_Hidden_LeadAbility.GetInvariantText());
 
         var initial = ulong.Parse(TB_Hidden_Initial.Text);
         var advances = ulong.Parse(TB_Hidden_Advances.Text);
@@ -748,8 +749,8 @@ public partial class MainWindow : Form
 
         Core.RNG.GeneratorConfig config = new()
         {
-            TargetSpecies = CB_Hidden_Species.Text,
-            LeadAbility = CB_Hidden_LeadAbility.Text,
+            TargetSpecies = CB_Hidden_Species.GetInvariantText(),
+            LeadAbility = CB_Hidden_LeadAbility.GetInvariantText(),
 
             Weather = GetWeatherType($"{CB_Hidden_Weather.SelectedItem}"),
 
@@ -770,10 +771,10 @@ public partial class MainWindow : Form
 
             DexRecSlots =
             [
-                GetDexRecommendation(CB_DexRec1.Text),
-                GetDexRecommendation(CB_DexRec2.Text),
-                GetDexRecommendation(CB_DexRec3.Text),
-                GetDexRecommendation(CB_DexRec4.Text)
+                GetDexRecommendation(CB_DexRec1.GetInvariantText()),
+                GetDexRecommendation(CB_DexRec2.GetInvariantText()),
+                GetDexRecommendation(CB_DexRec3.GetInvariantText()),
+                GetDexRecommendation(CB_DexRec4.GetInvariantText())
             ],
 
             ConsiderMenuClose = CB_Hidden_MenuClose.Checked,
@@ -834,7 +835,7 @@ public partial class MainWindow : Form
         {
             if (CB_FocusWindow.Checked) ActivateWindow();
             if (CB_PlayTone.Checked) System.Media.SystemSounds.Asterisk.Play();
-            if (Frames.Count >= 1_000) MessageBox.Show($"Too many results found, displayed results capped at 1000. Please re-run the search with more restrictive filters or a smaller range of advances.");
+            if (Frames.Count >= 1_000) MessageBox.Show("找到的结果过多，最多显示 1000 条。请使用更严格的筛选条件或缩小推进范围后重新搜索。");
         });
     }
 
@@ -844,7 +845,7 @@ public partial class MainWindow : Form
 
         ValidateInputs("Static");
 
-        var table = new EncounterTable((Game)CB_Game.SelectedIndex, EncounterType.Static, CB_Static_Area.Text, CB_Static_Weather.Text, CB_Static_LeadAbility.Text);
+        var table = new EncounterTable((Game)CB_Game.SelectedIndex, EncounterType.Static, CB_Static_Area.GetInvariantText(), CB_Static_Weather.GetInvariantText(), CB_Static_LeadAbility.GetInvariantText());
 
         var initial = ulong.Parse(TB_Static_Initial.Text);
         var advances = ulong.Parse(TB_Static_Advances.Text);
@@ -857,8 +858,8 @@ public partial class MainWindow : Form
 
         Core.RNG.GeneratorConfig config = new()
         {
-            TargetSpecies = CB_Static_Species.Text,
-            LeadAbility = CB_Static_LeadAbility.Text,
+            TargetSpecies = CB_Static_Species.GetInvariantText(),
+            LeadAbility = CB_Static_LeadAbility.GetInvariantText(),
 
             Weather = GetWeatherType($"{CB_Static_Weather.SelectedItem}"),
 
@@ -933,7 +934,7 @@ public partial class MainWindow : Form
         {
             if (CB_FocusWindow.Checked) ActivateWindow();
             if (CB_PlayTone.Checked) System.Media.SystemSounds.Asterisk.Play();
-            if (Frames.Count >= 1_000) MessageBox.Show($"Too many results found, displayed results capped at 1000. Please re-run the search with more restrictive filters or a smaller range of advances.");
+            if (Frames.Count >= 1_000) MessageBox.Show("找到的结果过多，最多显示 1000 条。请使用更严格的筛选条件或缩小推进范围后重新搜索。");
         });
     }
 
@@ -943,7 +944,7 @@ public partial class MainWindow : Form
 
         ValidateInputs("Fishing");
 
-        var table = new EncounterTable((Game)CB_Game.SelectedIndex, EncounterType.Fishing, CB_Fishing_Area.Text, CB_Fishing_Weather.Text, CB_Fishing_LeadAbility.Text);
+        var table = new EncounterTable((Game)CB_Game.SelectedIndex, EncounterType.Fishing, CB_Fishing_Area.GetInvariantText(), CB_Fishing_Weather.GetInvariantText(), CB_Fishing_LeadAbility.GetInvariantText());
 
         var initial = ulong.Parse(TB_Fishing_Initial.Text);
         var advances = ulong.Parse(TB_Fishing_Advances.Text);
@@ -956,8 +957,8 @@ public partial class MainWindow : Form
 
         Core.RNG.GeneratorConfig config = new()
         {
-            TargetSpecies = CB_Fishing_Species.Text,
-            LeadAbility = CB_Fishing_LeadAbility.Text,
+            TargetSpecies = CB_Fishing_Species.GetInvariantText(),
+            LeadAbility = CB_Fishing_LeadAbility.GetInvariantText(),
 
             Weather = GetWeatherType($"{CB_Fishing_Weather.SelectedItem}"),
 
@@ -979,10 +980,10 @@ public partial class MainWindow : Form
 
             DexRecSlots =
             [
-                GetDexRecommendation(CB_DexRec1.Text),
-                GetDexRecommendation(CB_DexRec2.Text),
-                GetDexRecommendation(CB_DexRec3.Text),
-                GetDexRecommendation(CB_DexRec4.Text)
+                GetDexRecommendation(CB_DexRec1.GetInvariantText()),
+                GetDexRecommendation(CB_DexRec2.GetInvariantText()),
+                GetDexRecommendation(CB_DexRec3.GetInvariantText()),
+                GetDexRecommendation(CB_DexRec4.GetInvariantText())
             ],
 
             ConsiderMenuClose = CB_Fishing_MenuClose.Checked,
@@ -1043,7 +1044,7 @@ public partial class MainWindow : Form
         {
             if (CB_FocusWindow.Checked) ActivateWindow();
             if (CB_PlayTone.Checked) System.Media.SystemSounds.Asterisk.Play();
-            if (Frames.Count >= 1_000) MessageBox.Show($"Too many results found, displayed results capped at 1000. Please re-run the search with more restrictive filters or a smaller range of advances.");
+            if (Frames.Count >= 1_000) MessageBox.Show("找到的结果过多，最多显示 1000 条。请使用更严格的筛选条件或缩小推进范围后重新搜索。");
         });
     }
 
@@ -1057,9 +1058,9 @@ public partial class MainWindow : Form
         var table = new EncounterTable(
             (Game)CB_Game.SelectedIndex,
             et,
-            ((ComboBox)Controls.Find($"CB_{type}_Area", true).FirstOrDefault()!).Text,
-            ((ComboBox)Controls.Find($"CB_{type}_Weather", true).FirstOrDefault()!).Text,
-            ((ComboBox)Controls.Find($"CB_{type}_LeadAbility", true).FirstOrDefault()!).Text
+            ((ComboBox)Controls.Find($"CB_{type}_Area", true).FirstOrDefault()!).GetInvariantText(),
+            ((ComboBox)Controls.Find($"CB_{type}_Weather", true).FirstOrDefault()!).GetInvariantText(),
+            ((ComboBox)Controls.Find($"CB_{type}_LeadAbility", true).FirstOrDefault()!).GetInvariantText()
         );
 
         var initial = ulong.Parse(((TextBox)Controls.Find($"TB_{type}_Initial", true).FirstOrDefault()!).Text);
@@ -1070,12 +1071,12 @@ public partial class MainWindow : Form
 
         Core.RNG.GeneratorConfig config = new()
         {
-            TargetSpecies = ((ComboBox)Controls.Find($"CB_{type}_Species", true).FirstOrDefault()!).Text,
-            LeadAbility = ((ComboBox)Controls.Find($"CB_{type}_LeadAbility", true).FirstOrDefault()!).Text,
+            TargetSpecies = ((ComboBox)Controls.Find($"CB_{type}_Species", true).FirstOrDefault()!).GetInvariantText(),
+            LeadAbility = ((ComboBox)Controls.Find($"CB_{type}_LeadAbility", true).FirstOrDefault()!).GetInvariantText(),
 
             AuraKOs = et is EncounterType.Symbol or EncounterType.Fishing ? int.Parse(((Controls.Find($"TB_{type}_KOs", true)).FirstOrDefault()!).GetText()) : 0,
 
-            Weather = GetWeatherType(((ComboBox)Controls.Find($"CB_{type}_Weather", true).FirstOrDefault()!).Text),
+            Weather = GetWeatherType(((ComboBox)Controls.Find($"CB_{type}_Weather", true).FirstOrDefault()!).GetInvariantText()),
 
             ShinyRolls = CB_ShinyCharm.Checked ? 3 : 1,
             MarkRolls = CB_MarkCharm.Checked ? 3 : 1,
@@ -1094,10 +1095,10 @@ public partial class MainWindow : Form
 
             DexRecSlots =
             [
-                GetDexRecommendation(CB_DexRec1.Text),
-                GetDexRecommendation(CB_DexRec2.Text),
-                GetDexRecommendation(CB_DexRec3.Text),
-                GetDexRecommendation(CB_DexRec4.Text)
+                GetDexRecommendation(CB_DexRec1.GetInvariantText()),
+                GetDexRecommendation(CB_DexRec2.GetInvariantText()),
+                GetDexRecommendation(CB_DexRec3.GetInvariantText()),
+                GetDexRecommendation(CB_DexRec4.GetInvariantText())
             ],
 
             ConsiderMenuClose = ((CheckBox)Controls.Find($"CB_{type}_MenuClose", true).FirstOrDefault()!).Checked,
@@ -1141,16 +1142,16 @@ public partial class MainWindow : Form
 
         if (ticks.Count == max)
         {
-            MessageBox.Show("Whoops! Max number of results found, please set the IV filters to be stricter and try again.");
+            MessageBox.Show("结果数量已达上限，请收紧个体值筛选条件后重试。");
         }
         else if (ticks.Count != 0)
         {
             SetNUDValue(ticks[0], NUD_RainTick);
-            MessageBox.Show($"Found {ticks.Count} result{(ticks.Count != 1 ? "s" : string.Empty)}: {string.Join(", ", ticks)}");
+            MessageBox.Show($"找到 {ticks.Count} 个结果：{string.Join(", ", ticks)}");
         }
         else
         {
-            MessageBox.Show("No results found.");
+            MessageBox.Show("未找到结果。");
         }
     }
 
@@ -1199,9 +1200,9 @@ public partial class MainWindow : Form
                         var table = new EncounterTable(
                             (Game)CB_Game.GetSelectedIndex(),
                             et,
-                            (Controls.Find($"CB_{type}_Area", true).FirstOrDefault()!).GetText(),
-                            (Controls.Find($"CB_{type}_Weather", true).FirstOrDefault()!).GetText(),
-                            (Controls.Find($"CB_{type}_LeadAbility", true).FirstOrDefault()!).GetText()
+                            ((ComboBox)Controls.Find($"CB_{type}_Area", true).FirstOrDefault()!).GetInvariantText(),
+                            ((ComboBox)Controls.Find($"CB_{type}_Weather", true).FirstOrDefault()!).GetInvariantText(),
+                            ((ComboBox)Controls.Find($"CB_{type}_LeadAbility", true).FirstOrDefault()!).GetInvariantText()
                         );
 
                         var initial = ulong.Parse((Controls.Find($"TB_{type}_Initial", true).FirstOrDefault()!).GetText());
@@ -1212,13 +1213,13 @@ public partial class MainWindow : Form
 
                         Core.RNG.GeneratorConfig config = new()
                         {
-                            TargetSpecies = (Controls.Find($"CB_{type}_Species", true).FirstOrDefault()!).GetText(),
-                            LeadAbility = (Controls.Find($"CB_{type}_LeadAbility", true).FirstOrDefault()!).GetText(),
+                            TargetSpecies = ((ComboBox)Controls.Find($"CB_{type}_Species", true).FirstOrDefault()!).GetInvariantText(),
+                            LeadAbility = ((ComboBox)Controls.Find($"CB_{type}_LeadAbility", true).FirstOrDefault()!).GetInvariantText(),
 
                             AuraKOs = et is EncounterType.Symbol or EncounterType.Fishing ? int.Parse((Controls.Find($"TB_{type}_KOs", true).FirstOrDefault()!).GetText()) : 0,
                             TargetAura = et is EncounterType.Symbol or EncounterType.Fishing ? GetFilterAuraType(CB_Filter_Aura.GetSelectedIndex()) : AuraType.Any,
 
-                            Weather = GetWeatherType((Controls.Find($"CB_{type}_Weather", true).FirstOrDefault()!).GetText()),
+                            Weather = GetWeatherType(((ComboBox)Controls.Find($"CB_{type}_Weather", true).FirstOrDefault()!).GetInvariantText()),
 
                             ShinyRolls = CB_ShinyCharm.GetIsChecked() ? 3 : 1,
                             MarkRolls = CB_MarkCharm.GetIsChecked() ? 3 : 1,
@@ -1236,10 +1237,10 @@ public partial class MainWindow : Form
 
                             DexRecSlots =
                             [
-                                GetDexRecommendation(CB_DexRec1.GetText()),
-                                GetDexRecommendation(CB_DexRec2.GetText()),
-                                GetDexRecommendation(CB_DexRec3.GetText()),
-                                GetDexRecommendation(CB_DexRec4.GetText())
+                                GetDexRecommendation(CB_DexRec1.GetInvariantText()),
+                                GetDexRecommendation(CB_DexRec2.GetInvariantText()),
+                                GetDexRecommendation(CB_DexRec3.GetInvariantText()),
+                                GetDexRecommendation(CB_DexRec4.GetInvariantText())
                             ],
 
                             ConsiderMenuClose = ((CheckBox)(Controls.Find($"CB_{type}_MenuClose", true).FirstOrDefault()!)).GetIsChecked(),
@@ -1315,8 +1316,8 @@ public partial class MainWindow : Form
                         {
                             await Webhook
                                 .SendErrorNotification(
-                                    $"Advances passed since last reset: {passed:N0}, please check that all controllers are disconnected, your configured timings are correct, and the routine is working properly.\n\nThe routine will continue until this happens again without a successful reset in between.",
-                                    "Seed Reset Notification", CancellationToken.None).ConfigureAwait(false);
+                                    $"自上次重置后已推进 {passed:N0} 次。请确认所有控制器均已断开、时间设置正确且流程运行正常。\n\n流程会继续运行；如果在未成功重置的情况下再次发生此问题，将自动停止。",
+                                    "种子重置通知", CancellationToken.None).ConfigureAwait(false);
                             consecutiveFails++;
                         }
                         else
@@ -1370,8 +1371,8 @@ public partial class MainWindow : Form
                         await Webhook.SendNotification(Frames[0], time, ct, Frames.Count, Frames.Any(x => x.Shiny != "No"), ResetSource.Token).ConfigureAwait(false);
                         await Task.Delay(100, ResetSource.Token).ConfigureAwait(false);
                         Disconnect(ResetSource.Token);
-                        if (Frames.Count >= 1_000) MessageBox.Show($"Too many results found, displayed results capped at 1000. Please re-run the search with more restrictive filters or a smaller range of advances.");
-                        MessageBox.Show($"Seed result found in {ct:N0} reset{(ct == 1 ? string.Empty : "s")}! Total search time: {time}.{System.Environment.NewLine}Disconnecting Switch.");
+                        if (Frames.Count >= 1_000) MessageBox.Show("找到的结果过多，最多显示 1000 条。请使用更严格的筛选条件或缩小推进范围后重新搜索。");
+                        MessageBox.Show($"重置 {ct:N0} 次后找到目标种子！总搜索时间：{time}。{System.Environment.NewLine}正在断开 Switch 连接。");
                     }
                 }
             }
@@ -1395,7 +1396,7 @@ public partial class MainWindow : Form
                 {
                     try
                     {
-                        await Webhook.SendErrorNotification(ex.Message, "Seed Reset Error", CancellationToken.None)
+                        await Webhook.SendErrorNotification(ChineseLocalizer.TranslateMessage(ex.Message), "种子重置错误", CancellationToken.None)
                             .ConfigureAwait(false);
                     }
                     catch
@@ -1430,7 +1431,7 @@ public partial class MainWindow : Form
     #region UI Methods
     private void UpdateStatus(string status)
     {
-        SetControlText(status, TB_Status);
+        SetControlText(ChineseLocalizer.TranslateMessage(status), TB_Status);
     }
 
     private void CheckForUpdates()
@@ -1456,7 +1457,7 @@ public partial class MainWindow : Form
 
     private void NotifyNewVersionAvailable(Version version)
     {
-        Text += $" - Update v{version.Major}.{version.Minor}.{version.Build} available!";
+        Text += $" - 可更新至 v{version.Major}.{version.Minor}.{version.Build}";
 
 #if !DEBUG
         using UpdateNotifPopup nup = new(CurrentVersion, version);
@@ -1684,7 +1685,7 @@ public partial class MainWindow : Form
                 return;
             }
 
-            MessageBox.Show("Please enter a valid numerical USB port.");
+            MessageBox.Show("请输入有效的数字 USB 端口。");
         }
     }
 
@@ -1878,7 +1879,7 @@ public partial class MainWindow : Form
                         readPause = true;
                         SetControlEnabledState(false, B_RefreshDexRec, B_ReadEncounter, B_CopyToInitial, B_RetailUpdateSeeds);
                         await Task.Delay(100, Source.Token).ConfigureAwait(false);
-                        SetControlText("Reading encounter...", TB_Wild);
+                        SetControlText("正在读取遭遇……", TB_Wild);
                         var pk = await ConnectionWrapper.ReadWildPokemon(Source.Token).ConfigureAwait(false);
                         if (pk is { Valid: true, Species: > 0 })
                         {
@@ -1887,11 +1888,10 @@ public partial class MainWindow : Form
 
                             var n = System.Environment.NewLine;
 
-                            string form = pk.Form == 0 ? string.Empty : $"-{pk.Form}";
                             string gender = pk.Gender switch
                             {
-                                0 => " (M)",
-                                1 => " (F)",
+                                0 => "（雄性）",
+                                1 => "（雌性）",
                                 _ => string.Empty,
                             };
                             string shiny = pk.ShinyXor switch
@@ -1904,10 +1904,10 @@ public partial class MainWindow : Form
 
                             string item = pk.HeldItem > 0 ? $" @ {Strings.Item[pk.HeldItem]}" : string.Empty;
                             string markString =
-                                HasRibbon ? $"{n}Mark: {mark.ToString().Replace("Mark", "")}" : string.Empty;
+                                HasRibbon ? $"{n}证章：{ChineseLocalizer.TranslateValue(mark.ToString().Replace("Mark", ""))}" : string.Empty;
 
                             string scale =
-                                $"Height: {PokeSizeDetailedUtil.GetSizeRating(pk.HeightScalar)} ({pk.HeightScalar})";
+                                $"身高：{PokeSizeDetailedUtil.GetSizeRating(pk.HeightScalar)}（{pk.HeightScalar}）";
 
                             string moves = string.Empty;
 
@@ -1919,7 +1919,7 @@ public partial class MainWindow : Form
                             }
 
                             string output =
-                                $"{shiny}{(Species)pk.Species}{form}{gender}{item}{n}EC: {pk.EncryptionConstant:X8}{(CB_RareEC.GetIsChecked() ? $" (% 100 = {pk.EncryptionConstant % 100})" : string.Empty)}{n}PID: {pk.PID:X8}{n}{Strings.Natures[(int)pk.Nature]} Nature{n}Ability: {Strings.Ability[pk.Ability]}{n}IVs: {pk.IV_HP}/{pk.IV_ATK}/{pk.IV_DEF}/{pk.IV_SPA}/{pk.IV_SPD}/{pk.IV_SPE}{n}{scale}{markString}{moves}";
+                                $"{shiny}{ChineseLocalizer.TranslateSpecies(pk.Species, pk.Form)}{gender}{item}{n}EC：{pk.EncryptionConstant:X8}{(CB_RareEC.GetIsChecked() ? $"（% 100 = {pk.EncryptionConstant % 100}）" : string.Empty)}{n}PID：{pk.PID:X8}{n}性格：{Strings.Natures[(int)pk.Nature]}{n}特性：{Strings.Ability[pk.Ability]}{n}个体值：{pk.IV_HP}/{pk.IV_ATK}/{pk.IV_DEF}/{pk.IV_SPA}/{pk.IV_SPD}/{pk.IV_SPE}{n}{scale}{markString}{moves}";
 
                             readPause = false;
                             SetPictureBoxImage(pk.Sprite(), PB_PokemonSprite);
@@ -1940,7 +1940,7 @@ public partial class MainWindow : Form
                             CachedEncounter = null;
                             PB_PokemonSprite.Image = null;
                             PB_MarkSprite.Image = null;
-                            SetControlText("No encounter present.", TB_Wild);
+                            SetControlText("当前没有遭遇中的宝可梦。", TB_Wild);
                             SetControlEnabledState(false, B_CopyToFilter);
                         }
 
@@ -1997,9 +1997,9 @@ public partial class MainWindow : Form
         return new EncounterTable(
             (Game)CB_Game.GetSelectedIndex(),
             type,
-            (Controls.Find($"CB_{et}_Area", true).FirstOrDefault()!).GetText(),
-            (Controls.Find($"CB_{et}_Weather", true).FirstOrDefault()!).GetText(),
-            (Controls.Find($"CB_{et}_LeadAbility", true).FirstOrDefault()!).GetText()
+            ((ComboBox)Controls.Find($"CB_{et}_Area", true).FirstOrDefault()!).GetInvariantText(),
+            ((ComboBox)Controls.Find($"CB_{et}_Weather", true).FirstOrDefault()!).GetInvariantText(),
+            ((ComboBox)Controls.Find($"CB_{et}_LeadAbility", true).FirstOrDefault()!).GetInvariantText()
         );
     }
 
@@ -2016,7 +2016,7 @@ public partial class MainWindow : Form
         {
             case EncounterType.Static:
                 {
-                    var species = ((ComboBox)sender).Text;
+                    var species = ((ComboBox)sender).GetInvariantText();
                     var enc = GetCurrentTable().StaticTable.FirstOrDefault(e => e.Value.Species == species);
                     if (species != string.Empty && enc.Value is not null) CB_Filter_Shiny.Enabled = !enc.Value.IsShinyLocked;
 
@@ -2143,17 +2143,8 @@ public partial class MainWindow : Form
     {
         var cb = (ComboBox)sender;
         var last = cb.SelectedIndex;
-        var text = cb.Text;
-        var items = cb.Items.Cast<string>().ToList();
-        var match = items.Find(e => e.Equals(text, StringComparison.CurrentCultureIgnoreCase));
-        if (match is not null)
-        {
-            cb.SelectedIndex = items.IndexOf(match);
-        }
-        else
-        {
-            cb.SelectedIndex = Math.Max(last, 0);
-        }
+        var match = ChineseLocalizer.FindItemIndex(cb, cb.Text);
+        cb.SelectedIndex = match >= 0 ? match : Math.Max(last, 0);
     }
 
     private void L_ResetComboBox(object sender, EventArgs e)
@@ -2248,6 +2239,7 @@ public partial class MainWindow : Form
 
     public void SetButtonText(string text, params object[] obj)
     {
+        text = ChineseLocalizer.TranslateMessage(text);
         foreach (object o in obj)
         {
             if (o is not Button b)
@@ -2333,7 +2325,7 @@ public partial class MainWindow : Form
     private string[] _cachedNPCs = [string.Empty, string.Empty, string.Empty, string.Empty];
     private void HandleNPCBoxFlyingInteraction()
     {
-        var tab = TC_EncounterType.SelectedTab?.Text;
+        var tab = TC_EncounterType.SelectedIndex >= 0 ? ((EncounterType)TC_EncounterType.SelectedIndex).ToString() : null;
         if (tab is not null && ((CheckBox)Controls.Find($"CB_{tab}_MenuClose", true).FirstOrDefault()!).Checked)
         {
             if (CB_ConsiderFlying.Checked && !CB_ConsiderRain.Checked)
@@ -2893,21 +2885,21 @@ public partial class MainWindow : Form
                         TB_CurrentS1.Text = $"{s1:X16}";
                         break;
                     case 0:
-                        TB_RetailAdvances.Text = "No results";
+                        TB_RetailAdvances.Text = "无结果";
                         break;
                     default:
-                        TB_RetailAdvances.Text = $"{hits} results";
+                        TB_RetailAdvances.Text = $"{hits} 个结果";
                         break;
                 }
             }
             else
             {
-                TB_RetailAdvances.Text = "Need more inputs";
+                TB_RetailAdvances.Text = "需要更多输入";
             }
         }
         else
         {
-            TB_RetailAdvances.Text = "Generate First ↑";
+            TB_RetailAdvances.Text = "请先生成 ↑";
         }
     }
     #endregion
@@ -2996,7 +2988,7 @@ public static class Extension
     {
         try
         {
-            var tab = mw.TC_EncounterType.GetSelectedTab();
+            var type = (EncounterType)mw.TC_EncounterType.GetSelectedIndex();
             foreach (DataGridViewColumn col in dgv.Columns)
             {
                 if (col is not null)
@@ -3010,22 +3002,18 @@ public static class Extension
                         mw.SetDataGridViewColumnVisibility(!vis, col.Index, dgv);
                     }
 
-                    if (tab is not null)
+                    var key = string.IsNullOrEmpty(col.DataPropertyName) ? col.Name : col.DataPropertyName;
+                    if (key is "Step")
                     {
-                        var text = tab.GetText();
-                        if (col.HeaderText is "Step")
-                        {
-                            mw.SetDataGridViewColumnVisibility(text is "Hidden", col.Index, dgv);
-                        }
+                        mw.SetDataGridViewColumnVisibility(type is EncounterType.Hidden, col.Index, dgv);
+                    }
 
-                        if (col.HeaderText is "Jump")
-                        {
-                            var mc = (CheckBox?)mw.Controls.Find($"CB_{text}_MenuClose", true).FirstOrDefault();
-                            var check = false;
-                            if (mc is not null) check = mc.GetIsChecked();
-                            var vis = mw.CB_ConsiderFlying.GetIsChecked() || mw.CB_ConsiderRain.GetIsChecked() || check;
-                            mw.SetDataGridViewColumnVisibility(vis, col.Index, dgv);
-                        }
+                    if (key is "Jump")
+                    {
+                        var mc = (CheckBox?)mw.Controls.Find($"CB_{type}_MenuClose", true).FirstOrDefault();
+                        var check = mc?.GetIsChecked() == true;
+                        var vis = mw.CB_ConsiderFlying.GetIsChecked() || mw.CB_ConsiderRain.GetIsChecked() || check;
+                        mw.SetDataGridViewColumnVisibility(vis, col.Index, dgv);
                     }
                 }
             }

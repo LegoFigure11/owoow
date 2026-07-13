@@ -16,6 +16,7 @@ public partial class LotoID : Form
     public LotoID(MainWindow f, EncounterType tab)
     {
         InitializeComponent();
+        ChineseLocalizer.Apply(this);
         MainWindow = f;
         Tab = tab;
 
@@ -37,7 +38,7 @@ public partial class LotoID : Form
             if (IDs[i].Length > 6) IDs[i] = IDs[i][..6];
         }
 
-        L_LoadedIDs.Text = $"Loaded IDs: {IDs.Count}";
+        L_LoadedIDs.Text = $"已加载 ID：{IDs.Count}";
 
         TB_Seed0.KeyPress += f.KeyPress_AllowOnlyHex!;
         TB_Seed1.KeyPress += f.KeyPress_AllowOnlyHex!;
@@ -144,10 +145,8 @@ public partial class LotoID : Form
     {
         var cb = (ComboBox)sender;
         var last = cb.SelectedIndex;
-        var text = cb.Text;
-        var items = cb.Items.Cast<string>().ToList();
-        var match = items.Find(el => el.Equals(text, StringComparison.CurrentCultureIgnoreCase));
-        cb.SelectedIndex = match is not null ? items.IndexOf(match) : Math.Max(last, 0);
+        var match = ChineseLocalizer.FindItemIndex(cb, cb.Text);
+        cb.SelectedIndex = match >= 0 ? match : Math.Max(last, 0);
     }
 
     public void SetSeeds(string s0, string s1)

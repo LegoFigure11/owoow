@@ -18,6 +18,7 @@ public partial class OverworldScanner : Form
     public OverworldScanner(MainWindow f, FieldObject[] pkl, float x, float y, float z, ulong m, byte Friendship = 0, byte Hatch = 0)
     {
         InitializeComponent();
+        ChineseLocalizer.Apply(this);
 
         MainWindow = f;
         pks = pkl;
@@ -31,9 +32,9 @@ public partial class OverworldScanner : Form
         TB_X.Text = $"{x}";
         TB_Y.Text = $"{y}";
         TB_Z.Text = $"{z}";
-        TB_Map.Text = Zones.ContainsKey(m) ? Zones[m] : $"{m:X16}";
+        TB_Map.Text = Zones.ContainsKey(m) ? ChineseLocalizer.TranslateValue(Zones[m]) : $"{m:X16}";
 
-        L_PokemonPresent.Text = $"Pokémon Present: {pks.Length}";
+        L_PokemonPresent.Text = $"当前宝可梦数：{pks.Length}";
 
         CB_ViewSelect.Items.Clear();
 
@@ -43,8 +44,7 @@ public partial class OverworldScanner : Form
             foreach (var pkm in pks)
             {
                 var dex = $"{pkm.PK8!.Species:D4} | ";
-                var species = f.Strings.Species[pkm.PK8.Species];
-                var form = pkm.PK8.Form != 0 ? $"-{pkm.PK8.Form}" : string.Empty;
+                var species = ChineseLocalizer.TranslateSpecies(pkm.PK8.Species, pkm.PK8.Form);
                 string shiny = pkm.PK8.ShinyXor switch
                 {
                     0 => "■ - ",
@@ -53,12 +53,12 @@ public partial class OverworldScanner : Form
                 };
                 string gender = pkm.PK8.Gender switch
                 {
-                    0 => " (M)",
-                    1 => " (F)",
+                    0 => "（雄性）",
+                    1 => "（雌性）",
                     _ => string.Empty,
                 };
 
-                CB_ViewSelect.Items.Add($"{dex}{shiny}{species}{form}{gender}");
+                CB_ViewSelect.Items.Add($"{dex}{shiny}{species}{gender}");
             }
             CB_ViewSelect.SelectedIndex = 0;
         }
@@ -90,16 +90,16 @@ public partial class OverworldScanner : Form
 
                 string gender = pkm.PK8.Gender switch
                 {
-                    0 => "Male",
-                    1 => "Female",
-                    _ => "Unknown",
+                    0 => "雄性",
+                    1 => "雌性",
+                    _ => "未知",
                 };
 
                 TB_Gender.Text = gender;
                 TB_Nature.Text = MainWindow.Strings.Natures[(int)pkm.PK8.Nature];
                 TB_Ability.Text = MainWindow.Strings.Ability[pkm.PK8.Ability];
                 TB_IVs.Text = $"{pkm.PK8.IV_HP}/{pkm.PK8.IV_ATK}/{pkm.PK8.IV_DEF}/{pkm.PK8.IV_SPA}/{pkm.PK8.IV_SPD}/{pkm.PK8.IV_SPE}";
-                TB_Height.Text = $"{PokeSizeDetailedUtil.GetSizeRating(pkm.PK8.HeightScalar)} ({pkm.PK8.HeightScalar})";
+                TB_Height.Text = $"{PokeSizeDetailedUtil.GetSizeRating(pkm.PK8.HeightScalar)}（{pkm.PK8.HeightScalar}）";
 
                 bool HasRibbon = Utils.HasMark(pkm.PK8, out RibbonIndex mark);
 

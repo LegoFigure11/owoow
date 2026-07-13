@@ -1,5 +1,7 @@
 # owoow
 
+[简体中文说明](README.zh-CN.md)
+
 [![.NET Core Desktop](https://img.shields.io/github/actions/workflow/status/LegoFigure11/owoow/dotnet-desktop.yml?branch=master)](https://github.com/LegoFigure11/owoow/actions/workflows/dotnet-desktop.yml)
 [![GitHub License](https://img.shields.io/github/license/legofigure11/owoow?color=ff69b4)](https://github.com/LegoFigure11/owoow/blob/master/LICENSE.txt)
 [![Usage Guide](https://img.shields.io/badge/usage_guide-click_me!-purple)](https://billo-guides.github.io/)

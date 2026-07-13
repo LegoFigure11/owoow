@@ -271,7 +271,7 @@ public class Symbol
                     Seed1 = $"{os.s1:X16}",
                 };
                 frames.Add(f);
-                if (config.LogResultsToFile) LogUtil.LogText($"Result found! {f}");
+                if (config.LogResultsToFile) LogUtil.LogText($"找到结果！{f}");
                 outer.Next();
             }
             return frames;

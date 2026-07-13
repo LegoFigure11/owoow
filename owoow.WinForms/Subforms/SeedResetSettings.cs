@@ -13,6 +13,7 @@ public partial class SeedResetSettings : Form
         p = parent;
 
         InitializeComponent();
+        ChineseLocalizer.Apply(this);
     }
 
     private void SeedResetSettings_Load(object sender, EventArgs e)

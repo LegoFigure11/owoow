@@ -15,6 +15,7 @@ public partial class SpreadFinder : Form
     public SpreadFinder(MainWindow f)
     {
         InitializeComponent();
+        ChineseLocalizer.Apply(this);
         MainWindow = f;
 
         TB_Single.KeyPress += f.KeyPress_AllowOnlyHex!;
@@ -136,7 +137,7 @@ public partial class SpreadFinder : Form
             MainWindow.SetControlEnabledState(true, sender);
         }).ContinueWith(_ =>
         {
-            if (Frames.Count == 0) this.DisplayMessageBox("No results found!", "SpreadFinder");
+            if (Frames.Count == 0) this.DisplayMessageBox("未找到结果！", "个体值组合搜索");
         });
     }
 
@@ -194,7 +195,7 @@ public partial class SpreadFinder : Form
         MainWindow.SetComboBoxSelectedIndex(MainWindow.CB_Filter_Height.SelectedIndex, CB_Filter_Height);
         MainWindow.SetComboBoxSelectedIndex(4, CB_Tasks);
 
-        MessageBox.Show("Searches made with this tool may take several minutes up to multiple hours depending on your device and cause high CPU load and temperatures. Proceed at your own risk.");
+        MessageBox.Show("此工具的搜索可能持续数分钟至数小时，并造成较高的 CPU 负载和温度。请自行评估风险后继续。");
     }
 
     private void DGV_Results_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)

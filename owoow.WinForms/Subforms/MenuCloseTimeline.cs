@@ -13,6 +13,7 @@ public partial class MenuCloseTimeline : Form
     public MenuCloseTimeline(MainWindow f, string tab)
     {
         InitializeComponent();
+        ChineseLocalizer.Apply(this);
         MainWindow = f;
         Tab = tab;
 
@@ -86,16 +87,7 @@ public partial class MenuCloseTimeline : Form
     {
         var cb = (ComboBox)sender;
         var last = cb.SelectedIndex;
-        var text = cb.Text;
-        var items = cb.Items.Cast<string>().ToList();
-        var match = items.Find(e => e.Equals(text, StringComparison.CurrentCultureIgnoreCase));
-        if (match is not null)
-        {
-            cb.SelectedIndex = items.IndexOf(match);
-        }
-        else
-        {
-            cb.SelectedIndex = Math.Max(last, 0);
-        }
+        var match = ChineseLocalizer.FindItemIndex(cb, cb.Text);
+        cb.SelectedIndex = match >= 0 ? match : Math.Max(last, 0);
     }
 }

@@ -13,6 +13,7 @@ public partial class DexRecLocationList : Form
     public DexRecLocationList(ref List<string> Maps, DexRecSearcher parent)
     {
         InitializeComponent();
+        ChineseLocalizer.Apply(this);
 
         this.Maps = Maps;
         this.parent = parent;
@@ -61,7 +62,7 @@ public partial class DexRecLocationList : Form
 
     private void B_Add_Click(object sender, EventArgs e)
     {
-        var Map = CB_IgnoreMap.Text.Trim();
+        var Map = CB_IgnoreMap.GetInvariantText().Trim();
         if (!string.IsNullOrEmpty(Map))
         {
             if (!Maps.Contains(Map))
@@ -75,7 +76,7 @@ public partial class DexRecLocationList : Form
 
     private void B_Remove_Click(object sender, EventArgs e)
     {
-        var Map = CB_IgnoreMap.Text.Trim();
+        var Map = CB_IgnoreMap.GetInvariantText().Trim();
         if (!string.IsNullOrEmpty(Map))
         {
             Maps.Remove(Map);
@@ -99,7 +100,7 @@ public partial class DexRecLocationList : Form
         sw.Write(output);
         parent.Maps = Maps;
         parent.SubformOpen = false;
-        parent.L_IgnoredMaps.Text = $"Excluded Maps: {Maps.Count}";
+        parent.L_IgnoredMaps.Text = $"已排除地图：{Maps.Count}";
     }
 
     private void B_Clear_Click(object sender, EventArgs e)

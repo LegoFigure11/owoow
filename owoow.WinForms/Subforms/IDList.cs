@@ -11,6 +11,7 @@ public partial class IDList : Form
     public IDList(ref List<string> IDs, LotoID parent)
     {
         InitializeComponent();
+        ChineseLocalizer.Apply(this);
 
         this.IDs = IDs;
         this.parent = parent;
@@ -79,7 +80,7 @@ public partial class IDList : Form
         sw.Write(output);
         parent.IDs = IDs;
         parent.SubformOpen = false;
-        parent.L_LoadedIDs.Text = $"Loaded IDs: {IDs.Count}";
+        parent.L_LoadedIDs.Text = $"已加载 ID：{IDs.Count}";
     }
 
     private void TB_ID_KeyPress(object sender, KeyPressEventArgs e)

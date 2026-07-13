@@ -14,7 +14,8 @@ namespace owoow.WinForms.Subforms
 
         public EncounterLookup(MainWindow f, Game game)
         {
-            InitializeComponent();  
+            InitializeComponent();
+            ChineseLocalizer.Apply(this);
             MainWindow = f;
             Game = game;
             CB_Game.SelectedIndex = (int)game;

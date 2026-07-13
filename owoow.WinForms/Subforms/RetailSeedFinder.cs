@@ -9,6 +9,7 @@ namespace owoow.WinForms.Subforms
         {
             MainWindow = f;
             InitializeComponent();
+            ChineseLocalizer.Apply(this);
             TB_InputAnimations.Text = string.Empty;
         }
 
@@ -27,7 +28,7 @@ namespace owoow.WinForms.Subforms
         private void TB_AnimationsInput_TextChanged(object sender, EventArgs e)
         {
             int l = TB_InputAnimations.Text.Length;
-            L_CompletedInputs.Text = $"Completed Motions: {l} / 128";
+            L_CompletedInputs.Text = $"已完成动画：{l} / 128";
             if (CB_Advanced.Checked)
             {
                 if (l >= 64)
@@ -49,15 +50,15 @@ namespace owoow.WinForms.Subforms
                         switch (seeds.Count)
                         {
                             case > 1:
-                                TB_Status.Text = $"~{Math.Floor(Math.Log2(seeds.Count))} more inputs";
+                                TB_Status.Text = $"还需约 {Math.Floor(Math.Log2(seeds.Count))} 次输入";
                                 break;
                             case 1:
-                                TB_Status.Text = "Result found!";
+                                TB_Status.Text = "已找到结果！";
                                 TB_Seed0.Text = $"{seeds[0].s0:X16}";
                                 TB_Seed1.Text = $"{seeds[0].s1:X16}";
                                 break;
                             case 0:
-                                TB_Status.Text = "No seeds found.";
+                                TB_Status.Text = "未找到种子。";
                                 break;
                         }
                     }
@@ -154,7 +155,7 @@ namespace owoow.WinForms.Subforms
             var max = int.Parse(TB_Max.Text);
             if (val > max)
             {
-                MessageBox.Show("Min Advances cannot be greater than Max Advances");
+                MessageBox.Show("最小推进数不能大于最大推进数。");
                 TB_Max.Text = TB_Min.Text;
                 max = val;
             }
@@ -168,7 +169,7 @@ namespace owoow.WinForms.Subforms
             var min = int.Parse(TB_Min.Text);
             if (val < min)
             {
-                MessageBox.Show("Max Advances cannot be less than Min Advances");
+                MessageBox.Show("最大推进数不能小于最小推进数。");
                 TB_Min.Text = TB_Max.Text;
                 val = min;
             }
@@ -183,7 +184,7 @@ namespace owoow.WinForms.Subforms
             B_CalcSeed.Enabled = false;
             B_Physical.Enabled = false;
             B_Special.Enabled = false;
-            TB_Status.Text = "Calculating...";
+            TB_Status.Text = "正在计算……";
             if (CB_Advanced.Checked)
             {
                 if (l >= 64)
@@ -202,15 +203,15 @@ namespace owoow.WinForms.Subforms
                     switch (seeds.Count)
                     {
                         case > 1:
-                            TB_Status.Text = $"~{Math.Floor(Math.Log2(seeds.Count))} more inputs";
+                            TB_Status.Text = $"还需约 {Math.Floor(Math.Log2(seeds.Count))} 次输入";
                             break;
                         case 1:
-                            TB_Status.Text = "Result found!";
+                            TB_Status.Text = "已找到结果！";
                             TB_Seed0.Text = $"{seeds[0].s0:X16}";
                             TB_Seed1.Text = $"{seeds[0].s1:X16}";
                             break;
                         case 0:
-                            TB_Status.Text = "No seeds found.";
+                            TB_Status.Text = "未找到种子。";
                             break;
                     }
 

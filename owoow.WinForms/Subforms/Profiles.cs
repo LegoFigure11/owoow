@@ -20,6 +20,7 @@ public partial class Profiles : Form
     public Profiles(MainWindow parent, ref ClientConfig config)
     {
         InitializeComponent();
+        ChineseLocalizer.Apply(this);
 
         this.parent = parent;
         this.config = config;
@@ -57,7 +58,7 @@ public partial class Profiles : Form
     {
         if (string.IsNullOrEmpty(TB_Name.Text))
         {
-            MessageBox.Show("Name is a required field!");
+            MessageBox.Show("名称为必填项！");
             return;
         }
 
@@ -163,11 +164,11 @@ public partial class Profiles : Form
     {
         if (LB_ProfileList.SelectedIndex > -1 && TB_Name.Text == config.Profiles[LB_ProfileList.SelectedIndex].Name)
         {
-            B_Add.Text = "Update";
+            B_Add.Text = "更新";
         }
         else
         {
-            B_Add.Text = "Add";
+            B_Add.Text = "添加";
         }
     }
 

@@ -14,6 +14,7 @@ public partial class WattTrader : Form
     public WattTrader(MainWindow f, EncounterType tab)
     {
         InitializeComponent();
+        ChineseLocalizer.Apply(this);
         MainWindow = f;
         Tab = tab;
 
@@ -103,8 +104,8 @@ public partial class WattTrader : Form
 
     private void CB_Target_SelectedIndexChanged(object sender, EventArgs e)
     {
-        if (CB_Target.Text is null) return;
-        var (min, max) = GetRangeFromItemName(CB_Target.Text);
+        var target = CB_Target.GetInvariantText();
+        var (min, max) = GetRangeFromItemName(target);
         TB_SlotMin.Text = min.ToString();
         TB_SlotMax.Text = max.ToString();
     }
@@ -124,10 +125,8 @@ public partial class WattTrader : Form
     {
         var cb = (ComboBox)sender;
         var last = cb.SelectedIndex;
-        var text = cb.Text;
-        var items = cb.Items.Cast<string>().ToList();
-        var match = items.Find(el => el.Equals(text, StringComparison.CurrentCultureIgnoreCase));
-        cb.SelectedIndex = match is not null ? items.IndexOf(match) : Math.Max(last, 0);
+        var match = ChineseLocalizer.FindItemIndex(cb, cb.Text);
+        cb.SelectedIndex = match >= 0 ? match : Math.Max(last, 0);
     }
 
     public void SetSeeds(string s0, string s1)

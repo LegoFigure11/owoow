@@ -9,6 +9,7 @@ public partial class VideoFeedLog : Form
     {
         feed = parent;
         InitializeComponent();
+        ChineseLocalizer.Apply(this);
     }
 
     public void AddLine(string line, bool isAccept, bool isInfo = false)

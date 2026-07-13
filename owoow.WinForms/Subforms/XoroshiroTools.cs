@@ -14,6 +14,7 @@ public partial class XoroshiroTools : Form
     public XoroshiroTools(MainWindow f)
     {
         InitializeComponent();
+        ChineseLocalizer.Apply(this);
         main = f;
 
         TB_Seed0.Text = main.TB_Seed0.Text;

@@ -77,6 +77,7 @@ public partial class VideoFeed : Form
     public VideoFeed(MainWindow f, ref ClientConfig cfg)
     {
         InitializeComponent();
+        ChineseLocalizer.Apply(this);
         MainWindow = f;
         _cfg = cfg;
     }
@@ -192,7 +193,7 @@ public partial class VideoFeed : Form
             if (ex is not OperationCanceledException)
             {
                 StopCamera();
-                this.DisplayMessageBox(ex.Message, "Feed Error");
+                this.DisplayMessageBox(ex.Message, "画面错误");
             }
         }
     }
@@ -221,7 +222,7 @@ public partial class VideoFeed : Form
 
         long lastLog = 0;
 
-        string windowName = "Video Source Feed";
+        string windowName = "视频源画面";
 
         Cv2.NamedWindow(windowName, WindowFlags.KeepRatio);
         Cv2.ResizeWindow(windowName, 480, 270);
@@ -304,7 +305,7 @@ public partial class VideoFeed : Form
                     }
                 }
 
-                string resultText = $"No reference matches found.\nPhysical Mat Exists: {_physMat != null}\nSpecial Mat Exists: {_specMat != null}\nIdle Mat Exists: {_idleMat != null}";
+                string resultText = $"M: -\nP: {(_physMat is null ? 0 : 1)}\nS: {(_specMat is null ? 0 : 1)}\nI: {(_idleMat is null ? 0 : 1)}";
 
                 if (templatesReady)
                 {
@@ -333,53 +334,53 @@ public partial class VideoFeed : Form
                         if (minDiff == diffCountPhys && lastwinner == Winner.Idle)
                         {
                             winner = Winner.Physical;
-                            resultText = $"Match: Physical\nPhysical: {diffCountPhys}\nSpecial: {diffCountSpec}\nIdle: {diffCountIdle}";
+                            resultText = $"M: P\nP: {diffCountPhys}\nS: {diffCountSpec}\nI: {diffCountIdle}";
                             if (diffCountPhys < _threshold && allowLog)
                             {
-                                _log?.AddLine($"[{DateTime.Now:HH:mm:ss}] [MATCH ACCEPTED] (Log: 0) Physical | Score: {diffCountPhys,7} | Time since match: {logTime}", true);
+                                _log?.AddLine($"[{DateTime.Now:HH:mm:ss}] [匹配成功]（记录：0）物理 | 分数：{diffCountPhys,7} | 距上次匹配：{logTime}", true);
                                 lastLog = currentTimestamp;
                                 AppendTextBoxText(true, "0", TB_Obs);
                             }
                             else if (!allowLog && diffCountPhys < _threshold)
                             {
-                                _log?.AddLine($"[{DateTime.Now:HH:mm:ss}] [REJECTED]       [TIME]   Physical | Score: {diffCountPhys,7} | Time since match: {logTime}", false);
+                                _log?.AddLine($"[{DateTime.Now:HH:mm:ss}] [已拒绝][冷却] 物理 | 分数：{diffCountPhys,7} | 距上次匹配：{logTime}", false);
                             }
                             else if (allowLog && !(diffCountPhys < _threshold))
                             {
-                                _log?.AddLine($"[{DateTime.Now:HH:mm:ss}] [REJECTED]       [THRESH] Physical | Score: {diffCountPhys,7} | Time since match: {logTime}", false);
+                                _log?.AddLine($"[{DateTime.Now:HH:mm:ss}] [已拒绝][阈值] 物理 | 分数：{diffCountPhys,7} | 距上次匹配：{logTime}", false);
                             }
                             else
                             {
-                                _log?.AddLine($"[{DateTime.Now:HH:mm:ss}] [REJECTED]       [BOTH]   Physical | Score: {diffCountPhys,7} | Time since match: {logTime}", false);
+                                _log?.AddLine($"[{DateTime.Now:HH:mm:ss}] [已拒绝][两者] 物理 | 分数：{diffCountPhys,7} | 距上次匹配：{logTime}", false);
                             }
                         }
                         else if (minDiff == diffCountSpec && lastwinner == Winner.Idle)
                         {
                             winner = Winner.Special;
-                            resultText = $"Match: Special\nPhysical: {diffCountPhys}\nSpecial: {diffCountSpec}\nIdle: {diffCountIdle}";
+                            resultText = $"M: S\nP: {diffCountPhys}\nS: {diffCountSpec}\nI: {diffCountIdle}";
                             if (diffCountSpec < _threshold && allowLog)
                             {
-                                _log?.AddLine($"[{DateTime.Now:HH:mm:ss}] [MATCH ACCEPTED] (Log: 1) Special  | Score: {diffCountSpec,7} | Time since match: {logTime}", true);
+                                _log?.AddLine($"[{DateTime.Now:HH:mm:ss}] [匹配成功]（记录：1）特殊 | 分数：{diffCountSpec,7} | 距上次匹配：{logTime}", true);
                                 lastLog = currentTimestamp;
                                 AppendTextBoxText(true, "1", TB_Obs);
                             }
                             else if (!allowLog && diffCountSpec < _threshold)
                             {
-                                _log?.AddLine($"[{DateTime.Now:HH:mm:ss}] [REJECTED]       [TIME]   Special  | Score: {diffCountSpec,7} | Time since match: {logTime}", false);
+                                _log?.AddLine($"[{DateTime.Now:HH:mm:ss}] [已拒绝][冷却] 特殊 | 分数：{diffCountSpec,7} | 距上次匹配：{logTime}", false);
                             }
                             else if (allowLog && !(diffCountSpec < _threshold))
                             {
-                                _log?.AddLine($"[{DateTime.Now:HH:mm:ss}] [REJECTED]       [THRESH] Special  | Score: {diffCountSpec,7} | Time since match: {logTime}", false);
+                                _log?.AddLine($"[{DateTime.Now:HH:mm:ss}] [已拒绝][阈值] 特殊 | 分数：{diffCountSpec,7} | 距上次匹配：{logTime}", false);
                             }
                             else
                             {
-                                _log?.AddLine($"[{DateTime.Now:HH:mm:ss}] [REJECTED]       [BOTH]   Special  | Score: {diffCountSpec,7} | Time since match: {logTime}", false);
+                                _log?.AddLine($"[{DateTime.Now:HH:mm:ss}] [已拒绝][两者] 特殊 | 分数：{diffCountSpec,7} | 距上次匹配：{logTime}", false);
                             }
                         }
                         else
                         {
                             winner = Winner.Idle;
-                            resultText = $"Match: Idle\nPhysical: {diffCountPhys}\nSpecial: {diffCountSpec}\nIdle: {diffCountIdle}";
+                            resultText = $"M: I\nP: {diffCountPhys}\nS: {diffCountSpec}\nI: {diffCountIdle}";
                         }
                         lastwinner = winner;
                     }
@@ -421,7 +422,7 @@ public partial class VideoFeed : Form
                     if (limitTo128 && tb.GetText().Length == max)
                     {
                         MainWindow.SetControlText(tb.GetText()[1..], tb);
-                        _log?.AddLine($"[{DateTime.Now:HH:mm:ss}] [INFO] Max observations reached, discarding first observation", true, true);
+                        _log?.AddLine($"[{DateTime.Now:HH:mm:ss}] [信息] 观测数已达上限，已丢弃第一条观测", true, true);
 
                     }
                     tb.AppendText(text);
@@ -458,7 +459,7 @@ public partial class VideoFeed : Form
             _referenceFrame?.Dispose();
             _referenceFrame = null;
             if (_isComparing)
-                _log?.AddLine($"[{DateTime.Now:HH:mm:ss}] [INFO] Stopping monitoring...", true, true);
+                _log?.AddLine($"[{DateTime.Now:HH:mm:ss}] [信息] 正在停止监视……", true, true);
             _isComparing = false;
         }
 
@@ -495,8 +496,8 @@ public partial class VideoFeed : Form
     private void OpenScreenshot(string filename)
     {
         using var ofd = new OpenFileDialog();
-        ofd.Filter = "PNG Image|*.png";
-        ofd.Title = "Open Screenshot";
+        ofd.Filter = "PNG 图像|*.png";
+        ofd.Title = "打开截图";
         ofd.FileName = filename + ".png";
         ofd.InitialDirectory = baseDir;
 
@@ -549,7 +550,7 @@ public partial class VideoFeed : Form
     {
         if (!_isFeedRunning || _latestFrame == null)
         {
-            this.DisplayMessageBox("Please start the feed before taking a screenshot.", "Notice");
+            this.DisplayMessageBox("请先启动画面，再进行截图。", "提示");
             return;
         }
 
@@ -560,8 +561,8 @@ public partial class VideoFeed : Form
         }
 
         using var sfd = new SaveFileDialog();
-        sfd.Filter = "PNG Image|*.png";
-        sfd.Title = "Save Screenshot";
+        sfd.Filter = "PNG 图像|*.png";
+        sfd.Title = "保存截图";
         sfd.FileName = filename;
         sfd.InitialDirectory = baseDir;
 
@@ -618,7 +619,7 @@ public partial class VideoFeed : Form
             }
             catch (Exception ex)
             {
-                this.DisplayMessageBox($"Failed to save screenshot: {ex.Message}");
+                this.DisplayMessageBox($"保存截图失败：{ex.Message}");
             }
         }
     }
@@ -628,7 +629,7 @@ public partial class VideoFeed : Form
         MainWindow.SetControlEnabledState(true, B_ObserveStop);
         MainWindow.SetControlEnabledState(false, B_ObserveStart);
         _isComparing = true;
-        _log?.AddLine($"[{DateTime.Now:HH:mm:ss}] [INFO] Starting monitoring...", true, true);
+        _log?.AddLine($"[{DateTime.Now:HH:mm:ss}] [信息] 正在开始监视……", true, true);
 
     }
 
@@ -645,13 +646,13 @@ public partial class VideoFeed : Form
         {
             TB_Obs.BackColor = DefaultBackColor;
         }
-        MainWindow.SetControlText($"Observations: {len}", L_Obs);
+        MainWindow.SetControlText($"观测数：{len}", L_Obs);
     }
 
     private void B_ObserveStop_Click(object sender, EventArgs e)
     {
         if (_isComparing)
-            _log?.AddLine($"[{DateTime.Now:HH:mm:ss}] [INFO] Stopping monitoring...", true, true);
+            _log?.AddLine($"[{DateTime.Now:HH:mm:ss}] [信息] 正在停止监视……", true, true);
         _isComparing = false;
         MainWindow.SetControlEnabledState(true, B_ObserveStart);
         MainWindow.SetControlEnabledState(false, B_ObserveStop);
@@ -660,7 +661,7 @@ public partial class VideoFeed : Form
     private void CheckShouldEnableMonitorButtons()
     {
         if (_isComparing)
-            _log?.AddLine($"[{DateTime.Now:HH:mm:ss}] [INFO] Stopping monitoring...", true, true);
+            _log?.AddLine($"[{DateTime.Now:HH:mm:ss}] [信息] 正在停止监视……", true, true);
         _isComparing = false;
         if (_isFeedRunning && _phys is not null && _spec is not null && _idle is not null)
         {

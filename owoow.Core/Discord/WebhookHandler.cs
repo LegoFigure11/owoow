@@ -10,6 +10,7 @@ namespace owoow.Core.Discord;
 
 public class WebhookHandler(IWebhookConfig config)
 {
+    private static readonly GameStrings Strings = GameInfo.GetStrings("zh-Hans");
     private readonly HttpClient _client = new();
     private readonly string[]? WebhookURLs = config.WebhookEnabled ? config.ResultNotificationURL.Split(",") : null;
     private readonly string[]? ErrorURLs = config.WebhookEnabled ? config.ErrorNotificationURL.Split(",") : null;
@@ -51,27 +52,27 @@ public class WebhookHandler(IWebhookConfig config)
             {
                 new
                 {
-                    title = $"{(shiny ? "Shiny " : string.Empty)}{frame.Species}",
+                    title = $"{(shiny ? "闪光 " : string.Empty)}{Strings.Species[species]}{(pk.Form == 0 ? string.Empty : $"-{pk.Form}")}",
                     color = color.ToArgb() & 0xFFFFFF,
                     description = "",
                     fields = new List<object>
                     {
                         new
                         {
-                            name = "Results",
+                            name = "结果数",
                             value = results,
                             inline = true,
                         },
                         new
                         {
-                            name = "Earliest Advance",
+                            name = "最早推进数",
                             value = frame.Advances,
                             inline = true,
                         },
                         new
                         {
-                            name = "Search Time",
-                            value = $"{time} (Resets: {resets})",
+                            name = "搜索时间",
+                            value = $"{time}（重置次数：{resets}）",
                             inline = true,
                         }
                     }
@@ -99,7 +100,7 @@ public class WebhookHandler(IWebhookConfig config)
             {
                 new
                 {
-                    title = caption != "" ? caption : "owoow Error",
+                    title = caption != "" ? caption : "owoow 错误",
                     description = error,
                     color = 0xf7262a,
                 },
@@ -124,8 +125,8 @@ public class WebhookHandler(IWebhookConfig config)
                 {
                     new
                     {
-                        title = "owoow Test Result Found Webhook",
-                        description = "This is a test result found webhook",
+                        title = "owoow 结果通知测试",
+                        description = "这是一条找到结果时的 Webhook 测试通知。",
                         color = new Random().Next(0x1000000),
                     },
                 },
@@ -148,8 +149,8 @@ public class WebhookHandler(IWebhookConfig config)
                 {
                     new
                     {
-                        title = "owoow Test Error Message Webhook",
-                        description = "This is a test error message webhook",
+                        title = "owoow 错误通知测试",
+                        description = "这是一条错误消息 Webhook 测试通知。",
                         color = new Random().Next(0x1000000),
                     },
                 },

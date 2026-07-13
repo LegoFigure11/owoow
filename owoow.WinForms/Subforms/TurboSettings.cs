@@ -23,6 +23,7 @@ public partial class TurboSettings : Form
         p = parent;
 
         InitializeComponent();
+        ChineseLocalizer.Apply(this);
     }
 
     private void TurboSettings_Load(object sender, EventArgs e)
@@ -69,7 +70,7 @@ public partial class TurboSettings : Form
 
     private void B_Add_Click(object sender, EventArgs e)
     {
-        c.TurboSequence.Add(CB_Input.Text);
+        c.TurboSequence.Add(CB_Input.GetInvariantText());
         ReloadList();
         LB_List.SelectedIndex = c.TurboSequence.Count - 1;
     }
