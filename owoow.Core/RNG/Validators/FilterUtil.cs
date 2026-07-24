@@ -1,4 +1,4 @@
-﻿using owoow.Core.Enums;
+using owoow.Core.Enums;
 using PKHeX.Core;
 
 namespace owoow.Core.RNG;
@@ -23,45 +23,46 @@ public static class FilterUtil
 
     public static ScaleType GetFilterScaleType(int selected) => (ScaleType)selected;
 
-    public static RibbonIndex GetFilterMarkype(int selected) => selected switch
+    public static RibbonIndex GetFilterMarkType(int selected) => selected switch
     {
         1 => RibbonIndex.MAX_COUNT, // None
         2 => RibbonIndex.MAX_COUNT + 2, // Any
         3 => RibbonIndex.MAX_COUNT + 3, // Personality
         4 => RibbonIndex.MAX_COUNT + 4, // Personality/Rare
-        5 => RibbonIndex.MarkUncommon,
-        6 => RibbonIndex.MarkLunchtime, // Time
-        7 => RibbonIndex.MarkCloudy, // Weather
-        8 => RibbonIndex.MarkFishing,
-        9 => RibbonIndex.MarkRare,
-        10 => RibbonIndex.MarkRowdy,
-        11 => RibbonIndex.MarkAbsentMinded,
-        12 => RibbonIndex.MarkJittery,
-        13 => RibbonIndex.MarkExcited,
-        14 => RibbonIndex.MarkCharismatic,
-        15 => RibbonIndex.MarkCalmness,
-        16 => RibbonIndex.MarkIntense,
-        17 => RibbonIndex.MarkZonedOut,
-        18 => RibbonIndex.MarkJoyful,
-        19 => RibbonIndex.MarkAngry,
-        20 => RibbonIndex.MarkSmiley,
-        21 => RibbonIndex.MarkTeary,
-        22 => RibbonIndex.MarkUpbeat,
-        23 => RibbonIndex.MarkPeeved,
-        24 => RibbonIndex.MarkIntellectual,
-        25 => RibbonIndex.MarkFerocious,
-        26 => RibbonIndex.MarkCrafty,
-        27 => RibbonIndex.MarkScowling,
-        28 => RibbonIndex.MarkKindly,
-        29 => RibbonIndex.MarkFlustered,
-        30 => RibbonIndex.MarkPumpedUp,
-        31 => RibbonIndex.MarkZeroEnergy,
-        32 => RibbonIndex.MarkPrideful,
-        33 => RibbonIndex.MarkUnsure,
-        34 => RibbonIndex.MarkHumble,
-        35 => RibbonIndex.MarkThorny,
-        36 => RibbonIndex.MarkVigor,
-        37 => RibbonIndex.MarkSlump,
+        5 => RibbonIndex.MAX_COUNT + 5, // Any except Uncommon
+        6 => RibbonIndex.MarkUncommon,
+        7 => RibbonIndex.MarkLunchtime, // Time
+        8 => RibbonIndex.MarkCloudy, // Weather
+        9 => RibbonIndex.MarkFishing,
+        10 => RibbonIndex.MarkRare,
+        11 => RibbonIndex.MarkRowdy,
+        12 => RibbonIndex.MarkAbsentMinded,
+        13 => RibbonIndex.MarkJittery,
+        14 => RibbonIndex.MarkExcited,
+        15 => RibbonIndex.MarkCharismatic,
+        16 => RibbonIndex.MarkCalmness,
+        17 => RibbonIndex.MarkIntense,
+        18 => RibbonIndex.MarkZonedOut,
+        19 => RibbonIndex.MarkJoyful,
+        20 => RibbonIndex.MarkAngry,
+        21 => RibbonIndex.MarkSmiley,
+        22 => RibbonIndex.MarkTeary,
+        23 => RibbonIndex.MarkUpbeat,
+        24 => RibbonIndex.MarkPeeved,
+        25 => RibbonIndex.MarkIntellectual,
+        26 => RibbonIndex.MarkFerocious,
+        27 => RibbonIndex.MarkCrafty,
+        28 => RibbonIndex.MarkScowling,
+        29 => RibbonIndex.MarkKindly,
+        30 => RibbonIndex.MarkFlustered,
+        31 => RibbonIndex.MarkPumpedUp,
+        32 => RibbonIndex.MarkZeroEnergy,
+        33 => RibbonIndex.MarkPrideful,
+        34 => RibbonIndex.MarkUnsure,
+        35 => RibbonIndex.MarkHumble,
+        36 => RibbonIndex.MarkThorny,
+        37 => RibbonIndex.MarkVigor,
+        38 => RibbonIndex.MarkSlump,
         _ => RibbonIndex.MAX_COUNT + 1, // Ignore
     };
 }

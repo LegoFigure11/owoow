@@ -46,6 +46,7 @@ namespace owoow.Core.RNG.Validators
             RibbonIndex.MAX_COUNT + 2 => mark < RibbonIndex.MAX_COUNT, // Any Mark
             RibbonIndex.MAX_COUNT + 3 => mark >= RibbonIndex.MarkRowdy && mark <= RibbonIndex.MarkSlump, // Personality
             RibbonIndex.MAX_COUNT + 4 => (mark >= RibbonIndex.MarkRowdy && mark <= RibbonIndex.MarkSlump) || mark == RibbonIndex.MarkRare, // Personality or Rare
+            RibbonIndex.MAX_COUNT + 5 => mark < RibbonIndex.MAX_COUNT && mark != RibbonIndex.MarkUncommon, // Any except Uncommon
             RibbonIndex.MAX_COUNT => mark == RibbonIndex.MAX_COUNT, // None
             _ => mark == target,
         };

@@ -648,7 +648,7 @@ public partial class MainWindow : Form
 
             TargetShiny = GetFilterShinyType(CB_Filter_Shiny.SelectedIndex),
             TargetAura = GetFilterAuraType(CB_Filter_Aura.SelectedIndex),
-            TargetMark = GetFilterMarkype(CB_Filter_Mark.SelectedIndex),
+            TargetMark = GetFilterMarkType(CB_Filter_Mark.SelectedIndex),
             TargetScale = GetFilterScaleType(CB_Filter_Height.SelectedIndex),
 
             TargetMinIVs = [(uint)NUD_HP_Min.Value, (uint)NUD_Atk_Min.Value, (uint)NUD_Def_Min.Value, (uint)NUD_SpA_Min.Value, (uint)NUD_SpD_Min.Value, (uint)NUD_Spe_Min.Value],
@@ -759,7 +759,7 @@ public partial class MainWindow : Form
             MaxStep = CB_Hidden_MaxStep.SelectedIndex,
 
             TargetShiny = GetFilterShinyType(CB_Filter_Shiny.SelectedIndex),
-            TargetMark = GetFilterMarkype(CB_Filter_Mark.SelectedIndex),
+            TargetMark = GetFilterMarkType(CB_Filter_Mark.SelectedIndex),
             TargetScale = GetFilterScaleType(CB_Filter_Height.SelectedIndex),
 
             TargetMinIVs = [(uint)NUD_HP_Min.Value, (uint)NUD_Atk_Min.Value, (uint)NUD_Def_Min.Value, (uint)NUD_SpA_Min.Value, (uint)NUD_SpD_Min.Value, (uint)NUD_Spe_Min.Value],
@@ -866,7 +866,7 @@ public partial class MainWindow : Form
             MarkRolls = CB_MarkCharm.Checked ? 3 : 1,
 
             TargetShiny = GetFilterShinyType(CB_Filter_Shiny.SelectedIndex),
-            TargetMark = GetFilterMarkype(CB_Filter_Mark.SelectedIndex),
+            TargetMark = GetFilterMarkType(CB_Filter_Mark.SelectedIndex),
             TargetScale = GetFilterScaleType(CB_Filter_Height.SelectedIndex),
 
             TargetMinIVs = [(uint)NUD_HP_Min.Value, (uint)NUD_Atk_Min.Value, (uint)NUD_Def_Min.Value, (uint)NUD_SpA_Min.Value, (uint)NUD_SpD_Min.Value, (uint)NUD_Spe_Min.Value],
@@ -966,7 +966,7 @@ public partial class MainWindow : Form
 
             TargetShiny = GetFilterShinyType(CB_Filter_Shiny.SelectedIndex),
             TargetAura = GetFilterAuraType(CB_Filter_Aura.SelectedIndex),
-            TargetMark = GetFilterMarkype(CB_Filter_Mark.SelectedIndex),
+            TargetMark = GetFilterMarkType(CB_Filter_Mark.SelectedIndex),
             TargetScale = GetFilterScaleType(CB_Filter_Height.SelectedIndex),
 
             TargetMinIVs = [(uint)NUD_HP_Min.Value, (uint)NUD_Atk_Min.Value, (uint)NUD_Def_Min.Value, (uint)NUD_SpA_Min.Value, (uint)NUD_SpD_Min.Value, (uint)NUD_Spe_Min.Value],
@@ -1083,7 +1083,7 @@ public partial class MainWindow : Form
             MaxStep = et is EncounterType.Hidden ? CB_Hidden_MaxStep.SelectedIndex : 0,
 
             TargetShiny = GetFilterShinyType(CB_Filter_Shiny.SelectedIndex),
-            TargetMark = GetFilterMarkype(CB_Filter_Mark.SelectedIndex),
+            TargetMark = GetFilterMarkType(CB_Filter_Mark.SelectedIndex),
             TargetScale = GetFilterScaleType(CB_Filter_Height.SelectedIndex),
 
             TargetMinIVs = [(uint)NUD_HP_Min.Value, (uint)NUD_Atk_Min.Value, (uint)NUD_Def_Min.Value, (uint)NUD_SpA_Min.Value, (uint)NUD_SpD_Min.Value, (uint)NUD_Spe_Min.Value],
@@ -1226,7 +1226,7 @@ public partial class MainWindow : Form
                             MaxStep = et is EncounterType.Hidden ? CB_Hidden_MaxStep.GetSelectedIndex() : 0,
 
                             TargetShiny = GetFilterShinyType(CB_Filter_Shiny.GetSelectedIndex()),
-                            TargetMark = GetFilterMarkype(CB_Filter_Mark.GetSelectedIndex()),
+                            TargetMark = GetFilterMarkType(CB_Filter_Mark.GetSelectedIndex()),
                             TargetScale = GetFilterScaleType(CB_Filter_Height.GetSelectedIndex()),
 
                             TargetMinIVs = [NUD_HP_Min.GetValue(), NUD_Atk_Min.GetValue(), NUD_Def_Min.GetValue(), NUD_SpA_Min.GetValue(), NUD_SpD_Min.GetValue(), NUD_Spe_Min.GetValue()],
