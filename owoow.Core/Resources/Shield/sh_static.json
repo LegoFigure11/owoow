@@ -18744,6 +18744,62 @@
           "Ability": 0,
           "IsShinyLocked": false,
           "GuaranteedIVs": 0
+        },
+        "1": {
+          "Species": "Dubwool",
+          "Level": 65,
+          "IsAbilityLocked": false,
+          "Ability": 0,
+          "IsShinyLocked": false,
+          "GuaranteedIVs": 0
+        },
+        "2": {
+          "Species": "Roselia",
+          "Level": 15,
+          "IsAbilityLocked": false,
+          "Ability": 0,
+          "IsShinyLocked": false,
+          "GuaranteedIVs": 0
+        },
+        "3": {
+          "Species": "Ninjask",
+          "Level": 15,
+          "IsAbilityLocked": false,
+          "Ability": 0,
+          "IsShinyLocked": false,
+          "GuaranteedIVs": 0
+        },
+        "4": {
+          "Species": "Onix",
+          "Level": 26,
+          "IsAbilityLocked": false,
+          "Ability": 0,
+          "IsShinyLocked": false,
+          "GuaranteedIVs": 0
+        },
+        "5": {
+          "Species": "Mudsdale",
+          "Level": 31,
+          "IsAbilityLocked": false,
+          "Ability": 0,
+          "IsShinyLocked": false,
+          "GuaranteedIVs": 0
+        },
+        "6": {
+          "Species": "Crustle",
+          "Level": 34,
+          "IsAbilityLocked": false,
+          "Ability": 0,
+          "IsShinyLocked": false,
+          "GuaranteedIVs": 0
+        },
+        "7": {
+          "Species": "Zapdos-1",
+          "Level": 70,
+          "IsAbilityLocked": true,
+          "Ability": 0,
+          "IsShinyLocked": true,
+          "GuaranteedIVs": 3
         }
       }
     },
