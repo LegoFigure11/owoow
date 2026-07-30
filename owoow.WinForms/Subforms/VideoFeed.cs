@@ -21,8 +21,8 @@ public partial class VideoFeed : Form
 
 #pragma warning restore SYSLIB1054
     private const uint WM_SETICON = 0x0080;
-    private static readonly IntPtr ICON_SMALL = new IntPtr(0);
-    private static readonly IntPtr ICON_BIG = new IntPtr(1);
+    private static readonly IntPtr ICON_SMALL = new(0);
+    private static readonly IntPtr ICON_BIG = new(1);
     #endregion
 
     readonly MainWindow MainWindow;
@@ -62,13 +62,14 @@ public partial class VideoFeed : Form
     private readonly Lock _cvLock = new();
     private bool _showCv = false;
 
-    private Winner winner = Winner.Idle;
+    private Winner winner = Winner.None;
     private Winner lastwinner = Winner.Idle;
 
     private const int max = 128;
 
     private enum Winner
     {
+        None,
         Idle,
         Physical,
         Special
@@ -208,9 +209,10 @@ public partial class VideoFeed : Form
         }
 
         using var frame = new Mat();
-        using var localPhys = new Mat();
-        using var localSpec = new Mat();
-        using var localIdle = new Mat();
+
+        using var localPhysRight = new Mat();
+        using var localSpecRight = new Mat();
+        using var localIdleRight = new Mat();
 
         using var diffPhys = new Mat();
         using var diffSpec = new Mat();
@@ -220,12 +222,10 @@ public partial class VideoFeed : Form
         using var grayIdle = new Mat();
 
         long lastLog = 0;
-
         string windowName = "Video Source Feed";
 
         Cv2.NamedWindow(windowName, WindowFlags.KeepRatio);
-        Cv2.ResizeWindow(windowName, 480, 270);
-
+        Cv2.ResizeWindow(windowName, 480, 270); // 1/4 size, can double for half
         Cv2.SetWindowProperty(windowName, WindowPropertyFlags.Topmost, topMost);
 
         IntPtr windowHandle = IntPtr.Zero;
@@ -246,81 +246,82 @@ public partial class VideoFeed : Form
             }
         }
 
+        Rect rightHalfRoi = new();
+        bool roiInitialized = false;
+
+        // handles to track if the screenshots have changed
+        IntPtr lastPhysData = IntPtr.Zero;
+        IntPtr lastSpecData = IntPtr.Zero;
+        IntPtr lastIdleData = IntPtr.Zero;
+
+        var textStartPoint = new OpenCvSharp.Point(35, 720);
+
         while (!token.IsCancellationRequested)
         {
             capture.Read(frame);
-            if (frame.Empty()) continue;
+            if (frame.Empty() || frame.Width == 0 || frame.Height == 0) continue;
 
-            if (frame.Width == 0 || frame.Height == 0) continue;
+            if (!roiInitialized)
+            {
+                // Summary boxes occupy about 49% of the screen, starting at 49 allows us to capture ever so slightly
+                // more of mons that move a lot
+                var pc = frame.Width / 100;
+                
+                rightHalfRoi = new Rect(49 * pc, 0, frame.Width - (50 * pc), frame.Height);
+                roiInitialized = true;
+            }
 
             lock (_frameLock)
             {
-                _latestFrame?.Dispose();
-                _latestFrame = frame.Clone();
+                _latestFrame ??= new Mat();
+                frame.CopyTo(_latestFrame);
             }
 
-            if (_isComparing)
+            if (_isComparing && roiInitialized)
             {
-
                 bool templatesReady = false;
+
                 lock (_templateLock)
                 {
                     if (_physMat != null && !_physMat.Empty() && _specMat != null && !_specMat.Empty() && _idleMat != null && !_idleMat.Empty())
                     {
                         if (_physMat.Size() == frame.Size() && _specMat.Size() == frame.Size() && _idleMat.Size() == frame.Size())
                         {
-                            _physMat.CopyTo(localPhys);
-                            _specMat.CopyTo(localSpec);
-                            _idleMat.CopyTo(localIdle);
+                            if (_physMat.Data != lastPhysData || _specMat.Data != lastSpecData || _idleMat.Data != lastIdleData)
+                            {
+                                using (Mat tempPhys = new(_physMat, rightHalfRoi)) tempPhys.CopyTo(localPhysRight);
+                                using (Mat tempSpec = new(_specMat, rightHalfRoi)) tempSpec.CopyTo(localSpecRight);
+                                using (Mat tempIdle = new(_idleMat, rightHalfRoi)) tempIdle.CopyTo(localIdleRight);
+
+                                lastPhysData = _physMat.Data;
+                                lastSpecData = _specMat.Data;
+                                lastIdleData = _idleMat.Data;
+                            }
                             templatesReady = true;
-                        }
-                    }
-                    else
-                    {
-                        if (_physMat == null && _phys != null)
-                        {
-                            Mat newMat = new();
-                            var tmp = new Bitmap(_phys);
-                            using var bgraMat = tmp.ToMat();
-                            Cv2.CvtColor(bgraMat, newMat, ColorConversionCodes.BGRA2BGR);
-                            _physMat = newMat;
-                        }
-                        if (_specMat == null && _spec != null)
-                        {
-                            Mat newMat = new();
-                            var tmp = new Bitmap(_spec);
-                            using var bgraMat = tmp.ToMat();
-                            Cv2.CvtColor(bgraMat, newMat, ColorConversionCodes.BGRA2BGR);
-                            _specMat = newMat;
-                        }
-                        if (_idleMat == null && _idle != null)
-                        {
-                            Mat newMat = new();
-                            var tmp = new Bitmap(_idle);
-                            using var bgraMat = tmp.ToMat();
-                            Cv2.CvtColor(bgraMat, newMat, ColorConversionCodes.BGRA2BGR);
-                            _idleMat = newMat;
                         }
                     }
                 }
 
-                string resultText = $"No reference matches found.\nPhysical Mat Exists: {_physMat != null}\nSpecial Mat Exists: {_specMat != null}\nIdle Mat Exists: {_idleMat != null}";
+                string resultText = string.Empty;
+                winner = Winner.None;
 
                 if (templatesReady)
                 {
                     try
                     {
-                        Cv2.Absdiff(frame, localPhys, diffPhys);
+                        using Mat frameRight = new(frame, rightHalfRoi);
+
+                        Cv2.Absdiff(frameRight, localPhysRight, diffPhys);
                         Cv2.CvtColor(diffPhys, grayPhys, ColorConversionCodes.BGR2GRAY);
                         Cv2.Threshold(grayPhys, grayPhys, 30, 255, ThresholdTypes.Binary);
                         int diffCountPhys = Cv2.CountNonZero(grayPhys);
 
-                        Cv2.Absdiff(frame, localSpec, diffSpec);
+                        Cv2.Absdiff(frameRight, localSpecRight, diffSpec);
                         Cv2.CvtColor(diffSpec, graySpec, ColorConversionCodes.BGR2GRAY);
                         Cv2.Threshold(graySpec, graySpec, 30, 255, ThresholdTypes.Binary);
                         int diffCountSpec = Cv2.CountNonZero(graySpec);
 
-                        Cv2.Absdiff(frame, localIdle, diffIdle);
+                        Cv2.Absdiff(frameRight, localIdleRight, diffIdle);
                         Cv2.CvtColor(diffIdle, grayIdle, ColorConversionCodes.BGR2GRAY);
                         Cv2.Threshold(grayIdle, grayIdle, 30, 255, ThresholdTypes.Binary);
                         int diffCountIdle = Cv2.CountNonZero(grayIdle);
@@ -333,7 +334,8 @@ public partial class VideoFeed : Form
                         if (minDiff == diffCountPhys && lastwinner == Winner.Idle)
                         {
                             winner = Winner.Physical;
-                            resultText = $"Match: Physical\nPhysical: {diffCountPhys}\nSpecial: {diffCountSpec}\nIdle: {diffCountIdle}";
+                            if (_showCv) resultText = $"Match: Physical\nPhysical: {diffCountPhys}\nSpecial: {diffCountSpec}\nIdle: {diffCountIdle}";
+
                             if (diffCountPhys < _threshold && allowLog)
                             {
                                 _log?.AddLine($"[{DateTime.Now:HH:mm:ss}] [MATCH ACCEPTED] (Log: 0) Physical | Score: {diffCountPhys,7} | Time since match: {logTime}", true);
@@ -356,7 +358,8 @@ public partial class VideoFeed : Form
                         else if (minDiff == diffCountSpec && lastwinner == Winner.Idle)
                         {
                             winner = Winner.Special;
-                            resultText = $"Match: Special\nPhysical: {diffCountPhys}\nSpecial: {diffCountSpec}\nIdle: {diffCountIdle}";
+                            if (_showCv) resultText = $"Match: Special\nPhysical: {diffCountPhys}\nSpecial: {diffCountSpec}\nIdle: {diffCountIdle}";
+
                             if (diffCountSpec < _threshold && allowLog)
                             {
                                 _log?.AddLine($"[{DateTime.Now:HH:mm:ss}] [MATCH ACCEPTED] (Log: 1) Special  | Score: {diffCountSpec,7} | Time since match: {logTime}", true);
@@ -379,7 +382,7 @@ public partial class VideoFeed : Form
                         else
                         {
                             winner = Winner.Idle;
-                            resultText = $"Match: Idle\nPhysical: {diffCountPhys}\nSpecial: {diffCountSpec}\nIdle: {diffCountIdle}";
+                            if (_showCv) resultText = $"Match: Idle\nPhysical: {diffCountPhys}\nSpecial: {diffCountSpec}\nIdle: {diffCountIdle}";
                         }
                         lastwinner = winner;
                     }
@@ -387,14 +390,17 @@ public partial class VideoFeed : Form
                     {
                         this.DisplayMessageBox(ex.Message, nameof(ex.GetType));
                     }
-                }
 
-                if (_showCv) DrawMultiLineText(frame, resultText, new OpenCvSharp.Point(35, 720));
+                    if (_showCv)
+                    {
+                        if (winner == Winner.None) resultText = $"No reference matches found.\nPhysical Mat Exists: {_physMat != null}\nSpecial Mat Exists: {_specMat != null}\nIdle Mat Exists: {_idleMat != null}";
+                        Cv2.Rectangle(frame, rightHalfRoi, Scalar.CornflowerBlue, 3);
+                        DrawMultiLineText(frame, resultText, textStartPoint);
+                    }
+                }
             }
 
-
             Cv2.ImShow(windowName, frame);
-
             var key = Cv2.WaitKey(1);
 
             if ((windowHandle != IntPtr.Zero && !IsWindow(windowHandle)) || key == (int)Keys.Escape)
