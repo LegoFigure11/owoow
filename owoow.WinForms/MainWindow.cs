@@ -1728,6 +1728,18 @@ public partial class MainWindow : Form
     private void CB_Game_SelectedIndexChanged(object sender, EventArgs e)
     {
         Config.Game = CB_Game.SelectedIndex;
+        var tab = TC_EncounterType.SelectedTab;
+        if (tab is null) return;
+
+        var speciesBox = tab.Controls.Find($"CB_{tab.Text}_Species", true).FirstOrDefault();
+        if (speciesBox is not ComboBox cb) return;
+        
+        var idx = cb.GetSelectedIndex();
+        if (idx >= 0)
+        {
+            SetSpeciesOptions();
+            cb.SelectedIndex = idx;
+        }
     }
 
     private void CB_ShinyCharm_CheckedChanged(object sender, EventArgs e)
