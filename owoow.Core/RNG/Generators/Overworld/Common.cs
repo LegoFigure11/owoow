@@ -34,6 +34,7 @@ public static class Common
 
     public static ulong GenerateLevel(ref Xoroshiro128Plus rng, IEncounterTableEntry enc)
     {
+        if (enc.MaxLevel == enc.MinLevel) return (ulong)enc.MinLevel;
         ulong delta = (ulong)(enc.MaxLevel - enc.MinLevel) + 1;
         return rng.NextInt(delta) + (uint)enc.MinLevel;
     }
