@@ -104,18 +104,21 @@ public static class Util
     }
 
     // https://github.com/StarfBerry/PokeRNG/blob/409e2e3ce21d04184faf3b001da2bb002a8282c9/RNG/Xoroshiro.py#L84
+    // Modified from LZC to TZC as suggested by @Lincoln-LM
+    // https://discord.com/channels/1375066006279553145/1534407306538782913/1535036408039866580
     public static (ulong s0, ulong s1) XoroshiroJump(ulong _s0, ulong _s1, ulong jump)
     {
         var rng = new Xoroshiro128Plus(_s0, _s1);
         var adv = (byte)(jump & 0x7f);
         for (var i = 0; i < adv; i++) rng.Next();
         var (state0, state1) = rng.GetState();
-        jump >>= 7;
+        jump ^= adv;
 
-        while (jump != 0) {
-            var i = 63 - BitOperations.LeadingZeroCount(jump);
-            (state0, state1) = XoroshiroJumpPow2(state0, state1, (byte)(i + 7));
-            jump ^= 1u << i;
+        while (jump != 0)
+        {
+            var i = (byte)BitOperations.TrailingZeroCount(jump);
+            (state0, state1) = XoroshiroJumpPow2(state0, state1, i);
+            jump ^= 1UL << i;
         }
 
         return (state0, state1);
