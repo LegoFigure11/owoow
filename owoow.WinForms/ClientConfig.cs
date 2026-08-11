@@ -54,4 +54,8 @@ public class ClientConfig : ISeedResetConfig, ITurboConfig, IWebhookConfig
 
     // Profiles
     public List<Profile> Profiles { get; set; } = [];
+
+    // Extra
+    public bool ShowCaptureRNGTool { get; set; } = false;
+    public uint BattleRNGOffset { get; set; } = 0x00000000;
 }

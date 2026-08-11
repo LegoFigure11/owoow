@@ -12,6 +12,9 @@ public static class Util
     public const uint MAX_TRACKED_ADVANCES = 50_000; // 50,000 chosen arbitrarily to prevent an infinite loop
 
     public const ulong XOROSHIRO_CONST = 0x82A2B175229D6A5B;
+    public static bool IsUltraBeast(this PK8 pk) => SpeciesCategory.IsUltraBeast(pk.Species);
+    public static bool IsMoonBallBoosted(this PK8 pk) =>
+        (Species)pk.Species is Species.Nidorino or Species.Nidorina or Species.Clefairy or Species.Skitty or Species.Munna;
 
     public static uint GetAdvancesPassed(ulong s0, ulong s1, ulong _s0, ulong _s1, ulong limit = MAX_TRACKED_ADVANCES)
     {
