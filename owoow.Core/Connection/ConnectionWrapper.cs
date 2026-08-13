@@ -152,6 +152,19 @@ public class ConnectionWrapperAsync(SwitchConnectionConfig Config, Action<string
         return new PK8(data);
     }
 
+    public async Task<StatusType> ReadWildPokemonStatusCondition(CancellationToken token)
+    {
+        var data = await Connection.ReadBytesAsync(WildPokemonStatusCondition, WildPokemonStatusCondition_Size, token).ConfigureAwait(false);
+        var sc = new Structures.StatusCondition(data);
+        return sc.GetStatusType();
+    }
+
+    public async Task<ushort> ReadWildPokemonCurrentHP(CancellationToken token)
+    {
+        var data = await Connection.ReadBytesAsync(WildPokemonCurrHP, WildPokemonCurrHP_Size, token).ConfigureAwait(false);
+        return ReadUInt16LittleEndian(data);
+    }
+
     public async Task<PK8> ReadPartyPokemon(byte slot, CancellationToken token)
     {
         var data = await Connection.ReadBytesAsync(PartyPokemon + (slot * (uint)PartyPokemon_Size), PartyPokemon_Size, token).ConfigureAwait(false);

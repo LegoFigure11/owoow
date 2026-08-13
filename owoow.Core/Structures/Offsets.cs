@@ -11,6 +11,12 @@ public abstract class Offsets
     public const uint WildPokemon = 0x8fea3648;
     public const int WildPokemon_Size = 0x158;
 
+    public const uint WildPokemonCurrHP = 0x8fea3164;
+    public const int WildPokemonCurrHP_Size = 0x02;
+
+    public const uint WildPokemonStatusCondition = 0x8fea3188;
+    public const int WildPokemonStatusCondition_Size = 0x28;
+
     public const uint PartyPokemon = 0x450C68B0;
     public const int PartyPokemon_Size = WildPokemon_Size;
 
