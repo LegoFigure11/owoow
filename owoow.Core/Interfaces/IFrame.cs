@@ -4,9 +4,13 @@ namespace owoow.Core.Interfaces
     internal interface IBasicFrame
     {
         string Advances { get; }
-        string Jump     { get; }
         string Seed0    { get; }
         string Seed1    { get; }
+    }
+
+    internal interface IJumpFrame
+    {
+        string Jump { get; }
     }
 
     internal interface IRetailFrame
@@ -57,7 +61,7 @@ namespace owoow.Core.Interfaces
         string EggMove { get; }
     }
 
-    public class OverworldFrame : IOverworldFrame, IBasicFrame, IRetailFrame
+    public class OverworldFrame : IOverworldFrame, IBasicFrame, IRetailFrame, IJumpFrame
     {
         public string Advances { get; set; } = string.Empty;
         public string Jump     { get; set; } = string.Empty;
@@ -108,7 +112,7 @@ namespace owoow.Core.Interfaces
         public string Height { get; set; } = string.Empty;
     }
 
-    public class MenuCloseFrame : IBasicFrame
+    public class MenuCloseFrame : IBasicFrame, IJumpFrame
     {
         public string Advances { get; set; } = string.Empty;
         public string Jump     { get; set; } = string.Empty;
@@ -116,7 +120,7 @@ namespace owoow.Core.Interfaces
         public string Seed1    { get; set; } = string.Empty;
     }
 
-    public class LotoIDFrame : IBasicFrame, IRetailFrame
+    public class LotoIDFrame : IBasicFrame, IRetailFrame, IJumpFrame
     {
         public string Advances { get; set; } = string.Empty;
         public string Jump     { get; set; } = string.Empty;
@@ -127,7 +131,7 @@ namespace owoow.Core.Interfaces
         public string Seed1    { get; set; } = string.Empty;
     }
 
-    public class CramomaticFrame : IBasicFrame, IRetailFrame
+    public class CramomaticFrame : IBasicFrame, IRetailFrame, IJumpFrame
     {
         public string Advances { get; set; } = string.Empty;
         public string Jump     { get; set; } = string.Empty;
@@ -138,7 +142,7 @@ namespace owoow.Core.Interfaces
         public string Seed1    { get; set; } = string.Empty;
     }
 
-    public class WattTraderFrame : IBasicFrame, IRetailFrame
+    public class WattTraderFrame : IBasicFrame, IRetailFrame, IJumpFrame
     {
         public string Advances  { get; set; } = string.Empty;
         public string Jump      { get; set; } = string.Empty;
@@ -149,7 +153,7 @@ namespace owoow.Core.Interfaces
         public string Seed1     { get; set; } = string.Empty;
     }
 
-    public class DiggingPaFrame : IBasicFrame, IRetailFrame
+    public class DiggingPaFrame : IBasicFrame, IRetailFrame, IJumpFrame
     {
         public string Advances { get; set; } = string.Empty;
         public string Jump     { get; set; } = string.Empty;
@@ -161,7 +165,7 @@ namespace owoow.Core.Interfaces
         public string Seed1    { get; set; } = string.Empty;
     }
 
-    public class SkillBroFrame : IBasicFrame, IRetailFrame
+    public class SkillBroFrame : IBasicFrame, IRetailFrame, IJumpFrame
     {
         public string Advances      { get; set; } = string.Empty;
         public string Jump          { get; set; } = string.Empty;
@@ -194,7 +198,7 @@ namespace owoow.Core.Interfaces
         public string Seed1         { get; set; } = string.Empty;
     }
 
-    public class WailordFrame : IBasicFrame, IRetailFrame
+    public class WailordFrame : IBasicFrame, IRetailFrame, IJumpFrame
     {
         public string Advances { get; set; } = string.Empty;
         public string Jump     { get; set; } = string.Empty;
@@ -202,5 +206,15 @@ namespace owoow.Core.Interfaces
         public char Respawn    { get; set; } = 'N';
         public string Seed0    { get; set; } = string.Empty;
         public string Seed1    { get; set; } = string.Empty;
+    }
+
+    public class CaptureFrame : IBasicFrame
+    {
+        public string Advances { get; set; } = string.Empty;
+        public bool Success { get; set; } = false;
+        public bool Critical { get; set; } = false;
+        public byte Shakes { get; set; } = 0;
+        public string Seed0 { get; set; } = string.Empty;
+        public string Seed1 { get; set; } = string.Empty;
     }
 }

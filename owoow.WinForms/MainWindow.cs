@@ -111,6 +111,8 @@ public partial class MainWindow : Form
             TB_SwitchIP.Text = $"{Config.UsbPort}";
         }
 
+        TSMI_Catch.Visible = Config.ShowCaptureRNGTool;
+
         TB_TID.Text = $"{Config.TID:D5}";
         TB_SID.Text = $"{Config.SID:D5}";
 
@@ -1516,7 +1518,7 @@ public partial class MainWindow : Form
         if (Encounters.Personal is not null)
         {
             // Special handling to keep Jangmo-o, Hakamo-o, Kommo-o, and Porygon-Z. Silvally-10+ also need to be filtered out
-            List<string> range = Encounters.GetDexRecOptions();
+            List<string> range = GetDexRecOptions();
 
             CB_DexRec1.Items.Clear();
             CB_DexRec2.Items.Clear();
@@ -1789,6 +1791,14 @@ public partial class MainWindow : Form
         Source = new();
         AdvanceSource = new();
         ResetSource = new();
+    }
+
+    private void TSMI_Catch_Click(object sender, EventArgs e)
+    {
+        using CaptureCalc cc = new(this, ConnectionWrapper, Config.BattleRNGOffset);
+        readPause = true;
+        cc.ShowDialog();
+        readPause = false;
     }
 
     private void B_RefreshDexRec_Click(object sender, EventArgs e)
@@ -2465,7 +2475,10 @@ public partial class MainWindow : Form
     public void KeyPress_AllowOnlyIP(object sender, KeyPressEventArgs e)
     {
         var c = e.KeyChar;
-        if (c == (char)Keys.Return) B_Connect_Click(sender, EventArgs.Empty);
+        if (c == (char)Keys.Return)
+        {
+            B_Connect_Click(sender, EventArgs.Empty);
+        }
         else if (c != (char)Keys.Back && !char.IsControl(c))
         {
             if (!c.IsDec(true))

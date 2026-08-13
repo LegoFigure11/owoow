@@ -114,4 +114,36 @@ public class GeneratorConfig
     public bool LogResultsToFile { get; set; } = false;
 
     public Game Game { get; set; } = Game.Sword;
+
+    // Capture Calc
+    public int Species { get; set; } = 0;
+    public int PartySpecies { get; set; } = 0;
+    public byte Level { get; set; } = 60;
+    public byte PartyLevel { get; set; } = 100;
+    public byte Gender { get; set; } = 0;
+    public byte PartyGender { get; set; } = 0;
+
+    public ushort MaxHP { get; set; } = 999;
+    public ushort CurrHP { get; set; } = 1;
+    public byte CatchRate { get; set; } = 255;
+    public ushort Weight { get; set; } = 9999;
+    public bool HasCatchingCharm { get; set; } = false;
+    public ushort ZukanCount { get; set; } = 0;
+    public BallType Ball { get; set; } = BallType.PokeBall;
+    public bool IsUltraBeast { get; set; } = false;
+    public StatusType Status { get; set; } = StatusType.None;
+    public bool Fishing { get; set; } = false;
+    public bool Surfing { get; set; } = false;
+    public bool Registered { get; set; } = false;
+    public bool Dusk { get; set; } = false;
+    public bool FirstTurn { get; set; } = false;
+    public byte Turns { get; set; } = 10;
+    public byte BaseSpeed { get; set; } = 100;
+    public bool MoonStoneEvo { get; set; } = false;
+    public bool BeatRaihan { get; set; } = false;
+    public bool IsBugOrWaterType { get; set; } = false;
+    public AuraType TargetSuccess { get; set; } = AuraType.Any;
+    public AuraType TargetCrit { get; set; } = AuraType.Any;
+    public uint TargetMinRolls { get; set; } = 0;
+    public uint TargetMaxRolls { get; set; } = 4;
 };

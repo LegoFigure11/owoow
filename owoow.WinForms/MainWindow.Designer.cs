@@ -290,6 +290,7 @@ namespace owoow.WinForms
             TSMI_WailordRespawn = new ToolStripMenuItem();
             TSMI_XoroshiroTools = new ToolStripMenuItem();
             TSMI_VideoFeed = new ToolStripMenuItem();
+            TSMI_Catch = new ToolStripMenuItem();
             GB_SeedControlsContainer.SuspendLayout();
             GB_WildView.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)PB_MarkSprite).BeginInit();
@@ -3113,7 +3114,7 @@ namespace owoow.WinForms
             // MS_SubWindows
             // 
             MS_SubWindows.BackColor = SystemColors.ButtonFace;
-            MS_SubWindows.Items.AddRange(new ToolStripItem[] { TSMI_Profiles, TSMI_EncounterLookup, TSMI_SpreadFinder, TSMI_LotoID, TSMI_Cramomatic, TSMI_WattTrader, TSMI_DiggingPa, TMSI_SkillBro, TSMI_WailordRespawn, TSMI_XoroshiroTools, TSMI_VideoFeed });
+            MS_SubWindows.Items.AddRange(new ToolStripItem[] { TSMI_Profiles, TSMI_EncounterLookup, TSMI_SpreadFinder, TSMI_LotoID, TSMI_Cramomatic, TSMI_WattTrader, TSMI_DiggingPa, TMSI_SkillBro, TSMI_WailordRespawn, TSMI_XoroshiroTools, TSMI_VideoFeed, TSMI_Catch });
             MS_SubWindows.Location = new Point(0, 0);
             MS_SubWindows.Name = "MS_SubWindows";
             MS_SubWindows.Size = new Size(1278, 24);
@@ -3195,6 +3196,14 @@ namespace owoow.WinForms
             TSMI_VideoFeed.Size = new Size(135, 20);
             TSMI_VideoFeed.Text = "Capture Card Monitor";
             TSMI_VideoFeed.Click += TSMI_VideoFeed_Click;
+            // 
+            // TSMI_Catch
+            // 
+            TSMI_Catch.Name = "TSMI_Catch";
+            TSMI_Catch.Size = new Size(118, 20);
+            TSMI_Catch.Text = "Capture Calculator";
+            TSMI_Catch.Visible = false;
+            TSMI_Catch.Click += TSMI_Catch_Click;
             // 
             // MainWindow
             // 
@@ -3534,5 +3543,6 @@ namespace owoow.WinForms
         public ComboBox CB_DexRec1;
         private ToolStripMenuItem TSMI_VideoFeed;
         internal Button B_ReadEncounter;
+        private ToolStripMenuItem TSMI_Catch;
     }
 }

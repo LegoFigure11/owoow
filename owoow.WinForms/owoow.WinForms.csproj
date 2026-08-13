@@ -49,6 +49,9 @@
     <Folder Include="deps\" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Update="Subforms\CaptureCalc.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Subforms\DexRecSearcher.cs">
       <SubType>Form</SubType>
     </Compile>
