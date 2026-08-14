@@ -12,6 +12,7 @@ public partial class CaptureCalc : Form
     readonly MainWindow MainWindow;
     readonly ConnectionWrapperAsync? ConnectionWrapper;
     readonly uint Offset;
+    readonly ClientConfig cfg;
     private readonly string text;
 
     public bool SubformOpen = false;
@@ -20,18 +21,17 @@ public partial class CaptureCalc : Form
 
     List<CaptureFrame> Frames = [];
 
-    private bool stop = false;
     private bool reset = true;
     public bool readPause;
-    private long total;
 
-    public CaptureCalc(MainWindow f, ConnectionWrapperAsync? c, uint o = 0)
+    public CaptureCalc(MainWindow f, ConnectionWrapperAsync? c, ref ClientConfig o)
     {
         InitializeComponent();
 
         MainWindow = f;
         ConnectionWrapper = c;
-        Offset = o;
+        cfg = o;
+        Offset = o.BattleRNGOffset;
 
         text = Text;
 
@@ -51,6 +51,15 @@ public partial class CaptureCalc : Form
             CB_Ball, CB_TargetCrit, CB_TargetSuccess
             );
 
+        MainWindow.SetCheckBoxCheckedState(o.HashCatchingCharm, CB_Charm);
+        MainWindow.SetCheckBoxCheckedState(o.BeatRaihan, CB_8thBadge);
+        MainWindow.SetNUDValue(o.SpeciesRegisteredInDex, NUD_ZukanCaught);
+
+        MainWindow.SetControlText(string.Empty, TB_AdvancesIncrease, TB_CurrentAdvances, TB_CurrentS0, TB_CurrentS1);
+
+        TB_Seed0.KeyPress += MainWindow.KeyPress_AllowOnlyHex!;
+        TB_Seed1.KeyPress += MainWindow.KeyPress_AllowOnlyHex!;
+
         if (ConnectionWrapper is not null)
         {
             try
@@ -65,6 +74,8 @@ public partial class CaptureCalc : Form
                             total = 0;
                             stop = false;
                             var (_s0, _s1) = await ConnectionWrapper.ReadRNGState(Offset, Source.Token).ConfigureAwait(false);
+                            MainWindow.SetControlText($"{_s0:X16}", TB_Seed0);
+                            MainWindow.SetControlText($"{_s1:X16}", TB_Seed1);
                             while (!stop)
                             {
                                 if (ConnectionWrapper.Connected && !readPause)
@@ -108,15 +119,6 @@ public partial class CaptureCalc : Form
             }
         }
     }
-
-    private void B_Cancel_Click(object sender, EventArgs e)
-    {
-        stop = true;
-        Source.Cancel();
-        Source.Dispose();
-        Source = new();
-    }
-
 
     private void DexRecSearcher_FormClosing(object sender, FormClosingEventArgs e)
     {
@@ -176,15 +178,16 @@ public partial class CaptureCalc : Form
         {
             try
             {
-                MainWindow.readPause = false;
+                readPause = true;
                 var partyMon = await ConnectionWrapper.ReadPartyPokemon((byte)(NUD_PartySlot.GetValue() - 1), Source.Token).ConfigureAwait(false);
-
+                readPause = false;
                 MainWindow.SetNUDValue(partyMon.CurrentLevel, NUD_Active_Level);
                 MainWindow.SetComboBoxSelectedIndex(partyMon.Gender, CB_Active_Gender);
                 MainWindow.SetComboBoxSelectedIndex(partyMon.Species - 1, CB_Active_Species);
             }
             catch (Exception ex)
             {
+                readPause = false;
                 this.DisplayMessageBox(ex.Message);
             }
         }
@@ -196,7 +199,7 @@ public partial class CaptureCalc : Form
         {
             try
             {
-                MainWindow.readPause = false;
+                readPause = true;
                 var wildMon = await ConnectionWrapper.ReadWildPokemon(Source.Token).ConfigureAwait(false);
                 wildMon.ResetPartyStats();
 
@@ -212,9 +215,11 @@ public partial class CaptureCalc : Form
                 MainWindow.SetComboBoxSelectedIndex(wildMon.Gender, CB_Wild_Gender);
                 MainWindow.SetComboBoxSelectedIndex(GetSelectedIndexForStatusType(status), CB_Wild_Status);
                 MainWindow.SetComboBoxSelectedIndex(wildMon.Species - 1, CB_Wild_Species);
+                readPause = false;
             }
             catch (Exception ex)
             {
+                readPause = false;
                 this.DisplayMessageBox(ex.Message);
             }
         }
@@ -240,12 +245,15 @@ public partial class CaptureCalc : Form
         _ => StatusType.None,
     };
 
+    private PK8 _pk = new();
     private void CB_Wild_Species_SelectedIndexChanged(object sender, EventArgs e)
     {
         var idx = CB_Wild_Species.GetSelectedIndex();
-        var pk = PersonalTable.SWSH[idx + 1];
-        MainWindow.SetNUDValue(pk.CatchRate, NUD_Wild_Rate);
-        MainWindow.SetNUDValue(pk.Weight, NUD_Wild_Weight);
+        var f = NUD_Wild_Form.GetValue();
+        _pk.Species = (ushort)(idx + 1);
+        _pk.Form = (byte)f;
+        MainWindow.SetNUDValue(_pk.PersonalInfo.CatchRate, NUD_Wild_Rate);
+        MainWindow.SetNUDValue(_pk.PersonalInfo.Weight, NUD_Wild_Weight);
     }
 
     private void B_Search_Click(object sender, EventArgs e)
@@ -275,6 +283,7 @@ public partial class CaptureCalc : Form
         var pk = new PK8()
         {
             Species = (ushort)(CB_Wild_Species.GetSelectedIndex() + 1),
+            Form = (byte)(NUD_Wild_Form.GetValue()),
         };
 
         Core.RNG.GeneratorConfig config = new()
@@ -322,5 +331,71 @@ public partial class CaptureCalc : Form
 
             MainWindow.SetControlEnabledState(true, sender);
         });
+    }
+
+    private void NUD_Wild_Form_ValueChanged(object sender, EventArgs e)
+    {
+        var idx = CB_Wild_Species.GetSelectedIndex();
+        var f = NUD_Wild_Form.GetValue();
+        _pk.Species = (ushort)(idx + 1);
+        _pk.Form = (byte)f;
+        MainWindow.SetNUDValue(_pk.PersonalInfo.CatchRate, NUD_Wild_Rate);
+        MainWindow.SetNUDValue(_pk.PersonalInfo.Weight, NUD_Wild_Weight);
+    }
+
+    private void B_CopyToInitial_Click(object sender, EventArgs e)
+    {
+#if DEBUG
+        if (((Button)sender).Name == "B_CopyToInitial" && ModifierKeys == Keys.Shift)
+        {
+            Task.Run(
+                async () =>
+                {
+                    try
+                    {
+                        ulong s0 = ulong.Parse(TB_Seed0.Text, NumberStyles.AllowHexSpecifier);
+                        ulong s1 = ulong.Parse(TB_Seed1.Text, NumberStyles.AllowHexSpecifier);
+                        if (ConnectionWrapper is not null && ConnectionWrapper.Connected)
+                            await ConnectionWrapper.WriteRNGState(s0, s1, Source.Token).ConfigureAwait(false);
+                        reset = true;
+                    }
+                    catch (Exception ex)
+                    {
+                        this.DisplayMessageBox($"Something went wrong when writing the RNG state: {ex.Message}");
+                    }
+                }
+            );
+        }
+        else
+        {
+#endif
+            if (TB_CurrentS0.Text != string.Empty && TB_CurrentS1.Text != string.Empty)
+            {
+                var s0 = TB_CurrentS0.Text;
+                var s1 = TB_CurrentS1.Text;
+
+                MainWindow.SetControlText(s0, TB_Seed0);
+                MainWindow.SetControlText(s1, TB_Seed1);
+
+                reset = true;
+            }
+#if DEBUG
+        }
+#endif
+    }
+
+    private void CB_Charm_CheckedChanged(object sender, EventArgs e)
+    {
+        cfg.HashCatchingCharm = CB_Charm.GetIsChecked();
+    }
+
+    private void CB_8thBadge_CheckedChanged(object sender, EventArgs e)
+    {
+        cfg.BeatRaihan = CB_8thBadge.GetIsChecked();
+    }
+
+    private void NUD_ZukanCaught_ValueChanged(object sender, EventArgs e)
+    {
+        cfg.SpeciesRegisteredInDex = NUD_ZukanCaught.GetValue();
     }
 }

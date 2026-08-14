@@ -313,6 +313,12 @@ public class ConnectionWrapperAsync(SwitchConnectionConfig Config, Action<string
         return bag.HasItem(0x0635);
     }
 
+    public bool GetHasCatchingCharm()
+    {
+        var bag = new PlayerBag8(sav).GetPouch(InventoryType.KeyItems);
+        return bag.HasItem(0x04F3);
+    }
+
     // Adapted from https://github.com/Lincoln-LM/PyNXReader/blob/master/structure/KCoordinates.py
     public (List<FieldObject> pkms, float x, float y, float z) ParseCoordinatesBlock()
     {

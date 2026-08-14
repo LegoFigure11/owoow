@@ -86,6 +86,11 @@ public class Capture
 
                 var crit = (int)rng.NextInt(0x100);
                 if (crit < CritChance) IsCrit = true;
+                if (!CheckIsAura(IsCrit, config.TargetCrit))
+                {
+                    outer.Next();
+                    continue;
+                }
 
                 var rollCount = IsCrit ? 1 : 4;
 
@@ -99,7 +104,19 @@ public class Capture
                     }
                 }
 
+                if (roll < config.TargetMinRolls || roll > config.TargetMaxRolls)
+                {
+                    outer.Next();
+                    continue;
+                }
+
                 var success = Caught || (roll == rollCount);
+
+                if (!CheckIsAura(success, config.TargetSuccess))
+                {
+                    outer.Next();
+                    continue;
+                }
 
                 var f = new CaptureFrame()
                 {

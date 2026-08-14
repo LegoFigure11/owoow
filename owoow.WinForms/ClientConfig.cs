@@ -58,4 +58,7 @@ public class ClientConfig : ISeedResetConfig, ITurboConfig, IWebhookConfig
     // Extra
     public bool ShowCaptureRNGTool { get; set; } = false;
     public uint BattleRNGOffset { get; set; } = 0x00000000;
+    public bool HashCatchingCharm { get; set; } = false;
+    public bool BeatRaihan { get; set; } = true;
+    public uint SpeciesRegisteredInDex { get; set; } = 584;
 }

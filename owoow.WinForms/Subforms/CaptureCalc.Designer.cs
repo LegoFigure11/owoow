@@ -51,6 +51,8 @@ namespace owoow.WinForms.Subforms
             L_Active_Species = new Label();
             CB_Active_Species = new ComboBox();
             GB_WildPokemon = new GroupBox();
+            L_Wild_Form = new Label();
+            NUD_Wild_Form = new NumericUpDown();
             L_Wild_Weight = new Label();
             NUD_Wild_Weight = new NumericUpDown();
             L_Wild_Rate = new Label();
@@ -108,6 +110,7 @@ namespace owoow.WinForms.Subforms
             GB_MyPokemon.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)NUD_Active_Level).BeginInit();
             GB_WildPokemon.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)NUD_Wild_Form).BeginInit();
             ((System.ComponentModel.ISupportInitialize)NUD_Wild_Weight).BeginInit();
             ((System.ComponentModel.ISupportInitialize)NUD_Wild_Rate).BeginInit();
             ((System.ComponentModel.ISupportInitialize)NUD_Wild_Level).BeginInit();
@@ -185,6 +188,7 @@ namespace owoow.WinForms.Subforms
             B_CopyToInitial.TabIndex = 22;
             B_CopyToInitial.Text = "Update Seeds";
             B_CopyToInitial.UseVisualStyleBackColor = true;
+            B_CopyToInitial.Click += B_CopyToInitial_Click;
             // 
             // L_CurrentS1
             // 
@@ -326,6 +330,8 @@ namespace owoow.WinForms.Subforms
             // 
             // GB_WildPokemon
             // 
+            GB_WildPokemon.Controls.Add(L_Wild_Form);
+            GB_WildPokemon.Controls.Add(NUD_Wild_Form);
             GB_WildPokemon.Controls.Add(L_Wild_Weight);
             GB_WildPokemon.Controls.Add(NUD_Wild_Weight);
             GB_WildPokemon.Controls.Add(L_Wild_Rate);
@@ -348,6 +354,25 @@ namespace owoow.WinForms.Subforms
             GB_WildPokemon.TabIndex = 31;
             GB_WildPokemon.TabStop = false;
             GB_WildPokemon.Text = "Wild Pokémon";
+            // 
+            // L_Wild_Form
+            // 
+            L_Wild_Form.AutoSize = true;
+            L_Wild_Form.Location = new Point(115, 52);
+            L_Wild_Form.Name = "L_Wild_Form";
+            L_Wild_Form.Size = new Size(38, 15);
+            L_Wild_Form.TabIndex = 69;
+            L_Wild_Form.Text = "Form:";
+            // 
+            // NUD_Wild_Form
+            // 
+            NUD_Wild_Form.Location = new Point(155, 49);
+            NUD_Wild_Form.Maximum = new decimal(new int[] { 255, 0, 0, 0 });
+            NUD_Wild_Form.Name = "NUD_Wild_Form";
+            NUD_Wild_Form.Size = new Size(39, 23);
+            NUD_Wild_Form.TabIndex = 68;
+            NUD_Wild_Form.TextAlign = HorizontalAlignment.Right;
+            NUD_Wild_Form.ValueChanged += NUD_Wild_Form_ValueChanged;
             // 
             // L_Wild_Weight
             // 
@@ -481,10 +506,10 @@ namespace owoow.WinForms.Subforms
             // CB_Wild_Gender
             // 
             CB_Wild_Gender.FormattingEnabled = true;
-            CB_Wild_Gender.Items.AddRange(new object[] { "Male", "Female", "Unknown" });
+            CB_Wild_Gender.Items.AddRange(new object[] { "M", "F", "-" });
             CB_Wild_Gender.Location = new Point(56, 49);
             CB_Wild_Gender.Name = "CB_Wild_Gender";
-            CB_Wild_Gender.Size = new Size(138, 23);
+            CB_Wild_Gender.Size = new Size(39, 23);
             CB_Wild_Gender.TabIndex = 24;
             CB_Wild_Gender.Text = "wwwwwwwwwwww";
             // 
@@ -538,6 +563,7 @@ namespace owoow.WinForms.Subforms
             CB_8thBadge.TabIndex = 12;
             CB_8thBadge.Text = "8th Badge";
             CB_8thBadge.UseVisualStyleBackColor = true;
+            CB_8thBadge.CheckedChanged += CB_8thBadge_CheckedChanged;
             // 
             // CB_Charm
             // 
@@ -548,6 +574,7 @@ namespace owoow.WinForms.Subforms
             CB_Charm.TabIndex = 11;
             CB_Charm.Text = "Catch Charm";
             CB_Charm.UseVisualStyleBackColor = true;
+            CB_Charm.CheckedChanged += CB_Charm_CheckedChanged;
             // 
             // L_ZukanCaught
             // 
@@ -585,6 +612,7 @@ namespace owoow.WinForms.Subforms
             NUD_ZukanCaught.TabIndex = 7;
             NUD_ZukanCaught.TextAlign = HorizontalAlignment.Right;
             NUD_ZukanCaught.Value = new decimal(new int[] { 584, 0, 0, 0 });
+            NUD_ZukanCaught.ValueChanged += NUD_ZukanCaught_ValueChanged;
             // 
             // CB_Ball
             // 
@@ -936,6 +964,7 @@ namespace owoow.WinForms.Subforms
             ((System.ComponentModel.ISupportInitialize)NUD_Active_Level).EndInit();
             GB_WildPokemon.ResumeLayout(false);
             GB_WildPokemon.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)NUD_Wild_Form).EndInit();
             ((System.ComponentModel.ISupportInitialize)NUD_Wild_Weight).EndInit();
             ((System.ComponentModel.ISupportInitialize)NUD_Wild_Rate).EndInit();
             ((System.ComponentModel.ISupportInitialize)NUD_Wild_Level).EndInit();
@@ -1030,5 +1059,7 @@ namespace owoow.WinForms.Subforms
         private NumericUpDown NUD_ShakesMax;
         private NumericUpDown NUD_ShakesMin;
         private Label L_ShakesMax;
+        private NumericUpDown NUD_Wild_Form;
+        private Label L_Wild_Form;
     }
 }

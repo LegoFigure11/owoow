@@ -226,6 +226,7 @@ public partial class MainWindow : Form
                 {
                     SetCheckBoxCheckedState(ConnectionWrapper.GetHasShinyCharm(), CB_ShinyCharm);
                     SetCheckBoxCheckedState(ConnectionWrapper.GetHasMarkCharm(), CB_MarkCharm);
+                    Config.HashCatchingCharm = ConnectionWrapper.GetHasCatchingCharm();
                     var (tid, sid) = ConnectionWrapper.GetIDs();
                     SetControlText(tid, TB_TID);
                     SetControlText(sid, TB_SID);
@@ -1795,7 +1796,7 @@ public partial class MainWindow : Form
 
     private void TSMI_Catch_Click(object sender, EventArgs e)
     {
-        using CaptureCalc cc = new(this, ConnectionWrapper, Config.BattleRNGOffset);
+        using CaptureCalc cc = new(this, ConnectionWrapper, ref Config);
         readPause = true;
         cc.ShowDialog();
         readPause = false;
