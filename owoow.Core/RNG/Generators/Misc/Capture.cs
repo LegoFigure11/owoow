@@ -32,27 +32,7 @@ public class Capture
             var ball = config.Ball;
             if (ball == BallType.HeavyBall)
             {
-                var m = 0;
-                var m2 = 0;
-                var w = config.Weight;
-                if (w >= 3000)
-                {
-                    m = 30;
-                }
-                else
-                {
-                    m = 20;
-                }
-                if (w < 2000) m = 0;
-                if (w >= 1000)
-                {
-                    m2 = m;
-                }
-                else
-                {
-                    m2 = -20;
-                }
-                var sumhb = m2 + config.CatchRate;
+                var sumhb = GetHeavyBallMod(config) + config.CatchRate;
                 sumhb = Math.Max(sumhb, 1);
                 c = sumhb * a;
             }
@@ -186,6 +166,14 @@ public class Capture
 
     private static int GetTimerBallRate(GeneratorConfig c) => Math.Min(1229 * c.Turns + 0x1000, 0x4000);
 
+    private static int GetHeavyBallMod(GeneratorConfig c) => c.Weight switch
+    {
+        >= 3000 => 30,
+        >= 2000 => 20,
+        >= 1000 => 0,
+        _ => -20,
+    };
+
     private static int GetStatusMod(StatusType s) => s switch
     {
         StatusType.Sleep or StatusType.Freeze => 0x2800,
@@ -208,7 +196,7 @@ public class Capture
         var zukanMod = GetCritCatchRateFromZukanCount(zukanCount);
         if (zukanMod == 0) return -1;
         var charmMod = hasCharm ? 1 : 0;
-        ulong v15 = (ulong)((long)0x2AAAAAAB * (int)(((ulong)(uint)(zukanMod << charmMod) * mcr + 2048) >> 12));
+        ulong v15 = (ulong)((long)0x2AAAAAAB * (int)(((uint)(zukanMod << charmMod) * mcr + 2048) >> 12));
         return (int)((v15 >> 32) + (v15 >> 63)) >> 12;
     }
 
