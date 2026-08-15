@@ -10,7 +10,7 @@ namespace owoow.WinForms.Subforms;
 public partial class CaptureCalc : Form
 {
     readonly MainWindow MainWindow;
-    readonly ConnectionWrapperAsync? ConnectionWrapper;
+    readonly ConnectionWrapperAsync ConnectionWrapper;
     readonly uint Offset;
     readonly ClientConfig cfg;
     private readonly string text;
@@ -24,7 +24,7 @@ public partial class CaptureCalc : Form
     private bool reset = true;
     public bool readPause;
 
-    public CaptureCalc(MainWindow f, ConnectionWrapperAsync? c, ref ClientConfig o)
+    public CaptureCalc(MainWindow f, ConnectionWrapperAsync c, ref ClientConfig o)
     {
         InitializeComponent();
 
@@ -60,64 +60,54 @@ public partial class CaptureCalc : Form
         TB_Seed0.KeyPress += MainWindow.KeyPress_AllowOnlyHex!;
         TB_Seed1.KeyPress += MainWindow.KeyPress_AllowOnlyHex!;
 
-        if (ConnectionWrapper is not null)
-        {
-            try
+        Task.Run(
+            async () =>
             {
-                Task.Run(
-                    async () =>
+                MainWindow.readPause = true;
+                await Task.Delay(100, Source.Token);
+                try
+                {
+                    total = 0;
+                    stop = false;
+                    var (_s0, _s1) = await ConnectionWrapper.ReadRNGState(Offset, Source.Token).ConfigureAwait(false);
+                    MainWindow.SetControlText($"{_s0:X16}", TB_Seed0);
+                    MainWindow.SetControlText($"{_s1:X16}", TB_Seed1);
+                    while (!stop)
                     {
-                        MainWindow.readPause = true;
-                        await Task.Delay(100, Source.Token);
-                        try
+                        if (ConnectionWrapper.Connected && !readPause)
                         {
-                            total = 0;
-                            stop = false;
-                            var (_s0, _s1) = await ConnectionWrapper.ReadRNGState(Offset, Source.Token).ConfigureAwait(false);
-                            MainWindow.SetControlText($"{_s0:X16}", TB_Seed0);
-                            MainWindow.SetControlText($"{_s1:X16}", TB_Seed1);
-                            while (!stop)
+                            var (s0, s1) = await ConnectionWrapper.ReadRNGState(Offset, Source.Token).ConfigureAwait(false);
+                            var adv = GetAdvancesPassed(_s0, _s1, s0, s1);
+                            if (reset || adv > 0)
                             {
-                                if (ConnectionWrapper.Connected && !readPause)
+                                if (reset || adv == 50_000)
                                 {
-                                    var (s0, s1) = await ConnectionWrapper.ReadRNGState(Offset, Source.Token).ConfigureAwait(false);
-                                    var adv = GetAdvancesPassed(_s0, _s1, s0, s1);
-                                    if (reset || adv > 0)
-                                    {
-                                        if (reset || adv == 50_000)
-                                        {
-                                            total = 0;
-                                            reset = false;
-                                            adv = 0;
-                                        }
-                                        else
-                                        {
-                                            total += adv;
-                                        }
-
-                                        _s0 = s0;
-                                        _s1 = s1;
-
-                                        MainWindow.SetControlText($"{_s0:X16}", TB_CurrentS0);
-                                        MainWindow.SetControlText($"{_s1:X16}", TB_CurrentS1);
-                                        MainWindow.SetControlText($"{total:N0}", TB_CurrentAdvances);
-                                        MainWindow.SetControlText($"{adv:N0}", TB_AdvancesIncrease);
-                                    }
+                                    total = 0;
+                                    reset = false;
+                                    adv = 0;
                                 }
+                                else
+                                {
+                                    total += adv;
+                                }
+
+                                _s0 = s0;
+                                _s1 = s1;
+
+                                MainWindow.SetControlText($"{_s0:X16}", TB_CurrentS0);
+                                MainWindow.SetControlText($"{_s1:X16}", TB_CurrentS1);
+                                MainWindow.SetControlText($"{total:N0}", TB_CurrentAdvances);
+                                MainWindow.SetControlText($"{adv:N0}", TB_AdvancesIncrease);
                             }
                         }
-                        catch
-                        {
-                            // Ignored
-                        }
                     }
-                );
+                }
+                catch
+                {
+                    // Ignored
+                }
             }
-            catch
-            {
-                // Ignored
-            }
-        }
+        );
     }
 
     private void DexRecSearcher_FormClosing(object sender, FormClosingEventArgs e)
@@ -245,7 +235,7 @@ public partial class CaptureCalc : Form
         _ => StatusType.None,
     };
 
-    private PK8 _pk = new();
+    private readonly PK8 _pk = new();
     private void CB_Wild_Species_SelectedIndexChanged(object sender, EventArgs e)
     {
         var idx = CB_Wild_Species.GetSelectedIndex();
@@ -285,6 +275,8 @@ public partial class CaptureCalc : Form
             Species = (ushort)(CB_Wild_Species.GetSelectedIndex() + 1),
             Form = (byte)(NUD_Wild_Form.GetValue()),
         };
+
+        (s0, s1) = XoroshiroJump(s0, s1, initial);
 
         Core.RNG.GeneratorConfig config = new()
         {

@@ -772,7 +772,7 @@ namespace owoow.WinForms.Subforms
             TB_Capture_Advances.Name = "TB_Capture_Advances";
             TB_Capture_Advances.Size = new Size(118, 22);
             TB_Capture_Advances.TabIndex = 59;
-            TB_Capture_Advances.Text = "5000";
+            TB_Capture_Advances.Text = "500";
             TB_Capture_Advances.TextAlign = HorizontalAlignment.Right;
             // 
             // TB_Capture_Initial

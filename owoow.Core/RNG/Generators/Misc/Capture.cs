@@ -29,6 +29,7 @@ public class Capture
             var a = (int)(float)(0.5f + (v13 << 12));
 
             long c = config.CatchRate * a;
+
             var ball = config.Ball;
             if (ball == BallType.HeavyBall)
             {
@@ -58,7 +59,7 @@ public class Capture
             var CritChance = GetCritChance(ModifiedCatchRate, config.HasCatchingCharm, config.ZukanCount);
             var ShakeValue = (double)GetShakeValue(ModifiedCatchRate);
 
-            for (ulong i = start; i <= end && frames.Count < 1_000; i++)
+            for (ulong i = start; i <= end; i++)
             {
                 IsCrit = false;
                 var os = outer.GetState();

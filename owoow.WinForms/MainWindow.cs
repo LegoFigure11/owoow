@@ -1796,10 +1796,20 @@ public partial class MainWindow : Form
 
     private void TSMI_Catch_Click(object sender, EventArgs e)
     {
-        using CaptureCalc cc = new(this, ConnectionWrapper, ref Config);
-        readPause = true;
-        cc.ShowDialog();
-        readPause = false;
+        try
+        {
+            if (ConnectionWrapper is null) throw new Exception("ConnectionWrapper not initialized.");
+            if (!ConnectionWrapper.Connected) throw new Exception("ConnectionWrapper initialized, but no device connected!");
+            using CaptureCalc cc = new(this, ConnectionWrapper, ref Config);
+            cc.ShowDialog();
+            readPause = false;
+        }
+        catch (Exception ex)
+        {
+            // Usually thrown when ConnectionWrapper is null
+            this.DisplayMessageBox("Something went wrong when launching the CaptureCalc window. Please make sure your Switch Console is connected.\n\nError: " + ex.Message);
+            readPause = false;
+        }
     }
 
     private void B_RefreshDexRec_Click(object sender, EventArgs e)
