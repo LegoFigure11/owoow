@@ -76,8 +76,7 @@ public class ConnectionWrapperAsync(SwitchConnectionConfig Config, Action<string
 
     public async Task<(ulong, ulong)> ReadRNGState(CancellationToken token)
     {
-        var data = await Connection.ReadBytesAsync(MainRNG, MainRNG_Size, token).ConfigureAwait(false);
-        return (BitConverter.ToUInt64(data, 0), BitConverter.ToUInt64(data, 8));
+        return await ReadRNGState(MainRNG, token).ConfigureAwait(false);
     }
 
     public async Task<(ulong, ulong)> ReadRNGState(uint offs, CancellationToken token)
@@ -88,10 +87,7 @@ public class ConnectionWrapperAsync(SwitchConnectionConfig Config, Action<string
 
     public async Task WriteRNGState(ulong _s0, ulong _s1, CancellationToken token)
     {
-        var s0 = BitConverter.GetBytes(_s0);
-        var s1 = BitConverter.GetBytes(_s1);
-        await Connection.WriteBytesAsync(s0, MainRNG, token).ConfigureAwait(false);
-        await Connection.WriteBytesAsync(s1, MainRNG + (MainRNG_Size / 2), token).ConfigureAwait(false);
+        await WriteRNGState(_s0, _s1, MainRNG, token).ConfigureAwait(false);
     }
 
     public async Task WriteRNGState(ulong _s0, ulong _s1, uint offs, CancellationToken token)

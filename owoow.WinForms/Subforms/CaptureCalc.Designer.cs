@@ -84,7 +84,7 @@ namespace owoow.WinForms.Subforms
             CB_Surfing = new CheckBox();
             CB_Fishing = new CheckBox();
             B_ReadParty = new Button();
-            button2 = new Button();
+            B_ReadWild = new Button();
             NUD_PartySlot = new NumericUpDown();
             B_Search = new Button();
             L_TargetSuccess = new Label();
@@ -100,6 +100,10 @@ namespace owoow.WinForms.Subforms
             shakesDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             seed0DataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             seed1DataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            CMS_RightClick = new ContextMenuStrip(components);
+            TSMI_CopySeeds = new ToolStripMenuItem();
+            TSMI_SetAsInitial = new ToolStripMenuItem();
+            TSMI_SetAdvances = new ToolStripMenuItem();
             CaptureResultsSource = new BindingSource(components);
             L_TargetCrit = new Label();
             CB_TargetCrit = new ComboBox();
@@ -107,6 +111,12 @@ namespace owoow.WinForms.Subforms
             NUD_ShakesMax = new NumericUpDown();
             NUD_ShakesMin = new NumericUpDown();
             L_ShakesMax = new Label();
+            TB_Status = new TextBox();
+            L_Status = new Label();
+            B_Disconnect = new Button();
+            B_Connect = new Button();
+            L_SwitchIP = new Label();
+            TB_SwitchIP = new TextBox();
             GB_MyPokemon.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)NUD_Active_Level).BeginInit();
             GB_WildPokemon.SuspendLayout();
@@ -121,6 +131,7 @@ namespace owoow.WinForms.Subforms
             ((System.ComponentModel.ISupportInitialize)NUD_Turns).BeginInit();
             ((System.ComponentModel.ISupportInitialize)NUD_PartySlot).BeginInit();
             ((System.ComponentModel.ISupportInitialize)DGV_Results).BeginInit();
+            CMS_RightClick.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)CaptureResultsSource).BeginInit();
             ((System.ComponentModel.ISupportInitialize)NUD_ShakesMax).BeginInit();
             ((System.ComponentModel.ISupportInitialize)NUD_ShakesMin).BeginInit();
@@ -170,7 +181,7 @@ namespace owoow.WinForms.Subforms
             // 
             TB_AdvancesIncrease.CharacterCasing = CharacterCasing.Lower;
             TB_AdvancesIncrease.Font = new Font("Consolas", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            TB_AdvancesIncrease.Location = new Point(160, 59);
+            TB_AdvancesIncrease.Location = new Point(160, 129);
             TB_AdvancesIncrease.MaxLength = 15;
             TB_AdvancesIncrease.Name = "TB_AdvancesIncrease";
             TB_AdvancesIncrease.ReadOnly = true;
@@ -182,7 +193,7 @@ namespace owoow.WinForms.Subforms
             // 
             // B_CopyToInitial
             // 
-            B_CopyToInitial.Location = new Point(12, 131);
+            B_CopyToInitial.Location = new Point(12, 201);
             B_CopyToInitial.Name = "B_CopyToInitial";
             B_CopyToInitial.Size = new Size(196, 25);
             B_CopyToInitial.TabIndex = 22;
@@ -193,7 +204,7 @@ namespace owoow.WinForms.Subforms
             // L_CurrentS1
             // 
             L_CurrentS1.AutoSize = true;
-            L_CurrentS1.Location = new Point(12, 109);
+            L_CurrentS1.Location = new Point(12, 179);
             L_CurrentS1.Name = "L_CurrentS1";
             L_CurrentS1.Size = new Size(49, 15);
             L_CurrentS1.TabIndex = 26;
@@ -202,7 +213,7 @@ namespace owoow.WinForms.Subforms
             // L_CurrentS0
             // 
             L_CurrentS0.AutoSize = true;
-            L_CurrentS0.Location = new Point(12, 85);
+            L_CurrentS0.Location = new Point(12, 155);
             L_CurrentS0.Name = "L_CurrentS0";
             L_CurrentS0.Size = new Size(49, 15);
             L_CurrentS0.TabIndex = 25;
@@ -212,7 +223,7 @@ namespace owoow.WinForms.Subforms
             // 
             TB_CurrentS1.CharacterCasing = CharacterCasing.Upper;
             TB_CurrentS1.Font = new Font("Consolas", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            TB_CurrentS1.Location = new Point(89, 107);
+            TB_CurrentS1.Location = new Point(89, 177);
             TB_CurrentS1.MaxLength = 16;
             TB_CurrentS1.Name = "TB_CurrentS1";
             TB_CurrentS1.ReadOnly = true;
@@ -225,7 +236,7 @@ namespace owoow.WinForms.Subforms
             // 
             TB_CurrentS0.CharacterCasing = CharacterCasing.Upper;
             TB_CurrentS0.Font = new Font("Consolas", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            TB_CurrentS0.Location = new Point(89, 83);
+            TB_CurrentS0.Location = new Point(89, 153);
             TB_CurrentS0.MaxLength = 16;
             TB_CurrentS0.Name = "TB_CurrentS0";
             TB_CurrentS0.ReadOnly = true;
@@ -238,7 +249,7 @@ namespace owoow.WinForms.Subforms
             // 
             TB_CurrentAdvances.CharacterCasing = CharacterCasing.Lower;
             TB_CurrentAdvances.Font = new Font("Consolas", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            TB_CurrentAdvances.Location = new Point(52, 59);
+            TB_CurrentAdvances.Location = new Point(52, 129);
             TB_CurrentAdvances.MaxLength = 15;
             TB_CurrentAdvances.Name = "TB_CurrentAdvances";
             TB_CurrentAdvances.ReadOnly = true;
@@ -251,7 +262,7 @@ namespace owoow.WinForms.Subforms
             // L_CurrentAdvances
             // 
             L_CurrentAdvances.AutoSize = true;
-            L_CurrentAdvances.Location = new Point(12, 64);
+            L_CurrentAdvances.Location = new Point(12, 134);
             L_CurrentAdvances.Name = "L_CurrentAdvances";
             L_CurrentAdvances.Size = new Size(34, 15);
             L_CurrentAdvances.TabIndex = 27;
@@ -687,6 +698,7 @@ namespace owoow.WinForms.Subforms
             // 
             // B_ReadParty
             // 
+            B_ReadParty.Enabled = false;
             B_ReadParty.Location = new Point(221, 190);
             B_ReadParty.Name = "B_ReadParty";
             B_ReadParty.Size = new Size(141, 25);
@@ -695,15 +707,16 @@ namespace owoow.WinForms.Subforms
             B_ReadParty.UseVisualStyleBackColor = true;
             B_ReadParty.Click += B_ReadParty_Click;
             // 
-            // button2
+            // B_ReadWild
             // 
-            button2.Location = new Point(421, 190);
-            button2.Name = "button2";
-            button2.Size = new Size(192, 25);
-            button2.TabIndex = 34;
-            button2.Text = "Read Wild Pokémon";
-            button2.UseVisualStyleBackColor = true;
-            button2.Click += B_ReadWild_Click;
+            B_ReadWild.Enabled = false;
+            B_ReadWild.Location = new Point(421, 190);
+            B_ReadWild.Name = "B_ReadWild";
+            B_ReadWild.Size = new Size(192, 25);
+            B_ReadWild.TabIndex = 34;
+            B_ReadWild.Text = "Read Wild Pokémon";
+            B_ReadWild.UseVisualStyleBackColor = true;
+            B_ReadWild.Click += B_ReadWild_Click;
             // 
             // NUD_PartySlot
             // 
@@ -718,7 +731,7 @@ namespace owoow.WinForms.Subforms
             // 
             // B_Search
             // 
-            B_Search.Location = new Point(12, 288);
+            B_Search.Location = new Point(12, 381);
             B_Search.Name = "B_Search";
             B_Search.Size = new Size(195, 25);
             B_Search.TabIndex = 41;
@@ -729,7 +742,7 @@ namespace owoow.WinForms.Subforms
             // L_TargetSuccess
             // 
             L_TargetSuccess.AutoSize = true;
-            L_TargetSuccess.Location = new Point(32, 212);
+            L_TargetSuccess.Location = new Point(32, 305);
             L_TargetSuccess.Name = "L_TargetSuccess";
             L_TargetSuccess.Size = new Size(51, 15);
             L_TargetSuccess.TabIndex = 63;
@@ -739,7 +752,7 @@ namespace owoow.WinForms.Subforms
             // 
             CB_TargetSuccess.FormattingEnabled = true;
             CB_TargetSuccess.Items.AddRange(new object[] { "(Ignore)", "Yes", "No" });
-            CB_TargetSuccess.Location = new Point(89, 209);
+            CB_TargetSuccess.Location = new Point(89, 302);
             CB_TargetSuccess.Name = "CB_TargetSuccess";
             CB_TargetSuccess.Size = new Size(118, 23);
             CB_TargetSuccess.TabIndex = 60;
@@ -748,7 +761,7 @@ namespace owoow.WinForms.Subforms
             // L_Capture_Plus
             // 
             L_Capture_Plus.AutoSize = true;
-            L_Capture_Plus.Location = new Point(68, 187);
+            L_Capture_Plus.Location = new Point(68, 280);
             L_Capture_Plus.Name = "L_Capture_Plus";
             L_Capture_Plus.Size = new Size(15, 15);
             L_Capture_Plus.TabIndex = 62;
@@ -757,7 +770,7 @@ namespace owoow.WinForms.Subforms
             // L_Capture_Initial
             // 
             L_Capture_Initial.AutoSize = true;
-            L_Capture_Initial.Location = new Point(20, 164);
+            L_Capture_Initial.Location = new Point(20, 257);
             L_Capture_Initial.Name = "L_Capture_Initial";
             L_Capture_Initial.Size = new Size(63, 15);
             L_Capture_Initial.TabIndex = 61;
@@ -767,7 +780,7 @@ namespace owoow.WinForms.Subforms
             // 
             TB_Capture_Advances.CharacterCasing = CharacterCasing.Upper;
             TB_Capture_Advances.Font = new Font("Consolas", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            TB_Capture_Advances.Location = new Point(89, 185);
+            TB_Capture_Advances.Location = new Point(89, 278);
             TB_Capture_Advances.MaxLength = 16;
             TB_Capture_Advances.Name = "TB_Capture_Advances";
             TB_Capture_Advances.Size = new Size(118, 22);
@@ -779,7 +792,7 @@ namespace owoow.WinForms.Subforms
             // 
             TB_Capture_Initial.CharacterCasing = CharacterCasing.Upper;
             TB_Capture_Initial.Font = new Font("Consolas", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            TB_Capture_Initial.Location = new Point(89, 162);
+            TB_Capture_Initial.Location = new Point(89, 255);
             TB_Capture_Initial.MaxLength = 16;
             TB_Capture_Initial.Name = "TB_Capture_Initial";
             TB_Capture_Initial.Size = new Size(118, 22);
@@ -799,6 +812,7 @@ namespace owoow.WinForms.Subforms
             DGV_Results.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
             DGV_Results.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             DGV_Results.Columns.AddRange(new DataGridViewColumn[] { advancesDataGridViewTextBoxColumn, successDataGridViewCheckBoxColumn, criticalDataGridViewCheckBoxColumn, shakesDataGridViewTextBoxColumn, seed0DataGridViewTextBoxColumn, seed1DataGridViewTextBoxColumn });
+            DGV_Results.ContextMenuStrip = CMS_RightClick;
             DGV_Results.DataSource = CaptureResultsSource;
             DGV_Results.Location = new Point(215, 219);
             DGV_Results.Name = "DGV_Results";
@@ -807,6 +821,7 @@ namespace owoow.WinForms.Subforms
             DGV_Results.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             DGV_Results.Size = new Size(610, 347);
             DGV_Results.TabIndex = 64;
+            DGV_Results.MouseDown += DGV_Results_MouseDown;
             // 
             // advancesDataGridViewTextBoxColumn
             // 
@@ -856,6 +871,34 @@ namespace owoow.WinForms.Subforms
             seed1DataGridViewTextBoxColumn.ReadOnly = true;
             seed1DataGridViewTextBoxColumn.Width = 63;
             // 
+            // CMS_RightClick
+            // 
+            CMS_RightClick.Items.AddRange(new ToolStripItem[] { TSMI_CopySeeds, TSMI_SetAsInitial, TSMI_SetAdvances });
+            CMS_RightClick.Name = "CMS_RightClick";
+            CMS_RightClick.Size = new Size(205, 92);
+            CMS_RightClick.Opening += CMS_RightClick_Opening;
+            // 
+            // TSMI_CopySeeds
+            // 
+            TSMI_CopySeeds.Name = "TSMI_CopySeeds";
+            TSMI_CopySeeds.Size = new Size(204, 22);
+            TSMI_CopySeeds.Text = "Copy Seeds to Clipboard";
+            TSMI_CopySeeds.Click += TSMI_CopySeeds_Click;
+            // 
+            // TSMI_SetAsInitial
+            // 
+            TSMI_SetAsInitial.Name = "TSMI_SetAsInitial";
+            TSMI_SetAsInitial.Size = new Size(204, 22);
+            TSMI_SetAsInitial.Text = "Set as Initial Seed";
+            TSMI_SetAsInitial.Click += TSMI_SetAsInitial_Click;
+            // 
+            // TSMI_SetAdvances
+            // 
+            TSMI_SetAdvances.Name = "TSMI_SetAdvances";
+            TSMI_SetAdvances.Size = new Size(204, 22);
+            TSMI_SetAdvances.Text = "Set as Initial Advances";
+            TSMI_SetAdvances.Click += TSMI_SetAdvances_Click;
+            // 
             // CaptureResultsSource
             // 
             CaptureResultsSource.DataSource = typeof(Core.Interfaces.CaptureFrame);
@@ -863,7 +906,7 @@ namespace owoow.WinForms.Subforms
             // L_TargetCrit
             // 
             L_TargetCrit.AutoSize = true;
-            L_TargetCrit.Location = new Point(36, 237);
+            L_TargetCrit.Location = new Point(36, 330);
             L_TargetCrit.Name = "L_TargetCrit";
             L_TargetCrit.Size = new Size(47, 15);
             L_TargetCrit.TabIndex = 66;
@@ -873,7 +916,7 @@ namespace owoow.WinForms.Subforms
             // 
             CB_TargetCrit.FormattingEnabled = true;
             CB_TargetCrit.Items.AddRange(new object[] { "(Ignore)", "Yes", "No" });
-            CB_TargetCrit.Location = new Point(89, 234);
+            CB_TargetCrit.Location = new Point(89, 327);
             CB_TargetCrit.Name = "CB_TargetCrit";
             CB_TargetCrit.Size = new Size(118, 23);
             CB_TargetCrit.TabIndex = 65;
@@ -882,7 +925,7 @@ namespace owoow.WinForms.Subforms
             // L_ShakesMin
             // 
             L_ShakesMin.AutoSize = true;
-            L_ShakesMin.Location = new Point(10, 261);
+            L_ShakesMin.Location = new Point(10, 354);
             L_ShakesMin.Name = "L_ShakesMin";
             L_ShakesMin.Size = new Size(73, 15);
             L_ShakesMin.TabIndex = 68;
@@ -890,7 +933,7 @@ namespace owoow.WinForms.Subforms
             // 
             // NUD_ShakesMax
             // 
-            NUD_ShakesMax.Location = new Point(172, 259);
+            NUD_ShakesMax.Location = new Point(172, 352);
             NUD_ShakesMax.Maximum = new decimal(new int[] { 4, 0, 0, 0 });
             NUD_ShakesMax.Name = "NUD_ShakesMax";
             NUD_ShakesMax.Size = new Size(35, 23);
@@ -900,7 +943,7 @@ namespace owoow.WinForms.Subforms
             // 
             // NUD_ShakesMin
             // 
-            NUD_ShakesMin.Location = new Point(89, 259);
+            NUD_ShakesMin.Location = new Point(89, 352);
             NUD_ShakesMin.Maximum = new decimal(new int[] { 4, 0, 0, 0 });
             NUD_ShakesMin.Name = "NUD_ShakesMin";
             NUD_ShakesMin.Size = new Size(35, 23);
@@ -910,17 +953,87 @@ namespace owoow.WinForms.Subforms
             // L_ShakesMax
             // 
             L_ShakesMax.AutoSize = true;
-            L_ShakesMax.Location = new Point(130, 261);
+            L_ShakesMax.Location = new Point(130, 354);
             L_ShakesMax.Name = "L_ShakesMax";
             L_ShakesMax.Size = new Size(36, 15);
             L_ShakesMax.TabIndex = 70;
             L_ShakesMax.Text = "Max.:";
+            // 
+            // TB_Status
+            // 
+            TB_Status.BackColor = SystemColors.Control;
+            TB_Status.BorderStyle = BorderStyle.None;
+            TB_Status.Location = new Point(75, 111);
+            TB_Status.Name = "TB_Status";
+            TB_Status.ReadOnly = true;
+            TB_Status.RightToLeft = RightToLeft.No;
+            TB_Status.Size = new Size(132, 16);
+            TB_Status.TabIndex = 76;
+            TB_Status.TabStop = false;
+            TB_Status.Text = "wwwwwwwwwwwwww";
+            TB_Status.TextAlign = HorizontalAlignment.Right;
+            // 
+            // L_Status
+            // 
+            L_Status.AutoSize = true;
+            L_Status.Location = new Point(12, 111);
+            L_Status.Name = "L_Status";
+            L_Status.Size = new Size(42, 15);
+            L_Status.TabIndex = 75;
+            L_Status.Text = "Status:";
+            // 
+            // B_Disconnect
+            // 
+            B_Disconnect.Enabled = false;
+            B_Disconnect.Location = new Point(110, 83);
+            B_Disconnect.Name = "B_Disconnect";
+            B_Disconnect.Size = new Size(97, 25);
+            B_Disconnect.TabIndex = 73;
+            B_Disconnect.Text = "Disconnect";
+            B_Disconnect.UseVisualStyleBackColor = true;
+            B_Disconnect.Click += B_Disconnect_Click;
+            // 
+            // B_Connect
+            // 
+            B_Connect.Location = new Point(12, 83);
+            B_Connect.Name = "B_Connect";
+            B_Connect.Size = new Size(97, 25);
+            B_Connect.TabIndex = 72;
+            B_Connect.Text = "Connect";
+            B_Connect.UseVisualStyleBackColor = true;
+            B_Connect.Click += B_Connect_Click;
+            // 
+            // L_SwitchIP
+            // 
+            L_SwitchIP.AutoSize = true;
+            L_SwitchIP.Location = new Point(12, 64);
+            L_SwitchIP.Name = "L_SwitchIP";
+            L_SwitchIP.Size = new Size(58, 15);
+            L_SwitchIP.TabIndex = 74;
+            L_SwitchIP.Text = "Switch IP:";
+            // 
+            // TB_SwitchIP
+            // 
+            TB_SwitchIP.CharacterCasing = CharacterCasing.Lower;
+            TB_SwitchIP.Font = new Font("Consolas", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            TB_SwitchIP.Location = new Point(96, 59);
+            TB_SwitchIP.MaxLength = 15;
+            TB_SwitchIP.Name = "TB_SwitchIP";
+            TB_SwitchIP.Size = new Size(111, 22);
+            TB_SwitchIP.TabIndex = 71;
+            TB_SwitchIP.Text = "123.123.123.123";
             // 
             // CaptureCalc
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(835, 578);
+            Controls.Add(TB_Status);
+            Controls.Add(L_Status);
+            Controls.Add(B_Disconnect);
+            Controls.Add(B_Connect);
+            Controls.Add(L_SwitchIP);
+            Controls.Add(TB_SwitchIP);
             Controls.Add(L_ShakesMax);
             Controls.Add(NUD_ShakesMin);
             Controls.Add(L_ShakesMin);
@@ -936,7 +1049,7 @@ namespace owoow.WinForms.Subforms
             Controls.Add(TB_Capture_Initial);
             Controls.Add(B_Search);
             Controls.Add(NUD_PartySlot);
-            Controls.Add(button2);
+            Controls.Add(B_ReadWild);
             Controls.Add(B_ReadParty);
             Controls.Add(GB_Modifiers);
             Controls.Add(GB_WildPokemon);
@@ -959,6 +1072,7 @@ namespace owoow.WinForms.Subforms
             Name = "CaptureCalc";
             Text = "Capture RNG";
             FormClosing += DexRecSearcher_FormClosing;
+            Load += CaptureCalc_Load;
             GB_MyPokemon.ResumeLayout(false);
             GB_MyPokemon.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)NUD_Active_Level).EndInit();
@@ -976,6 +1090,7 @@ namespace owoow.WinForms.Subforms
             ((System.ComponentModel.ISupportInitialize)NUD_Turns).EndInit();
             ((System.ComponentModel.ISupportInitialize)NUD_PartySlot).EndInit();
             ((System.ComponentModel.ISupportInitialize)DGV_Results).EndInit();
+            CMS_RightClick.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)CaptureResultsSource).EndInit();
             ((System.ComponentModel.ISupportInitialize)NUD_ShakesMax).EndInit();
             ((System.ComponentModel.ISupportInitialize)NUD_ShakesMin).EndInit();
@@ -1034,7 +1149,7 @@ namespace owoow.WinForms.Subforms
         private Label L_Active_Species;
         private ComboBox CB_Active_Species;
         private Button B_ReadParty;
-        private Button button2;
+        private Button B_ReadWild;
         private CheckBox CB_Charm;
         private NumericUpDown NUD_PartySlot;
         private CheckBox CB_8thBadge;
@@ -1061,5 +1176,15 @@ namespace owoow.WinForms.Subforms
         private Label L_ShakesMax;
         private NumericUpDown NUD_Wild_Form;
         private Label L_Wild_Form;
+        private TextBox TB_Status;
+        private Label L_Status;
+        private Button B_Disconnect;
+        private Button B_Connect;
+        private Label L_SwitchIP;
+        private TextBox TB_SwitchIP;
+        private ContextMenuStrip CMS_RightClick;
+        private ToolStripMenuItem TSMI_CopySeeds;
+        private ToolStripMenuItem TSMI_SetAsInitial;
+        private ToolStripMenuItem TSMI_SetAdvances;
     }
 }

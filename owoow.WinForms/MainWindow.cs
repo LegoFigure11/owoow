@@ -226,7 +226,7 @@ public partial class MainWindow : Form
                 {
                     SetCheckBoxCheckedState(ConnectionWrapper.GetHasShinyCharm(), CB_ShinyCharm);
                     SetCheckBoxCheckedState(ConnectionWrapper.GetHasMarkCharm(), CB_MarkCharm);
-                    Config.HashCatchingCharm = ConnectionWrapper.GetHasCatchingCharm();
+                    Config.HasCatchingCharm = ConnectionWrapper.GetHasCatchingCharm();
                     var (tid, sid) = ConnectionWrapper.GetIDs();
                     SetControlText(tid, TB_TID);
                     SetControlText(sid, TB_SID);
@@ -1796,20 +1796,9 @@ public partial class MainWindow : Form
 
     private void TSMI_Catch_Click(object sender, EventArgs e)
     {
-        try
-        {
-            if (ConnectionWrapper is null) throw new Exception("ConnectionWrapper not initialized.");
-            if (!ConnectionWrapper.Connected) throw new Exception("ConnectionWrapper initialized, but no device connected!");
-            using CaptureCalc cc = new(this, ConnectionWrapper, ref Config);
-            cc.ShowDialog();
-            readPause = false;
-        }
-        catch (Exception ex)
-        {
-            // Usually thrown when ConnectionWrapper is null
-            this.DisplayMessageBox("Something went wrong when launching the CaptureCalc window. Please make sure your Switch Console is connected.\n\nError: " + ex.Message);
-            readPause = false;
-        }
+        using CaptureCalc cc = new(this, ref Config);
+        cc.ShowDialog();
+        cc.Dispose();
     }
 
     private void B_RefreshDexRec_Click(object sender, EventArgs e)
@@ -1819,6 +1808,7 @@ public partial class MainWindow : Form
             using DexRecSearcher drs = new(this, ConnectionWrapper);
             readPause = true;
             drs.ShowDialog();
+            drs.Dispose();
             readPause = false;
         }
         else
@@ -2363,7 +2353,7 @@ public partial class MainWindow : Form
         HandleNPCBoxFlyingInteraction();
     }
 
-    private string[] _cachedNPCs = [string.Empty, string.Empty, string.Empty, string.Empty];
+    private readonly string[] _cachedNPCs = [string.Empty, string.Empty, string.Empty, string.Empty];
     private void HandleNPCBoxFlyingInteraction()
     {
         var tab = TC_EncounterType.SelectedTab?.Text;
