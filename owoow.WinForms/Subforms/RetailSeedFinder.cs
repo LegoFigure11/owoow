@@ -193,6 +193,7 @@ namespace owoow.WinForms.Subforms
                     for (var i = 0; i < l; i++)
                     {
                         arr[i] = (byte)(text[i] - '0');
+                        arr[i] ^= 1;
                     }
 
                     var min = int.Parse(TB_Min.Text);
