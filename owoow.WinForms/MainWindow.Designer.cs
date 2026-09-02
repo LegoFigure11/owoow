@@ -578,7 +578,7 @@ namespace owoow.WinForms
             // CB_Filter_Mark
             // 
             CB_Filter_Mark.FormattingEnabled = true;
-            CB_Filter_Mark.Items.AddRange(new object[] { "Ignore", "None", "Any Mark", "Any Personality", "Personality/Rare", "Uncommon", "Time", "Weather", "Fishing", "Rare", "Rowdy", "Absent-Minded", "Jittery", "Excited", "Charismatic", "Calmness", "Intense", "Zoned-Out", "Joyful", "Angry", "Smiley", "Teary", "Upbeat", "Peeved", "Intellectual", "Ferocious", "Crafty", "Scowling", "Kindly", "Flustered", "Pumped-Up", "Zero Energy", "Prideful", "Unsure", "Humble", "Thorny", "Vigor", "Slump" });
+            CB_Filter_Mark.Items.AddRange(new object[] { "Ignore", "None", "Any Mark", "Any Personality", "Personality/Rare", "Any (No Uncommon)", "Uncommon", "Time", "Weather", "Fishing", "Rare", "Rowdy", "Absent-Minded", "Jittery", "Excited", "Charismatic", "Calmness", "Intense", "Zoned-Out", "Joyful", "Angry", "Smiley", "Teary", "Upbeat", "Peeved", "Intellectual", "Ferocious", "Crafty", "Scowling", "Kindly", "Flustered", "Pumped-Up", "Zero Energy", "Prideful", "Unsure", "Humble", "Thorny", "Vigor", "Slump" });
             CB_Filter_Mark.Location = new Point(54, 197);
             CB_Filter_Mark.Name = "CB_Filter_Mark";
             CB_Filter_Mark.Size = new Size(142, 23);

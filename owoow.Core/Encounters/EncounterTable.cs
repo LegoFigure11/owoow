@@ -34,11 +34,11 @@ public class EncounterTable(Game game, EncounterType EncounterType, string area,
                 if (table.Count == EXPECTED_COUNT) return table;
 
                 var ex = new Exception(
-                    @$"Unable to build encounter table! Please report this as a bug.
-                       Game: {game}
-                       Encounter Type: {encounterType}
-                       Area: {area}
-                       Count: {weather} (Expected {EXPECTED_COUNT})"
+                    @$"无法建立遭遇表！请将此问题报告为错误。
+                       游戏：{game}
+                       遭遇类型：{encounterType}
+                       地点：{area}
+                       数量：{weather}（预期 {EXPECTED_COUNT}）"
                 );
                 throw ex;
             }

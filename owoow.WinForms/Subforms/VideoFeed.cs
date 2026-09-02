@@ -21,8 +21,8 @@ public partial class VideoFeed : Form
 
 #pragma warning restore SYSLIB1054
     private const uint WM_SETICON = 0x0080;
-    private static readonly IntPtr ICON_SMALL = new IntPtr(0);
-    private static readonly IntPtr ICON_BIG = new IntPtr(1);
+    private static readonly IntPtr ICON_SMALL = new(0);
+    private static readonly IntPtr ICON_BIG = new(1);
     #endregion
 
     readonly MainWindow MainWindow;
@@ -62,13 +62,14 @@ public partial class VideoFeed : Form
     private readonly Lock _cvLock = new();
     private bool _showCv = false;
 
-    private Winner winner = Winner.Idle;
+    private Winner winner = Winner.None;
     private Winner lastwinner = Winner.Idle;
 
     private const int max = 128;
 
     private enum Winner
     {
+        None,
         Idle,
         Physical,
         Special
@@ -209,9 +210,10 @@ public partial class VideoFeed : Form
         }
 
         using var frame = new Mat();
-        using var localPhys = new Mat();
-        using var localSpec = new Mat();
-        using var localIdle = new Mat();
+
+        using var localPhysRight = new Mat();
+        using var localSpecRight = new Mat();
+        using var localIdleRight = new Mat();
 
         using var diffPhys = new Mat();
         using var diffSpec = new Mat();
@@ -221,12 +223,10 @@ public partial class VideoFeed : Form
         using var grayIdle = new Mat();
 
         long lastLog = 0;
-
         string windowName = "视频源画面";
 
         Cv2.NamedWindow(windowName, WindowFlags.KeepRatio);
-        Cv2.ResizeWindow(windowName, 480, 270);
-
+        Cv2.ResizeWindow(windowName, 480, 270); // 四分之一大小，可按需放大
         Cv2.SetWindowProperty(windowName, WindowPropertyFlags.Topmost, topMost);
 
         IntPtr windowHandle = IntPtr.Zero;
@@ -247,81 +247,80 @@ public partial class VideoFeed : Form
             }
         }
 
+        Rect rightHalfRoi = new();
+        bool roiInitialized = false;
+
+        // 记录模板数据指针，只有模板更新时才重新截取右半屏
+        IntPtr lastPhysData = IntPtr.Zero;
+        IntPtr lastSpecData = IntPtr.Zero;
+        IntPtr lastIdleData = IntPtr.Zero;
+
+        var textStartPoint = new OpenCvSharp.Point(35, 720);
+
         while (!token.IsCancellationRequested)
         {
             capture.Read(frame);
-            if (frame.Empty()) continue;
+            if (frame.Empty() || frame.Width == 0 || frame.Height == 0) continue;
 
-            if (frame.Width == 0 || frame.Height == 0) continue;
+            if (!roiInitialized)
+            {
+                // 右侧约 51% 区域包含遭遇结果面板
+                var pc = frame.Width / 100;
+                rightHalfRoi = new Rect(49 * pc, 0, frame.Width - (50 * pc), frame.Height);
+                roiInitialized = true;
+            }
 
             lock (_frameLock)
             {
-                _latestFrame?.Dispose();
-                _latestFrame = frame.Clone();
+                _latestFrame ??= new Mat();
+                frame.CopyTo(_latestFrame);
             }
 
-            if (_isComparing)
+            if (_isComparing && roiInitialized)
             {
-
                 bool templatesReady = false;
+
                 lock (_templateLock)
                 {
                     if (_physMat != null && !_physMat.Empty() && _specMat != null && !_specMat.Empty() && _idleMat != null && !_idleMat.Empty())
                     {
                         if (_physMat.Size() == frame.Size() && _specMat.Size() == frame.Size() && _idleMat.Size() == frame.Size())
                         {
-                            _physMat.CopyTo(localPhys);
-                            _specMat.CopyTo(localSpec);
-                            _idleMat.CopyTo(localIdle);
+                            if (_physMat.Data != lastPhysData || _specMat.Data != lastSpecData || _idleMat.Data != lastIdleData)
+                            {
+                                using (Mat tempPhys = new(_physMat, rightHalfRoi)) tempPhys.CopyTo(localPhysRight);
+                                using (Mat tempSpec = new(_specMat, rightHalfRoi)) tempSpec.CopyTo(localSpecRight);
+                                using (Mat tempIdle = new(_idleMat, rightHalfRoi)) tempIdle.CopyTo(localIdleRight);
+
+                                lastPhysData = _physMat.Data;
+                                lastSpecData = _specMat.Data;
+                                lastIdleData = _idleMat.Data;
+                            }
                             templatesReady = true;
-                        }
-                    }
-                    else
-                    {
-                        if (_physMat == null && _phys != null)
-                        {
-                            Mat newMat = new();
-                            var tmp = new Bitmap(_phys);
-                            using var bgraMat = tmp.ToMat();
-                            Cv2.CvtColor(bgraMat, newMat, ColorConversionCodes.BGRA2BGR);
-                            _physMat = newMat;
-                        }
-                        if (_specMat == null && _spec != null)
-                        {
-                            Mat newMat = new();
-                            var tmp = new Bitmap(_spec);
-                            using var bgraMat = tmp.ToMat();
-                            Cv2.CvtColor(bgraMat, newMat, ColorConversionCodes.BGRA2BGR);
-                            _specMat = newMat;
-                        }
-                        if (_idleMat == null && _idle != null)
-                        {
-                            Mat newMat = new();
-                            var tmp = new Bitmap(_idle);
-                            using var bgraMat = tmp.ToMat();
-                            Cv2.CvtColor(bgraMat, newMat, ColorConversionCodes.BGRA2BGR);
-                            _idleMat = newMat;
                         }
                     }
                 }
 
-                string resultText = $"M: -\nP: {(_physMat is null ? 0 : 1)}\nS: {(_specMat is null ? 0 : 1)}\nI: {(_idleMat is null ? 0 : 1)}";
+                string resultText = string.Empty;
+                winner = Winner.None;
 
                 if (templatesReady)
                 {
                     try
                     {
-                        Cv2.Absdiff(frame, localPhys, diffPhys);
+                        using Mat frameRight = new(frame, rightHalfRoi);
+
+                        Cv2.Absdiff(frameRight, localPhysRight, diffPhys);
                         Cv2.CvtColor(diffPhys, grayPhys, ColorConversionCodes.BGR2GRAY);
                         Cv2.Threshold(grayPhys, grayPhys, 30, 255, ThresholdTypes.Binary);
                         int diffCountPhys = Cv2.CountNonZero(grayPhys);
 
-                        Cv2.Absdiff(frame, localSpec, diffSpec);
+                        Cv2.Absdiff(frameRight, localSpecRight, diffSpec);
                         Cv2.CvtColor(diffSpec, graySpec, ColorConversionCodes.BGR2GRAY);
                         Cv2.Threshold(graySpec, graySpec, 30, 255, ThresholdTypes.Binary);
                         int diffCountSpec = Cv2.CountNonZero(graySpec);
 
-                        Cv2.Absdiff(frame, localIdle, diffIdle);
+                        Cv2.Absdiff(frameRight, localIdleRight, diffIdle);
                         Cv2.CvtColor(diffIdle, grayIdle, ColorConversionCodes.BGR2GRAY);
                         Cv2.Threshold(grayIdle, grayIdle, 30, 255, ThresholdTypes.Binary);
                         int diffCountIdle = Cv2.CountNonZero(grayIdle);
@@ -334,7 +333,7 @@ public partial class VideoFeed : Form
                         if (minDiff == diffCountPhys && lastwinner == Winner.Idle)
                         {
                             winner = Winner.Physical;
-                            resultText = $"M: P\nP: {diffCountPhys}\nS: {diffCountSpec}\nI: {diffCountIdle}";
+                            if (_showCv) resultText = $"匹配：物理\n物理：{diffCountPhys}\n特殊：{diffCountSpec}\n待机：{diffCountIdle}";
                             if (diffCountPhys < _threshold && allowLog)
                             {
                                 _log?.AddLine($"[{DateTime.Now:HH:mm:ss}] [匹配成功]（记录：0）物理 | 分数：{diffCountPhys,7} | 距上次匹配：{logTime}", true);
@@ -357,7 +356,7 @@ public partial class VideoFeed : Form
                         else if (minDiff == diffCountSpec && lastwinner == Winner.Idle)
                         {
                             winner = Winner.Special;
-                            resultText = $"M: S\nP: {diffCountPhys}\nS: {diffCountSpec}\nI: {diffCountIdle}";
+                            if (_showCv) resultText = $"匹配：特殊\n物理：{diffCountPhys}\n特殊：{diffCountSpec}\n待机：{diffCountIdle}";
                             if (diffCountSpec < _threshold && allowLog)
                             {
                                 _log?.AddLine($"[{DateTime.Now:HH:mm:ss}] [匹配成功]（记录：1）特殊 | 分数：{diffCountSpec,7} | 距上次匹配：{logTime}", true);
@@ -380,7 +379,7 @@ public partial class VideoFeed : Form
                         else
                         {
                             winner = Winner.Idle;
-                            resultText = $"M: I\nP: {diffCountPhys}\nS: {diffCountSpec}\nI: {diffCountIdle}";
+                            if (_showCv) resultText = $"匹配：待机\n物理：{diffCountPhys}\n特殊：{diffCountSpec}\n待机：{diffCountIdle}";
                         }
                         lastwinner = winner;
                     }
@@ -388,14 +387,17 @@ public partial class VideoFeed : Form
                     {
                         this.DisplayMessageBox(ex.Message, nameof(ex.GetType));
                     }
-                }
 
-                if (_showCv) DrawMultiLineText(frame, resultText, new OpenCvSharp.Point(35, 720));
+                    if (_showCv)
+                    {
+                        if (winner == Winner.None) resultText = $"未找到参考画面。\n物理模板：{(_physMat is null ? 0 : 1)}\n特殊模板：{(_specMat is null ? 0 : 1)}\n待机模板：{(_idleMat is null ? 0 : 1)}";
+                        Cv2.Rectangle(frame, rightHalfRoi, Scalar.CornflowerBlue, 3);
+                        DrawMultiLineText(frame, resultText, textStartPoint);
+                    }
+                }
             }
 
-
             Cv2.ImShow(windowName, frame);
-
             var key = Cv2.WaitKey(1);
 
             if ((windowHandle != IntPtr.Zero && !IsWindow(windowHandle)) || key == (int)Keys.Escape)
@@ -685,7 +687,7 @@ public partial class VideoFeed : Form
         topMost = CB_TopMost.GetIsChecked() ? 1 : 0;
         try
         {
-            Cv2.SetWindowProperty("Video Source Feed", WindowPropertyFlags.Topmost, topMost);
+            Cv2.SetWindowProperty("视频源画面", WindowPropertyFlags.Topmost, topMost);
         }
         catch
         {

@@ -91,10 +91,10 @@ public static class SeedFinder
                 }
             }
         }
-
+        pos++;
         if (hits == 1) (s0, s1) = Util.XoroshiroJump(s0, s1, (ulong)pos);
 
-        return (hits, pos + 1, s0, s1);
+        return (hits, pos, s0, s1);
     }
 
     // Adapted from https://github.com/lincoln-lm/swsh-initial-seed/blob/main/main.py

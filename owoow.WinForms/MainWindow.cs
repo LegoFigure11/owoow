@@ -242,7 +242,7 @@ public partial class MainWindow : Form
                     }
                     catch (Exception ex)
                     {
-                        this.DisplayMessageBox($"Error occurred while reading Pokédex Recommendations: {ex.Message}");
+                        this.DisplayMessageBox($"读取图鉴推荐时发生错误：{ex.Message}");
                         return;
                     }
 
@@ -258,7 +258,7 @@ public partial class MainWindow : Form
                     }
                     catch (Exception ex)
                     {
-                        this.DisplayMessageBox($"Error occurred while reading initial RNG state: {ex.Message}");
+                        this.DisplayMessageBox($"读取初始 RNG 状态时发生错误：{ex.Message}");
                         return;
                     }
 
@@ -466,7 +466,7 @@ public partial class MainWindow : Form
             }
             catch (Exception ex)
             {
-                this.DisplayMessageBox($"Error during ResetTimeNTP: {ex.Message}\nPlease report this error.");
+                this.DisplayMessageBox($"通过 NTP 重置时间时发生错误：{ex.Message}\n请报告此错误。");
             }
             finally
             {
@@ -649,7 +649,7 @@ public partial class MainWindow : Form
 
             TargetShiny = GetFilterShinyType(CB_Filter_Shiny.SelectedIndex),
             TargetAura = GetFilterAuraType(CB_Filter_Aura.SelectedIndex),
-            TargetMark = GetFilterMarkype(CB_Filter_Mark.SelectedIndex),
+            TargetMark = GetFilterMarkType(CB_Filter_Mark.SelectedIndex),
             TargetScale = GetFilterScaleType(CB_Filter_Height.SelectedIndex),
 
             TargetMinIVs = [(uint)NUD_HP_Min.Value, (uint)NUD_Atk_Min.Value, (uint)NUD_Def_Min.Value, (uint)NUD_SpA_Min.Value, (uint)NUD_SpD_Min.Value, (uint)NUD_Spe_Min.Value],
@@ -760,7 +760,7 @@ public partial class MainWindow : Form
             MaxStep = CB_Hidden_MaxStep.SelectedIndex,
 
             TargetShiny = GetFilterShinyType(CB_Filter_Shiny.SelectedIndex),
-            TargetMark = GetFilterMarkype(CB_Filter_Mark.SelectedIndex),
+            TargetMark = GetFilterMarkType(CB_Filter_Mark.SelectedIndex),
             TargetScale = GetFilterScaleType(CB_Filter_Height.SelectedIndex),
 
             TargetMinIVs = [(uint)NUD_HP_Min.Value, (uint)NUD_Atk_Min.Value, (uint)NUD_Def_Min.Value, (uint)NUD_SpA_Min.Value, (uint)NUD_SpD_Min.Value, (uint)NUD_Spe_Min.Value],
@@ -867,7 +867,7 @@ public partial class MainWindow : Form
             MarkRolls = CB_MarkCharm.Checked ? 3 : 1,
 
             TargetShiny = GetFilterShinyType(CB_Filter_Shiny.SelectedIndex),
-            TargetMark = GetFilterMarkype(CB_Filter_Mark.SelectedIndex),
+            TargetMark = GetFilterMarkType(CB_Filter_Mark.SelectedIndex),
             TargetScale = GetFilterScaleType(CB_Filter_Height.SelectedIndex),
 
             TargetMinIVs = [(uint)NUD_HP_Min.Value, (uint)NUD_Atk_Min.Value, (uint)NUD_Def_Min.Value, (uint)NUD_SpA_Min.Value, (uint)NUD_SpD_Min.Value, (uint)NUD_Spe_Min.Value],
@@ -967,7 +967,7 @@ public partial class MainWindow : Form
 
             TargetShiny = GetFilterShinyType(CB_Filter_Shiny.SelectedIndex),
             TargetAura = GetFilterAuraType(CB_Filter_Aura.SelectedIndex),
-            TargetMark = GetFilterMarkype(CB_Filter_Mark.SelectedIndex),
+            TargetMark = GetFilterMarkType(CB_Filter_Mark.SelectedIndex),
             TargetScale = GetFilterScaleType(CB_Filter_Height.SelectedIndex),
 
             TargetMinIVs = [(uint)NUD_HP_Min.Value, (uint)NUD_Atk_Min.Value, (uint)NUD_Def_Min.Value, (uint)NUD_SpA_Min.Value, (uint)NUD_SpD_Min.Value, (uint)NUD_Spe_Min.Value],
@@ -1084,7 +1084,7 @@ public partial class MainWindow : Form
             MaxStep = et is EncounterType.Hidden ? CB_Hidden_MaxStep.SelectedIndex : 0,
 
             TargetShiny = GetFilterShinyType(CB_Filter_Shiny.SelectedIndex),
-            TargetMark = GetFilterMarkype(CB_Filter_Mark.SelectedIndex),
+            TargetMark = GetFilterMarkType(CB_Filter_Mark.SelectedIndex),
             TargetScale = GetFilterScaleType(CB_Filter_Height.SelectedIndex),
 
             TargetMinIVs = [(uint)NUD_HP_Min.Value, (uint)NUD_Atk_Min.Value, (uint)NUD_Def_Min.Value, (uint)NUD_SpA_Min.Value, (uint)NUD_SpD_Min.Value, (uint)NUD_Spe_Min.Value],
@@ -1227,7 +1227,7 @@ public partial class MainWindow : Form
                             MaxStep = et is EncounterType.Hidden ? CB_Hidden_MaxStep.GetSelectedIndex() : 0,
 
                             TargetShiny = GetFilterShinyType(CB_Filter_Shiny.GetSelectedIndex()),
-                            TargetMark = GetFilterMarkype(CB_Filter_Mark.GetSelectedIndex()),
+                            TargetMark = GetFilterMarkType(CB_Filter_Mark.GetSelectedIndex()),
                             TargetScale = GetFilterScaleType(CB_Filter_Height.GetSelectedIndex()),
 
                             TargetMinIVs = [NUD_HP_Min.GetValue(), NUD_Atk_Min.GetValue(), NUD_Def_Min.GetValue(), NUD_SpA_Min.GetValue(), NUD_SpD_Min.GetValue(), NUD_Spe_Min.GetValue()],
@@ -1405,7 +1405,7 @@ public partial class MainWindow : Form
                     }
 
                     UpdateStatus("Seed Reset Error");
-                    this.DisplayMessageBox($"Error occurred during Seed Reset routine: {ex.Message}");
+                    this.DisplayMessageBox($"执行种子重置流程时发生错误：{ex.Message}");
                 }
                 return;
             }
@@ -1633,7 +1633,7 @@ public partial class MainWindow : Form
                     }
                     catch (Exception ex)
                     {
-                        this.DisplayMessageBox($"Something went wrong when writing the RNG state: {ex.Message}");
+                        this.DisplayMessageBox($"写入 RNG 状态时发生错误：{ex.Message}");
                     }
                 }
             );
@@ -1729,6 +1729,16 @@ public partial class MainWindow : Form
     private void CB_Game_SelectedIndexChanged(object sender, EventArgs e)
     {
         Config.Game = CB_Game.SelectedIndex;
+        var tab = (EncounterType)TC_EncounterType.SelectedIndex;
+        var speciesBox = Controls.Find($"CB_{tab}_Species", true).FirstOrDefault();
+        if (speciesBox is not ComboBox cb) return;
+
+        var idx = cb.GetSelectedIndex();
+        if (idx >= 0)
+        {
+            SetSpeciesOptions();
+            cb.SelectedIndex = idx;
+        }
     }
 
     private void CB_ShinyCharm_CheckedChanged(object sender, EventArgs e)
@@ -1812,7 +1822,7 @@ public partial class MainWindow : Form
                     catch (Exception ex)
                     {
                         readPause = false;
-                        this.DisplayMessageBox($"Error occurred while reading Pokédex Recommendations: {ex.Message}");
+                        this.DisplayMessageBox($"读取图鉴推荐时发生错误：{ex.Message}");
                         SetControlEnabledState(true, B_RefreshDexRec, B_ReadEncounter, B_CopyToInitial, B_RetailUpdateSeeds);
                         return;
                     }
@@ -1865,7 +1875,7 @@ public partial class MainWindow : Form
             {
                 readPause = false;
                 SetControlEnabledState(true, B_RefreshDexRec, B_ReadEncounter, B_CopyToInitial, B_RetailUpdateSeeds);
-                this.DisplayMessageBox($"Error occurred while attempting to read KCoordinates block: {ex.Message}");
+                this.DisplayMessageBox($"读取 KCoordinates 区块时发生错误：{ex.Message}");
                 return;
             }
         }
@@ -2920,7 +2930,7 @@ public partial class MainWindow : Form
         }
         catch (NullReferenceException)
         {
-            this.DisplayMessageBox("No row selected!");
+            this.DisplayMessageBox("尚未选择任何行！");
         }
     }
 
@@ -2935,7 +2945,7 @@ public partial class MainWindow : Form
         }
         catch (NullReferenceException)
         {
-            this.DisplayMessageBox("No row selected!");
+            this.DisplayMessageBox("尚未选择任何行！");
         }
     }
 
@@ -2949,7 +2959,7 @@ public partial class MainWindow : Form
         }
         catch (NullReferenceException)
         {
-            this.DisplayMessageBox("No row selected!");
+            this.DisplayMessageBox("尚未选择任何行！");
         }
     }
 
@@ -2964,7 +2974,7 @@ public partial class MainWindow : Form
         }
         catch (NullReferenceException)
         {
-            this.DisplayMessageBox("No row selected!");
+            this.DisplayMessageBox("尚未选择任何行！");
         }
     }
 
