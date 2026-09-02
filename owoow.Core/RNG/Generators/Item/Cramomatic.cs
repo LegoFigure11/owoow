@@ -27,6 +27,7 @@ public static class Cramomatic
             {
                 var os = outer.GetState();
                 var rng = new Xoroshiro128Plus(os.s0, os.s1);
+                outer.Next();
 
                 Jump = 0;
 
@@ -51,19 +52,11 @@ public static class Cramomatic
 
                 CramomaticGenerateType item = GetItemType(itemRoll, isSportSafari, !isSweet);
 
-                if (!CheckCramomaticResult(item, config.CramomaticTargetType, allSame))
-                {
-                    outer.Next();
-                    continue;
-                }
+                if (!CheckCramomaticResult(item, config.CramomaticTargetType, allSame)) continue;
 
                 bool isBonus = rng.NextInt((uint)(item is CramomaticGenerateType.SportSafari or CramomaticGenerateType.Apricorn ? 1000 : 100)) == 0;
 
-                if (!isSweet && config.BonusOnly && !isBonus)
-                {
-                    outer.Next();
-                    continue;
-                }
+                if (!isSweet && config.BonusOnly && !isBonus) continue;
 
                 frames.Add(new CramomaticFrame
                 {
@@ -75,9 +68,6 @@ public static class Cramomatic
                     Seed0 = $"{os.s0:X16}",
                     Seed1 = $"{os.s1:X16}",
                 });
-
-
-                outer.Next();
             }
             return frames;
         });

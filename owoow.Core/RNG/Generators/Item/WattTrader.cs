@@ -21,6 +21,7 @@ public static class WattTrader
             {
                 var os = outer.GetState();
                 var rng = new Xoroshiro128Plus(os.s0, os.s1);
+                outer.Next();
 
                 Jump = 0;
 
@@ -30,11 +31,7 @@ public static class WattTrader
                 }
 
                 var Highlight = (uint)rng.NextInt(1000);
-                if (Highlight < config.WattTraderSlotMin || Highlight > config.WattTraderSlotMax)
-                {
-                    outer.Next();
-                    continue;
-                }
+                if (Highlight < config.WattTraderSlotMin || Highlight > config.WattTraderSlotMax) continue;
 
                 var Regular = (uint)rng.NextInt(9);
 
@@ -48,9 +45,6 @@ public static class WattTrader
                     Seed0 = $"{os.s0:X16}",
                     Seed1 = $"{os.s1:X16}",
                 });
-
-
-                outer.Next();
             }
             return frames;
         });

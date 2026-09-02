@@ -16,7 +16,6 @@ public class Symbol
     {
         return Task.Run(() =>
         {
-
             List<OverworldFrame> frames = [];
             var outer = new Xoroshiro128Plus(s0, s1);
 
@@ -63,6 +62,7 @@ public class Symbol
             {
                 var os = outer.GetState();
                 var rng = new Xoroshiro128Plus(os.s0, os.s1);
+                _ = config.SearchForwards ? outer.Next() : outer.Prev();
 
                 EncounterSlotChosen = false;
                 CuteCharm = false;
@@ -137,11 +137,7 @@ public class Symbol
                 }
 
                 Encounter = ActiveTable[(int)EncounterSlot];
-                if (FiltersEnabled && config.TargetSpecies != Encounters.ANY_SPECIES && Encounter.Species != config.TargetSpecies)
-                {
-                    outer.Next();
-                    continue;
-                }
+                if (FiltersEnabled && config.TargetSpecies != Encounters.ANY_SPECIES && Encounter.Species != config.TargetSpecies) continue;
 
                 // LEVEL
                 Level = GenerateLevel(ref rng, Encounter);
@@ -151,11 +147,7 @@ public class Symbol
 
                 // BRILLIANT AURA
                 IsAura = GenerateIsAura(ref rng, AuraThreshold);
-                if (FiltersEnabled && !CheckIsAura(IsAura, config.TargetAura))
-                {
-                    outer.Next();
-                    continue;
-                }
+                if (FiltersEnabled && !CheckIsAura(IsAura, config.TargetAura)) continue;
 
                 // SHINY
                 IsShiny = GenerateIsShiny(ref rng, config.ShinyRolls + (IsAura ? AuraRolls : 0), config.TSV);
@@ -165,11 +157,7 @@ public class Symbol
 
                 // NATURE
                 Nature = GenerateNature(ref rng, config.AbilityType == AbilityType.Synchronize);
-                if (FiltersEnabled && !CheckNature(Nature, config.TargetNature))
-                {
-                    outer.Next();
-                    continue;
-                }
+                if (FiltersEnabled && !CheckNature(Nature, config.TargetNature)) continue;
 
                 // ABILITY
                 Ability = GenerateAbility(ref rng, Encounter.Abilities);
@@ -192,44 +180,24 @@ public class Symbol
 
                 // ENCRYPTION CONSTANT
                 EC = GenerateEC(ref go);
-                if (FiltersEnabled && !CheckEC(EC, config.RareEC))
-                {
-                    outer.Next();
-                    continue;
-                }
+                if (FiltersEnabled && !CheckEC(EC, config.RareEC)) continue;
 
                 // PID
                 PID = GeneratePID(ref go, IsShiny, config.TSV);
                 ShinyXOR = Util.GetShinyXOR(PID, config.TSV);
-                if (FiltersEnabled && !CheckIsShiny(ShinyXOR, config.TargetShiny))
-                {
-                    outer.Next();
-                    continue;
-                }
+                if (FiltersEnabled && !CheckIsShiny(ShinyXOR, config.TargetShiny)) continue;
 
                 // IVS
                 (PassIVs, IVs) = GenerateIVs(ref go, AuraIVs, config);
-                if (!PassIVs) // FiltersEnabled check takes place in GenerateIVs
-                {
-                    outer.Next();
-                    continue;
-                }
+                if (!PassIVs) continue; // FiltersEnabled check takes place in GenerateIVs
 
                 // HEIGHT
                 Height = GenerateHeightWeightScale(ref go);
-                if (FiltersEnabled && !CheckHeight(Height, config.TargetScale))
-                {
-                    outer.Next();
-                    continue;
-                }
+                if (FiltersEnabled && !CheckHeight(Height, config.TargetScale)) continue;
 
                 // MARK
                 Mark = GenerateMark(ref rng, config.MarkRolls, config.WeatherActive);
-                if (FiltersEnabled && !CheckMark(Mark, config.TargetMark))
-                {
-                    outer.Next();
-                    continue;
-                }
+                if (FiltersEnabled && !CheckMark(Mark, config.TargetMark)) continue;
 
                 // Matches, keep!
                 var f = new OverworldFrame()
@@ -272,7 +240,6 @@ public class Symbol
                 };
                 frames.Add(f);
                 if (config.LogResultsToFile) LogUtil.LogText($"Result found! {f}");
-                outer.Next();
             }
             return frames;
         });

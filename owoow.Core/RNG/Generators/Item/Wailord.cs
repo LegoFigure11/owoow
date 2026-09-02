@@ -27,6 +27,7 @@ public static class Wailord
             {
                 var os = outer.GetState();
                 var rng = new Xoroshiro128Plus(os.s0, os.s1);
+                outer.Next();
 
                 Jump = 0;
                 SpawnAttempt = 0;
@@ -56,11 +57,7 @@ public static class Wailord
 
                 var Wailord = rng.NextInt(100);
                 var result = Wailord == 0;
-                if (!CheckSuccessType(result, config.SuccessType))
-                {
-                    outer.Next();
-                    continue;
-                }
+                if (!CheckSuccessType(result, config.SuccessType)) continue;
 
                 frames.Add(new WailordFrame
                 {
@@ -71,9 +68,6 @@ public static class Wailord
                     Seed0 = $"{os.s0:X16}",
                     Seed1 = $"{os.s1:X16}",
                 });
-
-
-                outer.Next();
             }
             return frames;
         });

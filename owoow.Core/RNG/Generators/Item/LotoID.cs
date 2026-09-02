@@ -24,6 +24,7 @@ public static class LotoID
             {
                 var os = outer.GetState();
                 var rng = new Xoroshiro128Plus(os.s0, os.s1);
+                outer.Next();
 
                 Jump = 0;
 
@@ -42,18 +43,14 @@ public static class LotoID
                 var item = LotoIDTargetType.Any;
                 foreach (var ID in config.IDs)
                 {
-                    if (s[4] == ID[5] && s[3] == ID[4] && s[2] == ID[3] && s[1] == ID[2] && s[0] == ID[1]) item = LotoIDTargetType.MasterBall;
-                    else if (s[4] == ID[5] && s[3] == ID[4] && s[2] == ID[3] && s[1] == ID[2]) item = LotoIDTargetType.RareCandy;
-                    else if (s[4] == ID[5] && s[3] == ID[4] && s[2] == ID[3]) item = LotoIDTargetType.PPMax;
-                    else if (s[4] == ID[5] && s[3] == ID[4]) item = LotoIDTargetType.PPUp;
-                    else if (s[4] == ID[5]) item = LotoIDTargetType.MoomooMilk;
+                    if (s[4] == ID[5] && s[3] == ID[4] && s[2] == ID[3] && s[1] == ID[2] && s[0] == ID[1] && item > LotoIDTargetType.MasterBall) item = LotoIDTargetType.MasterBall;
+                    else if (s[4] == ID[5] && s[3] == ID[4] && s[2] == ID[3] && s[1] == ID[2] && item > LotoIDTargetType.RareCandy) item = LotoIDTargetType.RareCandy;
+                    else if (s[4] == ID[5] && s[3] == ID[4] && s[2] == ID[3] && item > LotoIDTargetType.PPMax) item = LotoIDTargetType.PPMax;
+                    else if (s[4] == ID[5] && s[3] == ID[4] && item > LotoIDTargetType.PPUp) item = LotoIDTargetType.PPUp;
+                    else if (s[4] == ID[5] && item > LotoIDTargetType.MoomooMilk) item = LotoIDTargetType.MoomooMilk;
                 }
 
-                if (!CheckLotoIDResult(item, config.LotoIDTargetType))
-                {
-                    outer.Next();
-                    continue;
-                }
+                if (!CheckLotoIDResult(item, config.LotoIDTargetType)) continue;
 
                 frames.Add(new LotoIDFrame
                 {
@@ -65,9 +62,6 @@ public static class LotoID
                     Seed0 = $"{os.s0:X16}",
                     Seed1 = $"{os.s1:X16}",
                 });
-
-
-                outer.Next();
             }
             return frames;
         });

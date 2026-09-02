@@ -28,6 +28,8 @@ public static class SkillBro
             {
                 var os = outer.GetState();
                 var rng = new Xoroshiro128Plus(os.s0, os.s1);
+                outer.Next();
+
                 rewards = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
 
                 Jump = 0;
@@ -59,11 +61,7 @@ public static class SkillBro
                 // Filters
                 var pass = !rewards.Where((t, k) => t < config.SkillBroItemsMin[k]).Any();
                 var count = rewards.Aggregate(0, (current, count) => current + count);
-                if (!pass || count < config.SkillBroItemsMinCount)
-                {
-                    outer.Next();
-                    continue;
-                }
+                if (!pass || count < config.SkillBroItemsMinCount) continue;
 
                 frames.Add(new SkillBroFrame
                 {
@@ -98,8 +96,6 @@ public static class SkillBro
                     Seed0           = $"{os.s0:X16}",
                     Seed1           = $"{os.s1:X16}",
                 });
-
-                outer.Next();
             }
             return frames;
         });

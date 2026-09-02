@@ -61,6 +61,7 @@ public class Hidden
             {
                 var os = outer.GetState();
                 var rng = new Xoroshiro128Plus(os.s0, os.s1);
+                _ = config.SearchForwards ? outer.Next() : outer.Prev();
 
                 EncounterSlotChosen = false;
                 CanGenerate = false;
@@ -111,11 +112,7 @@ public class Hidden
                     step++;
                 }
 
-                if (config.MaxStep is not 0 && step > config.MaxStep)
-                {
-                    outer.Next();
-                    continue;
-                }
+                if (config.MaxStep is not 0 && step > config.MaxStep) continue;
 
                 if (config.AbilityType == AbilityType.CuteCharm && Lead + 1 <= 66)
                 {
@@ -156,11 +153,7 @@ public class Hidden
                 }
 
                 Encounter = ActiveTable[(int)EncounterSlot];
-                if (FiltersEnabled && config.TargetSpecies != Encounters.ANY_SPECIES && Encounter.Species != config.TargetSpecies)
-                {
-                    outer.Next();
-                    continue;
-                }
+                if (FiltersEnabled && config.TargetSpecies != Encounters.ANY_SPECIES && Encounter.Species != config.TargetSpecies) continue;
                 #endregion Encounter Rate, Lead Ability Activation, Encounter Slot
 
                 // LEVEL
@@ -177,11 +170,7 @@ public class Hidden
 
                 // NATURE
                 Nature = GenerateNature(ref rng, config.AbilityType == AbilityType.Synchronize);
-                if (FiltersEnabled && !CheckNature(Nature, config.TargetNature))
-                {
-                    outer.Next();
-                    continue;
-                }
+                if (FiltersEnabled && !CheckNature(Nature, config.TargetNature)) continue;
 
                 // ABILITY
                 Ability = GenerateAbility(ref rng, Encounter.Abilities);
@@ -194,44 +183,24 @@ public class Hidden
 
                 // ENCRYPTION CONSTANT
                 EC = GenerateEC(ref go);
-                if (FiltersEnabled && !CheckEC(EC, config.RareEC))
-                {
-                    outer.Next();
-                    continue;
-                }
+                if (FiltersEnabled && !CheckEC(EC, config.RareEC)) continue;
 
                 // PID
                 PID = GeneratePID(ref go, IsShiny, config.TSV);
                 ShinyXOR = Util.GetShinyXOR(PID, config.TSV);
-                if (FiltersEnabled && !CheckIsShiny(ShinyXOR, config.TargetShiny))
-                {
-                    outer.Next();
-                    continue;
-                }
+                if (FiltersEnabled && !CheckIsShiny(ShinyXOR, config.TargetShiny)) continue;
 
                 // IVS
                 (PassIVs, IVs) = GenerateIVs(ref go, 0, config);
-                if (!PassIVs) // FiltersEnabled check takes place in GenerateIVs
-                {
-                    outer.Next();
-                    continue;
-                }
+                if (!PassIVs) continue; // FiltersEnabled check takes place in GenerateIVs
 
                 // HEIGHT
                 Height = GenerateHeightWeightScale(ref go);
-                if (FiltersEnabled && !CheckHeight(Height, config.TargetScale))
-                {
-                    outer.Next();
-                    continue;
-                }
+                if (FiltersEnabled && !CheckHeight(Height, config.TargetScale)) continue;
 
                 // MARK
                 Mark = GenerateMark(ref rng, config.MarkRolls, config.WeatherActive);
-                if (FiltersEnabled && !CheckMark(Mark, config.TargetMark))
-                {
-                    outer.Next();
-                    continue;
-                }
+                if (FiltersEnabled && !CheckMark(Mark, config.TargetMark)) continue;
 
                 // Matches, keep!
                 var f = new OverworldFrame()
@@ -272,7 +241,6 @@ public class Hidden
                 };
                 frames.Add(f);
                 if (config.LogResultsToFile) LogUtil.LogText($"Result found! {f}");
-                outer.Next();
             }
             return frames;
         });

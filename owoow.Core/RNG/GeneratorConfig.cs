@@ -113,5 +113,7 @@ public class GeneratorConfig
 
     public bool LogResultsToFile { get; set; } = false;
 
+    public bool SearchForwards { get; set; } = true;
+
     public Game Game { get; set; } = Game.Sword;
 };

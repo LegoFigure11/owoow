@@ -30,6 +30,7 @@ public static class DiggingPa
             {
                 var os = outer.GetState();
                 var rng = new Xoroshiro128Plus(os.s0, os.s1);
+                outer.Next();
 
                 Jump = 0;
 
@@ -64,11 +65,7 @@ public static class DiggingPa
                     }
                 }
 
-                if (earned < config.DiggingPaMinWatts)
-                {
-                    outer.Next();
-                    continue;
-                }
+                if (earned < config.DiggingPaMinWatts) continue;
 
                 frames.Add(new DiggingPaFrame
                 {
@@ -81,8 +78,6 @@ public static class DiggingPa
                     Seed0 = $"{os.s0:X16}",
                     Seed1 = $"{os.s1:X16}",
                 });
-
-                outer.Next();
             }
             return frames;
         });
