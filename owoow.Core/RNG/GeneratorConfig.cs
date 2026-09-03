@@ -64,8 +64,8 @@ public class GeneratorConfig
     // When Flying, this value also includes the ticks consumed opening the map
     public uint RainTicksSummary => Weather switch
     {
-        WeatherType.Raining => ConsiderFly ? (uint)6 : 3,
-        WeatherType.Thunderstorm => ConsiderFly ? (uint)12 : 6,
+        WeatherType.Raining => ConsiderFly ? 6u : 3,
+        WeatherType.Thunderstorm => ConsiderFly ? 12u : 6,
         _ => 0,
     };
 
@@ -73,8 +73,8 @@ public class GeneratorConfig
     // When Flying, takes place after the Memory Set rand100 and before the Fly rand100s
     public uint RainTicksAfterCloseMenu => Weather switch
     {
-        WeatherType.Raining => ConsiderFly ? (uint)3 : 2,
-        WeatherType.Thunderstorm => ConsiderFly ? (uint)6 : 4,
+        WeatherType.Raining => ConsiderFly ? 3u : 2,
+        WeatherType.Thunderstorm => ConsiderFly ? 6u : 4,
         _ => 0
     };
 

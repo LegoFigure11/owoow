@@ -19,7 +19,42 @@ public class Symbol
             List<OverworldFrame> frames = [];
             var outer = new Xoroshiro128Plus(s0, s1);
 
-            bool FiltersEnabled = config.FiltersEnabled;
+            #region Config Variable Setup
+            var FiltersEnabled = config.FiltersEnabled;
+            var ConsiderRain = config.ConsiderRain;
+            var RainTicksSummary = config.RainTicksSummary;
+            var ConsiderFly = config.ConsiderFly;
+            var RainTicksAfterCloseMenu = config.RainTicksAfterCloseMenu;
+            var AreaLoadAdvances = config.AreaLoadAdvances;
+            var AreaLoadNPCs = config.AreaLoadNPCs;
+            var ConsiderMenuClose = config.ConsiderMenuClose;
+            var RainTicksAreaLoad = config.RainTicksAreaLoad;
+            var MenuCloseNPCs = config.MenuCloseNPCs;
+            var MenuCloseIsHoldingDirection = config.MenuCloseIsHoldingDirection;
+            var Weather = config.Weather;
+            var RainTicksEncounter = config.RainTicksEncounter;
+
+            var AbilityType = config.AbilityType;
+            var ShinyRolls = config.ShinyRolls;
+            var TSV = config.TSV;
+            var TargetNature = config.TargetNature;
+            var RareEC = config.RareEC;
+            var TargetShiny = config.TargetShiny;
+            var TargetScale = config.TargetScale;
+            var MarkRolls = config.MarkRolls;
+            var WeatherActive = config.WeatherActive;
+            var TargetMark = config.TargetMark;
+            var AuraKOs = config.AuraKOs;
+            var TargetAura = config.TargetAura;
+
+            var IsDexRecActive = config.IsDexRecActive;
+            var DexRecSlots = config.DexRecSlots;
+
+            var TargetSpecies = config.TargetSpecies;
+
+            var SearchForwards = config.SearchForwards;
+            var LogResultsToFile = config.LogResultsToFile;
+            #endregion
 
             ulong Lead;
             ulong DexRec;
@@ -56,40 +91,40 @@ public class Symbol
 
             RibbonIndex Mark;
 
-            (uint AuraThreshold, int AuraRolls) = Util.GetBrilliantInfo(config.AuraKOs);
+            (uint AuraThreshold, int AuraRolls) = Util.GetBrilliantInfo(AuraKOs);
 
             for (ulong i = start; i <= end && frames.Count < 1_000; i++)
             {
                 var os = outer.GetState();
                 var rng = new Xoroshiro128Plus(os.s0, os.s1);
-                _ = config.SearchForwards ? outer.Next() : outer.Prev();
+                _ = SearchForwards ? outer.Next() : outer.Prev();
 
                 EncounterSlotChosen = false;
                 CuteCharm = false;
                 Jump = 0;
 
                 #region Rain, Thunderstorm, Fly, Menu Close
-                if (config.ConsiderRain) Jump += Environment.GetRainAdvances(ref rng, config.RainTicksSummary);
+                if (ConsiderRain) Jump += Environment.GetRainAdvances(ref rng, RainTicksSummary);
 
-                if (config.ConsiderFly) Jump += Environment.GetMapMemoryRollAdvances(ref rng);
+                if (ConsiderFly) Jump += Environment.GetMapMemoryRollAdvances(ref rng);
 
-                if (config.ConsiderRain) Jump += Environment.GetRainAdvances(ref rng, config.RainTicksAfterCloseMenu);
+                if (ConsiderRain) Jump += Environment.GetRainAdvances(ref rng, RainTicksAfterCloseMenu);
 
-                if (config.ConsiderFly)
+                if (ConsiderFly)
                 {
-                    Jump += Environment.GetAreaLoadAdvances(ref rng, config.AreaLoadAdvances);
+                    Jump += Environment.GetAreaLoadAdvances(ref rng, AreaLoadAdvances);
 
-                    Jump += Environment.GetAreaLoadNPCAdvances(ref rng, config.AreaLoadNPCs);
+                    Jump += Environment.GetAreaLoadNPCAdvances(ref rng, AreaLoadNPCs);
                 }
 
-                if (config.ConsiderRain) Jump += Environment.GetRainAdvances(ref rng, config.RainTicksAreaLoad);
+                if (ConsiderRain) Jump += Environment.GetRainAdvances(ref rng, RainTicksAreaLoad);
 
-                if (config.ConsiderMenuClose)
+                if (ConsiderMenuClose)
                 {
-                    Jump += MenuClose.GetAdvances(ref rng, config.MenuCloseNPCs, config.MenuCloseIsHoldingDirection, config.Weather);
+                    Jump += MenuClose.GetAdvances(ref rng, MenuCloseNPCs, MenuCloseIsHoldingDirection, Weather);
                 }
 
-                if (config.ConsiderRain) Jump += Environment.GetRainAdvances(ref rng, config.RainTicksEncounter);
+                if (ConsiderRain) Jump += Environment.GetRainAdvances(ref rng, RainTicksEncounter);
                 #endregion
 
                 // PLACEMENT (ASSUME SUCCESS)
@@ -99,11 +134,11 @@ public class Symbol
                 // LEAD ABILITY ACTIVATION & ENCOUNTER SLOT
                 Lead = GenerateLeadAbilityActivation(ref rng);
 
-                if (Lead + 1 <= 66 && config.AbilityType == AbilityType.CuteCharm)
+                if (Lead + 1 <= 66 && AbilityType == AbilityType.CuteCharm)
                 {
                     CuteCharm = true;
                 }
-                if (Lead >= 49 && config.AbilityType == AbilityType.TypePulling && table.AbilityTable.Count > 0)
+                if (Lead >= 49 && AbilityType == AbilityType.TypePulling && table.AbilityTable.Count > 0)
                 {
                     ActiveTable = table.AbilityTable;
                     var TableSize = (uint)ActiveTable.Count;
@@ -119,9 +154,9 @@ public class Symbol
                 if (!EncounterSlotChosen)
                 {
                     DexRec = GenerateDexRecActivation(ref rng);
-                    if (DexRec < 50 && config.IsDexRecActive)
+                    if (DexRec < 50 && IsDexRecActive)
                     {
-                        DexRecSlot = config.DexRecSlots[GenerateEncounterSlot(ref rng, 4)];
+                        DexRecSlot = DexRecSlots[GenerateEncounterSlot(ref rng, 4)];
                         var DexRecMatchingSpecies = ActiveTable.Where(enc => enc.Value.DevId == DexRecSlot);
                         if (DexRecMatchingSpecies.Any())
                         {
@@ -137,33 +172,33 @@ public class Symbol
                 }
 
                 Encounter = ActiveTable[(int)EncounterSlot];
-                if (FiltersEnabled && config.TargetSpecies != Encounters.ANY_SPECIES && Encounter.Species != config.TargetSpecies) continue;
+                if (FiltersEnabled && TargetSpecies != Encounters.ANY_SPECIES && Encounter.Species != TargetSpecies) continue;
 
                 // LEVEL
                 Level = GenerateLevel(ref rng, Encounter);
 
                 // MARK -- DISCARDED
-                _ = GenerateMark(ref rng, config.MarkRolls, config.WeatherActive);
+                _ = GenerateMark(ref rng, MarkRolls, WeatherActive);
 
                 // BRILLIANT AURA
                 IsAura = GenerateIsAura(ref rng, AuraThreshold);
-                if (FiltersEnabled && !CheckIsAura(IsAura, config.TargetAura)) continue;
+                if (FiltersEnabled && !CheckIsAura(IsAura, TargetAura)) continue;
 
                 // SHINY
-                IsShiny = GenerateIsShiny(ref rng, config.ShinyRolls + (IsAura ? AuraRolls : 0), config.TSV);
+                IsShiny = GenerateIsShiny(ref rng, ShinyRolls + (IsAura ? AuraRolls : 0), TSV);
 
                 // GENDER
                 Gender = GenerateGender(ref rng, Encounter.Gender, CuteCharm);
 
                 // NATURE
-                Nature = GenerateNature(ref rng, config.AbilityType == AbilityType.Synchronize);
-                if (FiltersEnabled && !CheckNature(Nature, config.TargetNature)) continue;
+                Nature = GenerateNature(ref rng, AbilityType == AbilityType.Synchronize);
+                if (FiltersEnabled && !CheckNature(Nature, TargetNature)) continue;
 
                 // ABILITY
                 Ability = GenerateAbility(ref rng, Encounter.Abilities);
 
                 // HELD ITEM
-                Item = GenerateItem(ref rng, Encounter, config.AbilityType);
+                Item = GenerateItem(ref rng, Encounter, AbilityType);
 
                 // AURA IVS/EMS
                 AuraIVs = 0;
@@ -176,16 +211,16 @@ public class Symbol
                 }
 
                 // FIXED SEED
-                var go = new Xoroshiro128Plus(GenerateFixedSeed(ref rng), RNG.Util.XOROSHIRO_CONST);
+                var go = new Xoroshiro128Plus(GenerateFixedSeed(ref rng));
 
                 // ENCRYPTION CONSTANT
                 EC = GenerateEC(ref go);
-                if (FiltersEnabled && !CheckEC(EC, config.RareEC)) continue;
+                if (FiltersEnabled && !CheckEC(EC, RareEC)) continue;
 
                 // PID
-                PID = GeneratePID(ref go, IsShiny, config.TSV);
-                ShinyXOR = Util.GetShinyXOR(PID, config.TSV);
-                if (FiltersEnabled && !CheckIsShiny(ShinyXOR, config.TargetShiny)) continue;
+                PID = GeneratePID(ref go, IsShiny, TSV);
+                ShinyXOR = Util.GetShinyXOR(PID, TSV);
+                if (FiltersEnabled && !CheckIsShiny(ShinyXOR, TargetShiny)) continue;
 
                 // IVS
                 (PassIVs, IVs) = GenerateIVs(ref go, AuraIVs, config);
@@ -193,11 +228,11 @@ public class Symbol
 
                 // HEIGHT
                 Height = GenerateHeightWeightScale(ref go);
-                if (FiltersEnabled && !CheckHeight(Height, config.TargetScale)) continue;
+                if (FiltersEnabled && !CheckHeight(Height, TargetScale)) continue;
 
                 // MARK
-                Mark = GenerateMark(ref rng, config.MarkRolls, config.WeatherActive);
-                if (FiltersEnabled && !CheckMark(Mark, config.TargetMark)) continue;
+                Mark = GenerateMark(ref rng, MarkRolls, WeatherActive);
+                if (FiltersEnabled && !CheckMark(Mark, TargetMark)) continue;
 
                 // Matches, keep!
                 var f = new OverworldFrame()
@@ -239,7 +274,7 @@ public class Symbol
                     Seed1 = $"{os.s1:X16}",
                 };
                 frames.Add(f);
-                if (config.LogResultsToFile) LogUtil.LogText($"Result found! {f}");
+                if (LogResultsToFile) LogUtil.LogText($"Result found! {f}");
             }
             return frames;
         });

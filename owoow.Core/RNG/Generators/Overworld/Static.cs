@@ -20,7 +20,47 @@ public class Static
             List<OverworldFrame> frames = [];
             var outer = new Xoroshiro128Plus(s0, s1);
 
-            bool FiltersEnabled = config.FiltersEnabled;
+            #region Config Variable Setup
+            IEncounterStaticTableEntry Encounter = table.StaticTable.Values.FirstOrDefault(enc => enc.Species == config.TargetSpecies)!;
+
+            var FiltersEnabled = config.FiltersEnabled;
+            var ConsiderRain = config.ConsiderRain;
+            var RainTicksSummary = config.RainTicksSummary;
+            var ConsiderFly = config.ConsiderFly;
+            var RainTicksAfterCloseMenu = config.RainTicksAfterCloseMenu;
+            var AreaLoadAdvances = config.AreaLoadAdvances;
+            var AreaLoadNPCs = config.AreaLoadNPCs;
+            var ConsiderMenuClose = config.ConsiderMenuClose;
+            var RainTicksAreaLoad = config.RainTicksAreaLoad;
+            var MenuCloseNPCs = config.MenuCloseNPCs;
+            var MenuCloseIsHoldingDirection = config.MenuCloseIsHoldingDirection;
+            var Weather = config.Weather;
+            var RainTicksEncounter = config.RainTicksEncounter;
+
+            var AbilityType = config.AbilityType;
+            var ShinyRolls = config.ShinyRolls;
+            var TSV = config.TSV;
+            var TargetNature = config.TargetNature;
+            var RareEC = config.RareEC;
+            var TargetShiny = config.TargetShiny;
+            var TargetScale = config.TargetScale;
+            var MarkRolls = config.MarkRolls;
+            var WeatherActive = config.WeatherActive;
+            var TargetMark = config.TargetMark;
+
+            var IsShinyLocked = Encounter.IsShinyLocked;
+            var EncGender = Encounter.Gender;
+            var IsGenderLocked = Encounter.IsGenderLocked;
+            var Abilities = Encounter.Abilities;
+            var IsAbilityLocked = Encounter.IsAbilityLocked;
+            var EncAbility = Encounter.Ability;
+            var GuaranteedIVs = Encounter.GuaranteedIVs;
+            var Level = (byte)Encounter.Level;
+            var Species = Encounter.Species!;
+
+            var SearchForwards = config.SearchForwards;
+            var LogResultsToFile = config.LogResultsToFile;
+            #endregion
 
             ulong Lead;
             bool CuteCharm;
@@ -41,88 +81,86 @@ public class Static
 
             uint Jump = 0;
 
-            IEncounterStaticTableEntry Encounter = table.StaticTable.Values.FirstOrDefault(enc => enc.Species == config.TargetSpecies)!;
-
             RibbonIndex Mark;
 
             for (ulong i = start; i <= end && frames.Count < 1_000; i++)
             {
                 var os = outer.GetState();
                 var rng = new Xoroshiro128Plus(os.s0, os.s1);
-                _ = config.SearchForwards ? outer.Next() : outer.Prev();
+                _ = SearchForwards ? outer.Next() : outer.Prev();
 
                 CuteCharm = false;
                 Jump = 0;
 
                 #region Rain, Thunderstorm, Fly, Menu Close
-                if (config.ConsiderRain) Jump += Environment.GetRainAdvances(ref rng, config.RainTicksSummary);
+                if (ConsiderRain) Jump += Environment.GetRainAdvances(ref rng, RainTicksSummary);
 
-                if (config.ConsiderFly) Jump += Environment.GetMapMemoryRollAdvances(ref rng);
+                if (ConsiderFly) Jump += Environment.GetMapMemoryRollAdvances(ref rng);
 
-                if (config.ConsiderRain) Jump += Environment.GetRainAdvances(ref rng, config.RainTicksAfterCloseMenu);
+                if (ConsiderRain) Jump += Environment.GetRainAdvances(ref rng, RainTicksAfterCloseMenu);
 
-                if (config.ConsiderFly)
+                if (ConsiderFly)
                 {
-                    Jump += Environment.GetAreaLoadAdvances(ref rng, config.AreaLoadAdvances);
+                    Jump += Environment.GetAreaLoadAdvances(ref rng, AreaLoadAdvances);
 
-                    Jump += Environment.GetAreaLoadNPCAdvances(ref rng, config.AreaLoadNPCs);
+                    Jump += Environment.GetAreaLoadNPCAdvances(ref rng, AreaLoadNPCs);
                 }
 
-                if (config.ConsiderRain) Jump += Environment.GetRainAdvances(ref rng, config.RainTicksAreaLoad);
+                if (ConsiderRain) Jump += Environment.GetRainAdvances(ref rng, RainTicksAreaLoad);
 
-                if (config.ConsiderMenuClose)
+                if (ConsiderMenuClose)
                 {
-                    Jump += MenuClose.GetAdvances(ref rng, config.MenuCloseNPCs, config.MenuCloseIsHoldingDirection, config.Weather);
+                    Jump += MenuClose.GetAdvances(ref rng, MenuCloseNPCs, MenuCloseIsHoldingDirection, Weather);
                 }
 
-                if (config.ConsiderRain) Jump += Environment.GetRainAdvances(ref rng, config.RainTicksEncounter);
+                if (ConsiderRain) Jump += Environment.GetRainAdvances(ref rng, RainTicksEncounter);
                 #endregion
 
                 // LEAD ABILITY ACTIVATION
                 Lead = GenerateLeadAbilityActivation(ref rng);
 
-                if (config.AbilityType == AbilityType.CuteCharm && Lead + 1 <= 66)
+                if (AbilityType == AbilityType.CuteCharm && Lead + 1 <= 66)
                 {
                     CuteCharm = true;
                 }
 
                 // SHINY
-                IsShiny = !Encounter.IsShinyLocked && GenerateIsShiny(ref rng, config.ShinyRolls, config.TSV);
+                IsShiny = !IsShinyLocked && GenerateIsShiny(ref rng, ShinyRolls, TSV);
 
                 // GENDER
-                Gender = GenerateGender(ref rng, Encounter.Gender, CuteCharm, Encounter.IsGenderLocked);
+                Gender = GenerateGender(ref rng, EncGender, CuteCharm, IsGenderLocked);
 
                 // NATURE
-                Nature = GenerateNature(ref rng, config.AbilityType == AbilityType.Synchronize);
-                if (FiltersEnabled && !CheckNature(Nature, config.TargetNature)) continue;
+                Nature = GenerateNature(ref rng, AbilityType == AbilityType.Synchronize);
+                if (FiltersEnabled && !CheckNature(Nature, TargetNature)) continue;
 
                 // ABILITY
-                Ability = GenerateAbility(ref rng, Encounter.Abilities, Encounter.IsAbilityLocked, Encounter.Ability);
+                Ability = GenerateAbility(ref rng, Abilities, IsAbilityLocked, EncAbility);
 
                 // FIXED SEED
-                var go = new Xoroshiro128Plus(GenerateFixedSeed(ref rng), RNG.Util.XOROSHIRO_CONST);
+                var go = new Xoroshiro128Plus(GenerateFixedSeed(ref rng));
 
                 // ENCRYPTION CONSTANT
                 EC = GenerateEC(ref go);
-                if (FiltersEnabled && !CheckEC(EC, config.RareEC)) continue;
+                if (FiltersEnabled && !CheckEC(EC, RareEC)) continue;
 
                 // PID
-                PID = GeneratePID(ref go, IsShiny, config.TSV);
-                ShinyXOR = Util.GetShinyXOR(PID, config.TSV);
-                if (FiltersEnabled && !CheckIsShiny(ShinyXOR, config.TargetShiny) && !Encounter.IsShinyLocked) continue;
+                PID = GeneratePID(ref go, IsShiny, TSV);
+                ShinyXOR = Util.GetShinyXOR(PID, TSV);
+                if (FiltersEnabled && !CheckIsShiny(ShinyXOR, TargetShiny) && !IsShinyLocked) continue;
 
                 // IVS
-                (PassIVs, IVs) = GenerateIVs(ref go, Encounter.GuaranteedIVs, config);
+                (PassIVs, IVs) = GenerateIVs(ref go, GuaranteedIVs, config);
                 if (!PassIVs) continue; // FiltersEnabled check takes place in GenerateIVs
 
 
                 // HEIGHT
                 Height = GenerateHeightWeightScale(ref go);
-                if (FiltersEnabled && !CheckHeight(Height, config.TargetScale)) continue;
+                if (FiltersEnabled && !CheckHeight(Height, TargetScale)) continue;
 
                 // MARK
-                Mark = GenerateMark(ref rng, config.MarkRolls, config.WeatherActive);
-                if (FiltersEnabled && !CheckMark(Mark, config.TargetMark)) continue;
+                Mark = GenerateMark(ref rng, MarkRolls, WeatherActive);
+                if (FiltersEnabled && !CheckMark(Mark, TargetMark)) continue;
 
                 // Matches, keep!
                 var f = new OverworldFrame()
@@ -133,9 +171,9 @@ public class Static
 
                     Animation = (os.s0 & 1 ^ os.s1 & 1) == 0 ? 'P' : 'S',
 
-                    Species = Encounter.Species!,
+                    Species = Species,
                     Shiny = Util.GetShinyType(ShinyXOR),
-                    Level = (byte)Encounter.Level,
+                    Level = Level,
 
                     Gender = Gender,
                     Nature = Nature,
@@ -159,7 +197,7 @@ public class Static
                     Seed1 = $"{os.s1:X16}",
                 };
                 frames.Add(f);
-                if (config.LogResultsToFile) LogUtil.LogText($"Result found! {f}");
+                if (LogResultsToFile) LogUtil.LogText($"Result found! {f}");
             }
             return frames;
         });
