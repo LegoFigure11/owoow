@@ -11,25 +11,21 @@
     <None Remove="Resources\Shield\sh_hidden.json" />
     <None Remove="Resources\Shield\sh_static.json" />
     <None Remove="Resources\Shield\sh_symbol.json" />
-    <None Remove="Resources\Shield\sh_tree.json" />
     <None Remove="Resources\Sword\sw_fishing.json" />
     <None Remove="Resources\Sword\sw_hidden.json" />
     <None Remove="Resources\Sword\sw_static.json" />
     <None Remove="Resources\Sword\sw_symbol.json" />
-    <None Remove="Resources\Sword\sw_tree.json" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Resources\Personal\personal.json" />
     <EmbeddedResource Include="Resources\Shield\sh_fishing.json" />
     <EmbeddedResource Include="Resources\Shield\sh_hidden.json" />
     <EmbeddedResource Include="Resources\Shield\sh_symbol.json" />
-    <EmbeddedResource Include="Resources\Shield\sh_tree.json" />
     <EmbeddedResource Include="Resources\Shield\sh_static.json" />
     <EmbeddedResource Include="Resources\Sword\sw_fishing.json" />
     <EmbeddedResource Include="Resources\Sword\sw_hidden.json" />
     <EmbeddedResource Include="Resources\Sword\sw_static.json" />
     <EmbeddedResource Include="Resources\Sword\sw_symbol.json" />
-    <EmbeddedResource Include="Resources\Sword\sw_tree.json" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="LibUsbDotNet" Version="2.2.75" />
