@@ -65,4 +65,42 @@ public static class FilterUtil
         38 => RibbonIndex.MarkSlump,
         _ => RibbonIndex.MAX_COUNT + 1, // Ignore
     };
+
+    public static string GetRibbonTitle(RibbonIndex rib) => rib switch
+    {
+        RibbonIndex.MarkUncommon => "the Sociable",
+        RibbonIndex.MarkLunchtime => "the Peckish\nthe Sleepy\nthe Dozy\nthe Early Riser",
+        RibbonIndex.MarkCloudy => "the Cloud Watcher\nthe Sodden\nthe Thunderstruck\nthe Snow Frolicker\nthe Shivering\nthe Parched\nthe Sandswept\nthe Mist Drifter",
+        RibbonIndex.MarkFishing => "the Catch of the Day",
+        RibbonIndex.MarkRare => "the Recluse",
+        RibbonIndex.MarkRowdy => "the Rowdy",
+        RibbonIndex.MarkAbsentMinded => "the Spacey",
+        RibbonIndex.MarkJittery => "the Anxious",
+        RibbonIndex.MarkExcited => "the Giddy",
+        RibbonIndex.MarkCharismatic => "the Radiant",
+        RibbonIndex.MarkCalmness => "the Serene",
+        RibbonIndex.MarkIntense => "the Fiesty",
+        RibbonIndex.MarkZonedOut => "the Daydreamer",
+        RibbonIndex.MarkJoyful => "the Joyful",
+        RibbonIndex.MarkAngry => "the Furious",
+        RibbonIndex.MarkSmiley => "the Beaming",
+        RibbonIndex.MarkTeary => "the Teary-Eyed",
+        RibbonIndex.MarkUpbeat => "the Chipper",
+        RibbonIndex.MarkPeeved => "the Grumpy",
+        RibbonIndex.MarkIntellectual => "the Scholar",
+        RibbonIndex.MarkFerocious => "the Rampaging",
+        RibbonIndex.MarkCrafty => "the Opportunist",
+        RibbonIndex.MarkScowling => "the Stern",
+        RibbonIndex.MarkKindly => "the Kindhearted",
+        RibbonIndex.MarkFlustered => "the Easily Flustered",
+        RibbonIndex.MarkPumpedUp => "the Driven",
+        RibbonIndex.MarkZeroEnergy => "the Apathetic",
+        RibbonIndex.MarkPrideful => "the Arrogant",
+        RibbonIndex.MarkUnsure => "the Reluctant",
+        RibbonIndex.MarkHumble => "the Humble",
+        RibbonIndex.MarkThorny => "the Thorny",
+        RibbonIndex.MarkVigor => "the Lively",
+        RibbonIndex.MarkSlump => "the Worn-Out",
+        _ => string.Empty
+    };
 }

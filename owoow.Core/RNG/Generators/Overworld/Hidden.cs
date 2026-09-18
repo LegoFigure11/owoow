@@ -269,7 +269,7 @@ public class Hidden
 
                     Height = Util.GetHeightString(Height),
 
-                    Mark = Util.GetRibbonName(Mark),
+                    _mark = Mark,
 
                     Seed0 = $"{os.s0:X16}",
                     Seed1 = $"{os.s1:X16}",

@@ -1,3 +1,5 @@
+using PKHeX.Core;
+
 namespace owoow.Core.Interfaces
 {
 
@@ -79,7 +81,8 @@ namespace owoow.Core.Interfaces
         public byte D          { get; set; } = 0;
         public byte S          { get; set; } = 0;
 
-        public string Mark     { get; set; } = string.Empty;
+        public RibbonIndex _mark { get; set; } = RibbonIndex.MAX_COUNT;
+        public string Mark => RNG.Util.GetRibbonName(_mark);
         public string EC       { get; set; } = string.Empty;
         public string PID      { get; set; } = string.Empty;
         public string Height   { get; set; } = string.Empty;

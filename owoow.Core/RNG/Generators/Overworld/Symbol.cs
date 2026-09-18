@@ -266,7 +266,7 @@ public class Symbol
 
                     Height = Util.GetHeightString(Height),
 
-                    Mark = Util.GetRibbonName(Mark),
+                    _mark = Mark,
 
                     EggMove = AuraEggMove,
 

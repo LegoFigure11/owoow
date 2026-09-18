@@ -2999,6 +2999,24 @@ public partial class MainWindow : Form
             }
         }
     }
+
+    private void DGV_Results_CellMouseEnter(object sender, DataGridViewCellEventArgs e)
+    {
+        if (Config.ShowTitlesInResults)
+        {
+            if (e.RowIndex >= 0 && e.ColumnIndex == DGV_Results.GetColumnFromColumnName("markDataGridViewTextBoxColumn")?.Index)
+            {
+                try
+                {
+                    DGV_Results.Rows[e.RowIndex].Cells[e.ColumnIndex].ToolTipText = GetRibbonTitle(Frames[e.RowIndex]._mark);
+                }
+                catch
+                {
+                    // Ignored
+                }
+            }
+        }
+    }
     #endregion
 }
 
