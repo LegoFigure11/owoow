@@ -54,8 +54,7 @@ public partial class XoroshiroTools : Form
                 break;
 
             case XoroshiroToolsOperation.Prev:
-                var jump = UInt128.MaxValue - n; // Xoroshiro128Plus has a period of UInt128.MaxValue
-                (s0, s1) = XoroshiroLongJump(s0, s1, jump);
+                (s0, s1) = XoroshiroJumpBack(s0, s1, n);
                 sign = "-";
                 break;
 
@@ -73,8 +72,8 @@ public partial class XoroshiroTools : Form
                 {
                     i++;
                     rng.Prev();
-                    var (__s0, __s1) = rng.GetState();
-                    if (__s1 == XOROSHIRO_CONST)
+                    var (_, check) = rng.GetState();
+                    if (check == XOROSHIRO_CONST)
                     {
                         found = true;
                         break;
