@@ -6501,6 +6501,14 @@
           "GuaranteedIVs": 0
         },
         "3": {
+          "Species": "Gyarados",
+          "Level": 50,
+          "IsAbilityLocked": false,
+          "Ability": 0,
+          "IsShinyLocked": false,
+          "GuaranteedIVs": 0
+        },
+        "4": {
           "Species": "Moltres-1",
           "Level": 70,
           "IsAbilityLocked": true,
@@ -6508,7 +6516,15 @@
           "IsShinyLocked": true,
           "GuaranteedIVs": 3
         },
-        "4": {
+        "5": {
+          "Species": "Octillery",
+          "Level": 45,
+          "IsAbilityLocked": false,
+          "Ability": 0,
+          "IsShinyLocked": false,
+          "GuaranteedIVs": 0
+        },
+        "6": {
           "Species": "Pincurchin",
           "Level": 22,
           "IsAbilityLocked": false,
@@ -6516,9 +6532,17 @@
           "IsShinyLocked": false,
           "GuaranteedIVs": 0
         },
-        "5": {
+        "7": {
           "Species": "Rockruff",
           "Level": 40,
+          "IsAbilityLocked": false,
+          "Ability": 0,
+          "IsShinyLocked": false,
+          "GuaranteedIVs": 0
+        },
+        "8": {
+          "Species": "Tentacruel",
+          "Level": 42,
           "IsAbilityLocked": false,
           "Ability": 0,
           "IsShinyLocked": false,
@@ -6569,6 +6593,14 @@
           "GuaranteedIVs": 0
         },
         "5": {
+          "Species": "Tentacruel",
+          "Level": 42,
+          "IsAbilityLocked": false,
+          "Ability": 0,
+          "IsShinyLocked": false,
+          "GuaranteedIVs": 0
+        },
+        "6": {
           "Species": "Toxapex",
           "Level": 26,
           "IsAbilityLocked": false,
@@ -6576,7 +6608,7 @@
           "IsShinyLocked": false,
           "GuaranteedIVs": 0
         },
-        "6": {
+        "7": {
           "Species": "Zoroark",
           "Level": 50,
           "IsAbilityLocked": false,
@@ -6597,6 +6629,22 @@
           "GuaranteedIVs": 0
         },
         "1": {
+          "Species": "Cloyster",
+          "Level": 42,
+          "IsAbilityLocked": false,
+          "Ability": 0,
+          "IsShinyLocked": false,
+          "GuaranteedIVs": 0
+        },
+        "2": {
+          "Species": "Gyarados",
+          "Level": 50,
+          "IsAbilityLocked": false,
+          "Ability": 0,
+          "IsShinyLocked": false,
+          "GuaranteedIVs": 0
+        },
+        "3": {
           "Species": "Malamar",
           "Level": 32,
           "IsAbilityLocked": false,
@@ -6604,7 +6652,7 @@
           "IsShinyLocked": false,
           "GuaranteedIVs": 0
         },
-        "2": {
+        "4": {
           "Species": "Moltres-1",
           "Level": 70,
           "IsAbilityLocked": true,
@@ -6612,7 +6660,7 @@
           "IsShinyLocked": true,
           "GuaranteedIVs": 3
         },
-        "3": {
+        "5": {
           "Species": "Pelipper",
           "Level": 42,
           "IsAbilityLocked": false,
@@ -6620,7 +6668,7 @@
           "IsShinyLocked": false,
           "GuaranteedIVs": 0
         },
-        "4": {
+        "6": {
           "Species": "Pincurchin",
           "Level": 22,
           "IsAbilityLocked": false,
@@ -6628,7 +6676,15 @@
           "IsShinyLocked": false,
           "GuaranteedIVs": 0
         },
-        "5": {
+        "7": {
+          "Species": "Tentacruel",
+          "Level": 42,
+          "IsAbilityLocked": false,
+          "Ability": 0,
+          "IsShinyLocked": false,
+          "GuaranteedIVs": 0
+        },
+        "8": {
           "Species": "Toxapex",
           "Level": 26,
           "IsAbilityLocked": false,
@@ -6641,6 +6697,22 @@
     "Thunderstorm": {
       "Encounters": {
         "0": {
+          "Species": "Gyarados",
+          "Level": 50,
+          "IsAbilityLocked": false,
+          "Ability": 0,
+          "IsShinyLocked": false,
+          "GuaranteedIVs": 0
+        },
+        "1": {
+          "Species": "Lanturn",
+          "Level": 42,
+          "IsAbilityLocked": false,
+          "Ability": 0,
+          "IsShinyLocked": false,
+          "GuaranteedIVs": 0
+        },
+        "2": {
           "Species": "Luxio",
           "Level": 30,
           "IsAbilityLocked": false,
@@ -6648,7 +6720,7 @@
           "IsShinyLocked": false,
           "GuaranteedIVs": 0
         },
-        "1": {
+        "3": {
           "Species": "Luxray",
           "Level": 50,
           "IsAbilityLocked": false,
@@ -6656,7 +6728,7 @@
           "IsShinyLocked": false,
           "GuaranteedIVs": 0
         },
-        "2": {
+        "4": {
           "Species": "Magnezone",
           "Level": 50,
           "IsAbilityLocked": false,
@@ -6664,7 +6736,7 @@
           "IsShinyLocked": false,
           "GuaranteedIVs": 0
         },
-        "3": {
+        "5": {
           "Species": "Moltres-1",
           "Level": 70,
           "IsAbilityLocked": true,
@@ -6672,9 +6744,17 @@
           "IsShinyLocked": true,
           "GuaranteedIVs": 3
         },
-        "4": {
+        "6": {
           "Species": "Pincurchin",
           "Level": 22,
+          "IsAbilityLocked": false,
+          "Ability": 0,
+          "IsShinyLocked": false,
+          "GuaranteedIVs": 0
+        },
+        "7": {
+          "Species": "Tentacruel",
+          "Level": 42,
           "IsAbilityLocked": false,
           "Ability": 0,
           "IsShinyLocked": false,
@@ -6701,6 +6781,14 @@
           "GuaranteedIVs": 0
         },
         "2": {
+          "Species": "Gyarados",
+          "Level": 50,
+          "IsAbilityLocked": false,
+          "Ability": 0,
+          "IsShinyLocked": false,
+          "GuaranteedIVs": 0
+        },
+        "3": {
           "Species": "Larvesta",
           "Level": 40,
           "IsAbilityLocked": false,
@@ -6708,7 +6796,7 @@
           "IsShinyLocked": false,
           "GuaranteedIVs": 0
         },
-        "3": {
+        "4": {
           "Species": "Moltres-1",
           "Level": 70,
           "IsAbilityLocked": true,
@@ -6716,25 +6804,21 @@
           "IsShinyLocked": true,
           "GuaranteedIVs": 3
         },
-        "4": {
+        "5": {
+          "Species": "Octillery",
+          "Level": 45,
+          "IsAbilityLocked": false,
+          "Ability": 0,
+          "IsShinyLocked": false,
+          "GuaranteedIVs": 0
+        },
+        "6": {
           "Species": "Talonflame",
           "Level": 50,
           "IsAbilityLocked": false,
           "Ability": 0,
           "IsShinyLocked": false,
           "GuaranteedIVs": 0
-        }
-      }
-    },
-    "Sandstorm": {
-      "Encounters": {
-        "0": {
-          "Species": "Moltres-1",
-          "Level": 70,
-          "IsAbilityLocked": true,
-          "Ability": 0,
-          "IsShinyLocked": true,
-          "GuaranteedIVs": 3
         }
       }
     },
