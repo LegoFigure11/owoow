@@ -17077,6 +17077,14 @@
           "GuaranteedIVs": 0
         },
         "4": {
+          "Species": "Toxapex",
+          "Level": 20,
+          "IsAbilityLocked": false,
+          "Ability": 0,
+          "IsShinyLocked": false,
+          "GuaranteedIVs": 0
+        },
+        "5": {
           "Species": "Zorua",
           "Level": 15,
           "IsAbilityLocked": false,
