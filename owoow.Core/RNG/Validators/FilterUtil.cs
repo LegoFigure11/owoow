@@ -98,7 +98,7 @@ public static class FilterUtil
         RibbonIndex.MarkPrideful => "the Arrogant",
         RibbonIndex.MarkUnsure => "the Reluctant",
         RibbonIndex.MarkHumble => "the Humble",
-        RibbonIndex.MarkThorny => "the Thorny",
+        RibbonIndex.MarkThorny => "the Pompous",
         RibbonIndex.MarkVigor => "the Lively",
         RibbonIndex.MarkSlump => "the Worn-Out",
         _ => string.Empty
