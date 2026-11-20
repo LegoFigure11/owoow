@@ -38,7 +38,7 @@ public class FieldObject(byte[] data, MyStatus8 myStatus)
     private byte Gender => Data[0x4A];
     private int AbilityIndex => Data[0x4C] - 1;
     private bool HasHeldItem => Data[0x4E] == 1;
-    private byte HeldItem => Data[0x50];
+    private ushort HeldItem => ReadUInt16LittleEndian(Data.AsSpan()[0x50..]);
     private byte GuaranteedIVs => Data[0x52];
     public bool IsFollowingPokemon => Data[0x54] == 0;
     private byte Mark => Data[0x56];
