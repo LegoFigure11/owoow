@@ -26,6 +26,9 @@ public abstract class Offsets
     public const uint KCoordinates = 0x4505b3c0;
     public const int KCoordinates_Size = 0x6010;
 
+    public const uint LatestSpawnedMon = 0x4c42a628; // Thanks @Lincoln-LM!
+    public const int LatestSpawnedMon_Size = LiveSpawn.SIZE;
+
     public const uint SaveLocation_7BE8A4C6 = 0x4505b328; // Thanks @Lincoln-LM!
     public const int SaveLocation_7BE8A4C6_Size = 0x10; // Actually 0x20, but this is all we need to read
 }

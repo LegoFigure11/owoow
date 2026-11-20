@@ -1834,6 +1834,9 @@ public partial class MainWindow : Form
 
     public bool OverworldScannerFormOpen = false;
     OverworldScanner? OverworldScannerForm;
+
+    public bool SpawnWatcherFormOpen = false;
+    SpawnWatcher? SpawnWatcherForm;
     private void B_ReadEncounter_Click(object sender, EventArgs e)
     {
         if ((ModifierKeys & Keys.Shift) == Keys.Shift)
@@ -1877,6 +1880,33 @@ public partial class MainWindow : Form
                 readPause = false;
                 SetControlEnabledState(true, B_RefreshDexRec, B_ReadEncounter, B_CopyToInitial, B_RetailUpdateSeeds);
                 this.DisplayMessageBox($"Error occurred while attempting to read KCoordinates block: {ex.Message}");
+                return;
+            }
+        }
+        else if ((ModifierKeys & Keys.Control) == Keys.Control)
+        {
+            try
+            {
+                if (!SpawnWatcherFormOpen)
+                {
+                    SetControlEnabledState(false, B_ReadEncounter);
+                    try
+                    {
+                        SpawnWatcherFormOpen = true;
+                        SpawnWatcherForm = new SpawnWatcher(this, ConnectionConfig);
+                        SpawnWatcherForm.ShowDialog();
+                    }
+                    catch (Exception ex)
+                    {
+                        this.DisplayMessageBox(ex.Message);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                readPause = false;
+                SetControlEnabledState(true, B_ReadEncounter);
+                this.DisplayMessageBox($"Error occurred while attempting to open the Spawn Watcher form: {ex.Message}");
                 return;
             }
         }

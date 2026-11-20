@@ -3,6 +3,10 @@ namespace owoow.WinForms;
 public static class WinFormsUtil
 {
     internal static string GetText(this Control c) => c.InvokeRequired ? c.Invoke(() => c.Text) : c.Text;
+    internal static void SetText(this Control c, string text) {
+        if (c.InvokeRequired) c.Invoke(() => c.Text = text);
+        else c.Text = text;
+    }
 
     internal static uint GetValue(this NumericUpDown nud) =>
         (uint)(nud.InvokeRequired ? nud.Invoke(() => nud.Value) : nud.Value);

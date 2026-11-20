@@ -156,6 +156,12 @@ public class ConnectionWrapperAsync(SwitchConnectionConfig Config, Action<string
         data.AsSpan().CopyTo(sav.Blocks.Coordinates.Data);
     }
 
+    public async Task<LiveSpawn> ReadLiveSpawnAsync(GameStrings strings, CancellationToken token)
+    {
+        var data = await Connection.ReadBytesAsync(LatestSpawnedMon, LatestSpawnedMon_Size, token);
+        return new LiveSpawn(data, sav.Blocks.MyStatus, strings);
+    }
+
     public async Task<ulong> ReadSaveLocation(CancellationToken token)
     {
         var data = await Connection.ReadBytesAsync(SaveLocation_7BE8A4C6, SaveLocation_7BE8A4C6_Size, token)
