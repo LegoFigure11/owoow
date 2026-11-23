@@ -28,15 +28,17 @@ public class LiveSpawn(byte[] data, MyStatus8 myStatus, GameStrings strings)
     public ushort Species => ReadUInt16LittleEndian(Data.AsSpan()[..]);
     private byte Form => Data[0x04];
     public byte Level => Data[0x06];
-    private static bool IsShiny => false; // Couldn't find in the data u_u
+    private bool IsShiny => Data[0x08] == 1;
     private byte Nature => Data[0x0C];
     private byte Gender => Data[0x10];
     private int AbilityIndex => Data[0x14] - 1;
     private bool HasHeldItem => Data[0x18] == 1;
     private ushort HeldItem => ReadUInt16LittleEndian(Data.AsSpan()[0x1C..]);
+    // public ushort EggMove => ReadUInt16LittleEndian(Data.AsSpan()[0x20..]);
     private byte GuaranteedIVs => Data[0x35];
     public byte Mark => Data[0x48];
     public bool HasMark => Mark != 0xFF;
+    // public bool IsBrilliant => Data[0x4a] == 1;
     public uint FixedSeed => ReadUInt32LittleEndian(Data.AsSpan()[0x50..]);
 
     private PK8? GeneratePK8()
